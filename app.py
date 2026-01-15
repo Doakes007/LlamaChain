@@ -4,9 +4,9 @@ import streamlit as st
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_chroma import Chroma
 
-from llm import get_llm  # ✅ Central Ollama LLM (GPU)
+from llm import get_llm
 from src.rag.rag_query import build_retrieval_chain, ask_question
-from src.rag.summarizer import summarize_documents
+from src.rag.summarizer import summarize_documents, summarize_per_document
 from src.core.loader import load_documents
 from src.core.text_splitter import split_documents
 from src.core.embed_store import embed_and_store
@@ -25,16 +25,13 @@ st.caption("Powered by Chroma + Llama-3 (Ollama, GPU)")
 
 
 # -----------------------------
-# Initialize LLM ONCE (GPU)
+# Initialize LLM ONCE
 # -----------------------------
-# NOTE:
-# - This ensures Ollama is warmed up
-# - Actual usage happens inside summarizer / RAG modules
 llm = get_llm()
 
 
 # -----------------------------
-# Load embeddings (MUST match indexing)
+# Load embeddings
 # -----------------------------
 embeddings = HuggingFaceEmbeddings(
     model_name="all-MiniLM-L6-v2"
@@ -42,7 +39,7 @@ embeddings = HuggingFaceEmbeddings(
 
 
 # -----------------------------
-# Load existing vector store
+# Load vector store
 # -----------------------------
 vectorstore = Chroma(
     collection_name="LlamaChainDocs",
@@ -52,7 +49,7 @@ vectorstore = Chroma(
 
 
 # -----------------------------
-# Build RAG chain ONCE
+# Build RAG chain
 # -----------------------------
 chain = build_retrieval_chain(vectorstore)
 
@@ -92,8 +89,6 @@ if st.sidebar.button("📥 Index Uploaded Documents"):
     else:
         with st.spinner("Indexing documents..."):
             docs = load_documents(saved_files)
-
-            # 🔒 Store docs in session (used for summary)
             st.session_state.docs = docs
 
             chunks = split_documents(docs)
@@ -108,15 +103,32 @@ if st.sidebar.button("📥 Index Uploaded Documents"):
 st.sidebar.divider()
 st.sidebar.subheader("🧾 Summarization")
 
+# ---- Combined Summary ----
 if st.sidebar.button("🧾 Summarize All Documents"):
     if "docs" not in st.session_state or not st.session_state.docs:
         st.sidebar.warning("Please index documents first.")
     else:
-        with st.spinner("Generating summary (GPU)…"):
+        with st.spinner("Generating combined summary…"):
             summary = summarize_documents(st.session_state.docs)
 
         st.subheader("📄 Combined Document Summary")
         st.markdown(summary)
+        st.divider()
+
+# ---- Per-Document Summary ----
+if st.sidebar.button("🧾 Summarize Per Document"):
+    if "docs" not in st.session_state or not st.session_state.docs:
+        st.sidebar.warning("Please index documents first.")
+    else:
+        with st.spinner("Generating per-document summaries…"):
+            summaries = summarize_per_document(st.session_state.docs)
+
+        st.subheader("📄 Per-Document Summaries")
+
+        for filename, summary in summaries.items():
+            st.markdown(f"### 📘 {os.path.basename(filename)}")
+            st.markdown(summary)
+            st.divider()
 
 
 # =====================================================
