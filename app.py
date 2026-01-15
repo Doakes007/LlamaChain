@@ -6,7 +6,11 @@ from langchain_chroma import Chroma
 
 from llm import get_llm
 from src.rag.rag_query import build_retrieval_chain, ask_question
-from src.rag.summarizer import summarize_documents, summarize_per_document
+from src.rag.summarizer import (
+    summarize_documents,
+    summarize_per_document,
+    summarize_by_topic
+)
 from src.core.loader import load_documents
 from src.core.text_splitter import split_documents
 from src.core.embed_store import embed_and_store
@@ -127,6 +131,20 @@ if st.sidebar.button("🧾 Summarize Per Document"):
 
         for filename, summary in summaries.items():
             st.markdown(f"### 📘 {os.path.basename(filename)}")
+            st.markdown(summary)
+            st.divider()
+
+if st.sidebar.button("🧾 Summarize by Topic"):
+    if "docs" not in st.session_state or not st.session_state.docs:
+        st.sidebar.warning("Please index documents first.")
+    else:
+        with st.spinner("Generating topic-wise summaries…"):
+            topic_summaries = summarize_by_topic(st.session_state.docs)
+
+        st.subheader("📚 Topic-wise Summaries")
+
+        for topic, summary in topic_summaries.items():
+            st.markdown(f"### 🔹 {topic}")
             st.markdown(summary)
             st.divider()
 

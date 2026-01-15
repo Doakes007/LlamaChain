@@ -116,3 +116,54 @@ def summarize_per_document(documents):
         summaries[filename] = chain.run(chunks).strip()
 
     return summaries
+
+def summarize_by_topic(documents):
+    """
+    documents: List[LangChain Document]
+    returns: dict { topic: summary }
+    """
+
+    if not documents:
+        return {}
+
+    llm = get_llm(mode="summary")
+
+    # 🔹 Define topics with keywords
+    TOPICS = {
+        "Objectives": ["objective", "aim", "goal", "purpose"],
+        "Methodology": ["method", "approach", "architecture", "framework", "pipeline"],
+        "Literature Review": ["literature", "related work", "existing system"],
+        "Limitations": ["limitation", "challenge", "drawback", "constraint"],
+        "Conclusion": ["conclusion", "future work", "summary"]
+    }
+
+    text_splitter = RecursiveCharacterTextSplitter(
+        chunk_size=800,
+        chunk_overlap=100
+    )
+
+    chunks = text_splitter.split_documents(documents)
+
+    topic_summaries = {}
+
+    for topic, keywords in TOPICS.items():
+        # 🔍 Select relevant chunks
+        matched_chunks = [
+            doc for doc in chunks
+            if any(keyword.lower() in doc.page_content.lower() for keyword in keywords)
+        ]
+
+        if not matched_chunks:
+            continue
+
+        matched_chunks = matched_chunks[:6]  # safety limit
+
+        chain = load_summarize_chain(
+            llm=llm,
+            chain_type="stuff",
+            prompt=SUMMARY_PROMPT
+        )
+
+        topic_summaries[topic] = chain.run(matched_chunks).strip()
+
+    return topic_summaries
