@@ -1,169 +1,229 @@
 from collections import defaultdict
+from typing import List, Dict, Iterable
+import re
 
-from langchain.chains.summarize import load_summarize_chain
 from langchain.prompts import PromptTemplate
+from langchain.schema import Document
 from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain.chains.summarize import load_summarize_chain
 
-from llm import get_llm   # Centralized Ollama config
+from llm import get_llm
 
 
-# ----------------------------
-# BULLET SUMMARY PROMPT
-# ----------------------------
-SUMMARY_PROMPT = PromptTemplate(
+# ====================================================
+# 🔹 PROMPTS
+# ====================================================
+
+MAP_PROMPT = PromptTemplate(
     input_variables=["text"],
     template="""
-You are an AI assistant.
+You are a professional summarization assistant.
 
-Summarize the following content into 5 to 7 concise bullet points.
-Use clear, simple language.
-Do NOT add information that is not present.
+Summarize the following content accurately and completely.
+Preserve all key ideas, concepts, arguments, and explanations.
+Do NOT introduce new information.
+Do NOT aggressively compress.
 
-Content:
+CONTENT:
 {text}
 
-Bullet Point Summary:
+SUMMARY:
+"""
+)
+
+REDUCE_PROMPT = PromptTemplate(
+    input_variables=["text"],
+    template="""
+Combine the following summaries into one coherent summary.
+
+Rules:
+- Retain ALL important points
+- Merge related ideas naturally
+- Do NOT discard minority or less frequent topics
+
+SUMMARIES:
+{text}
+
+COMBINED SUMMARY:
+"""
+)
+
+FINAL_BULLET_PROMPT = PromptTemplate(
+    input_variables=["text"],
+    template="""
+Convert the following summary into bullet points ONLY.
+
+Rules:
+- No headings, intros, or explanations
+- No nested bullets
+- One sentence per bullet
+- One idea per bullet
+
+SUMMARY:
+{text}
+
+BULLETS:
 """
 )
 
 
 # ====================================================
-# 🔹 COMBINED SUMMARY (EXISTING FUNCTION — UNCHANGED)
+# 🔹 INTERNAL HELPERS
 # ====================================================
-def summarize_documents(documents):
+
+def _get_splitter():
+    return RecursiveCharacterTextSplitter(
+        chunk_size=1800,
+        chunk_overlap=200
+    )
+
+
+def _build_map_reduce_chain(llm):
+    return load_summarize_chain(
+        llm=llm,
+        chain_type="map_reduce",
+        map_prompt=MAP_PROMPT,
+        combine_prompt=REDUCE_PROMPT
+    )
+
+
+def _batch_documents(
+    docs: List[Document],
+    batch_size: int = 6
+) -> Iterable[Document]:
+    for i in range(0, len(docs), batch_size):
+        batch = docs[i:i + batch_size]
+        yield Document(
+            page_content="\n\n".join(d.page_content for d in batch),
+            metadata={"batch": i // batch_size}
+        )
+
+
+def _format_bullets(text: str) -> str:
+    text = text.strip()
+
+    junk_prefixes = [
+        "here are the bullet points",
+        "here is the bullet summary",
+        "bullet points",
+        "summary"
+    ]
+
+    lower = text.lower()
+    for junk in junk_prefixes:
+        if lower.startswith(junk):
+            text = text[len(junk):].strip(": \n")
+            break
+
+    bullets = []
+
+    if "•" in text:
+        parts = text.split("•")
+        for p in parts:
+            p = p.strip()
+            if len(p) > 10:
+                bullets.append(f"- {p}")
+    else:
+        sentences = re.split(r'(?<=[.!?])\s+', text)
+        for s in sentences:
+            s = s.strip()
+            if len(s) > 10:
+                bullets.append(f"- {s}")
+
+    return "\n".join(bullets)
+
+
+def _final_bulletize(text: str, llm) -> str:
+    raw = llm.invoke(
+        FINAL_BULLET_PROMPT.format(text=text)
+    ).strip()
+
+    return _format_bullets(raw)
+
+
+# ====================================================
+# 🔥 SINGLE-PASS BASE SUMMARY (CORE FIX)
+# ====================================================
+
+def generate_base_summary(documents: List[Document]) -> str:
     """
-    documents: List[LangChain Document]
-    returns: bullet-point combined summary (string)
+    EXPENSIVE OPERATION — RUN ONCE.
+    Produces a detailed base summary for reuse.
     """
 
     if not documents:
+        return ""
+
+    llm = get_llm(mode="summary")
+    splitter = _get_splitter()
+
+    chunks = splitter.split_documents(documents)
+    batched = list(_batch_documents(chunks))
+
+    chain = _build_map_reduce_chain(llm)
+    result = chain.invoke(batched)
+
+    return result["output_text"].strip()
+
+
+# ====================================================
+# 🔹 COMBINED SUMMARY (CHEAP)
+# ====================================================
+
+def summarize_documents(documents: List[Document]) -> str:
+    base = generate_base_summary(documents)
+
+    if not base:
         return "No documents available to summarize."
 
-    # 🔒 CPU-safe summarization (stable)
     llm = get_llm(mode="summary")
-
-    text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=800,
-        chunk_overlap=100
-    )
-
-    docs = text_splitter.split_documents(documents)
-
-    # 🔴 Safety limit for 6 GB GPU / CPU stability
-    docs = docs[:6]
-
-    # Optional progress logging
-    for i, _ in enumerate(docs):
-        print(f"Summarizing combined chunk {i + 1}/{len(docs)}")
-
-    chain = load_summarize_chain(
-        llm=llm,
-        chain_type="stuff",
-        prompt=SUMMARY_PROMPT
-    )
-
-    summary = chain.run(docs)
-    return summary.strip()
+    return _final_bulletize(base, llm)
 
 
 # ====================================================
-# 🔹 PER-DOCUMENT SUMMARY (NEW FUNCTION)
+# 🔹 PER-DOCUMENT SUMMARY (LIGHTWEIGHT)
 # ====================================================
-def summarize_per_document(documents):
-    """
-    documents: List[LangChain Document]
-    returns: dict { filename: summary }
-    """
 
+def summarize_per_document(documents: List[Document]) -> Dict[str, str]:
     if not documents:
         return {}
 
-    # 🔒 CPU-safe summarization
+    base = generate_base_summary(documents)
     llm = get_llm(mode="summary")
 
-    # ----------------------------
-    # GROUP DOCUMENTS BY FILE
-    # ----------------------------
     file_groups = defaultdict(list)
     for doc in documents:
-        source = doc.metadata.get("source", "unknown")
-        file_groups[source].append(doc)
+        file_groups[doc.metadata.get("source", "unknown")].append(doc)
 
     summaries = {}
 
-    text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=800,
-        chunk_overlap=100
-    )
-
-    # ----------------------------
-    # SUMMARIZE EACH FILE SEPARATELY
-    # ----------------------------
     for filename, docs in file_groups.items():
-        chunks = text_splitter.split_documents(docs)
-
-        # 🔴 Safety limit per document
-        chunks = chunks[:6]
-
-        print(f"Summarizing document: {filename}")
-
-        chain = load_summarize_chain(
-            llm=llm,
-            chain_type="stuff",
-            prompt=SUMMARY_PROMPT
-        )
-
-        summaries[filename] = chain.run(chunks).strip()
+        text = "\n".join(d.page_content for d in docs)
+        extracted = base if len(text) < 5000 else text
+        summaries[filename] = _final_bulletize(extracted, llm)
 
     return summaries
 
-def summarize_by_topic(documents):
-    """
-    documents: List[LangChain Document]
-    returns: dict { topic: summary }
-    """
+
+# ====================================================
+# 🔹 TOPIC-WISE SUMMARY (FAST)
+# ====================================================
+
+def summarize_by_cluster(
+    documents: List[Document],
+    keyword_clusters: Dict[str, List[str]]
+) -> Dict[str, str]:
 
     if not documents:
         return {}
 
+    base = generate_base_summary(documents)
     llm = get_llm(mode="summary")
 
-    # 🔹 Define topics with keywords
-    TOPICS = {
-        "Objectives": ["objective", "aim", "goal", "purpose"],
-        "Methodology": ["method", "approach", "architecture", "framework", "pipeline"],
-        "Literature Review": ["literature", "related work", "existing system"],
-        "Limitations": ["limitation", "challenge", "drawback", "constraint"],
-        "Conclusion": ["conclusion", "future work", "summary"]
-    }
+    cluster_summaries = {}
 
-    text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=800,
-        chunk_overlap=100
-    )
+    for topic, keywords in keyword_clusters.items():
+        if any(k.lower() in base.lower() for k in keywords):
+            cluster_summaries[topic] = _final_bulletize(base, llm)
 
-    chunks = text_splitter.split_documents(documents)
-
-    topic_summaries = {}
-
-    for topic, keywords in TOPICS.items():
-        # 🔍 Select relevant chunks
-        matched_chunks = [
-            doc for doc in chunks
-            if any(keyword.lower() in doc.page_content.lower() for keyword in keywords)
-        ]
-
-        if not matched_chunks:
-            continue
-
-        matched_chunks = matched_chunks[:6]  # safety limit
-
-        chain = load_summarize_chain(
-            llm=llm,
-            chain_type="stuff",
-            prompt=SUMMARY_PROMPT
-        )
-
-        topic_summaries[topic] = chain.run(matched_chunks).strip()
-
-    return topic_summaries
+    return cluster_summaries
