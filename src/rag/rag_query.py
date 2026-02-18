@@ -1,22 +1,24 @@
+# src/rag/rag_query.py
+
 from langchain.chains import RetrievalQA
 from langchain.prompts import PromptTemplate
 from collections import defaultdict
-from llm import get_llm   # ✅ Ollama + GPU handled centrally
+from llm import get_llm
 
 
-# ----------------------------
-# RAG PROMPT (STRICT)
-# ----------------------------
+# =============================
+# STRICT RAG PROMPT
+# =============================
 QA_PROMPT = PromptTemplate(
     input_variables=["context", "question"],
     template="""
 You are a retrieval-based assistant.
 
 RULES (STRICT):
-- You MUST answer using ONLY the provided context.
-- You MUST NOT use any external knowledge.
-- If the context does NOT contain the answer, respond EXACTLY with:
-  "Not specified in the Job Description."
+- Answer using ONLY the provided context.
+- Do NOT use external knowledge.
+- If the answer is not in the context, respond EXACTLY:
+  "Not specified in the provided documents."
 
 Context:
 {context}
@@ -29,30 +31,24 @@ Answer:
 )
 
 
-# ----------------------------
-# BUILD RAG CHAIN (🔒 FILTERED)
-# ----------------------------
+# =============================
+# BUILD RAG CHAIN (SAFE)
+# =============================
 def build_retrieval_chain(vectorstore):
     """
-    vectorstore: Chroma / FAISS / other LangChain vectorstore
-    returns: RetrievalQA chain
+    Builds a RetrievalQA chain without over-filtering.
     """
-
-    # ✅ Initialize LLM ONCE (GPU via Ollama)
     llm = get_llm()
 
     retriever = vectorstore.as_retriever(
         search_kwargs={
-            "k": 10,
-            "filter": {
-                "doc_type": "job_description"
-            }
+            "k": 8
         }
     )
 
     chain = RetrievalQA.from_chain_type(
         llm=llm,
-        chain_type="stuff",                  # ⚡ fast + GPU friendly
+        chain_type="stuff",
         retriever=retriever,
         chain_type_kwargs={"prompt": QA_PROMPT},
         return_source_documents=True,
@@ -61,65 +57,46 @@ def build_retrieval_chain(vectorstore):
     return chain
 
 
-# ----------------------------
-# ASK QUESTION + SOURCES
-# ----------------------------
+# =============================
+# ASK QUESTION
+# =============================
 def ask_question(chain, query):
     """
-    chain: RetrievalQA chain
-    query: user question (string)
-    returns: formatted answer with sources (string)
+    Executes RAG query and formats sources.
     """
-
     res = chain.invoke({"query": query})
 
     answer = res.get("result", "").strip()
     source_docs = res.get("source_documents", [])
 
-    # 🔒 RULE 1: Strict fallback → no sources
-    if answer.startswith("Not specified in the Job Description"):
-        return "Not specified in the Job Description."
+    if answer.startswith("Not specified"):
+        return "Not specified in the provided documents."
 
-    # 🔒 RULE 2: No source docs → return answer only
     if not source_docs:
         return answer
 
-    # ----------------------------
-    # SOURCE FORMATTING (PAGE RANGES)
-    # ----------------------------
     page_map = defaultdict(set)
 
     for doc in source_docs:
-        metadata = doc.metadata
-        filename = metadata.get("source", "unknown")
-        page = metadata.get("page")
-
+        filename = doc.metadata.get("source", "unknown")
+        page = doc.metadata.get("page")
         if isinstance(page, int):
             page_map[filename].add(page)
 
     formatted_sources = []
-
     for filename, pages in page_map.items():
         if pages:
-            min_page = min(pages)
-            max_page = max(pages)
-
-            if min_page == max_page:
-                formatted_sources.append(
-                    f"- **{filename}** (Page: {min_page})"
-                )
+            min_p, max_p = min(pages), max(pages)
+            if min_p == max_p:
+                formatted_sources.append(f"- **{filename}** (Page {min_p})")
             else:
-                formatted_sources.append(
-                    f"- **{filename}** (Pages: {min_page}–{max_page})"
-                )
+                formatted_sources.append(f"- **{filename}** (Pages {min_p}-{max_p})")
         else:
             formatted_sources.append(f"- **{filename}**")
-
-    sources_text = "\n".join(formatted_sources)
 
     return f"""{answer}
 
 ---
 ### 📌 Sources
-{sources_text}
+{chr(10).join(formatted_sources)}
 """

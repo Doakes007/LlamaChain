@@ -1,22 +1,18 @@
+# src/core/text_splitter.py
+
 from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langchain.schema import Document
 
 
 def split_documents(documents):
     """
-    Splits documents into chunks for embedding
+    Splits documents into chunks for embedding (RAG only).
+    IMPORTANT: Returns LangChain Document objects (DO NOT convert to dict).
     """
     splitter = RecursiveCharacterTextSplitter(
         chunk_size=500,
         chunk_overlap=50
     )
 
-    chunks = splitter.split_documents(documents)
-
-    formatted_chunks = []
-    for doc in chunks:
-        formatted_chunks.append({
-            "content": doc.page_content,
-            "metadata": doc.metadata
-        })
-
-    return formatted_chunks
+    # ✅ Keep Documents as Documents
+    return splitter.split_documents(documents)
