@@ -1,5 +1,3 @@
-# src/rag/rag_query.py
-
 from langchain.chains import RetrievalQA
 from langchain.prompts import PromptTemplate
 from collections import defaultdict
@@ -7,17 +5,19 @@ from llm import get_llm
 
 
 # =============================
-# STRICT RAG PROMPT
+# IMPROVED RAG PROMPT (SAFE)
 # =============================
 QA_PROMPT = PromptTemplate(
     input_variables=["context", "question"],
     template="""
 You are a retrieval-based assistant.
 
-RULES (STRICT):
+RULES:
 - Answer using ONLY the provided context.
-- Do NOT use external knowledge.
-- If the answer is not in the context, respond EXACTLY:
+- Do NOT use outside knowledge.
+- If the answer is partially available, use the available information.
+- Combine relevant parts from multiple sections if needed.
+- ONLY if the answer cannot be reasonably inferred from the context, respond EXACTLY:
   "Not specified in the provided documents."
 
 Context:
@@ -32,17 +32,21 @@ Answer:
 
 
 # =============================
-# BUILD RAG CHAIN (SAFE)
+# BUILD RAG CHAIN
 # =============================
 def build_retrieval_chain(vectorstore):
     """
-    Builds a RetrievalQA chain without over-filtering.
+    Builds RetrievalQA chain with stable retrieval.
     """
     llm = get_llm()
 
+    # MMR retrieval → better diversity, same GPU usage
     retriever = vectorstore.as_retriever(
+        search_type="mmr",
         search_kwargs={
-            "k": 8
+            "k": 5,
+            "fetch_k": 20,
+            "lambda_mult": 0.7
         }
     )
 
@@ -69,7 +73,8 @@ def ask_question(chain, query):
     answer = res.get("result", "").strip()
     source_docs = res.get("source_documents", [])
 
-    if answer.startswith("Not specified"):
+    # safer fallback handling
+    if not answer or answer.lower().startswith("not specified"):
         return "Not specified in the provided documents."
 
     if not source_docs:
@@ -80,17 +85,23 @@ def ask_question(chain, query):
     for doc in source_docs:
         filename = doc.metadata.get("source", "unknown")
         page = doc.metadata.get("page")
+
         if isinstance(page, int):
             page_map[filename].add(page)
 
     formatted_sources = []
+
     for filename, pages in page_map.items():
         if pages:
             min_p, max_p = min(pages), max(pages)
             if min_p == max_p:
-                formatted_sources.append(f"- **{filename}** (Page {min_p})")
+                formatted_sources.append(
+                    f"- **{filename}** (Page {min_p})"
+                )
             else:
-                formatted_sources.append(f"- **{filename}** (Pages {min_p}-{max_p})")
+                formatted_sources.append(
+                    f"- **{filename}** (Pages {min_p}-{max_p})"
+                )
         else:
             formatted_sources.append(f"- **{filename}**")
 

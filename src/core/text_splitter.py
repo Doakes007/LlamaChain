@@ -10,8 +10,8 @@ def split_documents(documents):
     IMPORTANT: Returns LangChain Document objects (DO NOT convert to dict).
     """
     splitter = RecursiveCharacterTextSplitter(
-        chunk_size=500,
-        chunk_overlap=50
+    chunk_size=900,
+    chunk_overlap=150
     )
 
     # ✅ Keep Documents as Documents

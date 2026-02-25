@@ -144,11 +144,29 @@ if "topic" in st.session_state.summaries:
 # =====================================================
 # CHAT
 # =====================================================
+
+# Show previous messages
+for msg in st.session_state.messages:
+    with st.chat_message(msg["role"]):
+        st.markdown(msg["content"])
+
 if not st.session_state.busy:
     prompt = st.chat_input("Ask something from your documents…")
+
     if prompt:
-        st.session_state.messages.append({"role": "user", "content": prompt})
+        # Save + show user message
+        st.session_state.messages.append(
+            {"role": "user", "content": prompt}
+        )
+
+        with st.chat_message("user"):
+            st.markdown(prompt)
+
+        # Assistant response
         with st.chat_message("assistant"):
             ans = ask_question(chain, prompt)
             st.markdown(ans)
-        st.session_state.messages.append({"role": "assistant", "content": ans})
+
+        st.session_state.messages.append(
+            {"role": "assistant", "content": ans}
+        )
