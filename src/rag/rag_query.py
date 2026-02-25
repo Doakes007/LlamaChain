@@ -15,9 +15,11 @@ You are a retrieval-based assistant.
 RULES:
 - Answer using ONLY the provided context.
 - Do NOT use outside knowledge.
-- If the answer is partially available, use the available information.
-- Combine relevant parts from multiple sections if needed.
-- ONLY if the answer cannot be reasonably inferred from the context, respond EXACTLY:
+- Provide a CLEAR, DETAILED explanation.
+- Explain concepts step-by-step when possible.
+- If multiple points exist, use bullet points.
+- Include important definitions, examples, or explanations found in the context.
+- If the answer cannot be reasonably inferred from the context, respond EXACTLY:
   "Not specified in the provided documents."
 
 Context:
@@ -26,7 +28,7 @@ Context:
 Question:
 {question}
 
-Answer:
+Detailed Answer:
 """
 )
 
@@ -44,7 +46,7 @@ def build_retrieval_chain(vectorstore):
     retriever = vectorstore.as_retriever(
         search_type="mmr",
         search_kwargs={
-            "k": 5,
+            "k": 6,
             "fetch_k": 20,
             "lambda_mult": 0.7
         }
