@@ -18,18 +18,20 @@ def load_documents(file_paths):
         ext = os.path.splitext(path)[1].lower()
         filename = os.path.basename(path)
 
-        # unique id for each uploaded document
+        # Unique ID per document
         doc_id = str(uuid.uuid4())
 
-        # ==========================
+        # =====================================================
         # PDF DOCUMENTS
-        # ==========================
+        # =====================================================
         if ext == ".pdf":
 
             loader = PyPDFLoader(path)
             docs = loader.load()
 
-            # ---- TEXT CONTENT ----
+            # -------------------------
+            # TEXT EXTRACTION
+            # -------------------------
             for page_number, d in enumerate(docs):
 
                 metadata = {
@@ -47,7 +49,9 @@ def load_documents(file_paths):
                     )
                 )
 
-            # ---- TABLE EXTRACTION ----
+            # -------------------------
+            # TABLE EXTRACTION
+            # -------------------------
             table_docs = extract_tables_from_pdf(path)
 
             for table_doc in table_docs:
@@ -57,7 +61,6 @@ def load_documents(file_paths):
                 metadata["source"] = filename
                 metadata["doc_id"] = doc_id
 
-                # ensure preview exists
                 if "preview" not in metadata:
                     metadata["preview"] = table_doc.page_content[:200]
 
@@ -68,7 +71,9 @@ def load_documents(file_paths):
                     )
                 )
 
-            # ---- IMAGE EXTRACTION ----
+            # -------------------------
+            # IMAGE EXTRACTION
+            # -------------------------
             image_docs = extract_images_from_pdf(path)
 
             for img_doc in image_docs:
@@ -78,15 +83,14 @@ def load_documents(file_paths):
                 metadata["source"] = filename
                 metadata["doc_id"] = doc_id
 
-                # ensure preview exists
                 if "preview" not in metadata:
                     metadata["preview"] = img_doc.page_content[:200]
 
                 documents.append(img_doc)
 
-        # ==========================
+        # =====================================================
         # POWERPOINT DOCUMENTS
-        # ==========================
+        # =====================================================
         elif ext == ".pptx":
 
             loader = UnstructuredPowerPointLoader(path)

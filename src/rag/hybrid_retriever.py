@@ -1,6 +1,6 @@
 from typing import List, Any
 from langchain.schema import Document, BaseRetriever
-from langchain.retrievers import BM25Retriever
+from langchain_community.retrievers import BM25Retriever
 
 
 class HybridRetriever(BaseRetriever):
@@ -13,10 +13,10 @@ class HybridRetriever(BaseRetriever):
     vectorstore: Any
     vector_retriever: Any
     bm25_retriever: Any
-    k: int = 12
+    k: int = 15
 
 
-    def __init__(self, vectorstore, k=12):
+    def __init__(self, vectorstore, k=15):
 
         super().__init__()
 
@@ -26,13 +26,14 @@ class HybridRetriever(BaseRetriever):
         # =====================================================
         # VECTOR RETRIEVER
         # =====================================================
-        # Using MMR for diverse results + larger candidate pool
+        # MMR improves diversity of retrieved chunks
+        # fetch_k increased to improve recall
         self.vector_retriever = vectorstore.as_retriever(
             search_type="mmr",
             search_kwargs={
-                "k": k,               # final returned docs
-                "fetch_k": 200,       # 🔥 larger candidate pool
-                "lambda_mult": 0.7    # diversity balance
+                "k": k,               # final docs returned
+                "fetch_k": 300,       # larger candidate pool
+                "lambda_mult": 0.7    # diversity vs similarity
             }
         )
 
@@ -45,7 +46,9 @@ class HybridRetriever(BaseRetriever):
             self.bm25_retriever = None
         else:
             self.bm25_retriever = BM25Retriever.from_documents(docs)
-            self.bm25_retriever.k = 12
+
+            # slightly larger keyword recall
+            self.bm25_retriever.k = 15
 
 
     # =====================================================
@@ -80,14 +83,14 @@ class HybridRetriever(BaseRetriever):
         seen = set()
         merged = []
 
-        # Prioritize semantic (vector) results first
+        # prioritize semantic results first
         for doc in vector_docs:
 
             if doc.page_content not in seen:
                 merged.append(doc)
                 seen.add(doc.page_content)
 
-        # Add keyword results if not duplicate
+        # add keyword results if new
         for doc in keyword_docs:
 
             if doc.page_content not in seen:
@@ -102,14 +105,14 @@ class HybridRetriever(BaseRetriever):
     # =====================================================
     def _get_relevant_documents(self, query: str) -> List[Document]:
 
-        # Vector search
+        # semantic vector search
         vector_docs = self.vector_retriever.get_relevant_documents(query)
 
         if self.bm25_retriever is None:
             return vector_docs[:self.k]
 
-        # Keyword search
+        # keyword retrieval
         keyword_docs = self.bm25_retriever.get_relevant_documents(query)
 
-        # Merge both retrieval results
+        # merge both results
         return self._merge_results(vector_docs, keyword_docs)

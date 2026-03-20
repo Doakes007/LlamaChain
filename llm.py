@@ -5,19 +5,23 @@ from functools import lru_cache
 @lru_cache(maxsize=2)
 def get_llm(mode="rag"):
 
-    # Light model for summarization
+    # LIGHT MODEL
     if mode == "summary":
         return Ollama(
             model="phi3:mini",
-            temperature=0.2,
-            num_ctx=2048,
-            num_predict=256
+            num_gpu=0,
+            num_thread=6,
+            num_ctx=1024,
+            num_predict=200,
+            temperature=0.2
         )
 
-    # Strong model for answering
+    # HEAVY MODEL (USED RARELY)
     return Ollama(
-        model="mistral:7b-instruct",
-        temperature=0.1,
-        num_ctx=2048,
-        num_predict=400
+        model="mistral:instruct",   # 🔥 NOT 7B (important)
+        num_gpu=0,
+        num_thread=6,
+        num_ctx=1536,
+        num_predict=300,
+        temperature=0.1
     )

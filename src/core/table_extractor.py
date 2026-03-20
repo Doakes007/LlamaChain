@@ -8,50 +8,83 @@ def extract_tables_from_pdf(file_path):
     documents = []
     filename = os.path.basename(file_path)
 
-    with pdfplumber.open(file_path) as pdf:
+    try:
+        with pdfplumber.open(file_path) as pdf:
 
-        for page_number, page in enumerate(pdf.pages):
+            for page_number, page in enumerate(pdf.pages):
 
-            tables = page.extract_tables()
+                tables = page.extract_tables()
 
-            for table_id, table in enumerate(tables):
-
-                if not table or len(table) < 2:
+                if not tables:
                     continue
 
-                headers = table[0]
-                rows = table[1:]
+                for table_id, table in enumerate(tables):
 
-                table_text = "Table extracted from document.\n\n"
+                    try:
+                        # Skip invalid tables
+                        if not table or len(table) < 2:
+                            continue
 
-                table_text += "Columns:\n"
-                table_text += " | ".join(str(h) for h in headers if h) + "\n\n"
+                        headers = table[0]
+                        rows = table[1:]
 
-                table_text += "Rows:\n"
+                        # Clean headers
+                        headers = [
+                            str(h).strip() if h else f"Column_{i}"
+                            for i, h in enumerate(headers)
+                        ]
 
-                for row in rows:
+                        table_text = "TABLE FROM DOCUMENT\n\n"
 
-                    row_dict = dict(zip(headers, row))
+                        # -------------------------------
+                        # Column Section
+                        # -------------------------------
+                        table_text += "Columns:\n"
+                        table_text += " | ".join(headers) + "\n\n"
 
-                    row_sentence = ", ".join(
-                        f"{k}: {v}" for k, v in row_dict.items() if v
-                    )
+                        # -------------------------------
+                        # Row Section
+                        # -------------------------------
+                        table_text += "Rows:\n"
 
-                    table_text += row_sentence + "\n"
+                        for row in rows:
 
-                metadata = {
-                    "source": filename,
-                    "page": page_number + 1,
-                    "chunk_type": "table",
-                    "table_id": table_id,
-                    "preview": table_text[:200]
-                }
+                            # Pad row if shorter than headers
+                            if len(row) < len(headers):
+                                row = row + [""] * (len(headers) - len(row))
 
-                documents.append(
-                    Document(
-                        page_content=table_text,
-                        metadata=metadata
-                    )
-                )
+                            row_dict = dict(zip(headers, row))
+
+                            row_sentence = ", ".join(
+                                f"{k}: {v}" for k, v in row_dict.items() if v
+                            )
+
+                            if row_sentence:
+                                table_text += row_sentence + "\n"
+
+                        # -------------------------------
+                        # Metadata
+                        # -------------------------------
+                        metadata = {
+                            "source": filename,
+                            "page": page_number + 1,
+                            "chunk_type": "table",
+                            "table_id": table_id,
+                            "preview": table_text[:200]
+                        }
+
+                        documents.append(
+                            Document(
+                                page_content=table_text.strip(),
+                                metadata=metadata
+                            )
+                        )
+
+                    except Exception as e:
+                        print(f"Table parsing failed on page {page_number+1}:", e)
+                        continue
+
+    except Exception as e:
+        print("PDF table extraction failed:", e)
 
     return documents

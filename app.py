@@ -3,11 +3,12 @@
 # =====================================================
 import os
 
-# Disable telemetry
 os.environ["ANONYMIZED_TELEMETRY"] = "false"
 os.environ["CHROMA_TELEMETRY"] = "false"
 
 import streamlit as st
+import re
+
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_chroma import Chroma
 
@@ -55,19 +56,18 @@ for k, v in {
 
 
 # =====================================================
-# LOAD EMBEDDINGS (GPU)
+# LOAD EMBEDDINGS (SAFE → CPU fallback)
 # =====================================================
 @st.cache_resource
 def load_embeddings():
-
     return HuggingFaceEmbeddings(
         model_name="sentence-transformers/paraphrase-MiniLM-L3-v2",
         model_kwargs={
-            "device": "cuda"   # 🔥 embeddings now use GPU
+            "device": "cpu"   # 🔥 changed from cuda → avoids crash
         },
         encode_kwargs={
             "normalize_embeddings": True,
-            "batch_size": 32    # faster embedding batches
+            "batch_size": 16
         },
     )
 
@@ -80,7 +80,6 @@ embeddings = load_embeddings()
 # =====================================================
 @st.cache_resource
 def load_vectorstore(_embeddings):
-
     return Chroma(
         collection_name="LlamaChainDocs",
         persist_directory="./chroma_db",
@@ -89,7 +88,6 @@ def load_vectorstore(_embeddings):
 
 
 vectorstore = load_vectorstore(embeddings)
-
 chain = build_retrieval_chain(vectorstore)
 
 
@@ -112,7 +110,6 @@ if uploaded:
     saved_paths = []
 
     for f in uploaded:
-
         path = os.path.join(UPLOAD_DIR, f.name)
 
         with open(path, "wb") as out:
@@ -121,7 +118,6 @@ if uploaded:
         saved_paths.append(path)
 
     st.session_state.uploaded_paths = saved_paths
-
     st.sidebar.success(f"✅ {len(saved_paths)} files uploaded")
 
 
@@ -139,17 +135,13 @@ if st.sidebar.button("📥 Index Documents"):
 
         with st.spinner("Indexing documents..."):
 
-            st.session_state.docs = load_documents(
-                st.session_state.uploaded_paths
-            )
-
-            st.session_state.doc_paths = tuple(
-                st.session_state.uploaded_paths
-            )
-
-            chunks = split_documents(st.session_state.docs)
+            docs = load_documents(st.session_state.uploaded_paths)
+            chunks = split_documents(docs)
 
             embed_and_store(chunks, vectorstore)
+
+            st.session_state.docs = docs
+            st.session_state.doc_paths = tuple(st.session_state.uploaded_paths)
 
             st.session_state.base_summaries = get_base_summaries(
                 st.session_state.doc_paths
@@ -158,7 +150,6 @@ if st.sidebar.button("📥 Index Documents"):
             st.session_state.summaries = {}
 
         st.session_state.busy = False
-
         st.sidebar.success("✅ Indexed & summarized")
 
 
@@ -168,27 +159,19 @@ if st.sidebar.button("📥 Index Documents"):
 st.sidebar.divider()
 
 if st.sidebar.button("🧾 Combined Summary"):
-
     if st.session_state.base_summaries:
-
         st.session_state.summaries["combined"] = combined_from_base(
             st.session_state.base_summaries
         )
 
-
 if st.sidebar.button("🧾 Per-Document Summary"):
-
     if st.session_state.base_summaries:
-
         st.session_state.summaries["per_doc"] = per_doc_from_base(
             st.session_state.base_summaries
         )
 
-
 if st.sidebar.button("🧾 Topic-wise Summary"):
-
     if st.session_state.base_summaries:
-
         st.session_state.summaries["topic"] = topic_from_base(
             st.session_state.base_summaries
         )
@@ -198,40 +181,43 @@ if st.sidebar.button("🧾 Topic-wise Summary"):
 # DISPLAY SUMMARIES
 # =====================================================
 if "combined" in st.session_state.summaries:
-
     st.subheader("📄 Combined Summary")
-    st.markdown(st.session_state.summaries["combined"])
-
+    st.markdown(st.session_state.summaries["combined"], unsafe_allow_html=True)
 
 if "per_doc" in st.session_state.summaries:
-
     st.subheader("📄 Per-Document Summaries")
 
     for src, txt in st.session_state.summaries["per_doc"].items():
-
         st.markdown(f"### 📘 {src}")
-        st.markdown(txt)
-
+        st.markdown(txt, unsafe_allow_html=True)
 
 if "topic" in st.session_state.summaries:
-
     st.subheader("📚 Topic-wise Summaries")
 
     for src, txt in st.session_state.summaries["topic"].items():
-
         st.markdown(f"### 🔹 {src}")
-        st.markdown(txt)
+        st.markdown(txt, unsafe_allow_html=True)
 
 
 # =====================================================
-# CHAT
+# CHAT DISPLAY
 # =====================================================
 for msg in st.session_state.messages:
 
     with st.chat_message(msg["role"]):
-        st.markdown(msg["content"])
+        st.markdown(msg["content"], unsafe_allow_html=True)
+
+        # 🔥 Render images
+        image_paths = re.findall(r"!\[image\]\((.*?)\)", msg["content"])
+
+        for img_path in image_paths:
+            if os.path.exists(img_path):
+                st.image(img_path, caption="Retrieved Figure", use_column_width=True)
 
 
+# =====================================================
+# CHAT INPUT
+# =====================================================
 if not st.session_state.busy:
 
     prompt = st.chat_input("Ask something from your documents…")
@@ -248,7 +234,15 @@ if not st.session_state.busy:
         with st.chat_message("assistant"):
 
             answer = ask_question(chain, prompt)
-            st.markdown(answer)
+
+            st.markdown(answer, unsafe_allow_html=True)
+
+            # 🔥 Render images
+            image_paths = re.findall(r"!\[image\]\((.*?)\)", answer)
+
+            for img_path in image_paths:
+                if os.path.exists(img_path):
+                    st.image(img_path, caption="Retrieved Figure", use_column_width=True)
 
         st.session_state.messages.append(
             {"role": "assistant", "content": answer}
@@ -266,23 +260,12 @@ def generate_chat_pdf(messages):
 
     buffer = BytesIO()
 
-    doc = SimpleDocTemplate(
-        buffer,
-        pagesize=A4,
-        leftMargin=40,
-        rightMargin=40,
-        topMargin=40,
-        bottomMargin=40,
-    )
+    doc = SimpleDocTemplate(buffer, pagesize=A4)
 
     styles = getSampleStyleSheet()
-
     elements = []
 
-    elements.append(
-        Paragraph("LlamaChain - Chat history", styles["Title"])
-    )
-
+    elements.append(Paragraph("LlamaChain - Chat history", styles["Title"]))
     elements.append(Spacer(1, 20))
 
     for msg in messages:
@@ -294,11 +277,9 @@ def generate_chat_pdf(messages):
         elements.append(
             Paragraph(f"<b>{role}:</b> {safe_text}", styles["Normal"])
         )
-
         elements.append(Spacer(1, 10))
 
     doc.build(elements)
-
     buffer.seek(0)
 
     return buffer

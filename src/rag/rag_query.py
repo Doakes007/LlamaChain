@@ -1,12 +1,13 @@
 import os
-from collections import defaultdict
+import re
+import torch
+import open_clip
+from PIL import Image
 from functools import lru_cache
 
 from langchain.prompts import PromptTemplate
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from sklearn.metrics.pairwise import cosine_similarity
-
-from llm import get_llm
 
 # HYBRID RETRIEVER
 from src.rag.hybrid_retriever import HybridRetriever
@@ -16,20 +17,34 @@ from sentence_transformers import CrossEncoder
 
 
 # =========================================================
-# LOAD MODELS
+# LOAD EMBEDDING MODEL
 # =========================================================
-
 embeddings = HuggingFaceEmbeddings(
     model_name="sentence-transformers/paraphrase-MiniLM-L3-v2"
 )
 
 
 # =========================================================
-# CACHED CROSS-ENCODER RERANKER
+# CLIP MODEL
+# =========================================================
+clip_model, _, clip_preprocess = open_clip.create_model_and_transforms(
+    "ViT-B-32",
+    pretrained="openai"
+)
+
+clip_model = clip_model.to("cpu")
+clip_model.eval()
+
+
+# =========================================================
+# RERANKER
 # =========================================================
 @lru_cache(maxsize=1)
 def get_reranker():
-    return CrossEncoder("cross-encoder/ms-marco-MiniLM-L-6-v2")
+    return CrossEncoder(
+        "cross-encoder/ms-marco-MiniLM-L-6-v2",
+        device="cpu"
+    )
 
 
 cross_encoder = get_reranker()
@@ -40,118 +55,186 @@ cross_encoder = get_reranker()
 # =========================================================
 def expand_query(query):
 
+    query_lower = query.lower()
+
     expansions = {
-        "dla": "document layout analysis layout detection",
-        "ocr": "optical character recognition text extraction",
-        "pipeline": "workflow architecture process pipeline",
-        "diagram": "figure architecture diagram workflow",
-        "architecture": "system architecture diagram workflow pipeline"
+        "diagram": "figure chart graph illustration visualization",
+        "architecture": "system design architecture structure framework",
+        "pipeline": "workflow process pipeline methodology steps",
+        "table": "data table dataset values rows columns",
+        "image": "figure diagram visual illustration graphic",
+        "workflow": "pipeline process workflow steps architecture",
+        "ui": "user interface interface diagram frontend layout",
+        "interface": "user interface ui layout frontend"
     }
 
-    q = query.lower()
+    expanded_query = query
 
     for key, expansion in expansions.items():
-        if key in q:
-            query = query + " " + expansion
+        if key in query_lower:
+            expanded_query += " " + expansion
 
-    return query
+    return expanded_query
 
 
 # =========================================================
-# DETECT FIGURE QUERIES
+# FIGURE DETECTION
 # =========================================================
 def is_figure_query(query):
 
     keywords = [
-        "figure",
-        "diagram",
-        "workflow",
-        "pipeline",
-        "architecture",
-        "flowchart",
-        "visual",
-        "illustration"
+        "figure", "diagram", "chart", "graph", "visual",
+        "illustration", "architecture", "workflow", "pipeline",
+        "structure", "layout", "framework", "interface", "ui"
     ]
 
-    q = query.lower()
-
-    return any(k in q for k in keywords)
+    return any(k in query.lower() for k in keywords)
 
 
 # =========================================================
-# FAST CONTEXT COMPRESSION
+# CLIP TEXT EMBEDDING
 # =========================================================
-def compress_context(query, docs, max_sentences=3):
+def encode_query_clip(query):
 
-    query_embedding = embeddings.embed_query(query)
+    tokens = open_clip.tokenize([query])
 
-    compressed_chunks = []
+    with torch.no_grad():
+        text_features = clip_model.encode_text(tokens)
 
-    for doc in docs:
-
-        text = doc.page_content
-
-        sentences = [
-            s.strip() for s in text.split(". ")
-            if len(s.strip()) > 20
-        ]
-
-        if len(sentences) <= max_sentences:
-            compressed_chunks.append(text[:400])
-            continue
-
-        try:
-
-            # Batch embedding (FAST)
-            sentence_embeddings = embeddings.embed_documents(sentences)
-
-            scored = []
-
-            for s, emb in zip(sentences, sentence_embeddings):
-
-                score = cosine_similarity(
-                    [query_embedding],
-                    [emb]
-                )[0][0]
-
-                scored.append((score, s))
-
-            scored.sort(reverse=True)
-
-            best_sentences = [s for _, s in scored[:max_sentences]]
-
-            compressed_chunks.append(". ".join(best_sentences))
-
-        except Exception:
-            compressed_chunks.append(text[:400])
-
-    return "\n\n".join(compressed_chunks)
+    return text_features.cpu().numpy()[0]
 
 
 # =========================================================
-# QA PROMPT
+# MULTIMODAL RERANK (🔥 STEP 7 CORE)
+# =========================================================
+def multimodal_rerank(query, docs, top_k=5):
+
+    if not docs:
+        return []
+
+    pairs = [(query, d.page_content[:800]) for d in docs]
+    ce_scores = cross_encoder.predict(pairs)
+
+    final_scores = []
+
+    for doc, ce_score in zip(docs, ce_scores):
+
+        final_score = ce_score
+
+        # IMAGE BOOST
+        if doc.metadata.get("chunk_type") == "image":
+
+            try:
+                image_path = doc.metadata.get("image_path")
+
+                if image_path and os.path.exists(image_path):
+
+                    image = Image.open(image_path).convert("RGB")
+                    image = clip_preprocess(image).unsqueeze(0)
+
+                    with torch.no_grad():
+                        img_features = clip_model.encode_image(image)
+
+                    img_embedding = img_features.cpu().numpy()[0]
+                    query_embedding = encode_query_clip(query)
+
+                    clip_score = cosine_similarity(
+                        [query_embedding],
+                        [img_embedding]
+                    )[0][0]
+
+                    final_score = (0.6 * ce_score) + (0.4 * clip_score)
+
+            except Exception:
+                pass
+
+        final_scores.append((final_score, doc))
+
+    final_scores.sort(key=lambda x: x[0], reverse=True)
+
+    return [doc for _, doc in final_scores[:top_k]]
+
+
+# =========================================================
+# STRUCTURED CONTEXT
+# =========================================================
+def build_structured_context(docs):
+
+    text_parts = []
+    image_parts = []
+    table_parts = []
+
+    for d in docs:
+
+        chunk_type = d.metadata.get("chunk_type")
+
+        if chunk_type == "image":
+            image_parts.append(d.page_content)
+
+        elif chunk_type == "table":
+            table_parts.append(d.page_content)
+
+        else:
+            text_parts.append(d.page_content)
+
+    context = ""
+
+    if image_parts:
+        context += "=== IMAGE CONTEXT ===\n"
+        context += "\n\n".join(image_parts[:3]) + "\n\n"
+
+    if table_parts:
+        context += "=== TABLE CONTEXT ===\n"
+        context += "\n\n".join(table_parts[:2]) + "\n\n"
+
+    if text_parts:
+        context += "=== TEXT CONTEXT ===\n"
+        context += "\n\n".join(text_parts[:5])
+
+    return context
+
+
+# =========================================================
+# PROMPTS
 # =========================================================
 QA_PROMPT = PromptTemplate(
     input_variables=["context", "question"],
     template="""
-You are a document QA assistant.
+You are a STRICT document-grounded AI system.
 
-Answer the question using ONLY the provided context.
+Use ONLY the provided context.
+Do NOT guess.
+If missing → say: Not specified in the provided documents.
 
-Rules:
+Context:
+{context}
 
-1. Use only the information present in the context.
-2. Combine information from multiple context snippets when needed.
-3. Do NOT use outside knowledge.
-4. Do NOT invent information not supported by the context.
-5. If the context does not contain enough information, respond exactly:
+Question:
+{question}
 
-Not specified in the provided documents.
+Answer:
+"""
+)
 
-6. If figures or diagrams appear in the context, explain them using:
-   - figure description
-   - OCR extracted text
-   - surrounding document text.
+DIAGRAM_PROMPT = PromptTemplate(
+    input_variables=["context", "question"],
+    template="""
+You are analyzing a diagram.
+
+Extract:
+
+Components:
+- ...
+
+Flow:
+1.
+2.
+3.
+
+Explanation:
+...
+
+Use ONLY context. Do NOT assume.
 
 Context:
 {context}
@@ -165,174 +248,67 @@ Answer:
 
 
 # =========================================================
-# BUILD RETRIEVAL CHAIN
+# BUILD CHAIN
 # =========================================================
 def build_retrieval_chain(vectorstore):
-
-    llm = get_llm()
-    retriever = HybridRetriever(vectorstore)
-
-    return {
-        "llm": llm,
-        "retriever": retriever
-    }
+    return {"retriever": HybridRetriever(vectorstore)}
 
 
 # =========================================================
-# CROSS-ENCODER RERANKING
-# =========================================================
-def rerank_documents(query, docs, top_k=5):
-
-    if not docs:
-        return []
-
-    pairs = [(query, d.page_content[:1000]) for d in docs]
-
-    scores = cross_encoder.predict(pairs)
-
-    scored_docs = list(zip(scores, docs))
-
-    scored_docs.sort(reverse=True, key=lambda x: x[0])
-
-    return [doc for _, doc in scored_docs[:top_k]]
-
-
-# =========================================================
-# MAIN QA FUNCTION
+# MAIN QA
 # =========================================================
 def ask_question(chain, query):
 
-    llm = chain["llm"]
+    from llm import get_llm
+
     retriever = chain["retriever"]
 
     expanded_query = expand_query(query)
-
     figure_query = is_figure_query(query)
 
-    # Retrieve documents
     docs = retriever.get_relevant_documents(expanded_query)
 
-    # Rerank documents
-    reranked_docs = rerank_documents(query, docs, top_k=5)
+    # 🔥 STEP 7 ACTIVE HERE
+    reranked_docs = multimodal_rerank(query, docs, top_k=5)
 
-    # Image boost for figure queries
+    # -----------------------------------------------------
+    # CONTEXT
+    # -----------------------------------------------------
+    context = build_structured_context(reranked_docs)
+
+    if len(context) > 3000:
+        context = context[:3000]
+
+    # -----------------------------------------------------
+    # PROMPT SWITCH
+    # -----------------------------------------------------
     if figure_query:
+        prompt = DIAGRAM_PROMPT.format(
+            context=context,
+            question=query + "\nExtract step-by-step flow."
+        )
+    else:
+        prompt = QA_PROMPT.format(context=context, question=query)
 
-        image_docs = [
-            d for d in docs
-            if d.metadata.get("chunk_type") == "image"
-        ]
+    # -----------------------------------------------------
+    # LLM EXECUTION
+    # -----------------------------------------------------
+    answer = ""
 
-        image_docs = rerank_documents(query, image_docs, top_k=2)
+    try:
+        llm = get_llm(mode="summary")
+        answer = llm.invoke(prompt).strip()
+    except Exception:
+        pass
 
-        for img in image_docs:
-            if img not in reranked_docs:
-                reranked_docs.append(img)
-
-    # Context compression
-    context = compress_context(query, reranked_docs)
-
-    context = context[:1800]
-
-    prompt = QA_PROMPT.format(
-        context=context,
-        question=query
-    )
-
-    answer = llm.invoke(prompt).strip()
+    if not answer or len(answer) < 40:
+        try:
+            llm = get_llm(mode="rag")
+            answer = llm.invoke(prompt).strip()
+        except Exception:
+            pass
 
     if not answer:
         answer = "Not specified in the provided documents."
 
-    source_docs = reranked_docs
-
-    if not source_docs:
-        return answer
-
-    # =====================================================
-    # SOURCE FORMATTER
-    # =====================================================
-    page_map = defaultdict(set)
-
-    for doc in source_docs:
-
-        filename = doc.metadata.get("source", "unknown")
-        page = doc.metadata.get("page")
-
-        if isinstance(page, int):
-            page_map[filename].add(page)
-
-    formatted_sources = []
-
-    for filename, pages in page_map.items():
-
-        if pages:
-
-            min_p = min(pages)
-            max_p = max(pages)
-
-            if min_p == max_p:
-                formatted_sources.append(
-                    f"- **{filename}** (Page {min_p})"
-                )
-            else:
-                formatted_sources.append(
-                    f"- **{filename}** (Pages {min_p}-{max_p})"
-                )
-        else:
-            formatted_sources.append(
-                f"- **{filename}**"
-            )
-
-    # =====================================================
-    # CONTEXT PREVIEW
-    # =====================================================
-    context_preview = []
-    seen = set()
-
-    for doc in source_docs:
-
-        content = doc.page_content.strip()
-
-        if content in seen:
-            continue
-
-        seen.add(content)
-
-        filename = doc.metadata.get("source", "unknown")
-        page = doc.metadata.get("page", "?")
-        chunk_type = doc.metadata.get("chunk_type", "text")
-        image_path = doc.metadata.get("image_path")
-
-        preview = content.replace("\n", " ")
-        preview = preview[:300] + "..." if len(preview) > 300 else preview
-
-        if chunk_type == "image":
-
-            context_preview.append(
-                f"**{filename} (Page {page}) [image]**"
-            )
-
-            if image_path and os.path.exists(image_path):
-                context_preview.append(
-                    f"![image]({image_path})"
-                )
-
-            context_preview.append(f"> {preview}")
-
-        else:
-
-            context_preview.append(
-                f"**{filename} (Page {page}) [{chunk_type}]**\n\n> {preview}"
-            )
-
-    return f"""{answer}
-
----
-### 📌 Sources
-{chr(10).join(formatted_sources)}
-
----
-### 🔎 Retrieved Context
-{chr(10).join(context_preview)}
-"""
+    return answer

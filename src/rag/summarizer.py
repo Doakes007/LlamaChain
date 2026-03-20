@@ -2,39 +2,55 @@ from functools import lru_cache
 from typing import Dict, List
 import hashlib
 import re
+import numpy as np
+from concurrent.futures import ThreadPoolExecutor
 
 from langchain.schema import Document
 from langchain.prompts import PromptTemplate
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.chains.summarize import load_summarize_chain
+
+from sentence_transformers import SentenceTransformer
+from sklearn.metrics.pairwise import cosine_similarity
 
 from llm import get_llm
 from src.core.loader import load_documents
 
 
 # ====================================================
+# EMBEDDING MODEL
+# ====================================================
+
+embedder = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
+
+
+# ====================================================
 # PROMPTS
 # ====================================================
 
-MAP_PROMPT = PromptTemplate(
+CHUNK_SUMMARY_PROMPT = PromptTemplate(
     input_variables=["text"],
     template="""
-Summarize the following text accurately.
-Preserve technical and conceptual details.
-Do NOT add new information.
+Summarize the following technical content clearly.
+
+Preserve important technical concepts.
+Do NOT add information that is not present.
 
 {text}
+
+Summary:
 """
 )
 
-REDUCE_PROMPT = PromptTemplate(
+MERGE_SUMMARY_PROMPT = PromptTemplate(
     input_variables=["text"],
     template="""
-Combine the summaries into one coherent summary.
-Remove redundancy.
-Preserve all important ideas.
+Combine the following summaries into a single coherent summary.
+
+Remove redundancy but preserve key ideas.
 
 {text}
+
+Final Summary:
 """
 )
 
@@ -86,22 +102,49 @@ def _splitter():
     )
 
 
-def _format_bullets(text: str) -> str:
+def _hash_paths(paths: tuple):
+    return hashlib.sha256("||".join(paths).encode()).hexdigest()
+
+
+def _format_bullets(text: str):
 
     bullets = []
 
-    for line in re.split(r"[•\n]", text):
+    for line in re.split(r"[•\n\-]", text):
 
         line = line.strip()
 
-        if len(line) > 25:
-            bullets.append(f"- {line}")
+        if len(line) > 30:
+
+            if not line.startswith("-"):
+                line = "- " + line
+
+            bullets.append(line)
 
     return "\n".join(bullets)
 
 
-def _hash_paths(paths: tuple) -> str:
-    return hashlib.sha256("||".join(paths).encode()).hexdigest()
+def remove_duplicate_sentences(text):
+
+    seen = set()
+    output = []
+
+    sentences = re.split(r"[.?!]", text)
+
+    for s in sentences:
+
+        s = s.strip()
+
+        if len(s) < 20:
+            continue
+
+        key = s.lower()
+
+        if key not in seen:
+            seen.add(key)
+            output.append(s)
+
+    return ". ".join(output)
 
 
 # ====================================================
@@ -127,15 +170,98 @@ def safe_llm_call(llm, prompt, fallback="Summary generation failed."):
 
 
 # ====================================================
-# BASE SUMMARIES (MAP REDUCE)
+# EMBEDDING CACHE
+# ====================================================
+
+@lru_cache(maxsize=512)
+def cached_embedding(sentence: str):
+
+    return embedder.encode(sentence)
+
+
+# ====================================================
+# EXTRACTIVE SENTENCE SELECTION
+# ====================================================
+
+def extract_key_sentences(text, top_k=3):
+
+    sentences = [s.strip() for s in re.split(r"[.?!]", text) if len(s) > 40]
+
+    if len(sentences) <= top_k:
+        return sentences
+
+    embeddings = np.array([cached_embedding(s) for s in sentences])
+
+    centroid = np.mean(embeddings, axis=0)
+
+    scores = cosine_similarity([centroid], embeddings)[0]
+
+    ranked = sorted(
+        zip(sentences, scores),
+        key=lambda x: x[1],
+        reverse=True
+    )
+
+    return [s for s, _ in ranked[:top_k]]
+
+
+# ====================================================
+# CHUNK SUMMARIZATION
+# ====================================================
+
+def summarize_chunk(llm, text):
+
+    key_sentences = extract_key_sentences(text)
+
+    compressed_text = ". ".join(key_sentences)
+
+    prompt = CHUNK_SUMMARY_PROMPT.format(text=compressed_text)
+
+    return safe_llm_call(llm, prompt)
+
+
+# ====================================================
+# PARALLEL CHUNK SUMMARIZATION
+# ====================================================
+
+def summarize_chunks_parallel(llm, chunks):
+
+    with ThreadPoolExecutor(max_workers=4) as executor:
+
+        summaries = list(
+            executor.map(
+                lambda c: summarize_chunk(llm, c.page_content),
+                chunks
+            )
+        )
+
+    return summaries
+
+
+# ====================================================
+# MERGE SUMMARIES
+# ====================================================
+
+def merge_summaries(llm, summaries):
+
+    combined = "\n".join(summaries)
+
+    combined = remove_duplicate_sentences(combined)
+
+    prompt = MERGE_SUMMARY_PROMPT.format(text=combined)
+
+    return safe_llm_call(llm, prompt)
+
+
+# ====================================================
+# BASE SUMMARIES (HIERARCHICAL)
 # ====================================================
 
 @lru_cache(maxsize=8)
-def _cached_base_summaries(doc_hash: str, doc_paths: tuple) -> Dict[str, str]:
+def _cached_base_summaries(doc_hash: str, doc_paths: tuple):
 
     docs = load_documents(list(doc_paths))
 
-    # exclude images
     docs = [
         d for d in docs
         if d.metadata.get("chunk_type") != "image"
@@ -156,33 +282,20 @@ def _cached_base_summaries(doc_hash: str, doc_paths: tuple) -> Dict[str, str]:
 
         chunks = splitter.split_documents(documents)
 
-        # limit chunk count to protect model
-        chunks = chunks[:8]
+        # protect context size
+        MAX_CHUNKS = 10
+        chunks = chunks[:MAX_CHUNKS]
 
-        chain = load_summarize_chain(
-            llm=llm,
-            chain_type="map_reduce",
-            map_prompt=MAP_PROMPT,
-            combine_prompt=REDUCE_PROMPT,
-            verbose=False,
-        )
+        chunk_summaries = summarize_chunks_parallel(llm, chunks)
 
-        try:
+        final_summary = merge_summaries(llm, chunk_summaries)
 
-            result = chain.invoke(chunks)
-
-            base_summaries[source] = result["output_text"].strip()
-
-        except Exception as e:
-
-            print("Map reduce failed:", e)
-
-            base_summaries[source] = "Summary generation failed for this document."
+        base_summaries[source] = final_summary.strip()
 
     return base_summaries
 
 
-def get_base_summaries(doc_paths: tuple) -> Dict[str, str]:
+def get_base_summaries(doc_paths: tuple):
 
     return _cached_base_summaries(
         _hash_paths(doc_paths),
@@ -194,13 +307,12 @@ def get_base_summaries(doc_paths: tuple) -> Dict[str, str]:
 # DERIVED SUMMARIES
 # ====================================================
 
-def combined_from_base(base_summaries: Dict[str, str]) -> str:
+def combined_from_base(base_summaries):
 
     llm = get_llm(mode="summary")
 
     combined = "\n\n".join(base_summaries.values())
 
-    # protect prompt size
     combined = combined[:2000]
 
     prompt = FINAL_BULLET_PROMPT.format(text=combined)
@@ -210,7 +322,7 @@ def combined_from_base(base_summaries: Dict[str, str]) -> str:
     return _format_bullets(raw)
 
 
-def per_doc_from_base(base_summaries: Dict[str, str]) -> Dict[str, str]:
+def per_doc_from_base(base_summaries):
 
     llm = get_llm(mode="summary")
 
@@ -229,7 +341,7 @@ def per_doc_from_base(base_summaries: Dict[str, str]) -> Dict[str, str]:
     return out
 
 
-def topic_from_base(base_summaries: Dict[str, str]) -> Dict[str, str]:
+def topic_from_base(base_summaries):
 
     llm = get_llm(mode="summary")
 
