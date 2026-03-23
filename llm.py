@@ -1,27 +1,38 @@
-from langchain_community.llms import Ollama
-from functools import lru_cache
+from langchain_ollama import OllamaLLM
+
+_llm_cache: dict = {}
 
 
-@lru_cache(maxsize=2)
-def get_llm(mode="rag"):
+def get_llm(mode: str = "rag"):
+    global _llm_cache
 
-    # LIGHT MODEL
+    if mode in _llm_cache:
+        return _llm_cache[mode]
+
     if mode == "summary":
-        return Ollama(
+        llm = OllamaLLM(
             model="phi3:mini",
             num_gpu=0,
-            num_thread=6,
-            num_ctx=1024,
-            num_predict=200,
-            temperature=0.2
+            num_thread=8,
+            num_ctx=2048,
+            num_predict=400,
+            temperature=0.2,
+        )
+    else:
+        llm = OllamaLLM(
+            model="phi3:mini",
+            num_gpu=0,
+            num_thread=8,
+            num_ctx=2048,
+            num_predict=500,
+            temperature=0.1,
         )
 
-    # HEAVY MODEL (USED RARELY)
-    return Ollama(
-        model="mistral:instruct",   # 🔥 NOT 7B (important)
-        num_gpu=0,
-        num_thread=6,
-        num_ctx=1536,
-        num_predict=300,
-        temperature=0.1
-    )
+    _llm_cache[mode] = llm
+    return llm
+
+
+def invalidate_llm_cache():
+    global _llm_cache
+    _llm_cache.clear()
+    print("LLM cache cleared")

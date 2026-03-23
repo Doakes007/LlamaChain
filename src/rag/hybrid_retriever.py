@@ -1,118 +1,100 @@
-from typing import List, Any
+from typing import List, Any, Optional
 from langchain.schema import Document, BaseRetriever
 from langchain_community.retrievers import BM25Retriever
+from pydantic import model_validator
 
 
 class HybridRetriever(BaseRetriever):
     """
-    Hybrid retriever combining:
-    - Vector search (ChromaDB)
-    - Keyword search (BM25)
+    Hybrid retriever: MMR vector search (ChromaDB) + BM25 keyword search.
+    Compatible with LangChain 0.3.x / Pydantic v2.
     """
 
+    # Pydantic v2: all fields declared at class level with types
     vectorstore: Any
-    vector_retriever: Any
-    bm25_retriever: Any
+    vector_retriever: Any = None
+    bm25_retriever: Any = None
     k: int = 15
+    _doc_count: int = 0
 
-
-    def __init__(self, vectorstore, k=15):
-
-        super().__init__()
-
-        self.vectorstore = vectorstore
-        self.k = k
-
-        # =====================================================
-        # VECTOR RETRIEVER
-        # =====================================================
-        # MMR improves diversity of retrieved chunks
-        # fetch_k increased to improve recall
-        self.vector_retriever = vectorstore.as_retriever(
+    # model_validator replaces __init__ for post-construction setup
+    @model_validator(mode="after")
+    def _setup(self) -> "HybridRetriever":
+        self.vector_retriever = self.vectorstore.as_retriever(
             search_type="mmr",
             search_kwargs={
-                "k": k,               # final docs returned
-                "fetch_k": 300,       # larger candidate pool
-                "lambda_mult": 0.7    # diversity vs similarity
-            }
+                "k": self.k,
+                "fetch_k": 80,
+                "lambda_mult": 0.55,
+            },
         )
+        self._rebuild_bm25()
+        return self
 
-        # =====================================================
-        # LOAD ALL DOCUMENTS FOR BM25
-        # =====================================================
-        docs = self._load_all_documents()
-
-        if len(docs) == 0:
-            self.bm25_retriever = None
-        else:
-            self.bm25_retriever = BM25Retriever.from_documents(docs)
-
-            # slightly larger keyword recall
-            self.bm25_retriever.k = 15
-
-
-    # =====================================================
-    # LOAD DOCUMENTS FROM VECTOR STORE
-    # =====================================================
-    def _load_all_documents(self):
-
+    # --------------------------------------------------
+    def _load_all_documents(self) -> List[Document]:
         results = self.vectorstore.get()
-
         docs = []
-
-        documents = results.get("documents", [])
-        metadatas = results.get("metadatas", [])
-
-        for content, metadata in zip(documents, metadatas):
-
-            docs.append(
-                Document(
-                    page_content=content,
-                    metadata=metadata
-                )
-            )
-
+        for content, metadata in zip(
+            results.get("documents", []),
+            results.get("metadatas", []),
+        ):
+            if content and content.strip():
+                docs.append(Document(page_content=content, metadata=metadata or {}))
         return docs
 
+    def _rebuild_bm25(self):
+        docs = self._load_all_documents()
+        self._doc_count = len(docs)
+        if docs:
+            self.bm25_retriever = BM25Retriever.from_documents(docs)
+            self.bm25_retriever.k = self.k
+        else:
+            self.bm25_retriever = None
 
-    # =====================================================
-    # MERGE VECTOR + BM25 RESULTS
-    # =====================================================
-    def _merge_results(self, vector_docs, keyword_docs):
+    def _maybe_rebuild_bm25(self):
+        """Rebuild BM25 index if new documents were added since last build."""
+        try:
+            results = self.vectorstore.get()
+            current_count = len(results.get("documents", []))
+            if current_count != self._doc_count:
+                print(f"BM25: rebuilding ({self._doc_count} → {current_count} docs)")
+                self._rebuild_bm25()
+        except Exception as e:
+            print(f"BM25 rebuild check failed: {e}")
 
+    def _merge_results(self, vector_docs, keyword_docs) -> List[Document]:
         seen = set()
         merged = []
-
-        # prioritize semantic results first
         for doc in vector_docs:
-
-            if doc.page_content not in seen:
+            key = doc.page_content[:120]
+            if key not in seen:
                 merged.append(doc)
-                seen.add(doc.page_content)
-
-        # add keyword results if new
+                seen.add(key)
         for doc in keyword_docs:
-
-            if doc.page_content not in seen:
+            key = doc.page_content[:120]
+            if key not in seen:
                 merged.append(doc)
-                seen.add(doc.page_content)
+                seen.add(key)
+        return merged[: self.k]
 
-        return merged[:self.k]
-
-
-    # =====================================================
-    # MAIN RETRIEVAL FUNCTION
-    # =====================================================
+    # LangChain 0.3.x requires _get_relevant_documents
     def _get_relevant_documents(self, query: str) -> List[Document]:
+        self._maybe_rebuild_bm25()
 
-        # semantic vector search
-        vector_docs = self.vector_retriever.get_relevant_documents(query)
+        try:
+            vector_docs = self.vector_retriever.invoke(query)
+        except Exception as e:
+            print(f"Vector retrieval failed: {e}")
+            vector_docs = []
 
         if self.bm25_retriever is None:
-            return vector_docs[:self.k]
+            return vector_docs[: self.k]
 
-        # keyword retrieval
-        keyword_docs = self.bm25_retriever.get_relevant_documents(query)
+        try:
+            keyword_docs = self.bm25_retriever.invoke(query)
+        except Exception as e:
+            print(f"BM25 retrieval failed: {e}")
+            keyword_docs = []
 
-        # merge both results
         return self._merge_results(vector_docs, keyword_docs)
