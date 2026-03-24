@@ -379,3 +379,132 @@ def ask_question(chain, query):
             answer += f"\n\n![image]({clean_path})"
 
     return answer
+
+
+# =========================================================
+# DOCUMENT COMPARISON
+# =========================================================
+COMPARE_PROMPT = PromptTemplate(
+    input_variables=["context", "doc_names"],
+    template="""You are comparing multiple documents. Use ONLY the provided context.
+
+DOCUMENTS BEING COMPARED: {doc_names}
+
+RULES:
+- For each point, clearly state which document it comes from.
+- Do NOT use any external knowledge.
+- Be specific and factual.
+- If a feature exists in one doc but not another, say "Not mentioned in [doc name]."
+
+FORMAT:
+
+**Overview:**
+[1-2 sentences describing what each document is about]
+
+**Similarities:**
+- [similarity point, citing both documents]
+
+**Differences:**
+| Aspect | {doc_names} |
+|--------|-------------|
+| [aspect] | [doc1 value] | [doc2 value] |
+
+**Unique to each document:**
+- [doc name]: [unique point]
+
+CONTEXT:
+{context}
+
+ANSWER:"""
+)
+
+
+def compare_documents(vectorstore, doc_names: list, aspect: str = ""):
+    """
+    Compare selected documents on all aspects or a specific aspect.
+    doc_names: list of source filenames e.g. ["R1.pdf", "R2.pdf"]
+    aspect: optional specific aspect to compare e.g. "methodology"
+    """
+    from llm import get_llm
+
+    if len(doc_names) < 2:
+        return "Please select at least 2 documents to compare."
+
+    # Retrieve chunks from each selected document
+    all_chunks = []
+    for doc_name in doc_names:
+        try:
+            results = vectorstore.get(
+                where={"source": doc_name},
+                include=["documents", "metadatas"]
+            )
+            docs_text = results.get("documents", [])
+            metas = results.get("metadatas", [])
+
+            # Take top chunks — mix of early and late pages for coverage
+            text_chunks = [
+                (d, m) for d, m in zip(docs_text, metas)
+                if m.get("chunk_type") == "text"
+            ]
+
+            # Take up to 3 chunks per document to stay within context
+            selected = text_chunks[:3]
+            for d, m in selected:
+                all_chunks.append(
+                    f"[{doc_name} - Page {m.get('page', '?')}]:\n{d[:600]}"
+                )
+        except Exception as e:
+            print(f"Failed to get chunks for {doc_name}: {e}")
+
+    if not all_chunks:
+        return "No content found for the selected documents."
+
+    context = "\n\n".join(all_chunks)
+
+    # Truncate context to fit in num_ctx=2048
+    if len(context) > 4000:
+        context = context[:4000]
+
+    doc_names_str = " vs ".join(doc_names)
+
+    if aspect:
+        question = f"Compare the documents on: {aspect}"
+        context = f"ASPECT TO COMPARE: {aspect}\n\n{context}"
+
+    prompt = COMPARE_PROMPT.format(
+        context=context,
+        doc_names=doc_names_str
+    )
+
+    answer = ""
+    try:
+        llm = get_llm(mode="rag")
+        answer = llm.invoke(prompt)
+        if hasattr(answer, "content"):
+            answer = answer.content
+        answer = str(answer).strip()
+    except Exception as e:
+        print(f"Comparison LLM failed: {e}")
+        return f"Comparison failed: {e}"
+
+    if not answer or len(answer) < 30:
+        return "Not enough content to generate a comparison."
+
+    # Add sources footer
+    answer += f"\n\n**Documents compared:** {', '.join(doc_names)}"
+    return answer
+
+
+def get_indexed_documents(vectorstore) -> list:
+    """Returns list of unique document source names in ChromaDB."""
+    try:
+        results = vectorstore.get(include=["metadatas"])
+        sources = set()
+        for meta in results.get("metadatas", []):
+            src = meta.get("source")
+            if src:
+                sources.add(src)
+        return sorted(list(sources))
+    except Exception as e:
+        print(f"Failed to get indexed documents: {e}")
+        return []

@@ -20,7 +20,7 @@ from src.rag.summarizer import (
     per_doc_from_base,
     topic_from_base,
 )
-from src.rag.rag_query import build_retrieval_chain, ask_question
+from src.rag.rag_query import build_retrieval_chain, ask_question, compare_documents, get_indexed_documents
 from src.core.loader import load_documents
 from src.core.text_splitter import split_documents
 from src.core.embed_store import embed_and_store
@@ -188,6 +188,52 @@ if st.sidebar.button("Topic-wise Summary"):
             )
     else:
         st.sidebar.warning("Index documents first.")
+
+
+# =====================================================
+# DOCUMENT COMPARISON
+# =====================================================
+st.sidebar.divider()
+st.sidebar.subheader("Compare Documents")
+
+indexed_docs = get_indexed_documents(vectorstore)
+
+if not indexed_docs:
+    st.sidebar.caption("Index documents first to enable comparison.")
+else:
+    selected_docs = st.sidebar.multiselect(
+        "Select documents to compare (min 2):",
+        options=indexed_docs,
+        default=indexed_docs[:2] if len(indexed_docs) >= 2 else indexed_docs,
+        key="compare_select"
+    )
+
+    compare_aspect = st.sidebar.text_input(
+        "Aspect to compare (optional):",
+        placeholder="e.g. methodology, accuracy, architecture",
+        key="compare_aspect"
+    )
+
+    if st.sidebar.button("Compare Selected Documents"):
+        if len(selected_docs) < 2:
+            st.sidebar.warning("Select at least 2 documents.")
+        else:
+            with st.spinner(f"Comparing {', '.join(selected_docs)}..."):
+                comparison_result = compare_documents(
+                    vectorstore,
+                    selected_docs,
+                    aspect=compare_aspect.strip() if compare_aspect else ""
+                )
+            st.session_state.summaries["comparison"] = {
+                "result": comparison_result,
+                "docs": selected_docs
+            }
+
+if "comparison" in st.session_state.summaries:
+    comp = st.session_state.summaries["comparison"]
+    st.subheader(f"Document Comparison: {' vs '.join(comp['docs'])}")
+    st.markdown(comp["result"])
+    st.divider()
 
 
 # =====================================================
