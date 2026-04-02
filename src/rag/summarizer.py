@@ -3,7 +3,6 @@ from typing import Dict, List
 import hashlib
 import re
 import numpy as np
-from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from langchain.schema import Document
 from langchain.prompts import PromptTemplate
@@ -14,41 +13,27 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 from llm import get_llm
 from src.core.loader import load_documents
+import torch
 
 
 # ====================================================
-# EMBEDDING MODEL
+# DEVICE SETUP (NEW)
 # ====================================================
-embedder = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2", device="cpu")
+device = "cuda" if torch.cuda.is_available() else "cpu"
+
+
+# ====================================================
+# EMBEDDING MODEL (GPU ENABLED)
+# ====================================================
+embedder = SentenceTransformer(
+    "sentence-transformers/all-MiniLM-L6-v2",
+    device=device
+)
 
 
 # ====================================================
 # PROMPTS
 # ====================================================
-CHUNK_SUMMARY_PROMPT = PromptTemplate(
-    input_variables=["text"],
-    template="""Summarize the following technical content clearly and concisely.
-Preserve important technical terms and concepts.
-Do NOT add information that is not in the text.
-Write in complete sentences.
-
-TEXT:
-{text}
-
-SUMMARY:"""
-)
-
-MERGE_SUMMARY_PROMPT = PromptTemplate(
-    input_variables=["text"],
-    template="""Combine the following summaries into one coherent, non-redundant summary.
-Preserve all key ideas. Write in flowing paragraphs.
-
-SUMMARIES:
-{text}
-
-COMBINED SUMMARY:"""
-)
-
 FINAL_BULLET_PROMPT = PromptTemplate(
     input_variables=["text"],
     template="""Convert this text into clean, informative bullet points.
@@ -74,7 +59,7 @@ Topic: <short title>
 - Key point from the text
 - Key point from the text
 
-Use ONLY information from the text. Do NOT invent topics.
+Use ONLY information from the text.
 
 TEXT:
 {text}
@@ -95,29 +80,13 @@ def _hash_paths(paths: tuple) -> str:
 
 
 def _format_bullets(text: str) -> str:
-    """Convert LLM bullet output to clean markdown bullets."""
     lines = []
     for line in text.split("\n"):
         line = line.strip()
-        # Normalize bullet markers
         line = re.sub(r'^[•*\-–]\s*', '', line)
         if len(line) > 20:
             lines.append(f"- {line}")
     return "\n".join(lines) if lines else text
-
-
-def remove_duplicate_sentences(text: str) -> str:
-    seen = set()
-    output = []
-    for sentence in re.split(r'(?<=[.?!])\s+', text):
-        sentence = sentence.strip()
-        if len(sentence) < 20:
-            continue
-        key = re.sub(r'\s+', ' ', sentence.lower())
-        if key not in seen:
-            seen.add(key)
-            output.append(sentence)
-    return " ".join(output)
 
 
 # ====================================================
@@ -146,72 +115,49 @@ def cached_embedding(sentence: str):
 
 
 # ====================================================
-# KEY SENTENCE EXTRACTION
+# KEY SENTENCE EXTRACTION (UNCHANGED - GOOD LOGIC)
 # ====================================================
 def extract_key_sentences(text: str, top_k: int = 5) -> List[str]:
-    sentences = [s.strip() for s in re.split(r'(?<=[.?!])\s+', text) if len(s.strip()) > 40]
+    sentences = [
+        s.strip()
+        for s in re.split(r'(?<=[.?!])\s+', text)
+        if len(s.strip()) > 40
+    ]
+
     if len(sentences) <= top_k:
         return sentences
+
     embeddings = np.array([cached_embedding(s) for s in sentences])
     centroid = np.mean(embeddings, axis=0)
+
     scores = cosine_similarity([centroid], embeddings)[0]
+
     ranked = sorted(zip(sentences, scores), key=lambda x: x[1], reverse=True)
+
     return [s for s, _ in ranked[:top_k]]
 
 
 # ====================================================
-# CHUNK SUMMARIZATION
+# 🔥 NEW: FAST CHUNK COMPRESSION (NO LLM)
 # ====================================================
-def summarize_chunk(llm, text: str) -> str:
-    key_sentences = extract_key_sentences(text, top_k=5)
-    compressed_text = " ".join(key_sentences)
-    prompt = CHUNK_SUMMARY_PROMPT.format(text=compressed_text)
-    return safe_llm_call(llm, prompt, fallback="[chunk summary unavailable]")
+def compress_chunks(chunks: List[Document]) -> str:
+    compressed = []
 
+    for c in chunks[:15]:  # limit chunks for speed
+        key_sentences = extract_key_sentences(c.page_content, top_k=3)
+        compressed.append(" ".join(key_sentences))
 
-# ====================================================
-# PARALLEL CHUNK SUMMARIZATION  (FIX: captures exceptions per chunk)
-# ====================================================
-def summarize_chunks_parallel(llm, chunks: List[Document]) -> List[str]:
-    summaries = [""] * len(chunks)
-
-    def worker(idx, chunk):
-        try:
-            return idx, summarize_chunk(llm, chunk.page_content)
-        except Exception as e:
-            print(f"Chunk {idx} summarization failed: {e}")
-            return idx, "[chunk summary failed]"
-
-    with ThreadPoolExecutor(max_workers=3) as executor:
-        futures = {executor.submit(worker, i, c): i for i, c in enumerate(chunks)}
-        for future in as_completed(futures):
-            try:
-                idx, summary = future.result()
-                summaries[idx] = summary
-            except Exception as e:
-                print(f"Future failed: {e}")
-
-    return [s for s in summaries if s]
+    return "\n\n".join(compressed)
 
 
 # ====================================================
-# MERGE SUMMARIES
-# ====================================================
-def merge_summaries(llm, summaries: List[str]) -> str:
-    combined = "\n\n".join(summaries)
-    combined = remove_duplicate_sentences(combined)
-    prompt = MERGE_SUMMARY_PROMPT.format(text=combined[:3000])
-    return safe_llm_call(llm, prompt)
-
-
-# ====================================================
-# BASE SUMMARIES  (FIX: hash uses sorted paths, higher chunk limit)
+# 🔥 BASE SUMMARIES (OPTIMIZED)
 # ====================================================
 @lru_cache(maxsize=8)
 def _cached_base_summaries(doc_hash: str, doc_paths: tuple) -> Dict[str, str]:
     docs = load_documents(list(doc_paths))
 
-    # Skip image chunks for summarization
+    # Skip images
     docs = [d for d in docs if d.metadata.get("chunk_type") != "image"]
 
     llm = get_llm(mode="summary")
@@ -222,16 +168,24 @@ def _cached_base_summaries(doc_hash: str, doc_paths: tuple) -> Dict[str, str]:
         grouped.setdefault(d.metadata.get("source", "unknown"), []).append(d)
 
     base_summaries = {}
+
     for source, documents in grouped.items():
         chunks = splitter.split_documents(documents)
-        chunks = chunks[:20]  # FIX: increased from 10 to cover more content
 
-        chunk_summaries = summarize_chunks_parallel(llm, chunks)
-        if not chunk_summaries:
-            base_summaries[source] = "Summary unavailable."
-            continue
+        # 🔥 NEW: NO MAP-REDUCE
+        compressed_text = compress_chunks(chunks)
 
-        final_summary = merge_summaries(llm, chunk_summaries)
+        prompt = f"""
+Summarize the following technical content clearly and concisely.
+Preserve important concepts and terminology.
+
+{compressed_text[:3000]}
+
+SUMMARY:
+"""
+
+        final_summary = safe_llm_call(llm, prompt)
+
         base_summaries[source] = final_summary.strip()
 
     return base_summaries
@@ -242,31 +196,41 @@ def get_base_summaries(doc_paths: tuple) -> Dict[str, str]:
 
 
 # ====================================================
-# DERIVED SUMMARIES
+# DERIVED SUMMARIES (UNCHANGED INTERFACE)
 # ====================================================
 def combined_from_base(base_summaries: Dict[str, str]) -> str:
     llm = get_llm(mode="summary")
+
     combined = "\n\n".join(base_summaries.values())[:3000]
+
     prompt = FINAL_BULLET_PROMPT.format(text=combined)
+
     raw = safe_llm_call(llm, prompt)
+
     return _format_bullets(raw)
 
 
 def per_doc_from_base(base_summaries: Dict[str, str]) -> Dict[str, str]:
     llm = get_llm(mode="summary")
+
     out = {}
+
     for src, text in base_summaries.items():
         prompt = FINAL_BULLET_PROMPT.format(text=text[:2000])
         raw = safe_llm_call(llm, prompt)
         out[src] = _format_bullets(raw)
+
     return out
 
 
 def topic_from_base(base_summaries: Dict[str, str]) -> Dict[str, str]:
     llm = get_llm(mode="summary")
+
     out = {}
+
     for src, text in base_summaries.items():
         prompt = TOPIC_EXTRACTION_PROMPT.format(text=text[:2000])
         raw = safe_llm_call(llm, prompt)
         out[src] = raw.strip()
+
     return out

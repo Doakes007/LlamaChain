@@ -9,22 +9,25 @@ def get_llm(mode: str = "rag"):
     if mode in _llm_cache:
         return _llm_cache[mode]
 
+    # 🔥 BEST MODEL CHOICE
+    model_name = "mistral:7b-instruct"
+
     if mode == "summary":
         llm = OllamaLLM(
-            model="phi3:mini",
+            model=model_name,
             num_gpu=0,
             num_thread=8,
-            num_ctx=2048,
-            num_predict=400,
+            num_ctx=1536,   # 🔥 reduced (faster)
+            num_predict=300,
             temperature=0.2,
         )
     else:
         llm = OllamaLLM(
-            model="phi3:mini",
+            model=model_name,
             num_gpu=0,
             num_thread=8,
-            num_ctx=2048,
-            num_predict=500,
+            num_ctx=1536,
+            num_predict=400,
             temperature=0.1,
         )
 
