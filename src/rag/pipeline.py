@@ -183,12 +183,23 @@ def retrieve_images_by_clip(vectorstore, query, top_k=3):
                 img_embedding = img_features.cpu().numpy()[0]
                 img_embedding = img_embedding / np.linalg.norm(img_embedding)
                 
+                # CLIP score
                 clip_score = cosine_similarity(
                     [query_embedding], [img_embedding]
                 )[0][0]
+
+                source = img_dict["metadata"].get("source", "").lower()
+
+                # Generic boost (NOT hardcoded to R1/R2)
+                if any(k in query.lower() for k in ["pipeline", "workflow", "process"]):
+                    if "pipeline" in img_dict["content"].lower():
+                        clip_score += 0.10
+
+                final_score = clip_score
+                
                 
                 print(f"    🎯 CLIP score: {clip_score:.4f}")
-                image_scores.append((clip_score, img_dict))
+                image_scores.append((final_score, img_dict))
                 
             except Exception as e:
                 print(f"    ❌ Error processing: {e}")
@@ -202,15 +213,25 @@ def retrieve_images_by_clip(vectorstore, query, top_k=3):
         
         # Sort by score and return top-k
         image_scores.sort(key=lambda x: x[0], reverse=True)
+
+        seen = set()
+        results = []
+
+        for score, img_dict in image_scores:
+            path = img_dict["metadata"].get("image_path")
+
+            if path not in seen:
+                seen.add(path)
+                results.append({
+                    "content": img_dict["content"],
+                    "metadata": img_dict["metadata"]
+                })
+
+            if len(results) == top_k:
+                break
+
+        return results
         
-        print(f"\n📌 Top {min(top_k, len(image_scores))} images by CLIP score:")
-        for i, (score, doc) in enumerate(image_scores[:top_k]):
-            print(f"  {i+1}. Score: {score:.4f} | Source: {doc['metadata'].get('source')}")
-        
-        result = [doc for _, doc in image_scores[:top_k]]
-        print(f"\n✅ Returning {len(result)} images\n")
-        
-        return result
         
     except Exception as e:
         print(f"\n❌ Image retrieval failed: {e}")
@@ -228,17 +249,17 @@ def build_interleaved_context(docs):
     image_paths = []
     context_parts = []
     
-    # Sort docs by metadata to interleave properly
     sorted_docs = sorted(docs, key=lambda d: (
-        d.metadata.get("chunk_type") != "image",  # images first
-        -len(d.page_content)  # then by length (longer first)
+        d.metadata.get("chunk_type") != "image",
+        d.metadata.get("page", 0)
     ))
     
     for d in sorted_docs:
         chunk_type = d.metadata.get("chunk_type")
         content = d.page_content.strip()
         
-        if len(content) < 50:
+        # ✅ DO NOT SKIP IMAGES EVEN IF SHORT
+        if len(content) < 50 and chunk_type != "image":
             continue
         
         if "no readable text" in content.lower() and chunk_type != "image":
@@ -404,20 +425,32 @@ def ask_question(chain, query):
     retriever = chain["retriever"]
     vectorstore = chain.get("vectorstore")
     clear_ce_cache()
+    # =========================
+    # FIXED PIPELINE SECTION
+    # =========================
 
     docs = retriever.invoke(expand_query(query))
 
-    # ✅ HYBRID: Text retrieval + CLIP image retrieval
-    image_docs = retrieve_images_by_clip(vectorstore, query, top_k=3) if vectorstore else []
-    text_docs = [d for d in docs if d.metadata.get("chunk_type") != "image"]
-    
-    # Merge: text from traditional retrieval + images from CLIP
-    if image_docs:
-        # Convert image_docs dicts back to Document objects
-        image_docs_converted = [Document(page_content=d["content"], metadata=d["metadata"]) for d in image_docs[:2]]
-        docs = text_docs[:8] + image_docs_converted
-    else:
-        docs = text_docs[:10]
+    # ✅ FIX 1: Correct order
+    clip_images = retrieve_images_by_clip(vectorstore, query, top_k=3) if vectorstore else []
+
+    # ✅ FIX 2: Correct conversion
+    image_docs = []
+    for img in clip_images:
+
+        image_docs.append(
+            Document(
+                page_content=img["content"],
+                metadata={
+                **img["metadata"],
+                "chunk_type": "image"   # ✅ CRITICAL FIX
+                }
+            )
+        )
+
+    # ✅ FIX 3: NO duplicate call (removed)
+
+    docs.extend(image_docs)
 
     # Source filtering
     query_type = detect_query_source(query)
@@ -460,19 +493,24 @@ def ask_question(chain, query):
     vis_query = is_visual_query(query)
     if vis_query:
         # Smart image selection (best, not first)
-        images = sorted(
-            [d for d in reranked_docs if d.metadata.get("chunk_type") == "image"],
-            key=lambda d: get_ce_score(query, d.page_content),
-            reverse=True
-        )
+        images = [d for d in reranked_docs if d.metadata.get("chunk_type") == "image"]
         texts = [d for d in reranked_docs if d.metadata.get("chunk_type") != "image"]
-        reranked_docs = images[:2] + texts
+        reranked_docs = images[:2] + texts[:3]
 
-    # Always include 1–2 images
-    images = [d for d in reranked_docs if d.metadata.get("chunk_type") == "image"]
+    seen_paths = set()
+    unique_images = []
+
+    for d in reranked_docs:
+        if d.metadata.get("chunk_type") == "image":
+            path = d.metadata.get("image_path")
+            if path not in seen_paths:
+                seen_paths.add(path)
+                unique_images.append(d)
+
     texts = [d for d in reranked_docs if d.metadata.get("chunk_type") != "image"]
 
-    filtered_docs = texts[:3] + images[:2]
+    filtered_docs = texts[:3] + unique_images[:2]
+
     if not filtered_docs:
         filtered_docs = reranked_docs[: max(3, min(6, len(reranked_docs)))]
 
@@ -483,9 +521,6 @@ def ask_question(chain, query):
         context_parts = context.split("\n\n")
         context = "\n\n".join(context_parts[:8])
 
-    # Figure check
-    if is_show_figure_query(query) and len(image_paths) == 0:
-        return "No relevant figure found.", []
 
     # Use appropriate prompt
     if is_visual_query(query) and image_paths:
@@ -559,6 +594,12 @@ def ask_question(chain, query):
         conf = "Low"
 
     answer += f"\n\n*Confidence: {conf}*"
+
+    image_paths = [
+        d.metadata.get("image_path")
+        for d in filtered_docs
+        if d.metadata.get("chunk_type") == "image"
+    ]
 
     return answer, image_paths
 

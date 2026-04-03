@@ -104,13 +104,17 @@ class HybridRetriever(BaseRetriever):
         merged = []
 
         for doc in vector_docs:
-            key = doc.page_content[:120]
+            key = doc.metadata.get("image_path") or (
+                doc.page_content[:120] + doc.metadata.get("source","") + str(doc.metadata.get("page",""))
+            )
             if key not in seen:
                 merged.append(doc)
                 seen.add(key)
 
         for doc in keyword_docs:
-            key = doc.page_content[:120]
+            key = doc.metadata.get("image_path") or (
+                doc.page_content[:120] + doc.metadata.get("source","") + str(doc.metadata.get("page",""))
+            )
             if key not in seen:
                 merged.append(doc)
                 seen.add(key)

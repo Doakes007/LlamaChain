@@ -51,12 +51,7 @@ def encode_query_clip(query):
 
 
 def is_image_relevant(query, doc):
-    """Loose relevance - let CLIP handle precision"""
-    content = doc.page_content.lower()
-    query = query.lower()
-    
-    # Keep it simple - any word match is relevant enough
-    return any(word in content for word in query.split() if len(word) > 2)
+    return True  # Let CLIP handle everything
 
 
 # ✅ GAP 3: Add visual query detection
@@ -75,7 +70,7 @@ def multimodal_rerank(query, docs, top_k=5):
     if not docs:
         return []
 
-    docs = docs[:10]  # Early limit to reduce CE calls
+    docs = docs[:15] # Early limit to reduce CE calls
 
     pairs = [(query, d.page_content[:800]) for d in docs]
     ce_scores = get_reranker().predict(pairs)
@@ -91,7 +86,7 @@ def multimodal_rerank(query, docs, top_k=5):
     final_scores = []
 
     for doc, ce_score in zip(docs, ce_scores):
-        final_score = float(ce_score) * 0.7
+        final_score = float(ce_score)
         content = doc.page_content.lower()
 
         # Intent-aware boosting
@@ -124,6 +119,7 @@ def multimodal_rerank(query, docs, top_k=5):
         elif domain == "vision" and ("cnn" in source or "image" in source):
             final_score += 0.2
 
+
         # IMAGE HANDLING (FULLY UPGRADED)
         if doc.metadata.get("chunk_type") == "image":
             try:
@@ -151,17 +147,9 @@ def multimodal_rerank(query, docs, top_k=5):
                             clip_score = cosine_similarity(
                                 [query_clip_embedding], [img_embedding]
                             )[0][0]
-
-                            # ✅ GAP 2: QUERY-AWARE weighting
-                            if intent == "explanation":
-                                alpha = 0.7  # text more important
-                            elif is_vis_query:
-                                alpha = 0.4  # image more important
-                            else:
-                                alpha = 0.6  # balanced
                             
-                            final_score = (alpha * ce_score) + ((1 - alpha) * clip_score)
-                            final_score += 0.15  # Base image boost
+                            # SIMPLE + STABLE (NO HYBRID)
+                            final_score = (clip_score * 0.8) + (float(ce_score) * 0.2)
 
                         except Exception as e:
                             print("CLIP error:", e)
