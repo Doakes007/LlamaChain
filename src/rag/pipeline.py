@@ -1,304 +1,179 @@
 import os
-import re
 import numpy as np
-from collections import defaultdict
 from functools import lru_cache
+from collections import defaultdict
 from langchain.prompts import PromptTemplate
 
-from .intent import classify_query_intent, detect_query_domain, detect_query_source
-from .rerank import multimodal_rerank, get_ce_score, clear_ce_cache, get_reranker, encode_query_clip
+from .rerank import multimodal_rerank, get_ce_score, clear_ce_cache, encode_query_clip
 from .grounding import is_answer_grounded_semantic, is_answer_uncertain
-from .prioritization import prioritize_conclusion_chunks
 from src.rag.hybrid_retriever import HybridRetriever
 
-
-# ✅ FIX: CACHED CLIP LOADER (GLOBAL)
+# =====================================================
+# CLIP LOADER (CACHED)
+# =====================================================
 @lru_cache(maxsize=1)
 def get_clip():
-    """Load CLIP once and cache it"""
     import torch
     import open_clip
-    
+
+    # FIX: Corrected torch.callback to torch.cuda
     device = "cuda" if torch.cuda.is_available() else "cpu"
-    
-    clip_model, _, clip_preprocess = open_clip.create_model_and_transforms(
+    model, _, preprocess = open_clip.create_model_and_transforms(
         "ViT-B-32", pretrained="openai"
     )
-    
-    clip_model = clip_model.to(device)
-    clip_model.eval()
-    
-    return clip_model, clip_preprocess, device
+    return model.to(device).eval(), preprocess, device
 
 
+# =====================================================
+# QUERY TYPE DETECTION
+# =====================================================
+def detect_query_type(query: str):
+    q = query.lower()
+
+    if any(w in q for w in ["compare", "difference", "vs", "similarities"]):
+        return "comparison"
+    elif any(w in q for w in ["why", "how", "reason", "analyze"]):
+        return "analytical"
+    elif any(w in q for w in ["diagram", "architecture", "flow", "structure"]):
+        return "visual"
+    else:
+        return "factual"
+
+
+# =====================================================
+# QUERY EXPANSION
+# =====================================================
 def expand_query(query):
-    """Expand query with relevant synonyms"""
     query_lower = query.lower()
+
     expansions = {
         "diagram": "figure chart graph illustration visualization",
         "architecture": "system design structure framework components",
         "pipeline": "workflow process methodology steps preprocessing",
         "table": "data values rows columns dataset",
-        "explain": "describe detail understanding",
-        "compare": "difference versus similar",
     }
+
     expanded = query
-    for key, expansion in expansions.items():
+    for key, val in expansions.items():
         if key in query_lower:
-            expanded += " " + expansion
+            expanded += " " + val
+
     return expanded
 
 
-def is_visual_query(query):
-    """Detect if query is about visual/structural content"""
-    visual_words = [
-        "architecture", "diagram", "flow", "pipeline",
-        "structure", "model", "system design", "working",
-        "how", "show", "display", "visualize", "layout",
-        "framework", "process", "step", "workflow"
-    ]
-    return any(w in query.lower() for w in visual_words)
-
-
-def is_figure_query(query):
-    """Detect figure queries - simplified, no blocking"""
-    q = query.lower()
-    
-    figure_keywords = [
-        "figure", "diagram", "architecture", "flowchart",
-        "pipeline", "visual", "show", "display", "illustration",
-        "structure", "layout", "flow", "image", "chart", "graph"
-    ]
-    
-    return any(k in q for k in figure_keywords)
-
-
-def is_show_figure_query(query):
-    return "show" in query.lower() and is_figure_query(query)
-
-
-# ✅ DIAGNOSTIC: Check vectorstore contents
-def diagnose_vectorstore(vectorstore):
-    """Debug: show what's actually in vectorstore"""
-    res = vectorstore.get(include=["documents", "metadatas"])
-    
-    print("\n" + "="*60)
-    print("🔍 VECTORSTORE DIAGNOSIS")
-    print("="*60)
-    print(f"Total documents: {len(res.get('documents', []))}")
-    
-    image_count = 0
-    text_count = 0
-    
-    for doc, meta in zip(res.get("documents", []), res.get("metadatas", [])):
-        chunk_type = meta.get("chunk_type", "unknown")
-        source = meta.get("source", "unknown")
-        
-        if chunk_type == "image":
-            image_count += 1
-            image_path = meta.get("image_path", "NO PATH")
-            exists = "✅" if os.path.exists(os.path.abspath(image_path)) else "❌"
-            print(f"  IMAGE #{image_count} | Source: {source} | Path exists: {exists}")
-            print(f"    Path: {image_path}")
-        else:
-            text_count += 1
-    
-    print(f"\n📊 Summary: {image_count} images, {text_count} text chunks")
-    print("="*60 + "\n")
-    
-    return image_count > 0
-
-
-# ✅ FIX: CLIP-BASED IMAGE RETRIEVAL (WITH DIAGNOSTICS)
+# =====================================================
+# IMAGE RETRIEVAL (CLIP)
+# =====================================================
 def retrieve_images_by_clip(vectorstore, query, top_k=3):
-    """
-    Retrieve images using CLIP embeddings.
-    This is more reliable than text-based retrieval for images.
-    """
     try:
-        import torch
         from PIL import Image
         from sklearn.metrics.pairwise import cosine_similarity
-        
-        print(f"\n🔎 Starting CLIP image retrieval for query: '{query}'")
-        
-        # ✅ DIAGNOSTIC: Check vectorstore
-        has_images = diagnose_vectorstore(vectorstore)
-        
-        if not has_images:
-            print("⚠️  No images found in vectorstore!")
-            return []
-        
-        # Get cached CLIP
-        print("📦 Loading CLIP model...")
-        clip_model, clip_preprocess, device = get_clip()
-        print(f"✅ CLIP loaded on device: {device}")
-        
-        # Get all documents
+        import torch
+
+        model, preprocess, device = get_clip()
         res = vectorstore.get(include=["documents", "metadatas"])
-        
+
         image_candidates = []
-        
-        for content, metadata in zip(res.get("documents", []), res.get("metadatas", [])):
-            if metadata.get("chunk_type") == "image":
-                image_candidates.append({
-                    "content": content,
-                    "metadata": metadata
-                })
-        
-        print(f"📊 Found {len(image_candidates)} image candidates")
-        
+
+        for content, metadata in zip(
+            res.get("documents", []), res.get("metadatas", [])
+        ):
+            if metadata.get("chunk_type") != "image":
+                continue
+
+            if "render" in metadata.get("image_path", "").lower():
+                continue
+
+            image_candidates.append({"content": content, "metadata": metadata})
+
         if not image_candidates:
-            print("⚠️  No image candidates after filtering!")
             return []
-        
-        # Encode query with CLIP
-        print("🧠 Encoding query with CLIP...")
-        query_embedding = encode_query_clip(query)
-        print(f"✅ Query embedding shape: {query_embedding.shape}")
-        
-        # Score each image
-        image_scores = []
-        
-        for idx, img_dict in enumerate(image_candidates):
-            image_path = img_dict["metadata"].get("image_path", "")
-            abs_path = os.path.abspath(image_path)
-            
-            print(f"\n  [{idx+1}/{len(image_candidates)}] Processing: {os.path.basename(image_path)}")
-            
-            if not os.path.exists(abs_path):
-                print(f"    ❌ Path doesn't exist: {abs_path}")
+
+        q_emb = encode_query_clip(query)
+        q_emb /= np.linalg.norm(q_emb)
+
+        scored = []
+
+        for img in image_candidates:
+            path = os.path.abspath(img["metadata"].get("image_path", ""))
+
+            if not os.path.exists(path):
                 continue
-            
+
             try:
-                print(f"    📂 Opening image...")
-                image = Image.open(abs_path).convert("RGB")
-                print(f"    ✅ Image loaded: {image.size}")
-                
-                img_tensor = clip_preprocess(image).unsqueeze(0).to(device)
-                
+                pixel = preprocess(Image.open(path).convert("RGB")).unsqueeze(0).to(device)
+
                 with torch.no_grad():
-                    img_features = clip_model.encode_image(img_tensor)
-                
-                img_embedding = img_features.cpu().numpy()[0]
-                img_embedding = img_embedding / np.linalg.norm(img_embedding)
-                
-                # CLIP score
-                clip_score = cosine_similarity(
-                    [query_embedding], [img_embedding]
-                )[0][0]
+                    emb = model.encode_image(pixel).cpu().numpy()[0]
 
-                source = img_dict["metadata"].get("source", "").lower()
+                emb /= np.linalg.norm(emb)
 
-                # Generic boost (NOT hardcoded to R1/R2)
-                if any(k in query.lower() for k in ["pipeline", "workflow", "process"]):
-                    if "pipeline" in img_dict["content"].lower():
-                        clip_score += 0.10
+                score = cosine_similarity([q_emb], [emb])[0][0]
+                scored.append((score, img))
 
-                final_score = clip_score
-                
-                
-                print(f"    🎯 CLIP score: {clip_score:.4f}")
-                image_scores.append((final_score, img_dict))
-                
-            except Exception as e:
-                print(f"    ❌ Error processing: {e}")
+            except:
                 continue
-        
-        print(f"\n📈 Successfully scored {len(image_scores)} images")
-        
-        if not image_scores:
-            print("⚠️  No images were successfully scored!")
-            return []
-        
-        # Sort by score and return top-k
-        image_scores.sort(key=lambda x: x[0], reverse=True)
 
-        seen = set()
-        results = []
+        if not scored:
+            return image_candidates[:top_k]
 
-        for score, img_dict in image_scores:
-            path = img_dict["metadata"].get("image_path")
+        scored.sort(key=lambda x: x[0], reverse=True)
 
-            if path not in seen:
-                seen.add(path)
-                results.append({
-                    "content": img_dict["content"],
-                    "metadata": img_dict["metadata"]
-                })
+        return [d for _, d in scored[:top_k]]
 
-            if len(results) == top_k:
-                break
-
-        return results
-        
-        
-    except Exception as e:
-        print(f"\n❌ Image retrieval failed: {e}")
-        import traceback
-        traceback.print_exc()
+    except Exception:
         return []
 
 
-# ✅ FIX 2: INTERLEAVED CONTEXT BUILDING
-def build_interleaved_context(docs):
-    """
-    Build context with text and images interleaved.
-    This improves LLM reasoning about multimodal content.
-    """
+# =====================================================
+# CONTEXT BUILDER
+# =====================================================
+def build_interleaved_context(query, docs):
     image_paths = []
     context_parts = []
-    
-    sorted_docs = sorted(docs, key=lambda d: (
-        d.metadata.get("chunk_type") != "image",
-        d.metadata.get("page", 0)
-    ))
-    
-    for d in sorted_docs:
-        chunk_type = d.metadata.get("chunk_type")
+
+    # Sort primarily by source to keep document information grouped for the LLM
+    docs = sorted(
+        docs,
+        key=lambda d: (d.metadata.get("source", ""), d.metadata.get("page", 0)),
+    )
+
+    for d in docs:
         content = d.page_content.strip()
-        
-        # ✅ DO NOT SKIP IMAGES EVEN IF SHORT
-        if len(content) < 50 and chunk_type != "image":
-            continue
-        
-        if "no readable text" in content.lower() and chunk_type != "image":
-            continue
-        
-        if chunk_type == "image":
-            source = d.metadata.get('source', 'unknown')
-            page = d.metadata.get('page', 'N/A')
-            
-            context_parts.append(f"[Image from {source} page {page}]")
-            context_parts.append(content)
-            
+        source = d.metadata.get("source", "unknown")
+        page = d.metadata.get("page", "N/A")
+
+        if d.metadata.get("chunk_type") == "image":
+            context_parts.append(f"[DOCUMENT: {source} | Page: {page} | IMAGE]\n{content}")
+
+            # Isolation Fix: Only text hints from the SAME doc
+            text_chunks = [
+                t.page_content for t in docs 
+                if t.metadata.get("chunk_type") != "image" 
+                and t.metadata.get("source") == source
+            ]
+
+            if text_chunks:
+                best = max(text_chunks, key=lambda x: get_ce_score(query, x))[:250]
+                context_parts.append(f"[TEXT HINT FROM SAME DOC: {source}]\n{best}")
+
             path = d.metadata.get("image_path", "")
-            abs_path = os.path.abspath(path)
-            if os.path.exists(abs_path):
-                image_paths.append(abs_path.replace("\\", "/"))
-        
-        elif chunk_type == "table":
-            context_parts.append(f"[Table]\n{content}")
-        
+            if os.path.exists(path):
+                image_paths.append(os.path.abspath(path).replace("\\", "/"))
+
         else:
-            context_parts.append(f"[Text]\n{content}")
-    
-    # Interleaved, not separated
-    context = "\n\n".join(context_parts)
-    
-    return context, image_paths
+            context_parts.append(f"[DOCUMENT: {source} | Page: {page} | TEXT]\n{content}")
+
+    return "\n\n".join(context_parts), image_paths
 
 
+# =====================================================
+# PROMPTS
+# =====================================================
 QA_PROMPT = PromptTemplate(
-    input_variables=["context","question"],
-    template="""Answer ONLY using provided context.
-
-Rules:
-- Prefer explicit conclusions over details
-- Combine multiple pieces if needed
-- Avoid examples unless asked
-- Say "Not specified" if unclear
-- Reference both text and images when relevant
+    input_variables=["context", "question"],
+    template="""Answer the question using the provided context. 
+Be concise, accurate, and refer to specific documents where possible.
 
 CONTEXT:
 {context}
@@ -306,20 +181,13 @@ CONTEXT:
 QUESTION:
 {question}
 
-ANSWER:"""
+ANSWER:""",
 )
 
 DIAGRAM_PROMPT = PromptTemplate(
-    input_variables=["context","question"],
-    template="""Describe the diagram from context ONLY.
-
-Rules:
-- Only describe what is EXPLICITLY shown
-- If unclear or not clearly relevant, say "Not clear from diagram"
-- DO NOT guess or infer system structure
-- Be specific about components and relationships
-- Do NOT hallucinate details
-- Reference text context if it clarifies the image
+    input_variables=["context", "question"],
+    template="""Explain the diagram or architecture clearly. 
+Use both image descriptions and text hints from the specific document provided.
 
 CONTEXT:
 {context}
@@ -327,34 +195,42 @@ CONTEXT:
 QUESTION:
 {question}
 
-ANSWER:"""
+ANSWER:""",
 )
 
-# ✅ FIX 3: STRUCTURED OUTPUT FOR COMPARISON
+# ✅ HIGH-IMPACT TECHNICAL COMPARISON PROMPT
 COMPARISON_PROMPT = PromptTemplate(
-    input_variables=["context","documents","question"],
-    template="""Compare the following documents: {documents}
+    input_variables=["context", "question"],
+    template="""You are comparing multiple technical documents.
 
-Rules:
-- Include EVERY document
-- DO NOT hallucinate
-- Be precise and factual
-- Use ONLY information from context
+STRICT RULES:
+- Do NOT give generic answers.
+- Use ONLY information present in the context.
+- Extract specific technical mechanisms, not high-level summaries.
+- If details are missing, explicitly say "not specified in document".
 
-STRICT FORMAT:
+OUTPUT FORMAT:
 
-**Overview:**
-[1-2 sentences summary]
+Document: <name>
+- Architecture Details:
+- Data Processing Pipeline (step-by-step):
+- Model Mechanism (how it actually works internally):
+- Performance Metrics (exact values):
 
-**Similarities:**
-- [point 1]
-- [point 2]
-- [point 3 if exists]
+Document: <name>
+- Architecture Details:
+- Data Processing Pipeline (step-by-step):
+- Model Mechanism (how it actually works internally):
+- Performance Metrics (exact values):
 
-**Differences:**
-- [point 1]
-- [point 2]
-- [point 3 if exists]
+Deep Technical Comparison:
+- Layer-level Differences (e.g., convolution vs attention):
+- Information Flow Differences:
+- Representation Learning Differences:
+- Computational Trade-offs:
+
+Final Insight:
+- When to use which approach (based on evidence only)
 
 CONTEXT:
 {context}
@@ -366,314 +242,116 @@ ANSWER:"""
 )
 
 
-def llm_rerank(query, docs, top_k=3):
-    """Conditional LLM reranking (only for complex queries)"""
-    from llm import get_llm
-    
-    intent = classify_query_intent(query)
-    
-    # Only rerank for specific intents
-    if intent not in ["performance", "comparison"]:
-        return docs[:top_k]
-    
-    if len(docs) <= top_k:
-        return docs
-    
-    options_text = ""
-    for i, doc in enumerate(docs[:10]):
-        content = doc.page_content[:300].replace("\n", " ")
-        options_text += f"{i+1}. {content}\n\n"
-    
-    prompt = f"""Select the BEST chunk to answer: "{query}"
-
-Rules:
-- Prefer direct conclusions
-- Ignore examples
-- Pick 1-2 numbers max
-
-Chunks:
-{options_text}
-
-Answer:"""
-    
-    try:
-        llm = get_llm("rag")
-        response = llm.invoke(prompt)
-        
-        if hasattr(response, "content"):
-            response = response.content
-        
-        response = str(response).strip()
-        
-        numbers = re.findall(r"\d+", response)
-        selected_indices = [int(n)-1 for n in numbers if 0 < int(n) <= len(docs)]
-        
-        if selected_indices:
-            return [docs[i] for i in selected_indices[:top_k]]
-        
-    except Exception as e:
-        print(f"LLM rerank failed: {e}")
-    
-    return docs[:top_k]
-
-
+# =====================================================
+# MAIN PIPELINE
+# =====================================================
 def ask_question(chain, query):
-    """Main QA pipeline with retrieval-aware multimodal"""
-    from llm import get_llm
+    from src.rag.summarizer import get_llm
     from langchain.schema import Document
 
     retriever = chain["retriever"]
     vectorstore = chain.get("vectorstore")
+
     clear_ce_cache()
-    # =========================
-    # FIXED PIPELINE SECTION
-    # =========================
 
+    # -------- RETRIEVE --------
     docs = retriever.invoke(expand_query(query))
+    images = retrieve_images_by_clip(vectorstore, query)
 
-    # ✅ FIX 1: Correct order
-    clip_images = retrieve_images_by_clip(vectorstore, query, top_k=3) if vectorstore else []
+    image_docs = [
+        Document(page_content=i["content"], metadata={**i["metadata"], "chunk_type": "image"})
+        for i in images
+    ]
 
-    # ✅ FIX 2: Correct conversion
-    image_docs = []
-    for img in clip_images:
+    all_docs = docs + image_docs
 
-        image_docs.append(
-            Document(
-                page_content=img["content"],
-                metadata={
-                **img["metadata"],
-                "chunk_type": "image"   # ✅ CRITICAL FIX
-                }
-            )
-        )
+    # -------- RERANK --------
+    reranked = multimodal_rerank(query, all_docs, top_k=10)
 
-    # ✅ FIX 3: NO duplicate call (removed)
+    # -------- QUERY TYPE --------
+    qtype = detect_query_type(query)
 
-    docs.extend(image_docs)
+    imgs = [d for d in reranked if d.metadata.get("chunk_type") == "image"]
+    txts = [d for d in reranked if d.metadata.get("chunk_type") != "image"]
 
-    # Source filtering
-    query_type = detect_query_source(query)
-    if query_type:
-        filtered = []
-        for doc in docs:
-            source = doc.metadata.get("source", "").lower()
-            if query_type == "nlp" and "nlp" in source:
-                filtered.append(doc)
-            elif query_type == "cnn" and any(k in source for k in ["cnn", "image"]):
-                filtered.append(doc)
-        if len(filtered) >= 2:
-            docs = filtered
-
-    # Rerank
-    reranked_docs = multimodal_rerank(query, docs, top_k=5)
-
-    # NEVER remove images in semantic filtering
-    filtered_docs_temp = []
-    for d in reranked_docs:
-        if d.metadata.get("chunk_type") == "image":
-            filtered_docs_temp.append(d)
-        elif get_ce_score(query, d.page_content) > 0.65:
-            filtered_docs_temp.append(d)
-
-    reranked_docs = filtered_docs_temp if filtered_docs_temp else reranked_docs
-
-    # LLM rerank (conditional)
-    reranked_docs = llm_rerank(query, reranked_docs, top_k=3)
-
-    # Re-inject images after LLM rerank
-    images = [d for d in reranked_docs if d.metadata.get("chunk_type") == "image"]
-    texts = [d for d in reranked_docs if d.metadata.get("chunk_type") != "image"]
-    reranked_docs = texts + images
-
-    # Prioritize conclusions
-    reranked_docs = prioritize_conclusion_chunks(query, reranked_docs)
-
-    # Force image inclusion for visual queries
-    vis_query = is_visual_query(query)
-    if vis_query:
-        # Smart image selection (best, not first)
-        images = [d for d in reranked_docs if d.metadata.get("chunk_type") == "image"]
-        texts = [d for d in reranked_docs if d.metadata.get("chunk_type") != "image"]
-        reranked_docs = images[:2] + texts[:3]
-
-    seen_paths = set()
-    unique_images = []
-
-    for d in reranked_docs:
-        if d.metadata.get("chunk_type") == "image":
-            path = d.metadata.get("image_path")
-            if path not in seen_paths:
-                seen_paths.add(path)
-                unique_images.append(d)
-
-    texts = [d for d in reranked_docs if d.metadata.get("chunk_type") != "image"]
-
-    filtered_docs = texts[:3] + unique_images[:2]
-
-    if not filtered_docs:
-        filtered_docs = reranked_docs[: max(3, min(6, len(reranked_docs)))]
-
-    # Interleaved context
-    context, image_paths = build_interleaved_context(filtered_docs)
-
-    if len(context) > 4000:
-        context_parts = context.split("\n\n")
-        context = "\n\n".join(context_parts[:8])
-
-
-    # Use appropriate prompt
-    if is_visual_query(query) and image_paths:
-        prompt_template = DIAGRAM_PROMPT
-    elif is_figure_query(query):
-        prompt_template = DIAGRAM_PROMPT
+    # -------- BALANCED DOCUMENT SAMPLING (RANK PRESERVING) --------
+    if qtype == "comparison":
+        grouped = defaultdict(list)
+        # Preserve rerank order by iterating through the ranked list
+        for doc in reranked:
+            grouped[doc.metadata.get("source", "")].append(doc)
+        
+        final_docs = []
+        # Re-interleave while taking top 3 from each group
+        for docs_per_source in grouped.values():
+            final_docs.extend(docs_per_source[:3])
+            
+        final_docs = final_docs[:8]
+    elif qtype == "analytical":
+        final_docs = reranked[:5]
+    elif qtype == "visual" and imgs:  
+        final_docs = imgs[:3] + txts[:2]
     else:
-        prompt_template = QA_PROMPT
+        final_docs = txts[:3] + imgs[:1]
 
-    prompt = prompt_template.format(context=context, question=query)
+    # -------- CONTEXT --------
+    context, image_paths = build_interleaved_context(query, final_docs)
 
+    # -------- PROMPT SELECTION --------
+    if qtype == "comparison":
+        prompt = COMPARISON_PROMPT
+    elif qtype == "visual" and image_paths:
+        prompt = DIAGRAM_PROMPT
+    else:
+        prompt = QA_PROMPT
+
+    # -------- LLM EXECUTION --------
     llm = get_llm("rag")
-    answer = llm.invoke(prompt)
+    res = llm.invoke(prompt.format(context=context, question=query))
+    answer = str(res.content if hasattr(res, "content") else res).strip()
 
-    if hasattr(answer, "content"):
-        answer = answer.content
+    # -------- GROUNDING & CONFIDENCE --------
+    if not is_answer_grounded_semantic(answer, context):
+        answer = "Insufficient information in the provided documents."
+        confidence = "Low"
+    elif "not mentioned" in answer.lower() or "not provided" in answer.lower():
+        confidence = "High (explicitly not present in docs)"
+    elif len(final_docs) < 3:
+        confidence = "Medium"
+    elif is_answer_uncertain(answer):
+        confidence = "Medium"
+    else:
+        confidence = "High"
 
-    answer = str(answer).strip()
-
-    # Grounding
-    if not is_answer_grounded_semantic(answer, context, threshold=0.7):
-        answer = "Not specified in the provided documents."
-
-    # Sources
-    sources = set()
-    for d in filtered_docs:
-        src = d.metadata.get("source")
-        page = d.metadata.get("page")
-        if src and page:
-            sources.add(f"{src} (Page {page})")
+    sources = sorted({
+        f"{d.metadata.get('source')} (P{d.metadata.get('page')})"
+        for d in final_docs if d.metadata.get("source")
+    })
 
     if sources:
-        answer += "\n\n**Sources:**\n" + "\n".join(sorted(sources))
+        answer += "\n\n**Sources:** " + ", ".join(sources)
 
-    # Confidence
-    pairs = [(query, d.page_content[:300]) for d in filtered_docs]
-    ce_scores = get_reranker().predict(pairs)
-    ce_scores = np.asarray(ce_scores)
-
-    if len(ce_scores) > 0:
-        min_score = float(np.min(ce_scores))
-        max_score = float(np.max(ce_scores))
-        
-        if max_score > min_score:
-            ce_scores_normalized = (ce_scores - min_score) / (max_score - min_score)
-        else:
-            ce_scores_normalized = np.ones_like(ce_scores) * 0.5
-        
-        avg_normalized = float(np.mean(ce_scores_normalized))
-        spread = float(np.max(ce_scores_normalized) - np.min(ce_scores_normalized))
-        
-        consistency = 1.0 - (spread * 0.2)
-        confidence_score = (avg_normalized * 0.6) + (consistency * 0.4)
-    else:
-        confidence_score = 0.5
-
-    if confidence_score >= 0.55:
-        conf = "High"
-    elif confidence_score >= 0.40:
-        conf = "Medium"
-    else:
-        conf = "Low"
-
-    if "not specified" in answer.lower():
-        conf = "Low"
-
-    if is_answer_uncertain(answer):
-        conf = "Low"
-
-    if any(k in answer.lower() for k in ["dog and cat", "bird and fish"]):
-        conf = "Low"
-
-    answer += f"\n\n*Confidence: {conf}*"
-
-    image_paths = [
-        d.metadata.get("image_path")
-        for d in filtered_docs
-        if d.metadata.get("chunk_type") == "image"
-    ]
+    answer += f"\n\n*Confidence: {confidence}*"
 
     return answer, image_paths
 
 
-def compare_documents(vectorstore, doc_names, aspect=""):
-    """Compare multiple documents with structured output"""
-    from llm import get_llm
-
-    all_docs = []
-    per_doc_limit = 2
-
-    for doc in doc_names:
-        try:
-            retriever = HybridRetriever(vectorstore=vectorstore)
-            
-            query = f"{doc} comparison accuracy performance metrics"
-            docs = retriever.invoke(query)
-
-            reranked = multimodal_rerank(query, docs, top_k=per_doc_limit)
-            all_docs.extend(reranked)
-
-        except Exception as e:
-            print(f"Error: {e}")
-
-    if not all_docs:
-        return "No content found."
-
-    chunks = []
-    for d in all_docs:
-        src = d.metadata.get("source", "unknown")
-        page = d.metadata.get("page", "N/A")
-        chunks.append(f"[{src} p{page}]\n{d.page_content[:500]}")
-
-    context = "\n\n".join(chunks)[:4000]
-
-    if aspect:
-        context = f"Aspect: {aspect}\n\n{context}"
-
-    # Structured comparison prompt
-    prompt = COMPARISON_PROMPT.format(
-        context=context,
-        documents=", ".join(doc_names),
-        question=f"Compare these documents on {aspect if aspect else 'all aspects'}"
-    )
-
-    llm = get_llm("rag")
-
-    try:
-        answer = llm.invoke(prompt)
-        if hasattr(answer, "content"):
-            answer = answer.content
-        return str(answer).strip()
-    except Exception as e:
-        return f"Failed: {e}"
-
-
-def get_indexed_documents(vectorstore):
-    """Get all indexed documents"""
-    try:
-        res = vectorstore.get(include=["metadatas"])
-        sources = set()
-        for m in res.get("metadatas", []):
-            src = m.get("source")
-            if src:
-                sources.add(src)
-        return sorted(list(sources))
-    except Exception as e:
-        print(f"Error: {e}")
-        return []
-
-
+# =====================================================
+# HELPERS
+# =====================================================
 def build_retrieval_chain(vectorstore):
-    """Build retrieval chain"""
     return {
         "retriever": HybridRetriever(vectorstore=vectorstore),
-        "vectorstore": vectorstore
+        "vectorstore": vectorstore,
     }
+
+def get_indexed_documents(vectorstore):
+    try:
+        res = vectorstore.get(include=["metadatas"])
+        return sorted({
+            m.get("source")
+            for m in res.get("metadatas", [])
+            if m.get("source")
+        })
+    except:
+        return []

@@ -1,13 +1,11 @@
 from .pipeline import (
+    build_retrieval_chain,
     ask_question,
-    compare_documents,
-    get_indexed_documents,
-    build_retrieval_chain
+    get_indexed_documents
 )
 
 __all__ = [
+    "build_retrieval_chain",
     "ask_question",
-    "compare_documents",
-    "get_indexed_documents",
-    "build_retrieval_chain"
+    "get_indexed_documents"
 ]

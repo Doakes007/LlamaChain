@@ -1,10 +1,13 @@
 import os
+import re
+import shutil
+import uuid
+import streamlit as st
+import numpy as np
 
+# Suppress Telemetry
 os.environ["ANONYMIZED_TELEMETRY"] = "false"
 os.environ["CHROMA_TELEMETRY"] = "false"
-
-import streamlit as st
-import re
 
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_chroma import Chroma
@@ -24,7 +27,6 @@ from src.rag.summarizer import (
 from src.rag import (
     build_retrieval_chain,
     ask_question,
-    compare_documents,
     get_indexed_documents,
 )
 from src.core.loader import load_documents
@@ -51,6 +53,7 @@ for k, v in {
     "messages": [],
     "busy": False,
     "uploaded_paths": [],
+    "chain": None, # Added to track retriever state
 }.items():
     st.session_state.setdefault(k, v)
 
@@ -83,13 +86,27 @@ def load_vectorstore(_embeddings):
 
 
 vectorstore = load_vectorstore(embeddings)
-chain = build_retrieval_chain(vectorstore)
+
+# Initialize chain in state if it doesn't exist
+if st.session_state.chain is None:
+    st.session_state.chain = build_retrieval_chain(vectorstore)
 
 
 # =====================================================
-# FILE UPLOAD
+# SIDEBAR: SYSTEM MANAGEMENT
 # =====================================================
-st.sidebar.title("Upload Documents")
+st.sidebar.title("System Management")
+
+# ✅ FIX 1: CLEAR CACHE ON RESET
+if st.sidebar.button("🗑️ Reset Database"):
+    shutil.rmtree("./chroma_db", ignore_errors=True)
+    st.cache_resource.clear()  # Purge stale embeddings/vectorstore connections
+    st.session_state.clear()
+    st.sidebar.success("Database cleared. Please refresh page.")
+    st.stop()
+
+st.sidebar.divider()
+st.sidebar.subheader("Upload Documents")
 
 uploaded = st.sidebar.file_uploader(
     "Upload PDF or PPTX",
@@ -103,7 +120,9 @@ os.makedirs(UPLOAD_DIR, exist_ok=True)
 if uploaded:
     saved_paths = []
     for f in uploaded:
-        path = os.path.join(UPLOAD_DIR, f.name)
+        # ✅ FIX 2: PREVENT OVERWRITES WITH UUID
+        unique_name = f"{uuid.uuid4().hex}_{f.name}"
+        path = os.path.join(UPLOAD_DIR, unique_name)
         with open(path, "wb") as out:
             out.write(f.read())
         saved_paths.append(path)
@@ -134,6 +153,9 @@ if st.sidebar.button("Index Documents"):
                     chunks = split_documents(docs)
                     embed_and_store(chunks, vectorstore)
 
+                    # Update the retrieval chain after indexing new data
+                    st.session_state.chain = build_retrieval_chain(vectorstore)
+
                     st.session_state.docs = docs
                     st.session_state.doc_paths = current_paths
                     st.session_state.base_summaries = get_base_summaries(current_paths)
@@ -143,8 +165,6 @@ if st.sidebar.button("Index Documents"):
 
                 except Exception as e:
                     st.sidebar.error(f"Indexing failed: {e}")
-                    print(f"Indexing error: {e}")
-
             st.session_state.busy = False
 
 
@@ -152,6 +172,7 @@ if st.sidebar.button("Index Documents"):
 # SUMMARY BUTTONS
 # =====================================================
 st.sidebar.divider()
+st.sidebar.subheader("Summarization")
 
 if st.sidebar.button("Combined Summary"):
     if st.session_state.base_summaries:
@@ -197,13 +218,12 @@ else:
     selected_docs = st.sidebar.multiselect(
         "Select documents to compare (min 2):",
         options=indexed_docs,
-        default=indexed_docs[:2] if len(indexed_docs) >= 2 else indexed_docs,
         key="compare_select"
     )
 
     compare_aspect = st.sidebar.text_input(
         "Aspect to compare (optional):",
-        placeholder="e.g. methodology, accuracy, architecture",
+        placeholder="e.g. methodology, architecture",
         key="compare_aspect"
     )
 
@@ -211,12 +231,14 @@ else:
         if len(selected_docs) < 2:
             st.sidebar.warning("Select at least 2 documents.")
         else:
-            with st.spinner(f"Comparing {', '.join(selected_docs)}..."):
-                comparison_result = compare_documents(
-                    vectorstore,
-                    selected_docs,
-                    aspect=compare_aspect.strip() if compare_aspect else ""
-                )
+            with st.spinner(f"Comparing documents..."):
+                # ✅ REUSE THE ELITE PIPELINE
+                comparison_query = f"Compare these documents: {', '.join(selected_docs)}"
+                if compare_aspect:
+                    comparison_query += f" focusing specifically on {compare_aspect}"
+                
+                # This triggers reranking, CLIP, and grounding automatically
+                comparison_result, _ = ask_question(st.session_state.chain, comparison_query)
 
             st.session_state.summaries["comparison"] = {
                 "result": comparison_result,
@@ -224,27 +246,24 @@ else:
             }
 
 
+# =====================================================
+# DISPLAY RESULTS (COMPARISON & SUMMARIES)
+# =====================================================
 if "comparison" in st.session_state.summaries:
     comp = st.session_state.summaries["comparison"]
     st.subheader(f"Document Comparison: {' vs '.join(comp['docs'])}")
     st.markdown(comp["result"])
     st.divider()
 
-
-# =====================================================
-# DISPLAY SUMMARIES
-# =====================================================
 if "combined" in st.session_state.summaries:
     st.subheader("Combined Summary")
     st.markdown(st.session_state.summaries["combined"])
-
 
 if "per_doc" in st.session_state.summaries:
     st.subheader("Per-Document Summaries")
     for src, txt in st.session_state.summaries["per_doc"].items():
         with st.expander(src):
             st.markdown(txt)
-
 
 if "topic" in st.session_state.summaries:
     st.subheader("Topic-wise Summaries")
@@ -258,25 +277,15 @@ if "topic" in st.session_state.summaries:
 # =====================================================
 for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
-        if msg["role"] == "user":
-            st.markdown(msg["content"])
-        else:
-            # ✅ UPDATED: Handle answer and image_paths from assistant
-            st.markdown(msg["content"])
-            if "image_paths" in msg and msg["image_paths"]:
-                st.markdown("**Retrieved figures:**")
-                cols = st.columns(min(len(msg["image_paths"]), 2))
-                for i, img_path in enumerate(msg["image_paths"]):
-                    img_path = img_path.strip()
-                    abs_path = img_path if os.path.isabs(img_path) else os.path.abspath(img_path)
-
-                    if os.path.exists(abs_path):
-                        with cols[i % 2]:
-                            st.image(
-                                abs_path,
-                                caption=os.path.basename(abs_path),
-                                use_container_width=True
-                            )
+        st.markdown(msg["content"])
+        if msg.get("image_paths"):
+            st.markdown("**Retrieved figures:**")
+            cols = st.columns(min(len(msg["image_paths"]), 2))
+            unique_paths = list(dict.fromkeys(msg["image_paths"]))
+            for i, img_path in enumerate(unique_paths):
+                if os.path.exists(img_path):
+                    with cols[i % 2]:
+                        st.image(img_path, caption=os.path.basename(img_path), use_container_width=True)
 
 
 # =====================================================
@@ -287,41 +296,30 @@ if not st.session_state.busy:
 
     if prompt:
         st.session_state.messages.append({"role": "user", "content": prompt})
-
-        with st.chat_message("user"):
-            st.markdown(prompt)
+        st.chat_message("user").markdown(prompt)
 
         with st.chat_message("assistant"):
-            # ✅ UPDATED: Handle return tuple (answer, image_paths)
-            with st.spinner("Analyzing documents… (15–20s)"):
-                answer, image_paths = ask_question(chain, prompt)
+            with st.spinner("Analyzing documents…"):
+                try:
+                    answer, image_paths = ask_question(st.session_state.chain, prompt)
+                    st.markdown(answer, unsafe_allow_html=True)
 
-            st.markdown(answer, unsafe_allow_html=True)
-
-            # ✅ UPDATED: Render images from pipeline
-            if image_paths:
-                st.markdown("**Retrieved figures:**")
-                cols = st.columns(min(len(image_paths), 2))
-                for i, img_path in enumerate(image_paths):
-                    img_path = img_path.strip()
-                    abs_path = img_path if os.path.isabs(img_path) else os.path.abspath(img_path)
-
-                    if os.path.exists(abs_path):
-                        with cols[i % 2]:
-                            st.image(
-                                abs_path,
-                                caption=os.path.basename(abs_path),
-                                use_container_width=True
-                            )
-                    else:
-                        st.caption(f"Image not found: {abs_path}")
-
-        # Store both answer and image paths in session state
-        st.session_state.messages.append({
-            "role": "assistant",
-            "content": answer,
-            "image_paths": image_paths
-        })
+                    if image_paths:
+                        st.markdown("**Retrieved figures:**")
+                        cols = st.columns(min(len(image_paths), 2))
+                        unique_paths = list(dict.fromkeys(image_paths))
+                        for i, img_path in enumerate(unique_paths):
+                            if os.path.exists(img_path):
+                                with cols[i % 2]:
+                                    st.image(img_path, caption=os.path.basename(img_path), use_container_width=True)
+                    
+                    st.session_state.messages.append({
+                        "role": "assistant",
+                        "content": answer,
+                        "image_paths": image_paths
+                    })
+                except Exception as e:
+                    st.error(f"Error generating answer: {e}")
 
 
 # =====================================================
@@ -330,24 +328,16 @@ if not st.session_state.busy:
 st.sidebar.divider()
 st.sidebar.subheader("Download Chat")
 
-
 def generate_chat_pdf(messages):
     buffer = BytesIO()
     doc = SimpleDocTemplate(buffer, pagesize=A4)
     styles = getSampleStyleSheet()
-
-    elements = [
-        Paragraph("LlamaChain — Chat History", styles["Title"]),
-        Spacer(1, 20),
-    ]
+    elements = [Paragraph("LlamaChain — Chat History", styles["Title"]), Spacer(1, 20)]
 
     for msg in messages:
         role = "User" if msg["role"] == "user" else "Assistant"
-        content = msg.get("content", "")
-
-        safe_text = re.sub(r'!\[image\]\(.*?\)', '[image]', content)
+        safe_text = re.sub(r'!\[image\]\(.*?\)', '[image]', msg.get("content", ""))
         safe_text = safe_text.replace("<", "&lt;").replace(">", "&gt;")
-
         elements.append(Paragraph(f"<b>{role}:</b> {safe_text}", styles["Normal"]))
         elements.append(Spacer(1, 10))
 
@@ -355,13 +345,10 @@ def generate_chat_pdf(messages):
     buffer.seek(0)
     return buffer
 
-
 if st.session_state.messages:
-    pdf_file = generate_chat_pdf(st.session_state.messages)
-
     st.sidebar.download_button(
         label="Download Chat PDF",
-        data=pdf_file,
+        data=generate_chat_pdf(st.session_state.messages),
         file_name="LlamaChain_Chat.pdf",
         mime="application/pdf",
     )
