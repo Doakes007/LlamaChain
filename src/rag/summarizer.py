@@ -55,11 +55,11 @@ TOPIC_EXTRACTION_PROMPT = PromptTemplate(
 
 For EACH topic write:
 Topic: <short title>
-- Key point from the text
-- Key point from the text
-- Key point from the text
+- <relevant point from text>
+- <relevant point from text>
+- <relevant point from text>
 
-Use ONLY information from the text.
+Use ONLY information from the text. Do NOT use phrases like "Key point from the text:". Just provide the direct information.
 
 TEXT:
 {text}

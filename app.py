@@ -4,6 +4,8 @@ import shutil
 import uuid
 import streamlit as st
 import numpy as np
+import pandas as pd
+from datetime import datetime
 
 # Suppress Telemetry
 os.environ["ANONYMIZED_TELEMETRY"] = "false"
@@ -13,9 +15,11 @@ from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_chroma import Chroma
 
 from io import BytesIO
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, PageBreak, Image as RLImage
 from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.lib.pagesizes import A4
+from reportlab.lib import colors
+from reportlab.lib.units import inch
 
 from src.rag.summarizer import (
     get_base_summaries,
@@ -90,6 +94,46 @@ vectorstore = load_vectorstore(embeddings)
 # Initialize chain in state if it doesn't exist
 if st.session_state.chain is None:
     st.session_state.chain = build_retrieval_chain(vectorstore)
+
+
+# =====================================================
+# HELPER FUNCTIONS
+# =====================================================
+def clean_filename(filename):
+    """Remove UUID prefix and file extension from filename"""
+    # Remove UUID prefix (everything before the first underscore)
+    if '_' in filename:
+        filename = filename.split('_', 1)[1]
+    # Remove file extensions
+    filename = filename.replace('.pdf', '').replace('.pptx', '')
+    return filename
+
+
+def clean_image_caption(caption):
+    """Extract only the filename from image caption metadata"""
+    if ':' in caption:
+        return caption.split(':')[-1].strip()
+    return caption
+
+
+def remove_key_point_wording(text):
+    """Remove 'key point' and 'key points' wording from text"""
+    text = re.sub(r'[•*\-–]\s*Key points?:\s*', '- ', text, flags=re.IGNORECASE)
+    text = re.sub(r'Key points?:\s*', '', text, flags=re.IGNORECASE)
+    return text
+
+
+def clean_comparison_text(comparison_text):
+    """Remove sources and confidence metadata from comparison text"""
+    lines = comparison_text.split('\n')
+    filtered_lines = []
+    for line in lines:
+        # Skip sources and confidence lines
+        if not line.strip().lower().startswith('sources:') and not line.strip().lower().startswith('confidence:'):
+            filtered_lines.append(line)
+    
+    cleaned_text = '\n'.join(filtered_lines).strip()
+    return cleaned_text
 
 
 # =====================================================
@@ -177,9 +221,8 @@ st.sidebar.subheader("Summarization")
 if st.sidebar.button("Combined Summary"):
     if st.session_state.base_summaries:
         with st.spinner("Generating combined summary…"):
-            st.session_state.summaries["combined"] = combined_from_base(
-                st.session_state.base_summaries
-            )
+            summary = combined_from_base(st.session_state.base_summaries)
+            st.session_state.summaries["combined"] = remove_key_point_wording(summary)
     else:
         st.sidebar.warning("Index documents first.")
 
@@ -187,9 +230,9 @@ if st.sidebar.button("Combined Summary"):
 if st.sidebar.button("Per-Document Summary"):
     if st.session_state.base_summaries:
         with st.spinner("Generating per-document summaries…"):
-            st.session_state.summaries["per_doc"] = per_doc_from_base(
-                st.session_state.base_summaries
-            )
+            per_doc_summary = per_doc_from_base(st.session_state.base_summaries)
+            cleaned_summaries = {clean_filename(k): remove_key_point_wording(v) for k, v in per_doc_summary.items()}
+            st.session_state.summaries["per_doc"] = cleaned_summaries
     else:
         st.sidebar.warning("Index documents first.")
 
@@ -197,9 +240,9 @@ if st.sidebar.button("Per-Document Summary"):
 if st.sidebar.button("Topic-wise Summary"):
     if st.session_state.base_summaries:
         with st.spinner("Generating topic summaries…"):
-            st.session_state.summaries["topic"] = topic_from_base(
-                st.session_state.base_summaries
-            )
+            topic_summary = topic_from_base(st.session_state.base_summaries)
+            cleaned_topics = {clean_filename(k): remove_key_point_wording(v) for k, v in topic_summary.items()}
+            st.session_state.summaries["topic"] = cleaned_topics
     else:
         st.sidebar.warning("Index documents first.")
 
@@ -251,8 +294,15 @@ else:
 # =====================================================
 if "comparison" in st.session_state.summaries:
     comp = st.session_state.summaries["comparison"]
-    st.subheader(f"Document Comparison: {' vs '.join(comp['docs'])}")
-    st.markdown(comp["result"])
+    # Clean filenames for display
+    cleaned_docs = [clean_filename(doc) for doc in comp['docs']]
+    st.subheader(f"Document Comparison: {' vs '.join(cleaned_docs)}")
+    
+    # Extract and clean comparison text (remove sources and confidence)
+    cleaned_comparison = clean_comparison_text(comp["result"])
+    
+    # Display cleaned comparison
+    st.markdown(cleaned_comparison)
     st.divider()
 
 if "combined" in st.session_state.summaries:
@@ -285,7 +335,8 @@ for msg in st.session_state.messages:
             for i, img_path in enumerate(unique_paths):
                 if os.path.exists(img_path):
                     with cols[i % 2]:
-                        st.image(img_path, caption=os.path.basename(img_path), use_container_width=True)
+                        clean_caption = clean_image_caption(os.path.basename(img_path))
+                        st.image(img_path, caption=clean_caption, use_container_width=True)
 
 
 # =====================================================
@@ -311,7 +362,8 @@ if not st.session_state.busy:
                         for i, img_path in enumerate(unique_paths):
                             if os.path.exists(img_path):
                                 with cols[i % 2]:
-                                    st.image(img_path, caption=os.path.basename(img_path), use_container_width=True)
+                                    clean_caption = clean_image_caption(os.path.basename(img_path))
+                                    st.image(img_path, caption=clean_caption, use_container_width=True)
                     
                     st.session_state.messages.append({
                         "role": "assistant",
@@ -328,27 +380,105 @@ if not st.session_state.busy:
 st.sidebar.divider()
 st.sidebar.subheader("Download Chat")
 
-def generate_chat_pdf(messages):
+def generate_chat_pdf(messages, include_summaries=False, include_diagrams=False):
+    """Generate comprehensive PDF with chat history, summaries, and diagrams"""
     buffer = BytesIO()
-    doc = SimpleDocTemplate(buffer, pagesize=A4)
+    doc = SimpleDocTemplate(buffer, pagesize=A4, topMargin=0.5*inch, bottomMargin=0.5*inch)
     styles = getSampleStyleSheet()
-    elements = [Paragraph("LlamaChain — Chat History", styles["Title"]), Spacer(1, 20)]
-
+    elements = []
+    
+    # Title
+    title_style = styles['Heading1']
+    title_style.fontSize = 24
+    title_style.textColor = colors.HexColor("#1f77b4")
+    elements.append(Paragraph("LlamaChain — Chat History", title_style))
+    elements.append(Spacer(1, 0.3*inch))
+    
+    # Timestamp
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    elements.append(Paragraph(f"<i>Generated on {timestamp}</i>", styles["Normal"]))
+    elements.append(Spacer(1, 0.2*inch))
+    elements.append(Paragraph("_" * 80, styles["Normal"]))
+    elements.append(Spacer(1, 0.2*inch))
+    
+    # Chat messages
+    elements.append(Paragraph("Chat Conversation", styles["Heading2"]))
+    elements.append(Spacer(1, 0.15*inch))
+    
     for msg in messages:
         role = "User" if msg["role"] == "user" else "Assistant"
-        safe_text = re.sub(r'!\[image\]\(.*?\)', '[image]', msg.get("content", ""))
+        role_style = styles['Heading3'] if msg["role"] == "user" else styles['Normal']
+        
+        safe_text = re.sub(r'!\[image\]\(.*?\)', '[diagram]', msg.get("content", ""))
         safe_text = safe_text.replace("<", "&lt;").replace(">", "&gt;")
-        elements.append(Paragraph(f"<b>{role}:</b> {safe_text}", styles["Normal"]))
-        elements.append(Spacer(1, 10))
-
+        safe_text = safe_text[:1000]  # Limit length for PDF
+        
+        elements.append(Paragraph(f"<b>{role}:</b>", styles["Heading3"]))
+        elements.append(Paragraph(safe_text, styles["Normal"]))
+        elements.append(Spacer(1, 0.1*inch))
+        
+        # Add images if include_diagrams is True
+        if include_diagrams and msg.get("image_paths"):
+            for img_path in list(dict.fromkeys(msg.get("image_paths", []))):
+                if os.path.exists(img_path):
+                    try:
+                        img = RLImage(img_path, width=3.5*inch, height=2.5*inch)
+                        elements.append(img)
+                        elements.append(Spacer(1, 0.1*inch))
+                    except Exception as e:
+                        elements.append(Paragraph(f"<i>[Diagram: {os.path.basename(img_path)}]</i>", styles["Normal"]))
+                        elements.append(Spacer(1, 0.1*inch))
+    
+    # Add summaries if requested
+    if include_summaries and st.session_state.summaries:
+        elements.append(PageBreak())
+        elements.append(Paragraph("Summaries & Analysis", styles["Heading1"]))
+        elements.append(Spacer(1, 0.2*inch))
+        
+        if "combined" in st.session_state.summaries:
+            elements.append(Paragraph("Combined Summary", styles["Heading2"]))
+            summary_text = st.session_state.summaries["combined"][:2000]
+            elements.append(Paragraph(summary_text, styles["Normal"]))
+            elements.append(Spacer(1, 0.15*inch))
+        
+        if "per_doc" in st.session_state.summaries:
+            elements.append(Paragraph("Per-Document Summaries", styles["Heading2"]))
+            for src, txt in st.session_state.summaries["per_doc"].items():
+                elements.append(Paragraph(f"<b>{src}</b>", styles["Heading3"]))
+                summary_text = txt[:1000]
+                elements.append(Paragraph(summary_text, styles["Normal"]))
+                elements.append(Spacer(1, 0.1*inch))
+        
+        if "topic" in st.session_state.summaries:
+            elements.append(Paragraph("Topic-wise Summaries", styles["Heading2"]))
+            for src, txt in st.session_state.summaries["topic"].items():
+                elements.append(Paragraph(f"<b>{src}</b>", styles["Heading3"]))
+                summary_text = txt[:1000]
+                elements.append(Paragraph(summary_text, styles["Normal"]))
+                elements.append(Spacer(1, 0.1*inch))
+    
     doc.build(elements)
     buffer.seek(0)
     return buffer
 
+
+# PDF download options
+col1, col2, col3 = st.sidebar.columns(3)
+
+with col1:
+    include_summaries = st.checkbox("Include Summaries", value=False, key="pdf_summaries")
+
+with col2:
+    include_diagrams = st.checkbox("Include Diagrams", value=False, key="pdf_diagrams")
+
 if st.session_state.messages:
     st.sidebar.download_button(
-        label="Download Chat PDF",
-        data=generate_chat_pdf(st.session_state.messages),
-        file_name="LlamaChain_Chat.pdf",
+        label="📥 Download Chat PDF",
+        data=generate_chat_pdf(
+            st.session_state.messages,
+            include_summaries=include_summaries,
+            include_diagrams=include_diagrams
+        ),
+        file_name=f"LlamaChain_Chat_{datetime.now().strftime('%Y%m%d_%H%M%S')}.pdf",
         mime="application/pdf",
     )
