@@ -195,4 +195,7 @@ streamlit run app.py
 ## Contributors
 
 - Chirag N
-- Team Members
+- Rhiya Giridhara Bhat
+- Tarun G P
+- Ghana Shyam D
+
