@@ -15,27 +15,8 @@ Supports:
 
 ## Architecture
 
-```
-User Query
-     |
-Document Processing
-(PDF + PPT Parsing)
-     |
-Chunking Pipeline
-     |
-Sentence Embeddings
-     |
-ChromaDB Vector Store
-     |
-Hybrid Retrieval
-(Semantic + Keyword)
-     |
-Reranking
-     |
-Local LLM (Ollama)
-     |
-Final Response
-```
+<img width="504" height="762" alt="image" src="https://github.com/user-attachments/assets/727b5bd7-4de7-4298-b12a-b37d8d3b2a01" />
+
 
 ---
 
