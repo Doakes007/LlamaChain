@@ -148,7 +148,11 @@ def process_to_hierarchical_documents(chunks: List[Chunk]) -> List[Document]:
             
             description = describe_image_with_vision(image_path, context=context_snippet)
             
-            indexed_content = description if description else f"Description missing for {ch.modality} on page {ch.page_number}."
+            indexed_content = (
+                description
+                if description
+                else f"No {ch.modality} description available."
+            )
         
         # Check if we have indexable content
         if indexed_content:

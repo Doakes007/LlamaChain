@@ -26,7 +26,7 @@ def get_llm(mode: str = "rag"):
             model=model_name,
             num_gpu=0,
             num_thread=8,
-            num_ctx=1536,
+            num_ctx=4096,
             num_predict=400,
             temperature=0.1,
         )

@@ -1,8 +1,6 @@
-
-
 import uuid
 from pathlib import Path
-from typing import List, Optional, Any, Dict
+from typing import Any, Dict, List, Optional
 
 from unstructured.partition.pdf import partition_pdf
 from unstructured.partition.pptx import partition_pptx
@@ -10,133 +8,243 @@ from unstructured.partition.pptx import partition_pptx
 from src.ingestion.chunk_schema import Chunk
 
 
+# =====================================================
+# HELPERS
+# =====================================================
 
-def make_chunk(element, modality: str, path: str, file_type: str) -> Optional[Chunk]:
-    
+def clean_filename(path: str) -> str:
+    """
+    Remove UUID prefix from uploaded filenames.
+
+    Example:
+        82f14dc3dd2ddcca_TestPaper.pdf
+            ->
+        TestPaper.pdf
+    """
+    filename = Path(path).name
+
+    if "_" in filename:
+        filename = filename.split("_", 1)[1]
+
+    return filename
+
+
+# =====================================================
+# CHUNK CREATION
+# =====================================================
+
+def make_chunk(
+    element,
+    modality: str,
+    path: str,
+    file_type: str,
+) -> Optional[Chunk]:
+
     meta = element.metadata or {}
+
     text = getattr(element, "text", "").strip()
     page = getattr(meta, "page_number", None)
-    
-    # Initialize content and extra data
-    content = text 
+
+    content = text
+
     extra_data: Dict[str, Any] = {
         "category": getattr(element, "category", None),
         "coordinates": getattr(meta, "coordinates", None),
     }
 
-    # --- IMAGE HANDLING ---
+    # -------------------------------------------------
+    # IMAGE
+    # -------------------------------------------------
+
     if modality == "image":
+
         image_path = getattr(meta, "image_path", None)
-        
+
         if image_path:
-            content = image_path 
+
+            content = image_path
             extra_data["image_path"] = image_path
-            
-            # Use the image caption or alt text as supplementary info in 'extra'
+
             caption = text or getattr(meta, "alt_text", "")
+
             if caption:
                 extra_data["caption"] = caption
+
         else:
-            # If no image path, we cannot process it later. Use the text caption as content.
-            caption = text or getattr(meta, "alt_text", "") or "Image placeholder"
+
+            caption = (
+                text
+                or getattr(meta, "alt_text", "")
+                or "Image placeholder"
+            )
+
             content = f"[Image Caption Only]: {caption}"
 
-    # --- TABLE HANDLING ---
+    # -------------------------------------------------
+    # TABLE
+    # -------------------------------------------------
+
     elif modality == "table":
+
         table_html = getattr(meta, "text_as_html", None)
-        table_text = text 
-        
+        table_text = text
+
         if table_html:
+
             content = table_html
+
             extra_data["table_html"] = table_html
-            extra_data["caption"] = table_text 
+            extra_data["caption"] = table_text
+
         else:
-            # Use the text/summary if structure is missing
+
             content = f"[Table Summary]: {table_text}"
 
-    # --- TEXT HANDLING ---
-    
+    # -------------------------------------------------
+    # EMPTY CONTENT
+    # -------------------------------------------------
+
     if not content or content.isspace():
         return None
 
+    # -------------------------------------------------
+    # CREATE CHUNK
+    # -------------------------------------------------
+
     return Chunk(
-        id=str(uuid.uuid4()),
+        id=str(uuid.uuid4()),            # Internal chunk ID (keep this)
         content=content,
         modality=modality,
-        file_name=Path(path).name,
+        file_name=clean_filename(path),  # Clean filename
         file_type=file_type,
         page_number=page,
-        extra=extra_data, 
+        extra=extra_data,
     )
 
 
+# =====================================================
+# PDF EXTRACTION
+# =====================================================
+
 def extract_pdf(path: str) -> List[Chunk]:
-    """Uses full Unstructured extraction: text, tables, and images from a PDF."""
-    print(f"[INFO] Partitioning PDF: {Path(path).name}")
+    """
+    Extract text, tables and images from a PDF.
+    """
+
+    print(f"[INFO] Partitioning PDF: {clean_filename(path)}")
+
     elements = partition_pdf(
         filename=path,
         extract_images_in_pdf=True,
-        infer_table_structure=True, 
+        infer_table_structure=True,
         languages=["eng"],
-        strategy="hi_res", 
+        strategy="hi_res",
     )
 
-    chunks = []
-    for e in elements:
-        cat = getattr(e, "category", "")
-        
-        if cat in ["NarrativeText", "Title", "ListItem"]:
+    chunks: List[Chunk] = []
+
+    for element in elements:
+
+        category = getattr(element, "category", "")
+
+        if category in ["NarrativeText", "Title", "ListItem"]:
             modality = "text"
-        elif cat == "Table":
+
+        elif category == "Table":
             modality = "table"
-        elif cat == "Image":
+
+        elif category == "Image":
             modality = "image"
-        
+
         else:
             continue
 
-        chunk = make_chunk(e, modality, path, "pdf")
+        chunk = make_chunk(
+            element,
+            modality,
+            path,
+            "pdf",
+        )
+
         if chunk:
             chunks.append(chunk)
 
     return chunks
 
+
+# =====================================================
+# PPTX EXTRACTION
+# =====================================================
 
 def extract_pptx(path: str) -> List[Chunk]:
-    
-    print(f"[INFO] Partitioning PPTX: {Path(path).name}")
-    elements = partition_pptx(path, extract_images_in_pptx=True)
-    chunks = []
 
-    for e in elements:
-        cat = getattr(e, "category", "")
+    print(f"[INFO] Partitioning PPTX: {clean_filename(path)}")
+
+    elements = partition_pptx(
+        path,
+        extract_images_in_pptx=True,
+    )
+
+    chunks: List[Chunk] = []
+
+    for element in elements:
+
+        category = getattr(element, "category", "")
+
         modality = (
-            "text" if cat in ["NarrativeText", "Title", "ListItem"]
-            else "table" if cat == "Table"
-            else "image" if cat == "Image"
+            "text"
+            if category in ["NarrativeText", "Title", "ListItem"]
+            else "table"
+            if category == "Table"
+            else "image"
+            if category == "Image"
             else None
         )
-        if not modality:
+
+        if modality is None:
             continue
 
-        chunk = make_chunk(e, modality, path, "pptx")
+        chunk = make_chunk(
+            element,
+            modality,
+            path,
+            "pptx",
+        )
+
         if chunk:
             chunks.append(chunk)
 
     return chunks
 
 
+# =====================================================
+# MAIN EXTRACTION
+# =====================================================
+
 def extract_from_files(file_paths: List[str]) -> List[Chunk]:
-   
-    final: List[Chunk] = []
+
+    chunks: List[Chunk] = []
 
     for path in file_paths:
-        ext = Path(path).suffix.lower()
-        if ext == ".pdf":
-            final.extend(extract_pdf(path))
-        elif ext in [".pptx", ".ppt"]:
-            final.extend(extract_pptx(path))
-        else:
-            print(f"[WARN] Unsupported file type: {path}")
 
-    return final
+        extension = Path(path).suffix.lower()
+
+        if extension == ".pdf":
+
+            chunks.extend(
+                extract_pdf(path)
+            )
+
+        elif extension in [".ppt", ".pptx"]:
+
+            chunks.extend(
+                extract_pptx(path)
+            )
+
+        else:
+
+            print(
+                f"[WARN] Unsupported file type: {path}"
+            )
+
+    return chunks

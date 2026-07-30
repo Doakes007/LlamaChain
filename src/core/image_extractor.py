@@ -28,6 +28,22 @@ model = BlipForConditionalGeneration.from_pretrained(
 
 model.eval()
 
+def clean_filename(path: str) -> str:
+    """
+    Remove UUID prefix from uploaded filenames.
+
+    Example:
+        82f14dc3dd2ddcca_Paper.pdf
+            ->
+        Paper.pdf
+    """
+    filename = os.path.basename(path)
+
+    if "_" in filename:
+        filename = filename.split("_", 1)[1]
+
+    return filename
+
 
 # -------------------------------------------------
 # GENERATE CAPTION (GPU SAFE)
@@ -70,8 +86,8 @@ def generate_caption(image_path):
             caption = processor.decode(output[0], skip_special_tokens=True)
             return caption.strip()
 
-        except Exception as e2:
-            return f"Caption generation failed: {e2}"
+        except Exception:
+            return "No image caption could be generated."
 
 
 # -------------------------------------------------
@@ -155,7 +171,7 @@ Nearby Document Text:
 {nearby_text}"""
 
             metadata = {
-                "source": os.path.basename(file_path),
+                "source": clean_filename(file_path),
                 "page": page_index + 1,
                 "chunk_type": "image",
                 "image_path": image_path,
@@ -231,7 +247,7 @@ Nearby Document Text:
 {nearby_text}"""
 
             metadata = {
-                "source": os.path.basename(file_path),
+                "source": clean_filename(file_path),
                 "page": page_index + 1,
                 "chunk_type": "image",
                 "image_path": image_path,
@@ -254,7 +270,7 @@ Nearby Document Text:
 def extract_images_from_pdf(file_path):
     os.makedirs("extracted_images", exist_ok=True)
 
-    filename = os.path.splitext(os.path.basename(file_path))[0]
+    filename = os.path.splitext(clean_filename(file_path))[0]
 
     documents = []
     pages_with_images = set()

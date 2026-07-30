@@ -1,7 +1,7 @@
 import os
 import re
 import shutil
-import uuid
+import hashlib
 import streamlit as st
 import numpy as np
 import pandas as pd
@@ -47,6 +47,48 @@ st.caption("Powered by ChromaDB + Mistral + CLIP")
 
 
 # =====================================================
+# ONE-TIME WORKSPACE INITIALIZATION
+# =====================================================
+
+@st.cache_resource
+def initialize_workspace():
+    """
+    Start every new application process with a clean workspace.
+
+    Runs once for the lifetime of the Streamlit server process,
+    not on every Streamlit script rerun.
+    """
+
+    cleanup_dirs = [
+        "./chroma_db",
+        "./uploaded_docs",
+        "./extracted_images",
+    ]
+
+    for directory in cleanup_dirs:
+        if os.path.exists(directory):
+            try:
+                shutil.rmtree(directory)
+                print(f"[STARTUP] Cleared: {directory}")
+            except Exception as e:
+                print(
+                    f"[STARTUP WARNING] "
+                    f"Could not clear {directory}: {e}"
+                )
+
+    # Recreate directories needed during the session
+    os.makedirs("./uploaded_docs", exist_ok=True)
+    os.makedirs("./extracted_images", exist_ok=True)
+
+    print("[STARTUP] Fresh workspace initialized.")
+
+    return True
+
+
+initialize_workspace()
+
+
+# =====================================================
 # SESSION STATE
 # =====================================================
 for k, v in {
@@ -57,7 +99,8 @@ for k, v in {
     "messages": [],
     "busy": False,
     "uploaded_paths": [],
-    "chain": None, # Added to track retriever state
+    "indexed_file_hashes": set(),
+    "chain": None,
 }.items():
     st.session_state.setdefault(k, v)
 
@@ -99,6 +142,16 @@ if st.session_state.chain is None:
 # =====================================================
 # HELPER FUNCTIONS
 # =====================================================
+def calculate_file_hash(file_bytes: bytes) -> str:
+    """
+    Generate a stable SHA-256 hash from file contents.
+
+    Identical files always produce the same hash,
+    regardless of filename or upload time.
+    """
+    return hashlib.sha256(file_bytes).hexdigest()
+
+
 def clean_filename(filename):
     """Remove UUID prefix and file extension from filename"""
     # Remove UUID prefix (everything before the first underscore)
@@ -110,10 +163,24 @@ def clean_filename(filename):
 
 
 def clean_image_caption(caption):
-    """Extract only the filename from image caption metadata"""
-    if ':' in caption:
-        return caption.split(':')[-1].strip()
-    return caption
+    """
+    Clean image captions for UI.
+    Removes UUID prefixes and unnecessary file extensions.
+    """
+
+    filename = os.path.basename(caption)
+
+    # Remove UUID prefix
+    if "_" in filename:
+        filename = filename.split("_", 1)[1]
+
+    # Remove extension
+    filename = os.path.splitext(filename)[0]
+
+    # Replace underscores with spaces
+    filename = filename.replace("_", " ")
+
+    return filename
 
 
 def remove_key_point_wording(text):
@@ -162,54 +229,205 @@ UPLOAD_DIR = "uploaded_docs"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
 if uploaded:
-    saved_paths = []
-    for f in uploaded:
-        # ✅ FIX 2: PREVENT OVERWRITES WITH UUID
-        unique_name = f"{uuid.uuid4().hex}_{f.name}"
-        path = os.path.join(UPLOAD_DIR, unique_name)
-        with open(path, "wb") as out:
-            out.write(f.read())
-        saved_paths.append(path)
 
-    st.session_state.uploaded_paths = saved_paths
-    st.sidebar.success(f"{len(saved_paths)} file(s) uploaded")
+    uploaded_files = []
+
+    for f in uploaded:
+
+        # Read uploaded file once
+        file_bytes = f.getvalue()
+
+        # Stable identity based on CONTENT
+        file_hash = calculate_file_hash(file_bytes)
+
+        # Keep only a short hash for the internal filename
+        short_hash = file_hash[:16]
+
+        # Safe original filename
+        original_name = os.path.basename(f.name)
+
+        # Internal storage filename
+        stored_name = f"{short_hash}_{original_name}"
+
+        path = os.path.join(
+            UPLOAD_DIR,
+            stored_name,
+        )
+
+        # Avoid rewriting an identical uploaded file
+        if not os.path.exists(path):
+            with open(path, "wb") as out:
+                out.write(file_bytes)
+
+        uploaded_files.append(
+            {
+                "path": path,
+                "hash": file_hash,
+                "name": original_name,
+            }
+        )
+
+    st.session_state.uploaded_paths = uploaded_files
+
+    st.sidebar.success(
+        f"{len(uploaded_files)} file(s) ready"
+    )
 
 
 # =====================================================
 # INDEX DOCUMENTS
 # =====================================================
-if st.sidebar.button("Index Documents"):
-    if not st.session_state.uploaded_paths:
-        st.sidebar.warning("Upload files first.")
-    else:
-        current_paths = tuple(sorted(
-            os.path.realpath(p) for p in st.session_state.uploaded_paths
-        ))
 
-        if st.session_state.doc_paths == current_paths:
-            st.sidebar.info("Already indexed. No changes detected.")
+if st.sidebar.button("Index Documents"):
+
+    if not st.session_state.uploaded_paths:
+
+        st.sidebar.warning("Upload files first.")
+
+    else:
+
+        # -------------------------------------------------
+        # FIND FILES THAT HAVE NOT BEEN INDEXED YET
+        # -------------------------------------------------
+
+        new_files = [
+            item
+            for item in st.session_state.uploaded_paths
+            if item["hash"]
+            not in st.session_state.indexed_file_hashes
+        ]
+
+        if not new_files:
+
+            st.sidebar.info(
+                "All selected documents are already indexed."
+            )
+
         else:
+
             st.session_state.busy = True
 
             with st.spinner("Indexing documents…"):
+
                 try:
-                    docs = load_documents(list(current_paths))
+
+                    # -----------------------------------------
+                    # PATHS FOR ONLY NEW DOCUMENTS
+                    # -----------------------------------------
+
+                    new_paths = [
+                        os.path.realpath(item["path"])
+                        for item in new_files
+                    ]
+
+                    # -----------------------------------------
+                    # LOAD
+                    # -----------------------------------------
+
+                    docs = load_documents(new_paths)
+
+                    # -----------------------------------------
+                    # SPLIT
+                    # -----------------------------------------
+
                     chunks = split_documents(docs)
-                    embed_and_store(chunks, vectorstore)
 
-                    # Update the retrieval chain after indexing new data
-                    st.session_state.chain = build_retrieval_chain(vectorstore)
+                    # -----------------------------------------
+                    # ADD TO EXISTING VECTOR STORE
+                    # -----------------------------------------
 
-                    st.session_state.docs = docs
-                    st.session_state.doc_paths = current_paths
-                    st.session_state.base_summaries = get_base_summaries(current_paths)
+                    embed_and_store(
+                        chunks,
+                        vectorstore,
+                    )
+
+                    # -----------------------------------------
+                    # MARK FILES AS INDEXED
+                    # -----------------------------------------
+
+                    for item in new_files:
+                        st.session_state.indexed_file_hashes.add(
+                            item["hash"]
+                        )
+
+                    # -----------------------------------------
+                    # KEEP ALL INDEXED PATHS
+                    # -----------------------------------------
+
+                    previous_paths = list(
+                        st.session_state.doc_paths or ()
+                    )
+
+                    all_paths = list(
+                        dict.fromkeys(
+                            previous_paths + new_paths
+                        )
+                    )
+
+                    st.session_state.doc_paths = tuple(
+                        all_paths
+                    )
+
+                    # -----------------------------------------
+                    # KEEP DOCUMENT OBJECTS
+                    # -----------------------------------------
+
+                    previous_docs = (
+                        st.session_state.docs or []
+                    )
+
+                    st.session_state.docs = (
+                        previous_docs + docs
+                    )
+
+                    # -----------------------------------------
+                    # REBUILD RETRIEVER
+                    # -----------------------------------------
+
+                    st.session_state.chain = (
+                        build_retrieval_chain(
+                            vectorstore
+                        )
+                    )
+
+                    # -----------------------------------------
+                    # REBUILD SUMMARIZATION BASE
+                    # FOR ALL CURRENT DOCUMENTS
+                    # -----------------------------------------
+
+                    st.session_state.base_summaries = (
+                        get_base_summaries(
+                            st.session_state.doc_paths
+                        )
+                    )
+
+                    # Old summaries may no longer represent
+                    # the complete document collection.
                     st.session_state.summaries = {}
 
-                    st.sidebar.success(f"Indexed {len(chunks)} chunks from {len(docs)} pages")
+                    # -----------------------------------------
+                    # SUCCESS
+                    # -----------------------------------------
+
+                    names = [
+                        item["name"]
+                        for item in new_files
+                    ]
+
+                    st.sidebar.success(
+                        f"Indexed {len(new_files)} new document(s): "
+                        + ", ".join(names)
+                    )
 
                 except Exception as e:
-                    st.sidebar.error(f"Indexing failed: {e}")
-            st.session_state.busy = False
+
+                    st.sidebar.error(
+                        f"Indexing failed: {e}"
+                    )
+
+                finally:
+
+                    st.session_state.busy = False
 
 
 # =====================================================
@@ -274,18 +492,33 @@ else:
         if len(selected_docs) < 2:
             st.sidebar.warning("Select at least 2 documents.")
         else:
-            with st.spinner(f"Comparing documents..."):
-                # ✅ REUSE THE ELITE PIPELINE
-                comparison_query = f"Compare these documents: {', '.join(selected_docs)}"
+            with st.spinner("Comparing documents..."):
+
+                # Clean internal/hash-prefixed filenames before
+                # sending document names to the LLM
+                cleaned_docs = [
+                    clean_filename(d)
+                    for d in selected_docs
+                ]
+
+                comparison_query = (
+                    f"Compare these documents: "
+                    f"{', '.join(cleaned_docs)}"
+                )
+
                 if compare_aspect:
-                    comparison_query += f" focusing specifically on {compare_aspect}"
-                
-                # This triggers reranking, CLIP, and grounding automatically
-                comparison_result, _ = ask_question(st.session_state.chain, comparison_query)
+                    comparison_query += (
+                        f" focusing specifically on {compare_aspect}"
+                    )
+
+                comparison_result, _ = ask_question(
+                    st.session_state.chain,
+                    comparison_query,
+                )
 
             st.session_state.summaries["comparison"] = {
                 "result": comparison_result,
-                "docs": selected_docs
+                "docs": selected_docs,
             }
 
 
@@ -382,83 +615,256 @@ st.sidebar.subheader("Download Chat")
 
 def generate_chat_pdf(messages, include_summaries=False, include_diagrams=False):
     """Generate comprehensive PDF with chat history, summaries, and diagrams"""
+
     buffer = BytesIO()
-    doc = SimpleDocTemplate(buffer, pagesize=A4, topMargin=0.5*inch, bottomMargin=0.5*inch)
+    doc = SimpleDocTemplate(
+        buffer,
+        pagesize=A4,
+        topMargin=0.5 * inch,
+        bottomMargin=0.5 * inch,
+    )
+
     styles = getSampleStyleSheet()
     elements = []
-    
-    # Title
-    title_style = styles['Heading1']
+
+    # =====================================================
+    # TITLE
+    # =====================================================
+
+    title_style = styles["Heading1"]
     title_style.fontSize = 24
     title_style.textColor = colors.HexColor("#1f77b4")
-    elements.append(Paragraph("LlamaChain — Chat History", title_style))
-    elements.append(Spacer(1, 0.3*inch))
-    
-    # Timestamp
+
+    elements.append(
+        Paragraph(
+            "LlamaChain — Chat History",
+            title_style,
+        )
+    )
+
+    elements.append(Spacer(1, 0.3 * inch))
+
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    elements.append(Paragraph(f"<i>Generated on {timestamp}</i>", styles["Normal"]))
-    elements.append(Spacer(1, 0.2*inch))
+
+    elements.append(
+        Paragraph(
+            f"<i>Generated on {timestamp}</i>",
+            styles["Normal"],
+        )
+    )
+
+    elements.append(Spacer(1, 0.2 * inch))
     elements.append(Paragraph("_" * 80, styles["Normal"]))
-    elements.append(Spacer(1, 0.2*inch))
-    
-    # Chat messages
-    elements.append(Paragraph("Chat Conversation", styles["Heading2"]))
-    elements.append(Spacer(1, 0.15*inch))
-    
+    elements.append(Spacer(1, 0.2 * inch))
+
+    # =====================================================
+    # CHAT HISTORY
+    # =====================================================
+
+    elements.append(
+        Paragraph(
+            "Chat Conversation",
+            styles["Heading2"],
+        )
+    )
+
+    elements.append(Spacer(1, 0.15 * inch))
+
     for msg in messages:
-        role = "User" if msg["role"] == "user" else "Assistant"
-        role_style = styles['Heading3'] if msg["role"] == "user" else styles['Normal']
-        
-        safe_text = re.sub(r'!\[image\]\(.*?\)', '[diagram]', msg.get("content", ""))
-        safe_text = safe_text.replace("<", "&lt;").replace(">", "&gt;")
-        safe_text = safe_text[:1000]  # Limit length for PDF
-        
-        elements.append(Paragraph(f"<b>{role}:</b>", styles["Heading3"]))
-        elements.append(Paragraph(safe_text, styles["Normal"]))
-        elements.append(Spacer(1, 0.1*inch))
-        
-        # Add images if include_diagrams is True
+
+        role = (
+            "User"
+            if msg["role"] == "user"
+            else "Assistant"
+        )
+
+        safe_text = re.sub(
+            r'!\[image\]\(.*?\)',
+            '[diagram]',
+            msg.get("content", ""),
+        )
+
+        safe_text = (
+            safe_text
+            .replace("<", "&lt;")
+            .replace(">", "&gt;")
+        )
+
+        safe_text = safe_text[:1000]
+
+        elements.append(
+            Paragraph(
+                f"<b>{role}:</b>",
+                styles["Heading3"],
+            )
+        )
+
+        elements.append(
+            Paragraph(
+                safe_text,
+                styles["Normal"],
+            )
+        )
+
+        elements.append(Spacer(1, 0.1 * inch))
+
+        # =====================================================
+        # ADD RETRIEVED IMAGES
+        # =====================================================
+
         if include_diagrams and msg.get("image_paths"):
-            for img_path in list(dict.fromkeys(msg.get("image_paths", []))):
-                if os.path.exists(img_path):
-                    try:
-                        img = RLImage(img_path, width=3.5*inch, height=2.5*inch)
-                        elements.append(img)
-                        elements.append(Spacer(1, 0.1*inch))
-                    except Exception as e:
-                        elements.append(Paragraph(f"<i>[Diagram: {os.path.basename(img_path)}]</i>", styles["Normal"]))
-                        elements.append(Spacer(1, 0.1*inch))
-    
-    # Add summaries if requested
+
+            unique_paths = list(
+                dict.fromkeys(
+                    msg.get("image_paths", [])
+                )
+            )
+
+            for img_path in unique_paths:
+
+                if not os.path.exists(img_path):
+                    continue
+
+                try:
+
+                    img = RLImage(
+                        img_path,
+                        width=3.5 * inch,
+                        height=2.5 * inch,
+                    )
+
+                    elements.append(img)
+
+                    # ✅ CLEAN CAPTION
+                    caption = clean_image_caption(
+                        os.path.basename(img_path)
+                    )
+
+                    elements.append(
+                        Paragraph(
+                            f"<i>Figure: {caption}</i>",
+                            styles["Normal"],
+                        )
+                    )
+
+                    elements.append(Spacer(1, 0.15 * inch))
+
+                except Exception:
+
+                    caption = clean_image_caption(
+                        os.path.basename(img_path)
+                    )
+
+                    elements.append(
+                        Paragraph(
+                            f"<i>[Diagram: {caption}]</i>",
+                            styles["Normal"],
+                        )
+                    )
+
+                    elements.append(Spacer(1, 0.1 * inch))
+
+    # =====================================================
+    # SUMMARIES
+    # =====================================================
+
     if include_summaries and st.session_state.summaries:
+
         elements.append(PageBreak())
-        elements.append(Paragraph("Summaries & Analysis", styles["Heading1"]))
-        elements.append(Spacer(1, 0.2*inch))
-        
+
+        elements.append(
+            Paragraph(
+                "Summaries & Analysis",
+                styles["Heading1"],
+            )
+        )
+
+        elements.append(Spacer(1, 0.2 * inch))
+
         if "combined" in st.session_state.summaries:
-            elements.append(Paragraph("Combined Summary", styles["Heading2"]))
-            summary_text = st.session_state.summaries["combined"][:2000]
-            elements.append(Paragraph(summary_text, styles["Normal"]))
-            elements.append(Spacer(1, 0.15*inch))
-        
+
+            elements.append(
+                Paragraph(
+                    "Combined Summary",
+                    styles["Heading2"],
+                )
+            )
+
+            summary_text = (
+                st.session_state.summaries["combined"][:2000]
+            )
+
+            elements.append(
+                Paragraph(
+                    summary_text,
+                    styles["Normal"],
+                )
+            )
+
+            elements.append(Spacer(1, 0.15 * inch))
+
         if "per_doc" in st.session_state.summaries:
-            elements.append(Paragraph("Per-Document Summaries", styles["Heading2"]))
+
+            elements.append(
+                Paragraph(
+                    "Per-Document Summaries",
+                    styles["Heading2"],
+                )
+            )
+
             for src, txt in st.session_state.summaries["per_doc"].items():
-                elements.append(Paragraph(f"<b>{src}</b>", styles["Heading3"]))
-                summary_text = txt[:1000]
-                elements.append(Paragraph(summary_text, styles["Normal"]))
-                elements.append(Spacer(1, 0.1*inch))
-        
+
+                elements.append(
+                    Paragraph(
+                        f"<b>{src}</b>",
+                        styles["Heading3"],
+                    )
+                )
+
+                elements.append(
+                    Paragraph(
+                        txt[:1000],
+                        styles["Normal"],
+                    )
+                )
+
+                elements.append(Spacer(1, 0.1 * inch))
+
         if "topic" in st.session_state.summaries:
-            elements.append(Paragraph("Topic-wise Summaries", styles["Heading2"]))
+
+            elements.append(
+                Paragraph(
+                    "Topic-wise Summaries",
+                    styles["Heading2"],
+                )
+            )
+
             for src, txt in st.session_state.summaries["topic"].items():
-                elements.append(Paragraph(f"<b>{src}</b>", styles["Heading3"]))
-                summary_text = txt[:1000]
-                elements.append(Paragraph(summary_text, styles["Normal"]))
-                elements.append(Spacer(1, 0.1*inch))
-    
+
+                elements.append(
+                    Paragraph(
+                        f"<b>{src}</b>",
+                        styles["Heading3"],
+                    )
+                )
+
+                elements.append(
+                    Paragraph(
+                        txt[:1000],
+                        styles["Normal"],
+                    )
+                )
+
+                elements.append(Spacer(1, 0.1 * inch))
+
+    # =====================================================
+    # BUILD PDF
+    # =====================================================
+
     doc.build(elements)
+
     buffer.seek(0)
+
     return buffer
 
 
