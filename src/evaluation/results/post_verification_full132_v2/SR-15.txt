@@ -1,0 +1,1074 @@
+====================================================================================================
+QUESTION_ID   : SR-15
+DOCUMENT      : SELF-RAG
+QUESTION_TYPE : Deeper reasoning
+ELAPSED_SEC   : 51.7
+ERROR         : no
+====================================================================================================
+
+QUESTION:
+According to the paper's human evaluation, what do the S&P, ISREL, and ISSUP evaluations tell us about the quality and grounding of SELF-RAG outputs?
+
+GROUND TRUTH ANSWER:
+S&P measures whether an output is plausible/reasonable and supported by sufficient evidence. ISREL measures whether the cited/retrieved passage is relevant to the question, and ISSUP measures whether the generated claim is supported by that passage. In the human evaluation, PopQA achieved S&P 92.5%, ISREL 95.0%, and ISSUP 90.0%; Bio achieved 70.0%, 90.0%, and 85.0%, respectively. The authors conclude that outputs are often plausible and supported and that ISREL/ISSUP reflection predictions mostly align with human judgments.
+
+GROUND TRUTH SOURCE:
+Self-RAG.pdf — Page 10, Figure 4(d); Page 21/Table 6
+
+====================================================================================================
+FORENSIC TRANSCRIPT
+====================================================================================================
+
+####################################################################################################
+FORENSIC CASE START
+####################################################################################################
+Original Query   : According to the paper's human evaluation, what do the S&P, ISREL, and ISSUP evaluations tell us about the quality and grounding of SELF-RAG outputs?
+Expanded Query   : According to the paper's human evaluation, what do the S&P, ISREL, and ISSUP evaluations tell us about the quality and grounding of SELF-RAG outputs?
+Query Type       : factual
+[DOCUMENT SCOPE] Normalized query: 'according to the paper s human evaluation what do the s p isrel and issup evaluations tell us about the quality and grounding of self rag outputs'
+[DOCUMENT SCOPE] Source='BERT.pdf' -> Normalized='bert'
+[DOCUMENT SCOPE] Token overlap for 'BERT.pdf': []
+[DOCUMENT SCOPE] Source='BLIP-2.pdf' -> Normalized='blip 2'
+[DOCUMENT SCOPE] Token overlap for 'BLIP-2.pdf': []
+[DOCUMENT SCOPE] Source='CLIP.pdf' -> Normalized='clip'
+[DOCUMENT SCOPE] Token overlap for 'CLIP.pdf': []
+[DOCUMENT SCOPE] Source='CNN Paper.pdf' -> Normalized='cnn paper'
+[DOCUMENT SCOPE] Token overlap for 'CNN Paper.pdf': ['paper']
+[DOCUMENT SCOPE] Source='Donut.pdf' -> Normalized='donut'
+[DOCUMENT SCOPE] Token overlap for 'Donut.pdf': []
+[DOCUMENT SCOPE] Source='LayoutLMv3.pdf' -> Normalized='layout l mv3'
+[DOCUMENT SCOPE] Token overlap for 'LayoutLMv3.pdf': []
+[DOCUMENT SCOPE] Source='NLP Paper.pdf' -> Normalized='nlp paper'
+[DOCUMENT SCOPE] Token overlap for 'NLP Paper.pdf': ['paper']
+[DOCUMENT SCOPE] Source='RAG.pdf' -> Normalized='rag'
+[DOCUMENT SCOPE] EXACT MATCH -> RAG.pdf
+[DOCUMENT SCOPE] Source='Self-RAG.pdf' -> Normalized='self rag'
+[DOCUMENT SCOPE] EXACT MATCH -> Self-RAG.pdf
+[DOCUMENT SCOPE] Source='Vision Transformer.pdf' -> Normalized='vision transformer'
+[DOCUMENT SCOPE] Token overlap for 'Vision Transformer.pdf': []
+[DOCUMENT SCOPE] Final matched sources: ['RAG.pdf', 'Self-RAG.pdf']
+
+================================================================================
+DOCUMENT SCOPE DEBUG
+================================================================================
+Query          : According to the paper's human evaluation, what do the S&P, ISREL, and ISSUP evaluations tell us about the quality and grounding of SELF-RAG outputs?
+Expanded Query : According to the paper's human evaluation, what do the S&P, ISREL, and ISSUP evaluations tell us about the quality and grounding of SELF-RAG outputs?
+Query Type     : factual
+Document Scope : ['RAG.pdf', 'Self-RAG.pdf']
+================================================================================
+
+==========================================================================================
+STEP 3A — SCOPED HYBRID RETRIEVAL
+==========================================================================================
+Query              : According to the paper's human evaluation, what do the S&P, ISREL, and ISSUP evaluations tell us about the quality and grounding of SELF-RAG outputs?
+Sources            : ['RAG.pdf', 'Self-RAG.pdf']
+Dense candidate K  : 25
+Final hybrid K     : 8
+
+------------------------------------------------------------------------------------------
+[SCOPED DENSE / VECTOR RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=lead to further improvements, although in this work we limit our training data size to 150k. Human evaluations. We conduct small human evaluations on SELF -RAG outputs, as well as 
+02. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=as if it were occurring in a conversation) and supported (i.e., the provided evidence is sufficient to verify the validity of the answer). For S&P, we do not consider the instances
+03. Source=Self-RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=to enhance overall generation quality, factuality, and verifiability. consistently retrieves a fixed number of documents for generation regardless of the retrieval necessity (e.g.,
+04. Source=RAG.pdf | Page=17 | Type=text | Image=N/A
+    Content=we report test numbers using ten retrieved documents for both RAG-Token and RAG-Sequence, and we also train a BART-large model as a baseline. We use a beam size of four, and use th
+05. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=Human analysis on SELF -R AG outputs as well as reflection tokens. contrary, a larger weight results in lower MAUVE scores: when generation gets longer and more fluent, there are o
+06. Source=Self-RAG.pdf | Page=6 | Type=text | Image=N/A
+    Content=4 E XPERIMENTS 4.1 T ASKS AND DATASETS We conduct evaluations of our SELF -RAG and diverse baselines on a range of downstream tasks, holistically evaluating outputs with metrics de
+07. Source=Self-RAG.pdf | Page=16 | Type=text | Image=N/A
+    Content=B.2 More Details of Evaluations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 20 C Results 20 C.1 Analysis . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+08. Source=Self-RAG.pdf | Page=21 | Type=text | Image=N/A
+    Content=Preprint. C.2 H UMAN EVALUATION EXAMPLES Table 6 shows examples with human evaluations on S&P and correctness of ISREL and ISSUP reflection tokens. C.3 Q UALITATIVE EXAMPLES Table 
+09. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=RAG approaches causes a large drop in PopQA and ASQA, and removing ISSUP during the beam search results hurts performance on ASQA. This demonstrates the effectiveness of SELF -RAG’
+10. Source=RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=sources, and speciﬁcity as high mutual dependence between the input and output [33]. We follow best practice and use pairwise comparative evaluation [34]. Evaluators are shown an a
+11. Source=Self-RAG.pdf | Page=3 | Type=text | Image=N/A
+    Content=or confirm the output’s relevance, support, or completeness. In contrast, common RAG approaches retrieve passages indiscriminately, without ensuring complete support from cited sou
+12. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=We show in Table 3a the ablation results. The top part of the table shows results for training ablations, and the bottom part is for inference ablations. We see that all components
+13. Source=Self-RAG.pdf | Page=24 | Type=text | Image=N/A
+    Content=the Bible, UFOs, and aliens. Also covered are subjects such as the Big Bang, comprehension of large numbers, and the Moon illusion. S&P Supported and Plausible. Correctness of ISRE
+14. Source=Self-RAG.pdf | Page=19 | Type=text | Image=N/A
+    Content=A.3 S ELF -R AG INFERENCE Details of beam-search score calculations. We first compute scores for each critique type by taking the normalized probabilities of desirable tokens. For 
+15. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=enables us to control how much each critique type affects the final generation sampling. We analyze the effects of different parameter weights on the top of our 7B model during inf
+16. Source=Self-RAG.pdf | Page=8 | Type=text | Image=N/A
+    Content=fully supported by cited evidence. We also found that on the metrics for factual precision, SELF -R AG 7B occasionally outperforms our 13B due to the tendency of smaller SELF -RAG 
+17. Source=RAG.pdf | Page=6 | Type=text | Image=N/A
+    Content=BART were factual in a further 17% of cases, clearly demonstrating the effectiveness of RAG on the task over a state-of-the-art generation model. Evaluators also ﬁnd RAG generation
+18. Source=RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=encoder” to re-rank documents, along with an extractive reader. RAG demonstrates that neither a re-ranker nor extractive reader is necessary for state-of-the-art performance. There
+19. Source=RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=We compare RAG’s dense retriever to a word overlap-based BM25 retriever [53]. Here, we replace RAG’s retriever with a ﬁxed BM25 system, and use BM25 retrieval scores as logits when
+20. Source=RAG.pdf | Page=4 | Type=text | Image=N/A
+    Content=3 Experiments We experiment with RAG in a wide range of knowledge-intensive tasks. For all experiments, we use a single Wikipedia dump for our non-parametric knowledge source. Foll
+21. Source=Self-RAG.pdf | Page=11 | Type=text | Image=N/A
+    Content=that explicit self-reflection and fine-grained attribution may help users verify factual errors in the model outputs. ACKNOWLEDGMENTS We thank Sewon Min, Scott Wen-tau Yih, Sean We
+22. Source=RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=Broader Impact This work offers several positive societal beneﬁts over previous work: the fact that it is more strongly grounded in real factual knowledge (in this case Wikipedia) 
+23. Source=Self-RAG.pdf | Page=27 | Type=text | Image=N/A
+    Content=only discusses the definitions of word embeddings and how they work. Therefore, we need to retrieve other evidence to verify whether the output is correct or not. Table 9: Instruct
+24. Source=RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=to classify the claim as true or false given the gold evidence sentence. RAG achieves an accuracy within 2.7% of this model, despite being supplied with only the claim and retrievi
+25. Source=Self-RAG.pdf | Page=4 | Type=text | Image=N/A
+    Content=passage’s relevance, the next response segment, and a critique token to evaluate if the information in the response segment is supported by the passage. Finally, a new critique tok
+
+------------------------------------------------------------------------------------------
+[SCOPED BM25 RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=Self-RAG.pdf | Page=10 | Type=image | Image=extracted_images\Self-RAG_page10_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+02. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=as if it were occurring in a conversation) and supported (i.e., the provided evidence is sufficient to verify the validity of the answer). For S&P, we do not consider the instances
+03. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=lead to further improvements, although in this work we limit our training data size to 150k. Human evaluations. We conduct small human evaluations on SELF -RAG outputs, as well as 
+04. Source=Self-RAG.pdf | Page=24 | Type=text | Image=N/A
+    Content=producer. In 2003 he was the President of the Jury at the 25th Moscow International Film Festival. S&P Plausible but only partially supported. The the Reference [1] does not explic
+05. Source=Self-RAG.pdf | Page=21 | Type=text | Image=N/A
+    Content=Preprint. C.2 H UMAN EVALUATION EXAMPLES Table 6 shows examples with human evaluations on S&P and correctness of ISREL and ISSUP reflection tokens. C.3 Q UALITATIVE EXAMPLES Table 
+06. Source=Self-RAG.pdf | Page=3 | Type=image | Image=extracted_images\Self-RAG_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+07. Source=Self-RAG.pdf | Page=24 | Type=text | Image=N/A
+    Content=one of the greatest of all time, Ronaldinho won two FIFA World Player of the Year awards and a Ballon d’Or. A global icon of the sport, he was renowned for his technical skills, cr
+08. Source=Self-RAG.pdf | Page=24 | Type=text | Image=N/A
+    Content=Correctness of ISREL and ISSUP Both ISREL and ISSUP are incorrect, as the Reference [1] is about a different book whose title is similar to The Lie. Input Tell me a bio about Ronal
+09. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=RAG approaches causes a large drop in PopQA and ASQA, and removing ISSUP during the beam search results hurts performance on ASQA. This demonstrates the effectiveness of SELF -RAG’
+10. Source=Self-RAG.pdf | Page=24 | Type=text | Image=N/A
+    Content=the Bible, UFOs, and aliens. Also covered are subjects such as the Big Bang, comprehension of large numbers, and the Moon illusion. S&P Supported and Plausible. Correctness of ISRE
+11. Source=Self-RAG.pdf | Page=9 | Type=image | Image=extracted_images\Self-RAG_page9_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the textbook on the characterization and characterization of semiconductors in semiconductors and semiconductors  OCR Text:
+12. Source=Self-RAG.pdf | Page=24 | Type=text | Image=N/A
+    Content=Output [ Retrieve =Yes] <p>Reference [1]<p>[ ISREL =Relevant] The author of The Lie is Sam Harris.[ ISSUP =Fully Supported ][ ISUSE =5] Reference [1] Lying is a 2011 long-form essa
+13. Source=Self-RAG.pdf | Page=4 | Type=image | Image=extracted_images\Self-RAG_page4_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Preprint.  Typ
+14. Source=Self-RAG.pdf | Page=1 | Type=image | Image=extracted_images\Self-RAG_page1_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with the title title of a research paper  OCR Text: 2310.11511v1 [cs.CL] 17 Oct 2023  arXiv  Preprint.  SELF-RAG: LEARNING TO R
+15. Source=Self-RAG.pdf | Page=24 | Type=text | Image=N/A
+    Content=Input Tell me a bio about Sergei Bodrov (Bio) Output [ Retrieve =Yes] <p>Reference [1] <p>[ ISREL =Relevant] Sergei Vladimirovich Bodrov (born June 28, 1948) is a Russian film dire
+16. Source=Self-RAG.pdf | Page=17 | Type=text | Image=N/A
+    Content=Details of GPT-4-based data collections. We use the instruction and demonstration pairs to prompt GPT-4, listed in Section D. Following an official recommendation, we separate inst
+17. Source=Self-RAG.pdf | Page=25 | Type=text | Image=N/A
+    Content=Preprint. Input When did sunday became the seventh day of the week (asqa) Output [ Retrieve =Yes] <p>Reference [1]<p>[ ISREL =Relevant] In 321 AD, the Roman Emperor Con- stantine t
+18. Source=Self-RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=evaluates whether the passage supports the model generation and predicts ISSUP . Critique tokens ISREL and ISSUP are appended after the retrieved passage or generations. At the end
+19. Source=Self-RAG.pdf | Page=24 | Type=text | Image=N/A
+    Content=readable. The Science Teacher review goes on to state that many of the answers given in the book are little gems of science writing. The Science Teacher summarizes by stating that 
+20. Source=Self-RAG.pdf | Page=29 | Type=text | Image=N/A
+    Content=token predictions as well and analogy detection. Score [Fully supported] Explanation The output sentence discusses the application of word embeddings, and the evidence mentions all
+21. Source=Self-RAG.pdf | Page=2 | Type=image | Image=extracted_images\Self-RAG_page2_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+22. Source=Self-RAG.pdf | Page=18 | Type=text | Image=N/A
+    Content=we use the original input and the tth segment as a retrieval query to find relevant passages for the t-th segment. For each retrieved passage, we predict ISREL and ISSUP . If there
+23. Source=Self-RAG.pdf | Page=6 | Type=text | Image=N/A
+    Content=during decoding using Critique . Instead of using a soft reward function in Eq. 4, we could explicitly filter out a segment continuation when the model generates an undesirable Cri
+24. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=plausible and supported by relevant passages with higher S&P scores on short-form PopQA, which is consistent with Menick et al. (2022). Human annotators also find ISREL and ISSUP r
+25. Source=RAG.pdf | Page=3 | Type=text | Image=N/A
+    Content=x with the retrieved contentz when generating from BART, we simply concatenate them. BART was pre-trained using a denoising objective and a variety of different noising functions. 
+
+------------------------------------------------------------------------------------------
+[RRF FUSION RANKING]
+------------------------------------------------------------------------------------------
+01. RRF=0.032266 | DenseRank=1 | BM25Rank=3 | Source=Self-RAG.pdf | Page=10 | Type=text
+02. RRF=0.032258 | DenseRank=2 | BM25Rank=2 | Source=Self-RAG.pdf | Page=10 | Type=text
+03. RRF=0.030090 | DenseRank=8 | BM25Rank=5 | Source=Self-RAG.pdf | Page=21 | Type=text
+04. RRF=0.028986 | DenseRank=9 | BM25Rank=9 | Source=Self-RAG.pdf | Page=9 | Type=text
+05. RRF=0.027984 | DenseRank=13 | BM25Rank=10 | Source=Self-RAG.pdf | Page=24 | Type=text
+06. RRF=0.016393 | DenseRank=- | BM25Rank=1 | Source=Self-RAG.pdf | Page=10 | Type=image
+07. RRF=0.015873 | DenseRank=3 | BM25Rank=- | Source=Self-RAG.pdf | Page=2 | Type=text
+08. RRF=0.015625 | DenseRank=4 | BM25Rank=- | Source=RAG.pdf | Page=17 | Type=text
+09. RRF=0.015625 | DenseRank=- | BM25Rank=4 | Source=Self-RAG.pdf | Page=24 | Type=text
+10. RRF=0.015385 | DenseRank=5 | BM25Rank=- | Source=Self-RAG.pdf | Page=10 | Type=text
+11. RRF=0.015152 | DenseRank=6 | BM25Rank=- | Source=Self-RAG.pdf | Page=6 | Type=text
+12. RRF=0.015152 | DenseRank=- | BM25Rank=6 | Source=Self-RAG.pdf | Page=3 | Type=image
+13. RRF=0.014925 | DenseRank=7 | BM25Rank=- | Source=Self-RAG.pdf | Page=16 | Type=text
+14. RRF=0.014925 | DenseRank=- | BM25Rank=7 | Source=Self-RAG.pdf | Page=24 | Type=text
+15. RRF=0.014706 | DenseRank=- | BM25Rank=8 | Source=Self-RAG.pdf | Page=24 | Type=text
+16. RRF=0.014286 | DenseRank=10 | BM25Rank=- | Source=RAG.pdf | Page=5 | Type=text
+17. RRF=0.014085 | DenseRank=11 | BM25Rank=- | Source=Self-RAG.pdf | Page=3 | Type=text
+18. RRF=0.014085 | DenseRank=- | BM25Rank=11 | Source=Self-RAG.pdf | Page=9 | Type=image
+19. RRF=0.013889 | DenseRank=12 | BM25Rank=- | Source=Self-RAG.pdf | Page=9 | Type=text
+20. RRF=0.013889 | DenseRank=- | BM25Rank=12 | Source=Self-RAG.pdf | Page=24 | Type=text
+21. RRF=0.013699 | DenseRank=- | BM25Rank=13 | Source=Self-RAG.pdf | Page=4 | Type=image
+22. RRF=0.013514 | DenseRank=14 | BM25Rank=- | Source=Self-RAG.pdf | Page=19 | Type=text
+23. RRF=0.013514 | DenseRank=- | BM25Rank=14 | Source=Self-RAG.pdf | Page=1 | Type=image
+24. RRF=0.013333 | DenseRank=15 | BM25Rank=- | Source=Self-RAG.pdf | Page=9 | Type=text
+25. RRF=0.013333 | DenseRank=- | BM25Rank=15 | Source=Self-RAG.pdf | Page=24 | Type=text
+26. RRF=0.013158 | DenseRank=16 | BM25Rank=- | Source=Self-RAG.pdf | Page=8 | Type=text
+27. RRF=0.013158 | DenseRank=- | BM25Rank=16 | Source=Self-RAG.pdf | Page=17 | Type=text
+28. RRF=0.012987 | DenseRank=17 | BM25Rank=- | Source=RAG.pdf | Page=6 | Type=text
+29. RRF=0.012987 | DenseRank=- | BM25Rank=17 | Source=Self-RAG.pdf | Page=25 | Type=text
+30. RRF=0.012821 | DenseRank=18 | BM25Rank=- | Source=RAG.pdf | Page=5 | Type=text
+31. RRF=0.012821 | DenseRank=- | BM25Rank=18 | Source=Self-RAG.pdf | Page=5 | Type=text
+32. RRF=0.012658 | DenseRank=19 | BM25Rank=- | Source=RAG.pdf | Page=7 | Type=text
+33. RRF=0.012658 | DenseRank=- | BM25Rank=19 | Source=Self-RAG.pdf | Page=24 | Type=text
+34. RRF=0.012500 | DenseRank=20 | BM25Rank=- | Source=RAG.pdf | Page=4 | Type=text
+35. RRF=0.012500 | DenseRank=- | BM25Rank=20 | Source=Self-RAG.pdf | Page=29 | Type=text
+36. RRF=0.012346 | DenseRank=21 | BM25Rank=- | Source=Self-RAG.pdf | Page=11 | Type=text
+37. RRF=0.012346 | DenseRank=- | BM25Rank=21 | Source=Self-RAG.pdf | Page=2 | Type=image
+38. RRF=0.012195 | DenseRank=22 | BM25Rank=- | Source=RAG.pdf | Page=10 | Type=text
+39. RRF=0.012195 | DenseRank=- | BM25Rank=22 | Source=Self-RAG.pdf | Page=18 | Type=text
+40. RRF=0.012048 | DenseRank=23 | BM25Rank=- | Source=Self-RAG.pdf | Page=27 | Type=text
+41. RRF=0.012048 | DenseRank=- | BM25Rank=23 | Source=Self-RAG.pdf | Page=6 | Type=text
+42. RRF=0.011905 | DenseRank=24 | BM25Rank=- | Source=RAG.pdf | Page=7 | Type=text
+43. RRF=0.011905 | DenseRank=- | BM25Rank=24 | Source=Self-RAG.pdf | Page=10 | Type=text
+44. RRF=0.011765 | DenseRank=25 | BM25Rank=- | Source=Self-RAG.pdf | Page=4 | Type=text
+45. RRF=0.011765 | DenseRank=- | BM25Rank=25 | Source=RAG.pdf | Page=3 | Type=text
+------------------------------------------------------------------------------------------
+
+==========================================================================================
+STEP 3A — RETRIEVAL STAGE SUMMARY
+==========================================================================================
+Dense candidates       : 25
+BM25 candidates        : 25
+Dense ∩ BM25           : 5
+Dense-only candidates  : 20
+BM25-only candidates   : 20
+Unique candidate pool  : 45
+RRF candidates         : 45
+Returned to pipeline   : 8
+==========================================================================================
+
+------------------------------------------------------------------------------------------
+[SCOPED FINAL HYBRID RESULT] 8 candidates
+------------------------------------------------------------------------------------------
+01. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=lead to further improvements, although in this work we limit our training data size to 150k. Human evaluations. We conduct small human evaluations on SELF -RAG outputs, as well as 
+02. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=as if it were occurring in a conversation) and supported (i.e., the provided evidence is sufficient to verify the validity of the answer). For S&P, we do not consider the instances
+03. Source=Self-RAG.pdf | Page=21 | Type=text | Image=N/A
+    Content=Preprint. C.2 H UMAN EVALUATION EXAMPLES Table 6 shows examples with human evaluations on S&P and correctness of ISREL and ISSUP reflection tokens. C.3 Q UALITATIVE EXAMPLES Table 
+04. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=RAG approaches causes a large drop in PopQA and ASQA, and removing ISSUP during the beam search results hurts performance on ASQA. This demonstrates the effectiveness of SELF -RAG’
+05. Source=Self-RAG.pdf | Page=24 | Type=text | Image=N/A
+    Content=the Bible, UFOs, and aliens. Also covered are subjects such as the Big Bang, comprehension of large numbers, and the Moon illusion. S&P Supported and Plausible. Correctness of ISRE
+06. Source=Self-RAG.pdf | Page=10 | Type=image | Image=extracted_images\Self-RAG_page10_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+07. Source=Self-RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=to enhance overall generation quality, factuality, and verifiability. consistently retrieves a fixed number of documents for generation regardless of the retrieval necessity (e.g.,
+08. Source=RAG.pdf | Page=17 | Type=text | Image=N/A
+    Content=we report test numbers using ten retrieved documents for both RAG-Token and RAG-Sequence, and we also train a BART-large model as a baseline. We use a beam size of four, and use th
+==========================================================================================
+
+================================================================================
+STAGE 1 — HYBRID RETRIEVAL
+================================================================================
+Retrieved Count : 8
+
+[HYBRID #1] Source=Self-RAG.pdf | Page=10 | Type=text
+Content: lead to further improvements, although in this work we limit our training data size to 150k. Human evaluations. We conduct small human evaluations on SELF -RAG outputs, as well as the reliability of predicted reflection tokens. In particular, we sampled 50 samples from PopQA and Bio results. Following Menick et al. (2022), human annotators evaluate S&P, which indicates whether the model output is plausible (i.e., the output is a reasonable and on-topic response to the question as if it were occu
+
+[HYBRID #2] Source=Self-RAG.pdf | Page=10 | Type=text
+Content: as if it were occurring in a conversation) and supported (i.e., the provided evidence is sufficient to verify the validity of the answer). For S&P, we do not consider the instances where SELF -RAG predicts irrelevant or no support . We then ask our annotators whether the model-predicted reflection tokens about ISREL and ISSUP match their inspections (e.g., whether the fully supported output is supported by the cited evidence). Human annotators find SELF -RAG answers are often plausible and suppo
+
+[HYBRID #3] Source=Self-RAG.pdf | Page=21 | Type=text
+Content: Preprint. C.2 H UMAN EVALUATION EXAMPLES Table 6 shows examples with human evaluations on S&P and correctness of ISREL and ISSUP reflection tokens. C.3 Q UALITATIVE EXAMPLES Table 7 shows several examples predicted by ourSELF -RAG (13B). The first example is the model output to an ASQA question. The first reference states that Emperor Constantine made Sunday a day of rest from labor, and further the second citation supports the fact that the official adoption of Sunday as a day of rest by Consta
+
+[HYBRID #4] Source=Self-RAG.pdf | Page=9 | Type=text
+Content: RAG approaches causes a large drop in PopQA and ASQA, and removing ISSUP during the beam search results hurts performance on ASQA. This demonstrates the effectiveness of SELF -RAG’s capabilities of carefully selecting generations based fine-grained multiple criterion, instead of naively using all of the top passages from the retrieval model or solely depending on relevance scores. Effects of inference-time customization. One key benefit of our proposed framework is that it enables us to control 
+
+[HYBRID #5] Source=Self-RAG.pdf | Page=24 | Type=text
+Content: the Bible, UFOs, and aliens. Also covered are subjects such as the Big Bang, comprehension of large numbers, and the Moon illusion. S&P Supported and Plausible. Correctness of ISREL and ISSUP : Both ISREL and ISSUP are correct, as the Reference [1] provides detailed information of the book including the genre, and the model output is fully supported by the reference. Input Who is the author of The Lie? (PopQA) Output [ Retrieve =Yes] <p>Reference [1]<p>[ ISREL =Relevant] The author of The Lie is
+
+[HYBRID #6] Source=Self-RAG.pdf | Page=10 | Type=image
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Preprint.  in wu  g 50 23 Pop Bio. 5 60 &“ 7? S&P 92.5 70.0 & 40 n 95.0 90.0 35 0 50 100 150 0 100 “ 0 100 _Dsssur] 90.0 85.0 90.0 85.0 Num of training (k) Num of training (k) Num of training (k) . (d) Human evaluation on PopQA (a) PopQA (b) PubHealth (c) ASQA (prec) —_ and B
+
+[HYBRID #7] Source=Self-RAG.pdf | Page=2 | Type=text
+Content: to enhance overall generation quality, factuality, and verifiability. consistently retrieves a fixed number of documents for generation regardless of the retrieval necessity (e.g., the bottom figure example does not require factual knowledge) and never second visits the generation quality. Moreover, SELF -RAG provides citations for each segment with its self-assessment of whether the output is supported by the passage, leading to easier fact verification. SELF -RAG trains an arbitrary LM to gene
+
+[HYBRID #8] Source=RAG.pdf | Page=17 | Type=text
+Content: we report test numbers using ten retrieved documents for both RAG-Token and RAG-Sequence, and we also train a BART-large model as a baseline. We use a beam size of four, and use the Fast Decoding approach for RAG-Sequence models, as Thorough Decoding did not improve performance. B Human Evaluation Figure 4: Annotation interface for human evaluation of factuality. A pop-out for detailed instructions and a worked example appear when clicking "view tool guide". Figure 4 shows the user interface for
+================================================================================
+[DOCUMENT SCOPE] Text chunks: 8 -> 8
+
+================================================================================
+IMAGE RETRIEVAL DIAGNOSTIC
+================================================================================
+Query                 : According to the paper's human evaluation, what do the S&P, ISREL, and ISSUP evaluations tell us about the quality and grounding of SELF-RAG outputs?
+Allowed Sources       : ['RAG.pdf', 'Self-RAG.pdf']
+Image Candidates      : 554 -> 12 (scoped before ranking)
+
+ALL IMAGE CANDIDATES
+--------------------------------------------------------------------------------
+Rank=01 | Source=Self-RAG.pdf | Page=10 | Image=Self-RAG_page10_render.png | Hybrid=-4.0001 | CE=-6.8053 | CLIP=0.2078
+Rank=02 | Source=RAG.pdf | Page=8 | Image=RAG_page8_render.png | Hybrid=-5.2964 | CE=-8.9744 | CLIP=0.2205
+Rank=03 | Source=Self-RAG.pdf | Page=1 | Image=Self-RAG_page1_render.png | Hybrid=-5.3609 | CE=-9.0774 | CLIP=0.2138
+Rank=04 | Source=Self-RAG.pdf | Page=4 | Image=Self-RAG_page4_render.png | Hybrid=-6.3961 | CE=-10.7994 | CLIP=0.2089
+Rank=05 | Source=Self-RAG.pdf | Page=2 | Image=Self-RAG_page2_render.png | Hybrid=-6.4655 | CE=-10.9300 | CLIP=0.2314
+Rank=06 | Source=RAG.pdf | Page=7 | Image=RAG_page7_render.png | Hybrid=-6.4866 | CE=-10.9652 | CLIP=0.2314
+Rank=07 | Source=RAG.pdf | Page=6 | Image=RAG_page6_render.png | Hybrid=-6.5700 | CE=-11.1056 | CLIP=0.2333
+Rank=08 | Source=Self-RAG.pdf | Page=9 | Image=Self-RAG_page9_render.png | Hybrid=-6.5826 | CE=-11.1085 | CLIP=0.2062
+Rank=09 | Source=RAG.pdf | Page=2 | Image=RAG_page2_render.png | Hybrid=-6.6499 | CE=-11.2247 | CLIP=0.2124
+Rank=10 | Source=Self-RAG.pdf | Page=3 | Image=Self-RAG_page3_render.png | Hybrid=-6.6963 | CE=-11.3145 | CLIP=0.2311
+Rank=11 | Source=Self-RAG.pdf | Page=5 | Image=Self-RAG_page5_render.png | Hybrid=-6.7409 | CE=-11.3880 | CLIP=0.2297
+Rank=12 | Source=RAG.pdf | Page=17 | Image=RAG_page17_img0.png | Hybrid=-6.7590 | CE=-11.4230 | CLIP=0.2370
+
+TOP IMAGE RESULTS
+--------------------------------------------------------------------------------
+TOP-1 | Source=Self-RAG.pdf | Page=10 | Image=Self-RAG_page10_render.png | Hybrid=-4.0001 | CE=-6.8053 | CLIP=0.2078
+TOP-2 | Source=RAG.pdf | Page=8 | Image=RAG_page8_render.png | Hybrid=-5.2964 | CE=-8.9744 | CLIP=0.2205
+TOP-3 | Source=Self-RAG.pdf | Page=1 | Image=Self-RAG_page1_render.png | Hybrid=-5.3609 | CE=-9.0774 | CLIP=0.2138
+================================================================================
+[DOCUMENT SCOPE] Images: 3 -> 3
+
+================================================================================
+STAGE 2 — IMAGE RETRIEVAL RESULT
+================================================================================
+Image Results       : 3
+Exact Figure Match  : False
+
+[IMAGE #1] Source=Self-RAG.pdf | Page=10 | Image=Self-RAG_page10_render.png
+Image Path: extracted_images\Self-RAG_page10_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Preprint.  in wu  g 50 23 Pop Bio. 5 60 &“ 7? S&P 92.5 70.0 & 40 n 95.0 90.0 35 0 50 100 150 0 100 “ 0 100 _Dsssur] 90.0 85.0 90.0 85.0 Num of training (k) Num of training (k) Num of training (k) . (d) Human evaluation on PopQA (a) PopQA (b) PubHealth (c) ASQA (prec) —_ and B
+
+[IMAGE #2] Source=RAG.pdf | Page=8 | Image=RAG_page8_render.png
+Image Path: extracted_images\RAG_page8_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Table 4: Human assessments for the Jeopardy Table 5: Ratio of distinct to total tri-grams for Question Generation Task. generation tasks.  Factuality Specificity MSMARCO Jeopardy QGen  BART better 7.1% 16.8% Gold 39 6% 90.0% RAG better 42.7% 37.4% BART OA Both good 11.7% 11.8% A 70.7% 32.4% g : RAG-Token 77.8% 46.8% Both poor 17.7% 
+
+[IMAGE #3] Source=Self-RAG.pdf | Page=1 | Image=Self-RAG_page1_render.png
+Image Path: extracted_images\Self-RAG_page1_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with the title title of a research paper  OCR Text: 2310.11511v1 [cs.CL] 17 Oct 2023  arXiv  Preprint.  SELF-RAG: LEARNING TO RETRIEVE, GENERATE, AND CRITIQUE THROUGH SELF-REFLECTION  Akari Asai! , Zeqiu Wul, Yizhong Wang’, Avirup Sil?, Hannaneh Hajishirzi'® tUniversity of Washington Allen Institute for AI +IBM Research AI {akari, zeqiuwu, yizhongw, hannaneh}@cs.washington.edu, avi@us.ibm.com  ABSTRACT  Despite their remarkable capabilities, l
+================================================================================
+
+================================================================================
+COMBINED RETRIEVAL CANDIDATES
+================================================================================
+Text Candidates  : 8
+Image Candidates : 3
+Total Candidates : 11
+================================================================================
+
+================================================================================
+STEP 3A — RERANKER INPUT
+================================================================================
+Query: According to the paper's human evaluation, what do the S&P, ISREL, and ISSUP evaluations tell us about the quality and grounding of SELF-RAG outputs?
+Input candidates: 11
+01. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=lead to further improvements, although in this work we limit our training data size to 150k. Human evaluations. We conduct small human evaluations on SELF -RAG outputs, as well as 
+02. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=as if it were occurring in a conversation) and supported (i.e., the provided evidence is sufficient to verify the validity of the answer). For S&P, we do not consider the instances
+03. Source=Self-RAG.pdf | Page=21 | Type=text | Image=N/A
+    Content=Preprint. C.2 H UMAN EVALUATION EXAMPLES Table 6 shows examples with human evaluations on S&P and correctness of ISREL and ISSUP reflection tokens. C.3 Q UALITATIVE EXAMPLES Table 
+04. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=RAG approaches causes a large drop in PopQA and ASQA, and removing ISSUP during the beam search results hurts performance on ASQA. This demonstrates the effectiveness of SELF -RAG’
+05. Source=Self-RAG.pdf | Page=24 | Type=text | Image=N/A
+    Content=the Bible, UFOs, and aliens. Also covered are subjects such as the Big Bang, comprehension of large numbers, and the Moon illusion. S&P Supported and Plausible. Correctness of ISRE
+06. Source=Self-RAG.pdf | Page=10 | Type=image | Image=extracted_images\Self-RAG_page10_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+07. Source=Self-RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=to enhance overall generation quality, factuality, and verifiability. consistently retrieves a fixed number of documents for generation regardless of the retrieval necessity (e.g.,
+08. Source=RAG.pdf | Page=17 | Type=text | Image=N/A
+    Content=we report test numbers using ten retrieved documents for both RAG-Token and RAG-Sequence, and we also train a BART-large model as a baseline. We use a beam size of four, and use th
+09. Source=Self-RAG.pdf | Page=10 | Type=image | Image=extracted_images\Self-RAG_page10_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+10. Source=RAG.pdf | Page=8 | Type=image | Image=extracted_images\RAG_page8_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Table 4: Human
+11. Source=Self-RAG.pdf | Page=1 | Type=image | Image=extracted_images\Self-RAG_page1_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with the title title of a research paper  OCR Text: 2310.11511v1 [cs.CL] 17 Oct 2023  arXiv  Preprint.  SELF-RAG: LEARNING TO R
+================================================================================
+
+--------------------------------------------------------------------------------
+CROSS-ENCODER RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=01 | Source=Self-RAG.pdf | Page=10 | Type=text | CE=2.7783
+Rank=02 | OriginalIndex=00 | Source=Self-RAG.pdf | Page=10 | Type=text | CE=2.3446
+Rank=03 | OriginalIndex=02 | Source=Self-RAG.pdf | Page=21 | Type=text | CE=1.7817
+Rank=04 | OriginalIndex=04 | Source=Self-RAG.pdf | Page=24 | Type=text | CE=0.5519
+Rank=05 | OriginalIndex=07 | Source=RAG.pdf | Page=17 | Type=text | CE=-6.4487
+Rank=06 | OriginalIndex=03 | Source=Self-RAG.pdf | Page=9 | Type=text | CE=-6.7557
+Rank=07 | OriginalIndex=05 | Source=Self-RAG.pdf | Page=10 | Type=image | CE=-6.8053
+Rank=08 | OriginalIndex=08 | Source=Self-RAG.pdf | Page=10 | Type=image | CE=-6.8053
+Rank=09 | OriginalIndex=06 | Source=Self-RAG.pdf | Page=2 | Type=text | CE=-7.3117
+Rank=10 | OriginalIndex=09 | Source=RAG.pdf | Page=8 | Type=image | CE=-8.9744
+Rank=11 | OriginalIndex=10 | Source=Self-RAG.pdf | Page=1 | Type=image | CE=-9.0774
+
+--------------------------------------------------------------------------------
+CLIP IMAGE RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=09 | Source=RAG.pdf | Page=8 | Image=extracted_images\RAG_page8_render.png | CLIP=0.2205
+Rank=02 | OriginalIndex=10 | Source=Self-RAG.pdf | Page=1 | Image=extracted_images\Self-RAG_page1_render.png | CLIP=0.2138
+Rank=03 | OriginalIndex=05 | Source=Self-RAG.pdf | Page=10 | Image=extracted_images\Self-RAG_page10_render.png | CLIP=0.2078
+Rank=04 | OriginalIndex=08 | Source=Self-RAG.pdf | Page=10 | Image=extracted_images\Self-RAG_page10_render.png | CLIP=0.2078
+
+================================================================================
+STEP 3A — COMPLETE MULTIMODAL RERANK RESULT
+================================================================================
+Rank=01 | Type=image | Source=Self-RAG.pdf | Page=10 | RRF=0.030798 | CE=-6.8053 | CLIP=0.2078
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+Rank=02 | Type=image | Source=RAG.pdf | Page=8 | RRF=0.030679 | CE=-8.9744 | CLIP=0.2205
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Table 4: Human
+Rank=03 | Type=image | Source=Self-RAG.pdf | Page=10 | RRF=0.030331 | CE=-6.8053 | CLIP=0.2078
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+Rank=04 | Type=image | Source=Self-RAG.pdf | Page=1 | RRF=0.030214 | CE=-9.0774 | CLIP=0.2138
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with the title title of a research paper  OCR Text: 2310.11511v1 [cs.CL] 17 Oct 2023  arXiv  Preprint.  SELF-RAG: LEARNING TO R
+Rank=05 | Type=text | Source=Self-RAG.pdf | Page=10 | RRF=0.016393 | CE=2.7783 | CLIP=N/A
+    Content=as if it were occurring in a conversation) and supported (i.e., the provided evidence is sufficient to verify the validity of the answer). For S&P, we do not consider the instances
+Rank=06 | Type=text | Source=Self-RAG.pdf | Page=10 | RRF=0.016129 | CE=2.3446 | CLIP=N/A
+    Content=lead to further improvements, although in this work we limit our training data size to 150k. Human evaluations. We conduct small human evaluations on SELF -RAG outputs, as well as 
+Rank=07 | Type=text | Source=Self-RAG.pdf | Page=21 | RRF=0.015873 | CE=1.7817 | CLIP=N/A
+    Content=Preprint. C.2 H UMAN EVALUATION EXAMPLES Table 6 shows examples with human evaluations on S&P and correctness of ISREL and ISSUP reflection tokens. C.3 Q UALITATIVE EXAMPLES Table 
+Rank=08 | Type=text | Source=Self-RAG.pdf | Page=24 | RRF=0.015625 | CE=0.5519 | CLIP=N/A
+    Content=the Bible, UFOs, and aliens. Also covered are subjects such as the Big Bang, comprehension of large numbers, and the Moon illusion. S&P Supported and Plausible. Correctness of ISRE
+Rank=09 | Type=text | Source=RAG.pdf | Page=17 | RRF=0.015385 | CE=-6.4487 | CLIP=N/A
+    Content=we report test numbers using ten retrieved documents for both RAG-Token and RAG-Sequence, and we also train a BART-large model as a baseline. We use a beam size of four, and use th
+Rank=10 | Type=text | Source=Self-RAG.pdf | Page=9 | RRF=0.015152 | CE=-6.7557 | CLIP=N/A
+    Content=RAG approaches causes a large drop in PopQA and ASQA, and removing ISSUP during the beam search results hurts performance on ASQA. This demonstrates the effectiveness of SELF -RAG’
+Rank=11 | Type=text | Source=Self-RAG.pdf | Page=2 | RRF=0.014493 | CE=-7.3117 | CLIP=N/A
+    Content=to enhance overall generation quality, factuality, and verifiability. consistently retrieves a fixed number of documents for generation regardless of the retrieval necessity (e.g.,
+================================================================================
+
+================================================================================
+STEP 3A — FINAL RERANK TOP-K
+================================================================================
+Requested top_k: 12
+Returned documents: 10
+01. Source=Self-RAG.pdf | Page=10 | Type=image | Image=extracted_images\Self-RAG_page10_render.png
+02. Source=RAG.pdf | Page=8 | Type=image | Image=extracted_images\RAG_page8_render.png
+03. Source=Self-RAG.pdf | Page=1 | Type=image | Image=extracted_images\Self-RAG_page1_render.png
+04. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+05. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+06. Source=Self-RAG.pdf | Page=21 | Type=text | Image=N/A
+07. Source=Self-RAG.pdf | Page=24 | Type=text | Image=N/A
+08. Source=RAG.pdf | Page=17 | Type=text | Image=N/A
+09. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+10. Source=Self-RAG.pdf | Page=2 | Type=text | Image=N/A
+================================================================================
+
+================================================================================
+STAGE 3 — MULTIMODAL RERANKING
+================================================================================
+Input Candidates : 11
+Reranked Output   : 10
+
+[RERANK #1] Source=Self-RAG.pdf | Page=10 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Preprint.  in wu  g 50 23 Pop Bio. 5 60 &“ 7? S&P 92.5 70.0 & 40 n 95.0 90.0
+
+[RERANK #2] Source=RAG.pdf | Page=8 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Table 4: Human assessments for the Jeopardy Table 5: Ratio of distinct to total tri-grams for Question Generation Task. generation tas
+
+[RERANK #3] Source=Self-RAG.pdf | Page=1 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with the title title of a research paper  OCR Text: 2310.11511v1 [cs.CL] 17 Oct 2023  arXiv  Preprint.  SELF-RAG: LEARNING TO RETRIEVE, GENERATE, AND CRITIQUE THROUGH SELF-REFLECTION  Akari Asai! , Zeqiu Wul, Yizhong Wang’, Avirup Sil?, Hannaneh H
+
+[RERANK #4] Source=Self-RAG.pdf | Page=10 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: as if it were occurring in a conversation) and supported (i.e., the provided evidence is sufficient to verify the validity of the answer). For S&P, we do not consider the instances where SELF -RAG predicts irrelevant or no support . We then ask our annotators whether the model-predicted reflection t
+
+[RERANK #5] Source=Self-RAG.pdf | Page=10 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: lead to further improvements, although in this work we limit our training data size to 150k. Human evaluations. We conduct small human evaluations on SELF -RAG outputs, as well as the reliability of predicted reflection tokens. In particular, we sampled 50 samples from PopQA and Bio results. Followi
+
+[RERANK #6] Source=Self-RAG.pdf | Page=21 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Preprint. C.2 H UMAN EVALUATION EXAMPLES Table 6 shows examples with human evaluations on S&P and correctness of ISREL and ISSUP reflection tokens. C.3 Q UALITATIVE EXAMPLES Table 7 shows several examples predicted by ourSELF -RAG (13B). The first example is the model output to an ASQA question. The
+
+[RERANK #7] Source=Self-RAG.pdf | Page=24 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: the Bible, UFOs, and aliens. Also covered are subjects such as the Big Bang, comprehension of large numbers, and the Moon illusion. S&P Supported and Plausible. Correctness of ISREL and ISSUP : Both ISREL and ISSUP are correct, as the Reference [1] provides detailed information of the book including
+
+[RERANK #8] Source=RAG.pdf | Page=17 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: we report test numbers using ten retrieved documents for both RAG-Token and RAG-Sequence, and we also train a BART-large model as a baseline. We use a beam size of four, and use the Fast Decoding approach for RAG-Sequence models, as Thorough Decoding did not improve performance. B Human Evaluation F
+
+[RERANK #9] Source=Self-RAG.pdf | Page=9 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: RAG approaches causes a large drop in PopQA and ASQA, and removing ISSUP during the beam search results hurts performance on ASQA. This demonstrates the effectiveness of SELF -RAG’s capabilities of carefully selecting generations based fine-grained multiple criterion, instead of naively using all of
+
+[RERANK #10] Source=Self-RAG.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: to enhance overall generation quality, factuality, and verifiability. consistently retrieves a fixed number of documents for generation regardless of the retrieval necessity (e.g., the bottom figure example does not require factual knowledge) and never second visits the generation quality. Moreover,
+================================================================================
+
+================================================================================
+FINAL CONTEXT DOCUMENTS
+================================================================================
+Final context candidates: 10
+
+[FINAL #1] Source=Self-RAG.pdf | Page=10 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Preprint.  in wu  g 50 23 Pop Bio. 5 60 &“ 7? S&P 92.5 70.0 & 40 n 95.0 90.0
+
+[FINAL #2] Source=RAG.pdf | Page=8 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Table 4: Human assessments for the Jeopardy Table 5: Ratio of distinct to total tri-grams for Question Generation Task. generation tas
+
+[FINAL #3] Source=Self-RAG.pdf | Page=1 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with the title title of a research paper  OCR Text: 2310.11511v1 [cs.CL] 17 Oct 2023  arXiv  Preprint.  SELF-RAG: LEARNING TO RETRIEVE, GENERATE, AND CRITIQUE THROUGH SELF-REFLECTION  Akari Asai! , Zeqiu Wul, Yizhong Wang’, Avirup Sil?, Hannaneh H
+
+[FINAL #4] Source=Self-RAG.pdf | Page=10 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: as if it were occurring in a conversation) and supported (i.e., the provided evidence is sufficient to verify the validity of the answer). For S&P, we do not consider the instances where SELF -RAG predicts irrelevant or no support . We then ask our annotators whether the model-predicted reflection t
+
+[FINAL #5] Source=Self-RAG.pdf | Page=10 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: lead to further improvements, although in this work we limit our training data size to 150k. Human evaluations. We conduct small human evaluations on SELF -RAG outputs, as well as the reliability of predicted reflection tokens. In particular, we sampled 50 samples from PopQA and Bio results. Followi
+
+[FINAL #6] Source=Self-RAG.pdf | Page=21 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Preprint. C.2 H UMAN EVALUATION EXAMPLES Table 6 shows examples with human evaluations on S&P and correctness of ISREL and ISSUP reflection tokens. C.3 Q UALITATIVE EXAMPLES Table 7 shows several examples predicted by ourSELF -RAG (13B). The first example is the model output to an ASQA question. The
+
+[FINAL #7] Source=Self-RAG.pdf | Page=24 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: the Bible, UFOs, and aliens. Also covered are subjects such as the Big Bang, comprehension of large numbers, and the Moon illusion. S&P Supported and Plausible. Correctness of ISREL and ISSUP : Both ISREL and ISSUP are correct, as the Reference [1] provides detailed information of the book including
+
+[FINAL #8] Source=RAG.pdf | Page=17 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: we report test numbers using ten retrieved documents for both RAG-Token and RAG-Sequence, and we also train a BART-large model as a baseline. We use a beam size of four, and use the Fast Decoding approach for RAG-Sequence models, as Thorough Decoding did not improve performance. B Human Evaluation F
+
+[FINAL #9] Source=Self-RAG.pdf | Page=9 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: RAG approaches causes a large drop in PopQA and ASQA, and removing ISSUP during the beam search results hurts performance on ASQA. This demonstrates the effectiveness of SELF -RAG’s capabilities of carefully selecting generations based fine-grained multiple criterion, instead of naively using all of
+
+[FINAL #10] Source=Self-RAG.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: to enhance overall generation quality, factuality, and verifiability. consistently retrieves a fixed number of documents for generation regardless of the retrieval necessity (e.g., the bottom figure example does not require factual knowledge) and never second visits the generation quality. Moreover,
+================================================================================
+
+================================================================================
+FINAL CONTEXT SENT TO LLM
+================================================================================
+
+================================================================================
+DOCUMENT : Self-RAG.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 1
+--------------------------------------------------------------------------------
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a paper with the title title of a research paper
+
+OCR Text:
+2310.11511v1 [cs.CL] 17 Oct 2023
+
+arXiv
+
+Preprint.
+
+SELF-RAG: LEARNING TO RETRIEVE, GENERATE, AND
+CRITIQUE THROUGH SELF-REFLECTION
+
+Akari Asai! , Zeqiu Wul, Yizhong Wang’, Avirup Sil?, Hannaneh Hajishirzi'®
+tUniversity of Washington Allen Institute for AI +IBM Research AI
+{akari, zeqiuwu, yizhongw, hannaneh}@cs.washington.edu, avi@us.ibm.com
+
+ABSTRACT
+
+Despite their remarkable capabilities, large language models (LLMs) often produce
+responses containing factual inaccuracies due to their sole reliance on the paramet-
+ric knowledge they encapsulate. Retrieval-Augmented Generation (RAG), an ad
+hoc approach that augments LMs with retrieval of relevant knowledge, decreases
+such issues. However, indiscriminately retrieving and incorporating a fixed number
+of retrieved passages, regardless of whether retrieval is necessary, or passages are
+relevant, diminishes LM versatility or can lead to unhelpful response generation.
+We introduce a new framework called Self-Reflective Retrieval-Augmented Gen-
+eration (SELF-RAG) that enhances an LM’s quality and factuality through retrieval
+and self-reflection. Our framework trains a single arbitrary LM that adaptively
+retrieves passages on-demand, and generates and reflects on retrieved passages
+and its own generations using special tokens, called reflection tokens. Generating
+reflection tokens makes the LM controllable during the inference phase, enabling it
+to tailor its behavior to diverse task requirements. Experiments show that SELF-
+RAG (7B and 13B parameters) significantly outperforms state-of-the-art LLMs
+and retrieval-augmented models on a diverse set of tasks. Specifically, SELF-RAG
+outperforms ChatGPT and retrieval-augmented Llama2-chat on Open-domain QA,
+reasoning and fact verification tasks, and it shows significant gains in improving
+factuality and citation accuracy for long-form generations relative to these models.'
+
+1 INTRODUCTION
+
+State-of-the-art LLMs continue to struggle with factual errors (Mallen et al., 2023; Min et al., 2023)
+despite their increased model and data scale (Ouyang et al., 2022). Retrieval-Augmented Generation
+(RAG) methods (Figure 1 left; Lewis et al. 2020; Guu et al. 2020) augment the input of LLMs
+with relevant retrieved passages, reducing factual errors in knowledge-intensive tasks (Ram et al.,
+2023; Asai et al., 2023a). However, these methods may hinder the versatility of LLMs or introduce
+unnecessary or off-topic passages that lead to low-quality generations (Shi et al., 2023) since they
+retrieve passages indiscriminately regardless of whether the factual grounding is helpful. Moreover,
+the output is not guaranteed to be consistent with retrieved relevant passages (Gao et al., 2023) since
+the models are not explicitly trained to leverage and follow facts from provided passages. This
+work introduces Self-Reflective Retrieval-augmented Generation (SELF-RAG) to improve an
+LLM’s generation quality, including its factual accuracy without hurting its versatility, via on-demand
+retrieval and self-reflection. We train an arbitrary LM in an end-to-end manner to learn to reflect on
+its own generation process given a task input by generating both task output and intermittent special
+tokens (.e., reflection tokens). Reflection tokens are categorized into retrieval and critique tokens to
+indicate the need for retrieval and its generation quality respectively (Figure 1 right). In particular,
+given an input prompt and preceding generations, SELF-RAG first determines if augmenting the
+continued generation with retrieved passages would be helpful. If so, it outputs a retrieval token that
+calls a retriever model on demand (Step 1). Subsequently, SELF-RAG concurrently processes multiple
+retrieved passages, evaluating their relevance and then generating corresponding task outputs (Step
+2). It then generates critique tokens to criticize its own output and choose best one (Step 3) in terms
+of factuality and overall quality. This process differs from conventional RAG (Figure 1 left), which
+
+‘Our code and trained models are available at https: //selfrag.github.io/.
+
+Nearby Document Text:
+Preprint.
+SELF-RAG: LEARNING TO RETRIEVE, GENERATE, AND
+CRITIQUE THROUGH SELF-REFLECTION
+Akari Asai†, Zeqiu Wu†, Yizhong Wang†§, Avirup Sil‡, Hannaneh Hajishirzi†§
+†University of Washington
+§Allen Institute for AI
+‡IBM Research AI
+{akari,zeqiuwu,yizhongw,hannaneh}@cs.washington.edu, avi@us.ibm.com
+ABSTRACT
+Despite their remarkable capabilities, large language models (LLMs) often produce
+responses containing factual inaccuracies due to their sole reliance on the paramet-
+ric knowledge they encapsulate. Retrieval-Augmented Generation (RAG), an ad
+hoc approach that augments LMs with retrieval of
+
+
+--------------------------------------------------------------------------------
+PAGE : 2
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+to enhance overall generation quality, factuality, and verifiability.
+consistently retrieves a fixed number of documents for generation regardless of the retrieval necessity
+(e.g., the bottom figure example does not require factual knowledge) and never second visits the
+generation quality. Moreover, SELF -RAG provides citations for each segment with its self-assessment
+of whether the output is supported by the passage, leading to easier fact verification.
+SELF -RAG trains an arbitrary LM to generate text with reflection tokens by unifying them as the
+
+
+--------------------------------------------------------------------------------
+PAGE : 9
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+RAG approaches causes a large drop in PopQA and ASQA, and removing ISSUP during the beam
+search results hurts performance on ASQA. This demonstrates the effectiveness of SELF -RAG’s
+capabilities of carefully selecting generations based fine-grained multiple criterion, instead of naively
+using all of the top passages from the retrieval model or solely depending on relevance scores.
+Effects of inference-time customization. One key benefit of our proposed framework is that it
+enables us to control how much each critique type affects the final generation sampling. We analyze
+
+
+--------------------------------------------------------------------------------
+PAGE : 10
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+as if it were occurring in a conversation) and supported (i.e., the provided evidence is sufficient to
+verify the validity of the answer). For S&P, we do not consider the instances where SELF -RAG
+predicts irrelevant or no support . We then ask our annotators whether the model-predicted
+reflection tokens about ISREL and ISSUP match their inspections (e.g., whether the fully supported
+output is supported by the cited evidence). Human annotators find SELF -RAG answers are often
+plausible and supported by relevant passages with higher S&P scores on short-form PopQA, which is
+
+
+[TEXT]
+
+lead to further improvements, although in this work we limit our training data size to 150k.
+Human evaluations. We conduct small human evaluations on SELF -RAG outputs, as well as the
+reliability of predicted reflection tokens. In particular, we sampled 50 samples from PopQA and Bio
+results. Following Menick et al. (2022), human annotators evaluate S&P, which indicates whether
+the model output is plausible (i.e., the output is a reasonable and on-topic response to the question
+as if it were occurring in a conversation) and supported (i.e., the provided evidence is sufficient to
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the
+
+OCR Text:
+Preprint.
+
+in
+wu
+
+g 50 23 Pop Bio.
+5 60
+&“ 7? S&P 92.5 70.0
+& 40 n 95.0 90.0
+35
+0 50 100 150 0 100 “ 0 100 _Dsssur] 90.0 85.0 90.0 85.0
+Num of training (k) Num of training (k) Num of training (k) .
+(d) Human evaluation on PopQA
+(a) PopQA (b) PubHealth (c) ASQA (prec) —_ and Bio generation.
+
+Figure 4: Training scale and Human analysis: (a) (b) (c) Training scale analysis shows the effect
+of the training data scale on PopQA, PubHealth and ASQA (citation precision), respectively. (d)
+Human analysis on SELF-RAG outputs as well as reflection tokens.
+
+contrary, a larger weight results in lower MAUVE scores: when generation gets longer and more
+fluent, there are often more claims that are not fully supported by citations, consistent with findings
+by Liu et al. (2023a). Our framework lets practitioners choose and customize models’ behaviors at
+test time by adjusting such parameters without requiring additional training.
+
+Efficiency and accuracy trade-off. Using our framework, practitioners can adjust how often retrieval
+occurs using the token probability of reward tokens. We evaluate how this adaptive threshold affects
+overall accuracy and frequency of retrieval, and we evaluate the performance with varying numbers
+of threshold 6 (larger 6 results in less retrieval) on PubHealth and PopQA. Figure 3c shows that
+the model’s retrieval frequencies dramatically change on both datasets. as 6 varies. On one hand,
+performance deterioration by retrieving less is smaller on PubHealth but larger in PopQA.
+
+Effects of training data size. We conduct an analysis of how the data scale affects the model’s
+performance. In particular, we randomly sample 5k, 10k, 20k, and 50k instances from our original
+150k training instances, and fine-tune four SELF-RAG 7, variants on those subsets. Then, we compare
+the model performance on PopQA, PubHealth, and ASQA (citation precision) with our final SELF-
+RAG trained on the full 150k instances. We also evaluate Figures 4a, 4b and 4c shows the models’
+performance trained on different amount of data. Across all datasets, increasing data size often shows
+upward trajectories and the improvements are significantly larger in PopQA and ASQA, while we do
+not observed such significant improvements on Llama2-FT;, when increasing the training data from
+50k to 150k. These results also indicate that further expanding the training data of SELF-RAG may
+lead to further improvements, although in this work we limit our training data size to 150k.
+
+Human evaluations. We conduct small human evaluations on SELF-RAG outputs, as well as the
+reliability of predicted reflection tokens. In particular, we sampled 50 samples from PopQA and Bio
+results. Following Menick et al. (2022), human annotators evaluate S&P, which indicates whether
+the model output is plausible (i.e., the output is a reasonable and on-topic response to the question
+as if it were occurring in a conversation) and supported (i.e., the provided evidence is sufficient to
+verify the validity of the answer). For S&P, we do not consider the instances where SELF-RAG
+predicts irrelevant orno support. We then ask our annotators whether the model-predicted
+reflection tokens about and match their inspections (e.g., whether the fully supported
+output is supported by the cited evidence). Human annotators find SELF-RAG answers are often
+plausible and supported by relevant passages with higher S&P scores on short-form PopQA, which is
+consistent with Menick et al. (2022). Human annotators also find and reflection token
+predictions are mostly aligned with their assessments. Appendix Table 6 shows several annotated
+examples and explanations on assessments.
+
+6 CONCLUSION
+
+This work introduces SELF-RAG, a new framework to enhance the quality and factuality of LLMs
+through retrieval on demand and self-reflection. SELF-RAG trains an LM to learn to retrieve, generate,
+and critique text passages and its own generation by predicting the next tokens from its original
+vocabulary as well as newly added special tokens, called reflection tokens. SELF-RAG further enables
+the tailoring of LM behaviors at test time by leveraging reflection tokens. Our holistic evaluations on
+six tasks using multiple metrics demonstrate that SELF-RAG significantly outperforms LLMs with
+more parameters or with conventional retrieval-augmented generation approaches.
+
+10
+
+Nearby Document Text:
+Preprint.
+0
+50
+100
+150
+Num of training (k)
+35
+40
+45
+50
+55
+Perfomance
+(a) PopQA
+0
+100
+Num of training (k)
+71
+72
+73
+(b) PubHealth
+0
+100
+Num of training (k)
+40
+60
+(c) ASQA (prec)
+Pop
+Bio.
+S & P
+92.5
+70.0
+ISREL
+95.0
+90.0
+ISSUP
+90.0
+85.0
+(d) Human evaluation on PopQA
+and Bio generation.
+Figure 4: Training scale and Human analysis: (a) (b) (c) Training scale analysis shows the effect
+of the training data scale on PopQA, PubHealth and ASQA (citation precision), respectively. (d)
+Human analysis on SELF-RAG outputs as well as reflection tokens.
+contrary, a larger weight results in lower MAUVE scores: w
+
+
+[RELATED PAGE TEXT]
+
+as if it were occurring in a conversation) and supported (i.e., the provided evidence is sufficient to
+verify the validity of the answer). For S&P, we do not consider the instances where SELF -RAG
+predicts irrelevant or no support . We then ask our annotators whether the model-predicted
+reflection tokens about ISREL and ISSUP match their inspection
+
+
+--------------------------------------------------------------------------------
+PAGE : 21
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+Preprint.
+C.2 H UMAN EVALUATION EXAMPLES
+Table 6 shows examples with human evaluations on S&P and correctness of ISREL and ISSUP
+reflection tokens.
+C.3 Q UALITATIVE EXAMPLES
+Table 7 shows several examples predicted by ourSELF -RAG (13B). The first example is the model
+output to an ASQA question. The first reference states that Emperor Constantine made Sunday a
+day of rest from labor, and further the second citation supports the fact that the official adoption
+of Sunday as a day of rest by Constantine in AD 321. In the second example, the model predicts
+
+
+--------------------------------------------------------------------------------
+PAGE : 24
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+the Bible, UFOs, and aliens. Also covered are subjects such as the Big Bang, comprehension of large numbers,
+and the Moon illusion.
+S&P Supported and Plausible.
+Correctness of ISREL and ISSUP : Both ISREL and ISSUP are correct, as the Reference [1] provides
+detailed information of the book including the genre, and the model output is fully supported by the reference.
+Input Who is the author of The Lie? (PopQA)
+Output [ Retrieve =Yes] <p>Reference [1]<p>[ ISREL =Relevant] The author of The Lie is Sam Harris.[
+ISSUP =Fully Supported ][ ISUSE =5]
+
+
+================================================================================
+DOCUMENT : RAG.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 8
+--------------------------------------------------------------------------------
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a
+
+OCR Text:
+Table 4: Human assessments for the Jeopardy Table 5: Ratio of distinct to total tri-grams for
+Question Generation Task. generation tasks.
+
+Factuality Specificity MSMARCO Jeopardy QGen
+
+BART better 7.1% 16.8% Gold 39 6% 90.0%
+RAG better 42.7% 37.4% BART OA
+Both good 11.7% 11.8% A 70.7% 32.4%
+g : RAG-Token 77.8% 46.8%
+Both poor 17.7% 6.9% RAGS 83.5% 53.8%
+No majority 20.8% 20.1% ~ed- ad oe
+
+Table 6: Ablations on the dev set. As FEVER is a classification task, both RAG models are equivalent.
+
+Model NQ TQA WQ_ CT | Jeopardy-QGen MSMarco FVR-3 FVR-2
+Exact Match B-1 QB-1 RL B-1 Label Accuracy
+RAG-Token-BM25 29.7 41.5 32.1 33.1 | 17.5 22.3 35.5 48.4 7541 91.6
+RAG-Sequence-BM25 31.8 44.1 366 33.8] 111 19.5 36.5 46.9 . ,
+RAG-Token-Frozen 37.8 50.1 37.1 51.1 | 16.7 21.7 35.9 49.4 72.9 39.4
+RAG-Sequence-Frozen 41.2 52.1 41.8 52.6] 11.8 19.6 56.7 47.3 , ,
+RAG-Token 43.5 548 465 51.9 117.9 22.6 56.2 49.4 74.5 90.6
+RAG-Sequence 44.0 55.8 449 53.4] 15.3 21.5 57.2 47.5 . ;
+
+between these dates and use a template “Who is {position}?” (e.g. “Who is the President of Peru?”)
+to query our NQ RAG model with each index. RAG answers 70% correctly using the 2016 index for
+2016 world leaders and 68% using the 2018 index for 2018 world leaders. Accuracy with mismatched
+indices is low (12% with the 2018 index and 2016 leaders, 4% with the 2016 index and 2018 leaders).
+This shows we can update RAG’s world knowledge by simply replacing its non-parametric memory.
+
+Effect of Retrieving more documents Models are trained with either 5 or 10 retrieved latent
+documents, and we do not observe significant differences in performance between them. We have the
+flexibility to adjust the number of retrieved documents at test time, which can affect performance and
+runtime. Figure 3 (left) shows that retrieving more documents at test time monotonically improves
+Open-domain QA results for RAG-Sequence, but performance peaks for RAG-Token at 10 retrieved
+documents. Figure 3 (right) shows that retrieving more documents leads to higher Rouge-L for
+RAG-Token at the expense of Blen-1, but the effect is less pronounced for RAG-Sequence.
+
+&
+
+i
+
+i}
+
+NQ Exact Match
+6 $ 2 8
+= ~
+
+a
+
+— RAG Tok
+=-- RAGSeq
+
+NQ Answer Recall @K
+
+f=}
+E-}
+
+10 20 30 40 50 40
+K Retrieved Dacs K Retrieved Docs K Retrieved Dacs
+Figure 3: Left: NQ performance as more documents are retrieved. Center: Retrieval recall perfor-
+
+mance in NQ. Right: MS-MARCO Bleu-1 and Rouge-L as more documents are retrieved.
+
+5 Related Work
+
+Single-Task Retrieval Prior work has shown that retrieval improves performance across a variety of
+NLP tasks when considered in isolation. Such tasks include open-domain question answering [5, 29],
+fact checking [56], fact completion [48], long-form question answering [12], Wikipedia article
+generation [36], dialogue [41, 65, 9, 13], translation [17], and language modeling [19, 27]. Our
+work unifies previous successes in incorporating retrieval into individual tasks, showing that a single
+retrieval-based architecture is capable of achieving strong performance across several tasks.
+
+Nearby Document Text:
+Table 4: Human assessments for the Jeopardy
+Question Generation Task.
+Factuality
+Speciﬁcity
+BART better
+7.1%
+16.8%
+RAG better
+42.7%
+37.4%
+Both good
+11.7%
+11.8%
+Both poor
+17.7%
+6.9%
+No majority
+20.8%
+20.1%
+Table 5: Ratio of distinct to total tri-grams for
+generation tasks.
+MSMARCO
+Jeopardy QGen
+Gold
+89.6%
+90.0%
+BART
+70.7%
+32.4%
+RAG-Token
+77.8%
+46.8%
+RAG-Seq.
+83.5%
+53.8%
+Table 6: Ablations on the dev set. As FEVER is a classiﬁcation task, both RAG models are equivalent.
+Model
+NQ
+TQA
+WQ
+CT
+Jeopardy-QGen
+MSMarco
+FVR-3
+FVR-2
+Exact Match
+B-1
+QB-1
+R-L
+B-1
+Label Accuracy
+RAG-Token-BM25
+29.7
+41.5
+32.1
+
+
+--------------------------------------------------------------------------------
+PAGE : 17
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+we report test numbers using ten retrieved documents for both RAG-Token and RAG-Sequence,
+and we also train a BART-large model as a baseline. We use a beam size of four, and use the Fast
+Decoding approach for RAG-Sequence models, as Thorough Decoding did not improve performance.
+B Human Evaluation
+Figure 4: Annotation interface for human evaluation of factuality. A pop-out for detailed instructions
+and a worked example appear when clicking "view tool guide".
+Figure 4 shows the user interface for human evaluation. To avoid any biases for screen position,
+
+================================================================================
+
+================================================================================
+RAG PIPELINE DEBUG
+================================================================================
+Query Type        : factual
+Retrieved Chunks  : 8
+Retrieved Images  : 3
+Reranked Chunks   : 10
+Reranked Text     : 7
+Reranked Images   : 3
+Final Context Docs: 10
+Exact Figure Query: False
+Exact Figure Match: False
+Exact Figure Final: False
+================================================================================
+
+================================================================================
+STAGE 4 — EVIDENCE VERIFICATION
+================================================================================
+Verification Units : 2
+Supported          : 2
+Partially Supported: 0
+Unsupported        : 0
+Unknown            : 0
+Groundedness Ratio : 1.00
+
+[CLAIM #1] The S&P, ISREL, and ISSUP evaluations indicate that the quality and grounding of SELF-RAG outputs are Supported and Plausible, as the model's responses are correct and fully supported by the provided reference.
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.5854 | Citation=Self-RAG.pdf (Page 10)
+
+[CLAIM #2] The ISREL and ISSUP evaluations are specifically relevant and fully supported, while the ISUSE evaluation is 5.
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.9834 | Citation=Self-RAG.pdf (Page 24)
+================================================================================
+
+====================================================================================================
+RAG ANSWER
+====================================================================================================
+ The S&P, ISREL, and ISSUP evaluations indicate that the quality and grounding of SELF-RAG outputs are Supported and Plausible, as the model's responses are correct and fully supported by the provided reference. The ISREL and ISSUP evaluations are specifically relevant and fully supported, while the ISUSE evaluation is 5.
+
+IMAGE PATHS:
+D:/Projects/Major-Project-2-main/extracted_images/Self-RAG_page1_render.png
+D:/Projects/Major-Project-2-main/extracted_images/Self-RAG_page10_render.png
+D:/Projects/Major-Project-2-main/extracted_images/RAG_page8_render.png

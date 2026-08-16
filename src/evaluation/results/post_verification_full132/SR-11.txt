@@ -1,0 +1,1112 @@
+====================================================================================================
+QUESTION_ID   : SR-11
+DOCUMENT      : SELF-RAG
+QUESTION_TYPE : Figure / table understanding
+ELAPSED_SEC   : 45.6
+ERROR         : no
+====================================================================================================
+
+QUESTION:
+According to Figure 3(c), what happens to retrieval frequency when the retrieval threshold is increased?
+
+GROUND TRUTH ANSWER:
+Increasing the retrieval threshold δ decreases retrieval frequency. The paper notes that larger δ means less retrieval; reducing retrieval causes performance deterioration, with the deterioration smaller on PubHealth and larger on PopQA.
+
+GROUND TRUTH SOURCE:
+Self-RAG.pdf — Page 9, Figure 3(c); Page 10 discussion
+
+====================================================================================================
+FORENSIC TRANSCRIPT
+====================================================================================================
+
+####################################################################################################
+FORENSIC CASE START
+####################################################################################################
+Original Query   : According to Figure 3(c), what happens to retrieval frequency when the retrieval threshold is increased?
+Expanded Query   : According to Figure 3(c), what happens to retrieval frequency when the retrieval threshold is increased?
+Query Type       : visual
+[DOCUMENT SCOPE] Normalized query: 'according to figure 3 c what happens to retrieval frequency when the retrieval threshold is increased'
+[DOCUMENT SCOPE] Source='BERT.pdf' -> Normalized='bert'
+[DOCUMENT SCOPE] Token overlap for 'BERT.pdf': []
+[DOCUMENT SCOPE] Source='BLIP-2.pdf' -> Normalized='blip 2'
+[DOCUMENT SCOPE] Token overlap for 'BLIP-2.pdf': []
+[DOCUMENT SCOPE] Source='CLIP.pdf' -> Normalized='clip'
+[DOCUMENT SCOPE] Token overlap for 'CLIP.pdf': []
+[DOCUMENT SCOPE] Source='CNN Paper.pdf' -> Normalized='cnn paper'
+[DOCUMENT SCOPE] Token overlap for 'CNN Paper.pdf': []
+[DOCUMENT SCOPE] Source='Donut.pdf' -> Normalized='donut'
+[DOCUMENT SCOPE] Token overlap for 'Donut.pdf': []
+[DOCUMENT SCOPE] Source='LayoutLMv3.pdf' -> Normalized='layout l mv3'
+[DOCUMENT SCOPE] Token overlap for 'LayoutLMv3.pdf': []
+[DOCUMENT SCOPE] Source='NLP Paper.pdf' -> Normalized='nlp paper'
+[DOCUMENT SCOPE] Token overlap for 'NLP Paper.pdf': []
+[DOCUMENT SCOPE] Source='RAG.pdf' -> Normalized='rag'
+[DOCUMENT SCOPE] Token overlap for 'RAG.pdf': []
+[DOCUMENT SCOPE] Source='Self-RAG.pdf' -> Normalized='self rag'
+[DOCUMENT SCOPE] Token overlap for 'Self-RAG.pdf': []
+[DOCUMENT SCOPE] Source='Vision Transformer.pdf' -> Normalized='vision transformer'
+[DOCUMENT SCOPE] Token overlap for 'Vision Transformer.pdf': []
+[DOCUMENT SCOPE] No reliable document scope detected. Retrieval remains global.
+
+================================================================================
+DOCUMENT SCOPE DEBUG
+================================================================================
+Query          : According to Figure 3(c), what happens to retrieval frequency when the retrieval threshold is increased?
+Expanded Query : According to Figure 3(c), what happens to retrieval frequency when the retrieval threshold is increased?
+Query Type     : visual
+Document Scope : None
+================================================================================
+
+==========================================================================================
+STEP 3A — GLOBAL HYBRID RETRIEVAL
+==========================================================================================
+Query              : According to Figure 3(c), what happens to retrieval frequency when the retrieval threshold is increased?
+Dense candidate K  : 25
+Final hybrid K     : 8
+RRF constant       : 60
+
+------------------------------------------------------------------------------------------
+[DENSE / VECTOR RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=Efficiency and accuracy trade-off. Using our framework, practitioners can adjust how often retrieval occurs using the token probability of reward tokens. We evaluate how this adapt
+02. Source=Self-RAG.pdf | Page=6 | Type=text | Image=N/A
+    Content=Adaptive retrieval with threshold.SELF -RAG dynamically decides when to retrieve text passages by predicting Retrieve . Alternatively, our framework allows a threshold to be set. S
+03. Source=Self-RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=y using the retrieval and critic models to create supervised data that precisely mimics the SELF - RAG inference-time process (Section 3.1). For each segment yt ∈ y, we run C to as
+04. Source=RAG.pdf | Page=19 | Type=text | Image=N/A
+    Content=728 dimensional vectors, consisting of 15.3B values. These can be easily be stored at 8-bit ﬂoating point precision to manage memory and disk footprints. H Retrieval Collapse In pr
+05. Source=Self-RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=values of 1.0, 1.0 and 0.5, respectively. To encourage frequent retrieval, we set the retrieval threshold to 0.2 for most tasks and to 0 for ALCE (Gao et al., 2023) due to citation
+06. Source=Self-RAG.pdf | Page=8 | Type=text | Image=N/A
+    Content=retrieval counterparts. We also observe that most baselines with retrieval struggle to improve citation accuracy. On ASQA, our model shows significantly higher citation precision a
+07. Source=Self-RAG.pdf | Page=26 | Type=text | Image=N/A
+    Content=Instruction Arrange the words in the given sentence to form a grammatically cor- rect sentence. quickly the brown fox jumped Need retrieval? [No] Explanation This task doesn’t requ
+08. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=PubHealth 0.0 0.2 0.4 0.6 Retrieval Threshold 0.6 0.8 1.0Accuracy PopQA 0.0 0.5 1.0 Frequency 0.25 0.50 0.75 1.00 Frequency  (c) Retrieval Figure 3: Analysis on SELF -R AG: (a) Abl
+09. Source=Self-RAG.pdf | Page=17 | Type=text | Image=N/A
+    Content=is unnecessary as the sequence does not require factual grounding or may not be enhanced by knowledge retrieval, Yes indicates retrieval is necessary. We additionally have continue
+10. Source=RAG.pdf | Page=8 | Type=text | Image=N/A
+    Content=fact checking [ 56], fact completion [ 48], long-form question answering [ 12], Wikipedia article generation [36], dialogue [ 41, 65, 9, 13], translation [ 17], and language modeli
+11. Source=RAG.pdf | Page=6 | Type=text | Image=N/A
+    Content=even when the correct answer is not in any retrieved document, achieving 11.8% accuracy in such cases for NQ, where an extractive model would score 0%. 4.2 Abstractive Question Ans
+12. Source=Self-RAG.pdf | Page=4 | Type=text | Image=N/A
+    Content=10: Mgen predicts ISUSE given x, yt ▷ Critique Inference overview. Figure 1 and Algorithm 1 present an overview of SELF -R AG at inference. For every x and preceding generation y<t
+13. Source=BLIP-2.pdf | Page=8 | Type=text | Image=N/A
+    Content=Table 5. Comparison with state-of-the-art image-text retrieval methods, finetuned on COCO and zero-shot transferred to Flickr30K. COCO finetuning objectives Image→ Text Text → Imag
+14. Source=CLIP.pdf | Page=17 | Type=text | Image=N/A
+    Content=use the following procedure: 1) For each evaluation dataset, we run a duplicate detector (see Appendix C) on its examples. We then manually inspect the found nearest neighbors and 
+15. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=SAIL. We also conduct ablation on our inference-time algorithm, including No retrieval disables retrieval during inference; Hard constraints indicates the model performance that re
+16. Source=Self-RAG.pdf | Page=18 | Type=text | Image=N/A
+    Content=we use the original input and the tth segment as a retrieval query to find relevant passages for the t-th segment. For each retrieved passage, we predict ISREL and ISSUP . If there
+17. Source=RAG.pdf | Page=4 | Type=text | Image=N/A
+    Content=Navigable Small World approximation for fast retrieval [37]. During training, we retrieve the top k documents for each query. We considerk∈{ 5, 10} for training and setk for test t
+18. Source=LayoutLMv3.pdf | Page=6 | Type=text | Image=N/A
+    Content=Task III: Document Visual Question Answering. Document visual question answering requires a model to take a document image and a question as input and output an answer [ 38]. We fo
+19. Source=CLIP.pdf | Page=32 | Type=text | Image=N/A
+    Content=cross-modal image-text retrieval. In Proceedings of the 26th ACM international conference on Multimedia, pp. 1856–1864, 2018. Mori, Y ., Takahashi, H., and Oka, R. Image-to-word tr
+20. Source=BERT.pdf | Page=13 | Type=text | Image=N/A
+    Content=diction” task. They are sampled such that the com- bined length is≤ 512 tokens. The LM masking is applied after WordPiece tokenization with a uni- form masking rate of 15%, and no 
+21. Source=BERT.pdf | Page=16 | Type=text | Image=N/A
+    Content=jority class. C Additional Ablation Studies C.1 Effect of Number of Training Steps Figure 5 presents MNLI Dev accuracy after ﬁne- tuning from a checkpoint that has been pre-trained
+22. Source=CNN Paper.pdf | Page=5 | Type=text | Image=N/A
+    Content=accuracy by approximately 3-4%; (2) augmenting the Turtle and Hamster classes with synthetic data generation to address class imbalance; (3) deploying the model as a REST API for r
+23. Source=RAG.pdf | Page=19 | Type=text | Image=N/A
+    Content=Table 7: Number of instances in the datasets used. *A hidden subset of this data is used for evaluation Task Train Development Test Natural Questions 79169 8758 3611 TriviaQA 78786
+24. Source=CLIP.pdf | Page=38 | Type=text | Image=N/A
+    Content=mum 1,000 iterations, and report the corresponding met- ric for each dataset. We determine the L2 regularization strengthλ using a hyperparameter sweep on the validation sets over 
+25. Source=Donut.pdf | Page=19 | Type=text | Image=N/A
+    Content=receipt dataset for post-ocr parsing. In: Workshop on Document Intelligence at NeurIPS 2019 (2019) 2, 7, 10, 12, 13, 22, 24, 26 46. Peng, D., Wang, X., Liu, Y., Zhang, J., Huang, M
+
+------------------------------------------------------------------------------------------
+[BM25 RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=Efficiency and accuracy trade-off. Using our framework, practitioners can adjust how often retrieval occurs using the token probability of reward tokens. We evaluate how this adapt
+02. Source=Self-RAG.pdf | Page=6 | Type=text | Image=N/A
+    Content=Adaptive retrieval with threshold.SELF -RAG dynamically decides when to retrieve text passages by predicting Retrieve . Alternatively, our framework allows a threshold to be set. S
+03. Source=RAG.pdf | Page=19 | Type=text | Image=N/A
+    Content=and the RAG model would perform equivalently to BART. The collapse could be due to a less-explicit requirement for factual knowledge in some tasks, or the longer target sequences, 
+04. Source=Self-RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=us to (1) flexibly adjust retrieval frequency for different downstream applications and (2) customize models’ behaviors to user preferences by leveraging reflection tokens through 
+05. Source=Self-RAG.pdf | Page=4 | Type=text | Image=N/A
+    Content=10: Mgen predicts ISUSE given x, yt ▷ Critique Inference overview. Figure 1 and Algorithm 1 present an overview of SELF -R AG at inference. For every x and preceding generation y<t
+06. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=SAIL. We also conduct ablation on our inference-time algorithm, including No retrieval disables retrieval during inference; Hard constraints indicates the model performance that re
+07. Source=Self-RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=guide text generation (Lu et al., 2022; Keskar et al., 2019), our trained LM uses critique tokens to assess its own predictions after each generated segment as an integral part of 
+08. Source=CLIP.pdf | Page=45 | Type=text | Image=N/A
+    Content=is on representation learning and task learning for the pur- pose of transfer to a wide variety of downstream datasets, validating that CLIP is able to achieve high transfer perfor
+09. Source=RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=We compare RAG’s dense retriever to a word overlap-based BM25 retriever [53]. Here, we replace RAG’s retriever with a ﬁxed BM25 system, and use BM25 retrieval scores as logits when
+10. Source=CLIP.pdf | Page=7 | Type=text | Image=N/A
+    Content=“free” when amortized over many predictions. chosen somewhat haphazardly and do not anticipate issues related to zero-shot transfer which relies on task description in order to tra
+11. Source=Self-RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=y using the retrieval and critic models to create supervised data that precisely mimics the SELF - RAG inference-time process (Section 3.1). For each segment yt ∈ y, we run C to as
+12. Source=Self-RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=total, we use 150k instruction-output pairs. We use Llama2 7B and 13B (Touvron et al., 2023) as our generator base LM, and we use Llama2 7B as our base critic LM. For the retriever
+13. Source=RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=state-of-the-art pipeline models which use strong retrieval supervision. Finally, we demonstrate that the non-parametric memory can be replaced to update the models’ knowledge as t
+14. Source=Self-RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=values of 1.0, 1.0 and 0.5, respectively. To encourage frequent retrieval, we set the retrieval threshold to 0.2 for most tasks and to 0 for ALCE (Gao et al., 2023) due to citation
+15. Source=Self-RAG.pdf | Page=3 | Type=text | Image=N/A
+    Content=We introduce Self-Reflective Retrieval-Augmented Generation ( SELF -RAG), shown in Figure 1. SELF -R AG is a framework that enhances the quality and factuality of an LLM through re
+16. Source=BLIP-2.pdf | Page=8 | Type=text | Image=N/A
+    Content=4.4. Image-Text Retrieval Since image-text retrieval does not involve language gener- ation, we directly finetune the first-stage-pretrained model w/o LLM. Specifically, we finetun
+17. Source=Self-RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=tokens (i.e., reflection tokens). Reflection tokens are categorized into retrieval and critique tokens to indicate the need for retrieval and its generation quality respectively (F
+18. Source=Self-RAG.pdf | Page=6 | Type=text | Image=N/A
+    Content=factual accuracy (Min et al., 2023), we aim for the model to retrieve passages more frequently to ensure that the output aligns closely with the available evidence. Conversely, in 
+19. Source=Self-RAG.pdf | Page=9 | Type=image | Image=extracted_images\Self-RAG_page9_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the textbook on the characterization and characterization of semiconductors in semiconductors and semiconductors  OCR Text:
+20. Source=Self-RAG.pdf | Page=18 | Type=text | Image=N/A
+    Content=the input and the entire output as queries, to find passages that are relevant to the entire output. We then split output sentences using Spacy.7 For each sentence, we run C to pre
+21. Source=BLIP-2.pdf | Page=8 | Type=text | Image=N/A
+    Content=Table 5. Comparison with state-of-the-art image-text retrieval methods, finetuned on COCO and zero-shot transferred to Flickr30K. COCO finetuning objectives Image→ Text Text → Imag
+22. Source=RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=more diverse than RAG-Token’s, and both are signiﬁcantly more diverse than BART without needing any diversity-promoting decoding. Retrieval Ablations A key feature of RAG is learni
+23. Source=Self-RAG.pdf | Page=10 | Type=image | Image=extracted_images\Self-RAG_page10_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+24. Source=RAG.pdf | Page=19 | Type=text | Image=N/A
+    Content=728 dimensional vectors, consisting of 15.3B values. These can be easily be stored at 8-bit ﬂoating point precision to manage memory and disk footprints. H Retrieval Collapse In pr
+25. Source=CLIP.pdf | Page=23 | Type=text | Image=N/A
+    Content=with the people clearly centered, unlike those in the FairFace dataset. In order to study how the biases in returned labels depend on the thresholds set for label probability, we d
+
+------------------------------------------------------------------------------------------
+[RRF FUSION RANKING]
+------------------------------------------------------------------------------------------
+01. RRF=0.032787 | DenseRank=1 | BM25Rank=1 | Source=Self-RAG.pdf | Page=10 | Type=text
+02. RRF=0.032258 | DenseRank=2 | BM25Rank=2 | Source=Self-RAG.pdf | Page=6 | Type=text
+03. RRF=0.029958 | DenseRank=3 | BM25Rank=11 | Source=Self-RAG.pdf | Page=5 | Type=text
+04. RRF=0.029274 | DenseRank=12 | BM25Rank=5 | Source=Self-RAG.pdf | Page=4 | Type=text
+05. RRF=0.028898 | DenseRank=5 | BM25Rank=14 | Source=Self-RAG.pdf | Page=7 | Type=text
+06. RRF=0.028485 | DenseRank=15 | BM25Rank=6 | Source=Self-RAG.pdf | Page=9 | Type=text
+07. RRF=0.027530 | DenseRank=4 | BM25Rank=24 | Source=RAG.pdf | Page=19 | Type=text
+08. RRF=0.026044 | DenseRank=13 | BM25Rank=21 | Source=BLIP-2.pdf | Page=8 | Type=text
+09. RRF=0.015873 | DenseRank=- | BM25Rank=3 | Source=RAG.pdf | Page=19 | Type=text
+10. RRF=0.015625 | DenseRank=- | BM25Rank=4 | Source=Self-RAG.pdf | Page=2 | Type=text
+11. RRF=0.015152 | DenseRank=6 | BM25Rank=- | Source=Self-RAG.pdf | Page=8 | Type=text
+12. RRF=0.014925 | DenseRank=7 | BM25Rank=- | Source=Self-RAG.pdf | Page=26 | Type=text
+13. RRF=0.014925 | DenseRank=- | BM25Rank=7 | Source=Self-RAG.pdf | Page=2 | Type=text
+14. RRF=0.014706 | DenseRank=8 | BM25Rank=- | Source=Self-RAG.pdf | Page=9 | Type=text
+15. RRF=0.014706 | DenseRank=- | BM25Rank=8 | Source=CLIP.pdf | Page=45 | Type=text
+16. RRF=0.014493 | DenseRank=9 | BM25Rank=- | Source=Self-RAG.pdf | Page=17 | Type=text
+17. RRF=0.014493 | DenseRank=- | BM25Rank=9 | Source=RAG.pdf | Page=7 | Type=text
+18. RRF=0.014286 | DenseRank=10 | BM25Rank=- | Source=RAG.pdf | Page=8 | Type=text
+19. RRF=0.014286 | DenseRank=- | BM25Rank=10 | Source=CLIP.pdf | Page=7 | Type=text
+20. RRF=0.014085 | DenseRank=11 | BM25Rank=- | Source=RAG.pdf | Page=6 | Type=text
+21. RRF=0.013889 | DenseRank=- | BM25Rank=12 | Source=Self-RAG.pdf | Page=7 | Type=text
+22. RRF=0.013699 | DenseRank=- | BM25Rank=13 | Source=RAG.pdf | Page=2 | Type=text
+23. RRF=0.013514 | DenseRank=14 | BM25Rank=- | Source=CLIP.pdf | Page=17 | Type=text
+24. RRF=0.013333 | DenseRank=- | BM25Rank=15 | Source=Self-RAG.pdf | Page=3 | Type=text
+25. RRF=0.013158 | DenseRank=16 | BM25Rank=- | Source=Self-RAG.pdf | Page=18 | Type=text
+26. RRF=0.013158 | DenseRank=- | BM25Rank=16 | Source=BLIP-2.pdf | Page=8 | Type=text
+27. RRF=0.012987 | DenseRank=17 | BM25Rank=- | Source=RAG.pdf | Page=4 | Type=text
+28. RRF=0.012987 | DenseRank=- | BM25Rank=17 | Source=Self-RAG.pdf | Page=1 | Type=text
+29. RRF=0.012821 | DenseRank=18 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=6 | Type=text
+30. RRF=0.012821 | DenseRank=- | BM25Rank=18 | Source=Self-RAG.pdf | Page=6 | Type=text
+31. RRF=0.012658 | DenseRank=19 | BM25Rank=- | Source=CLIP.pdf | Page=32 | Type=text
+32. RRF=0.012658 | DenseRank=- | BM25Rank=19 | Source=Self-RAG.pdf | Page=9 | Type=image
+33. RRF=0.012500 | DenseRank=20 | BM25Rank=- | Source=BERT.pdf | Page=13 | Type=text
+34. RRF=0.012500 | DenseRank=- | BM25Rank=20 | Source=Self-RAG.pdf | Page=18 | Type=text
+35. RRF=0.012346 | DenseRank=21 | BM25Rank=- | Source=BERT.pdf | Page=16 | Type=text
+36. RRF=0.012195 | DenseRank=22 | BM25Rank=- | Source=CNN Paper.pdf | Page=5 | Type=text
+37. RRF=0.012195 | DenseRank=- | BM25Rank=22 | Source=RAG.pdf | Page=7 | Type=text
+38. RRF=0.012048 | DenseRank=23 | BM25Rank=- | Source=RAG.pdf | Page=19 | Type=text
+39. RRF=0.012048 | DenseRank=- | BM25Rank=23 | Source=Self-RAG.pdf | Page=10 | Type=image
+40. RRF=0.011905 | DenseRank=24 | BM25Rank=- | Source=CLIP.pdf | Page=38 | Type=text
+41. RRF=0.011765 | DenseRank=25 | BM25Rank=- | Source=Donut.pdf | Page=19 | Type=text
+42. RRF=0.011765 | DenseRank=- | BM25Rank=25 | Source=CLIP.pdf | Page=23 | Type=text
+------------------------------------------------------------------------------------------
+
+==========================================================================================
+STEP 3A — RETRIEVAL STAGE SUMMARY
+==========================================================================================
+Dense candidates       : 25
+BM25 candidates        : 25
+Dense ∩ BM25           : 8
+Dense-only candidates  : 17
+BM25-only candidates   : 17
+Unique candidate pool  : 42
+RRF candidates         : 42
+Returned to pipeline   : 8
+==========================================================================================
+
+------------------------------------------------------------------------------------------
+[FINAL HYBRID RESULT] 8 candidates
+------------------------------------------------------------------------------------------
+01. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=Efficiency and accuracy trade-off. Using our framework, practitioners can adjust how often retrieval occurs using the token probability of reward tokens. We evaluate how this adapt
+02. Source=Self-RAG.pdf | Page=6 | Type=text | Image=N/A
+    Content=Adaptive retrieval with threshold.SELF -RAG dynamically decides when to retrieve text passages by predicting Retrieve . Alternatively, our framework allows a threshold to be set. S
+03. Source=Self-RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=y using the retrieval and critic models to create supervised data that precisely mimics the SELF - RAG inference-time process (Section 3.1). For each segment yt ∈ y, we run C to as
+04. Source=Self-RAG.pdf | Page=4 | Type=text | Image=N/A
+    Content=10: Mgen predicts ISUSE given x, yt ▷ Critique Inference overview. Figure 1 and Algorithm 1 present an overview of SELF -R AG at inference. For every x and preceding generation y<t
+05. Source=Self-RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=values of 1.0, 1.0 and 0.5, respectively. To encourage frequent retrieval, we set the retrieval threshold to 0.2 for most tasks and to 0 for ALCE (Gao et al., 2023) due to citation
+06. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=SAIL. We also conduct ablation on our inference-time algorithm, including No retrieval disables retrieval during inference; Hard constraints indicates the model performance that re
+07. Source=RAG.pdf | Page=19 | Type=text | Image=N/A
+    Content=728 dimensional vectors, consisting of 15.3B values. These can be easily be stored at 8-bit ﬂoating point precision to manage memory and disk footprints. H Retrieval Collapse In pr
+08. Source=BLIP-2.pdf | Page=8 | Type=text | Image=N/A
+    Content=Table 5. Comparison with state-of-the-art image-text retrieval methods, finetuned on COCO and zero-shot transferred to Flickr30K. COCO finetuning objectives Image→ Text Text → Imag
+==========================================================================================
+
+================================================================================
+STAGE 1 — HYBRID RETRIEVAL
+================================================================================
+Retrieved Count : 8
+
+[HYBRID #1] Source=Self-RAG.pdf | Page=10 | Type=text
+Content: Efficiency and accuracy trade-off. Using our framework, practitioners can adjust how often retrieval occurs using the token probability of reward tokens. We evaluate how this adaptive threshold affects overall accuracy and frequency of retrieval, and we evaluate the performance with varying numbers of threshold δ (larger δ results in less retrieval) on PubHealth and PopQA. Figure 3c shows that the model’s retrieval frequencies dramatically change on both datasets. as δ varies. On one hand, perfo
+
+[HYBRID #2] Source=Self-RAG.pdf | Page=6 | Type=text
+Content: Adaptive retrieval with threshold.SELF -RAG dynamically decides when to retrieve text passages by predicting Retrieve . Alternatively, our framework allows a threshold to be set. Specifically, if the prob- ability of generating the Retrieve =Yes token normalized over all output tokens in Retrieve surpasses a designated threshold, we trigger retrieval (details in Appendix Section A.3). Tree-decoding with critique tokens. At each segment step t, when retrieval is required, based either on hard or 
+
+[HYBRID #3] Source=Self-RAG.pdf | Page=5 | Type=text
+Content: y using the retrieval and critic models to create supervised data that precisely mimics the SELF - RAG inference-time process (Section 3.1). For each segment yt ∈ y, we run C to assess whether additional passages could help to enhance generation. If retrieval is required, the retrieval special token Retrieve =Yes is added, and R retrieves the top K passages, D. For each passage, C further evaluates whether the passage is relevant and predicts ISREL . If a passage is relevant, C further evaluates
+
+[HYBRID #4] Source=Self-RAG.pdf | Page=4 | Type=text
+Content: 10: Mgen predicts ISUSE given x, yt ▷ Critique Inference overview. Figure 1 and Algorithm 1 present an overview of SELF -R AG at inference. For every x and preceding generation y<t, the model decodes a retrieval token to evaluate the utility of retrieval. If retrieval is not required, the model predicts the next output segment, as it does in a standard LM. If retrieval is needed, the model generates: a critique token to evaluate the retrieved passage’s relevance, the next response segment, and a
+
+[HYBRID #5] Source=Self-RAG.pdf | Page=7 | Type=text
+Content: values of 1.0, 1.0 and 0.5, respectively. To encourage frequent retrieval, we set the retrieval threshold to 0.2 for most tasks and to 0 for ALCE (Gao et al., 2023) due to citation requirements. We speed up inference using vllm (Kwon et al., 2023). At each segment level, we adopt a beam width of 2. For a token-level generation, we use greedy decoding. By default, we use the top five documents from Contriever-MS MARCO (Izacard et al., 2022a); for biographies and open-domain QA, we use additional 
+
+[HYBRID #6] Source=Self-RAG.pdf | Page=9 | Type=text
+Content: SAIL. We also conduct ablation on our inference-time algorithm, including No retrieval disables retrieval during inference; Hard constraints indicates the model performance that retrieves when Retrieve =Yes instead of using the adaptive threshold; Retrieve top 1 always retrieves and uses the top one document only, similar to standard RAG approaches;Remove ISSUP indicates the model performance that removes ISSUP score only during critique-guided beam search in Eq. 4. In this ablation experiment, 
+
+[HYBRID #7] Source=RAG.pdf | Page=19 | Type=text
+Content: 728 dimensional vectors, consisting of 15.3B values. These can be easily be stored at 8-bit ﬂoating point precision to manage memory and disk footprints. H Retrieval Collapse In preliminary experiments, we observed that for some tasks such as story generation [ 11], the retrieval component would “collapse” and learn to retrieve the same documents regardless of the input. In these cases, once retrieval had collapsed, the generator would learn to ignore the documents, and the RAG model would perfo
+
+[HYBRID #8] Source=BLIP-2.pdf | Page=8 | Type=text
+Content: Table 5. Comparison with state-of-the-art image-text retrieval methods, finetuned on COCO and zero-shot transferred to Flickr30K. COCO finetuning objectives Image→ Text Text → Image R@1 R@5 R@1 R@5 ITC + ITM 84.5 96.2 67.2 87.1 ITC + ITM + ITG 85.4 97.0 68.3 87.7 Table 6. The image-grounded text generation (ITG) loss improves image-text retrieval performance by enforcing the queries to extract language-relevant visual features. 4.4. Image-Text Retrieval Since image-text retrieval does not involv
+================================================================================
+
+================================================================================
+EXPLICIT FIGURE QUERY DETECTED
+================================================================================
+Requested Figure : 3
+================================================================================
+[FIGURE SOURCE HINT] Stage-1 sources mentioning Figure 3: ['Self-RAG.pdf']
+
+================================================================================
+FIGURE NUMBER RETRIEVAL
+================================================================================
+Requested Figure : 3
+Query            : According to Figure 3(c), what happens to retrieval frequency when the retrieval threshold is increased?
+Matched Images   : 35
+Rejected References : 6
+[MATCH 1] Source=BERT.pdf | Page=13 | Image=BERT_page13_render.png | Path=extracted_images\BERT_page13_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a textbook on the internet network  OCR Text: BERT (Ours)  OpenAl GPT  Figure 3: Differences in pre-training model architectures. BERT uses a bidirectional Transformer. OpenAI GPT uses a left-to-right Transformer. ELMo uses the concatenation o...
+[MATCH 2] Source=BERT.pdf | Page=14 | Image=BERT_page14_render.png | Path=extracted_images\BERT_page14_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a text book with an image of the text  OCR Text: * Learning rate (Adam): 5e-5, 3e-5, 2e-5 * Number of epochs: 2, 3, 4  We also observed that large data sets (e.g., 100k+ labeled training examples) were far less sensitive to hyperparameter choice...
+[MATCH 3] Source=BLIP-2.pdf | Page=4 | Image=BLIP-2_page4_img1.png | Path=extracted_images\BLIP-2_page4_img1.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a cat wearing sunglasses and looking up at the camera  OCR Text: No readable text found in this image.  Nearby Document Text: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models Image Encoder Input Image Learned Querie...
+[MATCH 4] Source=CLIP.pdf | Page=4 | Image=CLIP_page4_render.png | Path=extracted_images\CLIP_page4_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Learning Transferable Visual Models From Natural Language Supervision 4  bal...
+[MATCH 5] Source=CLIP.pdf | Page=5 | Image=CLIP_page5_render.png | Path=extracted_images\CLIP_page5_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: an example of the algorithm for the algorithm of the algorithm of the algorithm of the algorithm of the algorithm of  OCR Text: Learning Transferable Visual Models From Natural Language Supervision 5  # image_encoder - ResNet or Vision Transformer # text_...
+[MATCH 6] Source=CLIP.pdf | Page=38 | Image=CLIP_page38_render.png | Path=extracted_images\CLIP_page38_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: worksheet for algebra algebra algebra worksheet worksheet worksheet worksheet worksheet worksheet worksheet worksheet  OCR Text: Learning Transferable Visual Models From Natural Language Supervision 38  Montias ... pumps a lot of energy into his nicely nu...
+[MATCH 7] Source=CNN Paper.pdf | Page=2 | Image=CNN Paper_page2_img0.png | Path=extracted_images\CNN Paper_page2_img0.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: figure 2 training ratio curves  OCR Text: Accuracy  eo S FS SF FSF Ff oN BR DOD ®O OO  Figure 2: Training and Validation Curves over 20 Epochs  Model Accuracy  2.5 5.0 7.5 10.0 12.5 15.0 17.5 20.0 Epoch  Model Loss  2.5 5.0 7.5 10.0 12.5 15.0 17.5 20.0 Epoch  Nearby Do...
+[MATCH 8] Source=CNN Paper.pdf | Page=3 | Image=CNN Paper_page3_img0.png | Path=extracted_images\CNN Paper_page3_img0.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: figure 4 classification aneture flowchart  OCR Text: Figure 4: Image Classification System Architecture Flowchart  Input Image  Preprocessing (Resize, Normalize)  v  Valid Image?  y  Reject & CNN Feature Output Log Error Extraction Prediction  Nearby Document Text: 4. ...
+[MATCH 9] Source=CNN Paper.pdf | Page=3 | Image=CNN Paper_page3_img1.png | Path=extracted_images\CNN Paper_page3_img1.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a bar chart showing the number of different classes in each class  OCR Text: Number of Images  3500  3000  2500  2000  1500  1000  500  Figure 3: Dataset Class Distribution — Total 11,600 Images  Dog Bird Fish Rabbit Hamster Animal Class  Nearby Document Text: 4. Datas...
+[MATCH 10] Source=CNN Paper.pdf | Page=2 | Image=CNN Paper_page2_render.png | Path=extracted_images\CNN Paper_page2_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a chart showing the number of different types of water in the ocean  OCR Text: 2. Dataset Description  The dataset was compiled from three open-source repositories: ImageNet, Openlmages, and a custom web-scraped collection. Each image was manually verifie...
+[MATCH 11] Source=CNN Paper.pdf | Page=3 | Image=CNN Paper_page3_render.png | Path=extracted_images\CNN Paper_page3_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram showing the number of different types of aircrafts  OCR Text: 4. Dataset Class Distribution  The bar chart in Figure 3 provides a visual breakdown of image counts per class. The dataset is moderately imbalanced with a 4.77:1 ratio between the la...
+[MATCH 12] Source=Donut.pdf | Page=4 | Image=Donut_page4_img0.png | Path=extracted_images\Donut_page4_img0.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a person holding a receipt in their hand  OCR Text: No readable text found in this image.  Nearby Document Text: 4 G. Kim et al. <vqa><question>what is the price  of choco mochi?</question><answer> Converted JSON transformer  encoder Input Image and Prompt transformer ...
+[MATCH 13] Source=Donut.pdf | Page=4 | Image=Donut_page4_img1.png | Path=extracted_images\Donut_page4_img1.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont  OCR Text: No readable text found in this image.  Nearby Document Text: 4 G. Kim et al. <vqa><question>what is the pric...
+[MATCH 14] Source=Donut.pdf | Page=4 | Image=Donut_page4_render.png | Path=extracted_images\Donut_page4_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram showing the different types of the different types of the different types of the different types of the different  OCR Text: 4 G. Kim et al.  Input Image and Prompt Donut @ Output Sequence Converted JSON  {"class”s"recelpt* }  {°question": “what...
+[MATCH 15] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img0.png | Path=extracted_images\LayoutLMv3_page3_img0.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white document with a black and white image  OCR Text: Poros MEWSterten Bou ‘Monday, March 26; 1937.10:2840  {you fn fer con Yaga £7 eapnag Jee ban looting eo wath of stent J procats Mo pais'on this Sat:  ndlchoel doese’s want 19 raprix tho ofd FY! ord ta n...
+[MATCH 16] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img1.png | Path=extracted_images\LayoutLMv3_page3_img1.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white photo of a man in a suit and tie  OCR Text: “fuaneil, sey W.  ‘Michuat eisaant wart to rap Seine mona af 90 IF vind mistde.. Oudin Bid  battens” Coedieg Bieta  Nearby Document Text: Multimodal Transformer Seg1 [MASK] 1 + + Seg1 [MASK] 2 + + Seg2 T3 3 ...
+[MATCH 17] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img2.png | Path=extracted_images\LayoutLMv3_page3_img2.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a white paper with a black and white text on it  OCR Text: No readable text found in this image.  Nearby Document Text: Multimodal Transformer Seg1 [MASK] 1 + + Seg1 [MASK] 2 + + Seg2 T3 3 + + V1 [MASK] 1 + 2 + 3 + [MASK] [SPE] 0 + Seg3 T4 4 + + SegPAD [CLS] 0 + + 4 + ...
+[MATCH 18] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img3.png | Path=extracted_images\LayoutLMv3_page3_img3.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white poster with a quote on it  OCR Text: No readable text found in this image.  Nearby Document Text: Multimodal Transformer Seg1 [MASK] 1 + + Seg1 [MASK] 2 + + Seg2 T3 3 + + V1 [MASK] 1 + 2 + 3 + [MASK] [SPE] 0 + Seg3 T4 4 + + SegPAD [CLS] 0 + + 4 + V4 h...
+[MATCH 19] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img4.png | Path=extracted_images\LayoutLMv3_page3_img4.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a diagram showing the location of the location of the house and the location of the location of the house  OCR Text: No readable text found in this image.  Nearby Document Text: Multimodal Transformer Seg1 [MASK] 1 + + Seg1 [MASK] 2 + + Seg2 T3 3 + + V1 [MASK] 1 + 2 + ...
+[MATCH 20] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img5.png | Path=extracted_images\LayoutLMv3_page3_img5.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a letter from the department requesting that it is not available for sale  OCR Text: No readable text found in this image.  Nearby Document Text: Multimodal Transformer Seg1 [MASK] 1 + + Seg1 [MASK] 2 + + Seg2 T3 3 + + V1 [MASK] 1 + 2 + 3 + [MASK] [SPE] 0 + Seg3 T4 4 +...
+[MATCH 21] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img6.png | Path=extracted_images\LayoutLMv3_page3_img6.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a white sheet with a black and white image of a black and white image of a black and white image  OCR Text: No readable text found in this image.  Nearby Document Text: Multimodal Transformer Seg1 [MASK] 1 + + Seg1 [MASK] 2 + + Seg2 T3 3 + + V1 [MASK] 1 + 2 + 3 + [MASK...
+[MATCH 22] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img7.png | Path=extracted_images\LayoutLMv3_page3_img7.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white photo of a man in a suit and tie  OCR Text: Ciro: Matnoe’ ‘Suniect: (ICL VANTAGE HOWS Geter antuy, Mace 34), 127  Beni¥ ln haa abamey bane Sram foal Cre ea ea ves.  ar HE VANTAGE NEY. Bae Gunter, orth er  deccenoateld ei ee  Nearby Document Text: Mult...
+[MATCH 23] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img8.png | Path=extracted_images\LayoutLMv3_page3_img8.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white photo of a man in a suit and tie  OCR Text: No readable text found in this image.  Nearby Document Text: Multimodal Transformer Seg1 [MASK] 1 + + Seg1 [MASK] 2 + + Seg2 T3 3 + + V1 [MASK] 1 + 2 + 3 + [MASK] [SPE] 0 + Seg3 T4 4 + + SegPAD [CLS] 0 + + 4...
+[MATCH 24] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img9.png | Path=extracted_images\LayoutLMv3_page3_img9.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white photo of a man in a suit  OCR Text: (ebadk Lunlhias 116 ahghty hos Sree ierty we win wed We paid ase Bree  Nearby Document Text: Multimodal Transformer Seg1 [MASK] 1 + + Seg1 [MASK] 2 + + Seg2 T3 3 + + V1 [MASK] 1 + 2 + 3 + [MASK] [SPE] 0 + Seg3 T4 4 ...
+[MATCH 25] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_render.png | Path=extracted_images\LayoutLMv3_page3_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram of the structure of a computer system  OCR Text: Ty Tz  Pre-training  Objectives MLM Head  Unaligned Aligned  V2 V3  MIM Head  Multimodal Transformer  2D Position  Embedding Seba) (Sees ] Seaewo) (see) [sees] [sees] [sess] Seseso) [Ptcheno} Pate...
+[MATCH 26] Source=NLP Paper.pdf | Page=4 | Image=NLP Paper_page4_img0.png | Path=extracted_images\NLP Paper_page4_img0.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: figure 3 timing curves for dbtn, dbtn, and dbtn  OCR Text: Cross-Entropy Loss  Figure 3: Training Loss Curves for BiLSTM, BERT, and RoBERTa over 15 Epochs  BiLSTM i-BERT—— RoBERTa  Nearby Document Text: 4. Training Dynamics Figure 3 shows training loss curves for BiLST...
+[MATCH 27] Source=NLP Paper.pdf | Page=4 | Image=NLP Paper_page4_img1.png | Path=extracted_images\NLP Paper_page4_img1.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: figure 1 self - self - self - self - self - self - self - self - self - self - self - self - self - self self self - self self self self self self self self self self self self self self self self self self self self self self self self self self self self  OCR Text: F...
+[MATCH 28] Source=NLP Paper.pdf | Page=4 | Image=NLP Paper_page4_render.png | Path=extracted_images\NLP Paper_page4_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a graph graph with a line graph and a line graph with a line graph and a line graph with a  OCR Text: 4. Training Dynamics  Figure 3 shows training loss curves for BILSTM, BERT, and ROBERTa over 15 epochs. ROBERTa converges fastest, reaching a loss below ...
+[MATCH 29] Source=RAG.pdf | Page=8 | Image=RAG_page8_render.png | Path=extracted_images\RAG_page8_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Table 4: Human assessments for the Jeopardy Table 5: Ratio of distinct to total tri-grams for Question Generation Task. generation tas...
+[MATCH 30] Source=Self-RAG.pdf | Page=9 | Image=Self-RAG_page9_render.png | Path=extracted_images\Self-RAG_page9_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the textbook on the characterization and characterization of semiconductors in semiconductors and semiconductors  OCR Text: Preprint.  PubHealth  POA Med AS : 70.5 aan 1.0 >  (acc) (acc) (em) § $0.99 ose Training 0.98 0.0 NoRetrieverR 43.6 67....
+[MATCH 31] Source=Self-RAG.pdf | Page=10 | Image=Self-RAG_page10_render.png | Path=extracted_images\Self-RAG_page10_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Preprint.  in wu  g 50 23 Pop Bio. 5 60 &“ 7? S&P 92.5 70.0 & 40 n 95.0 90.0...
+[MATCH 32] Source=Vision Transformer.pdf | Page=6 | Image=Vision Transformer_page6_render.png | Path=extracted_images\Vision Transformer_page6_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with a bar chart and a bar chart on it  OCR Text: Published as a conference paper at ICLR 2021  Ours-JFT Ours-JFT Ours-I21k BiT-L Noisy Student  (ViT-H/14) = (ViT-L/16) —- (ViT-L/16) (ResNet152x4) (EfficientNet-L2) ImageNet 88.5540.04 87.764003 85...
+[MATCH 33] Source=Vision Transformer.pdf | Page=7 | Image=Vision Transformer_page7_render.png | Path=extracted_images\Vision Transformer_page7_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal on the characterization and characterization of a single - cell cell  OCR Text: Published as a conference paper at ICLR 2021  =J o  oe] wr  BiT- ViT-BB2- O...ViT-B/16. CO} iT-H/14 |  ImageNet Top! Accuracy (%]  Linear 5-shot ImageN...
+[MATCH 34] Source=Vision Transformer.pdf | Page=14 | Image=Vision Transformer_page14_render.png | Path=extracted_images\Vision Transformer_page14_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with the title of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Published as a conference paper at ICLR 2021  Dataset Steps Base LR ImageNet 2000...
+[MATCH 35] Source=Vision Transformer.pdf | Page=15 | Image=Vision Transformer_page15_render.png | Path=extracted_images\Vision Transformer_page15_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: the table shows the number of different types of the different types of the different types of the different types of  OCR Text: Published as a conference paper at ICLR 2021  ViT-B/16 ViT-B/32-ViT-L/16—ViT-L/32.—s: ViT-H/14  ImageNet CIFAR-10 98.13 97.77 ...
+[REJECTED 1] Source=BLIP-2.pdf | Page=4 | Image=BLIP-2_page4_render.png
+    Reason   : Cross-reference rather than actual Figure 3
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the journal of the journal of the journal of the journal of the journal of the journal of the journal of the  OCR Text: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models  Boot...
+[REJECTED 2] Source=CNN Paper.pdf | Page=5 | Image=CNN Paper_page5_render.png
+    Reason   : Cross-reference rather than actual Figure 3
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a table with a number of different items on it  OCR Text: 7. Discussion  The CNN model achieves strong overall performance with a weighted F1 score of 0.926. However, several limitations and areas for improvement were identified during evaluation.  7.1 St...
+[REJECTED 3] Source=Donut.pdf | Page=5 | Image=Donut_page5_render.png
+    Reason   : Cross-reference rather than actual Figure 3
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a text book with an image of a person in the background  OCR Text: OOCR-free Document Understanding Transformer 5  Decoder. Given the {z}, the textual decoder generates a token sequence (yi)*1, where y;€R” is an one-hot vector for the i-th token...
+[REJECTED 4] Source=Donut.pdf | Page=6 | Image=Donut_page6_render.png
+    Reason   : Cross-reference rather than actual Figure 3
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a book with a picture of a person in the background  OCR Text: 6 G. Kim et al.  Wak gaGHIe - —— ATP  Fig. 4. Generated English, Chinese, Japanese, and Korean samples with SynthDoG. Heuristic random patterns are applied to mimic the real document...
+[REJECTED 5] Source=Donut.pdf | Page=8 | Image=Donut_page8_render.png
+    Reason   : Cross-reference rather than actual Figure 3
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a book with the title of the text  OCR Text: 8 G. Kim et al.  nested groups and hierarchies such as items>item>{name, count, price}) in the information. See Figure 1 for more details.  Ticket. This is a public benchmark dataset [12] that consist...
+[REJECTED 6] Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_render.png
+    Reason   : Cross-reference rather than actual Figure 3
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a computer and a computer with a text that reads,  OCR Text: _(2) Pre-training Objectives of Image Modality  | — | ra  |  |  I idn, idya, idys, | idyyidys, ides, ». |  I kde dia Fao  ! teh  | fication  Masked Word...
+Matched Sources  : ['BERT.pdf', 'BLIP-2.pdf', 'CLIP.pdf', 'CNN Paper.pdf', 'Donut.pdf', 'LayoutLMv3.pdf', 'NLP Paper.pdf', 'RAG.pdf', 'Self-RAG.pdf', 'Vision Transformer.pdf']
+Matched Pages    : ['10', '13', '14', '15', '2', '3', '38', '4', '5', '6', '7', '8', '9']
+[FIGURE LOOKUP] High-confidence figure reference found. Generic CLIP fallback should not be used.
+================================================================================
+[FIGURE IMAGE DEDUPLICATION] 2 -> 2 authoritative image(s), one per source/page.
+
+================================================================================
+EXACT FIGURE RETRIEVAL RESULT
+================================================================================
+Requested Figure : 3
+Exact Match      : True
+Matched Images   : 2
+[EXACT FIGURE #1] Source=Self-RAG.pdf | Page=9 | Image=Self-RAG_page9_render.png | Path=extracted_images\Self-RAG_page9_render.png
+[EXACT FIGURE #2] Source=Self-RAG.pdf | Page=10 | Image=Self-RAG_page10_render.png | Path=extracted_images\Self-RAG_page10_render.png
+================================================================================
+[FIGURE PIPELINE] Explicit figure/page image match found. CLIP fallback disabled.
+
+================================================================================
+STAGE 2 — IMAGE RETRIEVAL RESULT
+================================================================================
+Image Results       : 2
+Exact Figure Match  : True
+
+[IMAGE #1] Source=Self-RAG.pdf | Page=9 | Image=Self-RAG_page9_render.png
+Image Path: extracted_images\Self-RAG_page9_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the textbook on the characterization and characterization of semiconductors in semiconductors and semiconductors  OCR Text: Preprint.  PubHealth  POA Med AS : 70.5 aan 1.0 >  (acc) (acc) (em) § $0.99 ose Training 0.98 0.0 NoRetrieverR 43.6 67.8 31.0 1 2 O0 pOA No Critic C 42.6 72.0 18.1 95 1.0 1.00  “Test ee cy Tog 0.75 2 No retrieval 247 730 - 849 5 050 Hard constraints 28.3 72.6 - < 0.6 E Retrieve topl 41.8 73.1 28.6 i $ SCE REY a 0.25 R
+
+[IMAGE #2] Source=Self-RAG.pdf | Page=10 | Image=Self-RAG_page10_render.png
+Image Path: extracted_images\Self-RAG_page10_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Preprint.  in wu  g 50 23 Pop Bio. 5 60 &“ 7? S&P 92.5 70.0 & 40 n 95.0 90.0 35 0 50 100 150 0 100 “ 0 100 _Dsssur] 90.0 85.0 90.0 85.0 Num of training (k) Num of training (k) Num of training (k) . (d) Human evaluation on PopQA (a) PopQA (b) PubHealth (c) ASQA (prec) —_ and B
+================================================================================
+
+================================================================================
+COMBINED RETRIEVAL CANDIDATES
+================================================================================
+Text Candidates  : 8
+Image Candidates : 2
+Total Candidates : 10
+================================================================================
+
+================================================================================
+STEP 3A — RERANKER INPUT
+================================================================================
+Query: According to Figure 3(c), what happens to retrieval frequency when the retrieval threshold is increased?
+Input candidates: 10
+01. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=Efficiency and accuracy trade-off. Using our framework, practitioners can adjust how often retrieval occurs using the token probability of reward tokens. We evaluate how this adapt
+02. Source=Self-RAG.pdf | Page=6 | Type=text | Image=N/A
+    Content=Adaptive retrieval with threshold.SELF -RAG dynamically decides when to retrieve text passages by predicting Retrieve . Alternatively, our framework allows a threshold to be set. S
+03. Source=Self-RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=y using the retrieval and critic models to create supervised data that precisely mimics the SELF - RAG inference-time process (Section 3.1). For each segment yt ∈ y, we run C to as
+04. Source=Self-RAG.pdf | Page=4 | Type=text | Image=N/A
+    Content=10: Mgen predicts ISUSE given x, yt ▷ Critique Inference overview. Figure 1 and Algorithm 1 present an overview of SELF -R AG at inference. For every x and preceding generation y<t
+05. Source=Self-RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=values of 1.0, 1.0 and 0.5, respectively. To encourage frequent retrieval, we set the retrieval threshold to 0.2 for most tasks and to 0 for ALCE (Gao et al., 2023) due to citation
+06. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=SAIL. We also conduct ablation on our inference-time algorithm, including No retrieval disables retrieval during inference; Hard constraints indicates the model performance that re
+07. Source=RAG.pdf | Page=19 | Type=text | Image=N/A
+    Content=728 dimensional vectors, consisting of 15.3B values. These can be easily be stored at 8-bit ﬂoating point precision to manage memory and disk footprints. H Retrieval Collapse In pr
+08. Source=BLIP-2.pdf | Page=8 | Type=text | Image=N/A
+    Content=Table 5. Comparison with state-of-the-art image-text retrieval methods, finetuned on COCO and zero-shot transferred to Flickr30K. COCO finetuning objectives Image→ Text Text → Imag
+09. Source=Self-RAG.pdf | Page=9 | Type=image | Image=extracted_images\Self-RAG_page9_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the textbook on the characterization and characterization of semiconductors in semiconductors and semiconductors  OCR Text:
+10. Source=Self-RAG.pdf | Page=10 | Type=image | Image=extracted_images\Self-RAG_page10_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+================================================================================
+
+--------------------------------------------------------------------------------
+CROSS-ENCODER RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=00 | Source=Self-RAG.pdf | Page=10 | Type=text | CE=4.2783
+Rank=02 | OriginalIndex=01 | Source=Self-RAG.pdf | Page=6 | Type=text | CE=-1.5354
+Rank=03 | OriginalIndex=04 | Source=Self-RAG.pdf | Page=7 | Type=text | CE=-1.6404
+Rank=04 | OriginalIndex=02 | Source=Self-RAG.pdf | Page=5 | Type=text | CE=-3.9265
+Rank=05 | OriginalIndex=08 | Source=Self-RAG.pdf | Page=9 | Type=image | CE=-4.4104
+Rank=06 | OriginalIndex=03 | Source=Self-RAG.pdf | Page=4 | Type=text | CE=-5.5973
+Rank=07 | OriginalIndex=05 | Source=Self-RAG.pdf | Page=9 | Type=text | CE=-5.7247
+Rank=08 | OriginalIndex=06 | Source=RAG.pdf | Page=19 | Type=text | CE=-6.9542
+Rank=09 | OriginalIndex=07 | Source=BLIP-2.pdf | Page=8 | Type=text | CE=-9.2163
+Rank=10 | OriginalIndex=09 | Source=Self-RAG.pdf | Page=10 | Type=image | CE=-10.4041
+
+--------------------------------------------------------------------------------
+CLIP IMAGE RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=09 | Source=Self-RAG.pdf | Page=10 | Image=extracted_images\Self-RAG_page10_render.png | CLIP=0.2478
+Rank=02 | OriginalIndex=08 | Source=Self-RAG.pdf | Page=9 | Image=extracted_images\Self-RAG_page9_render.png | CLIP=0.2368
+
+================================================================================
+STEP 3A — COMPLETE MULTIMODAL RERANK RESULT
+================================================================================
+Rank=01 | Type=image | Source=Self-RAG.pdf | Page=9 | RRF=0.031514 | CE=-4.4104 | CLIP=0.2368
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the textbook on the characterization and characterization of semiconductors in semiconductors and semiconductors  OCR Text:
+Rank=02 | Type=image | Source=Self-RAG.pdf | Page=10 | RRF=0.030679 | CE=-10.4041 | CLIP=0.2478
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+Rank=03 | Type=text | Source=Self-RAG.pdf | Page=10 | RRF=0.016393 | CE=4.2783 | CLIP=N/A
+    Content=Efficiency and accuracy trade-off. Using our framework, practitioners can adjust how often retrieval occurs using the token probability of reward tokens. We evaluate how this adapt
+Rank=04 | Type=text | Source=Self-RAG.pdf | Page=6 | RRF=0.016129 | CE=-1.5354 | CLIP=N/A
+    Content=Adaptive retrieval with threshold.SELF -RAG dynamically decides when to retrieve text passages by predicting Retrieve . Alternatively, our framework allows a threshold to be set. S
+Rank=05 | Type=text | Source=Self-RAG.pdf | Page=7 | RRF=0.015873 | CE=-1.6404 | CLIP=N/A
+    Content=values of 1.0, 1.0 and 0.5, respectively. To encourage frequent retrieval, we set the retrieval threshold to 0.2 for most tasks and to 0 for ALCE (Gao et al., 2023) due to citation
+Rank=06 | Type=text | Source=Self-RAG.pdf | Page=5 | RRF=0.015625 | CE=-3.9265 | CLIP=N/A
+    Content=y using the retrieval and critic models to create supervised data that precisely mimics the SELF - RAG inference-time process (Section 3.1). For each segment yt ∈ y, we run C to as
+Rank=07 | Type=text | Source=Self-RAG.pdf | Page=4 | RRF=0.015152 | CE=-5.5973 | CLIP=N/A
+    Content=10: Mgen predicts ISUSE given x, yt ▷ Critique Inference overview. Figure 1 and Algorithm 1 present an overview of SELF -R AG at inference. For every x and preceding generation y<t
+Rank=08 | Type=text | Source=Self-RAG.pdf | Page=9 | RRF=0.014925 | CE=-5.7247 | CLIP=N/A
+    Content=SAIL. We also conduct ablation on our inference-time algorithm, including No retrieval disables retrieval during inference; Hard constraints indicates the model performance that re
+Rank=09 | Type=text | Source=RAG.pdf | Page=19 | RRF=0.014706 | CE=-6.9542 | CLIP=N/A
+    Content=728 dimensional vectors, consisting of 15.3B values. These can be easily be stored at 8-bit ﬂoating point precision to manage memory and disk footprints. H Retrieval Collapse In pr
+Rank=10 | Type=text | Source=BLIP-2.pdf | Page=8 | RRF=0.014493 | CE=-9.2163 | CLIP=N/A
+    Content=Table 5. Comparison with state-of-the-art image-text retrieval methods, finetuned on COCO and zero-shot transferred to Flickr30K. COCO finetuning objectives Image→ Text Text → Imag
+================================================================================
+
+================================================================================
+STEP 3A — FINAL RERANK TOP-K
+================================================================================
+Requested top_k: 12
+Returned documents: 10
+01. Source=Self-RAG.pdf | Page=9 | Type=image | Image=extracted_images\Self-RAG_page9_render.png
+02. Source=Self-RAG.pdf | Page=10 | Type=image | Image=extracted_images\Self-RAG_page10_render.png
+03. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+04. Source=Self-RAG.pdf | Page=6 | Type=text | Image=N/A
+05. Source=Self-RAG.pdf | Page=7 | Type=text | Image=N/A
+06. Source=Self-RAG.pdf | Page=5 | Type=text | Image=N/A
+07. Source=Self-RAG.pdf | Page=4 | Type=text | Image=N/A
+08. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+09. Source=RAG.pdf | Page=19 | Type=text | Image=N/A
+10. Source=BLIP-2.pdf | Page=8 | Type=text | Image=N/A
+================================================================================
+
+================================================================================
+STAGE 3 — MULTIMODAL RERANKING
+================================================================================
+Input Candidates : 10
+Reranked Output   : 10
+
+[RERANK #1] Source=Self-RAG.pdf | Page=9 | Type=image
+Exact Figure : True
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the textbook on the characterization and characterization of semiconductors in semiconductors and semiconductors  OCR Text: Preprint.  PubHealth  POA Med AS : 70.5 aan 1.0 >  (acc) (acc) (em) § $0.99 ose Training 0.98 0.0 NoRetrieverR 43.6 67.
+
+[RERANK #2] Source=Self-RAG.pdf | Page=10 | Type=image
+Exact Figure : True
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Preprint.  in wu  g 50 23 Pop Bio. 5 60 &“ 7? S&P 92.5 70.0 & 40 n 95.0 90.0
+
+[RERANK #3] Source=Self-RAG.pdf | Page=10 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Efficiency and accuracy trade-off. Using our framework, practitioners can adjust how often retrieval occurs using the token probability of reward tokens. We evaluate how this adaptive threshold affects overall accuracy and frequency of retrieval, and we evaluate the performance with varying numbers 
+
+[RERANK #4] Source=Self-RAG.pdf | Page=6 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Adaptive retrieval with threshold.SELF -RAG dynamically decides when to retrieve text passages by predicting Retrieve . Alternatively, our framework allows a threshold to be set. Specifically, if the prob- ability of generating the Retrieve =Yes token normalized over all output tokens in Retrieve su
+
+[RERANK #5] Source=Self-RAG.pdf | Page=7 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: values of 1.0, 1.0 and 0.5, respectively. To encourage frequent retrieval, we set the retrieval threshold to 0.2 for most tasks and to 0 for ALCE (Gao et al., 2023) due to citation requirements. We speed up inference using vllm (Kwon et al., 2023). At each segment level, we adopt a beam width of 2. 
+
+[RERANK #6] Source=Self-RAG.pdf | Page=5 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: y using the retrieval and critic models to create supervised data that precisely mimics the SELF - RAG inference-time process (Section 3.1). For each segment yt ∈ y, we run C to assess whether additional passages could help to enhance generation. If retrieval is required, the retrieval special token
+
+[RERANK #7] Source=Self-RAG.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: 10: Mgen predicts ISUSE given x, yt ▷ Critique Inference overview. Figure 1 and Algorithm 1 present an overview of SELF -R AG at inference. For every x and preceding generation y<t, the model decodes a retrieval token to evaluate the utility of retrieval. If retrieval is not required, the model pred
+
+[RERANK #8] Source=Self-RAG.pdf | Page=9 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: SAIL. We also conduct ablation on our inference-time algorithm, including No retrieval disables retrieval during inference; Hard constraints indicates the model performance that retrieves when Retrieve =Yes instead of using the adaptive threshold; Retrieve top 1 always retrieves and uses the top one
+
+[RERANK #9] Source=RAG.pdf | Page=19 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: 728 dimensional vectors, consisting of 15.3B values. These can be easily be stored at 8-bit ﬂoating point precision to manage memory and disk footprints. H Retrieval Collapse In preliminary experiments, we observed that for some tasks such as story generation [ 11], the retrieval component would “co
+
+[RERANK #10] Source=BLIP-2.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Table 5. Comparison with state-of-the-art image-text retrieval methods, finetuned on COCO and zero-shot transferred to Flickr30K. COCO finetuning objectives Image→ Text Text → Image R@1 R@5 R@1 R@5 ITC + ITM 84.5 96.2 67.2 87.1 ITC + ITM + ITG 85.4 97.0 68.3 87.7 Table 6. The image-grounded text gen
+================================================================================
+
+================================================================================
+FINAL CONTEXT DOCUMENTS
+================================================================================
+Final context candidates: 10
+
+[FINAL #1] Source=Self-RAG.pdf | Page=9 | Type=image
+Exact Figure : True
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the textbook on the characterization and characterization of semiconductors in semiconductors and semiconductors  OCR Text: Preprint.  PubHealth  POA Med AS : 70.5 aan 1.0 >  (acc) (acc) (em) § $0.99 ose Training 0.98 0.0 NoRetrieverR 43.6 67.
+
+[FINAL #2] Source=Self-RAG.pdf | Page=10 | Type=image
+Exact Figure : True
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Preprint.  in wu  g 50 23 Pop Bio. 5 60 &“ 7? S&P 92.5 70.0 & 40 n 95.0 90.0
+
+[FINAL #3] Source=Self-RAG.pdf | Page=10 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Efficiency and accuracy trade-off. Using our framework, practitioners can adjust how often retrieval occurs using the token probability of reward tokens. We evaluate how this adaptive threshold affects overall accuracy and frequency of retrieval, and we evaluate the performance with varying numbers 
+
+[FINAL #4] Source=Self-RAG.pdf | Page=6 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Adaptive retrieval with threshold.SELF -RAG dynamically decides when to retrieve text passages by predicting Retrieve . Alternatively, our framework allows a threshold to be set. Specifically, if the prob- ability of generating the Retrieve =Yes token normalized over all output tokens in Retrieve su
+
+[FINAL #5] Source=Self-RAG.pdf | Page=7 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: values of 1.0, 1.0 and 0.5, respectively. To encourage frequent retrieval, we set the retrieval threshold to 0.2 for most tasks and to 0 for ALCE (Gao et al., 2023) due to citation requirements. We speed up inference using vllm (Kwon et al., 2023). At each segment level, we adopt a beam width of 2. 
+
+[FINAL #6] Source=Self-RAG.pdf | Page=5 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: y using the retrieval and critic models to create supervised data that precisely mimics the SELF - RAG inference-time process (Section 3.1). For each segment yt ∈ y, we run C to assess whether additional passages could help to enhance generation. If retrieval is required, the retrieval special token
+
+[FINAL #7] Source=Self-RAG.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: 10: Mgen predicts ISUSE given x, yt ▷ Critique Inference overview. Figure 1 and Algorithm 1 present an overview of SELF -R AG at inference. For every x and preceding generation y<t, the model decodes a retrieval token to evaluate the utility of retrieval. If retrieval is not required, the model pred
+
+[FINAL #8] Source=Self-RAG.pdf | Page=9 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: SAIL. We also conduct ablation on our inference-time algorithm, including No retrieval disables retrieval during inference; Hard constraints indicates the model performance that retrieves when Retrieve =Yes instead of using the adaptive threshold; Retrieve top 1 always retrieves and uses the top one
+
+[FINAL #9] Source=RAG.pdf | Page=19 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: 728 dimensional vectors, consisting of 15.3B values. These can be easily be stored at 8-bit ﬂoating point precision to manage memory and disk footprints. H Retrieval Collapse In preliminary experiments, we observed that for some tasks such as story generation [ 11], the retrieval component would “co
+
+[FINAL #10] Source=BLIP-2.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Table 5. Comparison with state-of-the-art image-text retrieval methods, finetuned on COCO and zero-shot transferred to Flickr30K. COCO finetuning objectives Image→ Text Text → Image R@1 R@5 R@1 R@5 ITC + ITM 84.5 96.2 67.2 87.1 ITC + ITM + ITG 85.4 97.0 68.3 87.7 Table 6. The image-grounded text gen
+================================================================================
+
+================================================================================
+FIGURE FINAL-CONTEXT DIAGNOSTIC
+================================================================================
+Requested Figure     : 3
+Exact Figure Match   : True
+Present In Final     : True
+[FIGURE DIAGNOSTIC] PASS — exact figure/page image evidence survived into final context.
+================================================================================
+
+================================================================================
+FINAL CONTEXT SENT TO LLM
+================================================================================
+
+================================================================================
+DOCUMENT : Self-RAG.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 4
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+10: Mgen predicts ISUSE given x, yt ▷ Critique
+Inference overview. Figure 1 and Algorithm 1 present an overview of SELF -R AG at inference. For
+every x and preceding generation y<t, the model decodes a retrieval token to evaluate the utility
+of retrieval. If retrieval is not required, the model predicts the next output segment, as it does in a
+standard LM. If retrieval is needed, the model generates: a critique token to evaluate the retrieved
+passage’s relevance, the next response segment, and a critique token to evaluate if the information in
+
+
+--------------------------------------------------------------------------------
+PAGE : 5
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+y using the retrieval and critic models to create supervised data that precisely mimics the SELF -
+RAG inference-time process (Section 3.1). For each segment yt ∈ y, we run C to assess whether
+additional passages could help to enhance generation. If retrieval is required, the retrieval special
+token Retrieve =Yes is added, and R retrieves the top K passages, D. For each passage, C further
+evaluates whether the passage is relevant and predicts ISREL . If a passage is relevant, C further
+evaluates whether the passage supports the model generation and predicts ISSUP . Critique tokens
+
+
+--------------------------------------------------------------------------------
+PAGE : 6
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+Adaptive retrieval with threshold.SELF -RAG dynamically decides when to retrieve text passages by
+predicting Retrieve . Alternatively, our framework allows a threshold to be set. Specifically, if the prob-
+ability of generating the Retrieve =Yes token normalized over all output tokens in Retrieve surpasses a
+designated threshold, we trigger retrieval (details in Appendix Section A.3).
+Tree-decoding with critique tokens. At each segment step t, when retrieval is required, based either
+on hard or soft conditions, R retrieves K passages, and the generator M processes each passage in
+
+
+--------------------------------------------------------------------------------
+PAGE : 7
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+values of 1.0, 1.0 and 0.5, respectively. To encourage frequent retrieval, we set the retrieval threshold
+to 0.2 for most tasks and to 0 for ALCE (Gao et al., 2023) due to citation requirements. We speed
+up inference using vllm (Kwon et al., 2023). At each segment level, we adopt a beam width of 2.
+For a token-level generation, we use greedy decoding. By default, we use the top five documents
+from Contriever-MS MARCO (Izacard et al., 2022a); for biographies and open-domain QA, we
+use additional top five documents retrieved by a web search engine, following Luo et al. (2023);
+
+
+--------------------------------------------------------------------------------
+PAGE : 9
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+SAIL. We also conduct ablation on our inference-time algorithm, including No retrieval disables
+retrieval during inference; Hard constraints indicates the model performance that retrieves when
+Retrieve =Yes instead of using the adaptive threshold; Retrieve top 1 always retrieves and uses the
+top one document only, similar to standard RAG approaches;Remove ISSUP indicates the model
+performance that removes ISSUP score only during critique-guided beam search in Eq. 4. In this
+ablation experiment, we use a training instance size of 50k for a more efficient exploration of training
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a page from the textbook on the characterization and characterization of semiconductors in semiconductors and semiconductors
+
+OCR Text:
+Preprint.
+
+PubHealth
+
+POA Med AS : 70.5 aan 1.0 >
+
+(acc) (acc) (em) § $0.99 ose
+Training 0.98 0.0
+NoRetrieverR 43.6 67.8 31.0 1 2 O0 pOA
+No Critic C 42.6 72.0 18.1 95 1.0 1.00
+
+“Test ee cy Tog 0.75 2
+No retrieval 247 730 - 849 5 050
+Hard constraints 28.3 72.6 - < 0.6 E
+Retrieve topl 41.8 73.1 28.6 i $ SCE REY a 0.25
+Remove 44.1 73.2 30.6 Weight for IsSupport Retrieval Threshold
+(a) Ablation (b) Customization (c) Retrieval
+
+Figure 3: Analysis on SELF-RAG: (a) Ablation studies for key components of SELF-RAG training
+and inference based on our 7B model. (b) Effects of soft weights on ASQA citation precision and
+Mauve (fluency). (c) Retrieval frequency and normalized accuracy on PubHealth and PopQA.
+
+precisely grounded yet shorter outputs. Llama2-FT7,, which is the baseline LM trained on the same
+instruction-output pairs as SELF-RAG without retrieval or self-reflection and is retrieval-augmented
+at test time only, lags behind SELF-RAG. This result indicates SELF-RAG gains are not solely from
+training data and demonstrate the effectiveness of SELF-RAG framework.
+
+5.2 ANALYSIS
+
+Ablation studies. We conduct a set of ablations of our framework to identify which factors play
+key roles. We evaluate two model variants trained differently than our model: No Retriever trains an
+LM using the standard instruction-following method given instruction-output pairs, without retrieved
+passages; No Critic trains an LM trained with input-output pairs that are always augmented with the
+top one retrieved document without reflection tokens. This is similar to SAIL (Luo et al., 2023), and
+we use our instruction-output data instead of using the Alpaca dataset (Dubois et al., 2023), as in
+SAIL. We also conduct ablation on our inference-time algorithm, including No retrieval disables
+retrieval during inference; Hard constraints indicates the model performance that retrieves when
+[Retrieve Yes instead of using the adaptive threshold; Retrieve top I always retrieves and uses the
+top one document only, similar to standard RAG approaches; Remove indicates the model
+performance that removes score only during critique-guided beam search in Eq. 4. In this
+ablation experiment, we use a training instance size of 50k for a more efficient exploration of training
+variations. Later in this section, we conduct an analysis of the effect of training data size. We conduct
+the ablation studies on three datasets, PopQA, PubHealth, and ASQA. On ASQA, we evaluate models
+on sampled 150 instances and exclude ablations involving adaptive or no retrieval processes.
+
+We show in Table 3a the ablation results. The top part of the table shows results for training ablations,
+and the bottom part is for inference ablations. We see that all components play important roles. We
+also observe a large performance gap between SELF-RAG and No Retriever or Critic baselines across
+tasks, indicating that training an LM with those models largely contributes to the performance gain of
+SELF-RAG. Using the top passages regardless of their relevance (Retrieve top 1) as in conventional
+RAG approaches causes a large drop in PopQA and ASQA, and removing during the beam
+search results hurts performance on ASQA. This demonstrates the effectiveness of SELF-RAG’s
+capabilities of carefully selecting generations based fine-grained multiple criterion, instead of naively
+using all of the top passages from the retrieval model or solely depending on relevance scores.
+
+Effects of inference-time customization. One key benefit of our proposed framework is that it
+enables us to control how much each critique type affects the final generation sampling. We analyze
+the effects of different parameter weights on the top of our 7B model during inference time on
+ASQA, where multiple evaluation aspects are considered. Figure 3b shows the effects of changing
+the weighting term for , which criticizes how supported the output is by the text passage. As
+the figure shows, increasing the weight leads to positive effects on the models’ citation precision
+since this puts more emphasis on whether model generation is supported by the evidence. On the
+
+Nearby Document Text:
+Preprint.
+PQA
+Med
+AS
+(acc)
+(acc)
+(em)
+SELF-RAG (50k)
+45.5
+73.5
+32.1
+Training
+No Retriever R
+43.6
+67.8
+31.0
+No Critic C
+42.6
+72.0
+18.1
+Test
+No retrieval
+24.7
+73.0
+–
+Hard constraints
+28.3
+72.6
+–
+Retrieve top1
+41.8
+73.1
+28.6
+Remove
+ISSUP
+44.1
+73.2
+30.6
+(a) Ablation
+1
+2
+70.0
+70.5
+Precision
+1
+2
+Weight for IsSupport
+90
+95
+Mauve
+(b) Customization
+0.0
+0.2
+0.4
+0.6
+0.98
+0.99
+0.99
+1.00
+Accuracy
+PubHealth
+0.0
+0.2
+0.4
+0.6
+Retrieval Threshold
+0.6
+0.8
+1.0
+Accuracy
+PopQA
+0.0
+0.5
+1.0
+Frequency
+0.25
+0.50
+0.75
+1.00
+Frequency
+(c) Retrieval
+Figure 3: Analysis on SELF-RAG: (a) Ablation studies for key components of
+
+
+[RELATED PAGE TEXT]
+
+SAIL. We also conduct ablation on our inference-time algorithm, including No retrieval disables
+retrieval during inference; Hard constraints indicates the model performance that retrieves when
+Retrieve =Yes instead of using the adaptive threshold; Retrieve top 1 always retrieves and uses the
+top one document only, similar to standard RAG approaches
+
+
+--------------------------------------------------------------------------------
+PAGE : 10
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+Efficiency and accuracy trade-off. Using our framework, practitioners can adjust how often retrieval
+occurs using the token probability of reward tokens. We evaluate how this adaptive threshold affects
+overall accuracy and frequency of retrieval, and we evaluate the performance with varying numbers
+of threshold δ (larger δ results in less retrieval) on PubHealth and PopQA. Figure 3c shows that
+the model’s retrieval frequencies dramatically change on both datasets. as δ varies. On one hand,
+performance deterioration by retrieving less is smaller on PubHealth but larger in PopQA.
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the
+
+OCR Text:
+Preprint.
+
+in
+wu
+
+g 50 23 Pop Bio.
+5 60
+&“ 7? S&P 92.5 70.0
+& 40 n 95.0 90.0
+35
+0 50 100 150 0 100 “ 0 100 _Dsssur] 90.0 85.0 90.0 85.0
+Num of training (k) Num of training (k) Num of training (k) .
+(d) Human evaluation on PopQA
+(a) PopQA (b) PubHealth (c) ASQA (prec) —_ and Bio generation.
+
+Figure 4: Training scale and Human analysis: (a) (b) (c) Training scale analysis shows the effect
+of the training data scale on PopQA, PubHealth and ASQA (citation precision), respectively. (d)
+Human analysis on SELF-RAG outputs as well as reflection tokens.
+
+contrary, a larger weight results in lower MAUVE scores: when generation gets longer and more
+fluent, there are often more claims that are not fully supported by citations, consistent with findings
+by Liu et al. (2023a). Our framework lets practitioners choose and customize models’ behaviors at
+test time by adjusting such parameters without requiring additional training.
+
+Efficiency and accuracy trade-off. Using our framework, practitioners can adjust how often retrieval
+occurs using the token probability of reward tokens. We evaluate how this adaptive threshold affects
+overall accuracy and frequency of retrieval, and we evaluate the performance with varying numbers
+of threshold 6 (larger 6 results in less retrieval) on PubHealth and PopQA. Figure 3c shows that
+the model’s retrieval frequencies dramatically change on both datasets. as 6 varies. On one hand,
+performance deterioration by retrieving less is smaller on PubHealth but larger in PopQA.
+
+Effects of training data size. We conduct an analysis of how the data scale affects the model’s
+performance. In particular, we randomly sample 5k, 10k, 20k, and 50k instances from our original
+150k training instances, and fine-tune four SELF-RAG 7, variants on those subsets. Then, we compare
+the model performance on PopQA, PubHealth, and ASQA (citation precision) with our final SELF-
+RAG trained on the full 150k instances. We also evaluate Figures 4a, 4b and 4c shows the models’
+performance trained on different amount of data. Across all datasets, increasing data size often shows
+upward trajectories and the improvements are significantly larger in PopQA and ASQA, while we do
+not observed such significant improvements on Llama2-FT;, when increasing the training data from
+50k to 150k. These results also indicate that further expanding the training data of SELF-RAG may
+lead to further improvements, although in this work we limit our training data size to 150k.
+
+Human evaluations. We conduct small human evaluations on SELF-RAG outputs, as well as the
+reliability of predicted reflection tokens. In particular, we sampled 50 samples from PopQA and Bio
+results. Following Menick et al. (2022), human annotators evaluate S&P, which indicates whether
+the model output is plausible (i.e., the output is a reasonable and on-topic response to the question
+as if it were occurring in a conversation) and supported (i.e., the provided evidence is sufficient to
+verify the validity of the answer). For S&P, we do not consider the instances where SELF-RAG
+predicts irrelevant orno support. We then ask our annotators whether the model-predicted
+reflection tokens about and match their inspections (e.g., whether the fully supported
+output is supported by the cited evidence). Human annotators find SELF-RAG answers are often
+plausible and supported by relevant passages with higher S&P scores on short-form PopQA, which is
+consistent with Menick et al. (2022). Human annotators also find and reflection token
+predictions are mostly aligned with their assessments. Appendix Table 6 shows several annotated
+examples and explanations on assessments.
+
+6 CONCLUSION
+
+This work introduces SELF-RAG, a new framework to enhance the quality and factuality of LLMs
+through retrieval on demand and self-reflection. SELF-RAG trains an LM to learn to retrieve, generate,
+and critique text passages and its own generation by predicting the next tokens from its original
+vocabulary as well as newly added special tokens, called reflection tokens. SELF-RAG further enables
+the tailoring of LM behaviors at test time by leveraging reflection tokens. Our holistic evaluations on
+six tasks using multiple metrics demonstrate that SELF-RAG significantly outperforms LLMs with
+more parameters or with conventional retrieval-augmented generation approaches.
+
+10
+
+Nearby Document Text:
+Preprint.
+0
+50
+100
+150
+Num of training (k)
+35
+40
+45
+50
+55
+Perfomance
+(a) PopQA
+0
+100
+Num of training (k)
+71
+72
+73
+(b) PubHealth
+0
+100
+Num of training (k)
+40
+60
+(c) ASQA (prec)
+Pop
+Bio.
+S & P
+92.5
+70.0
+ISREL
+95.0
+90.0
+ISSUP
+90.0
+85.0
+(d) Human evaluation on PopQA
+and Bio generation.
+Figure 4: Training scale and Human analysis: (a) (b) (c) Training scale analysis shows the effect
+of the training data scale on PopQA, PubHealth and ASQA (citation precision), respectively. (d)
+Human analysis on SELF-RAG outputs as well as reflection tokens.
+contrary, a larger weight results in lower MAUVE scores: w
+
+
+[RELATED PAGE TEXT]
+
+Efficiency and accuracy trade-off. Using our framework, practitioners can adjust how often retrieval
+occurs using the token probability of reward tokens. We evaluate how this adaptive threshold affects
+overall accuracy and frequency of retrieval, and we evaluate the performance with varying numbers
+of threshold δ (larger δ results in less retrieval
+
+
+================================================================================
+DOCUMENT : RAG.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 19
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+728 dimensional vectors, consisting of 15.3B values. These can be easily be stored at 8-bit ﬂoating
+point precision to manage memory and disk footprints.
+H Retrieval Collapse
+In preliminary experiments, we observed that for some tasks such as story generation [ 11], the
+retrieval component would “collapse” and learn to retrieve the same documents regardless of the
+input. In these cases, once retrieval had collapsed, the generator would learn to ignore the documents,
+and the RAG model would perform equivalently to BART. The collapse could be due to a less-explicit
+
+
+================================================================================
+DOCUMENT : BLIP-2.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 8
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+Table 5. Comparison with state-of-the-art image-text retrieval methods, finetuned on COCO and zero-shot transferred to Flickr30K.
+COCO finetuning
+objectives
+Image→ Text Text → Image
+R@1 R@5 R@1 R@5
+ITC + ITM 84.5 96.2 67.2 87.1
+ITC + ITM + ITG 85.4 97.0 68.3 87.7
+Table 6. The image-grounded text generation (ITG) loss improves
+image-text retrieval performance by enforcing the queries to extract
+language-relevant visual features.
+4.4. Image-Text Retrieval
+Since image-text retrieval does not involve language gener-
+ation, we directly finetune the first-stage-pretrained model
+
+================================================================================
+
+================================================================================
+RAG PIPELINE DEBUG
+================================================================================
+Query Type        : visual
+Retrieved Chunks  : 8
+Retrieved Images  : 2
+Reranked Chunks   : 10
+Reranked Text     : 8
+Reranked Images   : 2
+Final Context Docs: 10
+Exact Figure Query: True
+Exact Figure Match: True
+Exact Figure Final: True
+================================================================================
+
+================================================================================
+STAGE 4 — EVIDENCE VERIFICATION
+================================================================================
+Verification Units : 2
+Supported          : 2
+Partially Supported: 0
+Unsupported        : 0
+Unknown            : 0
+Groundedness Ratio : 1.00
+
+[CLAIM #1] The retrieval frequency dramatically changes when the retrieval threshold is increased, as shown in Figure 3(c).
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.4363 | Citation=Self-RAG.pdf (Page 9)
+
+[CLAIM #2] The model retrieves less as the threshold increases.
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.5024 | Citation=Self-RAG.pdf (Page 9)
+================================================================================
+
+====================================================================================================
+RAG ANSWER
+====================================================================================================
+ The retrieval frequency dramatically changes when the retrieval threshold is increased, as shown in Figure 3(c). The model retrieves less as the threshold increases.
+
+IMAGE PATHS:
+D:/Projects/Major-Project-2-main/extracted_images/Self-RAG_page9_render.png
+D:/Projects/Major-Project-2-main/extracted_images/Self-RAG_page10_render.png

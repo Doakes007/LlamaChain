@@ -183,6 +183,78 @@ def clean_image_caption(caption):
     return filename
 
 
+def summarize_verification(verification_result):
+    """
+    Convert a VerificationResult into a compact, plain-dict summary
+    that's safe to store in st.session_state and re-render later
+    (the raw VerificationResult holds live Document objects and isn't
+    something we need to keep around after this turn).
+    """
+
+    if verification_result is None:
+        return None
+
+    units = verification_result.verification_units
+
+    summary_units = [
+        {
+            "text": unit.text,
+            "status": unit.verification_status.value,
+            "confidence": unit.confidence,
+            "citation": unit.citation,
+        }
+        for unit in units
+    ]
+
+    total = len(units)
+    supported = sum(1 for u in summary_units if u["status"] == "SUPPORTED")
+
+    return {
+        "units": summary_units,
+        "total": total,
+        "groundedness": (supported / total) if total else None,
+    }
+
+
+def render_verification_summary(summary):
+    """Render a previously-computed verification summary in the UI."""
+
+    if not summary or not summary["units"]:
+        return
+
+    groundedness = summary["groundedness"]
+    label = (
+        f"Evidence Verification — "
+        f"{f'{groundedness:.0%} grounded' if groundedness is not None else 'unavailable'}"
+    )
+
+    with st.expander(label):
+        for unit in summary["units"]:
+            status = unit["status"]
+            icon = {
+                "SUPPORTED": "✅",
+                "PARTIALLY_SUPPORTED": "🟡",
+                "UNSUPPORTED": "❌",
+                "UNKNOWN": "⬜",
+            }.get(status, "⬜")
+
+            citation = f" — *{unit['citation']}*" if unit["citation"] else ""
+            st.markdown(f"{icon} **{status}** — {unit['text']}{citation}")
+
+
+def render_verification(verification_result):
+    """
+    Summarize + render a fresh VerificationResult in one call, and
+    return the summary so the caller can store it in session_state
+    for history replay. Verification is best-effort: if it failed
+    upstream (verification_result is None), this renders nothing.
+    """
+
+    summary = summarize_verification(verification_result)
+    render_verification_summary(summary)
+    return summary
+
+
 def remove_key_point_wording(text):
     """Remove 'key point' and 'key points' wording from text"""
     text = re.sub(r'[•*\-–]\s*Key points?:\s*', '- ', text, flags=re.IGNORECASE)
@@ -511,7 +583,7 @@ else:
                         f" focusing specifically on {compare_aspect}"
                     )
 
-                comparison_result, _ = ask_question(
+                comparison_result, _, _ = ask_question(
                     st.session_state.chain,
                     comparison_query,
                 )
@@ -570,6 +642,7 @@ for msg in st.session_state.messages:
                     with cols[i % 2]:
                         clean_caption = clean_image_caption(os.path.basename(img_path))
                         st.image(img_path, caption=clean_caption, use_container_width=True)
+        render_verification_summary(msg.get("verification"))
 
 
 # =====================================================
@@ -585,7 +658,9 @@ if not st.session_state.busy:
         with st.chat_message("assistant"):
             with st.spinner("Analyzing documents…"):
                 try:
-                    answer, image_paths = ask_question(st.session_state.chain, prompt)
+                    answer, image_paths, verification_result = ask_question(
+                        st.session_state.chain, prompt
+                    )
                     st.markdown(answer, unsafe_allow_html=True)
 
                     if image_paths:
@@ -597,11 +672,14 @@ if not st.session_state.busy:
                                 with cols[i % 2]:
                                     clean_caption = clean_image_caption(os.path.basename(img_path))
                                     st.image(img_path, caption=clean_caption, use_container_width=True)
-                    
+
+                    verification_summary = render_verification(verification_result)
+
                     st.session_state.messages.append({
                         "role": "assistant",
                         "content": answer,
-                        "image_paths": image_paths
+                        "image_paths": image_paths,
+                        "verification": verification_summary,
                     })
                 except Exception as e:
                     st.error(f"Error generating answer: {e}")

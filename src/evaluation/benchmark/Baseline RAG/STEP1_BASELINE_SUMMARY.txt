@@ -1,0 +1,39 @@
+STEP 1 — BASELINE RAG EVALUATION
+=================================
+
+Dataset: evaluation_ground_truth_FINAL.csv
+Questions: 132
+
+OVERALL ANSWER RESULTS
+----------------------
+Correct:   56 (42.42%)
+Partial:   34 (25.76%)
+Incorrect: 42 (31.82%)
+
+RETRIEVAL RESULTS
+-----------------
+YES:     93 (70.45%)
+PARTIAL: 12 (9.09%)
+NO:      27 (20.45%)
+
+FAILURE LABELS IN SOURCE DATA
+-----------------------------
+          failure_type  count  percentage
+   No recorded failure     54       40.91
+             Retrieval     38       28.79
+            Generation     37       28.03
+Retrieval + Generation      2        1.52
+          Verification      1        0.76
+
+IMPORTANT INTERPRETATION
+------------------------
+This step is descriptive baseline analysis. It does not yet claim that the verification
+framework improves performance. It establishes the observed performance of the frozen
+RAG outputs before the verification experiment.
+
+The source dataset contains 54 rows with no recorded failure_type. Those are retained as
+"No recorded failure" for analysis; this does NOT mean they are proven failure-free.
+
+The question_type field contains many paper-specific labels. They are preserved rather
+than silently collapsing them into broad categories. Broad modality/category analysis
+should be performed only after defining an explicit, reproducible mapping.

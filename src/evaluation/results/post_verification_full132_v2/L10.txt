@@ -1,0 +1,1134 @@
+====================================================================================================
+QUESTION_ID   : L10
+DOCUMENT      : LayoutLMv3
+QUESTION_TYPE : Image / multimodal reasoning
+ELAPSED_SEC   : 57.6
+ERROR         : no
+====================================================================================================
+
+QUESTION:
+According to Figure 2, how does LayoutLMv3's image embedding approach differ from the CNN/grid and region-feature approaches used by models such as DocFormer and SelfDoc?
+
+GROUND TRUTH ANSWER:
+LayoutLMv3 replaces CNN grid features and Faster R-CNN/region features with simple linear embeddings of raw image patches. CNN/grid approaches such as DocFormer use CNN-derived grid features, while region-based approaches such as SelfDoc use object/region features; LayoutLMv3 directly splits the image into patches, linearly projects them, and feeds them into the multimodal Transformer. This reduces computational cost and eliminates the need for region supervision.
+
+GROUND TRUTH SOURCE:
+LayoutLMv3.pdf, Figure 2, p. 2
+
+====================================================================================================
+FORENSIC TRANSCRIPT
+====================================================================================================
+
+####################################################################################################
+FORENSIC CASE START
+####################################################################################################
+Original Query   : According to Figure 2, how does LayoutLMv3's image embedding approach differ from the CNN/grid and region-feature approaches used by models such as DocFormer and SelfDoc?
+Expanded Query   : According to Figure 2, how does LayoutLMv3's image embedding approach differ from the CNN/grid and region-feature approaches used by models such as DocFormer and SelfDoc?
+Query Type       : visual
+[DOCUMENT SCOPE] Normalized query: 'grid and region feature approaches used by models such as doc former and self doc'
+[DOCUMENT SCOPE] Source='BERT.pdf' -> Normalized='bert'
+[DOCUMENT SCOPE] Token overlap for 'BERT.pdf': []
+[DOCUMENT SCOPE] Source='BLIP-2.pdf' -> Normalized='blip 2'
+[DOCUMENT SCOPE] Token overlap for 'BLIP-2.pdf': []
+[DOCUMENT SCOPE] Source='CLIP.pdf' -> Normalized='clip'
+[DOCUMENT SCOPE] Token overlap for 'CLIP.pdf': []
+[DOCUMENT SCOPE] Source='CNN Paper.pdf' -> Normalized='cnn paper'
+[DOCUMENT SCOPE] Token overlap for 'CNN Paper.pdf': []
+[DOCUMENT SCOPE] Source='Donut.pdf' -> Normalized='donut'
+[DOCUMENT SCOPE] Token overlap for 'Donut.pdf': []
+[DOCUMENT SCOPE] Source='LayoutLMv3.pdf' -> Normalized='layout l mv3'
+[DOCUMENT SCOPE] Token overlap for 'LayoutLMv3.pdf': []
+[DOCUMENT SCOPE] Source='NLP Paper.pdf' -> Normalized='nlp paper'
+[DOCUMENT SCOPE] Token overlap for 'NLP Paper.pdf': []
+[DOCUMENT SCOPE] Source='RAG.pdf' -> Normalized='rag'
+[DOCUMENT SCOPE] Token overlap for 'RAG.pdf': []
+[DOCUMENT SCOPE] Source='Self-RAG.pdf' -> Normalized='self rag'
+[DOCUMENT SCOPE] Token overlap for 'Self-RAG.pdf': ['self']
+[DOCUMENT SCOPE] Source='Vision Transformer.pdf' -> Normalized='vision transformer'
+[DOCUMENT SCOPE] Token overlap for 'Vision Transformer.pdf': []
+[DOCUMENT SCOPE] No reliable document scope detected. Retrieval remains global.
+
+================================================================================
+DOCUMENT SCOPE DEBUG
+================================================================================
+Query          : According to Figure 2, how does LayoutLMv3's image embedding approach differ from the CNN/grid and region-feature approaches used by models such as DocFormer and SelfDoc?
+Expanded Query : According to Figure 2, how does LayoutLMv3's image embedding approach differ from the CNN/grid and region-feature approaches used by models such as DocFormer and SelfDoc?
+Query Type     : visual
+Document Scope : None
+================================================================================
+
+==========================================================================================
+STEP 3A — GLOBAL HYBRID RETRIEVAL
+==========================================================================================
+Query              : According to Figure 2, how does LayoutLMv3's image embedding approach differ from the CNN/grid and region-feature approaches used by models such as DocFormer and SelfDoc?
+Dense candidate K  : 25
+Final hybrid K     : 8
+RRF constant       : 60
+
+------------------------------------------------------------------------------------------
+[DENSE / VECTOR RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=and LayoutLMv2 [56] for a fair comparison. We use base and large model sizes for LayoutLMv3. LayoutLMv3BASE adopts a 12-layer Transformer encoder with 12-head self-attention, hidde
+02. Source=LayoutLMv3.pdf | Page=6 | Type=text | Image=N/A
+    Content=outLMv3 achieves better or comparable results with a much smaller model size than previous works. For example, compared to Lay- outLMv2, LayoutLMv3 achieves an absolute improvement
+03. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=more, LayoutLMv3 is easy to reproduce for its simple and neat architecture and pre-training objectives. Our contributions are summarized as follows: • LayoutLMv3 is the first multi
+04. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=of them to train LayoutLMv3. We do not do image augmentation following LayoutLM models [ 54, 56]. For the multimodal Trans- former encoder along with the text embedding layer, Layo
+05. Source=LayoutLMv3.pdf | Page=5 | Type=text | Image=N/A
+    Content=outLMv2 and improves layout representation. • [T+L+I (P)] text, layout, and image modalities with lin- ear patch features: LayoutLMv3 replaces CNN backbones with simple linear embe
+06. Source=LayoutLMv3.pdf | Page=6 | Type=text | Image=N/A
+    Content=which significantly outperforms the SOTA result of 85.14 provided by StructuralLM [28]. Note that LayoutLMv3 and StructuralLM use segment-level layout positions, while the other wo
+07. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=achieving an overall mAP score of 95.1. LayoutLMv3 achieves a high gain in the “Title” category. Since titles are typically much smaller than other categories and can be identified
+08. Source=LayoutLMv3.pdf | Page=6 | Type=text | Image=N/A
+    Content=domain to the visual domain, we transfer LayoutLMv3 to a docu- ment layout analysis task. This task is about detecting the layouts of unstructured digital documents by providing bo
+09. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=(1) Image Embedding Image 𝑖𝑑𝑖1 𝑖𝑑𝑖2 𝑖𝑑𝑖3 𝑖𝑑𝑖4 𝑖𝑑𝑖5 𝑖𝑑𝑖6 𝑖𝑑𝑖7 𝑖𝑑𝑖8 𝑖𝑑𝑖9 Figure 2: Comparisons with existing works (e.g., DocFormer [2] and SelfDoc [31]) on (1) image embedding: our 
+10. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=tasks in Document AI. The code and models are publicly available at https://aka.ms/layoutlmv3. 2 LAYOUTLMV3 Figure 3 gives an overview of the LayoutLMv3. 2.1 Model Architecture Lay
+11. Source=LayoutLMv3.pdf | Page=6 | Type=text | Image=N/A
+    Content=sizes. The results show that LayoutLMv3 can significantly benefit the text-centric form and receipt understanding tasks. Task II: Document Image Classification. The document image 
+12. Source=LayoutLMv3.pdf | Page=6 | Type=text | Image=N/A
+    Content=We integrate the LayoutLMv3 as feature backbone in the Cascade R-CNN detector [4] with FPN [34] implemented using the Detec- tron2 [53]. We adopt the standard practice to extract s
+13. Source=LayoutLMv3.pdf | Page=3 | Type=text | Image=N/A
+    Content=position as bias terms in self-attention networks for text and image modalities following LayoutLMv2[56]. 2.2 Pre-training Objectives LayoutLMv3 is pre-trained with the MLM, MIM, a
+14. Source=LayoutLMv3.pdf | Page=2 | Type=image | Image=extracted_images\LayoutLMv3_page2_img2.png
+    Content=FIGURE FROM DOCUMENT  Caption: a picture of a painting with a white background  OCR Text: No readable text found in this image.  Nearby Document Text: Faster R-CNN Linear Embedding
+15. Source=LayoutLMv3.pdf | Page=3 | Type=text | Image=N/A
+    Content=a sequence of vectors, which length is 𝑀 = 𝐻𝑊 /𝑃 2. Then we add learnable 1D position embeddings to each patch since we have not observed improvements from using 2D position embedd
+16. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=• [T+L] text and layout modalities: LayoutLM incorporates layout information by adding word-level spatial embeddings to embeddings of BERT [54]. StructuralLM leverages segment- lev
+17. Source=Donut.pdf | Page=11 | Type=text | Image=N/A
+    Content=Answer: 540 Donut: 943  (another number in the image is extracted) LayoutLMv2-Large-QG: 540 Q: What is the phone number given? Answer: 336-723-6100 Donut: 336-723-6100 LayoutLMv2-L
+18. Source=CLIP.pdf | Page=16 | Type=text | Image=N/A
+    Content=as the best prior ImageNet models. (Right) Details of per dataset changes in accuracy for the two robustness interventions. Adapting to ImageNet increases accuracy on ImageNetV2 no
+19. Source=CLIP.pdf | Page=15 | Type=text | Image=N/A
+    Content=classes of ImageNet. This presents a problem when trying to use the ﬁxed 1000-way classiﬁer of an ImageNet model to make predictions. Taori et al. (2020) handle this by max- poolin
+20. Source=CNN Paper.pdf | Page=1 | Type=text | Image=N/A
+    Content=Figure 1. The input layer accepts RGB images resized to 224x224 pixels. Two convolutional layers extract spatial features using 32 and 64 filters of size 3x3 respectively. Max-pool
+21. Source=LayoutLMv3.pdf | Page=6 | Type=text | Image=N/A
+    Content=Table 2: Document layout analysis mAP @ IOU [0.50:0.95] on PubLayNet validation set. All models use only information from the vision modality. LayoutLMv3 outperforms the compared R
+22. Source=CLIP.pdf | Page=45 | Type=text | Image=N/A
+    Content=For both these datasets we prepend the prompt “ a photo of” to the description of each image which we found boosts CLIP’s zero-shot R@1 performance between 1 and 2 points. E.2. Opt
+23. Source=CNN Paper.pdf | Page=3 | Type=image | Image=extracted_images\CNN Paper_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram showing the number of different types of aircrafts  OCR Text: 4. Dataset Class Distribution  The bar chart in Figure 3 provid
+24. Source=CLIP.pdf | Page=16 | Type=table | Image=N/A
+    Content=TABLE FROM DOCUMENT  Columns: Youtube-BB ImageNet Vid ObjectNet geNet Sketch ImageNet-R ImageNet-A ImageNetV2 ImageNet | Column_1  Rows:
+25. Source=Vision Transformer.pdf | Page=4 | Type=text | Image=N/A
+    Content=baked into each layer throughout the whole model. In ViT, only MLP layers are local and transla- tionally equivariant, while the self-attention layers are global. The two-dimension
+
+------------------------------------------------------------------------------------------
+[BM25 RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=LayoutLMv3.pdf | Page=1 | Type=text | Image=N/A
+    Content=most performant multimodal pre-trained Document AI models use the MLM proposed by BERT for text modality, they differ in pre- training objectives for image modality as depicted in 
+02. Source=CLIP.pdf | Page=27 | Type=text | Image=N/A
+    Content=model, a region proposal / object detection model, and a pre-trained masked language model such as BERT. These systems are then jointly ﬁne-tuned via various training objec- tives 
+03. Source=CLIP.pdf | Page=23 | Type=image | Image=extracted_images\CLIP_page23_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the journal of the journal of the journal of the journal of the journal of the journal of the journal of
+04. Source=RAG.pdf | Page=6 | Type=text | Image=N/A
+    Content=even when the correct answer is not in any retrieved document, achieving 11.8% accuracy in such cases for NQ, where an extractive model would score 0%. 4.2 Abstractive Question Ans
+05. Source=Vision Transformer.pdf | Page=3 | Type=image | Image=extracted_images\Vision Transformer_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: the diagram shows the different types of the system and how they are used in the system  OCR Text: Published as a conference paper at I
+06. Source=CLIP.pdf | Page=8 | Type=text | Image=N/A
+    Content=by almost 5%. In Figure 4 we visualize how prompt engi- neering and ensembling change the performance of a set of CLIP models compared to the contextless baseline approach of direc
+07. Source=Donut.pdf | Page=3 | Type=image | Image=extracted_images\Donut_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a book with the text in english  OCR Text: OOCR-free Document Understanding Transformer 3  languages with complex character
+08. Source=Donut.pdf | Page=13 | Type=text | Image=N/A
+    Content=heuristics to merge them [19,69]. Later, region proposal and bounding box regres- sion based methods were proposed [36]. Recently, focusing on the homogeneity and locality of texts
+09. Source=LayoutLMv3.pdf | Page=8 | Type=text | Image=N/A
+    Content=Inspired by MLM and MIM, researchers in the field of vision- and-language have exploredreconstructive objectives for multi- modal representation learning. Whereas most well-perform
+10. Source=BERT.pdf | Page=2 | Type=text | Image=N/A
+    Content=neural (Mikolov et al., 2013; Pennington et al., 2014) methods. Pre-trained word embeddings are an integral part of modern NLP systems, of- fering signiﬁcant improvements over embe
+11. Source=CLIP.pdf | Page=1 | Type=text | Image=N/A
+    Content=of 400 million (image, text) pairs collected from the internet. After pre-training, natural language is used to reference learned visual concepts (or describe new ones) enabling ze
+12. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=meaningful visual representation on the linear patch embeddings without any pre-training objective associated with image modality. The MIM objective mitigates this problem by prese
+13. Source=CLIP.pdf | Page=25 | Type=text | Image=N/A
+    Content=datasets and high performing supervised models exist for many in-demand surveillance tasks such as facial recogni- tion. As a result, CLIP’s comparative appeal for such uses is low
+14. Source=CLIP.pdf | Page=3 | Type=text | Image=N/A
+    Content=2.1. Natural Language Supervision At the core of our approach is the idea of learning percep- tion from supervision contained in natural language. As discussed in the introduction,
+15. Source=Self-RAG.pdf | Page=27 | Type=text | Image=N/A
+    Content=are mapped to vectors of real numbers. Conceptually it involves a mathematical embedding from a space with one dimension per word to a continuous vector space with a much lower dim
+16. Source=LayoutLMv3.pdf | Page=2 | Type=image | Image=extracted_images\LayoutLMv3_page2_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a computer and a computer with a text that reads,  OCR Text: _(2) Pre-training Objectives of 
+17. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=training objectives. We first build a baseline model #1 that uses text and layout information, pre-trained with MLM objective. Then we use linearly projected image patches as the i
+18. Source=LayoutLMv3.pdf | Page=1 | Type=image | Image=extracted_images\LayoutLMv3_page1_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: the layout of the layout and layout of the layout of the layout and layout of the layout of the layout  OCR Text: 2204.08387v3 [cs.CL] 
+19. Source=BERT.pdf | Page=3 | Type=text | Image=N/A
+    Content=SQuAD Question Answer Pair NERMNLI Figure 1: Overall pre-training and ﬁne-tuning procedures for BERT. Apart from output layers, the same architec- tures are used in both pre-traini
+20. Source=CLIP.pdf | Page=25 | Type=text | Image=N/A
+    Content=available. However, CLIP does unlock a certain aspect of usability given how it removes the need for training data. Thus, CLIP and similar models could enable bespoke, niche survei
+21. Source=Donut.pdf | Page=28 | Type=text | Image=N/A
+    Content=backbones, such as LayoutLM [65] and LayoutLMv2 [64]. To be specific, we explain how the conventional backbones perform downstream VDU tasks; docu- ment classification, IE, and VQA
+22. Source=CLIP.pdf | Page=38 | Type=text | Image=N/A
+    Content=ResNet We add the original ResNet checkpoints released by (He et al., 2016b), namely ResNet-50, ResNet-101, and ResNet152. A.3. Evaluation We use image features taken from the penu
+23. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+    Content=of the Transformer (Vaswani et al., 2017). Such re- strictions are sub-optimal for sentence-level tasks, and could be very harmful when applying ﬁne- tuning based approaches to tok
+24. Source=CLIP.pdf | Page=23 | Type=text | Image=N/A
+    Content=tion oriented words such as ‘military person’ and ‘executive’ - which were not used to describe images of women at the higher 4% threshold - were used for both men and women at the
+25. Source=CLIP.pdf | Page=20 | Type=text | Image=N/A
+    Content=recognition, can be used in surveillance. Given its social implications, we address this domain of use speciﬁcally in the Surveillance section. We have also sought to characterize 
+
+------------------------------------------------------------------------------------------
+[RRF FUSION RANKING]
+------------------------------------------------------------------------------------------
+01. RRF=0.016393 | DenseRank=1 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=4 | Type=text
+02. RRF=0.016393 | DenseRank=- | BM25Rank=1 | Source=LayoutLMv3.pdf | Page=1 | Type=text
+03. RRF=0.016129 | DenseRank=2 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=6 | Type=text
+04. RRF=0.016129 | DenseRank=- | BM25Rank=2 | Source=CLIP.pdf | Page=27 | Type=text
+05. RRF=0.015873 | DenseRank=3 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=2 | Type=text
+06. RRF=0.015873 | DenseRank=- | BM25Rank=3 | Source=CLIP.pdf | Page=23 | Type=image
+07. RRF=0.015625 | DenseRank=4 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=4 | Type=text
+08. RRF=0.015625 | DenseRank=- | BM25Rank=4 | Source=RAG.pdf | Page=6 | Type=text
+09. RRF=0.015385 | DenseRank=5 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=5 | Type=text
+10. RRF=0.015385 | DenseRank=- | BM25Rank=5 | Source=Vision Transformer.pdf | Page=3 | Type=image
+11. RRF=0.015152 | DenseRank=6 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=6 | Type=text
+12. RRF=0.015152 | DenseRank=- | BM25Rank=6 | Source=CLIP.pdf | Page=8 | Type=text
+13. RRF=0.014925 | DenseRank=7 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=7 | Type=text
+14. RRF=0.014925 | DenseRank=- | BM25Rank=7 | Source=Donut.pdf | Page=3 | Type=image
+15. RRF=0.014706 | DenseRank=8 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=6 | Type=text
+16. RRF=0.014706 | DenseRank=- | BM25Rank=8 | Source=Donut.pdf | Page=13 | Type=text
+17. RRF=0.014493 | DenseRank=9 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=2 | Type=text
+18. RRF=0.014493 | DenseRank=- | BM25Rank=9 | Source=LayoutLMv3.pdf | Page=8 | Type=text
+19. RRF=0.014286 | DenseRank=10 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=2 | Type=text
+20. RRF=0.014286 | DenseRank=- | BM25Rank=10 | Source=BERT.pdf | Page=2 | Type=text
+21. RRF=0.014085 | DenseRank=11 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=6 | Type=text
+22. RRF=0.014085 | DenseRank=- | BM25Rank=11 | Source=CLIP.pdf | Page=1 | Type=text
+23. RRF=0.013889 | DenseRank=12 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=6 | Type=text
+24. RRF=0.013889 | DenseRank=- | BM25Rank=12 | Source=LayoutLMv3.pdf | Page=7 | Type=text
+25. RRF=0.013699 | DenseRank=13 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=3 | Type=text
+26. RRF=0.013699 | DenseRank=- | BM25Rank=13 | Source=CLIP.pdf | Page=25 | Type=text
+27. RRF=0.013514 | DenseRank=14 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=2 | Type=image
+28. RRF=0.013514 | DenseRank=- | BM25Rank=14 | Source=CLIP.pdf | Page=3 | Type=text
+29. RRF=0.013333 | DenseRank=15 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=3 | Type=text
+30. RRF=0.013333 | DenseRank=- | BM25Rank=15 | Source=Self-RAG.pdf | Page=27 | Type=text
+31. RRF=0.013158 | DenseRank=16 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=4 | Type=text
+32. RRF=0.013158 | DenseRank=- | BM25Rank=16 | Source=LayoutLMv3.pdf | Page=2 | Type=image
+33. RRF=0.012987 | DenseRank=17 | BM25Rank=- | Source=Donut.pdf | Page=11 | Type=text
+34. RRF=0.012987 | DenseRank=- | BM25Rank=17 | Source=LayoutLMv3.pdf | Page=7 | Type=text
+35. RRF=0.012821 | DenseRank=18 | BM25Rank=- | Source=CLIP.pdf | Page=16 | Type=text
+36. RRF=0.012821 | DenseRank=- | BM25Rank=18 | Source=LayoutLMv3.pdf | Page=1 | Type=image
+37. RRF=0.012658 | DenseRank=19 | BM25Rank=- | Source=CLIP.pdf | Page=15 | Type=text
+38. RRF=0.012658 | DenseRank=- | BM25Rank=19 | Source=BERT.pdf | Page=3 | Type=text
+39. RRF=0.012500 | DenseRank=20 | BM25Rank=- | Source=CNN Paper.pdf | Page=1 | Type=text
+40. RRF=0.012500 | DenseRank=- | BM25Rank=20 | Source=CLIP.pdf | Page=25 | Type=text
+41. RRF=0.012346 | DenseRank=21 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=6 | Type=text
+42. RRF=0.012346 | DenseRank=- | BM25Rank=21 | Source=Donut.pdf | Page=28 | Type=text
+43. RRF=0.012195 | DenseRank=22 | BM25Rank=- | Source=CLIP.pdf | Page=45 | Type=text
+44. RRF=0.012195 | DenseRank=- | BM25Rank=22 | Source=CLIP.pdf | Page=38 | Type=text
+45. RRF=0.012048 | DenseRank=23 | BM25Rank=- | Source=CNN Paper.pdf | Page=3 | Type=image
+46. RRF=0.012048 | DenseRank=- | BM25Rank=23 | Source=BERT.pdf | Page=1 | Type=text
+47. RRF=0.011905 | DenseRank=24 | BM25Rank=- | Source=CLIP.pdf | Page=16 | Type=table
+48. RRF=0.011905 | DenseRank=- | BM25Rank=24 | Source=CLIP.pdf | Page=23 | Type=text
+49. RRF=0.011765 | DenseRank=25 | BM25Rank=- | Source=Vision Transformer.pdf | Page=4 | Type=text
+50. RRF=0.011765 | DenseRank=- | BM25Rank=25 | Source=CLIP.pdf | Page=20 | Type=text
+------------------------------------------------------------------------------------------
+
+==========================================================================================
+STEP 3A — RETRIEVAL STAGE SUMMARY
+==========================================================================================
+Dense candidates       : 25
+BM25 candidates        : 25
+Dense ∩ BM25           : 0
+Dense-only candidates  : 25
+BM25-only candidates   : 25
+Unique candidate pool  : 50
+RRF candidates         : 50
+Returned to pipeline   : 8
+==========================================================================================
+
+------------------------------------------------------------------------------------------
+[FINAL HYBRID RESULT] 8 candidates
+------------------------------------------------------------------------------------------
+01. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=and LayoutLMv2 [56] for a fair comparison. We use base and large model sizes for LayoutLMv3. LayoutLMv3BASE adopts a 12-layer Transformer encoder with 12-head self-attention, hidde
+02. Source=LayoutLMv3.pdf | Page=1 | Type=text | Image=N/A
+    Content=most performant multimodal pre-trained Document AI models use the MLM proposed by BERT for text modality, they differ in pre- training objectives for image modality as depicted in 
+03. Source=LayoutLMv3.pdf | Page=6 | Type=text | Image=N/A
+    Content=outLMv3 achieves better or comparable results with a much smaller model size than previous works. For example, compared to Lay- outLMv2, LayoutLMv3 achieves an absolute improvement
+04. Source=CLIP.pdf | Page=27 | Type=text | Image=N/A
+    Content=model, a region proposal / object detection model, and a pre-trained masked language model such as BERT. These systems are then jointly ﬁne-tuned via various training objec- tives 
+05. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=more, LayoutLMv3 is easy to reproduce for its simple and neat architecture and pre-training objectives. Our contributions are summarized as follows: • LayoutLMv3 is the first multi
+06. Source=CLIP.pdf | Page=23 | Type=image | Image=extracted_images\CLIP_page23_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the journal of the journal of the journal of the journal of the journal of the journal of the journal of
+07. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=of them to train LayoutLMv3. We do not do image augmentation following LayoutLM models [ 54, 56]. For the multimodal Trans- former encoder along with the text embedding layer, Layo
+08. Source=RAG.pdf | Page=6 | Type=text | Image=N/A
+    Content=even when the correct answer is not in any retrieved document, achieving 11.8% accuracy in such cases for NQ, where an extractive model would score 0%. 4.2 Abstractive Question Ans
+==========================================================================================
+
+================================================================================
+STAGE 1 — HYBRID RETRIEVAL
+================================================================================
+Retrieved Count : 8
+
+[HYBRID #1] Source=LayoutLMv3.pdf | Page=4 | Type=text
+Content: and LayoutLMv2 [56] for a fair comparison. We use base and large model sizes for LayoutLMv3. LayoutLMv3BASE adopts a 12-layer Transformer encoder with 12-head self-attention, hidden size of 𝐷 = 768, and 3,072 intermediate size of feed-forward networks. LayoutLMv3LARGE adopts a 24-layer Transformer encoder with 16-head self-attention, hidden size of 𝐷 = 1, 024, and 4,096 interme- diate size of feed-forward networks. To pre-process the text input, we tokenize the text sequence with Byte-Pair Encod
+
+[HYBRID #2] Source=LayoutLMv3.pdf | Page=1 | Type=text
+Content: most performant multimodal pre-trained Document AI models use the MLM proposed by BERT for text modality, they differ in pre- training objectives for image modality as depicted in Figure 2. For example, DocFormer learns to reconstruct image pixels through a CNN decoder [2], which tends to learn noisy details rather than high-level structures such as document layouts [ 43, 45]. SelfDoc proposes to regress masked region features [31], which is noisier and harder to learn than classifying discrete 
+
+[HYBRID #3] Source=LayoutLMv3.pdf | Page=6 | Type=text
+Content: outLMv3 achieves better or comparable results with a much smaller model size than previous works. For example, compared to Lay- outLMv2, LayoutLMv3 achieves an absolute improvement of 0.19% and 0.29% in the base model and large model size, respectively, with a much simpler image embedding (i.e., Linear vs. ResNeXt101-FPN). The results show that our simple image embeddings can achieve desirable results on image-centric tasks. Task III: Document Visual Question Answering. Document visual question 
+
+[HYBRID #4] Source=CLIP.pdf | Page=27 | Type=text
+Content: model, a region proposal / object detection model, and a pre-trained masked language model such as BERT. These systems are then jointly ﬁne-tuned via various training objec- tives on image-text pairs and applied to the aforementioned tasks and achieve impressive results. CLIP is instead fo- cused on learning visual models from scratch via natural language supervision and does not densely connect the two domains with a joint attention model. The only interaction in a CLIP model between the image 
+
+[HYBRID #5] Source=LayoutLMv3.pdf | Page=2 | Type=text
+Content: more, LayoutLMv3 is easy to reproduce for its simple and neat architecture and pre-training objectives. Our contributions are summarized as follows: • LayoutLMv3 is the first multimodal model in Document AI that does not rely on a pre-trained CNN or Faster R-CNN backbone to extract visual features, which significantly saves parameters and eliminates region annotations. • LayoutLMv3 mitigates the discrepancy between text and image multimodal representation learning with unified dis- crete token r
+
+[HYBRID #6] Source=CLIP.pdf | Page=23 | Type=image
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the journal of the journal of the journal of the journal of the journal of the journal of the journal of the  OCR Text: Learning Transferable Visual Models From Natural Language Supervision 23  images to automatically classify people along such lines (y Arcas et al., 2017).  The results of these probes can change based on the class categories one chooses to include as well as the specific language one uses to describe ea
+
+[HYBRID #7] Source=LayoutLMv3.pdf | Page=4 | Type=text
+Content: of them to train LayoutLMv3. We do not do image augmentation following LayoutLM models [ 54, 56]. For the multimodal Trans- former encoder along with the text embedding layer, LayoutLMv3 is initialized from the pre-trained weights of RoBERTa [36]. Our image tokenizer is initialized from a pre-trained image tokenizer in DiT, a self-supervised pre-trained document image Transformer model [30]. The vocabulary size of image tokens is 8,192. We ran- domly initialized the rest model parameters. We pre
+
+[HYBRID #8] Source=RAG.pdf | Page=6 | Type=text
+Content: even when the correct answer is not in any retrieved document, achieving 11.8% accuracy in such cases for NQ, where an extractive model would score 0%. 4.2 Abstractive Question Answering As shown in Table 2, RAG-Sequence outperforms BART on Open MS-MARCO NLG by 2.6 Bleu points and 2.6 Rouge-L points. RAG approaches state-of-the-art model performance, which is impressive given that (i) those models access gold passages with speciﬁc information required to generate the reference answer , (ii) many
+================================================================================
+
+================================================================================
+EXPLICIT FIGURE QUERY DETECTED
+================================================================================
+Requested Figure : 2
+================================================================================
+[FIGURE SOURCE HINT] Stage-1 sources mentioning Figure 2: ['LayoutLMv3.pdf']
+
+================================================================================
+FIGURE NUMBER RETRIEVAL
+================================================================================
+Requested Figure : 2
+Query            : According to Figure 2, how does LayoutLMv3's image embedding approach differ from the CNN/grid and region-feature approaches used by models such as DocFormer and SelfDoc?
+Matched Images   : 31
+Rejected References : 4
+[MATCH 1] Source=BERT.pdf | Page=4 | Image=BERT_page4_render.png | Path=extracted_images\BERT_page4_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Input/Output Representations To make BERT handle a variety of down-stream ta...
+[MATCH 2] Source=BERT.pdf | Page=5 | Image=BERT_page5_render.png | Path=extracted_images\BERT_page5_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a book with a page of a page of a page of a page of a page of a page of a page of a  OCR Text: f/f Token | ll Embeddings Eris) Fay E tog Es Eu = Eines E ay Essing E se0] + + + + Segment Embeddings E, Ey E, : Lt Es + + + + Position  Figure 2: BER...
+[MATCH 3] Source=CLIP.pdf | Page=3 | Image=CLIP_page3_render.png | Path=extracted_images\CLIP_page3_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with a graph and a graph on it  OCR Text: Learning Transferable Visual Models From Natural Language Supervision 3  25  Zero-Shot ImageNet Accuracy N oOo  15 10 7 —O- Bag of Words Contrastive (CLIP) 5 -O- Bag of Words Prediction =O Transformer Lang...
+[MATCH 4] Source=CLIP.pdf | Page=4 | Image=CLIP_page4_render.png | Path=extracted_images\CLIP_page4_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Learning Transferable Visual Models From Natural Language Supervision 4  bal...
+[MATCH 5] Source=CLIP.pdf | Page=11 | Image=CLIP_page11_render.png | Path=extracted_images\CLIP_page11_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with a graph and a line graph on it  OCR Text: Learning Transferable Visual Models From Natural Language Supervision 11  Error (%)  61 9.9 21.5 75.3 Model GFLOPs  Figure 9. Zero-shot CLIP performance scales smoothly as a function of model compute....
+[MATCH 6] Source=CLIP.pdf | Page=12 | Image=CLIP_page12_render.png | Path=extracted_images\CLIP_page12_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: the results of the results of the results of the results of the results of the results of the results of  OCR Text: Learning Transferable Visual Models From Natural Language Supervision 12  Linear probe average over Kornblith et al.'s 12 datasets  90  85 ...
+[MATCH 7] Source=CLIP.pdf | Page=38 | Image=CLIP_page38_render.png | Path=extracted_images\CLIP_page38_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: worksheet for algebra algebra algebra worksheet worksheet worksheet worksheet worksheet worksheet worksheet worksheet  OCR Text: Learning Transferable Visual Models From Natural Language Supervision 38  Montias ... pumps a lot of energy into his nicely nu...
+[MATCH 8] Source=CLIP.pdf | Page=41 | Image=CLIP_page41_render.png | Path=extracted_images\CLIP_page41_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a chart showing the number of people in each region  OCR Text: Food101  CIFAR1O  Learning Transferable Visual Models From Natural Language Supervision  CIFAR1O0  Birdsnap  iol Pascal¥OC2007  10° ig? 107 DescribableTextures  accuracy  mean per class o oo w...
+[MATCH 9] Source=CLIP.pdf | Page=43 | Image=CLIP_page43_render.png | Path=extracted_images\CLIP_page43_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a chart showing the number of people in each region of the world  OCR Text: Learning Transferable Visual Models From Natural Language Supervision  CLEVR  HatefulMemes Rendered SST2 ImageNet  43  accuracy  accuracy  curacy  CLIP-ViT | CLIP-ResNet  PascalVO...
+[MATCH 10] Source=CLIP.pdf | Page=44 | Image=CLIP_page44_render.png | Path=extracted_images\CLIP_page44_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the university of technology and engineering  OCR Text: Learning Transferable Visual Models From Natural Language Supervision 44  B. Zero-Shot Prediction  To provide a qualitative summary / overview of CLIP’s zero- shot performa...
+[MATCH 11] Source=CNN Paper.pdf | Page=2 | Image=CNN Paper_page2_img0.png | Path=extracted_images\CNN Paper_page2_img0.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: figure 2 training ratio curves  OCR Text: Accuracy  eo S FS SF FSF Ff oN BR DOD ®O OO  Figure 2: Training and Validation Curves over 20 Epochs  Model Accuracy  2.5 5.0 7.5 10.0 12.5 15.0 17.5 20.0 Epoch  Model Loss  2.5 5.0 7.5 10.0 12.5 15.0 17.5 20.0 Epoch  Nearby Do...
+[MATCH 12] Source=CNN Paper.pdf | Page=2 | Image=CNN Paper_page2_render.png | Path=extracted_images\CNN Paper_page2_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a chart showing the number of different types of water in the ocean  OCR Text: 2. Dataset Description  The dataset was compiled from three open-source repositories: ImageNet, Openlmages, and a custom web-scraped collection. Each image was manually verifie...
+[MATCH 13] Source=CNN Paper.pdf | Page=5 | Image=CNN Paper_page5_render.png | Path=extracted_images\CNN Paper_page5_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a table with a number of different items on it  OCR Text: 7. Discussion  The CNN model achieves strong overall performance with a weighted F1 score of 0.926. However, several limitations and areas for improvement were identified during evaluation.  7.1 St...
+[MATCH 14] Source=Donut.pdf | Page=2 | Image=Donut_page2_render.png | Path=extracted_images\Donut_page2_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a screenshot of a computer screen with a text box and a picture of a computer screen with a text box and a picture of a computer  OCR Text: 2 G. Kim et al.  pee ere ee ee een nn ee ee ee ee eee » Structured Information  (*word?s [ (Tames (  "pbox”:[[0,11,...
+[MATCH 15] Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img0.png | Path=extracted_images\LayoutLMv3_page2_img0.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a white paper with a black and white text on it  OCR Text: Esters yal hes  Nearby Document Text: Faster R-CNN Linear Embedding CNN Word Embedding Masked Word  Token Classification Visual Transformer (Optional) Origin Image  Reconstruction (a) Patch (LayoutLMv3) “A few ...
+[MATCH 16] Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img1.png | Path=extracted_images\LayoutLMv3_page2_img1.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: the cover of a book with an image of a boat in the water  OCR Text: No readable text found in this image.  Nearby Document Text: Faster R-CNN Linear Embedding CNN Word Embedding Masked Word  Token Classification Visual Transformer (Optional) Origin Image  Reconstructio...
+[MATCH 17] Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img2.png | Path=extracted_images\LayoutLMv3_page2_img2.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a picture of a painting with a white background  OCR Text: No readable text found in this image.  Nearby Document Text: Faster R-CNN Linear Embedding CNN Word Embedding Masked Word  Token Classification Visual Transformer (Optional) Origin Image  Reconstruction (a) Pat...
+[MATCH 18] Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img3.png | Path=extracted_images\LayoutLMv3_page2_img3.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a sample of the pigment pigment pigment pigment pigment pigment pigment pigment pigment pigment pigment pigment pigment pigment pigment pigment pigment  OCR Text: No readable text found in this image.  Nearby Document Text: Faster R-CNN Linear Embedding CNN Word Embedd...
+[MATCH 19] Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img4.png | Path=extracted_images\LayoutLMv3_page2_img4.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: the cover of a book with an image of a man in a suit and tie  OCR Text: No readable text found in this image.  Nearby Document Text: Faster R-CNN Linear Embedding CNN Word Embedding Masked Word  Token Classification Visual Transformer (Optional) Origin Image  Reconstru...
+[MATCH 20] Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img5.png | Path=extracted_images\LayoutLMv3_page2_img5.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a book with a picture of a man in a suit and tie  OCR Text: SAAD TD, Me OE TAC ATA my ee  : dear mara  Ka ditfervatnled Ul: quae hain oe  Nearby Document Text: Faster R-CNN Linear Embedding CNN Word Embedding Masked Word  Token Classification Visual Transformer (Option...
+[MATCH 21] Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img6.png | Path=extracted_images\LayoutLMv3_page2_img6.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: four different types of marble tiles  OCR Text: No readable text found in this image.  Nearby Document Text: Faster R-CNN Linear Embedding CNN Word Embedding Masked Word  Token Classification Visual Transformer (Optional) Origin Image  Reconstruction (a) Patch (LayoutL...
+[MATCH 22] Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img7.png | Path=extracted_images\LayoutLMv3_page2_img7.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a page of a book with an image of a man in a suit and tie  OCR Text: jn tetore vimprcy CHM Be Vliet up wateg aberey orcdeice wf broth:  nci uh teste oe pares Ine ane {AOE pe fit a  Nearby Document Text: Faster R-CNN Linear Embedding CNN Word Embedding Masked Word  Toke...
+[MATCH 23] Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img8.png | Path=extracted_images\LayoutLMv3_page2_img8.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a newspaper article with a picture of a man in a suit and tie  OCR Text: MRT es Carclevirne father. tbe 2 metuplasli Gt tlre ceria Mteblig u dageedte at saneillf Li, om Snr needle wopcevilon Clesnead.imite! Sede peaubl mbar os waccivlecveise PY, tquaissie'sad glindaboe...
+[MATCH 24] Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img9.png | Path=extracted_images\LayoutLMv3_page2_img9.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a page from the publication of the journal of the journal of the journal of the journal of the journal of the journal of journal of the journal of the journal of journal of journal of journal of journal of journal of journal of journal of journal of journal of journal ...
+[MATCH 25] Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_render.png | Path=extracted_images\LayoutLMv3_page2_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a computer and a computer with a text that reads,  OCR Text: _(2) Pre-training Objectives of Image Modality  | — | ra  |  |  I idn, idya, idys, | idyyidys, ides, ». |  I kde dia Fao  ! teh  | fication  Masked Word...
+[MATCH 26] Source=NLP Paper.pdf | Page=3 | Image=NLP Paper_page3_img0.png | Path=extracted_images\NLP Paper_page3_img0.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: figure 2 model and composite composite structures  OCR Text: Score (%)  100  95  90  85  80  75  70  65  60  Figure 2:  CI Accuracy (%) Fir Score (%)-  Model Accuracy and F1 Score Comparison Across 5 Architectures  Naive Bayes  SVM BiLSTM BERT RoBERTa (fine-tune)  Near...
+[MATCH 27] Source=NLP Paper.pdf | Page=3 | Image=NLP Paper_page3_render.png | Path=extracted_images\NLP Paper_page3_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a bar chart showing the percentage of the number of people in each country  OCR Text: 3. Model Comparison  Figure 2 presents accuracy and F1 scores for all five models evaluated on the test set. ROBERTa achieves the best performance with 94.1% accuracy an...
+[MATCH 28] Source=RAG.pdf | Page=6 | Image=RAG_page6_render.png | Path=extracted_images\RAG_page6_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: the table shows the number of protons and protons of protons in a, b, and c  OCR Text: Table 1: Open-Domain QA Test Scores. For TQA, Table 2: Generation and classification Test Scores. left column uses the standard test set for Open- MS-MARCO SotA is [4],...
+[MATCH 29] Source=RAG.pdf | Page=7 | Image=RAG_page7_render.png | Path=extracted_images\RAG_page7_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with the title of a research paper  OCR Text: Dacument 1: his works are considered classics of American literature ... His wartime experiences formed the basis for his novel “A Farewell to Arms” (1929)...  Document 2: ... artists of the 1920s “Los...
+[MATCH 30] Source=Self-RAG.pdf | Page=5 | Image=Self-RAG_page5_render.png | Path=extracted_images\Self-RAG_page5_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a book with the title title and title title  OCR Text: Preprint.  Input: Write an essay of your best summer vacation Input: How did US states get thelr names?  foutput: My best summer vacation was a magical escape) |Output: 1 of 50 states names ...
+[MATCH 31] Source=Vision Transformer.pdf | Page=6 | Image=Vision Transformer_page6_render.png | Path=extracted_images\Vision Transformer_page6_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with a bar chart and a bar chart on it  OCR Text: Published as a conference paper at ICLR 2021  Ours-JFT Ours-JFT Ours-I21k BiT-L Noisy Student  (ViT-H/14) = (ViT-L/16) —- (ViT-L/16) (ResNet152x4) (EfficientNet-L2) ImageNet 88.5540.04 87.764003 85...
+[REJECTED 1] Source=BLIP-2.pdf | Page=2 | Image=BLIP-2_page2_render.png
+    Reason   : Cross-reference rather than actual Figure 2
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the journal of the journal of the journal of the journal of the journal of the journal of the journal of the  OCR Text: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models  visu...
+[REJECTED 2] Source=BLIP-2.pdf | Page=3 | Image=BLIP-2_page3_render.png
+    Reason   : Cross-reference rather than actual Figure 2
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders...
+[REJECTED 3] Source=Donut.pdf | Page=3 | Image=Donut_page3_render.png
+    Reason   : Cross-reference rather than actual Figure 2
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a book with the text in english  OCR Text: OOCR-free Document Understanding Transformer 3  languages with complex character sets, such as Korean or Chinese, where the quality of OCR. is relatively low [50]. To deal with this, post-OCR correcti...
+[REJECTED 4] Source=LayoutLMv3.pdf | Page=1 | Image=LayoutLMv3_page1_render.png
+    Reason   : Cross-reference rather than actual Figure 2
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: the layout of the layout and layout of the layout of the layout and layout of the layout of the layout  OCR Text: 2204.08387v3 [cs.CL] 19 Jul 2022  arXiv  LayoutLMv3: Pre-training for Document Al with Unified Text and Image Masking  Yupan Huang* Sun Yat-s...
+Matched Sources  : ['BERT.pdf', 'CLIP.pdf', 'CNN Paper.pdf', 'Donut.pdf', 'LayoutLMv3.pdf', 'NLP Paper.pdf', 'RAG.pdf', 'Self-RAG.pdf', 'Vision Transformer.pdf']
+Matched Pages    : ['11', '12', '2', '3', '38', '4', '41', '43', '44', '5', '6', '7']
+[FIGURE LOOKUP] High-confidence figure reference found. Generic CLIP fallback should not be used.
+================================================================================
+[FIGURE IMAGE DEDUPLICATION] 11 -> 1 authoritative image(s), one per source/page.
+
+================================================================================
+EXACT FIGURE RETRIEVAL RESULT
+================================================================================
+Requested Figure : 2
+Exact Match      : True
+Matched Images   : 1
+[EXACT FIGURE #1] Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_render.png | Path=extracted_images\LayoutLMv3_page2_render.png
+================================================================================
+[FIGURE PIPELINE] Explicit figure/page image match found. CLIP fallback disabled.
+
+================================================================================
+STAGE 2 — IMAGE RETRIEVAL RESULT
+================================================================================
+Image Results       : 1
+Exact Figure Match  : True
+
+[IMAGE #1] Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_render.png
+Image Path: extracted_images\LayoutLMv3_page2_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a computer and a computer with a text that reads,  OCR Text: _(2) Pre-training Objectives of Image Modality  | — | ra  |  |  I idn, idya, idys, | idyyidys, ides, ». |  I kde dia Fao  ! teh  | fication  Masked Word Masked Pai Origin Image Masked Region Token Classification Token Classi Reconstruction Feature Regression  in ist — Se ee ee Bost sS SS so  Multimodal Transformer  (1) Image Embedding  Linear Embeddi
+================================================================================
+
+================================================================================
+COMBINED RETRIEVAL CANDIDATES
+================================================================================
+Text Candidates  : 8
+Image Candidates : 1
+Total Candidates : 9
+================================================================================
+
+================================================================================
+STEP 3A — RERANKER INPUT
+================================================================================
+Query: According to Figure 2, how does LayoutLMv3's image embedding approach differ from the CNN/grid and region-feature approaches used by models such as DocFormer and SelfDoc?
+Input candidates: 9
+01. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=and LayoutLMv2 [56] for a fair comparison. We use base and large model sizes for LayoutLMv3. LayoutLMv3BASE adopts a 12-layer Transformer encoder with 12-head self-attention, hidde
+02. Source=LayoutLMv3.pdf | Page=1 | Type=text | Image=N/A
+    Content=most performant multimodal pre-trained Document AI models use the MLM proposed by BERT for text modality, they differ in pre- training objectives for image modality as depicted in 
+03. Source=LayoutLMv3.pdf | Page=6 | Type=text | Image=N/A
+    Content=outLMv3 achieves better or comparable results with a much smaller model size than previous works. For example, compared to Lay- outLMv2, LayoutLMv3 achieves an absolute improvement
+04. Source=CLIP.pdf | Page=27 | Type=text | Image=N/A
+    Content=model, a region proposal / object detection model, and a pre-trained masked language model such as BERT. These systems are then jointly ﬁne-tuned via various training objec- tives 
+05. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=more, LayoutLMv3 is easy to reproduce for its simple and neat architecture and pre-training objectives. Our contributions are summarized as follows: • LayoutLMv3 is the first multi
+06. Source=CLIP.pdf | Page=23 | Type=image | Image=extracted_images\CLIP_page23_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the journal of the journal of the journal of the journal of the journal of the journal of the journal of
+07. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=of them to train LayoutLMv3. We do not do image augmentation following LayoutLM models [ 54, 56]. For the multimodal Trans- former encoder along with the text embedding layer, Layo
+08. Source=RAG.pdf | Page=6 | Type=text | Image=N/A
+    Content=even when the correct answer is not in any retrieved document, achieving 11.8% accuracy in such cases for NQ, where an extractive model would score 0%. 4.2 Abstractive Question Ans
+09. Source=LayoutLMv3.pdf | Page=2 | Type=image | Image=extracted_images\LayoutLMv3_page2_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a computer and a computer with a text that reads,  OCR Text: _(2) Pre-training Objectives of 
+================================================================================
+
+--------------------------------------------------------------------------------
+CROSS-ENCODER RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=01 | Source=LayoutLMv3.pdf | Page=1 | Type=text | CE=2.3540
+Rank=02 | OriginalIndex=02 | Source=LayoutLMv3.pdf | Page=6 | Type=text | CE=1.7762
+Rank=03 | OriginalIndex=04 | Source=LayoutLMv3.pdf | Page=2 | Type=text | CE=1.6179
+Rank=04 | OriginalIndex=08 | Source=LayoutLMv3.pdf | Page=2 | Type=image | CE=1.5069
+Rank=05 | OriginalIndex=06 | Source=LayoutLMv3.pdf | Page=4 | Type=text | CE=0.7819
+Rank=06 | OriginalIndex=00 | Source=LayoutLMv3.pdf | Page=4 | Type=text | CE=-1.3988
+Rank=07 | OriginalIndex=03 | Source=CLIP.pdf | Page=27 | Type=text | CE=-2.8003
+Rank=08 | OriginalIndex=07 | Source=RAG.pdf | Page=6 | Type=text | CE=-8.7935
+Rank=09 | OriginalIndex=05 | Source=CLIP.pdf | Page=23 | Type=image | CE=-9.6761
+
+--------------------------------------------------------------------------------
+CLIP IMAGE RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=08 | Source=LayoutLMv3.pdf | Page=2 | Image=extracted_images\LayoutLMv3_page2_render.png | CLIP=0.2641
+Rank=02 | OriginalIndex=05 | Source=CLIP.pdf | Page=23 | Image=extracted_images\CLIP_page23_render.png | CLIP=0.2462
+
+================================================================================
+STEP 3A — COMPLETE MULTIMODAL RERANK RESULT
+================================================================================
+Rank=01 | Type=image | Source=LayoutLMv3.pdf | Page=2 | RRF=0.032018 | CE=1.5069 | CLIP=0.2641
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a computer and a computer with a text that reads,  OCR Text: _(2) Pre-training Objectives of 
+Rank=02 | Type=image | Source=CLIP.pdf | Page=23 | RRF=0.030622 | CE=-9.6761 | CLIP=0.2462
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the journal of the journal of the journal of the journal of the journal of the journal of the journal of
+Rank=03 | Type=text | Source=LayoutLMv3.pdf | Page=1 | RRF=0.016393 | CE=2.3540 | CLIP=N/A
+    Content=most performant multimodal pre-trained Document AI models use the MLM proposed by BERT for text modality, they differ in pre- training objectives for image modality as depicted in 
+Rank=04 | Type=text | Source=LayoutLMv3.pdf | Page=6 | RRF=0.016129 | CE=1.7762 | CLIP=N/A
+    Content=outLMv3 achieves better or comparable results with a much smaller model size than previous works. For example, compared to Lay- outLMv2, LayoutLMv3 achieves an absolute improvement
+Rank=05 | Type=text | Source=LayoutLMv3.pdf | Page=2 | RRF=0.015873 | CE=1.6179 | CLIP=N/A
+    Content=more, LayoutLMv3 is easy to reproduce for its simple and neat architecture and pre-training objectives. Our contributions are summarized as follows: • LayoutLMv3 is the first multi
+Rank=06 | Type=text | Source=LayoutLMv3.pdf | Page=4 | RRF=0.015385 | CE=0.7819 | CLIP=N/A
+    Content=of them to train LayoutLMv3. We do not do image augmentation following LayoutLM models [ 54, 56]. For the multimodal Trans- former encoder along with the text embedding layer, Layo
+Rank=07 | Type=text | Source=LayoutLMv3.pdf | Page=4 | RRF=0.015152 | CE=-1.3988 | CLIP=N/A
+    Content=and LayoutLMv2 [56] for a fair comparison. We use base and large model sizes for LayoutLMv3. LayoutLMv3BASE adopts a 12-layer Transformer encoder with 12-head self-attention, hidde
+Rank=08 | Type=text | Source=CLIP.pdf | Page=27 | RRF=0.014925 | CE=-2.8003 | CLIP=N/A
+    Content=model, a region proposal / object detection model, and a pre-trained masked language model such as BERT. These systems are then jointly ﬁne-tuned via various training objec- tives 
+Rank=09 | Type=text | Source=RAG.pdf | Page=6 | RRF=0.014706 | CE=-8.7935 | CLIP=N/A
+    Content=even when the correct answer is not in any retrieved document, achieving 11.8% accuracy in such cases for NQ, where an extractive model would score 0%. 4.2 Abstractive Question Ans
+================================================================================
+
+================================================================================
+STEP 3A — FINAL RERANK TOP-K
+================================================================================
+Requested top_k: 12
+Returned documents: 9
+01. Source=LayoutLMv3.pdf | Page=2 | Type=image | Image=extracted_images\LayoutLMv3_page2_render.png
+02. Source=CLIP.pdf | Page=23 | Type=image | Image=extracted_images\CLIP_page23_render.png
+03. Source=LayoutLMv3.pdf | Page=1 | Type=text | Image=N/A
+04. Source=LayoutLMv3.pdf | Page=6 | Type=text | Image=N/A
+05. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+06. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+07. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+08. Source=CLIP.pdf | Page=27 | Type=text | Image=N/A
+09. Source=RAG.pdf | Page=6 | Type=text | Image=N/A
+================================================================================
+
+================================================================================
+STAGE 3 — MULTIMODAL RERANKING
+================================================================================
+Input Candidates : 9
+Reranked Output   : 9
+
+[RERANK #1] Source=LayoutLMv3.pdf | Page=2 | Type=image
+Exact Figure : True
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a computer and a computer with a text that reads,  OCR Text: _(2) Pre-training Objectives of Image Modality  | — | ra  |  |  I idn, idya, idys, | idyyidys, ides, ». |  I kde dia Fao  ! teh  | fication  Masked Word
+
+[RERANK #2] Source=CLIP.pdf | Page=23 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the journal of the journal of the journal of the journal of the journal of the journal of the journal of the  OCR Text: Learning Transferable Visual Models From Natural Language Supervision 23  images to automatically classi
+
+[RERANK #3] Source=LayoutLMv3.pdf | Page=1 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: most performant multimodal pre-trained Document AI models use the MLM proposed by BERT for text modality, they differ in pre- training objectives for image modality as depicted in Figure 2. For example, DocFormer learns to reconstruct image pixels through a CNN decoder [2], which tends to learn nois
+
+[RERANK #4] Source=LayoutLMv3.pdf | Page=6 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: outLMv3 achieves better or comparable results with a much smaller model size than previous works. For example, compared to Lay- outLMv2, LayoutLMv3 achieves an absolute improvement of 0.19% and 0.29% in the base model and large model size, respectively, with a much simpler image embedding (i.e., Lin
+
+[RERANK #5] Source=LayoutLMv3.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: more, LayoutLMv3 is easy to reproduce for its simple and neat architecture and pre-training objectives. Our contributions are summarized as follows: • LayoutLMv3 is the first multimodal model in Document AI that does not rely on a pre-trained CNN or Faster R-CNN backbone to extract visual features, 
+
+[RERANK #6] Source=LayoutLMv3.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: of them to train LayoutLMv3. We do not do image augmentation following LayoutLM models [ 54, 56]. For the multimodal Trans- former encoder along with the text embedding layer, LayoutLMv3 is initialized from the pre-trained weights of RoBERTa [36]. Our image tokenizer is initialized from a pre-traine
+
+[RERANK #7] Source=LayoutLMv3.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: and LayoutLMv2 [56] for a fair comparison. We use base and large model sizes for LayoutLMv3. LayoutLMv3BASE adopts a 12-layer Transformer encoder with 12-head self-attention, hidden size of 𝐷 = 768, and 3,072 intermediate size of feed-forward networks. LayoutLMv3LARGE adopts a 24-layer Transformer e
+
+[RERANK #8] Source=CLIP.pdf | Page=27 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: model, a region proposal / object detection model, and a pre-trained masked language model such as BERT. These systems are then jointly ﬁne-tuned via various training objec- tives on image-text pairs and applied to the aforementioned tasks and achieve impressive results. CLIP is instead fo- cused on
+
+[RERANK #9] Source=RAG.pdf | Page=6 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: even when the correct answer is not in any retrieved document, achieving 11.8% accuracy in such cases for NQ, where an extractive model would score 0%. 4.2 Abstractive Question Answering As shown in Table 2, RAG-Sequence outperforms BART on Open MS-MARCO NLG by 2.6 Bleu points and 2.6 Rouge-L points
+================================================================================
+
+================================================================================
+FINAL CONTEXT DOCUMENTS
+================================================================================
+Final context candidates: 9
+
+[FINAL #1] Source=LayoutLMv3.pdf | Page=2 | Type=image
+Exact Figure : True
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a computer and a computer with a text that reads,  OCR Text: _(2) Pre-training Objectives of Image Modality  | — | ra  |  |  I idn, idya, idys, | idyyidys, ides, ». |  I kde dia Fao  ! teh  | fication  Masked Word
+
+[FINAL #2] Source=CLIP.pdf | Page=23 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the journal of the journal of the journal of the journal of the journal of the journal of the journal of the  OCR Text: Learning Transferable Visual Models From Natural Language Supervision 23  images to automatically classi
+
+[FINAL #3] Source=LayoutLMv3.pdf | Page=1 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: most performant multimodal pre-trained Document AI models use the MLM proposed by BERT for text modality, they differ in pre- training objectives for image modality as depicted in Figure 2. For example, DocFormer learns to reconstruct image pixels through a CNN decoder [2], which tends to learn nois
+
+[FINAL #4] Source=LayoutLMv3.pdf | Page=6 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: outLMv3 achieves better or comparable results with a much smaller model size than previous works. For example, compared to Lay- outLMv2, LayoutLMv3 achieves an absolute improvement of 0.19% and 0.29% in the base model and large model size, respectively, with a much simpler image embedding (i.e., Lin
+
+[FINAL #5] Source=LayoutLMv3.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: more, LayoutLMv3 is easy to reproduce for its simple and neat architecture and pre-training objectives. Our contributions are summarized as follows: • LayoutLMv3 is the first multimodal model in Document AI that does not rely on a pre-trained CNN or Faster R-CNN backbone to extract visual features, 
+
+[FINAL #6] Source=LayoutLMv3.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: of them to train LayoutLMv3. We do not do image augmentation following LayoutLM models [ 54, 56]. For the multimodal Trans- former encoder along with the text embedding layer, LayoutLMv3 is initialized from the pre-trained weights of RoBERTa [36]. Our image tokenizer is initialized from a pre-traine
+
+[FINAL #7] Source=LayoutLMv3.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: and LayoutLMv2 [56] for a fair comparison. We use base and large model sizes for LayoutLMv3. LayoutLMv3BASE adopts a 12-layer Transformer encoder with 12-head self-attention, hidden size of 𝐷 = 768, and 3,072 intermediate size of feed-forward networks. LayoutLMv3LARGE adopts a 24-layer Transformer e
+
+[FINAL #8] Source=CLIP.pdf | Page=27 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: model, a region proposal / object detection model, and a pre-trained masked language model such as BERT. These systems are then jointly ﬁne-tuned via various training objec- tives on image-text pairs and applied to the aforementioned tasks and achieve impressive results. CLIP is instead fo- cused on
+
+[FINAL #9] Source=RAG.pdf | Page=6 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: even when the correct answer is not in any retrieved document, achieving 11.8% accuracy in such cases for NQ, where an extractive model would score 0%. 4.2 Abstractive Question Answering As shown in Table 2, RAG-Sequence outperforms BART on Open MS-MARCO NLG by 2.6 Bleu points and 2.6 Rouge-L points
+================================================================================
+
+================================================================================
+FIGURE FINAL-CONTEXT DIAGNOSTIC
+================================================================================
+Requested Figure     : 2
+Exact Figure Match   : True
+Present In Final     : True
+[FIGURE DIAGNOSTIC] PASS — exact figure/page image evidence survived into final context.
+================================================================================
+
+================================================================================
+FINAL CONTEXT SENT TO LLM
+================================================================================
+
+================================================================================
+DOCUMENT : LayoutLMv3.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 1
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+most performant multimodal pre-trained Document AI models use
+the MLM proposed by BERT for text modality, they differ in pre-
+training objectives for image modality as depicted in Figure 2. For
+example, DocFormer learns to reconstruct image pixels through a
+CNN decoder [2], which tends to learn noisy details rather than
+high-level structures such as document layouts [ 43, 45]. SelfDoc
+proposes to regress masked region features [31], which is noisier
+and harder to learn than classifying discrete features in a smaller
+vocabulary [6, 18]. The different granularities of image (e.g., dense
+
+
+--------------------------------------------------------------------------------
+PAGE : 2
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+more, LayoutLMv3 is easy to reproduce for its simple and neat
+architecture and pre-training objectives.
+Our contributions are summarized as follows:
+• LayoutLMv3 is the first multimodal model in Document AI
+that does not rely on a pre-trained CNN or Faster R-CNN
+backbone to extract visual features, which significantly saves
+parameters and eliminates region annotations.
+• LayoutLMv3 mitigates the discrepancy between text and
+image multimodal representation learning with unified dis-
+crete token reconstructive objectives MLM and MIM. We
+further propose a Word-Patch Alignment (WPA) objective
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a page from the book, showing an image of a computer and a computer with a text that reads,
+
+OCR Text:
+_(2) Pre-training Objectives of Image Modality
+
+|
+— |
+ra
+
+|
+
+|
+
+I
+idn, idya, idys, |
+idyyidys, ides, ». |
+
+I kde dia Fao
+
+! teh
+
+| fication
+
+Masked Word Masked Pai Origin Image Masked Region
+Token Classification Token Classi Reconstruction Feature Regression
+
+in
+ist
+— Se ee ee Bost sS SS so
+
+Multimodal Transformer
+
+(1) Image Embedding
+
+Linear Embedding Visual Transformer (Optional) |
+coc
+
+“A lew
+number of
+tumor cell...”
+
+Faster R-CNN
+
+(a) Patch (b) Grid
+(LayoutLMv3) — (e.g., DocFormer)
+
+(c) Region
+{e.g., SelfDac)
+
+Figure 2: Comparisons with existing works (e.g., DocFormer
+[2] and SelfDoc [31]) on (1) image embedding: our Lay-
+outLMv3 uses linear patches to reduce the computational
+bottleneck of CNNs and eliminate the need for region super-
+vision in training object detectors; (2) pre-training objectives
+on image modality: our LayoutLMv3 learns to reconstruct
+discrete image tokens of masked patches instead of raw pix-
+els or region features to capture high-level layout structures
+rather than noisy details.
+
+tokens) objectives further add difficulty to cross-modal alignment
+learning, which is essential to multimodal representation learning.
+
+To overcome the discrepancy in pre-training objectives of text
+and image modalities and facilitate multimodal representation learn-
+ing, we propose LayoutLMv3 to pre-train multimodal Transform-
+ers for Document Al with unified text and image masking objectives
+MLM and MIM. As shown in Figure 3, LayoutLMv3 learns to recon-
+struct masked word tokens of the text modality and symmetrically
+reconstruct masked patch tokens of the image modality. Inspired
+by DALL-E [43] and BEiT [3], we obtain the target image tokens
+from latent codes of a discrete VAE. For documents, each text word
+corresponds to an image patch. To learn this cross-modal alignment,
+we propose a Word-Patch Alignment (WPA) objective to predict
+whether the corresponding image patch of a text word is masked.
+
+Inspired by ViT [11] and ViLT [22], LayoutLMv3 directly lever-
+ages raw image patches from document images without complex
+pre-processing steps such as page object detection. LayoutLMv3
+jointly learns image, text and multimodal representations in a Trans-
+former model with unified MLM, MIM and WPA objectives. This
+makes LayoutLMv3 the first multimodal pre-trained Document AI
+
+model without CNNs for image embeddings, which significantly
+saves parameters and gets rid of region annotations. The simple
+unified architecture and objectives make LayoutLMv3 a general-
+purpose pre-trained model for both text-centric tasks and image-
+centric Document AI tasks.
+
+We evaluated pre-trained LayoutLMv3 models across five pub-
+lic benchmarks, including text-centric benchmarks: FUNSD [20]
+for form understanding, CORD [39] for receipt understanding,
+DocVQA [38] for document visual question answering, and image-
+centric benchmarks: RVL-CDIP [16] for document image classifi-
+cation, PubLayNet [59] for document layout analysis. Experiment
+results demonstrate that LayoutLMv3 achieves state-of-the-art per-
+formance on these benchmarks with parameter efficiency. Further-
+more, LayoutLMv3 is easy to reproduce for its simple and neat
+architecture and pre-training objectives.
+
+Our contributions are summarized as follows:
+
+e LayoutLMv3 is the first multimodal model in Document AI
+that does not rely on a pre-trained CNN or Faster R-CNN
+backbone to extract visual features, which significantly saves
+parameters and eliminates region annotations.
+
+e LayoutLMv3 mitigates the discrepancy between text and
+image multimodal representation learning with unified dis-
+crete token reconstructive objectives MLM and MIM. We
+further propose a Word-Patch Alignment (WPA) objective
+to facilitate cross-modal alignment learning.
+
+e LayoutLMv3 is a general-purpose model for both text-centric
+and image-centric Document AI tasks. For the first time, we
+demonstrate the generality of multimodal Transformers to
+vision tasks in Document AI.
+
+° Experimental results show that LayoutLMv3 achieves state-
+of-the-art performance in text-centric tasks and image-centric
+tasks in Document AI. The code and models are publicly
+available at https://aka.ms/layoutlmv3.
+
+2 LAYOUTLMV3
+
+Figure 3 gives an overview of the LayoutLMv3.
+
+2.1 Model Architecture
+
+LayoutLMv3 applies a unified text-image multimodal Transformer
+to learn cross-modal representations. The Transformer has a multi-
+layer architecture and each layer mainly consists of multi-head
+self-attention and position-wise fully connected feed-forward net-
+works [49]. The input of Transformer is a concatenation of text
+embedding Y = yy. and image embedding X = x.y sequences,
+where L and M are sequence lengths for text and image respectively.
+Through the Transformer, the last layer outputs text-and-image
+contextual representations.
+
+Text Embedding. Text embedding is a combination of word em-
+beddings and position embeddings. We pre-processed document
+images with an off-the-shelf OCR toolkit to obtain textual con-
+tent and corresponding 2D position information. We initialize the
+word embeddings with a word embedding matrix from a pre-trained
+model RoBERTa [36]. The position embeddings include 1D position
+and 2D layout position embeddings, where the 1D position refers
+to the index of tokens within the text sequence, and the 2D lay-
+out position refers to the bounding box coordinates of the text
+
+Nearby Document Text:
+Faster R-CNN
+Linear Embedding
+CNN
+Word Embedding
+Masked Word 
+Token Classification
+Visual Transformer (Optional)
+Origin Image 
+Reconstruction
+(a) Patch
+(LayoutLMv3)
+“A few 
+number of 
+tumor cell…”
+Masked Patch 
+Token Classification
+(c) Region
+(e.g., SelfDoc)
+(b) Grid
+(e.g., DocFormer)
+Masked Region 
+Feature Regression
+𝑖𝑑𝑡1, 𝑖𝑑𝑡2, 𝑖𝑑𝑡3,
+𝑖𝑑𝑡4, 𝑖𝑑𝑡5, 𝑖𝑑𝑡6, …
+Text
+Multimodal Transformer
+(2) Pre-training Objectives of Image Modality
+(1) Image Embedding
+Image
+𝑖𝑑𝑖1 𝑖𝑑𝑖2 𝑖𝑑𝑖3
+𝑖𝑑𝑖4 𝑖𝑑𝑖5 𝑖𝑑𝑖6
+𝑖𝑑𝑖7 𝑖𝑑𝑖8 𝑖𝑑𝑖9
+Figure 2: Comparisons with existing works (e.g., DocFormer
+[2] and SelfDoc [31]) on (1) image emb
+
+
+[RELATED PAGE TEXT]
+
+more, LayoutLMv3 is easy to reproduce for its simple and neat
+architecture and pre-training objectives.
+Our contributions are summarized as follows:
+• LayoutLMv3 is the first multimodal model in Document AI
+that does not rely on a pre-trained CNN or Faster R-CNN
+backbone to extract visual features, which significantly saves
+parameters and eliminate
+
+
+--------------------------------------------------------------------------------
+PAGE : 4
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+of them to train LayoutLMv3. We do not do image augmentation
+following LayoutLM models [ 54, 56]. For the multimodal Trans-
+former encoder along with the text embedding layer, LayoutLMv3
+is initialized from the pre-trained weights of RoBERTa [36]. Our
+image tokenizer is initialized from a pre-trained image tokenizer
+in DiT, a self-supervised pre-trained document image Transformer
+model [30]. The vocabulary size of image tokens is 8,192. We ran-
+domly initialized the rest model parameters. We pre-train Lay-
+outLMv3 using Adam optimizer [23] with a batch size of 2,048 for
+
+
+[TEXT]
+
+and LayoutLMv2 [56] for a fair comparison. We use base and large
+model sizes for LayoutLMv3. LayoutLMv3BASE adopts a 12-layer
+Transformer encoder with 12-head self-attention, hidden size of
+𝐷 = 768, and 3,072 intermediate size of feed-forward networks.
+LayoutLMv3LARGE adopts a 24-layer Transformer encoder with
+16-head self-attention, hidden size of 𝐷 = 1, 024, and 4,096 interme-
+diate size of feed-forward networks. To pre-process the text input,
+we tokenize the text sequence with Byte-Pair Encoding (BPE) [46]
+with a maximum sequence length 𝐿 = 512. We add a [CLS] and
+
+
+--------------------------------------------------------------------------------
+PAGE : 6
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+outLMv3 achieves better or comparable results with a much smaller
+model size than previous works. For example, compared to Lay-
+outLMv2, LayoutLMv3 achieves an absolute improvement of 0.19%
+and 0.29% in the base model and large model size, respectively, with
+a much simpler image embedding (i.e., Linear vs. ResNeXt101-FPN).
+The results show that our simple image embeddings can achieve
+desirable results on image-centric tasks.
+Task III: Document Visual Question Answering. Document
+visual question answering requires a model to take a document
+
+
+================================================================================
+DOCUMENT : CLIP.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 23
+--------------------------------------------------------------------------------
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a page from the publication of the journal of the journal of the journal of the journal of the journal of the journal of the journal of the
+
+OCR Text:
+Learning Transferable Visual Models From Natural Language Supervision 23
+
+images to automatically classify people along such lines
+(y Arcas et al., 2017).
+
+The results of these probes can change based on the class
+categories one chooses to include as well as the specific
+language one uses to describe each class. Poor class design
+can lead to poor real world performance; this concern is
+particularly relevant to a model like CLIP, given how easily
+developers can design their own classes.
+
+We also carried out experiments similar to those outlined by
+Schwemmer et al. (2020) to test how CLIP treated images
+of men and women differently using images of Members
+of Congress. As part of these experiments, we studied
+how certain additional design decisions such as deciding
+thresholds for labels can impact the labels output by CLIP
+and how biases manifest.
+
+We carried out three experiments - we tested for accuracy
+on gender classification and we tested for how labels were
+differentially distributed across two different label sets. For
+our first label set, we used a label set of 300 occupations and
+for our second label set we used a combined set of labels that
+Google Cloud Vision, Amazon Rekognition and Microsoft
+Azure Computer Vision returned for all the images.
+
+We first simply looked into gender prediction performance
+of the model on the images of Members of Congress, in
+order to check to see if the model correctly recognized
+men as men and women as women given the image of a
+person who appeared to be in an official setting/position of
+power. We found that the model got 100% accuracy on the
+images. This is slightly better performance than the model’s
+performance on the FairFace dataset. We hypothesize that
+one of the reasons for this is that all the images in the
+Members of Congress dataset were high-quality and clear,
+with the people clearly centered, unlike those in the FairFace
+dataset.
+
+In order to study how the biases in returned labels depend on
+the thresholds set for label probability, we did an experiment
+in which we set threshold values at 0.5% and 4.0%. We
+found that the lower threshold led to lower quality of labels.
+However, even the differing distributions of labels under
+this threshold can hold signals for bias. For example, we
+find that under the 0.5% threshold labels such as ‘nanny’
+and ‘housekeeper’ start appearing for women whereas labels
+such as ‘prisoner’ and ‘mobster’ start appearing for men.
+This points to gendered associations similar to those that
+have previously been found for occupations (Schwemmer
+et al., 2020) (Nosek et al., 2002) (Bolukbasi et al., 2016).
+
+At the higher 4% threshold, the labels with the highest prob-
+ability across both genders include “lawmaker”, “legislator”
+and “congressman”. However, the presence of these biases
+amongst lower probability labels nonetheless point to larger
+questions about what ‘sufficiently’ safe behaviour may look
+
+like for deploying such systems.
+
+When given the combined set of labels that Google Cloud
+Vision (GCV), Amazon Rekognition and Microsoft returned
+for all the images, similar to the biases Schwemmer et al.
+(2020) found in GCV systems, we found our system also
+disproportionately attached labels to do with hair and ap-
+pearance in general to women more than men. For ex-
+ample, labels such as ‘brown haiz’, ‘blonde’ and ‘blond’
+appeared significantly more often for women. Additionally,
+CLIP attached some labels that described high status occu-
+pations disproportionately more often to men such as ‘ex-
+ecutive’ and ‘doctor’. Out of the only four occupations that
+it attached more often to women, three were ‘newscaster’,
+“television presenter’ and ‘newsreader’ and the fourth was
+‘Judge’. This is again similar to the biases found in GCV
+and points to historical gendered differences (Schwemmer
+et al., 2020).
+
+Interestingly, when we lowered the threshold to 0.5% for
+this set of labels, we found that the labels disproportionately
+describing men also shifted to appearance oriented words
+such as ‘suit’, ‘tie’ and ‘necktie’ (Figure 18). Many occupa-
+tion oriented words such as ‘military person’ and ‘executive’
+- which were not used to describe images of women at the
+higher 4% threshold - were used for both men and women
+at the lower 0.5% threshold, which could have caused the
+change in labels for men. The reverse was not true. Descrip-
+tive words used to describe women were still uncommon
+amongst men.
+
+Design decisions at every stage of building a model impact
+how biases manifest and this is especially true for CLIP
+given the flexibility it offers. In addition to choices about
+training data and model architecture, decisions about things
+like class designs and thresholding values can alter the labels
+a model outputs and as a result heighten or lower certain
+kinds of harm, such as those described by Crawford (2017).
+People designing and developing models and AI systems
+have considerable power. Decisions about things like class
+design are a key determiner not only of model performance,
+but also of how and in what contexts model biases manifest.
+
+These experiments are not comprehensive. They illus-
+trate potential issues stemming from class design and other
+sources of bias, and are intended to spark inquiry.
+
+7.2. Surveillance
+
+We next sought to characterize model performance in re-
+lation to a downstream task for which there is significant
+societal sensitivity: surveillance. Our analysis aims to better
+embody the characterization approach described above and
+to help orient the research community towards the potential
+future impacts of increasingly general purpose computer
+vision models and aid the development of norms and checks
+
+Nearby Document Text:
+Learning Transferable Visual Models From Natural Language Supervision
+23
+images to automatically classify people along such lines
+(y Arcas et al., 2017).
+The results of these probes can change based on the class
+categories one chooses to include as well as the speciﬁc
+language one uses to describe each class. Poor class design
+can lead to poor real world performance; this concern is
+particularly relevant to a model like CLIP, given how easily
+developers can design their own classes.
+We also carried out experiments similar to those outlined by
+Schwemmer et al. (2020) to test how CLIP treated im
+
+
+--------------------------------------------------------------------------------
+PAGE : 27
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+model, a region proposal / object detection model, and a
+pre-trained masked language model such as BERT. These
+systems are then jointly ﬁne-tuned via various training objec-
+tives on image-text pairs and applied to the aforementioned
+tasks and achieve impressive results. CLIP is instead fo-
+cused on learning visual models from scratch via natural
+language supervision and does not densely connect the two
+domains with a joint attention model. The only interaction
+in a CLIP model between the image and text domain is a
+single dot product in a learned joint embedding space. We
+
+
+================================================================================
+DOCUMENT : RAG.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 6
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+even when the correct answer is not in any retrieved document, achieving 11.8% accuracy in such
+cases for NQ, where an extractive model would score 0%.
+4.2 Abstractive Question Answering
+As shown in Table 2, RAG-Sequence outperforms BART on Open MS-MARCO NLG by 2.6 Bleu
+points and 2.6 Rouge-L points. RAG approaches state-of-the-art model performance, which is
+impressive given that (i) those models access gold passages with speciﬁc information required to
+generate the reference answer , (ii) many questions are unanswerable without the gold passages, and
+
+================================================================================
+
+================================================================================
+RAG PIPELINE DEBUG
+================================================================================
+Query Type        : visual
+Retrieved Chunks  : 8
+Retrieved Images  : 1
+Reranked Chunks   : 9
+Reranked Text     : 7
+Reranked Images   : 2
+Final Context Docs: 9
+Exact Figure Query: True
+Exact Figure Match: True
+Exact Figure Final: True
+================================================================================
+
+================================================================================
+STAGE 4 — EVIDENCE VERIFICATION
+================================================================================
+Verification Units : 3
+Supported          : 0
+Partially Supported: 2
+Unsupported        : 1
+Unknown            : 0
+Groundedness Ratio : 0.00
+
+[CLAIM #1] LayoutLMv3's image embedding approach differs from the CNN/grid and region-feature approaches used by models such as DocFormer and SelfDoc in that it learns visual models from scratch via natural language supervision and does not densely connect the two domains with a joint attention model.
+  Status=PARTIALLY_SUPPORTED | NLI=NEUTRAL | Confidence=0.9395 | Citation=CLIP.pdf (Page 23)
+
+[CLAIM #2] The only interaction in a LayoutLMv3 model between the image and text domain is a single dot product in a learned joint embedding space.
+  Status=UNSUPPORTED | NLI=CONTRADICTION | Confidence=0.9072 | Citation=LayoutLMv3.pdf (Page 2)
+
+[CLAIM #3] In contrast, models like DocFormer and SelfDoc use convolutional neural networks (CNN) to extract grid or region features from images, and these features are then used in conjunction with text features for downstream tasks.
+  Status=PARTIALLY_SUPPORTED | NLI=NEUTRAL | Confidence=0.9507 | Citation=CLIP.pdf (Page 23)
+================================================================================
+
+====================================================================================================
+RAG ANSWER
+====================================================================================================
+ LayoutLMv3's image embedding approach differs from the CNN/grid and region-feature approaches used by models such as DocFormer and SelfDoc in that it learns visual models from scratch via natural language supervision and does not densely connect the two domains with a joint attention model. The only interaction in a LayoutLMv3 model between the image and text domain is a single dot product in a learned joint embedding space. In contrast, models like DocFormer and SelfDoc use convolutional neural networks (CNN) to extract grid or region features from images, and these features are then used in conjunction with text features for downstream tasks.
+
+IMAGE PATHS:
+D:/Projects/Major-Project-2-main/extracted_images/LayoutLMv3_page2_render.png
+D:/Projects/Major-Project-2-main/extracted_images/CLIP_page23_render.png

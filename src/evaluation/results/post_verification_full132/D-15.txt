@@ -1,0 +1,929 @@
+====================================================================================================
+QUESTION_ID   : D-15
+DOCUMENT      : Donut
+QUESTION_TYPE : Deeper reasoning
+ELAPSED_SEC   : 87.0
+ERROR         : no
+====================================================================================================
+
+QUESTION:
+Why does the paper argue that Donut's OCR-free approach can be advantageous for multilingual document understanding and real-world deployment?
+
+GROUND TRUTH ANSWER:
+The OCR-free approach is advantageous because it removes dependence on external OCR engines, avoiding their computational, maintenance, language/domain-flexibility, and error-propagation costs. Donut can use synthetic document data for pre-training, making it easier to extend to new languages and domains without retraining separate off-the-shelf OCR systems. The end-to-end design is therefore attractive for multilingual and real-world deployment.
+
+GROUND TRUTH SOURCE:
+Donut.pdf, pp. 3, 9, 14
+
+====================================================================================================
+FORENSIC TRANSCRIPT
+====================================================================================================
+
+####################################################################################################
+FORENSIC CASE START
+####################################################################################################
+Original Query   : Why does the paper argue that Donut's OCR-free approach can be advantageous for multilingual document understanding and real-world deployment?
+Expanded Query   : Why does the paper argue that Donut's OCR-free approach can be advantageous for multilingual document understanding and real-world deployment?
+Query Type       : analytical
+[DOCUMENT SCOPE] Normalized query: 'why does the paper argue that donut s ocr free approach can be advantageous for multilingual document understanding and real world deployment'
+[DOCUMENT SCOPE] Source='BERT.pdf' -> Normalized='bert'
+[DOCUMENT SCOPE] Token overlap for 'BERT.pdf': []
+[DOCUMENT SCOPE] Source='BLIP-2.pdf' -> Normalized='blip 2'
+[DOCUMENT SCOPE] Token overlap for 'BLIP-2.pdf': []
+[DOCUMENT SCOPE] Source='CLIP.pdf' -> Normalized='clip'
+[DOCUMENT SCOPE] Token overlap for 'CLIP.pdf': []
+[DOCUMENT SCOPE] Source='CNN Paper.pdf' -> Normalized='cnn paper'
+[DOCUMENT SCOPE] Token overlap for 'CNN Paper.pdf': ['paper']
+[DOCUMENT SCOPE] Source='Donut.pdf' -> Normalized='donut'
+[DOCUMENT SCOPE] EXACT MATCH -> Donut.pdf
+[DOCUMENT SCOPE] Source='LayoutLMv3.pdf' -> Normalized='layout l mv3'
+[DOCUMENT SCOPE] Token overlap for 'LayoutLMv3.pdf': []
+[DOCUMENT SCOPE] Source='NLP Paper.pdf' -> Normalized='nlp paper'
+[DOCUMENT SCOPE] Token overlap for 'NLP Paper.pdf': ['paper']
+[DOCUMENT SCOPE] Source='RAG.pdf' -> Normalized='rag'
+[DOCUMENT SCOPE] Token overlap for 'RAG.pdf': []
+[DOCUMENT SCOPE] Source='Self-RAG.pdf' -> Normalized='self rag'
+[DOCUMENT SCOPE] Token overlap for 'Self-RAG.pdf': []
+[DOCUMENT SCOPE] Source='Vision Transformer.pdf' -> Normalized='vision transformer'
+[DOCUMENT SCOPE] Token overlap for 'Vision Transformer.pdf': []
+[DOCUMENT SCOPE] Final matched sources: ['Donut.pdf']
+
+================================================================================
+DOCUMENT SCOPE DEBUG
+================================================================================
+Query          : Why does the paper argue that Donut's OCR-free approach can be advantageous for multilingual document understanding and real-world deployment?
+Expanded Query : Why does the paper argue that Donut's OCR-free approach can be advantageous for multilingual document understanding and real-world deployment?
+Query Type     : analytical
+Document Scope : ['Donut.pdf']
+================================================================================
+
+==========================================================================================
+STEP 3A — SCOPED HYBRID RETRIEVAL
+==========================================================================================
+Query              : Why does the paper argue that Donut's OCR-free approach can be advantageous for multilingual document understanding and real-world deployment?
+Sources            : ['Donut.pdf']
+Dense candidate K  : 25
+Final hybrid K     : 8
+
+------------------------------------------------------------------------------------------
+[SCOPED DENSE / VECTOR RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=Donut.pdf | Page=10 | Type=text | Image=N/A
+    Content=in the official leader-board. 6 As can be seen, Donut achieves competitive scores with the baselines that are dependent on external OCR engines. Especially, Donut shows that it is 
+02. Source=Donut.pdf | Page=14 | Type=text | Image=N/A
+    Content=have also been proposed [48]. 5 Conclusions In this work, we propose a novel end-to-end framework for visual document un- derstanding. The proposed method, Donut, directly maps an 
+03. Source=Donut.pdf | Page=1 | Type=text | Image=N/A
+    Content=languages or types of documents; 3) OCR error propagation to the sub- sequent process. To address these issues, in this paper, we introduce a novel OCR-free VDU model named Donut, 
+04. Source=Donut.pdf | Page=1 | Type=text | Image=N/A
+    Content=and a holistic understanding of the document . Current Visual Document Understanding (VDU) methods outsource the task of reading text to off- the-shelf Optical Character Recognitio
+05. Source=Donut.pdf | Page=11 | Type=text | Image=N/A
+    Content=OCR-free Document Understanding Transformer 11 Table 3. Average Normalized Levenshtein Similarity (ANLS) scores on DocVQA. Donut shows a promising result without OCR. ∗Donut shows 
+06. Source=Donut.pdf | Page=3 | Type=text | Image=N/A
+    Content=language flexibility straightforwardly pre-training with synthetic data. During fine-tuning stage, Donut learns how to understand the whole document accord- ing to the downstream t
+07. Source=Donut.pdf | Page=11 | Type=image | Image=extracted_images\Donut_page11_img2.png
+    Content=FIGURE FROM DOCUMENT  Caption: a black and white photo of a receipt  OCR Text: rea  EVAUS ATTER 59 Snes) Be Sieh  'NOT.GOOO FOR PASSAGES =  ATE  Falow | reaper © [onoeicaars |= nr 
+08. Source=Donut.pdf | Page=27 | Type=image | Image=extracted_images\Donut_page27_img2.png
+    Content=FIGURE FROM DOCUMENT  Caption: a piece of paper with chinese writing on it  OCR Text: " ; fi a Ba io ' - : . : ; ; on be cot  Nearby Document Text: OCR-free Document Understanding 
+09. Source=Donut.pdf | Page=2 | Type=text | Image=N/A
+    Content=structured information from documents (a.k.a. document parsing) consists of three separate modules for text detection, text recognition, and parsing [22,24]. However, the OCR-depen
+10. Source=Donut.pdf | Page=9 | Type=text | Image=N/A
+    Content=parameters and speed for the entire OCR framework, which is not small in gen- eral. For example, a recent advanced OCR-based model [4,3] requires more than 80M parameters. Also, tr
+11. Source=Donut.pdf | Page=2 | Type=text | Image=N/A
+    Content=ods rarely have flexibility dealing with different languages or domain changes, which may lead to poor generalization ability. If we train an OCR model, it also requires extensive 
+12. Source=Donut.pdf | Page=4 | Type=text | Image=N/A
+    Content=Note that Donut does not rely on any modules related to OCR functionality but uses a visual encoder for extracting features from a given document im- age. The following textual dec
+13. Source=Donut.pdf | Page=22 | Type=text | Image=N/A
+    Content=and visual question answering (VQA) tasks, following the previous work of Xu et al. [64]. Each OCR engine is explained in the following. MS OCR MS OCR7 is the latest OCR API produc
+14. Source=Donut.pdf | Page=10 | Type=text | Image=N/A
+    Content=tasks are already actively used in industries. Document Visual Question Answering. Table 3 shows the results on the DocVQA dataset. The first group is the general-purposed VDU back
+15. Source=Donut.pdf | Page=9 | Type=text | Image=N/A
+    Content=3.3 Experimental Results Document Classification. The results are shown in Table 1. Without re- lying on any other resource (e.g., off-the-shelf OCR engine), Donut shows a state-of
+16. Source=Donut.pdf | Page=9 | Type=text | Image=N/A
+    Content=Business Card parsing tasks. We fine-tune the model while monitoring the edit distance over token sequences. The speed of Donut is measured on a P40 GPU, which is much slower than 
+17. Source=Donut.pdf | Page=3 | Type=text | Image=N/A
+    Content=better overall performance than previous methods as shown in Figure 2. We take pre-train-and-fine-tune scheme [8,65] on Donut training. In the pre-training phase, Donut learns how 
+18. Source=Donut.pdf | Page=17 | Type=text | Image=N/A
+    Content=OCR-free Document Understanding Transformer 17 23. Hwang, W., Lee, H., Yim, J., Kim, G., Seo, M.: Cost-effective end-to-end infor- mation extraction for semi-structured document im
+19. Source=Donut.pdf | Page=14 | Type=text | Image=N/A
+    Content=jective could be a future work direction. We believe our work can easily be extended to other domains/tasks regarding document understanding.
+20. Source=Donut.pdf | Page=5 | Type=text | Image=N/A
+    Content=contexts. This task can be interpreted as a pseudo-OCR task. The model is trained as a visual language model over the visual corpora, i.e., document images. Visual Corpora. We use 
+21. Source=Donut.pdf | Page=10 | Type=text | Image=N/A
+    Content=boxes. WYVERN is an Transformer encoder-decoder model that directly gen- erates entities with structure given OCR outputs. WYVERN is different from Donut in that it takes the OCR o
+22. Source=Donut.pdf | Page=3 | Type=text | Image=N/A
+    Content=conventional approaches that need to retrain an off-the-shelf OCR engine. 3. We conduct extensive experiments and analyses on both public benchmarks and private industrial datasets
+23. Source=Donut.pdf | Page=11 | Type=text | Image=N/A
+    Content=but this could be mitigated by scaling the input image size (See Section 3.4) errors is an option to strengthen the pipeline [51,50,10] or adopting an encoder- decoder architecture
+24. Source=Donut.pdf | Page=3 | Type=text | Image=N/A
+    Content=2 Method 2.1 Preliminary: background There have been various visual document understanding (VDU) methods to un- derstand and extract essential information from the semi-structured 
+25. Source=Donut.pdf | Page=22 | Type=text | Image=N/A
+    Content=22 G. Kim et al. A Appendix A.1 Details of OCR Engines (MS, CLOVA, Easy, Paddle) Current state-of-the-art visual document understanding (VDU) backbones, such as BROS [18], LayoutLM
+
+------------------------------------------------------------------------------------------
+[SCOPED BM25 RETRIEVAL] 24 candidates
+------------------------------------------------------------------------------------------
+01. Source=Donut.pdf | Page=3 | Type=text | Image=N/A
+    Content=language flexibility straightforwardly pre-training with synthetic data. During fine-tuning stage, Donut learns how to understand the whole document accord- ing to the downstream t
+02. Source=Donut.pdf | Page=3 | Type=image | Image=extracted_images\Donut_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a book with the text in english  OCR Text: OOCR-free Document Understanding Transformer 3  languages with complex character
+03. Source=Donut.pdf | Page=14 | Type=text | Image=N/A
+    Content=have also been proposed [48]. 5 Conclusions In this work, we propose a novel end-to-end framework for visual document un- derstanding. The proposed method, Donut, directly maps an 
+04. Source=Donut.pdf | Page=3 | Type=text | Image=N/A
+    Content=The contributions are summarized as follows: 1. We propose a novel OCR-free approach for VDU. To the best of our knowl- edge, this is the first method based on an OCR-free Transfor
+05. Source=Donut.pdf | Page=3 | Type=text | Image=N/A
+    Content=conventional approaches that need to retrain an off-the-shelf OCR engine. 3. We conduct extensive experiments and analyses on both public benchmarks and private industrial datasets
+06. Source=Donut.pdf | Page=7 | Type=text | Image=N/A
+    Content=metric based on TED [68], that can be used for any documents represented as trees. It is calculated as, max(0, 1−TED(pr, gt)/TED(ϕ, gt)), where gt, pr, and ϕ stands for ground trut
+07. Source=Donut.pdf | Page=7 | Type=image | Image=extracted_images\Donut_page7_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+08. Source=Donut.pdf | Page=1 | Type=text | Image=N/A
+    Content=OCR-free Document Understanding Transformer Geewook Kim1∗, Teakgyu Hong4†, Moonbin Yim 2†, Jeongyeon Nam 1, Jinyoung Park5†, Jinyeong Yim6†, Wonseok Hwang7†, Sangdoo Yun3, Dongyoon
+09. Source=Donut.pdf | Page=2 | Type=text | Image=N/A
+    Content=structured information from documents (a.k.a. document parsing) consists of three separate modules for text detection, text recognition, and parsing [22,24]. However, the OCR-depen
+10. Source=Donut.pdf | Page=12 | Type=text | Image=N/A
+    Content=document IE task in our analysis. However, in the DocVQA task, it was impor- tant to see the real images. This is probably because the image distributions of IIT-CDIP and DocVQA ar
+11. Source=Donut.pdf | Page=7 | Type=text | Image=N/A
+    Content=Tree Edit Distance (TED) based accuracy [68,70,23]. The F1 checks whether the extracted field information is in the ground truth. Even if a single character is missed, the score as
+12. Source=Donut.pdf | Page=2 | Type=text | Image=N/A
+    Content=on various VDU tasks are available at Section 3 showing the same trend Current VDU methods [22,24,65,64,18] solve the task in a two-stage manner: 1) reading the texts in the docume
+13. Source=Donut.pdf | Page=2 | Type=image | Image=extracted_images\Donut_page2_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a screenshot of a computer screen with a text box and a picture of a computer screen with a text box and a picture of a computer  OCR T
+14. Source=Donut.pdf | Page=13 | Type=text | Image=N/A
+    Content=heuristics to merge them [19,69]. Later, region proposal and bounding box regres- sion based methods were proposed [36]. Recently, focusing on the homogeneity and locality of texts
+15. Source=Donut.pdf | Page=1 | Type=text | Image=N/A
+    Content=languages or types of documents; 3) OCR error propagation to the sub- sequent process. To address these issues, in this paper, we introduce a novel OCR-free VDU model named Donut, 
+16. Source=Donut.pdf | Page=1 | Type=text | Image=N/A
+    Content=and a holistic understanding of the document . Current Visual Document Understanding (VDU) methods outsource the task of reading text to off- the-shelf Optical Character Recognitio
+17. Source=Donut.pdf | Page=4 | Type=text | Image=N/A
+    Content=Encoder. The visual encoder converts the input document image x∈RH×W ×C into a set of embeddings {zi|zi∈Rd, 1≤i≤n}, where n is feature map size or the number of image patches and d
+18. Source=Donut.pdf | Page=6 | Type=text | Image=N/A
+    Content=we interpret all downstream tasks as a JSON prediction problem. The decoder is trained to generate a token sequence that can be converted into a JSON that represents the desired ou
+19. Source=Donut.pdf | Page=29 | Type=text | Image=N/A
+    Content=OCR-free Document Understanding Transformer 29 IE on 1-depth structured documents When there is no hierarchical structure in the document (See Figure B), the tag set is defined as 
+20. Source=Donut.pdf | Page=3 | Type=text | Image=N/A
+    Content=2 Method 2.1 Preliminary: background There have been various visual document understanding (VDU) methods to un- derstand and extract essential information from the semi-structured 
+21. Source=Donut.pdf | Page=7 | Type=image | Image=extracted_images\Donut_page7_img2.png
+    Content=FIGURE FROM DOCUMENT  Caption: a piece of paper with chinese writing on it  OCR Text: No readable text found in this image.  Nearby Document Text: OCR-free Document Understanding T
+22. Source=Donut.pdf | Page=7 | Type=image | Image=extracted_images\Donut_page7_img4.png
+    Content=FIGURE FROM DOCUMENT  Caption: a piece of paper with a receipt on it  OCR Text: No readable text found in this image.  Nearby Document Text: OCR-free Document Understanding Transfo
+23. Source=Donut.pdf | Page=24 | Type=text | Image=N/A
+    Content=24 G. Kim et al. Text Layout and Pattern To mimic the layouts in real-world documents, a heuristic rule-based pattern generator is applied to the document image region to generate 
+24. Source=Donut.pdf | Page=6 | Type=image | Image=extracted_images\Donut_page6_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a book with a picture of a person in the background  OCR Text: 6 G. Kim et al.  Wak gaGHIe - —— ATP  Fig. 4. Generated Englis
+
+------------------------------------------------------------------------------------------
+[RRF FUSION RANKING]
+------------------------------------------------------------------------------------------
+01. RRF=0.032002 | DenseRank=2 | BM25Rank=3 | Source=Donut.pdf | Page=14 | Type=text
+02. RRF=0.031545 | DenseRank=6 | BM25Rank=1 | Source=Donut.pdf | Page=3 | Type=text
+03. RRF=0.029206 | DenseRank=3 | BM25Rank=15 | Source=Donut.pdf | Page=1 | Type=text
+04. RRF=0.028986 | DenseRank=9 | BM25Rank=9 | Source=Donut.pdf | Page=2 | Type=text
+05. RRF=0.028783 | DenseRank=4 | BM25Rank=16 | Source=Donut.pdf | Page=1 | Type=text
+06. RRF=0.027580 | DenseRank=22 | BM25Rank=5 | Source=Donut.pdf | Page=3 | Type=text
+07. RRF=0.024405 | DenseRank=24 | BM25Rank=20 | Source=Donut.pdf | Page=3 | Type=text
+08. RRF=0.016393 | DenseRank=1 | BM25Rank=- | Source=Donut.pdf | Page=10 | Type=text
+09. RRF=0.016129 | DenseRank=- | BM25Rank=2 | Source=Donut.pdf | Page=3 | Type=image
+10. RRF=0.015625 | DenseRank=- | BM25Rank=4 | Source=Donut.pdf | Page=3 | Type=text
+11. RRF=0.015385 | DenseRank=5 | BM25Rank=- | Source=Donut.pdf | Page=11 | Type=text
+12. RRF=0.015152 | DenseRank=- | BM25Rank=6 | Source=Donut.pdf | Page=7 | Type=text
+13. RRF=0.014925 | DenseRank=7 | BM25Rank=- | Source=Donut.pdf | Page=11 | Type=image
+14. RRF=0.014925 | DenseRank=- | BM25Rank=7 | Source=Donut.pdf | Page=7 | Type=image
+15. RRF=0.014706 | DenseRank=8 | BM25Rank=- | Source=Donut.pdf | Page=27 | Type=image
+16. RRF=0.014706 | DenseRank=- | BM25Rank=8 | Source=Donut.pdf | Page=1 | Type=text
+17. RRF=0.014286 | DenseRank=10 | BM25Rank=- | Source=Donut.pdf | Page=9 | Type=text
+18. RRF=0.014286 | DenseRank=- | BM25Rank=10 | Source=Donut.pdf | Page=12 | Type=text
+19. RRF=0.014085 | DenseRank=11 | BM25Rank=- | Source=Donut.pdf | Page=2 | Type=text
+20. RRF=0.014085 | DenseRank=- | BM25Rank=11 | Source=Donut.pdf | Page=7 | Type=text
+21. RRF=0.013889 | DenseRank=12 | BM25Rank=- | Source=Donut.pdf | Page=4 | Type=text
+22. RRF=0.013889 | DenseRank=- | BM25Rank=12 | Source=Donut.pdf | Page=2 | Type=text
+23. RRF=0.013699 | DenseRank=13 | BM25Rank=- | Source=Donut.pdf | Page=22 | Type=text
+24. RRF=0.013699 | DenseRank=- | BM25Rank=13 | Source=Donut.pdf | Page=2 | Type=image
+25. RRF=0.013514 | DenseRank=14 | BM25Rank=- | Source=Donut.pdf | Page=10 | Type=text
+26. RRF=0.013514 | DenseRank=- | BM25Rank=14 | Source=Donut.pdf | Page=13 | Type=text
+27. RRF=0.013333 | DenseRank=15 | BM25Rank=- | Source=Donut.pdf | Page=9 | Type=text
+28. RRF=0.013158 | DenseRank=16 | BM25Rank=- | Source=Donut.pdf | Page=9 | Type=text
+29. RRF=0.012987 | DenseRank=17 | BM25Rank=- | Source=Donut.pdf | Page=3 | Type=text
+30. RRF=0.012987 | DenseRank=- | BM25Rank=17 | Source=Donut.pdf | Page=4 | Type=text
+31. RRF=0.012821 | DenseRank=18 | BM25Rank=- | Source=Donut.pdf | Page=17 | Type=text
+32. RRF=0.012821 | DenseRank=- | BM25Rank=18 | Source=Donut.pdf | Page=6 | Type=text
+33. RRF=0.012658 | DenseRank=19 | BM25Rank=- | Source=Donut.pdf | Page=14 | Type=text
+34. RRF=0.012658 | DenseRank=- | BM25Rank=19 | Source=Donut.pdf | Page=29 | Type=text
+35. RRF=0.012500 | DenseRank=20 | BM25Rank=- | Source=Donut.pdf | Page=5 | Type=text
+36. RRF=0.012346 | DenseRank=21 | BM25Rank=- | Source=Donut.pdf | Page=10 | Type=text
+37. RRF=0.012346 | DenseRank=- | BM25Rank=21 | Source=Donut.pdf | Page=7 | Type=image
+38. RRF=0.012195 | DenseRank=- | BM25Rank=22 | Source=Donut.pdf | Page=7 | Type=image
+39. RRF=0.012048 | DenseRank=23 | BM25Rank=- | Source=Donut.pdf | Page=11 | Type=text
+40. RRF=0.012048 | DenseRank=- | BM25Rank=23 | Source=Donut.pdf | Page=24 | Type=text
+41. RRF=0.011905 | DenseRank=- | BM25Rank=24 | Source=Donut.pdf | Page=6 | Type=image
+42. RRF=0.011765 | DenseRank=25 | BM25Rank=- | Source=Donut.pdf | Page=22 | Type=text
+------------------------------------------------------------------------------------------
+
+==========================================================================================
+STEP 3A — RETRIEVAL STAGE SUMMARY
+==========================================================================================
+Dense candidates       : 25
+BM25 candidates        : 24
+Dense ∩ BM25           : 7
+Dense-only candidates  : 18
+BM25-only candidates   : 17
+Unique candidate pool  : 42
+RRF candidates         : 42
+Returned to pipeline   : 8
+==========================================================================================
+
+------------------------------------------------------------------------------------------
+[SCOPED FINAL HYBRID RESULT] 8 candidates
+------------------------------------------------------------------------------------------
+01. Source=Donut.pdf | Page=14 | Type=text | Image=N/A
+    Content=have also been proposed [48]. 5 Conclusions In this work, we propose a novel end-to-end framework for visual document un- derstanding. The proposed method, Donut, directly maps an 
+02. Source=Donut.pdf | Page=3 | Type=text | Image=N/A
+    Content=language flexibility straightforwardly pre-training with synthetic data. During fine-tuning stage, Donut learns how to understand the whole document accord- ing to the downstream t
+03. Source=Donut.pdf | Page=1 | Type=text | Image=N/A
+    Content=languages or types of documents; 3) OCR error propagation to the sub- sequent process. To address these issues, in this paper, we introduce a novel OCR-free VDU model named Donut, 
+04. Source=Donut.pdf | Page=2 | Type=text | Image=N/A
+    Content=structured information from documents (a.k.a. document parsing) consists of three separate modules for text detection, text recognition, and parsing [22,24]. However, the OCR-depen
+05. Source=Donut.pdf | Page=1 | Type=text | Image=N/A
+    Content=and a holistic understanding of the document . Current Visual Document Understanding (VDU) methods outsource the task of reading text to off- the-shelf Optical Character Recognitio
+06. Source=Donut.pdf | Page=3 | Type=text | Image=N/A
+    Content=conventional approaches that need to retrain an off-the-shelf OCR engine. 3. We conduct extensive experiments and analyses on both public benchmarks and private industrial datasets
+07. Source=Donut.pdf | Page=3 | Type=text | Image=N/A
+    Content=2 Method 2.1 Preliminary: background There have been various visual document understanding (VDU) methods to un- derstand and extract essential information from the semi-structured 
+08. Source=Donut.pdf | Page=10 | Type=text | Image=N/A
+    Content=in the official leader-board. 6 As can be seen, Donut achieves competitive scores with the baselines that are dependent on external OCR engines. Especially, Donut shows that it is 
+==========================================================================================
+
+================================================================================
+STAGE 1 — HYBRID RETRIEVAL
+================================================================================
+Retrieved Count : 8
+
+[HYBRID #1] Source=Donut.pdf | Page=14 | Type=text
+Content: have also been proposed [48]. 5 Conclusions In this work, we propose a novel end-to-end framework for visual document un- derstanding. The proposed method, Donut, directly maps an input document image into a desired structured output. Unlike conventional methods, Donut does not depend on OCR and can easily be trained in an end-to-end fashion. We also propose a synthetic document image generator, SynthDoG, to alleviate the dependency on large-scale real document images and we show that Donut can 
+
+[HYBRID #2] Source=Donut.pdf | Page=3 | Type=text
+Content: language flexibility straightforwardly pre-training with synthetic data. During fine-tuning stage, Donut learns how to understand the whole document accord- ing to the downstream task. We demonstrateDonut has a strong understanding ability through extensive evaluation on various VDU tasks and datasets. The experiments show a simple OCR-free VDU model can achieve state-of-the-art performance in terms of both speed and accuracy. The contributions are summarized as follows: 1. We propose a novel OC
+
+[HYBRID #3] Source=Donut.pdf | Page=1 | Type=text
+Content: languages or types of documents; 3) OCR error propagation to the sub- sequent process. To address these issues, in this paper, we introduce a novel OCR-free VDU model named Donut, which stands for Document understanding transformer. As the first step in OCR-free VDU research, we propose a simple architecture ( i.e., Transformer) with a pre-training objective ( i.e., cross-entropy loss). Donut is conceptually simple yet ef- fective. Through extensive experiments and analyses, we show a simple OCR
+
+[HYBRID #4] Source=Donut.pdf | Page=2 | Type=text
+Content: structured information from documents (a.k.a. document parsing) consists of three separate modules for text detection, text recognition, and parsing [22,24]. However, the OCR-dependent approach has critical problems. First of all, us- ing OCR as a pre-processing method is expensive. We can utilize pre-trained off- the-shelf OCR engines; however, the computational cost for inference would be expensive for high-quality OCR results. Moreover, the off-the-shelf OCR meth- ods rarely have flexibility 
+
+[HYBRID #5] Source=Donut.pdf | Page=1 | Type=text
+Content: and a holistic understanding of the document . Current Visual Document Understanding (VDU) methods outsource the task of reading text to off- the-shelf Optical Character Recognition (OCR) engines and focus on the understanding task with the OCR outputs. Although such OCR-based approaches have shown promising performance, they suffer from 1) high computational costs for using OCR; 2) inflexibility of OCR models on languages or types of documents; 3) OCR error propagation to the sub- sequent proce
+
+[HYBRID #6] Source=Donut.pdf | Page=3 | Type=text
+Content: conventional approaches that need to retrain an off-the-shelf OCR engine. 3. We conduct extensive experiments and analyses on both public benchmarks and private industrial datasets, showing that the proposed method achieves not only state-of-the-art performances on benchmarks but also has many practical advantages (e.g., cost-effective) in real-world applications. 4. The codebase, pre-trained model, and synthetic data are available at GitHub.1 2 Method 2.1 Preliminary: background There have been
+
+[HYBRID #7] Source=Donut.pdf | Page=3 | Type=text
+Content: 2 Method 2.1 Preliminary: background There have been various visual document understanding (VDU) methods to un- derstand and extract essential information from the semi-structured documents such as receipts [20,25,18], invoices [49], and form documents [14,6,43]. 1https://github.com/clovaai/donut.
+
+[HYBRID #8] Source=Donut.pdf | Page=10 | Type=text
+Content: in the official leader-board. 6 As can be seen, Donut achieves competitive scores with the baselines that are dependent on external OCR engines. Especially, Donut shows that it is robust to the handwritten documents, which is known to be challenging to process. In the conventional approach, adding a post-processing module that corrects OCR 6https://rrc.cvc.uab.es/?ch=17&com=evaluation&task=1.
+================================================================================
+[DOCUMENT SCOPE] Text chunks: 8 -> 8
+
+================================================================================
+IMAGE RETRIEVAL DIAGNOSTIC
+================================================================================
+Query                 : Why does the paper argue that Donut's OCR-free approach can be advantageous for multilingual document understanding and real-world deployment?
+Allowed Sources       : ['Donut.pdf']
+Image Candidates      : 554 -> 63 (scoped before ranking)
+
+ALL IMAGE CANDIDATES
+--------------------------------------------------------------------------------
+Rank=01 | Source=Donut.pdf | Page=3 | Image=Donut_page3_render.png | Hybrid=0.8940 | CE=1.3179 | CLIP=0.2583
+Rank=02 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img11.png | Hybrid=0.1145 | CE=0.0593 | CLIP=0.1972
+Rank=03 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img1.png | Hybrid=0.0958 | CE=0.0252 | CLIP=0.2016
+Rank=04 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img8.png | Hybrid=0.0412 | CE=-0.0847 | CLIP=0.2299
+Rank=05 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img6.png | Hybrid=0.0357 | CE=-0.0847 | CLIP=0.2162
+Rank=06 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img7.png | Hybrid=0.0278 | CE=-0.0847 | CLIP=0.1966
+Rank=07 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img4.png | Hybrid=-0.0714 | CE=-0.2484 | CLIP=0.1940
+Rank=08 | Source=Donut.pdf | Page=11 | Image=Donut_page11_img4.png | Hybrid=-0.1002 | CE=-0.3244 | CLIP=0.2360
+Rank=09 | Source=Donut.pdf | Page=11 | Image=Donut_page11_img2.png | Hybrid=-0.2170 | CE=-0.5042 | CLIP=0.2139
+Rank=10 | Source=Donut.pdf | Page=11 | Image=Donut_page11_img3.png | Hybrid=-0.2170 | CE=-0.5042 | CLIP=0.2139
+Rank=11 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img2.png | Hybrid=-0.3445 | CE=-0.7096 | CLIP=0.2033
+Rank=12 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img9.png | Hybrid=-0.3842 | CE=-0.7782 | CLIP=0.2068
+Rank=13 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img3.png | Hybrid=-0.5777 | CE=-1.0870 | CLIP=0.1863
+Rank=14 | Source=Donut.pdf | Page=27 | Image=Donut_page27_img4.png | Hybrid=-0.6470 | CE=-1.2283 | CLIP=0.2249
+Rank=15 | Source=Donut.pdf | Page=11 | Image=Donut_page11_img0.png | Hybrid=-0.6914 | CE=-1.3040 | CLIP=0.2274
+Rank=16 | Source=Donut.pdf | Page=27 | Image=Donut_page27_img3.png | Hybrid=-0.7462 | CE=-1.3983 | CLIP=0.2320
+Rank=17 | Source=Donut.pdf | Page=27 | Image=Donut_page27_img2.png | Hybrid=-0.7873 | CE=-1.4498 | CLIP=0.2063
+Rank=18 | Source=Donut.pdf | Page=13 | Image=Donut_page13_img6.png | Hybrid=-0.9083 | CE=-1.6543 | CLIP=0.2106
+Rank=19 | Source=Donut.pdf | Page=13 | Image=Donut_page13_img7.png | Hybrid=-0.9093 | CE=-1.6543 | CLIP=0.2083
+Rank=20 | Source=Donut.pdf | Page=13 | Image=Donut_page13_img2.png | Hybrid=-0.9101 | CE=-1.6543 | CLIP=0.2061
+Rank=21 | Source=Donut.pdf | Page=13 | Image=Donut_page13_img3.png | Hybrid=-0.9103 | CE=-1.6543 | CLIP=0.2058
+Rank=22 | Source=Donut.pdf | Page=13 | Image=Donut_page13_img1.png | Hybrid=-1.0078 | CE=-1.8222 | CLIP=0.2138
+Rank=23 | Source=Donut.pdf | Page=13 | Image=Donut_page13_img8.png | Hybrid=-1.1990 | CE=-2.1386 | CLIP=0.2105
+Rank=24 | Source=Donut.pdf | Page=13 | Image=Donut_page13_img0.png | Hybrid=-1.2208 | CE=-2.1796 | CLIP=0.2174
+Rank=25 | Source=Donut.pdf | Page=13 | Image=Donut_page13_img4.png | Hybrid=-1.2669 | CE=-2.2520 | CLIP=0.2109
+Rank=26 | Source=Donut.pdf | Page=13 | Image=Donut_page13_img5.png | Hybrid=-1.2669 | CE=-2.2520 | CLIP=0.2109
+Rank=27 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img5.png | Hybrid=-1.5827 | CE=-2.7847 | CLIP=0.2204
+Rank=28 | Source=Donut.pdf | Page=27 | Image=Donut_page27_img1.png | Hybrid=-1.6549 | CE=-2.8938 | CLIP=0.2033
+Rank=29 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img10.png | Hybrid=-1.7286 | CE=-3.0257 | CLIP=0.2170
+Rank=30 | Source=Donut.pdf | Page=11 | Image=Donut_page11_img1.png | Hybrid=-1.7763 | CE=-3.0932 | CLIP=0.1989
+Rank=31 | Source=Donut.pdf | Page=27 | Image=Donut_page27_img0.png | Hybrid=-1.8167 | CE=-3.1711 | CLIP=0.2149
+Rank=32 | Source=Donut.pdf | Page=27 | Image=Donut_page27_img5.png | Hybrid=-1.8291 | CE=-3.2077 | CLIP=0.2388
+Rank=33 | Source=Donut.pdf | Page=7 | Image=Donut_page7_img2.png | Hybrid=-1.9396 | CE=-3.3701 | CLIP=0.2061
+Rank=34 | Source=Donut.pdf | Page=7 | Image=Donut_page7_img4.png | Hybrid=-1.9737 | CE=-3.4442 | CLIP=0.2320
+Rank=35 | Source=Donut.pdf | Page=7 | Image=Donut_page7_img3.png | Hybrid=-2.7479 | CE=-4.7013 | CLIP=0.1822
+Rank=36 | Source=Donut.pdf | Page=7 | Image=Donut_page7_img5.png | Hybrid=-2.7955 | CE=-4.7989 | CLIP=0.2096
+Rank=37 | Source=Donut.pdf | Page=5 | Image=Donut_page5_render.png | Hybrid=-2.8191 | CE=-4.8662 | CLIP=0.2514
+Rank=38 | Source=Donut.pdf | Page=7 | Image=Donut_page7_img6.png | Hybrid=-2.8600 | CE=-4.8935 | CLIP=0.1902
+Rank=39 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img0.png | Hybrid=-3.3522 | CE=-5.7176 | CLIP=0.1960
+Rank=40 | Source=Donut.pdf | Page=7 | Image=Donut_page7_render.png | Hybrid=-4.0292 | CE=-6.8680 | CLIP=0.2289
+Rank=41 | Source=Donut.pdf | Page=6 | Image=Donut_page6_img1.png | Hybrid=-4.0742 | CE=-6.9250 | CLIP=0.2020
+Rank=42 | Source=Donut.pdf | Page=25 | Image=Donut_page25_img0.png | Hybrid=-4.0752 | CE=-6.9276 | CLIP=0.2035
+Rank=43 | Source=Donut.pdf | Page=6 | Image=Donut_page6_img3.png | Hybrid=-4.1460 | CE=-7.0580 | CLIP=0.2219
+Rank=44 | Source=Donut.pdf | Page=25 | Image=Donut_page25_img2.png | Hybrid=-4.1827 | CE=-7.1088 | CLIP=0.2065
+Rank=45 | Source=Donut.pdf | Page=25 | Image=Donut_page25_img1.png | Hybrid=-4.2793 | CE=-7.2679 | CLIP=0.2035
+Rank=46 | Source=Donut.pdf | Page=28 | Image=Donut_page28_img0.png | Hybrid=-4.2874 | CE=-7.2778 | CLIP=0.1983
+Rank=47 | Source=Donut.pdf | Page=6 | Image=Donut_page6_img2.png | Hybrid=-4.3585 | CE=-7.4194 | CLIP=0.2328
+Rank=48 | Source=Donut.pdf | Page=4 | Image=Donut_page4_render.png | Hybrid=-4.5229 | CE=-7.6990 | CLIP=0.2411
+Rank=49 | Source=Donut.pdf | Page=6 | Image=Donut_page6_img0.png | Hybrid=-5.0129 | CE=-8.5064 | CLIP=0.2273
+Rank=50 | Source=Donut.pdf | Page=4 | Image=Donut_page4_img1.png | Hybrid=-5.1138 | CE=-8.7167 | CLIP=0.2905
+Rank=51 | Source=Donut.pdf | Page=26 | Image=Donut_page26_img1.png | Hybrid=-5.1435 | CE=-8.7149 | CLIP=0.2135
+Rank=52 | Source=Donut.pdf | Page=6 | Image=Donut_page6_render.png | Hybrid=-5.1436 | CE=-8.7374 | CLIP=0.2471
+Rank=53 | Source=Donut.pdf | Page=7 | Image=Donut_page7_img0.png | Hybrid=-5.3217 | CE=-9.0110 | CLIP=0.2123
+Rank=54 | Source=Donut.pdf | Page=7 | Image=Donut_page7_img1.png | Hybrid=-5.3940 | CE=-9.1472 | CLIP=0.2358
+Rank=55 | Source=Donut.pdf | Page=4 | Image=Donut_page4_img0.png | Hybrid=-5.4654 | CE=-9.2412 | CLIP=0.1983
+Rank=56 | Source=Donut.pdf | Page=2 | Image=Donut_page2_img3.png | Hybrid=-5.8289 | CE=-9.9085 | CLIP=0.2905
+Rank=57 | Source=Donut.pdf | Page=2 | Image=Donut_page2_render.png | Hybrid=-6.0483 | CE=-10.2422 | CLIP=0.2425
+Rank=58 | Source=Donut.pdf | Page=26 | Image=Donut_page26_img0.png | Hybrid=-6.0896 | CE=-10.2741 | CLIP=0.1872
+Rank=59 | Source=Donut.pdf | Page=26 | Image=Donut_page26_img2.png | Hybrid=-6.1151 | CE=-10.3244 | CLIP=0.1988
+Rank=60 | Source=Donut.pdf | Page=2 | Image=Donut_page2_img1.png | Hybrid=-6.2230 | CE=-10.5039 | CLIP=0.1983
+Rank=61 | Source=Donut.pdf | Page=2 | Image=Donut_page2_img0.png | Hybrid=-6.2268 | CE=-10.5039 | CLIP=0.1889
+Rank=62 | Source=Donut.pdf | Page=2 | Image=Donut_page2_img2.png | Hybrid=-6.3478 | CE=-10.6989 | CLIP=0.1790
+Rank=63 | Source=Donut.pdf | Page=8 | Image=Donut_page8_render.png | Hybrid=-6.3527 | CE=-10.7614 | CLIP=0.2605
+
+TOP IMAGE RESULTS
+--------------------------------------------------------------------------------
+TOP-1 | Source=Donut.pdf | Page=3 | Image=Donut_page3_render.png | Hybrid=0.8940 | CE=1.3179 | CLIP=0.2583
+TOP-2 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img11.png | Hybrid=0.1145 | CE=0.0593 | CLIP=0.1972
+TOP-3 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img1.png | Hybrid=0.0958 | CE=0.0252 | CLIP=0.2016
+================================================================================
+[DOCUMENT SCOPE] Images: 3 -> 3
+
+================================================================================
+STAGE 2 — IMAGE RETRIEVAL RESULT
+================================================================================
+Image Results       : 3
+Exact Figure Match  : False
+
+[IMAGE #1] Source=Donut.pdf | Page=3 | Image=Donut_page3_render.png
+Image Path: extracted_images\Donut_page3_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a book with the text in english  OCR Text: OOCR-free Document Understanding Transformer 3  languages with complex character sets, such as Korean or Chinese, where the quality of OCR. is relatively low [50]. To deal with this, post-OCR correction module [51,50,10] is usually adopted. However, it is not a practical solution for real application environments since it increases the entire system size and main- tenance cost.  We go beyond the t
+
+[IMAGE #2] Source=Donut.pdf | Page=23 | Image=Donut_page23_img11.png
+Image Path: extracted_images\Donut_page23_img11.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT  Caption: a person holding up a piece of paper  OCR Text: No readable text found in this image.  Nearby Document Text: OCR-free Document Understanding Transformer 23 Fig. A. Examples of SynthDoG. English, Chinese, Japanese and Korean samples are shown (from top to bottom). Although the idea is simple, these synthetic samples play an important role in the pre-training of Donut. Please, see Figure 7 in the main paper for details A.2 Details of Synthetic Document Generator (Syn
+
+[IMAGE #3] Source=Donut.pdf | Page=23 | Image=Donut_page23_img1.png
+Image Path: extracted_images\Donut_page23_img1.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT  Caption: a man holding up a piece of paper with the words on it  OCR Text: No readable text found in this image.  Nearby Document Text: OCR-free Document Understanding Transformer 23 Fig. A. Examples of SynthDoG. English, Chinese, Japanese and Korean samples are shown (from top to bottom). Although the idea is simple, these synthetic samples play an important role in the pre-training of Donut. Please, see Figure 7 in the main paper for details A.2 Details of Synthetic Docum
+================================================================================
+
+================================================================================
+COMBINED RETRIEVAL CANDIDATES
+================================================================================
+Text Candidates  : 8
+Image Candidates : 3
+Total Candidates : 11
+================================================================================
+
+================================================================================
+STEP 3A — RERANKER INPUT
+================================================================================
+Query: Why does the paper argue that Donut's OCR-free approach can be advantageous for multilingual document understanding and real-world deployment?
+Input candidates: 11
+01. Source=Donut.pdf | Page=14 | Type=text | Image=N/A
+    Content=have also been proposed [48]. 5 Conclusions In this work, we propose a novel end-to-end framework for visual document un- derstanding. The proposed method, Donut, directly maps an 
+02. Source=Donut.pdf | Page=3 | Type=text | Image=N/A
+    Content=language flexibility straightforwardly pre-training with synthetic data. During fine-tuning stage, Donut learns how to understand the whole document accord- ing to the downstream t
+03. Source=Donut.pdf | Page=1 | Type=text | Image=N/A
+    Content=languages or types of documents; 3) OCR error propagation to the sub- sequent process. To address these issues, in this paper, we introduce a novel OCR-free VDU model named Donut, 
+04. Source=Donut.pdf | Page=2 | Type=text | Image=N/A
+    Content=structured information from documents (a.k.a. document parsing) consists of three separate modules for text detection, text recognition, and parsing [22,24]. However, the OCR-depen
+05. Source=Donut.pdf | Page=1 | Type=text | Image=N/A
+    Content=and a holistic understanding of the document . Current Visual Document Understanding (VDU) methods outsource the task of reading text to off- the-shelf Optical Character Recognitio
+06. Source=Donut.pdf | Page=3 | Type=text | Image=N/A
+    Content=conventional approaches that need to retrain an off-the-shelf OCR engine. 3. We conduct extensive experiments and analyses on both public benchmarks and private industrial datasets
+07. Source=Donut.pdf | Page=3 | Type=text | Image=N/A
+    Content=2 Method 2.1 Preliminary: background There have been various visual document understanding (VDU) methods to un- derstand and extract essential information from the semi-structured 
+08. Source=Donut.pdf | Page=10 | Type=text | Image=N/A
+    Content=in the official leader-board. 6 As can be seen, Donut achieves competitive scores with the baselines that are dependent on external OCR engines. Especially, Donut shows that it is 
+09. Source=Donut.pdf | Page=3 | Type=image | Image=extracted_images\Donut_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a book with the text in english  OCR Text: OOCR-free Document Understanding Transformer 3  languages with complex character
+10. Source=Donut.pdf | Page=23 | Type=image | Image=extracted_images\Donut_page23_img11.png
+    Content=FIGURE FROM DOCUMENT  Caption: a person holding up a piece of paper  OCR Text: No readable text found in this image.  Nearby Document Text: OCR-free Document Understanding Transfor
+11. Source=Donut.pdf | Page=23 | Type=image | Image=extracted_images\Donut_page23_img1.png
+    Content=FIGURE FROM DOCUMENT  Caption: a man holding up a piece of paper with the words on it  OCR Text: No readable text found in this image.  Nearby Document Text: OCR-free Document Unde
+================================================================================
+
+--------------------------------------------------------------------------------
+CROSS-ENCODER RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=02 | Source=Donut.pdf | Page=1 | Type=text | CE=2.1919
+Rank=02 | OriginalIndex=01 | Source=Donut.pdf | Page=3 | Type=text | CE=1.6895
+Rank=03 | OriginalIndex=08 | Source=Donut.pdf | Page=3 | Type=image | CE=1.3179
+Rank=04 | OriginalIndex=00 | Source=Donut.pdf | Page=14 | Type=text | CE=0.8716
+Rank=05 | OriginalIndex=07 | Source=Donut.pdf | Page=10 | Type=text | CE=0.5320
+Rank=06 | OriginalIndex=09 | Source=Donut.pdf | Page=23 | Type=image | CE=0.0593
+Rank=07 | OriginalIndex=10 | Source=Donut.pdf | Page=23 | Type=image | CE=0.0252
+Rank=08 | OriginalIndex=04 | Source=Donut.pdf | Page=1 | Type=text | CE=-0.3003
+Rank=09 | OriginalIndex=05 | Source=Donut.pdf | Page=3 | Type=text | CE=-2.0763
+Rank=10 | OriginalIndex=03 | Source=Donut.pdf | Page=2 | Type=text | CE=-2.4325
+Rank=11 | OriginalIndex=06 | Source=Donut.pdf | Page=3 | Type=text | CE=-6.1667
+
+--------------------------------------------------------------------------------
+CLIP IMAGE RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=08 | Source=Donut.pdf | Page=3 | Image=extracted_images\Donut_page3_render.png | CLIP=0.2583
+Rank=02 | OriginalIndex=10 | Source=Donut.pdf | Page=23 | Image=extracted_images\Donut_page23_img1.png | CLIP=0.2016
+Rank=03 | OriginalIndex=09 | Source=Donut.pdf | Page=23 | Image=extracted_images\Donut_page23_img11.png | CLIP=0.1972
+
+================================================================================
+STEP 3A — COMPLETE MULTIMODAL RERANK RESULT
+================================================================================
+Rank=01 | Type=image | Source=Donut.pdf | Page=3 | RRF=0.032266 | CE=1.3179 | CLIP=0.2583
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a book with the text in english  OCR Text: OOCR-free Document Understanding Transformer 3  languages with complex character
+Rank=02 | Type=image | Source=Donut.pdf | Page=23 | RRF=0.031054 | CE=0.0252 | CLIP=0.2016
+    Content=FIGURE FROM DOCUMENT  Caption: a man holding up a piece of paper with the words on it  OCR Text: No readable text found in this image.  Nearby Document Text: OCR-free Document Unde
+Rank=03 | Type=image | Source=Donut.pdf | Page=23 | RRF=0.031025 | CE=0.0593 | CLIP=0.1972
+    Content=FIGURE FROM DOCUMENT  Caption: a person holding up a piece of paper  OCR Text: No readable text found in this image.  Nearby Document Text: OCR-free Document Understanding Transfor
+Rank=04 | Type=text | Source=Donut.pdf | Page=1 | RRF=0.016393 | CE=2.1919 | CLIP=N/A
+    Content=languages or types of documents; 3) OCR error propagation to the sub- sequent process. To address these issues, in this paper, we introduce a novel OCR-free VDU model named Donut, 
+Rank=05 | Type=text | Source=Donut.pdf | Page=3 | RRF=0.016129 | CE=1.6895 | CLIP=N/A
+    Content=language flexibility straightforwardly pre-training with synthetic data. During fine-tuning stage, Donut learns how to understand the whole document accord- ing to the downstream t
+Rank=06 | Type=text | Source=Donut.pdf | Page=14 | RRF=0.015625 | CE=0.8716 | CLIP=N/A
+    Content=have also been proposed [48]. 5 Conclusions In this work, we propose a novel end-to-end framework for visual document un- derstanding. The proposed method, Donut, directly maps an 
+Rank=07 | Type=text | Source=Donut.pdf | Page=10 | RRF=0.015385 | CE=0.5320 | CLIP=N/A
+    Content=in the official leader-board. 6 As can be seen, Donut achieves competitive scores with the baselines that are dependent on external OCR engines. Especially, Donut shows that it is 
+Rank=08 | Type=text | Source=Donut.pdf | Page=1 | RRF=0.014706 | CE=-0.3003 | CLIP=N/A
+    Content=and a holistic understanding of the document . Current Visual Document Understanding (VDU) methods outsource the task of reading text to off- the-shelf Optical Character Recognitio
+Rank=09 | Type=text | Source=Donut.pdf | Page=3 | RRF=0.014493 | CE=-2.0763 | CLIP=N/A
+    Content=conventional approaches that need to retrain an off-the-shelf OCR engine. 3. We conduct extensive experiments and analyses on both public benchmarks and private industrial datasets
+Rank=10 | Type=text | Source=Donut.pdf | Page=2 | RRF=0.014286 | CE=-2.4325 | CLIP=N/A
+    Content=structured information from documents (a.k.a. document parsing) consists of three separate modules for text detection, text recognition, and parsing [22,24]. However, the OCR-depen
+Rank=11 | Type=text | Source=Donut.pdf | Page=3 | RRF=0.014085 | CE=-6.1667 | CLIP=N/A
+    Content=2 Method 2.1 Preliminary: background There have been various visual document understanding (VDU) methods to un- derstand and extract essential information from the semi-structured 
+================================================================================
+
+================================================================================
+STEP 3A — FINAL RERANK TOP-K
+================================================================================
+Requested top_k: 12
+Returned documents: 11
+01. Source=Donut.pdf | Page=3 | Type=image | Image=extracted_images\Donut_page3_render.png
+02. Source=Donut.pdf | Page=23 | Type=image | Image=extracted_images\Donut_page23_img1.png
+03. Source=Donut.pdf | Page=23 | Type=image | Image=extracted_images\Donut_page23_img11.png
+04. Source=Donut.pdf | Page=1 | Type=text | Image=N/A
+05. Source=Donut.pdf | Page=3 | Type=text | Image=N/A
+06. Source=Donut.pdf | Page=14 | Type=text | Image=N/A
+07. Source=Donut.pdf | Page=10 | Type=text | Image=N/A
+08. Source=Donut.pdf | Page=1 | Type=text | Image=N/A
+09. Source=Donut.pdf | Page=3 | Type=text | Image=N/A
+10. Source=Donut.pdf | Page=2 | Type=text | Image=N/A
+11. Source=Donut.pdf | Page=3 | Type=text | Image=N/A
+================================================================================
+
+================================================================================
+STAGE 3 — MULTIMODAL RERANKING
+================================================================================
+Input Candidates : 11
+Reranked Output   : 11
+
+[RERANK #1] Source=Donut.pdf | Page=3 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a book with the text in english  OCR Text: OOCR-free Document Understanding Transformer 3  languages with complex character sets, such as Korean or Chinese, where the quality of OCR. is relatively low [50]. To deal with this, post-OCR correcti
+
+[RERANK #2] Source=Donut.pdf | Page=23 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT  Caption: a man holding up a piece of paper with the words on it  OCR Text: No readable text found in this image.  Nearby Document Text: OCR-free Document Understanding Transformer 23 Fig. A. Examples of SynthDoG. English, Chinese, Japanese and Korean samples are shown (from top
+
+[RERANK #3] Source=Donut.pdf | Page=23 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT  Caption: a person holding up a piece of paper  OCR Text: No readable text found in this image.  Nearby Document Text: OCR-free Document Understanding Transformer 23 Fig. A. Examples of SynthDoG. English, Chinese, Japanese and Korean samples are shown (from top to bottom). Altho
+
+[RERANK #4] Source=Donut.pdf | Page=1 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: languages or types of documents; 3) OCR error propagation to the sub- sequent process. To address these issues, in this paper, we introduce a novel OCR-free VDU model named Donut, which stands for Document understanding transformer. As the first step in OCR-free VDU research, we propose a simple arc
+
+[RERANK #5] Source=Donut.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: language flexibility straightforwardly pre-training with synthetic data. During fine-tuning stage, Donut learns how to understand the whole document accord- ing to the downstream task. We demonstrateDonut has a strong understanding ability through extensive evaluation on various VDU tasks and datase
+
+[RERANK #6] Source=Donut.pdf | Page=14 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: have also been proposed [48]. 5 Conclusions In this work, we propose a novel end-to-end framework for visual document un- derstanding. The proposed method, Donut, directly maps an input document image into a desired structured output. Unlike conventional methods, Donut does not depend on OCR and can
+
+[RERANK #7] Source=Donut.pdf | Page=10 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: in the official leader-board. 6 As can be seen, Donut achieves competitive scores with the baselines that are dependent on external OCR engines. Especially, Donut shows that it is robust to the handwritten documents, which is known to be challenging to process. In the conventional approach, adding a
+
+[RERANK #8] Source=Donut.pdf | Page=1 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: and a holistic understanding of the document . Current Visual Document Understanding (VDU) methods outsource the task of reading text to off- the-shelf Optical Character Recognition (OCR) engines and focus on the understanding task with the OCR outputs. Although such OCR-based approaches have shown 
+
+[RERANK #9] Source=Donut.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: conventional approaches that need to retrain an off-the-shelf OCR engine. 3. We conduct extensive experiments and analyses on both public benchmarks and private industrial datasets, showing that the proposed method achieves not only state-of-the-art performances on benchmarks but also has many pract
+
+[RERANK #10] Source=Donut.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: structured information from documents (a.k.a. document parsing) consists of three separate modules for text detection, text recognition, and parsing [22,24]. However, the OCR-dependent approach has critical problems. First of all, us- ing OCR as a pre-processing method is expensive. We can utilize p
+
+[RERANK #11] Source=Donut.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: 2 Method 2.1 Preliminary: background There have been various visual document understanding (VDU) methods to un- derstand and extract essential information from the semi-structured documents such as receipts [20,25,18], invoices [49], and form documents [14,6,43]. 1https://github.com/clovaai/donut.
+================================================================================
+
+================================================================================
+FINAL CONTEXT DOCUMENTS
+================================================================================
+Final context candidates: 11
+
+[FINAL #1] Source=Donut.pdf | Page=3 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a book with the text in english  OCR Text: OOCR-free Document Understanding Transformer 3  languages with complex character sets, such as Korean or Chinese, where the quality of OCR. is relatively low [50]. To deal with this, post-OCR correcti
+
+[FINAL #2] Source=Donut.pdf | Page=23 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT  Caption: a man holding up a piece of paper with the words on it  OCR Text: No readable text found in this image.  Nearby Document Text: OCR-free Document Understanding Transformer 23 Fig. A. Examples of SynthDoG. English, Chinese, Japanese and Korean samples are shown (from top
+
+[FINAL #3] Source=Donut.pdf | Page=23 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT  Caption: a person holding up a piece of paper  OCR Text: No readable text found in this image.  Nearby Document Text: OCR-free Document Understanding Transformer 23 Fig. A. Examples of SynthDoG. English, Chinese, Japanese and Korean samples are shown (from top to bottom). Altho
+
+[FINAL #4] Source=Donut.pdf | Page=1 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: languages or types of documents; 3) OCR error propagation to the sub- sequent process. To address these issues, in this paper, we introduce a novel OCR-free VDU model named Donut, which stands for Document understanding transformer. As the first step in OCR-free VDU research, we propose a simple arc
+
+[FINAL #5] Source=Donut.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: language flexibility straightforwardly pre-training with synthetic data. During fine-tuning stage, Donut learns how to understand the whole document accord- ing to the downstream task. We demonstrateDonut has a strong understanding ability through extensive evaluation on various VDU tasks and datase
+
+[FINAL #6] Source=Donut.pdf | Page=14 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: have also been proposed [48]. 5 Conclusions In this work, we propose a novel end-to-end framework for visual document un- derstanding. The proposed method, Donut, directly maps an input document image into a desired structured output. Unlike conventional methods, Donut does not depend on OCR and can
+
+[FINAL #7] Source=Donut.pdf | Page=10 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: in the official leader-board. 6 As can be seen, Donut achieves competitive scores with the baselines that are dependent on external OCR engines. Especially, Donut shows that it is robust to the handwritten documents, which is known to be challenging to process. In the conventional approach, adding a
+
+[FINAL #8] Source=Donut.pdf | Page=1 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: and a holistic understanding of the document . Current Visual Document Understanding (VDU) methods outsource the task of reading text to off- the-shelf Optical Character Recognition (OCR) engines and focus on the understanding task with the OCR outputs. Although such OCR-based approaches have shown 
+
+[FINAL #9] Source=Donut.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: conventional approaches that need to retrain an off-the-shelf OCR engine. 3. We conduct extensive experiments and analyses on both public benchmarks and private industrial datasets, showing that the proposed method achieves not only state-of-the-art performances on benchmarks but also has many pract
+
+[FINAL #10] Source=Donut.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: structured information from documents (a.k.a. document parsing) consists of three separate modules for text detection, text recognition, and parsing [22,24]. However, the OCR-dependent approach has critical problems. First of all, us- ing OCR as a pre-processing method is expensive. We can utilize p
+
+[FINAL #11] Source=Donut.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: 2 Method 2.1 Preliminary: background There have been various visual document understanding (VDU) methods to un- derstand and extract essential information from the semi-structured documents such as receipts [20,25,18], invoices [49], and form documents [14,6,43]. 1https://github.com/clovaai/donut.
+================================================================================
+
+================================================================================
+FINAL CONTEXT SENT TO LLM
+================================================================================
+
+================================================================================
+DOCUMENT : Donut.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 1
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+languages or types of documents; 3) OCR error propagation to the sub-
+sequent process. To address these issues, in this paper, we introduce a
+novel OCR-free VDU model named Donut, which stands for Document
+understanding transformer. As the first step in OCR-free VDU research,
+we propose a simple architecture ( i.e., Transformer) with a pre-training
+objective ( i.e., cross-entropy loss). Donut is conceptually simple yet ef-
+fective. Through extensive experiments and analyses, we show a simple
+OCR-free VDU model, Donut, achieves state-of-the-art performances on
+
+
+[TEXT]
+
+and a holistic understanding of the document . Current Visual Document
+Understanding (VDU) methods outsource the task of reading text to off-
+the-shelf Optical Character Recognition (OCR) engines and focus on the
+understanding task with the OCR outputs. Although such OCR-based
+approaches have shown promising performance, they suffer from 1) high
+computational costs for using OCR; 2) inflexibility of OCR models on
+languages or types of documents; 3) OCR error propagation to the sub-
+sequent process. To address these issues, in this paper, we introduce a
+
+
+--------------------------------------------------------------------------------
+PAGE : 2
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+structured information from documents (a.k.a. document parsing) consists of
+three separate modules for text detection, text recognition, and parsing [22,24].
+However, the OCR-dependent approach has critical problems. First of all, us-
+ing OCR as a pre-processing method is expensive. We can utilize pre-trained off-
+the-shelf OCR engines; however, the computational cost for inference would be
+expensive for high-quality OCR results. Moreover, the off-the-shelf OCR meth-
+ods rarely have flexibility dealing with different languages or domain changes,
+
+
+--------------------------------------------------------------------------------
+PAGE : 3
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+language flexibility straightforwardly pre-training with synthetic data. During
+fine-tuning stage, Donut learns how to understand the whole document accord-
+ing to the downstream task. We demonstrateDonut has a strong understanding
+ability through extensive evaluation on various VDU tasks and datasets. The
+experiments show a simple OCR-free VDU model can achieve state-of-the-art
+performance in terms of both speed and accuracy.
+The contributions are summarized as follows:
+1. We propose a novel OCR-free approach for VDU. To the best of our knowl-
+
+
+[TEXT]
+
+conventional approaches that need to retrain an off-the-shelf OCR engine.
+3. We conduct extensive experiments and analyses on both public benchmarks
+and private industrial datasets, showing that the proposed method achieves
+not only state-of-the-art performances on benchmarks but also has many
+practical advantages (e.g., cost-effective) in real-world applications.
+4. The codebase, pre-trained model, and synthetic data are available at GitHub.1
+2 Method
+2.1 Preliminary: background
+There have been various visual document understanding (VDU) methods to un-
+
+
+[TEXT]
+
+2 Method
+2.1 Preliminary: background
+There have been various visual document understanding (VDU) methods to un-
+derstand and extract essential information from the semi-structured documents
+such as receipts [20,25,18], invoices [49], and form documents [14,6,43].
+1https://github.com/clovaai/donut.
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a page from a book with the text in english
+
+OCR Text:
+OOCR-free Document Understanding Transformer 3
+
+languages with complex character sets, such as Korean or Chinese, where the
+quality of OCR. is relatively low [50]. To deal with this, post-OCR correction
+module [51,50,10] is usually adopted. However, it is not a practical solution for
+real application environments since it increases the entire system size and main-
+tenance cost.
+
+We go beyond the traditional framework by modeling a direct mapping from
+a raw input image to the desired output without OCR. We introduce a new
+OCR-free VDU model to address the problems induced by the OCR-dependency.
+Our model is based on Transformer-only architecture, referred to as Document
+understanding transformer (Donut), following the huge success in vision and
+language [8,9,29]. We present a minimal baseline including a simple architecture
+and pre-training method. Despite its simplicity, Donut shows comparable or
+better overall performance than previous methods as shown in Figure 2.
+
+We take pre-train-and-fine-tune scheme [8,65] on Donut training. In the
+pre-training phase, Donut learns how to read the texts by predicting the next
+words by conditioning jointly on the image and previous text contexts. Donut
+is pre-trained with document images and their text annotations. Since our pre-
+training objective is simple (7.e., reading the texts), we can realize domain and
+language flexibility straightforwardly pre-training with synthetic data. During
+fine-tuning stage, Donut learns how to understand the whole document accord-
+ing to the downstream task. We demonstrate Donut has a strong understanding
+ability through extensive evaluation on various VDU tasks and datasets. The
+experiments show a simple OCR-free VDU model can achieve state-of-the-art
+performance in terms of both speed and accuracy.
+
+The contributions are summarized as follows:
+
+1. We propose a novel OCR-free approach for VDU. To the best of our knowl-
+edge, this is the first method based on an OCR-free Transformer trained in
+end-to-end manner.
+
+2. We introduce a simple pre-training scheme that enables the utilization of
+synthetic data. By using our generator SynthDoG, we show Donut can
+easily be extended to a multi-lingual setting, which is not applicable for the
+conventional approaches that need to retrain an off-the-shelf OCR engine.
+
+3. We conduct extensive experiments and analyses on both public benchmarks
+and private industrial datasets, showing that the proposed method achieves
+not only state-of-the-art performances on benchmarks but also has many
+practical advantages (e.g., cost-effective) in real-world applications.
+
+4. The codebase, pre-trained model, and synthetic data are available at GitHub.?
+
+2 Method
+
+2.1 Preliminary: background
+
+There have been various visual document understanding (VDU) methods to un-
+derstand and extract essential information from the semi-structured documents
+such as receipts [20,25,18], invoices [49], and form documents [14,6,43].
+
+https ://github.com/clovaai/donut.
+
+Nearby Document Text:
+OCR-free Document Understanding Transformer
+3
+languages with complex character sets, such as Korean or Chinese, where the
+quality of OCR is relatively low [50]. To deal with this, post-OCR correction
+module [51,50,10] is usually adopted. However, it is not a practical solution for
+real application environments since it increases the entire system size and main-
+tenance cost.
+We go beyond the traditional framework by modeling a direct mapping from
+a raw input image to the desired output without OCR. We introduce a new
+OCR-free VDU model to address the problems induced by the OCR-dependency.
+Our
+
+
+[RELATED PAGE TEXT]
+
+language flexibility straightforwardly pre-training with synthetic data. During
+fine-tuning stage, Donut learns how to understand the whole document accord-
+ing to the downstream task. We demonstrateDonut has a strong understanding
+ability through extensive evaluation on various VDU tasks and datasets. The
+experiments show a simple OCR-free VDU mod
+
+
+--------------------------------------------------------------------------------
+PAGE : 10
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+in the official leader-board. 6
+As can be seen, Donut achieves competitive scores with the baselines that
+are dependent on external OCR engines. Especially, Donut shows that it is robust
+to the handwritten documents, which is known to be challenging to process. In
+the conventional approach, adding a post-processing module that corrects OCR
+6https://rrc.cvc.uab.es/?ch=17&com=evaluation&task=1.
+
+
+--------------------------------------------------------------------------------
+PAGE : 14
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+have also been proposed [48].
+5 Conclusions
+In this work, we propose a novel end-to-end framework for visual document un-
+derstanding. The proposed method, Donut, directly maps an input document
+image into a desired structured output. Unlike conventional methods, Donut
+does not depend on OCR and can easily be trained in an end-to-end fashion. We
+also propose a synthetic document image generator, SynthDoG, to alleviate the
+dependency on large-scale real document images and we show that Donut can
+be easily extended to a multi-lingual setting. We gradually trained the model
+
+
+--------------------------------------------------------------------------------
+PAGE : 23
+--------------------------------------------------------------------------------
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT
+
+Caption:
+a man holding up a piece of paper with the words on it
+
+OCR Text:
+No readable text found in this image.
+
+Nearby Document Text:
+OCR-free Document Understanding Transformer
+23
+Fig. A. Examples of SynthDoG. English, Chinese, Japanese and Korean samples
+are shown (from top to bottom). Although the idea is simple, these synthetic samples
+play an important role in the pre-training of Donut. Please, see Figure 7 in the main
+paper for details
+A.2
+Details of Synthetic Document Generator (SynthDoG)
+In this section, we explain the components of the proposed Synthetic Document
+Generator (SynthDoG) in detail. The entire pipeline basically follows Yim et
+al. [67]. Our source code is available at https://github.com/clovaai/donut.
+Mo
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT
+
+Caption:
+a person holding up a piece of paper
+
+OCR Text:
+No readable text found in this image.
+
+Nearby Document Text:
+OCR-free Document Understanding Transformer
+23
+Fig. A. Examples of SynthDoG. English, Chinese, Japanese and Korean samples
+are shown (from top to bottom). Although the idea is simple, these synthetic samples
+play an important role in the pre-training of Donut. Please, see Figure 7 in the main
+paper for details
+A.2
+Details of Synthetic Document Generator (SynthDoG)
+In this section, we explain the components of the proposed Synthetic Document
+Generator (SynthDoG) in detail. The entire pipeline basically follows Yim et
+al. [67]. Our source code is available at https://github.com/clovaai/donut.
+Mo
+
+================================================================================
+
+================================================================================
+RAG PIPELINE DEBUG
+================================================================================
+Query Type        : analytical
+Retrieved Chunks  : 8
+Retrieved Images  : 3
+Reranked Chunks   : 11
+Reranked Text     : 8
+Reranked Images   : 3
+Final Context Docs: 11
+Exact Figure Query: False
+Exact Figure Match: False
+Exact Figure Final: False
+================================================================================
+
+================================================================================
+STAGE 4 — EVIDENCE VERIFICATION
+================================================================================
+Verification Units : 5
+Supported          : 4
+Partially Supported: 1
+Unsupported        : 0
+Unknown            : 0
+Groundedness Ratio : 0.80
+
+[CLAIM #1] The paper argues that Donut's OCR-free approach can be advantageous for multilingual document understanding and real-world deployment due to several reasons.
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.8662 | Citation=Donut.pdf (Page 3)
+
+[CLAIM #2] First, it eliminates the need to retrain an off-the-shelf OCR engine for different languages or domain changes, which can be expensive and inflexible.
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.5371 | Citation=Donut.pdf (Page 3)
+
+[CLAIM #3] Second, it addresses the issue of OCR error propagation to subsequent processes, which can occur in OCR-based approaches.
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.5864 | Citation=Donut.pdf (Page 3)
+
+[CLAIM #4] Lastly, it is cost-effective, as using pre-trained off-the-shelf OCR engines for high-quality OCR results can be computationally expensive.
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.9551 | Citation=Donut.pdf (Page 2)
+
+[CLAIM #5] These advantages make Donut suitable for real-world applications.
+  Status=PARTIALLY_SUPPORTED | NLI=NEUTRAL | Confidence=0.6738 | Citation=Donut.pdf (Page 3)
+================================================================================
+
+====================================================================================================
+RAG ANSWER
+====================================================================================================
+ The paper argues that Donut's OCR-free approach can be advantageous for multilingual document understanding and real-world deployment due to several reasons. First, it eliminates the need to retrain an off-the-shelf OCR engine for different languages or domain changes, which can be expensive and inflexible. Second, it addresses the issue of OCR error propagation to subsequent processes, which can occur in OCR-based approaches. Lastly, it is cost-effective, as using pre-trained off-the-shelf OCR engines for high-quality OCR results can be computationally expensive. These advantages make Donut suitable for real-world applications.
+
+IMAGE PATHS:
+D:/Projects/Major-Project-2-main/extracted_images/Donut_page3_render.png
+D:/Projects/Major-Project-2-main/extracted_images/Donut_page23_img1.png
+D:/Projects/Major-Project-2-main/extracted_images/Donut_page23_img11.png

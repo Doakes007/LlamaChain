@@ -1,0 +1,1244 @@
+====================================================================================================
+QUESTION_ID   : NLP-Q7
+DOCUMENT      : NLP
+QUESTION_TYPE : Performance Table
+ELAPSED_SEC   : 56.6
+ERROR         : no
+====================================================================================================
+
+QUESTION:
+Which model achieves the highest overall accuracy among Naive Bayes, SVM, BiLSTM, BERT fine-tuned, and RoBERTa, and what is its accuracy?
+
+GROUND TRUTH ANSWER:
+RoBERTa, with the highest overall accuracy of 94.1%.
+
+GROUND TRUTH SOURCE:
+NLP Paper(2).pdf, p. 3 (Figure 2)
+
+====================================================================================================
+FORENSIC TRANSCRIPT
+====================================================================================================
+
+####################################################################################################
+FORENSIC CASE START
+####################################################################################################
+Original Query   : Which model achieves the highest overall accuracy among Naive Bayes, SVM, BiLSTM, BERT fine-tuned, and RoBERTa, and what is its accuracy?
+Expanded Query   : Which model achieves the highest overall accuracy among Naive Bayes, SVM, BiLSTM, BERT fine-tuned, and RoBERTa, and what is its accuracy?
+Query Type       : factual
+[DOCUMENT SCOPE] Normalized query: 'which model achieves the highest overall accuracy among naive bayes svm bi lstm bert fine tuned and ro ber ta and what is its accuracy'
+[DOCUMENT SCOPE] Source='BERT.pdf' -> Normalized='bert'
+[DOCUMENT SCOPE] EXACT MATCH -> BERT.pdf
+[DOCUMENT SCOPE] Source='BLIP-2.pdf' -> Normalized='blip 2'
+[DOCUMENT SCOPE] Token overlap for 'BLIP-2.pdf': []
+[DOCUMENT SCOPE] Source='CLIP.pdf' -> Normalized='clip'
+[DOCUMENT SCOPE] Token overlap for 'CLIP.pdf': []
+[DOCUMENT SCOPE] Source='CNN Paper.pdf' -> Normalized='cnn paper'
+[DOCUMENT SCOPE] Token overlap for 'CNN Paper.pdf': []
+[DOCUMENT SCOPE] Source='Donut.pdf' -> Normalized='donut'
+[DOCUMENT SCOPE] Token overlap for 'Donut.pdf': []
+[DOCUMENT SCOPE] Source='LayoutLMv3.pdf' -> Normalized='layout l mv3'
+[DOCUMENT SCOPE] Token overlap for 'LayoutLMv3.pdf': []
+[DOCUMENT SCOPE] Source='NLP Paper.pdf' -> Normalized='nlp paper'
+[DOCUMENT SCOPE] Token overlap for 'NLP Paper.pdf': []
+[DOCUMENT SCOPE] Source='RAG.pdf' -> Normalized='rag'
+[DOCUMENT SCOPE] Token overlap for 'RAG.pdf': []
+[DOCUMENT SCOPE] Source='Self-RAG.pdf' -> Normalized='self rag'
+[DOCUMENT SCOPE] Token overlap for 'Self-RAG.pdf': []
+[DOCUMENT SCOPE] Source='Vision Transformer.pdf' -> Normalized='vision transformer'
+[DOCUMENT SCOPE] Token overlap for 'Vision Transformer.pdf': []
+[DOCUMENT SCOPE] Final matched sources: ['BERT.pdf']
+
+================================================================================
+DOCUMENT SCOPE DEBUG
+================================================================================
+Query          : Which model achieves the highest overall accuracy among Naive Bayes, SVM, BiLSTM, BERT fine-tuned, and RoBERTa, and what is its accuracy?
+Expanded Query : Which model achieves the highest overall accuracy among Naive Bayes, SVM, BiLSTM, BERT fine-tuned, and RoBERTa, and what is its accuracy?
+Query Type     : factual
+Document Scope : ['BERT.pdf']
+================================================================================
+
+==========================================================================================
+STEP 3A — SCOPED HYBRID RETRIEVAL
+==========================================================================================
+Query              : Which model achieves the highest overall accuracy among Naive Bayes, SVM, BiLSTM, BERT fine-tuned, and RoBERTa, and what is its accuracy?
+Sources            : ['BERT.pdf']
+Dense candidate K  : 25
+Final hybrid K     : 8
+
+------------------------------------------------------------------------------------------
+[SCOPED DENSE / VECTOR RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=BERT.pdf | Page=7 | Type=text | Image=N/A
+    Content=We did not use TriviaQA data for this model. We ﬁne-tuned for 2 epochs with a learning rate of 5e-5 and a batch size of 48. The results compared to prior leaderboard en- tries and 
+02. Source=BERT.pdf | Page=6 | Type=text | Image=N/A
+    Content=form different ﬁne-tuning data shufﬂing and clas- siﬁer layer initialization.9 Results are presented in Table 1. Both BERTBASE and BERTLARGE outperform all sys- tems on all tasks b
+03. Source=BERT.pdf | Page=8 | Type=text | Image=N/A
+    Content=Set accuracy from 5 random restarts of ﬁne-tuning. We can see that larger models lead to a strict ac- curacy improvement across all four datasets, even for MRPC which only has 3,60
+04. Source=BERT.pdf | Page=8 | Type=text | Image=N/A
+    Content=than a deep bidirectional model, since it can use both left and right context at every layer. 5.2 Effect of Model Size In this section, we explore the effect of model size on ﬁne-t
+05. Source=BERT.pdf | Page=3 | Type=text | Image=N/A
+    Content=tuning, the BERT model is ﬁrst initialized with the pre-trained parameters, and all of the param- eters are ﬁne-tuned using labeled data from the downstream tasks. Each downstream 
+06. Source=BERT.pdf | Page=3 | Type=text | Image=N/A
+    Content=eters=110M) and BERTLARGE (L=24, H=1024, A=16, Total Parameters=340M). BERTBASE was chosen to have the same model size as OpenAI GPT for comparison purposes. Critically, however, t
+07. Source=BERT.pdf | Page=16 | Type=text | Image=N/A
+    Content=jority class. C Additional Ablation Studies C.1 Effect of Number of Training Steps Figure 5 presents MNLI Dev accuracy after ﬁne- tuning from a checkpoint that has been pre-trained
+08. Source=BERT.pdf | Page=8 | Type=text | Image=N/A
+    Content=on large-scale tasks such as machine translation and language modeling, which is demonstrated by the LM perplexity of held-out training data shown in Table 6. However, we believe t
+09. Source=BERT.pdf | Page=8 | Type=text | Image=N/A
+    Content=prediction, like OpenAI GPT. “+ BiLSTM” adds a ran- domly initialized BiLSTM on top of the “LTR + No NSP” model during ﬁne-tuning. ablation studies can be found in Appendix C. 5.1 
+10. Source=BERT.pdf | Page=9 | Type=text | Image=N/A
+    Content=training data once and then run many experiments with cheaper models on top of this representation. In this section, we compare the two approaches by applying BERT to the CoNLL-200
+11. Source=BERT.pdf | Page=13 | Type=text | Image=N/A
+    Content=left LSTMs to generate features for downstream tasks. Among the three, only BERT representations are jointly conditioned on both left and right context in all layers. In addition t
+12. Source=BERT.pdf | Page=13 | Type=text | Image=N/A
+    Content=128 for 90% of the steps. Then, we train the rest 10% of the steps of sequence of 512 to learn the positional embeddings. A.3 Fine-tuning Procedure For ﬁne-tuning, most model hyper
+13. Source=BERT.pdf | Page=16 | Type=text | Image=N/A
+    Content=shows the MNLI accuracy after ﬁne-tuning, starting from model parameters that have been pre-trained for k steps. The x-axis is the value ofk. Note that the purpose of the masking s
+14. Source=BERT.pdf | Page=13 | Type=text | Image=N/A
+    Content=likelihood. Training of BERT BASE was performed on 4 Cloud TPUs in Pod conﬁguration (16 TPU chips total).13 Training of BERTLARGE was performed on 16 Cloud TPUs (64 TPU chips total
+15. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+    Content=BERT is conceptually simple and empirically powerful. It obtains new state-of-the-art re- sults on eleven natural language processing tasks, including pushing the GLUE score to 80.
+16. Source=BERT.pdf | Page=14 | Type=text | Image=N/A
+    Content=• Learning rate (Adam): 5e-5, 3e-5, 2e-5 • Number of epochs: 2, 3, 4 We also observed that large data sets (e.g., 100k+ labeled training examples) were far less sensitive to hyperp
+17. Source=BERT.pdf | Page=3 | Type=text | Image=N/A
+    Content=strated the importance of transfer learning from large pre-trained models, where an effective recipe is to ﬁne-tune models pre-trained with Ima- geNet (Deng et al., 2009; Yosinski 
+18. Source=BERT.pdf | Page=6 | Type=text | Image=N/A
+    Content=et al., 2017) befor ﬁne-tuning on SQuAD. Our best performing system outperforms the top leaderboard system by +1.5 F1 in ensembling and +1.3 F1 as a single system. In fact, our sin
+19. Source=BERT.pdf | Page=6 | Type=text | Image=N/A
+    Content=all of the words in the paragraph: Pi = eS·Ti ∑ j eS·Tj . The analogous formula is used for the end of the answer span. The score of a candidate span from positioni to positionj is
+20. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+    Content=BERT alleviates the previously mentioned unidi- rectionality constraint by using a “masked lan- guage model” (MLM) pre-training objective, in- spired by the Cloze task (Taylor, 195
+21. Source=BERT.pdf | Page=10 | Type=text | Image=N/A
+    Content=for learning predictive structures from multiple tasks and unlabeled data. Journal of Machine Learning Research, 6(Nov):1817–1853. Luisa Bentivogli, Bernardo Magnini, Ido Dagan, Ho
+22. Source=BERT.pdf | Page=9 | Type=text | Image=N/A
+    Content=mixed results on the downstream task impact of increasing the pre-trained bi-LM size from two to four layers and Melamud et al. (2016) men- tioned in passing that increasing hidden
+23. Source=BERT.pdf | Page=5 | Type=text | Image=N/A
+    Content=pute a standard classiﬁcation loss with C andW , i.e., log(softmax(CW T )). 7For example, the BERT SQuAD model can be trained in around 30 minutes on a single Cloud TPU to achieve 
+24. Source=BERT.pdf | Page=2 | Type=text | Image=N/A
+    Content=neural (Mikolov et al., 2013; Pennington et al., 2014) methods. Pre-trained word embeddings are an integral part of modern NLP systems, of- fering signiﬁcant improvements over embe
+25. Source=BERT.pdf | Page=7 | Type=text | Image=N/A
+    Content=swer span with start and end at the [CLS] to- ken. The probability space for the start and end answer span positions is extended to include the position of the [CLS] token. For pre
+
+------------------------------------------------------------------------------------------
+[SCOPED BM25 RETRIEVAL] 9 candidates
+------------------------------------------------------------------------------------------
+01. Source=BERT.pdf | Page=16 | Type=text | Image=N/A
+    Content=jority class. C Additional Ablation Studies C.1 Effect of Number of Training Steps Figure 5 presents MNLI Dev accuracy after ﬁne- tuning from a checkpoint that has been pre-trained
+02. Source=BERT.pdf | Page=4 | Type=text | Image=N/A
+    Content=and 50% of the time it is a random sentence from the corpus (labeled as NotNext). As we show in Figure 1, C is used for next sentence predic- tion (NSP). 5 Despite its simplicity, 
+03. Source=BERT.pdf | Page=3 | Type=text | Image=N/A
+    Content=strated the importance of transfer learning from large pre-trained models, where an effective recipe is to ﬁne-tune models pre-trained with Ima- geNet (Deng et al., 2009; Yosinski 
+04. Source=BERT.pdf | Page=2 | Type=text | Image=N/A
+    Content=• We show that pre-trained representations reduce the need for many heavily-engineered task- speciﬁc architectures. BERT is the ﬁrst ﬁne- tuning based representation model that ach
+05. Source=BERT.pdf | Page=3 | Type=image | Image=extracted_images\BERT_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a circuit and a circuit  OCR Text: Mask LM  Masked Sentence A Masked Sentence B  Unlabeled Se
+06. Source=BERT.pdf | Page=3 | Type=text | Image=N/A
+    Content=tuning, the BERT model is ﬁrst initialized with the pre-trained parameters, and all of the param- eters are ﬁne-tuned using labeled data from the downstream tasks. Each downstream 
+07. Source=BERT.pdf | Page=6 | Type=text | Image=N/A
+    Content=form different ﬁne-tuning data shufﬂing and clas- siﬁer layer initialization.9 Results are presented in Table 1. Both BERTBASE and BERTLARGE outperform all sys- tems on all tasks b
+08. Source=BERT.pdf | Page=6 | Type=text | Image=N/A
+    Content=Table 1: GLUE Test results, scored by the evaluation server ( https://gluebenchmark.com/leaderboard). The number below each task denotes the number of training examples. The “Avera
+09. Source=BERT.pdf | Page=3 | Type=text | Image=N/A
+    Content=eters=110M) and BERTLARGE (L=24, H=1024, A=16, Total Parameters=340M). BERTBASE was chosen to have the same model size as OpenAI GPT for comparison purposes. Critically, however, t
+
+------------------------------------------------------------------------------------------
+[RRF FUSION RANKING]
+------------------------------------------------------------------------------------------
+01. RRF=0.031319 | DenseRank=7 | BM25Rank=1 | Source=BERT.pdf | Page=16 | Type=text
+02. RRF=0.031054 | DenseRank=2 | BM25Rank=7 | Source=BERT.pdf | Page=6 | Type=text
+03. RRF=0.030536 | DenseRank=5 | BM25Rank=6 | Source=BERT.pdf | Page=3 | Type=text
+04. RRF=0.029644 | DenseRank=6 | BM25Rank=9 | Source=BERT.pdf | Page=3 | Type=text
+05. RRF=0.028860 | DenseRank=17 | BM25Rank=3 | Source=BERT.pdf | Page=3 | Type=text
+06. RRF=0.016393 | DenseRank=1 | BM25Rank=- | Source=BERT.pdf | Page=7 | Type=text
+07. RRF=0.016129 | DenseRank=- | BM25Rank=2 | Source=BERT.pdf | Page=4 | Type=text
+08. RRF=0.015873 | DenseRank=3 | BM25Rank=- | Source=BERT.pdf | Page=8 | Type=text
+09. RRF=0.015625 | DenseRank=4 | BM25Rank=- | Source=BERT.pdf | Page=8 | Type=text
+10. RRF=0.015625 | DenseRank=- | BM25Rank=4 | Source=BERT.pdf | Page=2 | Type=text
+11. RRF=0.015385 | DenseRank=- | BM25Rank=5 | Source=BERT.pdf | Page=3 | Type=image
+12. RRF=0.014706 | DenseRank=8 | BM25Rank=- | Source=BERT.pdf | Page=8 | Type=text
+13. RRF=0.014706 | DenseRank=- | BM25Rank=8 | Source=BERT.pdf | Page=6 | Type=text
+14. RRF=0.014493 | DenseRank=9 | BM25Rank=- | Source=BERT.pdf | Page=8 | Type=text
+15. RRF=0.014286 | DenseRank=10 | BM25Rank=- | Source=BERT.pdf | Page=9 | Type=text
+16. RRF=0.014085 | DenseRank=11 | BM25Rank=- | Source=BERT.pdf | Page=13 | Type=text
+17. RRF=0.013889 | DenseRank=12 | BM25Rank=- | Source=BERT.pdf | Page=13 | Type=text
+18. RRF=0.013699 | DenseRank=13 | BM25Rank=- | Source=BERT.pdf | Page=16 | Type=text
+19. RRF=0.013514 | DenseRank=14 | BM25Rank=- | Source=BERT.pdf | Page=13 | Type=text
+20. RRF=0.013333 | DenseRank=15 | BM25Rank=- | Source=BERT.pdf | Page=1 | Type=text
+21. RRF=0.013158 | DenseRank=16 | BM25Rank=- | Source=BERT.pdf | Page=14 | Type=text
+22. RRF=0.012821 | DenseRank=18 | BM25Rank=- | Source=BERT.pdf | Page=6 | Type=text
+23. RRF=0.012658 | DenseRank=19 | BM25Rank=- | Source=BERT.pdf | Page=6 | Type=text
+24. RRF=0.012500 | DenseRank=20 | BM25Rank=- | Source=BERT.pdf | Page=1 | Type=text
+25. RRF=0.012346 | DenseRank=21 | BM25Rank=- | Source=BERT.pdf | Page=10 | Type=text
+26. RRF=0.012195 | DenseRank=22 | BM25Rank=- | Source=BERT.pdf | Page=9 | Type=text
+27. RRF=0.012048 | DenseRank=23 | BM25Rank=- | Source=BERT.pdf | Page=5 | Type=text
+28. RRF=0.011905 | DenseRank=24 | BM25Rank=- | Source=BERT.pdf | Page=2 | Type=text
+29. RRF=0.011765 | DenseRank=25 | BM25Rank=- | Source=BERT.pdf | Page=7 | Type=text
+------------------------------------------------------------------------------------------
+
+==========================================================================================
+STEP 3A — RETRIEVAL STAGE SUMMARY
+==========================================================================================
+Dense candidates       : 25
+BM25 candidates        : 9
+Dense ∩ BM25           : 5
+Dense-only candidates  : 20
+BM25-only candidates   : 4
+Unique candidate pool  : 29
+RRF candidates         : 29
+Returned to pipeline   : 8
+==========================================================================================
+
+------------------------------------------------------------------------------------------
+[SCOPED FINAL HYBRID RESULT] 8 candidates
+------------------------------------------------------------------------------------------
+01. Source=BERT.pdf | Page=16 | Type=text | Image=N/A
+    Content=jority class. C Additional Ablation Studies C.1 Effect of Number of Training Steps Figure 5 presents MNLI Dev accuracy after ﬁne- tuning from a checkpoint that has been pre-trained
+02. Source=BERT.pdf | Page=6 | Type=text | Image=N/A
+    Content=form different ﬁne-tuning data shufﬂing and clas- siﬁer layer initialization.9 Results are presented in Table 1. Both BERTBASE and BERTLARGE outperform all sys- tems on all tasks b
+03. Source=BERT.pdf | Page=3 | Type=text | Image=N/A
+    Content=tuning, the BERT model is ﬁrst initialized with the pre-trained parameters, and all of the param- eters are ﬁne-tuned using labeled data from the downstream tasks. Each downstream 
+04. Source=BERT.pdf | Page=3 | Type=text | Image=N/A
+    Content=eters=110M) and BERTLARGE (L=24, H=1024, A=16, Total Parameters=340M). BERTBASE was chosen to have the same model size as OpenAI GPT for comparison purposes. Critically, however, t
+05. Source=BERT.pdf | Page=3 | Type=text | Image=N/A
+    Content=strated the importance of transfer learning from large pre-trained models, where an effective recipe is to ﬁne-tune models pre-trained with Ima- geNet (Deng et al., 2009; Yosinski 
+06. Source=BERT.pdf | Page=7 | Type=text | Image=N/A
+    Content=We did not use TriviaQA data for this model. We ﬁne-tuned for 2 epochs with a learning rate of 5e-5 and a batch size of 48. The results compared to prior leaderboard en- tries and 
+07. Source=BERT.pdf | Page=4 | Type=text | Image=N/A
+    Content=and 50% of the time it is a random sentence from the corpus (labeled as NotNext). As we show in Figure 1, C is used for next sentence predic- tion (NSP). 5 Despite its simplicity, 
+08. Source=BERT.pdf | Page=8 | Type=text | Image=N/A
+    Content=Set accuracy from 5 random restarts of ﬁne-tuning. We can see that larger models lead to a strict ac- curacy improvement across all four datasets, even for MRPC which only has 3,60
+==========================================================================================
+
+================================================================================
+STAGE 1 — HYBRID RETRIEVAL
+================================================================================
+Retrieved Count : 8
+
+[HYBRID #1] Source=BERT.pdf | Page=16 | Type=text
+Content: jority class. C Additional Ablation Studies C.1 Effect of Number of Training Steps Figure 5 presents MNLI Dev accuracy after ﬁne- tuning from a checkpoint that has been pre-trained fork steps. This allows us to answer the following questions: 1. Question: Does BERT really need such a large amount of pre-training (128,000 words/batch * 1,000,000 steps) to achieve high ﬁne-tuning accuracy? Answer: Yes, BERT BASE achieves almost 1.0% additional accuracy on MNLI when trained on 1M steps compared to 
+
+[HYBRID #2] Source=BERT.pdf | Page=6 | Type=text
+Content: form different ﬁne-tuning data shufﬂing and clas- siﬁer layer initialization.9 Results are presented in Table 1. Both BERTBASE and BERTLARGE outperform all sys- tems on all tasks by a substantial margin, obtaining 4.5% and 7.0% respective average accuracy im- provement over the prior state of the art. Note that BERTBASE and OpenAI GPT are nearly identical in terms of model architecture apart from the at- tention masking. For the largest and most widely reported GLUE task, MNLI, BERT obtains a 4.
+
+[HYBRID #3] Source=BERT.pdf | Page=3 | Type=text
+Content: tuning, the BERT model is ﬁrst initialized with the pre-trained parameters, and all of the param- eters are ﬁne-tuned using labeled data from the downstream tasks. Each downstream task has sep- arate ﬁne-tuned models, even though they are ini- tialized with the same pre-trained parameters. The question-answering example in Figure 1 will serve as a running example for this section. A distinctive feature of BERT is its uniﬁed ar- chitecture across different tasks. There is mini- mal difference bet
+
+[HYBRID #4] Source=BERT.pdf | Page=3 | Type=text
+Content: eters=110M) and BERTLARGE (L=24, H=1024, A=16, Total Parameters=340M). BERTBASE was chosen to have the same model size as OpenAI GPT for comparison purposes. Critically, however, the BERT Transformer uses bidirectional self-attention, while the GPT Trans- former uses constrained self-attention where every token can only attend to context to its left.4 1https://github.com/tensorﬂow/tensor2tensor 2http://nlp.seas.harvard.edu/2018/04/03/attention.html 3In all cases we set the feed-forward/ﬁlter siz
+
+[HYBRID #5] Source=BERT.pdf | Page=3 | Type=text
+Content: strated the importance of transfer learning from large pre-trained models, where an effective recipe is to ﬁne-tune models pre-trained with Ima- geNet (Deng et al., 2009; Yosinski et al., 2014). 3 BERT We introduce BERT and its detailed implementa- tion in this section. There are two steps in our framework: pre-training and ﬁne-tuning. Dur- ing pre-training, the model is trained on unlabeled data over different pre-training tasks. For ﬁne- tuning, the BERT model is ﬁrst initialized with the pre-
+
+[HYBRID #6] Source=BERT.pdf | Page=7 | Type=text
+Content: We did not use TriviaQA data for this model. We ﬁne-tuned for 2 epochs with a learning rate of 5e-5 and a batch size of 48. The results compared to prior leaderboard en- tries and top published work (Sun et al., 2018; Wang et al., 2018b) are shown in Table 3, exclud- ing systems that use BERT as one of their com- ponents. We observe a +5.1 F1 improvement over the previous best system. 4.4 SW AG The Situations With Adversarial Generations (SW AG) dataset contains 113k sentence-pair com- pletion e
+
+[HYBRID #7] Source=BERT.pdf | Page=4 | Type=text
+Content: and 50% of the time it is a random sentence from the corpus (labeled as NotNext). As we show in Figure 1, C is used for next sentence predic- tion (NSP). 5 Despite its simplicity, we demon- strate in Section 5.1 that pre-training towards this task is very beneﬁcial to both QA and NLI. 6 5The ﬁnal model achieves 97%-98% accuracy on NSP. 6The vector C is not a meaningful sentence representation without ﬁne-tuning, since it was trained with NSP.
+
+[HYBRID #8] Source=BERT.pdf | Page=8 | Type=text
+Content: Set accuracy from 5 random restarts of ﬁne-tuning. We can see that larger models lead to a strict ac- curacy improvement across all four datasets, even for MRPC which only has 3,600 labeled train- ing examples, and is substantially different from the pre-training tasks. It is also perhaps surpris- ing that we are able to achieve such signiﬁcant improvements on top of models which are al- ready quite large relative to the existing literature. For example, the largest Transformer explored in Vaswa
+================================================================================
+[DOCUMENT SCOPE] Text chunks: 8 -> 8
+
+================================================================================
+IMAGE RETRIEVAL DIAGNOSTIC
+================================================================================
+Query                 : Which model achieves the highest overall accuracy among Naive Bayes, SVM, BiLSTM, BERT fine-tuned, and RoBERTa, and what is its accuracy?
+Allowed Sources       : ['BERT.pdf']
+Image Candidates      : 554 -> 8 (scoped before ranking)
+
+ALL IMAGE CANDIDATES
+--------------------------------------------------------------------------------
+Rank=01 | Source=BERT.pdf | Page=14 | Image=BERT_page14_render.png | Hybrid=-1.8015 | CE=-3.1578 | CLIP=0.2330
+Rank=02 | Source=BERT.pdf | Page=13 | Image=BERT_page13_render.png | Hybrid=-2.0045 | CE=-3.5074 | CLIP=0.2499
+Rank=03 | Source=BERT.pdf | Page=6 | Image=BERT_page6_render.png | Hybrid=-3.0566 | CE=-5.2631 | CLIP=0.2532
+Rank=04 | Source=BERT.pdf | Page=3 | Image=BERT_page3_render.png | Hybrid=-3.4868 | CE=-5.9898 | CLIP=0.2675
+Rank=05 | Source=BERT.pdf | Page=4 | Image=BERT_page4_render.png | Hybrid=-6.2218 | CE=-10.5308 | CLIP=0.2417
+Rank=06 | Source=BERT.pdf | Page=5 | Image=BERT_page5_render.png | Hybrid=-6.4274 | CE=-10.8816 | CLIP=0.2539
+Rank=07 | Source=BERT.pdf | Page=3 | Image=BERT_page3_img12.png | Hybrid=-6.4677 | CE=-10.9461 | CLIP=0.2500
+Rank=08 | Source=BERT.pdf | Page=15 | Image=BERT_page15_img13.png | Hybrid=-6.5244 | CE=-11.0406 | CLIP=0.2500
+
+TOP IMAGE RESULTS
+--------------------------------------------------------------------------------
+TOP-1 | Source=BERT.pdf | Page=14 | Image=BERT_page14_render.png | Hybrid=-1.8015 | CE=-3.1578 | CLIP=0.2330
+TOP-2 | Source=BERT.pdf | Page=13 | Image=BERT_page13_render.png | Hybrid=-2.0045 | CE=-3.5074 | CLIP=0.2499
+TOP-3 | Source=BERT.pdf | Page=6 | Image=BERT_page6_render.png | Hybrid=-3.0566 | CE=-5.2631 | CLIP=0.2532
+================================================================================
+[DOCUMENT SCOPE] Images: 3 -> 3
+
+================================================================================
+STAGE 2 — IMAGE RETRIEVAL RESULT
+================================================================================
+Image Results       : 3
+Exact Figure Match  : False
+
+[IMAGE #1] Source=BERT.pdf | Page=14 | Image=BERT_page14_render.png
+Image Path: extracted_images\BERT_page14_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a text book with an image of the text  OCR Text: * Learning rate (Adam): 5e-5, 3e-5, 2e-5 * Number of epochs: 2, 3, 4  We also observed that large data sets (e.g., 100k+ labeled training examples) were far less sensitive to hyperparameter choice than small data sets. Fine-tuning is typically very fast, so it is rea- sonable to simply run an exhaustive search over the above parameters and choose the model that performs best on the development
+
+[IMAGE #2] Source=BERT.pdf | Page=13 | Image=BERT_page13_render.png
+Image Path: extracted_images\BERT_page13_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a textbook on the internet network  OCR Text: BERT (Ours)  OpenAl GPT  Figure 3: Differences in pre-training model architectures. BERT uses a bidirectional Transformer. OpenAI GPT uses a left-to-right Transformer. ELMo uses the concatenation of independently trained left-to-right and right-to- left LSTMs to generate features for downstream tasks. Among the three, only BERT representations are jointly conditioned on both left and right cont
+
+[IMAGE #3] Source=BERT.pdf | Page=6 | Image=BERT_page6_render.png
+Image Path: extracted_images\BERT_page6_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the university of california, showing the results of the experiment  OCR Text: System MNLI-(m/mm) QQP = QNLI 392k 363k =—s-: 108k Pre-OpenAI SOTA 80.6/80. 1 66.1 82.3 BiLSTM+ELMo+Attn 76.4/76.1 64.8 79.8 OpenAI GPT 82.1/81.4 70.3 87.4 BERTsase 84.6/83.4 712 90.5 BERT arce 86.7/85.9 721 92.7  SST-2. CoLA STS-B MRPC RTE _ Average 67k 8.5k 5.7k 3.5k 2.5k - 93.2 35.0 81.0 86.0 61.7 74.0 90.4 36.0 73.3 84.9 56.8 71.0 913 45.4 80.
+================================================================================
+
+================================================================================
+COMBINED RETRIEVAL CANDIDATES
+================================================================================
+Text Candidates  : 8
+Image Candidates : 3
+Total Candidates : 11
+================================================================================
+
+================================================================================
+STEP 3A — RERANKER INPUT
+================================================================================
+Query: Which model achieves the highest overall accuracy among Naive Bayes, SVM, BiLSTM, BERT fine-tuned, and RoBERTa, and what is its accuracy?
+Input candidates: 11
+01. Source=BERT.pdf | Page=16 | Type=text | Image=N/A
+    Content=jority class. C Additional Ablation Studies C.1 Effect of Number of Training Steps Figure 5 presents MNLI Dev accuracy after ﬁne- tuning from a checkpoint that has been pre-trained
+02. Source=BERT.pdf | Page=6 | Type=text | Image=N/A
+    Content=form different ﬁne-tuning data shufﬂing and clas- siﬁer layer initialization.9 Results are presented in Table 1. Both BERTBASE and BERTLARGE outperform all sys- tems on all tasks b
+03. Source=BERT.pdf | Page=3 | Type=text | Image=N/A
+    Content=tuning, the BERT model is ﬁrst initialized with the pre-trained parameters, and all of the param- eters are ﬁne-tuned using labeled data from the downstream tasks. Each downstream 
+04. Source=BERT.pdf | Page=3 | Type=text | Image=N/A
+    Content=eters=110M) and BERTLARGE (L=24, H=1024, A=16, Total Parameters=340M). BERTBASE was chosen to have the same model size as OpenAI GPT for comparison purposes. Critically, however, t
+05. Source=BERT.pdf | Page=3 | Type=text | Image=N/A
+    Content=strated the importance of transfer learning from large pre-trained models, where an effective recipe is to ﬁne-tune models pre-trained with Ima- geNet (Deng et al., 2009; Yosinski 
+06. Source=BERT.pdf | Page=7 | Type=text | Image=N/A
+    Content=We did not use TriviaQA data for this model. We ﬁne-tuned for 2 epochs with a learning rate of 5e-5 and a batch size of 48. The results compared to prior leaderboard en- tries and 
+07. Source=BERT.pdf | Page=4 | Type=text | Image=N/A
+    Content=and 50% of the time it is a random sentence from the corpus (labeled as NotNext). As we show in Figure 1, C is used for next sentence predic- tion (NSP). 5 Despite its simplicity, 
+08. Source=BERT.pdf | Page=8 | Type=text | Image=N/A
+    Content=Set accuracy from 5 random restarts of ﬁne-tuning. We can see that larger models lead to a strict ac- curacy improvement across all four datasets, even for MRPC which only has 3,60
+09. Source=BERT.pdf | Page=14 | Type=image | Image=extracted_images\BERT_page14_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a text book with an image of the text  OCR Text: * Learning rate (Adam): 5e-5, 3e-5, 2e-5 * Number of epochs: 2, 3, 4  We als
+10. Source=BERT.pdf | Page=13 | Type=image | Image=extracted_images\BERT_page13_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a textbook on the internet network  OCR Text: BERT (Ours)  OpenAl GPT  Figure 3: Differences in pre-training model architec
+11. Source=BERT.pdf | Page=6 | Type=image | Image=extracted_images\BERT_page6_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the university of california, showing the results of the experiment  OCR Text: System MNLI-(m/mm) QQP = QNLI
+================================================================================
+
+--------------------------------------------------------------------------------
+CROSS-ENCODER RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=01 | Source=BERT.pdf | Page=6 | Type=text | CE=0.1225
+Rank=02 | OriginalIndex=00 | Source=BERT.pdf | Page=16 | Type=text | CE=-0.3281
+Rank=03 | OriginalIndex=08 | Source=BERT.pdf | Page=14 | Type=image | CE=-3.1578
+Rank=04 | OriginalIndex=09 | Source=BERT.pdf | Page=13 | Type=image | CE=-3.5074
+Rank=05 | OriginalIndex=02 | Source=BERT.pdf | Page=3 | Type=text | CE=-3.5460
+Rank=06 | OriginalIndex=05 | Source=BERT.pdf | Page=7 | Type=text | CE=-3.7795
+Rank=07 | OriginalIndex=03 | Source=BERT.pdf | Page=3 | Type=text | CE=-3.8108
+Rank=08 | OriginalIndex=07 | Source=BERT.pdf | Page=8 | Type=text | CE=-4.1034
+Rank=09 | OriginalIndex=04 | Source=BERT.pdf | Page=3 | Type=text | CE=-4.8091
+Rank=10 | OriginalIndex=10 | Source=BERT.pdf | Page=6 | Type=image | CE=-5.2631
+Rank=11 | OriginalIndex=06 | Source=BERT.pdf | Page=4 | Type=text | CE=-5.9477
+
+--------------------------------------------------------------------------------
+CLIP IMAGE RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=10 | Source=BERT.pdf | Page=6 | Image=extracted_images\BERT_page6_render.png | CLIP=0.2532
+Rank=02 | OriginalIndex=09 | Source=BERT.pdf | Page=13 | Image=extracted_images\BERT_page13_render.png | CLIP=0.2499
+Rank=03 | OriginalIndex=08 | Source=BERT.pdf | Page=14 | Image=extracted_images\BERT_page14_render.png | CLIP=0.2330
+
+================================================================================
+STEP 3A — COMPLETE MULTIMODAL RERANK RESULT
+================================================================================
+Rank=01 | Type=image | Source=BERT.pdf | Page=13 | RRF=0.031754 | CE=-3.5074 | CLIP=0.2499
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a textbook on the internet network  OCR Text: BERT (Ours)  OpenAl GPT  Figure 3: Differences in pre-training model architec
+Rank=02 | Type=image | Source=BERT.pdf | Page=14 | RRF=0.031746 | CE=-3.1578 | CLIP=0.2330
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a text book with an image of the text  OCR Text: * Learning rate (Adam): 5e-5, 3e-5, 2e-5 * Number of epochs: 2, 3, 4  We als
+Rank=03 | Type=image | Source=BERT.pdf | Page=6 | RRF=0.030679 | CE=-5.2631 | CLIP=0.2532
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the university of california, showing the results of the experiment  OCR Text: System MNLI-(m/mm) QQP = QNLI
+Rank=04 | Type=text | Source=BERT.pdf | Page=6 | RRF=0.016393 | CE=0.1225 | CLIP=N/A
+    Content=form different ﬁne-tuning data shufﬂing and clas- siﬁer layer initialization.9 Results are presented in Table 1. Both BERTBASE and BERTLARGE outperform all sys- tems on all tasks b
+Rank=05 | Type=text | Source=BERT.pdf | Page=16 | RRF=0.016129 | CE=-0.3281 | CLIP=N/A
+    Content=jority class. C Additional Ablation Studies C.1 Effect of Number of Training Steps Figure 5 presents MNLI Dev accuracy after ﬁne- tuning from a checkpoint that has been pre-trained
+Rank=06 | Type=text | Source=BERT.pdf | Page=3 | RRF=0.015385 | CE=-3.5460 | CLIP=N/A
+    Content=tuning, the BERT model is ﬁrst initialized with the pre-trained parameters, and all of the param- eters are ﬁne-tuned using labeled data from the downstream tasks. Each downstream 
+Rank=07 | Type=text | Source=BERT.pdf | Page=7 | RRF=0.015152 | CE=-3.7795 | CLIP=N/A
+    Content=We did not use TriviaQA data for this model. We ﬁne-tuned for 2 epochs with a learning rate of 5e-5 and a batch size of 48. The results compared to prior leaderboard en- tries and 
+Rank=08 | Type=text | Source=BERT.pdf | Page=3 | RRF=0.014925 | CE=-3.8108 | CLIP=N/A
+    Content=eters=110M) and BERTLARGE (L=24, H=1024, A=16, Total Parameters=340M). BERTBASE was chosen to have the same model size as OpenAI GPT for comparison purposes. Critically, however, t
+Rank=09 | Type=text | Source=BERT.pdf | Page=8 | RRF=0.014706 | CE=-4.1034 | CLIP=N/A
+    Content=Set accuracy from 5 random restarts of ﬁne-tuning. We can see that larger models lead to a strict ac- curacy improvement across all four datasets, even for MRPC which only has 3,60
+Rank=10 | Type=text | Source=BERT.pdf | Page=3 | RRF=0.014493 | CE=-4.8091 | CLIP=N/A
+    Content=strated the importance of transfer learning from large pre-trained models, where an effective recipe is to ﬁne-tune models pre-trained with Ima- geNet (Deng et al., 2009; Yosinski 
+Rank=11 | Type=text | Source=BERT.pdf | Page=4 | RRF=0.014085 | CE=-5.9477 | CLIP=N/A
+    Content=and 50% of the time it is a random sentence from the corpus (labeled as NotNext). As we show in Figure 1, C is used for next sentence predic- tion (NSP). 5 Despite its simplicity, 
+================================================================================
+
+================================================================================
+STEP 3A — FINAL RERANK TOP-K
+================================================================================
+Requested top_k: 12
+Returned documents: 11
+01. Source=BERT.pdf | Page=13 | Type=image | Image=extracted_images\BERT_page13_render.png
+02. Source=BERT.pdf | Page=14 | Type=image | Image=extracted_images\BERT_page14_render.png
+03. Source=BERT.pdf | Page=6 | Type=image | Image=extracted_images\BERT_page6_render.png
+04. Source=BERT.pdf | Page=6 | Type=text | Image=N/A
+05. Source=BERT.pdf | Page=16 | Type=text | Image=N/A
+06. Source=BERT.pdf | Page=3 | Type=text | Image=N/A
+07. Source=BERT.pdf | Page=7 | Type=text | Image=N/A
+08. Source=BERT.pdf | Page=3 | Type=text | Image=N/A
+09. Source=BERT.pdf | Page=8 | Type=text | Image=N/A
+10. Source=BERT.pdf | Page=3 | Type=text | Image=N/A
+11. Source=BERT.pdf | Page=4 | Type=text | Image=N/A
+================================================================================
+
+================================================================================
+STAGE 3 — MULTIMODAL RERANKING
+================================================================================
+Input Candidates : 11
+Reranked Output   : 11
+
+[RERANK #1] Source=BERT.pdf | Page=13 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a textbook on the internet network  OCR Text: BERT (Ours)  OpenAl GPT  Figure 3: Differences in pre-training model architectures. BERT uses a bidirectional Transformer. OpenAI GPT uses a left-to-right Transformer. ELMo uses the concatenation o
+
+[RERANK #2] Source=BERT.pdf | Page=14 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a text book with an image of the text  OCR Text: * Learning rate (Adam): 5e-5, 3e-5, 2e-5 * Number of epochs: 2, 3, 4  We also observed that large data sets (e.g., 100k+ labeled training examples) were far less sensitive to hyperparameter choice
+
+[RERANK #3] Source=BERT.pdf | Page=6 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the university of california, showing the results of the experiment  OCR Text: System MNLI-(m/mm) QQP = QNLI 392k 363k =—s-: 108k Pre-OpenAI SOTA 80.6/80. 1 66.1 82.3 BiLSTM+ELMo+Attn 76.4/76.1 64.8 79.8 OpenAI GPT 82.1/81.4 70.
+
+[RERANK #4] Source=BERT.pdf | Page=6 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: form different ﬁne-tuning data shufﬂing and clas- siﬁer layer initialization.9 Results are presented in Table 1. Both BERTBASE and BERTLARGE outperform all sys- tems on all tasks by a substantial margin, obtaining 4.5% and 7.0% respective average accuracy im- provement over the prior state of the ar
+
+[RERANK #5] Source=BERT.pdf | Page=16 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: jority class. C Additional Ablation Studies C.1 Effect of Number of Training Steps Figure 5 presents MNLI Dev accuracy after ﬁne- tuning from a checkpoint that has been pre-trained fork steps. This allows us to answer the following questions: 1. Question: Does BERT really need such a large amount of
+
+[RERANK #6] Source=BERT.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: tuning, the BERT model is ﬁrst initialized with the pre-trained parameters, and all of the param- eters are ﬁne-tuned using labeled data from the downstream tasks. Each downstream task has sep- arate ﬁne-tuned models, even though they are ini- tialized with the same pre-trained parameters. The quest
+
+[RERANK #7] Source=BERT.pdf | Page=7 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: We did not use TriviaQA data for this model. We ﬁne-tuned for 2 epochs with a learning rate of 5e-5 and a batch size of 48. The results compared to prior leaderboard en- tries and top published work (Sun et al., 2018; Wang et al., 2018b) are shown in Table 3, exclud- ing systems that use BERT as one
+
+[RERANK #8] Source=BERT.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: eters=110M) and BERTLARGE (L=24, H=1024, A=16, Total Parameters=340M). BERTBASE was chosen to have the same model size as OpenAI GPT for comparison purposes. Critically, however, the BERT Transformer uses bidirectional self-attention, while the GPT Trans- former uses constrained self-attention where
+
+[RERANK #9] Source=BERT.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Set accuracy from 5 random restarts of ﬁne-tuning. We can see that larger models lead to a strict ac- curacy improvement across all four datasets, even for MRPC which only has 3,600 labeled train- ing examples, and is substantially different from the pre-training tasks. It is also perhaps surpris- i
+
+[RERANK #10] Source=BERT.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: strated the importance of transfer learning from large pre-trained models, where an effective recipe is to ﬁne-tune models pre-trained with Ima- geNet (Deng et al., 2009; Yosinski et al., 2014). 3 BERT We introduce BERT and its detailed implementa- tion in this section. There are two steps in our fr
+
+[RERANK #11] Source=BERT.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: and 50% of the time it is a random sentence from the corpus (labeled as NotNext). As we show in Figure 1, C is used for next sentence predic- tion (NSP). 5 Despite its simplicity, we demon- strate in Section 5.1 that pre-training towards this task is very beneﬁcial to both QA and NLI. 6 5The ﬁnal mo
+================================================================================
+
+================================================================================
+FINAL CONTEXT DOCUMENTS
+================================================================================
+Final context candidates: 11
+
+[FINAL #1] Source=BERT.pdf | Page=13 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a textbook on the internet network  OCR Text: BERT (Ours)  OpenAl GPT  Figure 3: Differences in pre-training model architectures. BERT uses a bidirectional Transformer. OpenAI GPT uses a left-to-right Transformer. ELMo uses the concatenation o
+
+[FINAL #2] Source=BERT.pdf | Page=14 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a text book with an image of the text  OCR Text: * Learning rate (Adam): 5e-5, 3e-5, 2e-5 * Number of epochs: 2, 3, 4  We also observed that large data sets (e.g., 100k+ labeled training examples) were far less sensitive to hyperparameter choice
+
+[FINAL #3] Source=BERT.pdf | Page=6 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the university of california, showing the results of the experiment  OCR Text: System MNLI-(m/mm) QQP = QNLI 392k 363k =—s-: 108k Pre-OpenAI SOTA 80.6/80. 1 66.1 82.3 BiLSTM+ELMo+Attn 76.4/76.1 64.8 79.8 OpenAI GPT 82.1/81.4 70.
+
+[FINAL #4] Source=BERT.pdf | Page=6 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: form different ﬁne-tuning data shufﬂing and clas- siﬁer layer initialization.9 Results are presented in Table 1. Both BERTBASE and BERTLARGE outperform all sys- tems on all tasks by a substantial margin, obtaining 4.5% and 7.0% respective average accuracy im- provement over the prior state of the ar
+
+[FINAL #5] Source=BERT.pdf | Page=16 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: jority class. C Additional Ablation Studies C.1 Effect of Number of Training Steps Figure 5 presents MNLI Dev accuracy after ﬁne- tuning from a checkpoint that has been pre-trained fork steps. This allows us to answer the following questions: 1. Question: Does BERT really need such a large amount of
+
+[FINAL #6] Source=BERT.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: tuning, the BERT model is ﬁrst initialized with the pre-trained parameters, and all of the param- eters are ﬁne-tuned using labeled data from the downstream tasks. Each downstream task has sep- arate ﬁne-tuned models, even though they are ini- tialized with the same pre-trained parameters. The quest
+
+[FINAL #7] Source=BERT.pdf | Page=7 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: We did not use TriviaQA data for this model. We ﬁne-tuned for 2 epochs with a learning rate of 5e-5 and a batch size of 48. The results compared to prior leaderboard en- tries and top published work (Sun et al., 2018; Wang et al., 2018b) are shown in Table 3, exclud- ing systems that use BERT as one
+
+[FINAL #8] Source=BERT.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: eters=110M) and BERTLARGE (L=24, H=1024, A=16, Total Parameters=340M). BERTBASE was chosen to have the same model size as OpenAI GPT for comparison purposes. Critically, however, the BERT Transformer uses bidirectional self-attention, while the GPT Trans- former uses constrained self-attention where
+
+[FINAL #9] Source=BERT.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Set accuracy from 5 random restarts of ﬁne-tuning. We can see that larger models lead to a strict ac- curacy improvement across all four datasets, even for MRPC which only has 3,600 labeled train- ing examples, and is substantially different from the pre-training tasks. It is also perhaps surpris- i
+
+[FINAL #10] Source=BERT.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: strated the importance of transfer learning from large pre-trained models, where an effective recipe is to ﬁne-tune models pre-trained with Ima- geNet (Deng et al., 2009; Yosinski et al., 2014). 3 BERT We introduce BERT and its detailed implementa- tion in this section. There are two steps in our fr
+
+[FINAL #11] Source=BERT.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: and 50% of the time it is a random sentence from the corpus (labeled as NotNext). As we show in Figure 1, C is used for next sentence predic- tion (NSP). 5 Despite its simplicity, we demon- strate in Section 5.1 that pre-training towards this task is very beneﬁcial to both QA and NLI. 6 5The ﬁnal mo
+================================================================================
+
+================================================================================
+FINAL CONTEXT SENT TO LLM
+================================================================================
+
+================================================================================
+DOCUMENT : BERT.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 3
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+tuning, the BERT model is ﬁrst initialized with
+the pre-trained parameters, and all of the param-
+eters are ﬁne-tuned using labeled data from the
+downstream tasks. Each downstream task has sep-
+arate ﬁne-tuned models, even though they are ini-
+tialized with the same pre-trained parameters. The
+question-answering example in Figure 1 will serve
+as a running example for this section.
+A distinctive feature of BERT is its uniﬁed ar-
+chitecture across different tasks. There is mini-
+mal difference between the pre-trained architec-
+ture and the ﬁnal downstream architecture.
+
+
+[TEXT]
+
+eters=110M) and BERTLARGE (L=24, H=1024,
+A=16, Total Parameters=340M).
+BERTBASE was chosen to have the same model
+size as OpenAI GPT for comparison purposes.
+Critically, however, the BERT Transformer uses
+bidirectional self-attention, while the GPT Trans-
+former uses constrained self-attention where every
+token can only attend to context to its left.4
+1https://github.com/tensorﬂow/tensor2tensor
+2http://nlp.seas.harvard.edu/2018/04/03/attention.html
+3In all cases we set the feed-forward/ﬁlter size to be 4H,
+i.e., 3072 for the H = 768 and 4096 for the H = 1024.
+
+
+[TEXT]
+
+strated the importance of transfer learning from
+large pre-trained models, where an effective recipe
+is to ﬁne-tune models pre-trained with Ima-
+geNet (Deng et al., 2009; Yosinski et al., 2014).
+3 BERT
+We introduce BERT and its detailed implementa-
+tion in this section. There are two steps in our
+framework: pre-training and ﬁne-tuning. Dur-
+ing pre-training, the model is trained on unlabeled
+data over different pre-training tasks. For ﬁne-
+tuning, the BERT model is ﬁrst initialized with
+the pre-trained parameters, and all of the param-
+eters are ﬁne-tuned using labeled data from the
+
+
+--------------------------------------------------------------------------------
+PAGE : 4
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+and 50% of the time it is a random sentence from
+the corpus (labeled as NotNext). As we show
+in Figure 1, C is used for next sentence predic-
+tion (NSP). 5 Despite its simplicity, we demon-
+strate in Section 5.1 that pre-training towards this
+task is very beneﬁcial to both QA and NLI. 6
+5The ﬁnal model achieves 97%-98% accuracy on NSP.
+6The vector C is not a meaningful sentence representation
+without ﬁne-tuning, since it was trained with NSP.
+
+
+--------------------------------------------------------------------------------
+PAGE : 6
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+form different ﬁne-tuning data shufﬂing and clas-
+siﬁer layer initialization.9
+Results are presented in Table 1. Both
+BERTBASE and BERTLARGE outperform all sys-
+tems on all tasks by a substantial margin, obtaining
+4.5% and 7.0% respective average accuracy im-
+provement over the prior state of the art. Note that
+BERTBASE and OpenAI GPT are nearly identical
+in terms of model architecture apart from the at-
+tention masking. For the largest and most widely
+reported GLUE task, MNLI, BERT obtains a 4.6%
+absolute accuracy improvement. On the ofﬁcial
+GLUE leaderboard10, BERTLARGE obtains a score
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a page from the journal of the university of california, showing the results of the experiment
+
+OCR Text:
+System MNLI-(m/mm) QQP = QNLI
+392k 363k =—s-: 108k
+Pre-OpenAI SOTA 80.6/80. 1 66.1 82.3
+BiLSTM+ELMo+Attn 76.4/76.1 64.8 79.8
+OpenAI GPT 82.1/81.4 70.3 87.4
+BERTsase 84.6/83.4 712 90.5
+BERT arce 86.7/85.9 721 92.7
+
+SST-2. CoLA STS-B MRPC RTE _ Average
+67k 8.5k 5.7k 3.5k 2.5k -
+93.2 35.0 81.0 86.0 61.7 74.0
+90.4 36.0 73.3 84.9 56.8 71.0
+913 45.4 80.0 82.3 56.0 75.1
+93.5 52.1 85.8 88.9 66.4 79.6
+94.9 60.5 86.5 89.3 70.1 82.1
+
+Table 1: GLUE Test results, scored by the evaluation server (https: //gluebenchmark .com/ leaderboard).
+The number below each task denotes the number of training examples. The “Average” column is slightly different
+than the official GLUE score, since we exclude the problematic WNLI set.2 BERT and OpenAI GPT are single-
+model, single task. F1 scores are reported for QQP and MRPC, Spearman correlations are reported for STS-B, and
+accuracy scores are reported for the other tasks. We exclude entries that use BERT as one of their components.
+
+We use a batch size of 32 and fine-tune for 3
+epochs over the data for all GLUE tasks. For each
+task, we selected the best fine-tuning learning rate
+(among 5e-5, 4e-5, 3e-5, and 2e-5) on the Dev set.
+Additionally, for BERTLarceE we found that fine-
+tuning was sometimes unstable on small datasets,
+so we ran several random restarts and selected the
+best model on the Dev set. With random restarts,
+we use the same pre-trained checkpoint but per-
+form different fine-tuning data shuffling and clas-
+sifier layer initialization.
+
+Results are presented in Table 1. Both
+BERTRBase and BERTLarGE outperform all sys-
+tems on all tasks by a substantial margin, obtaining
+4.5% and 7.0% respective average accuracy im-
+provement over the prior state of the art. Note that
+BERTgasg and OpenAI GPT are nearly identical
+in terms of model architecture apart from the at-
+tention masking. For the largest and most widely
+reported GLUE task, MNLI, BERT obtains a 4.6%
+absolute accuracy improvement. On the official
+GLUE leaderboard!°, BERT| arce obtains a score
+of 80.5, compared to OpenAI GPT, which obtains
+72.8 as of the date of writing.
+
+We find that BERTLArGE significantly outper-
+forms BERTgass across all tasks, especially those
+with very little training data. The effect of model
+size is explored more thoroughly in Section 5.2.
+
+4.2 SQuAD v1.1
+
+The Stanford Question Answering Dataset
+(SQuAD v1.1) is a collection of 100k crowd-
+sourced question/answer pairs (Rajpurkar et al.,
+2016). Given a question and a passage from
+
+°The GLUE data set distribution does not include the Test
+labels, and we only made a single GLUE evaluation server
+submission for each of BERTgase and BERT. arcs.
+
+Chitps://gluebenchmark.com/leaderboard
+
+Wikipedia containing the answer, the task is to
+predict the answer text span in the passage.
+
+As shown in Figure 1, in the question answer-
+ing task, we represent the input question and pas-
+sage as a single packed sequence, with the ques-
+tion using the A embedding and the passage using
+the B embedding. We only introduce a start vec-
+tor S € R” and an end vector E € R” during
+fine-tuning. The probability of word ¢ being the
+start of the answer span is computed as a dot prod-
+uct between T; and S followed by a softmax over
+all of the words in the paragraph: P; = SST
+The analogous formula is used for the end of the
+answer span. The score of a candidate span from
+position 2 to position 7 is defined as S-T; -+ E-T;,
+and the maximum scoring span where 7 > 7 is
+used as a prediction. The training objective is the
+sum of the log-likelihoods of the correct start and
+end positions. We fine-tune for 3 epochs with a
+learning rate of Se-5 and a batch size of 32.
+
+Table 2 shows top leaderboard entries as well
+as results from top published systems (Seo et al.,
+2017; Clark and Gardner, 2018; Peters et al.,
+2018a; Hu et al., 2018). The top results from the
+SQuAD leaderboard do not have up-to-date public
+system descriptions available,!! and are allowed to
+use any public data when training their systems.
+We therefore use modest data augmentation in
+our system by first fine-tuning on TriviaQA (Joshi
+et al., 2017) befor fine-tuning on SQUAD.
+
+Our best performing system outperforms the top
+leaderboard system by +1.5 Fl in ensembling and
++1,3 Fi as a single system. In fact, our single
+BERT model outperforms the top ensemble sys-
+tem in terms of F1 score. Without TriviaQA fine-
+
+1QANet is described in Yu et al. (2018), but the system
+has improved substantially after publication.
+
+Nearby Document Text:
+System
+MNLI-(m/mm)
+QQP
+QNLI
+SST-2
+CoLA
+STS-B
+MRPC
+RTE
+Average
+392k
+363k
+108k
+67k
+8.5k
+5.7k
+3.5k
+2.5k
+-
+Pre-OpenAI SOTA
+80.6/80.1
+66.1
+82.3
+93.2
+35.0
+81.0
+86.0
+61.7
+74.0
+BiLSTM+ELMo+Attn
+76.4/76.1
+64.8
+79.8
+90.4
+36.0
+73.3
+84.9
+56.8
+71.0
+OpenAI GPT
+82.1/81.4
+70.3
+87.4
+91.3
+45.4
+80.0
+82.3
+56.0
+75.1
+BERTBASE
+84.6/83.4
+71.2
+90.5
+93.5
+52.1
+85.8
+88.9
+66.4
+79.6
+BERTLARGE
+86.7/85.9
+72.1
+92.7
+94.9
+60.5
+86.5
+89.3
+70.1
+82.1
+Table 1: GLUE Test results, scored by the evaluation server (https://gluebenchmark.com/leaderboard).
+The number below each task denotes the number of training examples. The “Average” c
+
+
+[RELATED PAGE TEXT]
+
+form different ﬁne-tuning data shufﬂing and clas-
+siﬁer layer initialization.9
+Results are presented in Table 1. Both
+BERTBASE and BERTLARGE outperform all sys-
+tems on all tasks by a substantial margin, obtaining
+4.5% and 7.0% respective average accuracy im-
+provement over the prior state of the art. Note that
+BERTBASE and OpenAI GPT are nearly id
+
+
+--------------------------------------------------------------------------------
+PAGE : 7
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+We did not use TriviaQA data for this model. We
+ﬁne-tuned for 2 epochs with a learning rate of 5e-5
+and a batch size of 48.
+The results compared to prior leaderboard en-
+tries and top published work (Sun et al., 2018;
+Wang et al., 2018b) are shown in Table 3, exclud-
+ing systems that use BERT as one of their com-
+ponents. We observe a +5.1 F1 improvement over
+the previous best system.
+4.4 SW AG
+The Situations With Adversarial Generations
+(SW AG) dataset contains 113k sentence-pair com-
+pletion examples that evaluate grounded common-
+sense inference (Zellers et al., 2018). Given a sen-
+
+
+--------------------------------------------------------------------------------
+PAGE : 8
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+Set accuracy from 5 random restarts of ﬁne-tuning.
+We can see that larger models lead to a strict ac-
+curacy improvement across all four datasets, even
+for MRPC which only has 3,600 labeled train-
+ing examples, and is substantially different from
+the pre-training tasks. It is also perhaps surpris-
+ing that we are able to achieve such signiﬁcant
+improvements on top of models which are al-
+ready quite large relative to the existing literature.
+For example, the largest Transformer explored in
+Vaswani et al. (2017) is (L=6, H=1024, A=16)
+with 100M parameters for the encoder, and the
+
+
+--------------------------------------------------------------------------------
+PAGE : 13
+--------------------------------------------------------------------------------
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a page from a textbook on the internet network
+
+OCR Text:
+BERT (Ours)
+
+OpenAl GPT
+
+Figure 3: Differences in pre-training model architectures. BERT uses a bidirectional Transformer. OpenAI GPT
+uses a left-to-right Transformer. ELMo uses the concatenation of independently trained left-to-right and right-to-
+left LSTMs to generate features for downstream tasks. Among the three, only BERT representations are jointly
+conditioned on both left and right context in all layers. In addition to the architecture differences, BERT and
+OpenAlI GPT are fine-tuning approaches, while ELMo is a feature-based approach.
+
+to converge. In Section C.1 we demonstrate that
+MLM does converge marginally slower than a left-
+to-right model (which predicts every token), but
+the empirical improvements of the MLM model
+far outweigh the increased training cost.
+
+Next Sentence Prediction The next sentence
+prediction task can be illustrated in the following
+examples.
+
+Input = [CLS] the man went to [MASK] store [SEP]
+he bought a gallon [MASK] milk [SEP]
+
+Label = tsnext
+
+Input = [CLS] the man [MASK] to the store [SEP]
+penguin [MASK] are flight f#less birds [SEP]
+
+Label = notnext
+
+A.2 Pre-training Procedure
+
+To generate each training input sequence, we sam-
+ple two spans of text from the corpus, which we
+refer to as “sentences” even though they are typ-
+ically much longer than single sentences (but can
+be shorter also). The first sentence receives the A
+embedding and the second receives the B embed-
+ding. 50% of the time B is the actual next sentence
+that follows A and 50% of the time it is a random
+sentence, which is done for the “next sentence pre-
+diction” task. They are sampled such that the com-
+bined length is < 512 tokens. The LM masking is
+applied after WordPiece tokenization with a uni-
+form masking rate of 15%, and no special consid-
+eration given to partial word pieces.
+
+We train with batch size of 256 sequences (256
+sequences * 512 tokens = 128,000 tokens/batch)
+for 1,000,000 steps, which is approximately 40
+
+epochs over the 3.3 billion word corpus. We
+use Adam with learning rate of le-4, 6: = 0.9,
+B2 = 0.999, L2 weight decay of 0.01, learning
+rate warmup over the first 10,000 steps, and linear
+decay of the learning rate. We use a dropout prob-
+ability of 0.1 on all layers. We use a gelu acti-
+vation (Hendrycks and Gimpel, 2016) rather than
+the standard relu, following OpenAI GPT. The
+training loss is the sum of the mean masked LM
+likelihood and the mean next sentence prediction
+likelihood.
+
+Training of BERTpase was performed on 4
+Cloud TPUs in Pod configuration (16 TPU chips
+total).!3 Training of BERT, arGr was performed
+on 16 Cloud TPUs (64 TPU chips total). Each pre-
+training took 4 days to complete.
+
+Longer sequences are disproportionately expen-
+sive because attention is quadratic to the sequence
+length. To speed up pretraing in our experiments,
+we pre-train the model with sequence length of
+128 for 90% of the steps. Then, we train the rest
+10% of the steps of sequence of 512 to learn the
+positional embeddings.
+
+A3  Fine-tuning Procedure
+
+For fine-tuning, most model hyperparameters are
+the same as in pre-training, with the exception of
+the batch size, learning rate, and number of train-
+ing epochs. The dropout probability was always
+kept at 0.1. The optimal hyperparameter values
+are task-specific, but we found the following range
+of possible values to work well across all tasks:
+
+¢ Batch size: 16, 32
+
+Shittps://cloudplatform.googleblog.com/2018/06/Cloud-
+TPU-now-offers-preemptible-pricing-and-global-
+availability.htm]
+
+Nearby Document Text:
+BERT (Ours)
+Trm
+Trm
+Trm
+Trm
+Trm
+Trm
+...
+...
+Trm
+Trm
+Trm
+Trm
+Trm
+Trm
+...
+...
+OpenAI GPT
+Lstm
+ELMo
+Lstm
+Lstm
+Lstm
+Lstm
+Lstm
+Lstm
+Lstm
+Lstm
+Lstm
+Lstm
+Lstm
+ T1
+T2
+ TN
+...
+...
+...
+...
+...
+ E1
+E2
+ EN
+...
+ T1
+T2
+TN
+...
+ E1
+E2
+ EN
+...
+ T1
+T2
+ TN
+...
+ E1
+E2
+ EN
+...
+Figure 3: Differences in pre-training model architectures. BERT uses a bidirectional Transformer. OpenAI GPT
+uses a left-to-right Transformer. ELMo uses the concatenation of independently trained left-to-right and right-to-
+left LSTMs to generate features for downstream tasks. Among the three, only BERT representations are jointly
+conditione
+
+
+--------------------------------------------------------------------------------
+PAGE : 14
+--------------------------------------------------------------------------------
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a page of a text book with an image of the text
+
+OCR Text:
+* Learning rate (Adam): 5e-5, 3e-5, 2e-5
+* Number of epochs: 2, 3, 4
+
+We also observed that large data sets (e.g.,
+100k+ labeled training examples) were far less
+sensitive to hyperparameter choice than small data
+sets. Fine-tuning is typically very fast, so it is rea-
+sonable to simply run an exhaustive search over
+the above parameters and choose the model that
+performs best on the development set.
+
+A.4 Comparison of BERT, ELMo ,and
+OpenAI GPT
+
+Here we studies the differences in recent popular
+representation learning models including ELMo,
+OpenAI GPT and BERT. The comparisons be-
+tween the model architectures are shown visually
+in Figure 3. Note that in addition to the architec-
+ture differences, BERT and OpenAI GPT are fine-
+tuning approaches, while ELMo is a feature-based
+approach.
+
+The most comparable existing pre-training
+method to BERT is OpenAI GPT, which trains a
+left-to-right Transformer LM on a large text cor-
+pus. In fact, many of the design decisions in BERT
+were intentionally made to make it as close to
+GPT as possible so that the two methods could be
+minimally compared. The core argument of this
+work is that the bi-directionality and the two pre-
+training tasks presented in Section 3.1 account for
+the majority of the empirical improvements, but
+we do note that there are several other differences
+between how BERT and GPT were trained:
+
+* GPT is trained on the BooksCorpus (800M
+words); BERT is trained on the BooksCor-
+pus (800M words) and Wikipedia (2,500M
+words).
+
+GPT uses a sentence separator ([ SEP ]) and
+classifier token ({CLS]) which are only in-
+troduced at fine-tuning time; BERT learns
+[SEP], [CLS] and sentence A/B embed-
+dings during pre-training.
+
+GPT was trained for 1M steps with a batch
+size of 32,000 words; BERT was trained for
+1M steps with a batch size of 128,000 words.
+
+GPT used the same learning rate of 5e-5 for
+all fine-tuning experiments; BERT chooses a
+task-specific fine-tuning learning rate which
+performs the best on the development set.
+
+To isolate the effect of these differences, we per-
+form ablation experiments in Section 5.1 which
+demonstrate that the majority of the improvements
+are in fact coming from the two pre-training tasks
+and the bidirectionality they enable.
+
+A.5 Illustrations of Fine-tuning on Different
+Tasks
+
+The illustration of fine-tuning BERT on different
+tasks can be seen in Figure 4. Our task-specific
+models are formed by incorporating BERT with
+one additional output layer, so a minimal num-
+ber of parameters need to be learned from scratch.
+Among the tasks, (a) and (b) are sequence-level
+tasks while (c) and (d) are token-level tasks. In
+the figure, / represents the input embedding, T;
+represents the contextual representation of token 2,
+[CLS] is the special symbol for classification out-
+put, and [SEP] is the special symbol to separate
+non-consecutive token sequences.
+
+B_ Detailed Experimental Setup
+
+B.1 Detailed Descriptions for the GLUE
+Benchmark Experiments.
+
+Our GLUE results in Tablel are obtained
+from https://gluebenchmark.com/
+leaderboard and https: //blog.
+openai.com/language-unsupervised.
+The GLUE benchmark includes the following
+datasets, the descriptions of which were originally
+summarized in Wang et al. (2018a):
+
+MNLI Miulti-Genre Natural Language Inference
+is a large-scale, crowdsourced entailment classifi-
+cation task (Williams et al., 2018). Given a pair of
+sentences, the goal is to predict whether the sec-
+ond sentence is an entailment, contradiction, or
+neutral with respect to the first one.
+
+QQP Quora Question Pairs is a binary classifi-
+cation task where the goal is to determine if two
+questions asked on Quora are semantically equiv-
+alent (Chen et al., 2018).
+
+QNLI Question Natural Language Inference is
+a version of the Stanford Question Answering
+Dataset (Rajpurkar et al., 2016) which has been
+converted to a binary classification task (Wang
+et al., 2018a). The positive examples are (ques-
+tion, sentence) pairs which do contain the correct
+answer, and the negative examples are (question,
+sentence) from the same paragraph which do not
+contain the answer.
+
+Nearby Document Text:
+• Learning rate (Adam): 5e-5, 3e-5, 2e-5
+• Number of epochs: 2, 3, 4
+We also observed that large data sets (e.g.,
+100k+ labeled training examples) were far less
+sensitive to hyperparameter choice than small data
+sets. Fine-tuning is typically very fast, so it is rea-
+sonable to simply run an exhaustive search over
+the above parameters and choose the model that
+performs best on the development set.
+A.4
+Comparison of BERT, ELMo ,and
+OpenAI GPT
+Here we studies the differences in recent popular
+representation learning models including ELMo,
+OpenAI GPT and BERT. The comparisons be-
+tween the model
+
+
+--------------------------------------------------------------------------------
+PAGE : 16
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+jority class.
+C Additional Ablation Studies
+C.1 Effect of Number of Training Steps
+Figure 5 presents MNLI Dev accuracy after ﬁne-
+tuning from a checkpoint that has been pre-trained
+fork steps. This allows us to answer the following
+questions:
+1. Question: Does BERT really need such
+a large amount of pre-training (128,000
+words/batch * 1,000,000 steps) to achieve
+high ﬁne-tuning accuracy?
+Answer: Yes, BERT BASE achieves almost
+1.0% additional accuracy on MNLI when
+trained on 1M steps compared to 500k steps.
+2. Question: Does MLM pre-training converge
+slower than LTR pre-training, since only 15%
+
+================================================================================
+
+================================================================================
+RAG PIPELINE DEBUG
+================================================================================
+Query Type        : factual
+Retrieved Chunks  : 8
+Retrieved Images  : 3
+Reranked Chunks   : 11
+Reranked Text     : 8
+Reranked Images   : 3
+Final Context Docs: 11
+Exact Figure Query: False
+Exact Figure Match: False
+Exact Figure Final: False
+================================================================================
+
+================================================================================
+STAGE 4 — EVIDENCE VERIFICATION
+================================================================================
+Verification Units : 3
+Supported          : 0
+Partially Supported: 1
+Unsupported        : 2
+Unknown            : 0
+Groundedness Ratio : 0.00
+
+[CLAIM #1] The model that achieves the highest overall accuracy among Naive Bayes, SVM, BiLSTM, BERT fine-tuned, and RoBERTa is not explicitly stated in the provided text.
+  Status=PARTIALLY_SUPPORTED | NLI=NEUTRAL | Confidence=0.832 | Citation=BERT.pdf (Page 13)
+
+[CLAIM #2] However, it is mentioned that BERT and RoBERTa are fine-tuned models, and they are compared to other models including Naive Bayes, SVM, and BiLSTM.
+  Status=UNSUPPORTED | NLI=CONTRADICTION | Confidence=0.48 | Citation=BERT.pdf (Page 6)
+
+[CLAIM #3] The text does not provide the accuracy of each model, so it is not possible to determine which model has the highest accuracy based on the provided information.
+  Status=UNSUPPORTED | NLI=CONTRADICTION | Confidence=0.4797 | Citation=BERT.pdf (Page 6)
+================================================================================
+
+====================================================================================================
+RAG ANSWER
+====================================================================================================
+ The model that achieves the highest overall accuracy among Naive Bayes, SVM, BiLSTM, BERT fine-tuned, and RoBERTa is not explicitly stated in the provided text. However, it is mentioned that BERT and RoBERTa are fine-tuned models, and they are compared to other models including Naive Bayes, SVM, and BiLSTM. The text does not provide the accuracy of each model, so it is not possible to determine which model has the highest accuracy based on the provided information.
+
+IMAGE PATHS:
+D:/Projects/Major-Project-2-main/extracted_images/BERT_page6_render.png
+D:/Projects/Major-Project-2-main/extracted_images/BERT_page13_render.png
+D:/Projects/Major-Project-2-main/extracted_images/BERT_page14_render.png

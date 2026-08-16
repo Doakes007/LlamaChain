@@ -1,0 +1,1137 @@
+====================================================================================================
+QUESTION_ID   : RAG-12
+DOCUMENT      : RAG
+QUESTION_TYPE : System-level Reasoning
+ELAPSED_SEC   : 78.8
+ERROR         : no
+====================================================================================================
+
+QUESTION:
+How does the ability to hot-swap the retrieval index affect the maintainability of a RAG system?
+
+GROUND TRUTH ANSWER:
+Hot-swapping the retrieval index makes a RAG system easier to maintain because its external knowledge can be updated at test time simply by replacing the index, without retraining the generator. The paper demonstrates this by replacing a December 2016 Wikipedia index with a December 2018 index and showing that RAG's world knowledge changes accordingly.
+
+GROUND TRUTH SOURCE:
+RAG.pdf, p. 7
+
+====================================================================================================
+FORENSIC TRANSCRIPT
+====================================================================================================
+
+####################################################################################################
+FORENSIC CASE START
+####################################################################################################
+Original Query   : How does the ability to hot-swap the retrieval index affect the maintainability of a RAG system?
+Expanded Query   : How does the ability to hot-swap the retrieval index affect the maintainability of a RAG system?
+Query Type       : analytical
+[DOCUMENT SCOPE] Normalized query: 'how does the ability to hot swap the retrieval index affect the maintainability of a rag system'
+[DOCUMENT SCOPE] Source='BERT.pdf' -> Normalized='bert'
+[DOCUMENT SCOPE] Token overlap for 'BERT.pdf': []
+[DOCUMENT SCOPE] Source='BLIP-2.pdf' -> Normalized='blip 2'
+[DOCUMENT SCOPE] Token overlap for 'BLIP-2.pdf': []
+[DOCUMENT SCOPE] Source='CLIP.pdf' -> Normalized='clip'
+[DOCUMENT SCOPE] Token overlap for 'CLIP.pdf': []
+[DOCUMENT SCOPE] Source='CNN Paper.pdf' -> Normalized='cnn paper'
+[DOCUMENT SCOPE] Token overlap for 'CNN Paper.pdf': []
+[DOCUMENT SCOPE] Source='Donut.pdf' -> Normalized='donut'
+[DOCUMENT SCOPE] Token overlap for 'Donut.pdf': []
+[DOCUMENT SCOPE] Source='LayoutLMv3.pdf' -> Normalized='layout l mv3'
+[DOCUMENT SCOPE] Token overlap for 'LayoutLMv3.pdf': []
+[DOCUMENT SCOPE] Source='NLP Paper.pdf' -> Normalized='nlp paper'
+[DOCUMENT SCOPE] Token overlap for 'NLP Paper.pdf': []
+[DOCUMENT SCOPE] Source='RAG.pdf' -> Normalized='rag'
+[DOCUMENT SCOPE] EXACT MATCH -> RAG.pdf
+[DOCUMENT SCOPE] Source='Self-RAG.pdf' -> Normalized='self rag'
+[DOCUMENT SCOPE] Token overlap for 'Self-RAG.pdf': ['rag']
+[DOCUMENT SCOPE] Source='Vision Transformer.pdf' -> Normalized='vision transformer'
+[DOCUMENT SCOPE] Token overlap for 'Vision Transformer.pdf': []
+[DOCUMENT SCOPE] Final matched sources: ['RAG.pdf']
+
+================================================================================
+DOCUMENT SCOPE DEBUG
+================================================================================
+Query          : How does the ability to hot-swap the retrieval index affect the maintainability of a RAG system?
+Expanded Query : How does the ability to hot-swap the retrieval index affect the maintainability of a RAG system?
+Query Type     : analytical
+Document Scope : ['RAG.pdf']
+================================================================================
+
+==========================================================================================
+STEP 3A — SCOPED HYBRID RETRIEVAL
+==========================================================================================
+Query              : How does the ability to hot-swap the retrieval index affect the maintainability of a RAG system?
+Sources            : ['RAG.pdf']
+Dense candidate K  : 25
+Final hybrid K     : 8
+
+------------------------------------------------------------------------------------------
+[SCOPED DENSE / VECTOR RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=Index hot-swapping An advantage of non-parametric memory models like RAG is that knowledge can be easily updated at test time. Parametric-only models like T5 or BART need further t
+02. Source=RAG.pdf | Page=8 | Type=text | Image=N/A
+    Content=RAG-Tok R-L RAG-Tok B-1 RAG-Seq R-L RAG-Seq B-1 Figure 3: Left: NQ performance as more documents are retrieved. Center: Retrieval recall perfor- mance in NQ. Right: MS-MARCO Bleu-1
+03. Source=RAG.pdf | Page=19 | Type=text | Image=N/A
+    Content=and the RAG model would perform equivalently to BART. The collapse could be due to a less-explicit requirement for factual knowledge in some tasks, or the longer target sequences, 
+04. Source=RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=more diverse than RAG-Token’s, and both are signiﬁcantly more diverse than BART without needing any diversity-promoting decoding. Retrieval Ablations A key feature of RAG is learni
+05. Source=RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=We compare RAG’s dense retriever to a word overlap-based BM25 retriever [53]. Here, we replace RAG’s retriever with a ﬁxed BM25 system, and use BM25 retrieval scores as logits when
+06. Source=RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=could represent promising future work. 6 Discussion In this work, we presented hybrid generation models with access to parametric and non-parametric memory. We showed that our RAG 
+07. Source=RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=the generation ﬂexibility of the “closed-book” (parametric only) approaches and the performance of "open-book" retrieval-based approaches. Unlike REALM and T5+SSM, RAG enjoys stron
+08. Source=RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=its effectiveness, and we illustrated how the retrieval index can be hot-swapped to update the model without requiring any retraining. In future work, it may be fruitful to investi
+09. Source=RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=explore a general-purpose ﬁne-tuning recipe for retrieval-augmented generation (RAG) — models which combine pre-trained parametric and non-parametric mem- ory for language generati
+10. Source=RAG.pdf | Page=4 | Type=text | Image=N/A
+    Content=2.5 Decoding At test time, RAG-Sequence and RAG-Token require different ways to approximatearg maxyp(y|x). RAG-Token The RAG-Token model can be seen as a standard, autoregressive s
+11. Source=RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=distributions over text passages given a queryx and (ii) a generatorpθ(yi|x,z,y 1:i−1) parametrized 1Code to run experiments with RAG has been open-sourced as part of the HuggingFa
+12. Source=RAG.pdf | Page=6 | Type=text | Image=N/A
+    Content=4.3 Jeopardy Question Generation Table 2 shows that RAG-Token performs better than RAG-Sequence on Jeopardy question generation, with both models outperforming BART on Q-BLEU-1. 4 
+13. Source=RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=state-of-the-art pipeline models which use strong retrieval supervision. Finally, we demonstrate that the non-parametric memory can be replaced to update the models’ knowledge as t
+14. Source=RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=two variants: the standard 3-way classiﬁcation task (supports/refutes/not enough info) and the 2-way (supports/refutes) task studied in Thorne and Vlachos [57]. In both cases we re
+15. Source=RAG.pdf | Page=18 | Type=text | Image=N/A
+    Content=the interests of simplicity, we omit them. For Open MS-MARCO, where useful retrieved documents cannot always be retrieved, we observe that the model learns to always retrieve a par
+16. Source=RAG.pdf | Page=8 | Type=text | Image=N/A
+    Content=between these dates and use a template “Who is {position}?” (e.g. “Who is the President of Peru?”) to query our NQ RAG model with each index. RAG answers 70% correctly using the 20
+17. Source=RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=to classify the claim as true or false given the gold evidence sentence. RAG achieves an accuracy within 2.7% of this model, despite being supplied with only the claim and retrievi
+18. Source=RAG.pdf | Page=17 | Type=text | Image=N/A
+    Content=GB of CPU memory for all of Wikipedia. After submission, We have ported our code to HuggingFace Transformers [66]3, which achieves equivalent performance to the previous version bu
+19. Source=RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=RAG-T The middle ear is the portion of the ear internal to the eardrum. RAG-S The middle ear includes the tympanic cavity and the three ossicles. what currency needed in scotland B
+20. Source=RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=with a medical index and asking it open-domain questions on that topic, or by helping people be more effective at their jobs. With these advantages also come potential downsides: W
+21. Source=RAG.pdf | Page=3 | Type=text | Image=N/A
+    Content=byθ that generates a current token based on a context of the previousi− 1 tokensy1:i−1, the original inputx and a retrieved passagez. To train the retriever and generator end-to-en
+22. Source=RAG.pdf | Page=4 | Type=text | Image=N/A
+    Content=text generation. To test RAG’s natural language generation (NLG) in a knowledge-intensive setting, we use the MSMARCO NLG task v2.1 [ 43]. The task consists of questions, ten gold 
+23. Source=RAG.pdf | Page=8 | Type=text | Image=N/A
+    Content=fact checking [ 56], fact completion [ 48], long-form question answering [ 12], Wikipedia article generation [36], dialogue [ 41, 65, 9, 13], translation [ 17], and language modeli
+24. Source=RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=sources, and speciﬁcity as high mutual dependence between the input and output [33]. We follow best practice and use pairwise comparative evaluation [34]. Evaluators are shown an a
+25. Source=RAG.pdf | Page=12 | Type=text | Image=N/A
+    Content=[20] Kelvin Guu, Kenton Lee, Zora Tung, Panupong Pasupat, and Ming-Wei Chang. REALM: Retrieval-augmented language model pre-training. ArXiv, abs/2002.08909, 2020. URL https: //arxi
+
+------------------------------------------------------------------------------------------
+[SCOPED BM25 RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=could represent promising future work. 6 Discussion In this work, we presented hybrid generation models with access to parametric and non-parametric memory. We showed that our RAG 
+02. Source=RAG.pdf | Page=8 | Type=text | Image=N/A
+    Content=between these dates and use a template “Who is {position}?” (e.g. “Who is the President of Peru?”) to query our NQ RAG model with each index. RAG answers 70% correctly using the 20
+03. Source=RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=Index hot-swapping An advantage of non-parametric memory models like RAG is that knowledge can be easily updated at test time. Parametric-only models like T5 or BART need further t
+04. Source=RAG.pdf | Page=8 | Type=image | Image=extracted_images\RAG_page8_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Table 4: Human
+05. Source=RAG.pdf | Page=4 | Type=text | Image=N/A
+    Content=3 Experiments We experiment with RAG in a wide range of knowledge-intensive tasks. For all experiments, we use a single Wikipedia dump for our non-parametric knowledge source. Foll
+06. Source=RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=explore a general-purpose ﬁne-tuning recipe for retrieval-augmented generation (RAG) — models which combine pre-trained parametric and non-parametric mem- ory for language generati
+07. Source=RAG.pdf | Page=17 | Type=text | Image=N/A
+    Content=GB of CPU memory for all of Wikipedia. After submission, We have ported our code to HuggingFace Transformers [66]3, which achieves equivalent performance to the previous version bu
+08. Source=RAG.pdf | Page=7 | Type=image | Image=extracted_images\RAG_page7_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with the title of a research paper  OCR Text: Dacument 1: his works are considered classics of American literature ... His wart
+09. Source=RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=We build RAG models where the parametric memory is a pre-trained seq2seq transformer, and the non-parametric memory is a dense vector index of Wikipedia, accessed with a pre-traine
+10. Source=RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=the generation ﬂexibility of the “closed-book” (parametric only) approaches and the performance of "open-book" retrieval-based approaches. Unlike REALM and T5+SSM, RAG enjoys stron
+11. Source=RAG.pdf | Page=6 | Type=text | Image=N/A
+    Content=how parametric and non-parametric memories work together—the non-parametric component helps to guide the generation, drawing out speciﬁc knowledge stored in the parametric memory. 
+12. Source=RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=can be ﬁne-tuned for strong performance on a variety of tasks. Memory-based Architectures Our document index can be seen as a large external memory for neural networks to attend to
+13. Source=RAG.pdf | Page=19 | Type=text | Image=N/A
+    Content=728 dimensional vectors, consisting of 15.3B values. These can be easily be stored at 8-bit ﬂoating point precision to manage memory and disk footprints. H Retrieval Collapse In pr
+14. Source=RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=more diverse than RAG-Token’s, and both are signiﬁcantly more diverse than BART without needing any diversity-promoting decoding. Retrieval Ablations A key feature of RAG is learni
+15. Source=RAG.pdf | Page=19 | Type=text | Image=N/A
+    Content=and the RAG model would perform equivalently to BART. The collapse could be due to a less-explicit requirement for factual knowledge in some tasks, or the longer target sequences, 
+16. Source=RAG.pdf | Page=19 | Type=text | Image=N/A
+    Content=with 11 Billion trainable parameters. The T5 model with the closest number of parameters to our models is T5-large (770M parameters), which achieves a score of 28.9 EM on Natural Q
+17. Source=RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=Wikipedia, or whether there is not enough information to decide. The task requires retrieving evidence from Wikipedia relating to the claim and then reasoning over this evidence to
+18. Source=RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=its effectiveness, and we illustrated how the retrieval index can be hot-swapped to update the model without requiring any retraining. In future work, it may be fruitful to investi
+19. Source=RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=to classify the claim as true or false given the gold evidence sentence. RAG achieves an accuracy within 2.7% of this model, despite being supplied with only the claim and retrievi
+20. Source=RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=two variants: the standard 3-way classiﬁcation task (supports/refutes/not enough info) and the 2-way (supports/refutes) task studied in Thorne and Vlachos [57]. In both cases we re
+21. Source=RAG.pdf | Page=2 | Type=image | Image=extracted_images\RAG_page2_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the textbook on the characterization of a single - cell cell  OCR Text: The middle ear includes the tympanic cavity and the
+22. Source=RAG.pdf | Page=13 | Type=text | Image=N/A
+    Content=[39] Luca Massarelli, Fabio Petroni, Aleksandra Piktus, Myle Ott, Tim Rocktäschel, Vassilis Plachouras, Fabrizio Silvestri, and Sebastian Riedel. How decoding strategies affect the
+23. Source=RAG.pdf | Page=4 | Type=text | Image=N/A
+    Content=minimize the negative marginal log-likelihood of each target,∑ j− logp(yj|xj) using stochastic gradient descent with Adam [28]. Updating the document encoder BERTd during training 
+24. Source=RAG.pdf | Page=6 | Type=image | Image=extracted_images\RAG_page6_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: the table shows the number of protons and protons of protons in a, b, and c  OCR Text: Table 1: Open-Domain QA Test Scores. For TQA, Ta
+25. Source=RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=state-of-the-art pipeline models which use strong retrieval supervision. Finally, we demonstrate that the non-parametric memory can be replaced to update the models’ knowledge as t
+
+------------------------------------------------------------------------------------------
+[RRF FUSION RANKING]
+------------------------------------------------------------------------------------------
+01. RRF=0.032266 | DenseRank=1 | BM25Rank=3 | Source=RAG.pdf | Page=7 | Type=text
+02. RRF=0.031545 | DenseRank=6 | BM25Rank=1 | Source=RAG.pdf | Page=9 | Type=text
+03. RRF=0.029644 | DenseRank=9 | BM25Rank=6 | Source=RAG.pdf | Page=1 | Type=text
+04. RRF=0.029287 | DenseRank=16 | BM25Rank=2 | Source=RAG.pdf | Page=8 | Type=text
+05. RRF=0.029211 | DenseRank=7 | BM25Rank=10 | Source=RAG.pdf | Page=5 | Type=text
+06. RRF=0.029206 | DenseRank=3 | BM25Rank=15 | Source=RAG.pdf | Page=19 | Type=text
+07. RRF=0.029139 | DenseRank=4 | BM25Rank=14 | Source=RAG.pdf | Page=7 | Type=text
+08. RRF=0.027746 | DenseRank=18 | BM25Rank=7 | Source=RAG.pdf | Page=17 | Type=text
+09. RRF=0.027526 | DenseRank=8 | BM25Rank=18 | Source=RAG.pdf | Page=9 | Type=text
+10. RRF=0.026014 | DenseRank=14 | BM25Rank=20 | Source=RAG.pdf | Page=5 | Type=text
+11. RRF=0.025645 | DenseRank=17 | BM25Rank=19 | Source=RAG.pdf | Page=7 | Type=text
+12. RRF=0.025463 | DenseRank=13 | BM25Rank=25 | Source=RAG.pdf | Page=2 | Type=text
+13. RRF=0.016129 | DenseRank=2 | BM25Rank=- | Source=RAG.pdf | Page=8 | Type=text
+14. RRF=0.015625 | DenseRank=- | BM25Rank=4 | Source=RAG.pdf | Page=8 | Type=image
+15. RRF=0.015385 | DenseRank=5 | BM25Rank=- | Source=RAG.pdf | Page=7 | Type=text
+16. RRF=0.015385 | DenseRank=- | BM25Rank=5 | Source=RAG.pdf | Page=4 | Type=text
+17. RRF=0.014706 | DenseRank=- | BM25Rank=8 | Source=RAG.pdf | Page=7 | Type=image
+18. RRF=0.014493 | DenseRank=- | BM25Rank=9 | Source=RAG.pdf | Page=2 | Type=text
+19. RRF=0.014286 | DenseRank=10 | BM25Rank=- | Source=RAG.pdf | Page=4 | Type=text
+20. RRF=0.014085 | DenseRank=11 | BM25Rank=- | Source=RAG.pdf | Page=2 | Type=text
+21. RRF=0.014085 | DenseRank=- | BM25Rank=11 | Source=RAG.pdf | Page=6 | Type=text
+22. RRF=0.013889 | DenseRank=12 | BM25Rank=- | Source=RAG.pdf | Page=6 | Type=text
+23. RRF=0.013889 | DenseRank=- | BM25Rank=12 | Source=RAG.pdf | Page=9 | Type=text
+24. RRF=0.013699 | DenseRank=- | BM25Rank=13 | Source=RAG.pdf | Page=19 | Type=text
+25. RRF=0.013333 | DenseRank=15 | BM25Rank=- | Source=RAG.pdf | Page=18 | Type=text
+26. RRF=0.013158 | DenseRank=- | BM25Rank=16 | Source=RAG.pdf | Page=19 | Type=text
+27. RRF=0.012987 | DenseRank=- | BM25Rank=17 | Source=RAG.pdf | Page=5 | Type=text
+28. RRF=0.012658 | DenseRank=19 | BM25Rank=- | Source=RAG.pdf | Page=7 | Type=text
+29. RRF=0.012500 | DenseRank=20 | BM25Rank=- | Source=RAG.pdf | Page=10 | Type=text
+30. RRF=0.012346 | DenseRank=21 | BM25Rank=- | Source=RAG.pdf | Page=3 | Type=text
+31. RRF=0.012346 | DenseRank=- | BM25Rank=21 | Source=RAG.pdf | Page=2 | Type=image
+32. RRF=0.012195 | DenseRank=22 | BM25Rank=- | Source=RAG.pdf | Page=4 | Type=text
+33. RRF=0.012195 | DenseRank=- | BM25Rank=22 | Source=RAG.pdf | Page=13 | Type=text
+34. RRF=0.012048 | DenseRank=23 | BM25Rank=- | Source=RAG.pdf | Page=8 | Type=text
+35. RRF=0.012048 | DenseRank=- | BM25Rank=23 | Source=RAG.pdf | Page=4 | Type=text
+36. RRF=0.011905 | DenseRank=24 | BM25Rank=- | Source=RAG.pdf | Page=5 | Type=text
+37. RRF=0.011905 | DenseRank=- | BM25Rank=24 | Source=RAG.pdf | Page=6 | Type=image
+38. RRF=0.011765 | DenseRank=25 | BM25Rank=- | Source=RAG.pdf | Page=12 | Type=text
+------------------------------------------------------------------------------------------
+
+==========================================================================================
+STEP 3A — RETRIEVAL STAGE SUMMARY
+==========================================================================================
+Dense candidates       : 25
+BM25 candidates        : 25
+Dense ∩ BM25           : 12
+Dense-only candidates  : 13
+BM25-only candidates   : 13
+Unique candidate pool  : 38
+RRF candidates         : 38
+Returned to pipeline   : 8
+==========================================================================================
+
+------------------------------------------------------------------------------------------
+[SCOPED FINAL HYBRID RESULT] 8 candidates
+------------------------------------------------------------------------------------------
+01. Source=RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=Index hot-swapping An advantage of non-parametric memory models like RAG is that knowledge can be easily updated at test time. Parametric-only models like T5 or BART need further t
+02. Source=RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=could represent promising future work. 6 Discussion In this work, we presented hybrid generation models with access to parametric and non-parametric memory. We showed that our RAG 
+03. Source=RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=explore a general-purpose ﬁne-tuning recipe for retrieval-augmented generation (RAG) — models which combine pre-trained parametric and non-parametric mem- ory for language generati
+04. Source=RAG.pdf | Page=8 | Type=text | Image=N/A
+    Content=between these dates and use a template “Who is {position}?” (e.g. “Who is the President of Peru?”) to query our NQ RAG model with each index. RAG answers 70% correctly using the 20
+05. Source=RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=the generation ﬂexibility of the “closed-book” (parametric only) approaches and the performance of "open-book" retrieval-based approaches. Unlike REALM and T5+SSM, RAG enjoys stron
+06. Source=RAG.pdf | Page=19 | Type=text | Image=N/A
+    Content=and the RAG model would perform equivalently to BART. The collapse could be due to a less-explicit requirement for factual knowledge in some tasks, or the longer target sequences, 
+07. Source=RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=more diverse than RAG-Token’s, and both are signiﬁcantly more diverse than BART without needing any diversity-promoting decoding. Retrieval Ablations A key feature of RAG is learni
+08. Source=RAG.pdf | Page=17 | Type=text | Image=N/A
+    Content=GB of CPU memory for all of Wikipedia. After submission, We have ported our code to HuggingFace Transformers [66]3, which achieves equivalent performance to the previous version bu
+==========================================================================================
+
+================================================================================
+STAGE 1 — HYBRID RETRIEVAL
+================================================================================
+Retrieved Count : 8
+
+[HYBRID #1] Source=RAG.pdf | Page=7 | Type=text
+Content: Index hot-swapping An advantage of non-parametric memory models like RAG is that knowledge can be easily updated at test time. Parametric-only models like T5 or BART need further training to update their behavior as the world changes. To demonstrate, we build an index using the DrQA [5] Wikipedia dump from December 2016 and compare outputs from RAG using this index to the newer index from our main results (December 2018). We prepare a list of 82 world leaders who had changed 7
+
+[HYBRID #2] Source=RAG.pdf | Page=9 | Type=text
+Content: could represent promising future work. 6 Discussion In this work, we presented hybrid generation models with access to parametric and non-parametric memory. We showed that our RAG models obtain state of the art results on open-domain QA. We found that people prefer RAG’s generation over purely parametric BART, ﬁnding RAG more factual and speciﬁc. We conducted an thorough investigation of the learned retrieval component, validating its effectiveness, and we illustrated how the retrieval index can
+
+[HYBRID #3] Source=RAG.pdf | Page=1 | Type=text
+Content: explore a general-purpose ﬁne-tuning recipe for retrieval-augmented generation (RAG) — models which combine pre-trained parametric and non-parametric mem- ory for language generation. We introduce RAG models where the parametric memory is a pre-trained seq2seq model and the non-parametric memory is a dense vector index of Wikipedia, accessed with a pre-trained neural retriever. We com- pare two RAG formulations, one which conditions on the same retrieved passages across the whole generated seque
+
+[HYBRID #4] Source=RAG.pdf | Page=8 | Type=text
+Content: between these dates and use a template “Who is {position}?” (e.g. “Who is the President of Peru?”) to query our NQ RAG model with each index. RAG answers 70% correctly using the 2016 index for 2016 world leaders and 68% using the 2018 index for 2018 world leaders. Accuracy with mismatched indices is low (12% with the 2018 index and 2016 leaders, 4% with the 2016 index and 2018 leaders). This shows we can update RAG’s world knowledge by simply replacing its non-parametric memory. Effect of Retrie
+
+[HYBRID #5] Source=RAG.pdf | Page=5 | Type=text
+Content: the generation ﬂexibility of the “closed-book” (parametric only) approaches and the performance of "open-book" retrieval-based approaches. Unlike REALM and T5+SSM, RAG enjoys strong results without expensive, specialized “salient span masking” pre-training [ 20]. It is worth noting that RAG’s retriever is initialized using DPR’s retriever, which uses retrieval supervision on Natural Questions and TriviaQA. RAG compares favourably to the DPR QA system, which uses a BERT-based “cross- encoder” to 
+
+[HYBRID #6] Source=RAG.pdf | Page=19 | Type=text
+Content: and the RAG model would perform equivalently to BART. The collapse could be due to a less-explicit requirement for factual knowledge in some tasks, or the longer target sequences, which could result in less informative gradients for the retriever. Perez et al.[46] also found spurious retrieval results when optimizing a retrieval component in order to improve performance on downstream tasks. I Number of instances per dataset The number of training, development and test datapoints in each of our d
+
+[HYBRID #7] Source=RAG.pdf | Page=7 | Type=text
+Content: more diverse than RAG-Token’s, and both are signiﬁcantly more diverse than BART without needing any diversity-promoting decoding. Retrieval Ablations A key feature of RAG is learning to retrieve relevant information for the task. To assess the effectiveness of the retrieval mechanism, we run ablations where we freeze the retriever during training. As shown in Table 6, learned retrieval improves results for all tasks. We compare RAG’s dense retriever to a word overlap-based BM25 retriever [53]. H
+
+[HYBRID #8] Source=RAG.pdf | Page=17 | Type=text
+Content: GB of CPU memory for all of Wikipedia. After submission, We have ported our code to HuggingFace Transformers [66]3, which achieves equivalent performance to the previous version but is a cleaner and easier to use implementation. This version is also open-sourced. We also compress the document index using FAISS’s compression tools, reducing the CPU memory requirement to 36GB. Scripts to run experiments with RAG can be found athttps://github.com/huggingface/transformers/ blob/master/examples/rag/R
+================================================================================
+[DOCUMENT SCOPE] Text chunks: 8 -> 8
+
+================================================================================
+IMAGE RETRIEVAL DIAGNOSTIC
+================================================================================
+Query                 : How does the ability to hot-swap the retrieval index affect the maintainability of a RAG system?
+Allowed Sources       : ['RAG.pdf']
+Image Candidates      : 554 -> 5 (scoped before ranking)
+
+ALL IMAGE CANDIDATES
+--------------------------------------------------------------------------------
+Rank=01 | Source=RAG.pdf | Page=8 | Image=RAG_page8_render.png | Hybrid=-6.4018 | CE=-10.8352 | CLIP=0.2482
+Rank=02 | Source=RAG.pdf | Page=6 | Image=RAG_page6_render.png | Hybrid=-6.4366 | CE=-10.8894 | CLIP=0.2424
+Rank=03 | Source=RAG.pdf | Page=7 | Image=RAG_page7_render.png | Hybrid=-6.6524 | CE=-11.2563 | CLIP=0.2535
+Rank=04 | Source=RAG.pdf | Page=2 | Image=RAG_page2_render.png | Hybrid=-6.7728 | CE=-11.4615 | CLIP=0.2603
+Rank=05 | Source=RAG.pdf | Page=17 | Image=RAG_page17_img0.png | Hybrid=-6.7816 | CE=-11.4561 | CLIP=0.2302
+
+TOP IMAGE RESULTS
+--------------------------------------------------------------------------------
+TOP-1 | Source=RAG.pdf | Page=8 | Image=RAG_page8_render.png | Hybrid=-6.4018 | CE=-10.8352 | CLIP=0.2482
+TOP-2 | Source=RAG.pdf | Page=6 | Image=RAG_page6_render.png | Hybrid=-6.4366 | CE=-10.8894 | CLIP=0.2424
+TOP-3 | Source=RAG.pdf | Page=7 | Image=RAG_page7_render.png | Hybrid=-6.6524 | CE=-11.2563 | CLIP=0.2535
+================================================================================
+[DOCUMENT SCOPE] Images: 3 -> 3
+
+================================================================================
+STAGE 2 — IMAGE RETRIEVAL RESULT
+================================================================================
+Image Results       : 3
+Exact Figure Match  : False
+
+[IMAGE #1] Source=RAG.pdf | Page=8 | Image=RAG_page8_render.png
+Image Path: extracted_images\RAG_page8_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Table 4: Human assessments for the Jeopardy Table 5: Ratio of distinct to total tri-grams for Question Generation Task. generation tasks.  Factuality Specificity MSMARCO Jeopardy QGen  BART better 7.1% 16.8% Gold 39 6% 90.0% RAG better 42.7% 37.4% BART OA Both good 11.7% 11.8% A 70.7% 32.4% g : RAG-Token 77.8% 46.8% Both poor 17.7% 
+
+[IMAGE #2] Source=RAG.pdf | Page=6 | Image=RAG_page6_render.png
+Image Path: extracted_images\RAG_page6_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: the table shows the number of protons and protons of protons in a, b, and c  OCR Text: Table 1: Open-Domain QA Test Scores. For TQA, Table 2: Generation and classification Test Scores. left column uses the standard test set for Open- MS-MARCO SotA is [4], FEVER-3 is [68] and Domain QA, right column uses the TQA-Wiki FEVER-2 is [57] *Uses gold context/evidence. test set. See Appendix D for further details. Best model without gold access underlined.  Mo
+
+[IMAGE #3] Source=RAG.pdf | Page=7 | Image=RAG_page7_render.png
+Image Path: extracted_images\RAG_page7_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with the title of a research paper  OCR Text: Dacument 1: his works are considered classics of American literature ... His wartime experiences formed the basis for his novel “A Farewell to Arms” (1929)...  Document 2: ... artists of the 1920s “Lost Generation” expatriate  community. His debut novel, “The Sun Also Rises”, was published in 1926,  Figure 2: RAG-Token document posterior p(z:|x, yi, y_i) for each generated token for input “Hem- ing
+================================================================================
+
+================================================================================
+COMBINED RETRIEVAL CANDIDATES
+================================================================================
+Text Candidates  : 8
+Image Candidates : 3
+Total Candidates : 11
+================================================================================
+
+================================================================================
+STEP 3A — RERANKER INPUT
+================================================================================
+Query: How does the ability to hot-swap the retrieval index affect the maintainability of a RAG system?
+Input candidates: 11
+01. Source=RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=Index hot-swapping An advantage of non-parametric memory models like RAG is that knowledge can be easily updated at test time. Parametric-only models like T5 or BART need further t
+02. Source=RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=could represent promising future work. 6 Discussion In this work, we presented hybrid generation models with access to parametric and non-parametric memory. We showed that our RAG 
+03. Source=RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=explore a general-purpose ﬁne-tuning recipe for retrieval-augmented generation (RAG) — models which combine pre-trained parametric and non-parametric mem- ory for language generati
+04. Source=RAG.pdf | Page=8 | Type=text | Image=N/A
+    Content=between these dates and use a template “Who is {position}?” (e.g. “Who is the President of Peru?”) to query our NQ RAG model with each index. RAG answers 70% correctly using the 20
+05. Source=RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=the generation ﬂexibility of the “closed-book” (parametric only) approaches and the performance of "open-book" retrieval-based approaches. Unlike REALM and T5+SSM, RAG enjoys stron
+06. Source=RAG.pdf | Page=19 | Type=text | Image=N/A
+    Content=and the RAG model would perform equivalently to BART. The collapse could be due to a less-explicit requirement for factual knowledge in some tasks, or the longer target sequences, 
+07. Source=RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=more diverse than RAG-Token’s, and both are signiﬁcantly more diverse than BART without needing any diversity-promoting decoding. Retrieval Ablations A key feature of RAG is learni
+08. Source=RAG.pdf | Page=17 | Type=text | Image=N/A
+    Content=GB of CPU memory for all of Wikipedia. After submission, We have ported our code to HuggingFace Transformers [66]3, which achieves equivalent performance to the previous version bu
+09. Source=RAG.pdf | Page=8 | Type=image | Image=extracted_images\RAG_page8_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Table 4: Human
+10. Source=RAG.pdf | Page=6 | Type=image | Image=extracted_images\RAG_page6_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: the table shows the number of protons and protons of protons in a, b, and c  OCR Text: Table 1: Open-Domain QA Test Scores. For TQA, Ta
+11. Source=RAG.pdf | Page=7 | Type=image | Image=extracted_images\RAG_page7_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with the title of a research paper  OCR Text: Dacument 1: his works are considered classics of American literature ... His wart
+================================================================================
+
+--------------------------------------------------------------------------------
+CROSS-ENCODER RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=00 | Source=RAG.pdf | Page=7 | Type=text | CE=1.9381
+Rank=02 | OriginalIndex=01 | Source=RAG.pdf | Page=9 | Type=text | CE=1.6155
+Rank=03 | OriginalIndex=04 | Source=RAG.pdf | Page=5 | Type=text | CE=-1.3939
+Rank=04 | OriginalIndex=06 | Source=RAG.pdf | Page=7 | Type=text | CE=-1.6781
+Rank=05 | OriginalIndex=05 | Source=RAG.pdf | Page=19 | Type=text | CE=-2.3696
+Rank=06 | OriginalIndex=02 | Source=RAG.pdf | Page=1 | Type=text | CE=-2.7205
+Rank=07 | OriginalIndex=03 | Source=RAG.pdf | Page=8 | Type=text | CE=-4.8348
+Rank=08 | OriginalIndex=07 | Source=RAG.pdf | Page=17 | Type=text | CE=-7.5289
+Rank=09 | OriginalIndex=08 | Source=RAG.pdf | Page=8 | Type=image | CE=-10.8352
+Rank=10 | OriginalIndex=09 | Source=RAG.pdf | Page=6 | Type=image | CE=-10.8894
+Rank=11 | OriginalIndex=10 | Source=RAG.pdf | Page=7 | Type=image | CE=-11.2563
+
+--------------------------------------------------------------------------------
+CLIP IMAGE RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=10 | Source=RAG.pdf | Page=7 | Image=extracted_images\RAG_page7_render.png | CLIP=0.2535
+Rank=02 | OriginalIndex=08 | Source=RAG.pdf | Page=8 | Image=extracted_images\RAG_page8_render.png | CLIP=0.2482
+Rank=03 | OriginalIndex=09 | Source=RAG.pdf | Page=6 | Image=extracted_images\RAG_page6_render.png | CLIP=0.2424
+
+================================================================================
+STEP 3A — COMPLETE MULTIMODAL RERANK RESULT
+================================================================================
+Rank=01 | Type=image | Source=RAG.pdf | Page=8 | RRF=0.030622 | CE=-10.8352 | CLIP=0.2482
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Table 4: Human
+Rank=02 | Type=image | Source=RAG.pdf | Page=7 | RRF=0.030478 | CE=-11.2563 | CLIP=0.2535
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with the title of a research paper  OCR Text: Dacument 1: his works are considered classics of American literature ... His wart
+Rank=03 | Type=image | Source=RAG.pdf | Page=6 | RRF=0.030159 | CE=-10.8894 | CLIP=0.2424
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: the table shows the number of protons and protons of protons in a, b, and c  OCR Text: Table 1: Open-Domain QA Test Scores. For TQA, Ta
+Rank=04 | Type=text | Source=RAG.pdf | Page=7 | RRF=0.016393 | CE=1.9381 | CLIP=N/A
+    Content=Index hot-swapping An advantage of non-parametric memory models like RAG is that knowledge can be easily updated at test time. Parametric-only models like T5 or BART need further t
+Rank=05 | Type=text | Source=RAG.pdf | Page=9 | RRF=0.016129 | CE=1.6155 | CLIP=N/A
+    Content=could represent promising future work. 6 Discussion In this work, we presented hybrid generation models with access to parametric and non-parametric memory. We showed that our RAG 
+Rank=06 | Type=text | Source=RAG.pdf | Page=5 | RRF=0.015873 | CE=-1.3939 | CLIP=N/A
+    Content=the generation ﬂexibility of the “closed-book” (parametric only) approaches and the performance of "open-book" retrieval-based approaches. Unlike REALM and T5+SSM, RAG enjoys stron
+Rank=07 | Type=text | Source=RAG.pdf | Page=7 | RRF=0.015625 | CE=-1.6781 | CLIP=N/A
+    Content=more diverse than RAG-Token’s, and both are signiﬁcantly more diverse than BART without needing any diversity-promoting decoding. Retrieval Ablations A key feature of RAG is learni
+Rank=08 | Type=text | Source=RAG.pdf | Page=19 | RRF=0.015385 | CE=-2.3696 | CLIP=N/A
+    Content=and the RAG model would perform equivalently to BART. The collapse could be due to a less-explicit requirement for factual knowledge in some tasks, or the longer target sequences, 
+Rank=09 | Type=text | Source=RAG.pdf | Page=1 | RRF=0.015152 | CE=-2.7205 | CLIP=N/A
+    Content=explore a general-purpose ﬁne-tuning recipe for retrieval-augmented generation (RAG) — models which combine pre-trained parametric and non-parametric mem- ory for language generati
+Rank=10 | Type=text | Source=RAG.pdf | Page=8 | RRF=0.014925 | CE=-4.8348 | CLIP=N/A
+    Content=between these dates and use a template “Who is {position}?” (e.g. “Who is the President of Peru?”) to query our NQ RAG model with each index. RAG answers 70% correctly using the 20
+Rank=11 | Type=text | Source=RAG.pdf | Page=17 | RRF=0.014706 | CE=-7.5289 | CLIP=N/A
+    Content=GB of CPU memory for all of Wikipedia. After submission, We have ported our code to HuggingFace Transformers [66]3, which achieves equivalent performance to the previous version bu
+================================================================================
+
+================================================================================
+STEP 3A — FINAL RERANK TOP-K
+================================================================================
+Requested top_k: 12
+Returned documents: 11
+01. Source=RAG.pdf | Page=8 | Type=image | Image=extracted_images\RAG_page8_render.png
+02. Source=RAG.pdf | Page=7 | Type=image | Image=extracted_images\RAG_page7_render.png
+03. Source=RAG.pdf | Page=6 | Type=image | Image=extracted_images\RAG_page6_render.png
+04. Source=RAG.pdf | Page=7 | Type=text | Image=N/A
+05. Source=RAG.pdf | Page=9 | Type=text | Image=N/A
+06. Source=RAG.pdf | Page=5 | Type=text | Image=N/A
+07. Source=RAG.pdf | Page=7 | Type=text | Image=N/A
+08. Source=RAG.pdf | Page=19 | Type=text | Image=N/A
+09. Source=RAG.pdf | Page=1 | Type=text | Image=N/A
+10. Source=RAG.pdf | Page=8 | Type=text | Image=N/A
+11. Source=RAG.pdf | Page=17 | Type=text | Image=N/A
+================================================================================
+
+================================================================================
+STAGE 3 — MULTIMODAL RERANKING
+================================================================================
+Input Candidates : 11
+Reranked Output   : 11
+
+[RERANK #1] Source=RAG.pdf | Page=8 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Table 4: Human assessments for the Jeopardy Table 5: Ratio of distinct to total tri-grams for Question Generation Task. generation tas
+
+[RERANK #2] Source=RAG.pdf | Page=7 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with the title of a research paper  OCR Text: Dacument 1: his works are considered classics of American literature ... His wartime experiences formed the basis for his novel “A Farewell to Arms” (1929)...  Document 2: ... artists of the 1920s “Los
+
+[RERANK #3] Source=RAG.pdf | Page=6 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: the table shows the number of protons and protons of protons in a, b, and c  OCR Text: Table 1: Open-Domain QA Test Scores. For TQA, Table 2: Generation and classification Test Scores. left column uses the standard test set for Open- MS-MARCO SotA is [4],
+
+[RERANK #4] Source=RAG.pdf | Page=7 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Index hot-swapping An advantage of non-parametric memory models like RAG is that knowledge can be easily updated at test time. Parametric-only models like T5 or BART need further training to update their behavior as the world changes. To demonstrate, we build an index using the DrQA [5] Wikipedia du
+
+[RERANK #5] Source=RAG.pdf | Page=9 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: could represent promising future work. 6 Discussion In this work, we presented hybrid generation models with access to parametric and non-parametric memory. We showed that our RAG models obtain state of the art results on open-domain QA. We found that people prefer RAG’s generation over purely param
+
+[RERANK #6] Source=RAG.pdf | Page=5 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: the generation ﬂexibility of the “closed-book” (parametric only) approaches and the performance of "open-book" retrieval-based approaches. Unlike REALM and T5+SSM, RAG enjoys strong results without expensive, specialized “salient span masking” pre-training [ 20]. It is worth noting that RAG’s retrie
+
+[RERANK #7] Source=RAG.pdf | Page=7 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: more diverse than RAG-Token’s, and both are signiﬁcantly more diverse than BART without needing any diversity-promoting decoding. Retrieval Ablations A key feature of RAG is learning to retrieve relevant information for the task. To assess the effectiveness of the retrieval mechanism, we run ablatio
+
+[RERANK #8] Source=RAG.pdf | Page=19 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: and the RAG model would perform equivalently to BART. The collapse could be due to a less-explicit requirement for factual knowledge in some tasks, or the longer target sequences, which could result in less informative gradients for the retriever. Perez et al.[46] also found spurious retrieval resul
+
+[RERANK #9] Source=RAG.pdf | Page=1 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: explore a general-purpose ﬁne-tuning recipe for retrieval-augmented generation (RAG) — models which combine pre-trained parametric and non-parametric mem- ory for language generation. We introduce RAG models where the parametric memory is a pre-trained seq2seq model and the non-parametric memory is 
+
+[RERANK #10] Source=RAG.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: between these dates and use a template “Who is {position}?” (e.g. “Who is the President of Peru?”) to query our NQ RAG model with each index. RAG answers 70% correctly using the 2016 index for 2016 world leaders and 68% using the 2018 index for 2018 world leaders. Accuracy with mismatched indices is
+
+[RERANK #11] Source=RAG.pdf | Page=17 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: GB of CPU memory for all of Wikipedia. After submission, We have ported our code to HuggingFace Transformers [66]3, which achieves equivalent performance to the previous version but is a cleaner and easier to use implementation. This version is also open-sourced. We also compress the document index 
+================================================================================
+
+================================================================================
+FINAL CONTEXT DOCUMENTS
+================================================================================
+Final context candidates: 11
+
+[FINAL #1] Source=RAG.pdf | Page=8 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Table 4: Human assessments for the Jeopardy Table 5: Ratio of distinct to total tri-grams for Question Generation Task. generation tas
+
+[FINAL #2] Source=RAG.pdf | Page=7 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with the title of a research paper  OCR Text: Dacument 1: his works are considered classics of American literature ... His wartime experiences formed the basis for his novel “A Farewell to Arms” (1929)...  Document 2: ... artists of the 1920s “Los
+
+[FINAL #3] Source=RAG.pdf | Page=6 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: the table shows the number of protons and protons of protons in a, b, and c  OCR Text: Table 1: Open-Domain QA Test Scores. For TQA, Table 2: Generation and classification Test Scores. left column uses the standard test set for Open- MS-MARCO SotA is [4],
+
+[FINAL #4] Source=RAG.pdf | Page=7 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Index hot-swapping An advantage of non-parametric memory models like RAG is that knowledge can be easily updated at test time. Parametric-only models like T5 or BART need further training to update their behavior as the world changes. To demonstrate, we build an index using the DrQA [5] Wikipedia du
+
+[FINAL #5] Source=RAG.pdf | Page=9 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: could represent promising future work. 6 Discussion In this work, we presented hybrid generation models with access to parametric and non-parametric memory. We showed that our RAG models obtain state of the art results on open-domain QA. We found that people prefer RAG’s generation over purely param
+
+[FINAL #6] Source=RAG.pdf | Page=5 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: the generation ﬂexibility of the “closed-book” (parametric only) approaches and the performance of "open-book" retrieval-based approaches. Unlike REALM and T5+SSM, RAG enjoys strong results without expensive, specialized “salient span masking” pre-training [ 20]. It is worth noting that RAG’s retrie
+
+[FINAL #7] Source=RAG.pdf | Page=7 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: more diverse than RAG-Token’s, and both are signiﬁcantly more diverse than BART without needing any diversity-promoting decoding. Retrieval Ablations A key feature of RAG is learning to retrieve relevant information for the task. To assess the effectiveness of the retrieval mechanism, we run ablatio
+
+[FINAL #8] Source=RAG.pdf | Page=19 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: and the RAG model would perform equivalently to BART. The collapse could be due to a less-explicit requirement for factual knowledge in some tasks, or the longer target sequences, which could result in less informative gradients for the retriever. Perez et al.[46] also found spurious retrieval resul
+
+[FINAL #9] Source=RAG.pdf | Page=1 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: explore a general-purpose ﬁne-tuning recipe for retrieval-augmented generation (RAG) — models which combine pre-trained parametric and non-parametric mem- ory for language generation. We introduce RAG models where the parametric memory is a pre-trained seq2seq model and the non-parametric memory is 
+
+[FINAL #10] Source=RAG.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: between these dates and use a template “Who is {position}?” (e.g. “Who is the President of Peru?”) to query our NQ RAG model with each index. RAG answers 70% correctly using the 2016 index for 2016 world leaders and 68% using the 2018 index for 2018 world leaders. Accuracy with mismatched indices is
+
+[FINAL #11] Source=RAG.pdf | Page=17 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: GB of CPU memory for all of Wikipedia. After submission, We have ported our code to HuggingFace Transformers [66]3, which achieves equivalent performance to the previous version but is a cleaner and easier to use implementation. This version is also open-sourced. We also compress the document index 
+================================================================================
+
+================================================================================
+FINAL CONTEXT SENT TO LLM
+================================================================================
+
+================================================================================
+DOCUMENT : RAG.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 1
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+explore a general-purpose ﬁne-tuning recipe for retrieval-augmented generation
+(RAG) — models which combine pre-trained parametric and non-parametric mem-
+ory for language generation. We introduce RAG models where the parametric
+memory is a pre-trained seq2seq model and the non-parametric memory is a dense
+vector index of Wikipedia, accessed with a pre-trained neural retriever. We com-
+pare two RAG formulations, one which conditions on the same retrieved passages
+across the whole generated sequence, and another which can use different passages
+
+
+--------------------------------------------------------------------------------
+PAGE : 5
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+the generation ﬂexibility of the “closed-book” (parametric only) approaches and the performance of
+"open-book" retrieval-based approaches. Unlike REALM and T5+SSM, RAG enjoys strong results
+without expensive, specialized “salient span masking” pre-training [ 20]. It is worth noting that RAG’s
+retriever is initialized using DPR’s retriever, which uses retrieval supervision on Natural Questions
+and TriviaQA. RAG compares favourably to the DPR QA system, which uses a BERT-based “cross-
+encoder” to re-rank documents, along with an extractive reader. RAG demonstrates that neither a
+
+
+--------------------------------------------------------------------------------
+PAGE : 6
+--------------------------------------------------------------------------------
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+the table shows the number of protons and protons of protons in a, b, and c
+
+OCR Text:
+Table 1: Open-Domain QA Test Scores. For TQA, Table 2: Generation and classification Test Scores.
+left column uses the standard test set for Open- MS-MARCO SotA is [4], FEVER-3 is [68] and
+Domain QA, right column uses the TQA-Wiki FEVER-2 is [57] *Uses gold context/evidence.
+test set. See Appendix D for further details. Best model without gold access underlined.
+
+Model NQ  TQA WQ CR 9 —
+—_____<__~"_"*“_~"_ "‘Vrsgel—Jeopardy ~MSMARCO FVR3 FVR2
+Closed TS-11B [52] 345 - /50.1 374. - Ba OBA RIL Bd Label Acc
+
+Book = T5-11B+SSM[52] 36.6 - /60.5 44.7 - ——_—.
+— - - ok ok ok
+Open REALM(20]) 404. -/- 40.7 468  SotA 49.8% 49.9% 768 92.2
+
+Book DPR [26] 41.5 57.9/ - 41.1 50.6 BART 15.1 19.7 382 416 640 81.1
+
+RAG-Token 44.1 55.2/66.1 45.5 50.0 RAG-Tok. 17.3 22.2 40.1 41.5
+RAG-Seq. 44.5 56.8/68.0 45.2 52.2 RAG-Seq. 14.7 21.4 40.8 44.2
+
+725 89.5
+
+to more effective marginalization over documents. Furthermore, RAG can generate correct answers
+even when the correct answer is not in any retrieved document, achieving 11.8% accuracy in such
+cases for NQ, where an extractive model would score 0%.
+
+4.2 Abstractive Question Answering
+
+As shown in Table 2, RAG-Sequence outperforms BART on Open MS-MARCO NLG by 2.6 Bleu
+points and 2.6 Rouge-L points. RAG approaches state-of-the-art model performance, which is
+impressive given that (i) those models access gold passages with specific information required to
+generate the reference answer , (ii) many questions are unanswerable without the gold passages, and
+(iii) not all questions are answerable from Wikipedia alone. Table 3 shows some generated answers
+from our models. Qualitatively, we find that RAG models hallucinate Jess and generate factually
+correct text more often than BART. Later, we also show that RAG generations are more diverse than
+BART generations (see §4.5).
+
+4.3 Jeopardy Question Generation
+
+Table 2 shows that RAG-Token performs better than RAG-Sequence on Jeopardy question generation,
+with both models outperforming BART on Q-BLEU-1. 4 shows human evaluation results, over 452
+pairs of generations from BART and RAG-Token. Evaluators indicated that BART was more factual
+than RAG in only 7.1% of cases, while RAG was more factual in 42.7% of cases, and both RAG and
+BART were factual in a further 17% of cases, clearly demonstrating the effectiveness of RAG on
+the task over a state-of-the-art generation model. Evaluators also find RAG generations to be more
+specific by a large margin. Table 3 shows typical generations from each model.
+
+Jeopardy questions often contain two separate pieces of information, and RAG-Token may perform
+best because it can generate responses that combine content from several documents. Figure 2 shows
+an example. When generating “Sun”, the posterior is high for document 2 which mentions “The
+Sun Also Rises”. Similarly, document 1 dominates the posterior when “A Farewell to Arms” is
+generated. Intriguingly, after the first token of each book is generated, the document posterior flattens.
+This observation suggests that the generator can complete the titles without depending on specific
+documents. In other words, the model’s parametric knowledge is sufficient to complete the titles. We
+find evidence for this hypothesis by feeding the BART-only baseline with the partial decoding [The
+Sun. BART completes the generation |"The Sun Also Rises" is a novel by this author of "The Sui
+‘Also Rises" indicating the title "The Sun Also Rises" is stored in BART’s parameters. Similarly,
+BART will complete the partial decoding ["The Sun Also Rises" is a novel by this author of "A
+with ['The Sun Also Rises" is a novel by this author of "A Farewell to Arms"), This example shows
+how parametric and non-parametric memories work together—the non-parametric component helps
+to guide the generation, drawing out specific knowledge stored in the parametric memory.
+
+4.4 Fact Verification
+
+Table 2 shows our results on FEVER. For 3-way classification, RAG scores are within 4.3% of
+state-of-the-art models, which are complex pipeline systems with domain-specific architectures and
+substantial engineering, trained using intermediate retrieval supervision, which RAG does not require.
+
+Nearby Document Text:
+Table 1: Open-Domain QA Test Scores. For TQA,
+left column uses the standard test set for Open-
+Domain QA, right column uses the TQA-Wiki
+test set. See Appendix D for further details.
+Model
+NQ
+TQA
+WQ
+CT
+Closed
+Book
+T5-11B [52]
+34.5
+- /50.1
+37.4
+-
+T5-11B+SSM[52]
+36.6
+- /60.5
+44.7
+-
+Open
+Book
+REALM [20]
+40.4
+- / -
+40.7
+46.8
+DPR [26]
+41.5
+57.9/ -
+41.1
+50.6
+RAG-Token
+44.1
+55.2/66.1
+45.5
+50.0
+RAG-Seq.
+44.5
+56.8/68.0
+45.2
+52.2
+Table 2: Generation and classiﬁcation Test Scores.
+MS-MARCO SotA is [4], FEVER-3 is [68] and
+FEVER-2 is [57] *Uses gold context/evidence.
+Best model without gold access underli
+
+
+--------------------------------------------------------------------------------
+PAGE : 7
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+Index hot-swapping An advantage of non-parametric memory models like RAG is that knowledge
+can be easily updated at test time. Parametric-only models like T5 or BART need further training to
+update their behavior as the world changes. To demonstrate, we build an index using the DrQA [5]
+Wikipedia dump from December 2016 and compare outputs from RAG using this index to the newer
+index from our main results (December 2018). We prepare a list of 82 world leaders who had changed
+7
+
+
+[TEXT]
+
+more diverse than RAG-Token’s, and both are signiﬁcantly more diverse than BART without needing
+any diversity-promoting decoding.
+Retrieval Ablations A key feature of RAG is learning to retrieve relevant information for the task.
+To assess the effectiveness of the retrieval mechanism, we run ablations where we freeze the retriever
+during training. As shown in Table 6, learned retrieval improves results for all tasks.
+We compare RAG’s dense retriever to a word overlap-based BM25 retriever [53]. Here, we replace
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a paper with the title of a research paper
+
+OCR Text:
+Dacument 1: his works are considered classics of American
+literature ... His wartime experiences formed the basis for his novel
+“A Farewell to Arms” (1929)...
+
+Document 2: ... artists of the 1920s “Lost Generation” expatriate
+
+community. His debut novel, “The Sun Also Rises”, was published
+in 1926,
+
+Figure 2: RAG-Token document posterior p(z:|x, yi, y_i) for each generated token for input “Hem-
+ingway” for Jeopardy generation with 5 retrieved documents. The posterior for document 1 is high
+when generating “A Farewell to Arms" and for document 2 when generating “The Sun Also Rises".
+
+Table 3: Examples from generation tasks. RAG models generate more specific and factually accurate
+responses. ‘?’ indicates factually incorrect responses, * indicates partially correct responses.
+
+Task Input Model Generation
+defi ddl BART The middle ear is the part of the ear between the middle ear and the nose.
+eine mice’? RAG-T The middle ear is the portion of the ear internal to the eardrum.
+MS- ear RAG-S_ The middle ear includes the tympanic cavity and the three ossicles.
+MARCO
+
+what currency BART The currency needed in Scotland is Pound sterling.
+needed in RAG-T Pound is the currency needed in Scotland.
+scotland RAG-S_ The currency needed in Scotland is the pound sterling.
+
+BART  ’ This state has the largest number of counties in the U.S.
+Jeopardy Washington RAG-T It’s the only U.S. state named for a U.S. president
+
+Question RAG-S It’s the state where you'll find Mount Rainier National Park
+Gener The Divine BART “This epic poem by Dante is divided into 3 parts: the Infemo, the Purgatorio & the Purgatorio
+
+Comedy RAG-T Dante’s "Inferno" is the first part of this epic poem
+omedy RAG-S_ This 14th century work is divided into 3 sections: "Inferno", "Purgatorio" & "Paradiso"
+
+For 2-way classification, we compare against Thorne and Vlachos [57], who train ROBERTa [35]
+to classify the claim as true or false given the gold evidence sentence. RAG achieves an accuracy
+within 2.7% of this model, despite being supplied with only the claim and retrieving its own evidence.
+We also analyze whether documents retrieved by RAG correspond to documents annotated as gold
+evidence in FEVER. We calculate the overlap in article titles between the top & documents retrieved
+by RAG and gold evidence annotations. We find that the top retrieved document is from a gold article
+in 71% of cases, and a gold article is present in the top 10 retrieved articles in 90% of cases.
+
+4.5 Additional Results
+
+Generation Diversity Section 4.3 shows that RAG models are more factual and specific than
+BART for Jeopardy question generation. Following recent work on diversity-promoting decoding
+[33, 59, 39], we also investigate generation diversity by calculating the ratio of distinct ngrams to
+total ngrams generated by different models. Table 5 shows that RAG-Sequence’s generations are
+more diverse than RAG-Token’s, and both are significantly more diverse than BART without needing
+any diversity-promoting decoding.
+
+Retrieval Ablations A key feature of RAG is learning to retrieve relevant information for the task.
+To assess the effectiveness of the retrieval mechanism, we run ablations where we freeze the retriever
+during training. As shown in Table 6, learned retrieval improves results for all tasks.
+
+We compare RAG’s dense retriever to a word overlap-based BM25 retriever [53]. Here, we replace
+RAG’s retriever with a fixed BM25 system, and use BM25 retrieval scores as logits when calculating
+p(z|z). Table 6 shows the results. For FEVER, BM25 performs best, perhaps since FEVER claims are
+heavily entity-centric and thus well-suited for word overlap-based retrieval. Differentiable retrieval
+improves results on all other tasks, especially for Open-Domain QA, where it is crucial.
+
+Index hot-swapping An advantage of non-parametric memory models like RAG is that knowledge
+can be easily updated at test time. Parametric-only models like TS or BART need further training to
+update their behavior as the world changes. To demonstrate, we build an index using the DrQA [5]
+Wikipedia dump from December 2016 and compare outputs from RAG using this index to the newer
+index from our main results (December 2018). We prepare a list of 82 world leaders who had changed
+
+Nearby Document Text:
+Document 1: his works are considered classics of American
+literature ... His wartime experiences formed the basis for his novel
+”A Farewell to Arms” (1929) ...
+Document 2: ... artists of the 1920s ”Lost Generation” expatriate
+community. His debut novel, ”The Sun Also Rises”, was published
+in 1926.
+BOS ”
+The
+Sun
+Also
+R
+ises
+”
+is
+a
+novel
+by
+this
+authorof
+”
+A
+Fare
+well
+to
+Arms”
+Doc 1
+Doc 2
+Doc 3
+Doc 4
+Doc 5
+Figure 2: RAG-Token document posterior p(zi|x, yi, y−i) for each generated token for input “Hem-
+ingway" for Jeopardy generation with 5 retrieved documents. The posterior for document 1 is hig
+
+
+[RELATED PAGE TEXT]
+
+Index hot-swapping An advantage of non-parametric memory models like RAG is that knowledge
+can be easily updated at test time. Parametric-only models like T5 or BART need further training to
+update their behavior as the world changes. To demonstrate, we build an index using the DrQA [5]
+Wikipedia dump from December 2016 and compare outputs from RAG
+
+
+--------------------------------------------------------------------------------
+PAGE : 8
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+between these dates and use a template “Who is {position}?” (e.g. “Who is the President of Peru?”)
+to query our NQ RAG model with each index. RAG answers 70% correctly using the 2016 index for
+2016 world leaders and 68% using the 2018 index for 2018 world leaders. Accuracy with mismatched
+indices is low (12% with the 2018 index and 2016 leaders, 4% with the 2016 index and 2018 leaders).
+This shows we can update RAG’s world knowledge by simply replacing its non-parametric memory.
+Effect of Retrieving more documents Models are trained with either 5 or 10 retrieved latent
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a
+
+OCR Text:
+Table 4: Human assessments for the Jeopardy Table 5: Ratio of distinct to total tri-grams for
+Question Generation Task. generation tasks.
+
+Factuality Specificity MSMARCO Jeopardy QGen
+
+BART better 7.1% 16.8% Gold 39 6% 90.0%
+RAG better 42.7% 37.4% BART OA
+Both good 11.7% 11.8% A 70.7% 32.4%
+g : RAG-Token 77.8% 46.8%
+Both poor 17.7% 6.9% RAGS 83.5% 53.8%
+No majority 20.8% 20.1% ~ed- ad oe
+
+Table 6: Ablations on the dev set. As FEVER is a classification task, both RAG models are equivalent.
+
+Model NQ TQA WQ_ CT | Jeopardy-QGen MSMarco FVR-3 FVR-2
+Exact Match B-1 QB-1 RL B-1 Label Accuracy
+RAG-Token-BM25 29.7 41.5 32.1 33.1 | 17.5 22.3 35.5 48.4 7541 91.6
+RAG-Sequence-BM25 31.8 44.1 366 33.8] 111 19.5 36.5 46.9 . ,
+RAG-Token-Frozen 37.8 50.1 37.1 51.1 | 16.7 21.7 35.9 49.4 72.9 39.4
+RAG-Sequence-Frozen 41.2 52.1 41.8 52.6] 11.8 19.6 56.7 47.3 , ,
+RAG-Token 43.5 548 465 51.9 117.9 22.6 56.2 49.4 74.5 90.6
+RAG-Sequence 44.0 55.8 449 53.4] 15.3 21.5 57.2 47.5 . ;
+
+between these dates and use a template “Who is {position}?” (e.g. “Who is the President of Peru?”)
+to query our NQ RAG model with each index. RAG answers 70% correctly using the 2016 index for
+2016 world leaders and 68% using the 2018 index for 2018 world leaders. Accuracy with mismatched
+indices is low (12% with the 2018 index and 2016 leaders, 4% with the 2016 index and 2018 leaders).
+This shows we can update RAG’s world knowledge by simply replacing its non-parametric memory.
+
+Effect of Retrieving more documents Models are trained with either 5 or 10 retrieved latent
+documents, and we do not observe significant differences in performance between them. We have the
+flexibility to adjust the number of retrieved documents at test time, which can affect performance and
+runtime. Figure 3 (left) shows that retrieving more documents at test time monotonically improves
+Open-domain QA results for RAG-Sequence, but performance peaks for RAG-Token at 10 retrieved
+documents. Figure 3 (right) shows that retrieving more documents leads to higher Rouge-L for
+RAG-Token at the expense of Blen-1, but the effect is less pronounced for RAG-Sequence.
+
+&
+
+i
+
+i}
+
+NQ Exact Match
+6 $ 2 8
+= ~
+
+a
+
+— RAG Tok
+=-- RAGSeq
+
+NQ Answer Recall @K
+
+f=}
+E-}
+
+10 20 30 40 50 40
+K Retrieved Dacs K Retrieved Docs K Retrieved Dacs
+Figure 3: Left: NQ performance as more documents are retrieved. Center: Retrieval recall perfor-
+
+mance in NQ. Right: MS-MARCO Bleu-1 and Rouge-L as more documents are retrieved.
+
+5 Related Work
+
+Single-Task Retrieval Prior work has shown that retrieval improves performance across a variety of
+NLP tasks when considered in isolation. Such tasks include open-domain question answering [5, 29],
+fact checking [56], fact completion [48], long-form question answering [12], Wikipedia article
+generation [36], dialogue [41, 65, 9, 13], translation [17], and language modeling [19, 27]. Our
+work unifies previous successes in incorporating retrieval into individual tasks, showing that a single
+retrieval-based architecture is capable of achieving strong performance across several tasks.
+
+Nearby Document Text:
+Table 4: Human assessments for the Jeopardy
+Question Generation Task.
+Factuality
+Speciﬁcity
+BART better
+7.1%
+16.8%
+RAG better
+42.7%
+37.4%
+Both good
+11.7%
+11.8%
+Both poor
+17.7%
+6.9%
+No majority
+20.8%
+20.1%
+Table 5: Ratio of distinct to total tri-grams for
+generation tasks.
+MSMARCO
+Jeopardy QGen
+Gold
+89.6%
+90.0%
+BART
+70.7%
+32.4%
+RAG-Token
+77.8%
+46.8%
+RAG-Seq.
+83.5%
+53.8%
+Table 6: Ablations on the dev set. As FEVER is a classiﬁcation task, both RAG models are equivalent.
+Model
+NQ
+TQA
+WQ
+CT
+Jeopardy-QGen
+MSMarco
+FVR-3
+FVR-2
+Exact Match
+B-1
+QB-1
+R-L
+B-1
+Label Accuracy
+RAG-Token-BM25
+29.7
+41.5
+32.1
+
+
+[RELATED PAGE TEXT]
+
+between these dates and use a template “Who is {position}?” (e.g. “Who is the President of Peru?”)
+to query our NQ RAG model with each index. RAG answers 70% correctly using the 2016 index for
+2016 world leaders and 68% using the 2018 index for 2018 world leaders. Accuracy with mismatched
+indices is low (12% with the 2018 index and 2016 leaders, 4%
+
+
+--------------------------------------------------------------------------------
+PAGE : 9
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+could represent promising future work.
+6 Discussion
+In this work, we presented hybrid generation models with access to parametric and non-parametric
+memory. We showed that our RAG models obtain state of the art results on open-domain QA. We
+found that people prefer RAG’s generation over purely parametric BART, ﬁnding RAG more factual
+and speciﬁc. We conducted an thorough investigation of the learned retrieval component, validating
+its effectiveness, and we illustrated how the retrieval index can be hot-swapped to update the model
+
+
+--------------------------------------------------------------------------------
+PAGE : 17
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+GB of CPU memory for all of Wikipedia. After submission, We have ported our code to HuggingFace
+Transformers [66]3, which achieves equivalent performance to the previous version but is a cleaner
+and easier to use implementation. This version is also open-sourced. We also compress the document
+index using FAISS’s compression tools, reducing the CPU memory requirement to 36GB. Scripts to
+run experiments with RAG can be found athttps://github.com/huggingface/transformers/
+blob/master/examples/rag/README.md and an interactive demo of a RAG model can be found
+at https://huggingface.co/rag/
+
+
+--------------------------------------------------------------------------------
+PAGE : 19
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+and the RAG model would perform equivalently to BART. The collapse could be due to a less-explicit
+requirement for factual knowledge in some tasks, or the longer target sequences, which could result
+in less informative gradients for the retriever. Perez et al.[46] also found spurious retrieval results
+when optimizing a retrieval component in order to improve performance on downstream tasks.
+I Number of instances per dataset
+The number of training, development and test datapoints in each of our datasets is shown in Table 7.
+19
+
+================================================================================
+
+================================================================================
+RAG PIPELINE DEBUG
+================================================================================
+Query Type        : analytical
+Retrieved Chunks  : 8
+Retrieved Images  : 3
+Reranked Chunks   : 11
+Reranked Text     : 8
+Reranked Images   : 3
+Final Context Docs: 11
+Exact Figure Query: False
+Exact Figure Match: False
+Exact Figure Final: False
+================================================================================
+
+================================================================================
+STAGE 4 — EVIDENCE VERIFICATION
+================================================================================
+Verification Units : 9
+Supported          : 7
+Partially Supported: 2
+Unsupported        : 0
+Unknown            : 0
+Groundedness Ratio : 0.78
+
+[CLAIM #1] The ability to hot-swap the retrieval index in a RAG system allows for easy updating of the model's world knowledge.
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.8984 | Citation=RAG.pdf (Page 7)
+
+[CLAIM #2] This maintainability feature is particularly useful as it enables the system to adapt to changes in the world, such as updates to world leaders or other facts, without requiring extensive retraining of the model.
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.9038 | Citation=RAG.pdf (Page 7)
+
+[CLAIM #3] This makes the RAG system more flexible and easier to manage over time.
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.8013 | Citation=RAG.pdf (Page 7)
+
+[CLAIM #4] In the provided text, it is mentioned that the RAG model can update its world knowledge by simply replacing its non-parametric memory, demonstrating this maintainability feature.
+  Status=PARTIALLY_SUPPORTED | NLI=NEUTRAL | Confidence=0.8472 | Citation=RAG.pdf (Page 8)
+
+[CLAIM #5] This is important for a system that aims to provide accurate and up-to-date information, as it can quickly adapt to changes in the world.
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.8906 | Citation=RAG.pdf (Page 7)
+
+[CLAIM #6] The text also mentions that the RAG model obtains state-of-the-art results on open-domain QA, and that people prefer RAG's generation over purely parametric BART, finding RAG more factual and specific.
+  Status=PARTIALLY_SUPPORTED | NLI=NEUTRAL | Confidence=0.916 | Citation=RAG.pdf (Page 6)
+
+[CLAIM #7] This further highlights the importance and effectiveness of the RAG system's maintainability feature.
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.8066 | Citation=RAG.pdf (Page 7)
+
+[CLAIM #8] In summary, the ability to hot-swap the retrieval index in a RAG system is a key feature that enhances its maintainability, making it more flexible and easier to manage over time.
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.8916 | Citation=RAG.pdf (Page 7)
+
+[CLAIM #9] This is important for providing accurate and up-to-date information, as the system can quickly adapt to changes in the world.
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.895 | Citation=RAG.pdf (Page 7)
+================================================================================
+
+====================================================================================================
+RAG ANSWER
+====================================================================================================
+ The ability to hot-swap the retrieval index in a RAG system allows for easy updating of the model's world knowledge. This maintainability feature is particularly useful as it enables the system to adapt to changes in the world, such as updates to world leaders or other facts, without requiring extensive retraining of the model. This makes the RAG system more flexible and easier to manage over time.
+
+In the provided text, it is mentioned that the RAG model can update its world knowledge by simply replacing its non-parametric memory, demonstrating this maintainability feature. This is important for a system that aims to provide accurate and up-to-date information, as it can quickly adapt to changes in the world.
+
+The text also mentions that the RAG model obtains state-of-the-art results on open-domain QA, and that people prefer RAG's generation over purely parametric BART, finding RAG more factual and specific. This further highlights the importance and effectiveness of the RAG system's maintainability feature.
+
+In summary, the ability to hot-swap the retrieval index in a RAG system is a key feature that enhances its maintainability, making it more flexible and easier to manage over time. This is important for providing accurate and up-to-date information, as the system can quickly adapt to changes in the world.
+
+IMAGE PATHS:
+D:/Projects/Major-Project-2-main/extracted_images/RAG_page6_render.png
+D:/Projects/Major-Project-2-main/extracted_images/RAG_page7_render.png
+D:/Projects/Major-Project-2-main/extracted_images/RAG_page8_render.png

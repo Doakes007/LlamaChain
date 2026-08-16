@@ -1,0 +1,808 @@
+====================================================================================================
+QUESTION_ID   : SR-12
+DOCUMENT      : SELF-RAG
+QUESTION_TYPE : Figure / table understanding
+ELAPSED_SEC   : 83.3
+ERROR         : no
+====================================================================================================
+
+QUESTION:
+According to Figure 4, how does increasing the amount of training data affect SELF-RAG performance on PopQA, PubHealth, and ASQA?
+
+GROUND TRUTH ANSWER:
+Increasing training-data size generally improves SELF-RAG performance on PopQA, PubHealth, and ASQA. The gains are especially pronounced on PopQA and ASQA, while the paper notes that Llama2-FT7B shows much smaller improvement when increasing training data from 50k to 150k.
+
+GROUND TRUTH SOURCE:
+Self-RAG.pdf — Page 10, Figure 4(a–c)
+
+====================================================================================================
+FORENSIC TRANSCRIPT
+====================================================================================================
+
+####################################################################################################
+FORENSIC CASE START
+####################################################################################################
+Original Query   : According to Figure 4, how does increasing the amount of training data affect SELF-RAG performance on PopQA, PubHealth, and ASQA?
+Expanded Query   : According to Figure 4, how does increasing the amount of training data affect SELF-RAG performance on PopQA, PubHealth, and ASQA?
+Query Type       : visual
+[DOCUMENT SCOPE] Normalized query: 'according to figure 4 how does increasing the amount of training data affect self rag performance on pop qa pub health and asqa'
+[DOCUMENT SCOPE] Source='BERT.pdf' -> Normalized='bert'
+[DOCUMENT SCOPE] Token overlap for 'BERT.pdf': []
+[DOCUMENT SCOPE] Source='BLIP-2.pdf' -> Normalized='blip 2'
+[DOCUMENT SCOPE] Token overlap for 'BLIP-2.pdf': []
+[DOCUMENT SCOPE] Source='CLIP.pdf' -> Normalized='clip'
+[DOCUMENT SCOPE] Token overlap for 'CLIP.pdf': []
+[DOCUMENT SCOPE] Source='CNN Paper.pdf' -> Normalized='cnn paper'
+[DOCUMENT SCOPE] Token overlap for 'CNN Paper.pdf': []
+[DOCUMENT SCOPE] Source='Donut.pdf' -> Normalized='donut'
+[DOCUMENT SCOPE] Token overlap for 'Donut.pdf': []
+[DOCUMENT SCOPE] Source='LayoutLMv3.pdf' -> Normalized='layout l mv3'
+[DOCUMENT SCOPE] Token overlap for 'LayoutLMv3.pdf': []
+[DOCUMENT SCOPE] Source='NLP Paper.pdf' -> Normalized='nlp paper'
+[DOCUMENT SCOPE] Token overlap for 'NLP Paper.pdf': []
+[DOCUMENT SCOPE] Source='RAG.pdf' -> Normalized='rag'
+[DOCUMENT SCOPE] EXACT MATCH -> RAG.pdf
+[DOCUMENT SCOPE] Source='Self-RAG.pdf' -> Normalized='self rag'
+[DOCUMENT SCOPE] EXACT MATCH -> Self-RAG.pdf
+[DOCUMENT SCOPE] Source='Vision Transformer.pdf' -> Normalized='vision transformer'
+[DOCUMENT SCOPE] Token overlap for 'Vision Transformer.pdf': []
+[DOCUMENT SCOPE] Final matched sources: ['RAG.pdf', 'Self-RAG.pdf']
+
+================================================================================
+DOCUMENT SCOPE DEBUG
+================================================================================
+Query          : According to Figure 4, how does increasing the amount of training data affect SELF-RAG performance on PopQA, PubHealth, and ASQA?
+Expanded Query : According to Figure 4, how does increasing the amount of training data affect SELF-RAG performance on PopQA, PubHealth, and ASQA?
+Query Type     : visual
+Document Scope : ['RAG.pdf', 'Self-RAG.pdf']
+================================================================================
+
+==========================================================================================
+STEP 3A — SCOPED HYBRID RETRIEVAL
+==========================================================================================
+Query              : According to Figure 4, how does increasing the amount of training data affect SELF-RAG performance on PopQA, PubHealth, and ASQA?
+Sources            : ['RAG.pdf', 'Self-RAG.pdf']
+Dense candidate K  : 25
+Final hybrid K     : 8
+
+------------------------------------------------------------------------------------------
+[SCOPED DENSE / VECTOR RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=RAG trained on the full 150k instances. We also evaluate Figures 4a, 4b and 4c shows the models’ performance trained on different amount of data. Across all datasets, increasing da
+02. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=performance deterioration by retrieving less is smaller on PubHealth but larger in PopQA. Effects of training data size. We conduct an analysis of how the data scale affects the mo
+03. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=RAG approaches causes a large drop in PopQA and ASQA, and removing ISSUP during the beam search results hurts performance on ASQA. This demonstrates the effectiveness of SELF -RAG’
+04. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=lead to further improvements, although in this work we limit our training data size to 150k. Human evaluations. We conduct small human evaluations on SELF -RAG outputs, as well as 
+05. Source=Self-RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=widely adopted RAG approaches with higher citation accuracy. In particular, SELF -RAG outperforms retrieval-augmented ChatGPT on four tasks, Llama2-chat (Touvron et al., 2023) and 
+06. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=Preprint. 0 50 100 150 Num of training (k) 35 40 45 50 55Perfomance (a) PopQA 0 100 Num of training (k) 71 72 73  (b) PubHealth 0 100 Num of training (k) 40 60  (c) ASQA (prec) Pop
+07. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=We show in Table 3a the ablation results. The top part of the table shows results for training ablations, and the bottom part is for inference ablations. We see that all components
+08. Source=RAG.pdf | Page=8 | Type=text | Image=N/A
+    Content=Effect of Retrieving more documents Models are trained with either 5 or 10 retrieved latent documents, and we do not observe signiﬁcant differences in performance between them. We 
+09. Source=RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=two variants: the standard 3-way classiﬁcation task (supports/refutes/not enough info) and the 2-way (supports/refutes) task studied in Thorne and Vlachos [57]. In both cases we re
+10. Source=RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=present without additional training. Our results highlight the beneﬁts of combining parametric and non-parametric memory with genera- tion for knowledge-intensive tasks—tasks that 
+11. Source=Self-RAG.pdf | Page=8 | Type=text | Image=N/A
+    Content=5 R ESULTS AND ANALYSIS 5.1 M AIN RESULTS Comparison against baselines without retrieval. Table 2 (top) presents the baselines without retrieval. Our SELF -RAG (bottom two rows) de
+12. Source=Self-RAG.pdf | Page=3 | Type=text | Image=N/A
+    Content=tokens from a critic model offline, with a far lower training cost compared to RLHF. In addition, reflection tokens in SELF -R AG enable controllable generation at inference, while
+13. Source=RAG.pdf | Page=4 | Type=text | Image=N/A
+    Content=and train RAG by directly minimizing the negative log-likelihood of answers. We compare RAG to the popular extractive QA paradigm [5, 7, 31, 26], where answers are extracted spans 
+14. Source=Self-RAG.pdf | Page=20 | Type=text | Image=N/A
+    Content=paragraphs for the corresponding entities. Detailed experimental settings for individual datasets. For OpenQA datasets, we set the max- imum new token number to 100 tokens. For clo
+15. Source=RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=with a medical index and asking it open-domain questions on that topic, or by helping people be more effective at their jobs. With these advantages also come potential downsides: W
+16. Source=RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=Index hot-swapping An advantage of non-parametric memory models like RAG is that knowledge can be easily updated at test time. Parametric-only models like T5 or BART need further t
+17. Source=Self-RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=calls a retriever model on demand (Step 1). Subsequently,SELF -RAG concurrently processes multiple retrieved passages, evaluating their relevance and thengenerating corresponding t
+18. Source=Self-RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=Long-form generation tasks include a biography generation task (Min et al., 2023) and a long-form QA task ALCE-ASQA Gao et al. (2023); Stelmakh et al. (2022). We use FactScore (Min
+19. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=PubHealth 0.0 0.2 0.4 0.6 Retrieval Threshold 0.6 0.8 1.0Accuracy PopQA 0.0 0.5 1.0 Frequency 0.25 0.50 0.75 1.00 Frequency  (c) Retrieval Figure 3: Analysis on SELF -R AG: (a) Abl
+20. Source=Self-RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=training data for each type and combine them to form training data for C. Appendix Section D shows the full list of instructions, and A.1 contains more details and our analysis. Cr
+21. Source=RAG.pdf | Page=17 | Type=text | Image=N/A
+    Content=blob/master/examples/rag/README.md and an interactive demo of a RAG model can be found at https://huggingface.co/rag/ 2https://github.com/pytorch/fairseq 3https://github.com/huggin
+22. Source=RAG.pdf | Page=3 | Type=text | Image=N/A
+    Content=to predict each target token. The second approach, RAG-Token, can predict each target token based on a different document. In the following, we formally introduce both models and t
+23. Source=Self-RAG.pdf | Page=8 | Type=text | Image=N/A
+    Content=fully supported by cited evidence. We also found that on the metrics for factual precision, SELF -R AG 7B occasionally outperforms our 13B due to the tendency of smaller SELF -RAG 
+24. Source=RAG.pdf | Page=11 | Type=text | Image=N/A
+    Content=exceed human performance? evidence from AI experts. CoRR, abs/1705.08807, 2017. URL http://arxiv.org/abs/1705.08807. [17] Jiatao Gu, Yong Wang, Kyunghyun Cho, and Victor O.K. Li. S
+25. Source=RAG.pdf | Page=13 | Type=text | Image=N/A
+    Content=precision training. In ICLR, 2018. URL https://openreview.net/forum?id=r1gs9JgRZ. [41] Nikita Moghe, Siddhartha Arora, Suman Banerjee, and Mitesh M. Khapra. Towards exploit- ing ba
+
+------------------------------------------------------------------------------------------
+[SCOPED BM25 RETRIEVAL] 15 candidates
+------------------------------------------------------------------------------------------
+01. Source=Self-RAG.pdf | Page=10 | Type=image | Image=extracted_images\Self-RAG_page10_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+02. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=performance deterioration by retrieving less is smaller on PubHealth but larger in PopQA. Effects of training data size. We conduct an analysis of how the data scale affects the mo
+03. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=RAG trained on the full 150k instances. We also evaluate Figures 4a, 4b and 4c shows the models’ performance trained on different amount of data. Across all datasets, increasing da
+04. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=ablation experiment, we use a training instance size of 50k for a more efficient exploration of training variations. Later in this section, we conduct an analysis of the effect of 
+05. Source=Self-RAG.pdf | Page=9 | Type=image | Image=extracted_images\Self-RAG_page9_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the textbook on the characterization and characterization of semiconductors in semiconductors and semiconductors  OCR Text:
+06. Source=Self-RAG.pdf | Page=8 | Type=text | Image=N/A
+    Content=5 R ESULTS AND ANALYSIS 5.1 M AIN RESULTS Comparison against baselines without retrieval. Table 2 (top) presents the baselines without retrieval. Our SELF -RAG (bottom two rows) de
+07. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=Preprint. 0 50 100 150 Num of training (k) 35 40 45 50 55Perfomance (a) PopQA 0 100 Num of training (k) 71 72 73  (b) PubHealth 0 100 Num of training (k) 40 60  (c) ASQA (prec) Pop
+08. Source=Self-RAG.pdf | Page=4 | Type=image | Image=extracted_images\Self-RAG_page4_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Preprint.  Typ
+09. Source=Self-RAG.pdf | Page=18 | Type=text | Image=N/A
+    Content=Table 3: The generator LM M training data statistics. base LM Retrieve ISSUP ISREL ISUSE Llama2-7B 93.8 93.5 80.2 73.5 FLAN-3B 85.6 73.1 82.0 72.1 Figure 5: Reward prediction accur
+10. Source=RAG.pdf | Page=8 | Type=text | Image=N/A
+    Content=Effect of Retrieving more documents Models are trained with either 5 or 10 retrieved latent documents, and we do not observe signiﬁcant differences in performance between them. We 
+11. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=Efficiency and accuracy trade-off. Using our framework, practitioners can adjust how often retrieval occurs using the token probability of reward tokens. We evaluate how this adapt
+12. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=enables us to control how much each critique type affects the final generation sampling. We analyze the effects of different parameter weights on the top of our 7B model during inf
+13. Source=Self-RAG.pdf | Page=3 | Type=image | Image=extracted_images\Self-RAG_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+14. Source=Self-RAG.pdf | Page=20 | Type=text | Image=N/A
+    Content=C R ESULTS C.1 A NALYSIS Reliance on parametric- and non-parametric memories. We conduct analysis on how frequently model answers come from retrieved passages (non-parametric memor
+15. Source=Self-RAG.pdf | Page=5 | Type=image | Image=extracted_images\Self-RAG_page5_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a book with the title title and title title  OCR Text: Preprint.  Input: Write an essay of your best summer vacation Input: H
+
+------------------------------------------------------------------------------------------
+[RRF FUSION RANKING]
+------------------------------------------------------------------------------------------
+01. RRF=0.032266 | DenseRank=1 | BM25Rank=3 | Source=Self-RAG.pdf | Page=10 | Type=text
+02. RRF=0.032258 | DenseRank=2 | BM25Rank=2 | Source=Self-RAG.pdf | Page=10 | Type=text
+03. RRF=0.030077 | DenseRank=6 | BM25Rank=7 | Source=Self-RAG.pdf | Page=10 | Type=text
+04. RRF=0.029236 | DenseRank=11 | BM25Rank=6 | Source=Self-RAG.pdf | Page=8 | Type=text
+05. RRF=0.028992 | DenseRank=8 | BM25Rank=10 | Source=RAG.pdf | Page=8 | Type=text
+06. RRF=0.016393 | DenseRank=- | BM25Rank=1 | Source=Self-RAG.pdf | Page=10 | Type=image
+07. RRF=0.015873 | DenseRank=3 | BM25Rank=- | Source=Self-RAG.pdf | Page=9 | Type=text
+08. RRF=0.015625 | DenseRank=4 | BM25Rank=- | Source=Self-RAG.pdf | Page=10 | Type=text
+09. RRF=0.015625 | DenseRank=- | BM25Rank=4 | Source=Self-RAG.pdf | Page=9 | Type=text
+10. RRF=0.015385 | DenseRank=5 | BM25Rank=- | Source=Self-RAG.pdf | Page=2 | Type=text
+11. RRF=0.015385 | DenseRank=- | BM25Rank=5 | Source=Self-RAG.pdf | Page=9 | Type=image
+12. RRF=0.014925 | DenseRank=7 | BM25Rank=- | Source=Self-RAG.pdf | Page=9 | Type=text
+13. RRF=0.014706 | DenseRank=- | BM25Rank=8 | Source=Self-RAG.pdf | Page=4 | Type=image
+14. RRF=0.014493 | DenseRank=9 | BM25Rank=- | Source=RAG.pdf | Page=5 | Type=text
+15. RRF=0.014493 | DenseRank=- | BM25Rank=9 | Source=Self-RAG.pdf | Page=18 | Type=text
+16. RRF=0.014286 | DenseRank=10 | BM25Rank=- | Source=RAG.pdf | Page=2 | Type=text
+17. RRF=0.014085 | DenseRank=- | BM25Rank=11 | Source=Self-RAG.pdf | Page=10 | Type=text
+18. RRF=0.013889 | DenseRank=12 | BM25Rank=- | Source=Self-RAG.pdf | Page=3 | Type=text
+19. RRF=0.013889 | DenseRank=- | BM25Rank=12 | Source=Self-RAG.pdf | Page=9 | Type=text
+20. RRF=0.013699 | DenseRank=13 | BM25Rank=- | Source=RAG.pdf | Page=4 | Type=text
+21. RRF=0.013699 | DenseRank=- | BM25Rank=13 | Source=Self-RAG.pdf | Page=3 | Type=image
+22. RRF=0.013514 | DenseRank=14 | BM25Rank=- | Source=Self-RAG.pdf | Page=20 | Type=text
+23. RRF=0.013514 | DenseRank=- | BM25Rank=14 | Source=Self-RAG.pdf | Page=20 | Type=text
+24. RRF=0.013333 | DenseRank=15 | BM25Rank=- | Source=RAG.pdf | Page=10 | Type=text
+25. RRF=0.013333 | DenseRank=- | BM25Rank=15 | Source=Self-RAG.pdf | Page=5 | Type=image
+26. RRF=0.013158 | DenseRank=16 | BM25Rank=- | Source=RAG.pdf | Page=7 | Type=text
+27. RRF=0.012987 | DenseRank=17 | BM25Rank=- | Source=Self-RAG.pdf | Page=1 | Type=text
+28. RRF=0.012821 | DenseRank=18 | BM25Rank=- | Source=Self-RAG.pdf | Page=7 | Type=text
+29. RRF=0.012658 | DenseRank=19 | BM25Rank=- | Source=Self-RAG.pdf | Page=9 | Type=text
+30. RRF=0.012500 | DenseRank=20 | BM25Rank=- | Source=Self-RAG.pdf | Page=5 | Type=text
+31. RRF=0.012346 | DenseRank=21 | BM25Rank=- | Source=RAG.pdf | Page=17 | Type=text
+32. RRF=0.012195 | DenseRank=22 | BM25Rank=- | Source=RAG.pdf | Page=3 | Type=text
+33. RRF=0.012048 | DenseRank=23 | BM25Rank=- | Source=Self-RAG.pdf | Page=8 | Type=text
+34. RRF=0.011905 | DenseRank=24 | BM25Rank=- | Source=RAG.pdf | Page=11 | Type=text
+35. RRF=0.011765 | DenseRank=25 | BM25Rank=- | Source=RAG.pdf | Page=13 | Type=text
+------------------------------------------------------------------------------------------
+
+==========================================================================================
+STEP 3A — RETRIEVAL STAGE SUMMARY
+==========================================================================================
+Dense candidates       : 25
+BM25 candidates        : 15
+Dense ∩ BM25           : 5
+Dense-only candidates  : 20
+BM25-only candidates   : 10
+Unique candidate pool  : 35
+RRF candidates         : 35
+Returned to pipeline   : 8
+==========================================================================================
+
+------------------------------------------------------------------------------------------
+[SCOPED FINAL HYBRID RESULT] 8 candidates
+------------------------------------------------------------------------------------------
+01. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=RAG trained on the full 150k instances. We also evaluate Figures 4a, 4b and 4c shows the models’ performance trained on different amount of data. Across all datasets, increasing da
+02. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=performance deterioration by retrieving less is smaller on PubHealth but larger in PopQA. Effects of training data size. We conduct an analysis of how the data scale affects the mo
+03. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=Preprint. 0 50 100 150 Num of training (k) 35 40 45 50 55Perfomance (a) PopQA 0 100 Num of training (k) 71 72 73  (b) PubHealth 0 100 Num of training (k) 40 60  (c) ASQA (prec) Pop
+04. Source=Self-RAG.pdf | Page=8 | Type=text | Image=N/A
+    Content=5 R ESULTS AND ANALYSIS 5.1 M AIN RESULTS Comparison against baselines without retrieval. Table 2 (top) presents the baselines without retrieval. Our SELF -RAG (bottom two rows) de
+05. Source=RAG.pdf | Page=8 | Type=text | Image=N/A
+    Content=Effect of Retrieving more documents Models are trained with either 5 or 10 retrieved latent documents, and we do not observe signiﬁcant differences in performance between them. We 
+06. Source=Self-RAG.pdf | Page=10 | Type=image | Image=extracted_images\Self-RAG_page10_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+07. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=RAG approaches causes a large drop in PopQA and ASQA, and removing ISSUP during the beam search results hurts performance on ASQA. This demonstrates the effectiveness of SELF -RAG’
+08. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=lead to further improvements, although in this work we limit our training data size to 150k. Human evaluations. We conduct small human evaluations on SELF -RAG outputs, as well as 
+==========================================================================================
+
+================================================================================
+STAGE 1 — HYBRID RETRIEVAL
+================================================================================
+Retrieved Count : 8
+
+[HYBRID #1] Source=Self-RAG.pdf | Page=10 | Type=text
+Content: RAG trained on the full 150k instances. We also evaluate Figures 4a, 4b and 4c shows the models’ performance trained on different amount of data. Across all datasets, increasing data size often shows upward trajectories and the improvements are significantly larger in PopQA and ASQA, while we do not observed such significant improvements on Llama2-FT7B when increasing the training data from 50k to 150k. These results also indicate that further expanding the training data of SELF -R AG may lead t
+
+[HYBRID #2] Source=Self-RAG.pdf | Page=10 | Type=text
+Content: performance deterioration by retrieving less is smaller on PubHealth but larger in PopQA. Effects of training data size. We conduct an analysis of how the data scale affects the model’s performance. In particular, we randomly sample 5k, 10k, 20k, and 50k instances from our original 150k training instances, and fine-tune fourSELF -RAG 7B variants on those subsets. Then, we compare the model performance on PopQA, PubHealth, and ASQA (citation precision) with our final SELF - RAG trained on the ful
+
+[HYBRID #3] Source=Self-RAG.pdf | Page=10 | Type=text
+Content: Preprint. 0 50 100 150 Num of training (k) 35 40 45 50 55Perfomance (a) PopQA 0 100 Num of training (k) 71 72 73  (b) PubHealth 0 100 Num of training (k) 40 60  (c) ASQA (prec) Pop Bio. S & P 92.5 70.0 ISREL 95.0 90.0 ISSUP 90.0 85.0 (d) Human evaluation on PopQA and Bio generation. Figure 4: Training scale and Human analysis: (a) (b) (c) Training scale analysis shows the effect of the training data scale on PopQA, PubHealth and ASQA (citation precision), respectively. (d) Human analysis on SELF
+
+[HYBRID #4] Source=Self-RAG.pdf | Page=8 | Type=text
+Content: 5 R ESULTS AND ANALYSIS 5.1 M AIN RESULTS Comparison against baselines without retrieval. Table 2 (top) presents the baselines without retrieval. Our SELF -RAG (bottom two rows) demonstrates a substantial performance advantage over supervised fine-tuned LLMs in all tasks and even outperforms ChatGPT in PubHealth, PopQA, biography generations, and ASQA (Rouge and MAUVE). Our approach also significantly outperforms a concurrent method that employs sophisticated prompt engineering; specifically, on
+
+[HYBRID #5] Source=RAG.pdf | Page=8 | Type=text
+Content: Effect of Retrieving more documents Models are trained with either 5 or 10 retrieved latent documents, and we do not observe signiﬁcant differences in performance between them. We have the ﬂexibility to adjust the number of retrieved documents at test time, which can affect performance and runtime. Figure 3 (left) shows that retrieving more documents at test time monotonically improves Open-domain QA results for RAG-Sequence, but performance peaks for RAG-Token at 10 retrieved documents. Figure 
+
+[HYBRID #6] Source=Self-RAG.pdf | Page=10 | Type=image
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Preprint.  in wu  g 50 23 Pop Bio. 5 60 &“ 7? S&P 92.5 70.0 & 40 n 95.0 90.0 35 0 50 100 150 0 100 “ 0 100 _Dsssur] 90.0 85.0 90.0 85.0 Num of training (k) Num of training (k) Num of training (k) . (d) Human evaluation on PopQA (a) PopQA (b) PubHealth (c) ASQA (prec) —_ and B
+
+[HYBRID #7] Source=Self-RAG.pdf | Page=9 | Type=text
+Content: RAG approaches causes a large drop in PopQA and ASQA, and removing ISSUP during the beam search results hurts performance on ASQA. This demonstrates the effectiveness of SELF -RAG’s capabilities of carefully selecting generations based fine-grained multiple criterion, instead of naively using all of the top passages from the retrieval model or solely depending on relevance scores. Effects of inference-time customization. One key benefit of our proposed framework is that it enables us to control 
+
+[HYBRID #8] Source=Self-RAG.pdf | Page=10 | Type=text
+Content: lead to further improvements, although in this work we limit our training data size to 150k. Human evaluations. We conduct small human evaluations on SELF -RAG outputs, as well as the reliability of predicted reflection tokens. In particular, we sampled 50 samples from PopQA and Bio results. Following Menick et al. (2022), human annotators evaluate S&P, which indicates whether the model output is plausible (i.e., the output is a reasonable and on-topic response to the question as if it were occu
+================================================================================
+[DOCUMENT SCOPE] Text chunks: 8 -> 8
+
+================================================================================
+EXPLICIT FIGURE QUERY DETECTED
+================================================================================
+Requested Figure : 4
+================================================================================
+
+================================================================================
+FIGURE NUMBER RETRIEVAL
+================================================================================
+Requested Figure : 4
+Query            : According to Figure 4, how does increasing the amount of training data affect SELF-RAG performance on PopQA, PubHealth, and ASQA?
+Matched Images   : 12
+Rejected References : 5
+[MATCH 1] Source=BERT.pdf | Page=15 | Image=BERT_page15_img13.png | Path=extracted_images\BERT_page15_img13.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black background with white circles on it  OCR Text: No readable text found in this image.  Nearby Document Text: BERT E[CLS] E1  E[SEP] ... EN E1’ ... EM’ C T1 T[SEP] ... TN T1’ ... TM’ [CLS] Tok  1  [SEP] ... Tok  N Tok  1 ... Tok M Question Paragraph BERT E[CLS] E...
+[MATCH 2] Source=BERT.pdf | Page=14 | Image=BERT_page14_render.png | Path=extracted_images\BERT_page14_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a text book with an image of the text  OCR Text: * Learning rate (Adam): 5e-5, 3e-5, 2e-5 * Number of epochs: 2, 3, 4  We also observed that large data sets (e.g., 100k+ labeled training examples) were far less sensitive to hyperparameter choice...
+[MATCH 3] Source=CNN Paper.pdf | Page=3 | Image=CNN Paper_page3_img0.png | Path=extracted_images\CNN Paper_page3_img0.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: figure 4 classification aneture flowchart  OCR Text: Figure 4: Image Classification System Architecture Flowchart  Input Image  Preprocessing (Resize, Normalize)  v  Valid Image?  y  Reject & CNN Feature Output Log Error Extraction Prediction  Nearby Document Text: 4. ...
+[MATCH 4] Source=CNN Paper.pdf | Page=3 | Image=CNN Paper_page3_img1.png | Path=extracted_images\CNN Paper_page3_img1.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a bar chart showing the number of different classes in each class  OCR Text: Number of Images  3500  3000  2500  2000  1500  1000  500  Figure 3: Dataset Class Distribution — Total 11,600 Images  Dog Bird Fish Rabbit Hamster Animal Class  Nearby Document Text: 4. Datas...
+[MATCH 5] Source=CNN Paper.pdf | Page=3 | Image=CNN Paper_page3_render.png | Path=extracted_images\CNN Paper_page3_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram showing the number of different types of aircrafts  OCR Text: 4. Dataset Class Distribution  The bar chart in Figure 3 provides a visual breakdown of image counts per class. The dataset is moderately imbalanced with a 4.77:1 ratio between the la...
+[MATCH 6] Source=Donut.pdf | Page=6 | Image=Donut_page6_img0.png | Path=extracted_images\Donut_page6_img0.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a table with plates of food and a menu on it  OCR Text: ~ Uify} ‘ | a  PEN See Ben: OAV WUse |  Nearby Document Text: 6 G. Kim et al. Fig. 4. Generated English, Chinese, Japanese, and Korean samples with SynthDoG. Heuristic random patterns are applied to mimic the real...
+[MATCH 7] Source=Donut.pdf | Page=6 | Image=Donut_page6_img1.png | Path=extracted_images\Donut_page6_img1.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a hand holding a piece of paper with writing on it  OCR Text: eph Cassel i  2925 ~ 20198 4a ay 172)  Nearby Document Text: 6 G. Kim et al. Fig. 4. Generated English, Chinese, Japanese, and Korean samples with SynthDoG. Heuristic random patterns are applied to mimic the...
+[MATCH 8] Source=Donut.pdf | Page=6 | Image=Donut_page6_img2.png | Path=extracted_images\Donut_page6_img2.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a piece of paper with chinese writing on it  OCR Text: - Kas  i B &  Nearby Document Text: 6 G. Kim et al. Fig. 4. Generated English, Chinese, Japanese, and Korean samples with SynthDoG. Heuristic random patterns are applied to mimic the real documents several componen...
+[MATCH 9] Source=Donut.pdf | Page=6 | Image=Donut_page6_img3.png | Path=extracted_images\Donut_page6_img3.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a person holding a piece of paper with a quote on it  OCR Text: No readable text found in this image.  Nearby Document Text: 6 G. Kim et al. Fig. 4. Generated English, Chinese, Japanese, and Korean samples with SynthDoG. Heuristic random patterns are applied to mimic t...
+[MATCH 10] Source=NLP Paper.pdf | Page=2 | Image=NLP Paper_page2_img0.png | Path=extracted_images\NLP Paper_page2_img0.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a bar chart showing the number of patients who have been diagnosed  OCR Text: Number of Articles  5000  4000  3000  2000  1000  Figure 4: Dataset Distribution Across 6 News Categories — Total 18,600 Articles  Politics Sports Technology Entertainment Health Finance News...
+[MATCH 11] Source=Self-RAG.pdf | Page=10 | Image=Self-RAG_page10_render.png | Path=extracted_images\Self-RAG_page10_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Preprint.  in wu  g 50 23 Pop Bio. 5 60 &“ 7? S&P 92.5 70.0 & 40 n 95.0 90.0...
+[MATCH 12] Source=Vision Transformer.pdf | Page=7 | Image=Vision Transformer_page7_render.png | Path=extracted_images\Vision Transformer_page7_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal on the characterization and characterization of a single - cell cell  OCR Text: Published as a conference paper at ICLR 2021  =J o  oe] wr  BiT- ViT-BB2- O...ViT-B/16. CO} iT-H/14 |  ImageNet Top! Accuracy (%]  Linear 5-shot ImageN...
+[REJECTED 1] Source=BLIP-2.pdf | Page=1 | Image=BLIP-2_page1_render.png
+    Reason   : Cross-reference rather than actual Figure 4
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: the cover of a book with an image of an image and text  OCR Text: 2301.12597v3 [cs.CV] 15 Jun 2023  arXiv  BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models  Junnan Li Dongxu Li Silvio Savarese Steven H...
+[REJECTED 2] Source=BLIP-2.pdf | Page=2 | Image=BLIP-2_page2_render.png
+    Reason   : Cross-reference rather than actual Figure 4
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the journal of the journal of the journal of the journal of the journal of the journal of the journal of the  OCR Text: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models  visu...
+[REJECTED 3] Source=CNN Paper.pdf | Page=5 | Image=CNN Paper_page5_render.png
+    Reason   : Cross-reference rather than actual Figure 4
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a table with a number of different items on it  OCR Text: 7. Discussion  The CNN model achieves strong overall performance with a weighted F1 score of 0.926. However, several limitations and areas for improvement were identified during evaluation.  7.1 St...
+[REJECTED 4] Source=Donut.pdf | Page=5 | Image=Donut_page5_render.png
+    Reason   : Cross-reference rather than actual Figure 4
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a text book with an image of a person in the background  OCR Text: OOCR-free Document Understanding Transformer 5  Decoder. Given the {z}, the textual decoder generates a token sequence (yi)*1, where y;€R” is an one-hot vector for the i-th token...
+[REJECTED 5] Source=Donut.pdf | Page=6 | Image=Donut_page6_render.png
+    Reason   : Cross-reference rather than actual Figure 4
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a book with a picture of a person in the background  OCR Text: 6 G. Kim et al.  Wak gaGHIe - —— ATP  Fig. 4. Generated English, Chinese, Japanese, and Korean samples with SynthDoG. Heuristic random patterns are applied to mimic the real document...
+Matched Sources  : ['BERT.pdf', 'CNN Paper.pdf', 'Donut.pdf', 'NLP Paper.pdf', 'Self-RAG.pdf', 'Vision Transformer.pdf']
+Matched Pages    : ['10', '14', '15', '2', '3', '6', '7']
+[FIGURE LOOKUP] High-confidence figure reference found. Generic CLIP fallback should not be used.
+================================================================================
+[FIGURE IMAGE DEDUPLICATION] 1 -> 1 authoritative image(s), one per source/page.
+
+================================================================================
+EXACT FIGURE RETRIEVAL RESULT
+================================================================================
+Requested Figure : 4
+Exact Match      : True
+Matched Images   : 1
+[EXACT FIGURE #1] Source=Self-RAG.pdf | Page=10 | Image=Self-RAG_page10_render.png | Path=extracted_images\Self-RAG_page10_render.png
+================================================================================
+[FIGURE PIPELINE] Explicit figure/page image match found. CLIP fallback disabled.
+[DOCUMENT SCOPE] Images: 1 -> 1
+
+================================================================================
+STAGE 2 — IMAGE RETRIEVAL RESULT
+================================================================================
+Image Results       : 1
+Exact Figure Match  : True
+
+[IMAGE #1] Source=Self-RAG.pdf | Page=10 | Image=Self-RAG_page10_render.png
+Image Path: extracted_images\Self-RAG_page10_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Preprint.  in wu  g 50 23 Pop Bio. 5 60 &“ 7? S&P 92.5 70.0 & 40 n 95.0 90.0 35 0 50 100 150 0 100 “ 0 100 _Dsssur] 90.0 85.0 90.0 85.0 Num of training (k) Num of training (k) Num of training (k) . (d) Human evaluation on PopQA (a) PopQA (b) PubHealth (c) ASQA (prec) —_ and B
+================================================================================
+
+================================================================================
+COMBINED RETRIEVAL CANDIDATES
+================================================================================
+Text Candidates  : 8
+Image Candidates : 1
+Total Candidates : 9
+================================================================================
+
+================================================================================
+STEP 3A — RERANKER INPUT
+================================================================================
+Query: According to Figure 4, how does increasing the amount of training data affect SELF-RAG performance on PopQA, PubHealth, and ASQA?
+Input candidates: 9
+01. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=RAG trained on the full 150k instances. We also evaluate Figures 4a, 4b and 4c shows the models’ performance trained on different amount of data. Across all datasets, increasing da
+02. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=performance deterioration by retrieving less is smaller on PubHealth but larger in PopQA. Effects of training data size. We conduct an analysis of how the data scale affects the mo
+03. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=Preprint. 0 50 100 150 Num of training (k) 35 40 45 50 55Perfomance (a) PopQA 0 100 Num of training (k) 71 72 73  (b) PubHealth 0 100 Num of training (k) 40 60  (c) ASQA (prec) Pop
+04. Source=Self-RAG.pdf | Page=8 | Type=text | Image=N/A
+    Content=5 R ESULTS AND ANALYSIS 5.1 M AIN RESULTS Comparison against baselines without retrieval. Table 2 (top) presents the baselines without retrieval. Our SELF -RAG (bottom two rows) de
+05. Source=RAG.pdf | Page=8 | Type=text | Image=N/A
+    Content=Effect of Retrieving more documents Models are trained with either 5 or 10 retrieved latent documents, and we do not observe signiﬁcant differences in performance between them. We 
+06. Source=Self-RAG.pdf | Page=10 | Type=image | Image=extracted_images\Self-RAG_page10_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+07. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=RAG approaches causes a large drop in PopQA and ASQA, and removing ISSUP during the beam search results hurts performance on ASQA. This demonstrates the effectiveness of SELF -RAG’
+08. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=lead to further improvements, although in this work we limit our training data size to 150k. Human evaluations. We conduct small human evaluations on SELF -RAG outputs, as well as 
+09. Source=Self-RAG.pdf | Page=10 | Type=image | Image=extracted_images\Self-RAG_page10_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+================================================================================
+
+--------------------------------------------------------------------------------
+CROSS-ENCODER RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=00 | Source=Self-RAG.pdf | Page=10 | Type=text | CE=6.8872
+Rank=02 | OriginalIndex=01 | Source=Self-RAG.pdf | Page=10 | Type=text | CE=6.1794
+Rank=03 | OriginalIndex=02 | Source=Self-RAG.pdf | Page=10 | Type=text | CE=3.8997
+Rank=04 | OriginalIndex=06 | Source=Self-RAG.pdf | Page=9 | Type=text | CE=2.1022
+Rank=05 | OriginalIndex=07 | Source=Self-RAG.pdf | Page=10 | Type=text | CE=1.9516
+Rank=06 | OriginalIndex=03 | Source=Self-RAG.pdf | Page=8 | Type=text | CE=0.8472
+Rank=07 | OriginalIndex=05 | Source=Self-RAG.pdf | Page=10 | Type=image | CE=-1.0494
+Rank=08 | OriginalIndex=08 | Source=Self-RAG.pdf | Page=10 | Type=image | CE=-1.0494
+Rank=09 | OriginalIndex=04 | Source=RAG.pdf | Page=8 | Type=text | CE=-3.4777
+
+--------------------------------------------------------------------------------
+CLIP IMAGE RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=05 | Source=Self-RAG.pdf | Page=10 | Image=extracted_images\Self-RAG_page10_render.png | CLIP=0.2448
+Rank=02 | OriginalIndex=08 | Source=Self-RAG.pdf | Page=10 | Image=extracted_images\Self-RAG_page10_render.png | CLIP=0.2448
+
+================================================================================
+STEP 3A — COMPLETE MULTIMODAL RERANK RESULT
+================================================================================
+Rank=01 | Type=image | Source=Self-RAG.pdf | Page=10 | RRF=0.031319 | CE=-1.0494 | CLIP=0.2448
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+Rank=02 | Type=image | Source=Self-RAG.pdf | Page=10 | RRF=0.030835 | CE=-1.0494 | CLIP=0.2448
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+Rank=03 | Type=text | Source=Self-RAG.pdf | Page=10 | RRF=0.016393 | CE=6.8872 | CLIP=N/A
+    Content=RAG trained on the full 150k instances. We also evaluate Figures 4a, 4b and 4c shows the models’ performance trained on different amount of data. Across all datasets, increasing da
+Rank=04 | Type=text | Source=Self-RAG.pdf | Page=10 | RRF=0.016129 | CE=6.1794 | CLIP=N/A
+    Content=performance deterioration by retrieving less is smaller on PubHealth but larger in PopQA. Effects of training data size. We conduct an analysis of how the data scale affects the mo
+Rank=05 | Type=text | Source=Self-RAG.pdf | Page=10 | RRF=0.015873 | CE=3.8997 | CLIP=N/A
+    Content=Preprint. 0 50 100 150 Num of training (k) 35 40 45 50 55Perfomance (a) PopQA 0 100 Num of training (k) 71 72 73  (b) PubHealth 0 100 Num of training (k) 40 60  (c) ASQA (prec) Pop
+Rank=06 | Type=text | Source=Self-RAG.pdf | Page=9 | RRF=0.015625 | CE=2.1022 | CLIP=N/A
+    Content=RAG approaches causes a large drop in PopQA and ASQA, and removing ISSUP during the beam search results hurts performance on ASQA. This demonstrates the effectiveness of SELF -RAG’
+Rank=07 | Type=text | Source=Self-RAG.pdf | Page=10 | RRF=0.015385 | CE=1.9516 | CLIP=N/A
+    Content=lead to further improvements, although in this work we limit our training data size to 150k. Human evaluations. We conduct small human evaluations on SELF -RAG outputs, as well as 
+Rank=08 | Type=text | Source=Self-RAG.pdf | Page=8 | RRF=0.015152 | CE=0.8472 | CLIP=N/A
+    Content=5 R ESULTS AND ANALYSIS 5.1 M AIN RESULTS Comparison against baselines without retrieval. Table 2 (top) presents the baselines without retrieval. Our SELF -RAG (bottom two rows) de
+Rank=09 | Type=text | Source=RAG.pdf | Page=8 | RRF=0.014493 | CE=-3.4777 | CLIP=N/A
+    Content=Effect of Retrieving more documents Models are trained with either 5 or 10 retrieved latent documents, and we do not observe signiﬁcant differences in performance between them. We 
+================================================================================
+
+================================================================================
+STEP 3A — FINAL RERANK TOP-K
+================================================================================
+Requested top_k: 12
+Returned documents: 8
+01. Source=Self-RAG.pdf | Page=10 | Type=image | Image=extracted_images\Self-RAG_page10_render.png
+02. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+03. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+04. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+05. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+06. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+07. Source=Self-RAG.pdf | Page=8 | Type=text | Image=N/A
+08. Source=RAG.pdf | Page=8 | Type=text | Image=N/A
+================================================================================
+
+================================================================================
+STAGE 3 — MULTIMODAL RERANKING
+================================================================================
+Input Candidates : 9
+Reranked Output   : 8
+
+[RERANK #1] Source=Self-RAG.pdf | Page=10 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Preprint.  in wu  g 50 23 Pop Bio. 5 60 &“ 7? S&P 92.5 70.0 & 40 n 95.0 90.0
+
+[RERANK #2] Source=Self-RAG.pdf | Page=10 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: RAG trained on the full 150k instances. We also evaluate Figures 4a, 4b and 4c shows the models’ performance trained on different amount of data. Across all datasets, increasing data size often shows upward trajectories and the improvements are significantly larger in PopQA and ASQA, while we do not
+
+[RERANK #3] Source=Self-RAG.pdf | Page=10 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: performance deterioration by retrieving less is smaller on PubHealth but larger in PopQA. Effects of training data size. We conduct an analysis of how the data scale affects the model’s performance. In particular, we randomly sample 5k, 10k, 20k, and 50k instances from our original 150k training ins
+
+[RERANK #4] Source=Self-RAG.pdf | Page=10 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Preprint. 0 50 100 150 Num of training (k) 35 40 45 50 55Perfomance (a) PopQA 0 100 Num of training (k) 71 72 73  (b) PubHealth 0 100 Num of training (k) 40 60  (c) ASQA (prec) Pop Bio. S & P 92.5 70.0 ISREL 95.0 90.0 ISSUP 90.0 85.0 (d) Human evaluation on PopQA and Bio generation. Figure 4: Traini
+
+[RERANK #5] Source=Self-RAG.pdf | Page=9 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: RAG approaches causes a large drop in PopQA and ASQA, and removing ISSUP during the beam search results hurts performance on ASQA. This demonstrates the effectiveness of SELF -RAG’s capabilities of carefully selecting generations based fine-grained multiple criterion, instead of naively using all of
+
+[RERANK #6] Source=Self-RAG.pdf | Page=10 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: lead to further improvements, although in this work we limit our training data size to 150k. Human evaluations. We conduct small human evaluations on SELF -RAG outputs, as well as the reliability of predicted reflection tokens. In particular, we sampled 50 samples from PopQA and Bio results. Followi
+
+[RERANK #7] Source=Self-RAG.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: 5 R ESULTS AND ANALYSIS 5.1 M AIN RESULTS Comparison against baselines without retrieval. Table 2 (top) presents the baselines without retrieval. Our SELF -RAG (bottom two rows) demonstrates a substantial performance advantage over supervised fine-tuned LLMs in all tasks and even outperforms ChatGPT
+
+[RERANK #8] Source=RAG.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Effect of Retrieving more documents Models are trained with either 5 or 10 retrieved latent documents, and we do not observe signiﬁcant differences in performance between them. We have the ﬂexibility to adjust the number of retrieved documents at test time, which can affect performance and runtime. 
+================================================================================
+
+================================================================================
+FINAL CONTEXT DOCUMENTS
+================================================================================
+Final context candidates: 8
+
+[FINAL #1] Source=Self-RAG.pdf | Page=10 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Preprint.  in wu  g 50 23 Pop Bio. 5 60 &“ 7? S&P 92.5 70.0 & 40 n 95.0 90.0
+
+[FINAL #2] Source=Self-RAG.pdf | Page=10 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: RAG trained on the full 150k instances. We also evaluate Figures 4a, 4b and 4c shows the models’ performance trained on different amount of data. Across all datasets, increasing data size often shows upward trajectories and the improvements are significantly larger in PopQA and ASQA, while we do not
+
+[FINAL #3] Source=Self-RAG.pdf | Page=10 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: performance deterioration by retrieving less is smaller on PubHealth but larger in PopQA. Effects of training data size. We conduct an analysis of how the data scale affects the model’s performance. In particular, we randomly sample 5k, 10k, 20k, and 50k instances from our original 150k training ins
+
+[FINAL #4] Source=Self-RAG.pdf | Page=10 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Preprint. 0 50 100 150 Num of training (k) 35 40 45 50 55Perfomance (a) PopQA 0 100 Num of training (k) 71 72 73  (b) PubHealth 0 100 Num of training (k) 40 60  (c) ASQA (prec) Pop Bio. S & P 92.5 70.0 ISREL 95.0 90.0 ISSUP 90.0 85.0 (d) Human evaluation on PopQA and Bio generation. Figure 4: Traini
+
+[FINAL #5] Source=Self-RAG.pdf | Page=9 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: RAG approaches causes a large drop in PopQA and ASQA, and removing ISSUP during the beam search results hurts performance on ASQA. This demonstrates the effectiveness of SELF -RAG’s capabilities of carefully selecting generations based fine-grained multiple criterion, instead of naively using all of
+
+[FINAL #6] Source=Self-RAG.pdf | Page=10 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: lead to further improvements, although in this work we limit our training data size to 150k. Human evaluations. We conduct small human evaluations on SELF -RAG outputs, as well as the reliability of predicted reflection tokens. In particular, we sampled 50 samples from PopQA and Bio results. Followi
+
+[FINAL #7] Source=Self-RAG.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: 5 R ESULTS AND ANALYSIS 5.1 M AIN RESULTS Comparison against baselines without retrieval. Table 2 (top) presents the baselines without retrieval. Our SELF -RAG (bottom two rows) demonstrates a substantial performance advantage over supervised fine-tuned LLMs in all tasks and even outperforms ChatGPT
+
+[FINAL #8] Source=RAG.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Effect of Retrieving more documents Models are trained with either 5 or 10 retrieved latent documents, and we do not observe signiﬁcant differences in performance between them. We have the ﬂexibility to adjust the number of retrieved documents at test time, which can affect performance and runtime. 
+================================================================================
+
+================================================================================
+FIGURE FINAL-CONTEXT DIAGNOSTIC
+================================================================================
+Requested Figure     : 4
+Exact Figure Match   : True
+Present In Final     : False
+[FIGURE DIAGNOSTIC] FAIL — figure/page image was retrieved but disappeared before final context.
+================================================================================
+
+================================================================================
+FINAL CONTEXT SENT TO LLM
+================================================================================
+
+================================================================================
+DOCUMENT : Self-RAG.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 8
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+5 R ESULTS AND ANALYSIS
+5.1 M AIN RESULTS
+Comparison against baselines without retrieval. Table 2 (top) presents the baselines without
+retrieval. Our SELF -RAG (bottom two rows) demonstrates a substantial performance advantage
+over supervised fine-tuned LLMs in all tasks and even outperforms ChatGPT in PubHealth, PopQA,
+biography generations, and ASQA (Rouge and MAUVE). Our approach also significantly outperforms
+a concurrent method that employs sophisticated prompt engineering; specifically, on the bio generation
+
+
+--------------------------------------------------------------------------------
+PAGE : 9
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+RAG approaches causes a large drop in PopQA and ASQA, and removing ISSUP during the beam
+search results hurts performance on ASQA. This demonstrates the effectiveness of SELF -RAG’s
+capabilities of carefully selecting generations based fine-grained multiple criterion, instead of naively
+using all of the top passages from the retrieval model or solely depending on relevance scores.
+Effects of inference-time customization. One key benefit of our proposed framework is that it
+enables us to control how much each critique type affects the final generation sampling. We analyze
+
+
+--------------------------------------------------------------------------------
+PAGE : 10
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+RAG trained on the full 150k instances. We also evaluate Figures 4a, 4b and 4c shows the models’
+performance trained on different amount of data. Across all datasets, increasing data size often shows
+upward trajectories and the improvements are significantly larger in PopQA and ASQA, while we do
+not observed such significant improvements on Llama2-FT7B when increasing the training data from
+50k to 150k. These results also indicate that further expanding the training data of SELF -R AG may
+lead to further improvements, although in this work we limit our training data size to 150k.
+
+
+[TEXT]
+
+performance deterioration by retrieving less is smaller on PubHealth but larger in PopQA.
+Effects of training data size. We conduct an analysis of how the data scale affects the model’s
+performance. In particular, we randomly sample 5k, 10k, 20k, and 50k instances from our original
+150k training instances, and fine-tune fourSELF -RAG 7B variants on those subsets. Then, we compare
+the model performance on PopQA, PubHealth, and ASQA (citation precision) with our final SELF -
+RAG trained on the full 150k instances. We also evaluate Figures 4a, 4b and 4c shows the models’
+
+
+[TEXT]
+
+Preprint.
+0 50 100 150
+Num of training (k)
+35
+40
+45
+50
+55Perfomance
+(a) PopQA
+0 100
+Num of training (k)
+71
+72
+73
+ (b) PubHealth
+0 100
+Num of training (k)
+40
+60
+ (c) ASQA (prec)
+Pop Bio.
+S & P 92.5 70.0
+ISREL 95.0 90.0
+ISSUP 90.0 85.0
+(d) Human evaluation on PopQA
+and Bio generation.
+Figure 4: Training scale and Human analysis: (a) (b) (c) Training scale analysis shows the effect
+of the training data scale on PopQA, PubHealth and ASQA (citation precision), respectively. (d)
+Human analysis on SELF -R AG outputs as well as reflection tokens.
+
+
+[TEXT]
+
+lead to further improvements, although in this work we limit our training data size to 150k.
+Human evaluations. We conduct small human evaluations on SELF -RAG outputs, as well as the
+reliability of predicted reflection tokens. In particular, we sampled 50 samples from PopQA and Bio
+results. Following Menick et al. (2022), human annotators evaluate S&P, which indicates whether
+the model output is plausible (i.e., the output is a reasonable and on-topic response to the question
+as if it were occurring in a conversation) and supported (i.e., the provided evidence is sufficient to
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the
+
+OCR Text:
+Preprint.
+
+in
+wu
+
+g 50 23 Pop Bio.
+5 60
+&“ 7? S&P 92.5 70.0
+& 40 n 95.0 90.0
+35
+0 50 100 150 0 100 “ 0 100 _Dsssur] 90.0 85.0 90.0 85.0
+Num of training (k) Num of training (k) Num of training (k) .
+(d) Human evaluation on PopQA
+(a) PopQA (b) PubHealth (c) ASQA (prec) —_ and Bio generation.
+
+Figure 4: Training scale and Human analysis: (a) (b) (c) Training scale analysis shows the effect
+of the training data scale on PopQA, PubHealth and ASQA (citation precision), respectively. (d)
+Human analysis on SELF-RAG outputs as well as reflection tokens.
+
+contrary, a larger weight results in lower MAUVE scores: when generation gets longer and more
+fluent, there are often more claims that are not fully supported by citations, consistent with findings
+by Liu et al. (2023a). Our framework lets practitioners choose and customize models’ behaviors at
+test time by adjusting such parameters without requiring additional training.
+
+Efficiency and accuracy trade-off. Using our framework, practitioners can adjust how often retrieval
+occurs using the token probability of reward tokens. We evaluate how this adaptive threshold affects
+overall accuracy and frequency of retrieval, and we evaluate the performance with varying numbers
+of threshold 6 (larger 6 results in less retrieval) on PubHealth and PopQA. Figure 3c shows that
+the model’s retrieval frequencies dramatically change on both datasets. as 6 varies. On one hand,
+performance deterioration by retrieving less is smaller on PubHealth but larger in PopQA.
+
+Effects of training data size. We conduct an analysis of how the data scale affects the model’s
+performance. In particular, we randomly sample 5k, 10k, 20k, and 50k instances from our original
+150k training instances, and fine-tune four SELF-RAG 7, variants on those subsets. Then, we compare
+the model performance on PopQA, PubHealth, and ASQA (citation precision) with our final SELF-
+RAG trained on the full 150k instances. We also evaluate Figures 4a, 4b and 4c shows the models’
+performance trained on different amount of data. Across all datasets, increasing data size often shows
+upward trajectories and the improvements are significantly larger in PopQA and ASQA, while we do
+not observed such significant improvements on Llama2-FT;, when increasing the training data from
+50k to 150k. These results also indicate that further expanding the training data of SELF-RAG may
+lead to further improvements, although in this work we limit our training data size to 150k.
+
+Human evaluations. We conduct small human evaluations on SELF-RAG outputs, as well as the
+reliability of predicted reflection tokens. In particular, we sampled 50 samples from PopQA and Bio
+results. Following Menick et al. (2022), human annotators evaluate S&P, which indicates whether
+the model output is plausible (i.e., the output is a reasonable and on-topic response to the question
+as if it were occurring in a conversation) and supported (i.e., the provided evidence is sufficient to
+verify the validity of the answer). For S&P, we do not consider the instances where SELF-RAG
+predicts irrelevant orno support. We then ask our annotators whether the model-predicted
+reflection tokens about and match their inspections (e.g., whether the fully supported
+output is supported by the cited evidence). Human annotators find SELF-RAG answers are often
+plausible and supported by relevant passages with higher S&P scores on short-form PopQA, which is
+consistent with Menick et al. (2022). Human annotators also find and reflection token
+predictions are mostly aligned with their assessments. Appendix Table 6 shows several annotated
+examples and explanations on assessments.
+
+6 CONCLUSION
+
+This work introduces SELF-RAG, a new framework to enhance the quality and factuality of LLMs
+through retrieval on demand and self-reflection. SELF-RAG trains an LM to learn to retrieve, generate,
+and critique text passages and its own generation by predicting the next tokens from its original
+vocabulary as well as newly added special tokens, called reflection tokens. SELF-RAG further enables
+the tailoring of LM behaviors at test time by leveraging reflection tokens. Our holistic evaluations on
+six tasks using multiple metrics demonstrate that SELF-RAG significantly outperforms LLMs with
+more parameters or with conventional retrieval-augmented generation approaches.
+
+10
+
+Nearby Document Text:
+Preprint.
+0
+50
+100
+150
+Num of training (k)
+35
+40
+45
+50
+55
+Perfomance
+(a) PopQA
+0
+100
+Num of training (k)
+71
+72
+73
+(b) PubHealth
+0
+100
+Num of training (k)
+40
+60
+(c) ASQA (prec)
+Pop
+Bio.
+S & P
+92.5
+70.0
+ISREL
+95.0
+90.0
+ISSUP
+90.0
+85.0
+(d) Human evaluation on PopQA
+and Bio generation.
+Figure 4: Training scale and Human analysis: (a) (b) (c) Training scale analysis shows the effect
+of the training data scale on PopQA, PubHealth and ASQA (citation precision), respectively. (d)
+Human analysis on SELF-RAG outputs as well as reflection tokens.
+contrary, a larger weight results in lower MAUVE scores: w
+
+
+[RELATED PAGE TEXT]
+
+RAG trained on the full 150k instances. We also evaluate Figures 4a, 4b and 4c shows the models’
+performance trained on different amount of data. Across all datasets, increasing data size often shows
+upward trajectories and the improvements are significantly larger in PopQA and ASQA, while we do
+not observed such significant improvements on Llama2-
+
+
+================================================================================
+DOCUMENT : RAG.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 8
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+Effect of Retrieving more documents Models are trained with either 5 or 10 retrieved latent
+documents, and we do not observe signiﬁcant differences in performance between them. We have the
+ﬂexibility to adjust the number of retrieved documents at test time, which can affect performance and
+runtime. Figure 3 (left) shows that retrieving more documents at test time monotonically improves
+Open-domain QA results for RAG-Sequence, but performance peaks for RAG-Token at 10 retrieved
+documents. Figure 3 (right) shows that retrieving more documents leads to higher Rouge-L for
+
+================================================================================
+
+================================================================================
+RAG PIPELINE DEBUG
+================================================================================
+Query Type        : visual
+Retrieved Chunks  : 8
+Retrieved Images  : 1
+Reranked Chunks   : 8
+Reranked Text     : 7
+Reranked Images   : 1
+Final Context Docs: 8
+Exact Figure Query: True
+Exact Figure Match: True
+Exact Figure Final: False
+================================================================================
+
+====================================================================================================
+RAG ANSWER
+====================================================================================================
+ Increasing the amount of training data significantly improves SELF-RAG's performance on PopQA and ASQA, while no significant improvements are observed on PubHealth. This analysis is based on the training scale shown in Figure 4 from the document.
+
+IMAGE PATHS:
+D:/Projects/Major-Project-2-main/extracted_images/Self-RAG_page10_render.png

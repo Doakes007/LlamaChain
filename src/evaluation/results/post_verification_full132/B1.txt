@@ -1,0 +1,995 @@
+====================================================================================================
+QUESTION_ID   : B1
+DOCUMENT      : BLIP-2
+QUESTION_TYPE : Core understanding
+ELAPSED_SEC   : 66.6
+ERROR         : no
+====================================================================================================
+
+QUESTION:
+What problem does BLIP-2 aim to solve in vision-language pre-training, and how does the Q-Former address this problem?
+
+GROUND TRUTH ANSWER:
+BLIP-2 aims to make vision-language pre-training more efficient while leveraging strong frozen unimodal models. The main challenge is the modality gap between a frozen image encoder and a frozen LLM. The Q-Former bridges this gap by using learnable queries to extract visual features that are most relevant to text and by passing this compact representation to the LLM.
+
+GROUND TRUTH SOURCE:
+BLIP-2.pdf, pp. 1–3
+
+====================================================================================================
+FORENSIC TRANSCRIPT
+====================================================================================================
+
+####################################################################################################
+FORENSIC CASE START
+####################################################################################################
+Original Query   : What problem does BLIP-2 aim to solve in vision-language pre-training, and how does the Q-Former address this problem?
+Expanded Query   : What problem does BLIP-2 aim to solve in vision-language pre-training, and how does the Q-Former address this problem?
+Query Type       : analytical
+[DOCUMENT SCOPE] Normalized query: 'what problem does blip 2 aim to solve in vision language pre training and how does the q former address this problem'
+[DOCUMENT SCOPE] Source='BERT.pdf' -> Normalized='bert'
+[DOCUMENT SCOPE] Token overlap for 'BERT.pdf': []
+[DOCUMENT SCOPE] Source='BLIP-2.pdf' -> Normalized='blip 2'
+[DOCUMENT SCOPE] EXACT MATCH -> BLIP-2.pdf
+[DOCUMENT SCOPE] Source='CLIP.pdf' -> Normalized='clip'
+[DOCUMENT SCOPE] Token overlap for 'CLIP.pdf': []
+[DOCUMENT SCOPE] Source='CNN Paper.pdf' -> Normalized='cnn paper'
+[DOCUMENT SCOPE] Token overlap for 'CNN Paper.pdf': []
+[DOCUMENT SCOPE] Source='Donut.pdf' -> Normalized='donut'
+[DOCUMENT SCOPE] Token overlap for 'Donut.pdf': []
+[DOCUMENT SCOPE] Source='LayoutLMv3.pdf' -> Normalized='layout l mv3'
+[DOCUMENT SCOPE] Token overlap for 'LayoutLMv3.pdf': []
+[DOCUMENT SCOPE] Source='NLP Paper.pdf' -> Normalized='nlp paper'
+[DOCUMENT SCOPE] Token overlap for 'NLP Paper.pdf': []
+[DOCUMENT SCOPE] Source='RAG.pdf' -> Normalized='rag'
+[DOCUMENT SCOPE] Token overlap for 'RAG.pdf': []
+[DOCUMENT SCOPE] Source='Self-RAG.pdf' -> Normalized='self rag'
+[DOCUMENT SCOPE] Token overlap for 'Self-RAG.pdf': []
+[DOCUMENT SCOPE] Source='Vision Transformer.pdf' -> Normalized='vision transformer'
+[DOCUMENT SCOPE] Token overlap for 'Vision Transformer.pdf': ['vision']
+[DOCUMENT SCOPE] Final matched sources: ['BLIP-2.pdf']
+
+================================================================================
+DOCUMENT SCOPE DEBUG
+================================================================================
+Query          : What problem does BLIP-2 aim to solve in vision-language pre-training, and how does the Q-Former address this problem?
+Expanded Query : What problem does BLIP-2 aim to solve in vision-language pre-training, and how does the Q-Former address this problem?
+Query Type     : analytical
+Document Scope : ['BLIP-2.pdf']
+================================================================================
+
+==========================================================================================
+STEP 3A — SCOPED HYBRID RETRIEVAL
+==========================================================================================
+Query              : What problem does BLIP-2 aim to solve in vision-language pre-training, and how does the Q-Former address this problem?
+Sources            : ['BLIP-2.pdf']
+Dense candidate K  : 25
+Final hybrid K     : 8
+
+------------------------------------------------------------------------------------------
+[SCOPED DENSE / VECTOR RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=BLIP-2.pdf | Page=8 | Type=text | Image=N/A
+    Content=6. Conclusion We propose BLIP-2, a generic and compute-efficient method for vision-language pre-training that leverages frozen pre- trained image encoders and LLMs. BLIP-2 achieves
+02. Source=BLIP-2.pdf | Page=2 | Type=text | Image=N/A
+    Content=LLMs for various vision-language tasks, achieving stronger performance at a lower computation cost. 3. Method We propose BLIP-2, a new vision-language pre-training method that boot
+03. Source=BLIP-2.pdf | Page=7 | Type=text | Image=N/A
+    Content=16k 32k 48k 64k 80k iterations 20 30 40 50 60 70zero-shot VQAv2 acc. BLIP2 ViT-G FlanT5-XL w/ representation learning w/o representation learning Figure 5. Effect of vision-languag
+04. Source=BLIP-2.pdf | Page=2 | Type=text | Image=N/A
+    Content=BLIP-2 achieves state-of-the-art performance on various vision-language tasks including visual question answer- ing, image captioning, and image-text retrieval. • Powered by LLMs (
+05. Source=BLIP-2.pdf | Page=2 | Type=text | Image=N/A
+    Content=BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models visual feature for the LLM to output the desired text. In the first pre-train
+06. Source=BLIP-2.pdf | Page=3 | Type=text | Image=N/A
+    Content=Q T Q T Bi-directional Self-Attention Mask Q T Q T Image-Text  Matching Image-Text  Contrastive Learning Image-Grounded  Text Generation Q: query token positions;   … unmaskedmaske
+07. Source=BLIP-2.pdf | Page=8 | Type=text | Image=N/A
+    Content=features most relevant to the text, thus improving vision- language alignment. 5. Limitation Recent LLMs can perform in-context learning given few- shot examples. However, our expe
+08. Source=BLIP-2.pdf | Page=7 | Type=text | Image=N/A
+    Content=question. Specifically, the question tokens are given as input to the Q-Former and interact with the queries via the self-attention layers, which can guide the Q-Former’s cross- at
+09. Source=BLIP-2.pdf | Page=6 | Type=text | Image=N/A
+    Content=previous state-of-the-art models, BLIP-2 achieves improved performance while requiring substantially fewer number of trainable parameters during vision-language pre-training. 4.1. 
+10. Source=BLIP-2.pdf | Page=6 | Type=text | Image=N/A
+    Content=Effect of Vision-Language Representation Learning. The first-stage representation learning pre-trains the Q- Former to learn visual features relevant to the text, which reduces the
+11. Source=BLIP-2.pdf | Page=2 | Type=text | Image=N/A
+    Content=Vision-language pre-training aims to learn multimodal foun- dation models with improved performance on various vision- and-language tasks. Depending on the downstream task, differe
+12. Source=BLIP-2.pdf | Page=13 | Type=text | Image=N/A
+    Content=BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models Image Encoder Input Image Queries … Q-Former … What is the cat wearing? Answe
+13. Source=BLIP-2.pdf | Page=3 | Type=text | Image=N/A
+    Content=BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models Image Encoder Input Image Learned Queries Feed Forward Cross Attention Self A
+14. Source=BLIP-2.pdf | Page=1 | Type=text | Image=N/A
+    Content=it is key to facilitate cross-modal alignment. However, since LLMs have not seen images during their unimodal pre- training, freezing them makes vision-language alignment in partic
+15. Source=BLIP-2.pdf | Page=1 | Type=text | Image=N/A
+    Content=structions. 1. Introduction Vision-language pre-training (VLP) research has witnessed a rapid advancement in the past few years, where pre-trained models with increasingly larger s
+16. Source=BLIP-2.pdf | Page=4 | Type=text | Image=N/A
+    Content=LLM to learn vision-language alignment, thus mitigating the catastrophic forgetting problem. We experiment with two types of LLMs: decoder-based LLMs and encoder-decoder-based LLMs
+17. Source=BLIP-2.pdf | Page=12 | Type=text | Image=N/A
+    Content=BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models LLM FlanT5XL OPT2.7B OPT6.7B Fine-tuning epochs 5 Warmup steps 1000 Learning 
+18. Source=BLIP-2.pdf | Page=6 | Type=text | Image=N/A
+    Content=visual prompt as input to the LLM. Figure 4 shows exam- ples to demonstrate a wide range of zero-shot image-to-text capabilities including visual knowledge reasoning, visual commen
+19. Source=BLIP-2.pdf | Page=7 | Type=text | Image=N/A
+    Content=learning to bridge the modality gap, which is similar to the Perceiver Resampler in Flamingo. Figure 5 shows the effect of representation learning on generative learning. Without r
+20. Source=BLIP-2.pdf | Page=8 | Type=text | Image=N/A
+    Content=edge from the LLM, activating the incorrect reasoning path, or not having up-to-date information about new image con- tent (see Figure 7). Furthermore, due to the use of frozen mod
+21. Source=BLIP-2.pdf | Page=3 | Type=text | Image=N/A
+    Content=ViT-L/14). This bottleneck architecture works together with our pre-training objectives into forcing the queries to extract visual information that is most relevant to the text. 3.
+22. Source=BLIP-2.pdf | Page=2 | Type=text | Image=N/A
+    Content=• Due to the use of frozen unimodal models and a lightweight Q-Former, BLIP-2 is more compute-efficient than exisiting state-of-the-arts. For example, BLIP-2 out- performs Flamingo
+23. Source=BLIP-2.pdf | Page=2 | Type=image | Image=extracted_images\BLIP-2_page2_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the journal of the journal of the journal of the journal of the journal of the journal of the journal of the
+24. Source=BLIP-2.pdf | Page=9 | Type=text | Image=N/A
+    Content=real-world visual reasoning and compositional question answering. In CVPR, pp. 6700–6709, 2019. Jia, C., Yang, Y ., Xia, Y ., Chen, Y .-T., Parekh, Z., Pham, H., Le, Q. V ., Sung, 
+25. Source=BLIP-2.pdf | Page=6 | Type=text | Image=N/A
+    Content=BEIT-3 (Wang et al., 2022b) 1.9B ✗ - - - 94.9 81.5 Flamingo (Alayrac et al., 2022) 10.2B ✗ 56.3 - - - - BLIP-2 188M ✓ 65.0 121.6 15.8 97.6 89.7 Table 1. Overview of BLIP-2 results 
+
+------------------------------------------------------------------------------------------
+[SCOPED BM25 RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=BLIP-2.pdf | Page=2 | Type=text | Image=N/A
+    Content=frozen LLM, and trains the Q-Former such that its output visual representation can be interpreted by the LLM. We name our VLP framework as BLIP-2: Bootstrapping Language-Image Pre-
+02. Source=BLIP-2.pdf | Page=5 | Type=text | Image=N/A
+    Content=A man and a chicken. What are shown in the photo? What does the man feel and why?  He is scared ofthe chicken because it is flying at him. Pepperoni, mozzarella cheese, pizza sauce
+03. Source=BLIP-2.pdf | Page=5 | Type=text | Image=N/A
+    Content=Tell me something about the history of this place. It is a genus of flowering plants in the orchid family, orchidaceae. It is native to eastern asiaand south eastasia. It is a pere
+04. Source=BLIP-2.pdf | Page=1 | Type=text | Image=N/A
+    Content=cur a high computation cost during pre-training, due to end-to-end training using large-scale models and datasets. Vision-language research sits at the intersection between vision 
+05. Source=BLIP-2.pdf | Page=3 | Type=text | Image=N/A
+    Content=Q-Former to generate texts, given input images as the con- dition. Since the architecture of Q-Former does not allow direct interactions between the frozen image encoder and the te
+06. Source=BLIP-2.pdf | Page=1 | Type=image | Image=extracted_images\BLIP-2_page1_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: the cover of a book with an image of an image and text  OCR Text: 2301.12597v3 [cs.CV] 15 Jun 2023  arXiv  BLIP-2: Bootstrapping Langua
+07. Source=BLIP-2.pdf | Page=3 | Type=text | Image=N/A
+    Content=pairwise similarity between each query output and t, and then select the highest one as the image-text similarity. To avoid information leak, we employ a unimodal self-attention ma
+08. Source=BLIP-2.pdf | Page=2 | Type=image | Image=extracted_images\BLIP-2_page2_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the journal of the journal of the journal of the journal of the journal of the journal of the journal of the
+09. Source=BLIP-2.pdf | Page=13 | Type=image | Image=extracted_images\BLIP-2_page13_img1.png
+    Content=FIGURE FROM DOCUMENT  Caption: a cat wearing sunglasses and looking up at the camera  OCR Text: No readable text found in this image.  Nearby Document Text: BLIP-2: Bootstrapping L
+10. Source=BLIP-2.pdf | Page=5 | Type=text | Image=N/A
+    Content=Singapore. Which city is this?  Why do you think so? The city has a statue of a merlion. The titanic sank. What happened at the end of this movie? Did Leonardo Dicaprio'scharacter 
+11. Source=BLIP-2.pdf | Page=8 | Type=text | Image=N/A
+    Content=6. Conclusion We propose BLIP-2, a generic and compute-efficient method for vision-language pre-training that leverages frozen pre- trained image encoders and LLMs. BLIP-2 achieves
+12. Source=BLIP-2.pdf | Page=1 | Type=text | Image=N/A
+    Content=training strategy that bootstraps vision-language pre-training from off-the-shelf frozen pre-trained image encoders and frozen large language mod- els. BLIP-2 bridges the modality 
+13. Source=BLIP-2.pdf | Page=2 | Type=text | Image=N/A
+    Content=BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models visual feature for the LLM to output the desired text. In the first pre-train
+14. Source=BLIP-2.pdf | Page=13 | Type=text | Image=N/A
+    Content=BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models Image Encoder Input Image Queries … Q-Former … What is the cat wearing? Answe
+15. Source=BLIP-2.pdf | Page=8 | Type=text | Image=N/A
+    Content=4.4. Image-Text Retrieval Since image-text retrieval does not involve language gener- ation, we directly finetune the first-stage-pretrained model w/o LLM. Specifically, we finetun
+16. Source=BLIP-2.pdf | Page=3 | Type=text | Image=N/A
+    Content=ViT-L/14). This bottleneck architecture works together with our pre-training objectives into forcing the queries to extract visual information that is most relevant to the text. 3.
+17. Source=BLIP-2.pdf | Page=6 | Type=text | Image=N/A
+    Content=formance. This observation is supported by several facts: (1) ViT-g outperforms ViT-L for both OPT and FlanT5. (2) Within the same LLM family, larger models outperform smaller ones
+18. Source=BLIP-2.pdf | Page=1 | Type=image | Image=extracted_images\BLIP-2_page1_img1.png
+    Content=FIGURE FROM DOCUMENT  Caption: the sun is setting over the ocean  OCR Text: No readable text found in this image.  Nearby Document Text: BLIP-2: Bootstrapping Language-Image Pre-tr
+19. Source=BLIP-2.pdf | Page=4 | Type=image | Image=extracted_images\BLIP-2_page4_img1.png
+    Content=FIGURE FROM DOCUMENT  Caption: a cat wearing sunglasses and looking up at the camera  OCR Text: No readable text found in this image.  Nearby Document Text: BLIP-2: Bootstrapping L
+20. Source=BLIP-2.pdf | Page=2 | Type=text | Image=N/A
+    Content=BLIP-2 achieves state-of-the-art performance on various vision-language tasks including visual question answer- ing, image captioning, and image-text retrieval. • Powered by LLMs (
+21. Source=BLIP-2.pdf | Page=7 | Type=text | Image=N/A
+    Content=question. Specifically, the question tokens are given as input to the Q-Former and interact with the queries via the self-attention layers, which can guide the Q-Former’s cross- at
+22. Source=BLIP-2.pdf | Page=6 | Type=text | Image=N/A
+    Content=previous state-of-the-art models, BLIP-2 achieves improved performance while requiring substantially fewer number of trainable parameters during vision-language pre-training. 4.1. 
+23. Source=BLIP-2.pdf | Page=1 | Type=text | Image=N/A
+    Content=structions. 1. Introduction Vision-language pre-training (VLP) research has witnessed a rapid advancement in the past few years, where pre-trained models with increasingly larger s
+24. Source=BLIP-2.pdf | Page=6 | Type=text | Image=N/A
+    Content=BEIT-3 (Wang et al., 2022b) 1.9B ✗ - - - 94.9 81.5 Flamingo (Alayrac et al., 2022) 10.2B ✗ 56.3 - - - - BLIP-2 188M ✓ 65.0 121.6 15.8 97.6 89.7 Table 1. Overview of BLIP-2 results 
+25. Source=BLIP-2.pdf | Page=4 | Type=image | Image=extracted_images\BLIP-2_page4_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the journal of the journal of the journal of the journal of the journal of the journal of the journal of the
+
+------------------------------------------------------------------------------------------
+[RRF FUSION RANKING]
+------------------------------------------------------------------------------------------
+01. RRF=0.030478 | DenseRank=1 | BM25Rank=11 | Source=BLIP-2.pdf | Page=8 | Type=text
+02. RRF=0.029083 | DenseRank=5 | BM25Rank=13 | Source=BLIP-2.pdf | Page=2 | Type=text
+03. RRF=0.028125 | DenseRank=4 | BM25Rank=20 | Source=BLIP-2.pdf | Page=2 | Type=text
+04. RRF=0.027402 | DenseRank=12 | BM25Rank=14 | Source=BLIP-2.pdf | Page=13 | Type=text
+05. RRF=0.027052 | DenseRank=8 | BM25Rank=21 | Source=BLIP-2.pdf | Page=7 | Type=text
+06. RRF=0.026754 | DenseRank=23 | BM25Rank=8 | Source=BLIP-2.pdf | Page=2 | Type=image
+07. RRF=0.026688 | DenseRank=9 | BM25Rank=22 | Source=BLIP-2.pdf | Page=6 | Type=text
+08. RRF=0.025504 | DenseRank=21 | BM25Rank=16 | Source=BLIP-2.pdf | Page=3 | Type=text
+09. RRF=0.025382 | DenseRank=15 | BM25Rank=23 | Source=BLIP-2.pdf | Page=1 | Type=text
+10. RRF=0.023669 | DenseRank=25 | BM25Rank=24 | Source=BLIP-2.pdf | Page=6 | Type=text
+11. RRF=0.016393 | DenseRank=- | BM25Rank=1 | Source=BLIP-2.pdf | Page=2 | Type=text
+12. RRF=0.016129 | DenseRank=2 | BM25Rank=- | Source=BLIP-2.pdf | Page=2 | Type=text
+13. RRF=0.016129 | DenseRank=- | BM25Rank=2 | Source=BLIP-2.pdf | Page=5 | Type=text
+14. RRF=0.015873 | DenseRank=3 | BM25Rank=- | Source=BLIP-2.pdf | Page=7 | Type=text
+15. RRF=0.015873 | DenseRank=- | BM25Rank=3 | Source=BLIP-2.pdf | Page=5 | Type=text
+16. RRF=0.015625 | DenseRank=- | BM25Rank=4 | Source=BLIP-2.pdf | Page=1 | Type=text
+17. RRF=0.015385 | DenseRank=- | BM25Rank=5 | Source=BLIP-2.pdf | Page=3 | Type=text
+18. RRF=0.015152 | DenseRank=6 | BM25Rank=- | Source=BLIP-2.pdf | Page=3 | Type=text
+19. RRF=0.015152 | DenseRank=- | BM25Rank=6 | Source=BLIP-2.pdf | Page=1 | Type=image
+20. RRF=0.014925 | DenseRank=7 | BM25Rank=- | Source=BLIP-2.pdf | Page=8 | Type=text
+21. RRF=0.014925 | DenseRank=- | BM25Rank=7 | Source=BLIP-2.pdf | Page=3 | Type=text
+22. RRF=0.014493 | DenseRank=- | BM25Rank=9 | Source=BLIP-2.pdf | Page=13 | Type=image
+23. RRF=0.014286 | DenseRank=10 | BM25Rank=- | Source=BLIP-2.pdf | Page=6 | Type=text
+24. RRF=0.014286 | DenseRank=- | BM25Rank=10 | Source=BLIP-2.pdf | Page=5 | Type=text
+25. RRF=0.014085 | DenseRank=11 | BM25Rank=- | Source=BLIP-2.pdf | Page=2 | Type=text
+26. RRF=0.013889 | DenseRank=- | BM25Rank=12 | Source=BLIP-2.pdf | Page=1 | Type=text
+27. RRF=0.013699 | DenseRank=13 | BM25Rank=- | Source=BLIP-2.pdf | Page=3 | Type=text
+28. RRF=0.013514 | DenseRank=14 | BM25Rank=- | Source=BLIP-2.pdf | Page=1 | Type=text
+29. RRF=0.013333 | DenseRank=- | BM25Rank=15 | Source=BLIP-2.pdf | Page=8 | Type=text
+30. RRF=0.013158 | DenseRank=16 | BM25Rank=- | Source=BLIP-2.pdf | Page=4 | Type=text
+31. RRF=0.012987 | DenseRank=17 | BM25Rank=- | Source=BLIP-2.pdf | Page=12 | Type=text
+32. RRF=0.012987 | DenseRank=- | BM25Rank=17 | Source=BLIP-2.pdf | Page=6 | Type=text
+33. RRF=0.012821 | DenseRank=18 | BM25Rank=- | Source=BLIP-2.pdf | Page=6 | Type=text
+34. RRF=0.012821 | DenseRank=- | BM25Rank=18 | Source=BLIP-2.pdf | Page=1 | Type=image
+35. RRF=0.012658 | DenseRank=19 | BM25Rank=- | Source=BLIP-2.pdf | Page=7 | Type=text
+36. RRF=0.012658 | DenseRank=- | BM25Rank=19 | Source=BLIP-2.pdf | Page=4 | Type=image
+37. RRF=0.012500 | DenseRank=20 | BM25Rank=- | Source=BLIP-2.pdf | Page=8 | Type=text
+38. RRF=0.012195 | DenseRank=22 | BM25Rank=- | Source=BLIP-2.pdf | Page=2 | Type=text
+39. RRF=0.011905 | DenseRank=24 | BM25Rank=- | Source=BLIP-2.pdf | Page=9 | Type=text
+40. RRF=0.011765 | DenseRank=- | BM25Rank=25 | Source=BLIP-2.pdf | Page=4 | Type=image
+------------------------------------------------------------------------------------------
+
+==========================================================================================
+STEP 3A — RETRIEVAL STAGE SUMMARY
+==========================================================================================
+Dense candidates       : 25
+BM25 candidates        : 25
+Dense ∩ BM25           : 10
+Dense-only candidates  : 15
+BM25-only candidates   : 15
+Unique candidate pool  : 40
+RRF candidates         : 40
+Returned to pipeline   : 8
+==========================================================================================
+
+------------------------------------------------------------------------------------------
+[SCOPED FINAL HYBRID RESULT] 8 candidates
+------------------------------------------------------------------------------------------
+01. Source=BLIP-2.pdf | Page=8 | Type=text | Image=N/A
+    Content=6. Conclusion We propose BLIP-2, a generic and compute-efficient method for vision-language pre-training that leverages frozen pre- trained image encoders and LLMs. BLIP-2 achieves
+02. Source=BLIP-2.pdf | Page=2 | Type=text | Image=N/A
+    Content=BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models visual feature for the LLM to output the desired text. In the first pre-train
+03. Source=BLIP-2.pdf | Page=2 | Type=text | Image=N/A
+    Content=BLIP-2 achieves state-of-the-art performance on various vision-language tasks including visual question answer- ing, image captioning, and image-text retrieval. • Powered by LLMs (
+04. Source=BLIP-2.pdf | Page=13 | Type=text | Image=N/A
+    Content=BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models Image Encoder Input Image Queries … Q-Former … What is the cat wearing? Answe
+05. Source=BLIP-2.pdf | Page=7 | Type=text | Image=N/A
+    Content=question. Specifically, the question tokens are given as input to the Q-Former and interact with the queries via the self-attention layers, which can guide the Q-Former’s cross- at
+06. Source=BLIP-2.pdf | Page=2 | Type=image | Image=extracted_images\BLIP-2_page2_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the journal of the journal of the journal of the journal of the journal of the journal of the journal of the
+07. Source=BLIP-2.pdf | Page=6 | Type=text | Image=N/A
+    Content=previous state-of-the-art models, BLIP-2 achieves improved performance while requiring substantially fewer number of trainable parameters during vision-language pre-training. 4.1. 
+08. Source=BLIP-2.pdf | Page=3 | Type=text | Image=N/A
+    Content=ViT-L/14). This bottleneck architecture works together with our pre-training objectives into forcing the queries to extract visual information that is most relevant to the text. 3.
+==========================================================================================
+
+================================================================================
+STAGE 1 — HYBRID RETRIEVAL
+================================================================================
+Retrieved Count : 8
+
+[HYBRID #1] Source=BLIP-2.pdf | Page=8 | Type=text
+Content: 6. Conclusion We propose BLIP-2, a generic and compute-efficient method for vision-language pre-training that leverages frozen pre- trained image encoders and LLMs. BLIP-2 achieves state- of-the-art performance on various vision-language tasks while having a small amount of trainable parameters during pre-training. BLIP-2 also demonstrates emerging capabil- ities in zero-shot instructed image-to-text generation. We consider BLIP-2 as an important step towards building a multimodal conversational
+
+[HYBRID #2] Source=BLIP-2.pdf | Page=2 | Type=text
+Content: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models visual feature for the LLM to output the desired text. In the first pre-training stage, we perform vision-language rep- resentation learning which enforces the Q-Former to learn visual representation most relevant to the text. In the second pre-training stage, we perform vision-to-language genera- tive learning by connecting the output of the Q-Former to a frozen LLM, and trains the Q-Former su
+
+[HYBRID #3] Source=BLIP-2.pdf | Page=2 | Type=text
+Content: BLIP-2 achieves state-of-the-art performance on various vision-language tasks including visual question answer- ing, image captioning, and image-text retrieval. • Powered by LLMs ( e.g. OPT (Zhang et al., 2022), FlanT5 (Chung et al., 2022)), BLIP-2 can be prompted to perform zero-shot image-to-text generation that follows natural language instructions, which enables emerging capabilities such as visual knowledge reasoning, visual conversation, etc. (see Figure 4 for examples). • Due to the use o
+
+[HYBRID #4] Source=BLIP-2.pdf | Page=13 | Type=text
+Content: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models Image Encoder Input Image Queries … Q-Former … What is the cat wearing? Answer Fully Connected … LLM sunglasses Question What is the cat wearing? Question Figure 7. Model architecture for VQA finetuning, where the LLM receives Q-Former’s output and the question as input, then predicts answers. We also provide the question as a condition to Q-Former, such that the extracted image features are mo
+
+[HYBRID #5] Source=BLIP-2.pdf | Page=7 | Type=text
+Content: question. Specifically, the question tokens are given as input to the Q-Former and interact with the queries via the self-attention layers, which can guide the Q-Former’s cross- attention layers to focus on more informative image regions. Following BLIP, our VQA data includes the training and validation splits from VQAv2, as well as training samples from Visual Genome. Table 4 demonstrates the state-of-the- art results of BLIP-2 among open-ended generation models.
+
+[HYBRID #6] Source=BLIP-2.pdf | Page=2 | Type=image
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the journal of the journal of the journal of the journal of the journal of the journal of the journal of the  OCR Text: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models  visual feature for the LLM to output the desired text. In the first pre-training stage, we perform vision-language rep- resentation learning which enforces the Q-Former to learn visual representation most
+
+[HYBRID #7] Source=BLIP-2.pdf | Page=6 | Type=text
+Content: previous state-of-the-art models, BLIP-2 achieves improved performance while requiring substantially fewer number of trainable parameters during vision-language pre-training. 4.1. Instructed Zero-shot Image-to-Text Generation BLIP-2 effectively enables a LLM to understand images while preserving its capability in following text prompts, which allows us to control image-to-text generation with instructions. We simply append the text prompt after the visual prompt as input to the LLM. Figure 4 sho
+
+[HYBRID #8] Source=BLIP-2.pdf | Page=3 | Type=text
+Content: ViT-L/14). This bottleneck architecture works together with our pre-training objectives into forcing the queries to extract visual information that is most relevant to the text. 3.2. Bootstrap Vision-Language Representation Learning from a Frozen Image Encoder In the representation learning stage, we connect Q-Former to a frozen image encoder and perform pre-training using image-text pairs. We aim to train the Q-Former such that the queries can learn to extract visual representation that is most
+================================================================================
+[DOCUMENT SCOPE] Text chunks: 8 -> 8
+
+================================================================================
+IMAGE RETRIEVAL DIAGNOSTIC
+================================================================================
+Query                 : What problem does BLIP-2 aim to solve in vision-language pre-training, and how does the Q-Former address this problem?
+Allowed Sources       : ['BLIP-2.pdf']
+Image Candidates      : 554 -> 25 (scoped before ranking)
+
+ALL IMAGE CANDIDATES
+--------------------------------------------------------------------------------
+Rank=01 | Source=BLIP-2.pdf | Page=2 | Image=BLIP-2_page2_render.png | Hybrid=2.2789 | CE=3.6502 | CLIP=0.2220
+Rank=02 | Source=BLIP-2.pdf | Page=13 | Image=BLIP-2_page13_img1.png | Hybrid=1.5595 | CE=2.4501 | CLIP=0.2236
+Rank=03 | Source=BLIP-2.pdf | Page=1 | Image=BLIP-2_page1_img1.png | Hybrid=1.5340 | CE=2.4195 | CLIP=0.2059
+Rank=04 | Source=BLIP-2.pdf | Page=4 | Image=BLIP-2_page4_img1.png | Hybrid=1.4513 | CE=2.2697 | CLIP=0.2236
+Rank=05 | Source=BLIP-2.pdf | Page=4 | Image=BLIP-2_page4_render.png | Hybrid=1.3525 | CE=2.1074 | CLIP=0.2203
+Rank=06 | Source=BLIP-2.pdf | Page=1 | Image=BLIP-2_page1_render.png | Hybrid=1.2152 | CE=1.8855 | CLIP=0.2098
+Rank=07 | Source=BLIP-2.pdf | Page=3 | Image=BLIP-2_page3_render.png | Hybrid=0.9553 | CE=1.4477 | CLIP=0.2168
+Rank=08 | Source=BLIP-2.pdf | Page=3 | Image=BLIP-2_page3_img1.png | Hybrid=0.3125 | CE=0.3717 | CLIP=0.2236
+Rank=09 | Source=BLIP-2.pdf | Page=12 | Image=BLIP-2_page12_img2.png | Hybrid=-0.2255 | CE=-0.5101 | CLIP=0.2014
+Rank=10 | Source=BLIP-2.pdf | Page=12 | Image=BLIP-2_page12_img1.png | Hybrid=-0.5254 | CE=-1.0269 | CLIP=0.2269
+Rank=11 | Source=BLIP-2.pdf | Page=12 | Image=BLIP-2_page12_img3.png | Hybrid=-0.5904 | CE=-1.0922 | CLIP=0.1625
+Rank=12 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img10.png | Hybrid=-0.7156 | CE=-1.3327 | CLIP=0.2099
+Rank=13 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img1.png | Hybrid=-0.8241 | CE=-1.4851 | CLIP=0.1674
+Rank=14 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img8.png | Hybrid=-1.0068 | CE=-1.8205 | CLIP=0.2138
+Rank=15 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img3.png | Hybrid=-1.0110 | CE=-1.8081 | CLIP=0.1847
+Rank=16 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img4.png | Hybrid=-1.0877 | CE=-1.9461 | CLIP=0.1999
+Rank=17 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img2.png | Hybrid=-1.1283 | CE=-2.0019 | CLIP=0.1820
+Rank=18 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img0.png | Hybrid=-1.1614 | CE=-2.0575 | CLIP=0.1829
+Rank=19 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img6.png | Hybrid=-1.1634 | CE=-2.0739 | CLIP=0.2023
+Rank=20 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img7.png | Hybrid=-1.1798 | CE=-2.0930 | CLIP=0.1901
+Rank=21 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img9.png | Hybrid=-1.2416 | CE=-2.1835 | CLIP=0.1713
+Rank=22 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img12.png | Hybrid=-1.2440 | CE=-2.2116 | CLIP=0.2073
+Rank=23 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img11.png | Hybrid=-1.2743 | CE=-2.2233 | CLIP=0.1493
+Rank=24 | Source=BLIP-2.pdf | Page=12 | Image=BLIP-2_page12_img0.png | Hybrid=-2.0482 | CE=-3.5696 | CLIP=0.2339
+Rank=25 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img5.png | Hybrid=-2.1415 | CE=-3.7251 | CLIP=0.2339
+
+TOP IMAGE RESULTS
+--------------------------------------------------------------------------------
+TOP-1 | Source=BLIP-2.pdf | Page=2 | Image=BLIP-2_page2_render.png | Hybrid=2.2789 | CE=3.6502 | CLIP=0.2220
+TOP-2 | Source=BLIP-2.pdf | Page=13 | Image=BLIP-2_page13_img1.png | Hybrid=1.5595 | CE=2.4501 | CLIP=0.2236
+TOP-3 | Source=BLIP-2.pdf | Page=1 | Image=BLIP-2_page1_img1.png | Hybrid=1.5340 | CE=2.4195 | CLIP=0.2059
+================================================================================
+[DOCUMENT SCOPE] Images: 3 -> 3
+
+================================================================================
+STAGE 2 — IMAGE RETRIEVAL RESULT
+================================================================================
+Image Results       : 3
+Exact Figure Match  : False
+
+[IMAGE #1] Source=BLIP-2.pdf | Page=2 | Image=BLIP-2_page2_render.png
+Image Path: extracted_images\BLIP-2_page2_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the journal of the journal of the journal of the journal of the journal of the journal of the journal of the  OCR Text: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models  visual feature for the LLM to output the desired text. In the first pre-training stage, we perform vision-language rep- resentation learning which enforces the Q-Former to learn visual representation most
+
+[IMAGE #2] Source=BLIP-2.pdf | Page=13 | Image=BLIP-2_page13_img1.png
+Image Path: extracted_images\BLIP-2_page13_img1.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT  Caption: a cat wearing sunglasses and looking up at the camera  OCR Text: No readable text found in this image.  Nearby Document Text: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models Image Encoder Input Image Queries … Q-Former … What is the cat wearing? Answer Fully Connected … LLM sunglasses Question What is the cat wearing? Question Figure 7. Model architecture for VQA finetuning, where the LLM receives Q-Former’s ou
+
+[IMAGE #3] Source=BLIP-2.pdf | Page=1 | Image=BLIP-2_page1_img1.png
+Image Path: extracted_images\BLIP-2_page1_img1.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT  Caption: the sun is setting over the ocean  OCR Text: No readable text found in this image.  Nearby Document Text: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models Junnan Li Dongxu Li Silvio Savarese Steven Hoi Salesforce Research https://github.com/salesforce/LAVIS/tree/main/projects/blip2 Abstract The cost of vision-and-language pre-training has become increasingly prohibitive due to end-to- end training of large-scale
+================================================================================
+
+================================================================================
+COMBINED RETRIEVAL CANDIDATES
+================================================================================
+Text Candidates  : 8
+Image Candidates : 3
+Total Candidates : 11
+================================================================================
+
+================================================================================
+STEP 3A — RERANKER INPUT
+================================================================================
+Query: What problem does BLIP-2 aim to solve in vision-language pre-training, and how does the Q-Former address this problem?
+Input candidates: 11
+01. Source=BLIP-2.pdf | Page=8 | Type=text | Image=N/A
+    Content=6. Conclusion We propose BLIP-2, a generic and compute-efficient method for vision-language pre-training that leverages frozen pre- trained image encoders and LLMs. BLIP-2 achieves
+02. Source=BLIP-2.pdf | Page=2 | Type=text | Image=N/A
+    Content=BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models visual feature for the LLM to output the desired text. In the first pre-train
+03. Source=BLIP-2.pdf | Page=2 | Type=text | Image=N/A
+    Content=BLIP-2 achieves state-of-the-art performance on various vision-language tasks including visual question answer- ing, image captioning, and image-text retrieval. • Powered by LLMs (
+04. Source=BLIP-2.pdf | Page=13 | Type=text | Image=N/A
+    Content=BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models Image Encoder Input Image Queries … Q-Former … What is the cat wearing? Answe
+05. Source=BLIP-2.pdf | Page=7 | Type=text | Image=N/A
+    Content=question. Specifically, the question tokens are given as input to the Q-Former and interact with the queries via the self-attention layers, which can guide the Q-Former’s cross- at
+06. Source=BLIP-2.pdf | Page=2 | Type=image | Image=extracted_images\BLIP-2_page2_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the journal of the journal of the journal of the journal of the journal of the journal of the journal of the
+07. Source=BLIP-2.pdf | Page=6 | Type=text | Image=N/A
+    Content=previous state-of-the-art models, BLIP-2 achieves improved performance while requiring substantially fewer number of trainable parameters during vision-language pre-training. 4.1. 
+08. Source=BLIP-2.pdf | Page=3 | Type=text | Image=N/A
+    Content=ViT-L/14). This bottleneck architecture works together with our pre-training objectives into forcing the queries to extract visual information that is most relevant to the text. 3.
+09. Source=BLIP-2.pdf | Page=2 | Type=image | Image=extracted_images\BLIP-2_page2_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the journal of the journal of the journal of the journal of the journal of the journal of the journal of the
+10. Source=BLIP-2.pdf | Page=13 | Type=image | Image=extracted_images\BLIP-2_page13_img1.png
+    Content=FIGURE FROM DOCUMENT  Caption: a cat wearing sunglasses and looking up at the camera  OCR Text: No readable text found in this image.  Nearby Document Text: BLIP-2: Bootstrapping L
+11. Source=BLIP-2.pdf | Page=1 | Type=image | Image=extracted_images\BLIP-2_page1_img1.png
+    Content=FIGURE FROM DOCUMENT  Caption: the sun is setting over the ocean  OCR Text: No readable text found in this image.  Nearby Document Text: BLIP-2: Bootstrapping Language-Image Pre-tr
+================================================================================
+
+--------------------------------------------------------------------------------
+CROSS-ENCODER RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=00 | Source=BLIP-2.pdf | Page=8 | Type=text | CE=4.9251
+Rank=02 | OriginalIndex=01 | Source=BLIP-2.pdf | Page=2 | Type=text | CE=4.4438
+Rank=03 | OriginalIndex=07 | Source=BLIP-2.pdf | Page=3 | Type=text | CE=3.7905
+Rank=04 | OriginalIndex=02 | Source=BLIP-2.pdf | Page=2 | Type=text | CE=3.7297
+Rank=05 | OriginalIndex=05 | Source=BLIP-2.pdf | Page=2 | Type=image | CE=3.6502
+Rank=06 | OriginalIndex=08 | Source=BLIP-2.pdf | Page=2 | Type=image | CE=3.6502
+Rank=07 | OriginalIndex=06 | Source=BLIP-2.pdf | Page=6 | Type=text | CE=3.2282
+Rank=08 | OriginalIndex=03 | Source=BLIP-2.pdf | Page=13 | Type=text | CE=3.1825
+Rank=09 | OriginalIndex=04 | Source=BLIP-2.pdf | Page=7 | Type=text | CE=2.5131
+Rank=10 | OriginalIndex=09 | Source=BLIP-2.pdf | Page=13 | Type=image | CE=2.4501
+Rank=11 | OriginalIndex=10 | Source=BLIP-2.pdf | Page=1 | Type=image | CE=2.4195
+
+--------------------------------------------------------------------------------
+CLIP IMAGE RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=09 | Source=BLIP-2.pdf | Page=13 | Image=extracted_images\BLIP-2_page13_img1.png | CLIP=0.2236
+Rank=02 | OriginalIndex=05 | Source=BLIP-2.pdf | Page=2 | Image=extracted_images\BLIP-2_page2_render.png | CLIP=0.2220
+Rank=03 | OriginalIndex=08 | Source=BLIP-2.pdf | Page=2 | Image=extracted_images\BLIP-2_page2_render.png | CLIP=0.2220
+Rank=04 | OriginalIndex=10 | Source=BLIP-2.pdf | Page=1 | Image=extracted_images\BLIP-2_page1_img1.png | CLIP=0.2059
+
+================================================================================
+STEP 3A — COMPLETE MULTIMODAL RERANK RESULT
+================================================================================
+Rank=01 | Type=image | Source=BLIP-2.pdf | Page=2 | RRF=0.031514 | CE=3.6502 | CLIP=0.2220
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the journal of the journal of the journal of the journal of the journal of the journal of the journal of the
+Rank=02 | Type=image | Source=BLIP-2.pdf | Page=2 | RRF=0.031025 | CE=3.6502 | CLIP=0.2220
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the journal of the journal of the journal of the journal of the journal of the journal of the journal of the
+Rank=03 | Type=image | Source=BLIP-2.pdf | Page=13 | RRF=0.030679 | CE=2.4501 | CLIP=0.2236
+    Content=FIGURE FROM DOCUMENT  Caption: a cat wearing sunglasses and looking up at the camera  OCR Text: No readable text found in this image.  Nearby Document Text: BLIP-2: Bootstrapping L
+Rank=04 | Type=image | Source=BLIP-2.pdf | Page=1 | RRF=0.029710 | CE=2.4195 | CLIP=0.2059
+    Content=FIGURE FROM DOCUMENT  Caption: the sun is setting over the ocean  OCR Text: No readable text found in this image.  Nearby Document Text: BLIP-2: Bootstrapping Language-Image Pre-tr
+Rank=05 | Type=text | Source=BLIP-2.pdf | Page=8 | RRF=0.016393 | CE=4.9251 | CLIP=N/A
+    Content=6. Conclusion We propose BLIP-2, a generic and compute-efficient method for vision-language pre-training that leverages frozen pre- trained image encoders and LLMs. BLIP-2 achieves
+Rank=06 | Type=text | Source=BLIP-2.pdf | Page=2 | RRF=0.016129 | CE=4.4438 | CLIP=N/A
+    Content=BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models visual feature for the LLM to output the desired text. In the first pre-train
+Rank=07 | Type=text | Source=BLIP-2.pdf | Page=3 | RRF=0.015873 | CE=3.7905 | CLIP=N/A
+    Content=ViT-L/14). This bottleneck architecture works together with our pre-training objectives into forcing the queries to extract visual information that is most relevant to the text. 3.
+Rank=08 | Type=text | Source=BLIP-2.pdf | Page=2 | RRF=0.015625 | CE=3.7297 | CLIP=N/A
+    Content=BLIP-2 achieves state-of-the-art performance on various vision-language tasks including visual question answer- ing, image captioning, and image-text retrieval. • Powered by LLMs (
+Rank=09 | Type=text | Source=BLIP-2.pdf | Page=6 | RRF=0.014925 | CE=3.2282 | CLIP=N/A
+    Content=previous state-of-the-art models, BLIP-2 achieves improved performance while requiring substantially fewer number of trainable parameters during vision-language pre-training. 4.1. 
+Rank=10 | Type=text | Source=BLIP-2.pdf | Page=13 | RRF=0.014706 | CE=3.1825 | CLIP=N/A
+    Content=BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models Image Encoder Input Image Queries … Q-Former … What is the cat wearing? Answe
+Rank=11 | Type=text | Source=BLIP-2.pdf | Page=7 | RRF=0.014493 | CE=2.5131 | CLIP=N/A
+    Content=question. Specifically, the question tokens are given as input to the Q-Former and interact with the queries via the self-attention layers, which can guide the Q-Former’s cross- at
+================================================================================
+
+================================================================================
+STEP 3A — FINAL RERANK TOP-K
+================================================================================
+Requested top_k: 12
+Returned documents: 10
+01. Source=BLIP-2.pdf | Page=2 | Type=image | Image=extracted_images\BLIP-2_page2_render.png
+02. Source=BLIP-2.pdf | Page=13 | Type=image | Image=extracted_images\BLIP-2_page13_img1.png
+03. Source=BLIP-2.pdf | Page=1 | Type=image | Image=extracted_images\BLIP-2_page1_img1.png
+04. Source=BLIP-2.pdf | Page=8 | Type=text | Image=N/A
+05. Source=BLIP-2.pdf | Page=2 | Type=text | Image=N/A
+06. Source=BLIP-2.pdf | Page=3 | Type=text | Image=N/A
+07. Source=BLIP-2.pdf | Page=2 | Type=text | Image=N/A
+08. Source=BLIP-2.pdf | Page=6 | Type=text | Image=N/A
+09. Source=BLIP-2.pdf | Page=13 | Type=text | Image=N/A
+10. Source=BLIP-2.pdf | Page=7 | Type=text | Image=N/A
+================================================================================
+
+================================================================================
+STAGE 3 — MULTIMODAL RERANKING
+================================================================================
+Input Candidates : 11
+Reranked Output   : 10
+
+[RERANK #1] Source=BLIP-2.pdf | Page=2 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the journal of the journal of the journal of the journal of the journal of the journal of the journal of the  OCR Text: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models  visu
+
+[RERANK #2] Source=BLIP-2.pdf | Page=13 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT  Caption: a cat wearing sunglasses and looking up at the camera  OCR Text: No readable text found in this image.  Nearby Document Text: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models Image Encoder Input Image Queries … Q-Fo
+
+[RERANK #3] Source=BLIP-2.pdf | Page=1 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT  Caption: the sun is setting over the ocean  OCR Text: No readable text found in this image.  Nearby Document Text: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models Junnan Li Dongxu Li Silvio Savarese Steven Hoi Salesforce Re
+
+[RERANK #4] Source=BLIP-2.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: 6. Conclusion We propose BLIP-2, a generic and compute-efficient method for vision-language pre-training that leverages frozen pre- trained image encoders and LLMs. BLIP-2 achieves state- of-the-art performance on various vision-language tasks while having a small amount of trainable parameters duri
+
+[RERANK #5] Source=BLIP-2.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models visual feature for the LLM to output the desired text. In the first pre-training stage, we perform vision-language rep- resentation learning which enforces the Q-Former to learn visual representati
+
+[RERANK #6] Source=BLIP-2.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: ViT-L/14). This bottleneck architecture works together with our pre-training objectives into forcing the queries to extract visual information that is most relevant to the text. 3.2. Bootstrap Vision-Language Representation Learning from a Frozen Image Encoder In the representation learning stage, w
+
+[RERANK #7] Source=BLIP-2.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: BLIP-2 achieves state-of-the-art performance on various vision-language tasks including visual question answer- ing, image captioning, and image-text retrieval. • Powered by LLMs ( e.g. OPT (Zhang et al., 2022), FlanT5 (Chung et al., 2022)), BLIP-2 can be prompted to perform zero-shot image-to-text 
+
+[RERANK #8] Source=BLIP-2.pdf | Page=6 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: previous state-of-the-art models, BLIP-2 achieves improved performance while requiring substantially fewer number of trainable parameters during vision-language pre-training. 4.1. Instructed Zero-shot Image-to-Text Generation BLIP-2 effectively enables a LLM to understand images while preserving its
+
+[RERANK #9] Source=BLIP-2.pdf | Page=13 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models Image Encoder Input Image Queries … Q-Former … What is the cat wearing? Answer Fully Connected … LLM sunglasses Question What is the cat wearing? Question Figure 7. Model architecture for VQA finet
+
+[RERANK #10] Source=BLIP-2.pdf | Page=7 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: question. Specifically, the question tokens are given as input to the Q-Former and interact with the queries via the self-attention layers, which can guide the Q-Former’s cross- attention layers to focus on more informative image regions. Following BLIP, our VQA data includes the training and valida
+================================================================================
+
+================================================================================
+FINAL CONTEXT DOCUMENTS
+================================================================================
+Final context candidates: 10
+
+[FINAL #1] Source=BLIP-2.pdf | Page=2 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the journal of the journal of the journal of the journal of the journal of the journal of the journal of the  OCR Text: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models  visu
+
+[FINAL #2] Source=BLIP-2.pdf | Page=13 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT  Caption: a cat wearing sunglasses and looking up at the camera  OCR Text: No readable text found in this image.  Nearby Document Text: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models Image Encoder Input Image Queries … Q-Fo
+
+[FINAL #3] Source=BLIP-2.pdf | Page=1 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT  Caption: the sun is setting over the ocean  OCR Text: No readable text found in this image.  Nearby Document Text: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models Junnan Li Dongxu Li Silvio Savarese Steven Hoi Salesforce Re
+
+[FINAL #4] Source=BLIP-2.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: 6. Conclusion We propose BLIP-2, a generic and compute-efficient method for vision-language pre-training that leverages frozen pre- trained image encoders and LLMs. BLIP-2 achieves state- of-the-art performance on various vision-language tasks while having a small amount of trainable parameters duri
+
+[FINAL #5] Source=BLIP-2.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models visual feature for the LLM to output the desired text. In the first pre-training stage, we perform vision-language rep- resentation learning which enforces the Q-Former to learn visual representati
+
+[FINAL #6] Source=BLIP-2.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: ViT-L/14). This bottleneck architecture works together with our pre-training objectives into forcing the queries to extract visual information that is most relevant to the text. 3.2. Bootstrap Vision-Language Representation Learning from a Frozen Image Encoder In the representation learning stage, w
+
+[FINAL #7] Source=BLIP-2.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: BLIP-2 achieves state-of-the-art performance on various vision-language tasks including visual question answer- ing, image captioning, and image-text retrieval. • Powered by LLMs ( e.g. OPT (Zhang et al., 2022), FlanT5 (Chung et al., 2022)), BLIP-2 can be prompted to perform zero-shot image-to-text 
+
+[FINAL #8] Source=BLIP-2.pdf | Page=6 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: previous state-of-the-art models, BLIP-2 achieves improved performance while requiring substantially fewer number of trainable parameters during vision-language pre-training. 4.1. Instructed Zero-shot Image-to-Text Generation BLIP-2 effectively enables a LLM to understand images while preserving its
+
+[FINAL #9] Source=BLIP-2.pdf | Page=13 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models Image Encoder Input Image Queries … Q-Former … What is the cat wearing? Answer Fully Connected … LLM sunglasses Question What is the cat wearing? Question Figure 7. Model architecture for VQA finet
+
+[FINAL #10] Source=BLIP-2.pdf | Page=7 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: question. Specifically, the question tokens are given as input to the Q-Former and interact with the queries via the self-attention layers, which can guide the Q-Former’s cross- attention layers to focus on more informative image regions. Following BLIP, our VQA data includes the training and valida
+================================================================================
+
+================================================================================
+FINAL CONTEXT SENT TO LLM
+================================================================================
+
+================================================================================
+DOCUMENT : BLIP-2.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 1
+--------------------------------------------------------------------------------
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT
+
+Caption:
+the sun is setting over the ocean
+
+OCR Text:
+No readable text found in this image.
+
+Nearby Document Text:
+BLIP-2: Bootstrapping Language-Image Pre-training
+with Frozen Image Encoders and Large Language Models
+Junnan Li Dongxu Li Silvio Savarese Steven Hoi
+Salesforce Research
+https://github.com/salesforce/LAVIS/tree/main/projects/blip2
+Abstract
+The cost of vision-and-language pre-training has
+become increasingly prohibitive due to end-to-
+end training of large-scale models. This paper
+proposes BLIP-2, a generic and efficient pre-
+training strategy that bootstraps vision-language
+pre-training from off-the-shelf frozen pre-trained
+image encoders and frozen large language mod-
+els.
+BLIP-2 bridges the
+
+
+--------------------------------------------------------------------------------
+PAGE : 2
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models
+visual feature for the LLM to output the desired text. In
+the first pre-training stage, we perform vision-language rep-
+resentation learning which enforces the Q-Former to learn
+visual representation most relevant to the text. In the second
+pre-training stage, we perform vision-to-language genera-
+tive learning by connecting the output of the Q-Former to a
+frozen LLM, and trains the Q-Former such that its output
+visual representation can be interpreted by the LLM.
+
+
+[TEXT]
+
+BLIP-2 achieves state-of-the-art performance on various
+vision-language tasks including visual question answer-
+ing, image captioning, and image-text retrieval.
+• Powered by LLMs ( e.g. OPT (Zhang et al., 2022),
+FlanT5 (Chung et al., 2022)), BLIP-2 can be prompted to
+perform zero-shot image-to-text generation that follows
+natural language instructions, which enables emerging
+capabilities such as visual knowledge reasoning, visual
+conversation, etc. (see Figure 4 for examples).
+• Due to the use of frozen unimodal models and a
+lightweight Q-Former, BLIP-2 is more compute-efficient
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a page from the journal of the journal of the journal of the journal of the journal of the journal of the journal of the journal of the
+
+OCR Text:
+BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models
+
+visual feature for the LLM to output the desired text. In
+the first pre-training stage, we perform vision-language rep-
+resentation learning which enforces the Q-Former to learn
+visual representation most relevant to the text. In the second
+pre-training stage, we perform vision-to-language genera-
+tive learning by connecting the output of the Q-Former to a
+frozen LLM, and trains the Q-Former such that its output
+visual representation can be interpreted by the LLM.
+
+We name our VLP framework as BLIP-2: Bootstrapping
+Language-Image Pre-training with frozen unimodal models.
+The key advantages of BLIP-2 include:
+
+BLIP-2 effectively leverages both frozen pre-trained im-
+age models and language models. We bridge the modality
+gap using a Q-Former pre-trained in two-stages: repre-
+sentation learning stage and generative learning stage.
+BLIP-2 achieves state-of-the-art performance on various
+vision-language tasks including visual question answer-
+ing, image captioning, and image-text retrieval.
+
+Powered by LLMs (e.g. OPT (Zhang et al., 2022),
+FlanT5 (Chung et al., 2022)), BLIP-2 can be prompted to
+perform zero-shot image-to-text generation that follows
+natural language instructions, which enables emerging
+capabilities such as visual knowledge reasoning, visual
+conversation, etc. (see Figure 4 for examples).
+
+Due to the use of frozen unimodal models and a
+lightweight Q-Former, BLIP-2 is more compute-efficient
+than exisiting state-of-the-arts. For example, BLIP-2 out-
+performs Flamingo (Alayrac et al., 2022) by 8.7% on
+zero-shot VQAv2, while using 54x fewer trainable pa-
+rameters. Furthermore, our results show that BLIP-2 is a
+generic method that can harvest more advanced unimodal
+models for better VLP performance.
+
+2. Related Work
+
+2.1. End-to-end Vision-Language Pre-training
+
+Vision-language pre-training aims to learn multimodal foun-
+dation models with improved performance on various vision-
+and-language tasks. Depending on the downstream task,
+different model architectures have been proposed, including
+the dual-encoder architecture (Radford et al., 2021; Jia et al.,
+2021), the fusion-encoder architecture (Tan & Bansal, 2019;
+Li et al., 2021), the encoder-decoder architecture (Cho et al.,
+2021; Wang et al., 2021b; Chen et al., 2022b), and more
+recently, the unified transformer architecture (Li et al., 2022;
+Wang et al., 2022b). Various pre-training objectives have
+also been proposed over the years, and have progressively
+converged to a few time-tested ones: image-text contrastive
+learning (Radford et al., 2021; Yao et al., 2022; Li et al.,
+2021; 2022), image-text matching (Li et al., 2021; 2022;
+Wang et al., 2021a), and (masked) language modeling (Li
+et al., 2021; 2022; Yu et al., 2022; Wang et al., 2022b).
+
+Most VLP methods perform end-to-end pre-training using
+large-scale image-text pair datasets. As the model size keeps
+increasing, the pre-training can incur an extremely high
+computation cost. Moreover, it is inflexible for end-to-end
+pre-trained models to leverage readily-available unimodal
+pre-trained models, such as LLMs (Brown et al., 2020;
+Zhang et al., 2022; Chung et al., 2022).
+
+2.2. Modular Vision-Language Pre-training
+
+More similar to us are methods that leverage off-the-shelf
+pre-trained models and keep them frozen during VLP. Some
+methods freeze the image encoder, including the early work
+which adopts a frozen object detector to extract visual fea-
+tures (Chen et al., 2020; Li et al., 2020; Zhang et al., 2021),
+and the recent LiT (Zhai et al., 2022) which uses a frozen
+pre-trained image encoder for CLIP (Radford et al., 2021)
+pre-training. Some methods freeze the language model
+to use the knowledge from LLMs for vision-to-language
+generation tasks (Tsimpoukelli et al., 2021; Alayrac et al.,
+2022; Chen et al., 2022a; Maiias et al., 2023; Tiong et al.,
+2022; Guo et al., 2022). The key challenge in using a frozen
+LLM is to align visual features to the text space. To achieve
+this, Frozen (Tsimpoukelli et al., 2021) finetunes an image
+encoder whose outputs are directly used as soft prompts
+for the LLM. Flamingo (Alayrac et al., 2022) inserts new
+cross-attention layers into the LLM to inject visual features,
+and pre-trains the new layers on billions of image-text pairs.
+Both methods adopt the language modeling loss, where the
+language model generates texts conditioned on the image.
+
+Different from existing methods, BLIP-2 can effectively and
+efficiently leverage both frozen image encoders and frozen
+LLMs for various vision-language tasks, achieving stronger
+performance at a lower computation cost.
+
+3. Method
+
+We propose BLIP-2, a new vision-language pre-training
+method that bootstraps from frozen pre-trained unimodal
+models. In order to bridge the modality gap, we propose a
+Querying Transformer (Q-Former) pre-trained in two stages:
+(1) vision-language representation learning stage with a
+frozen image encoder and (2) vision-to-language genera-
+tive learning stage with a frozen LLM. This section first
+introduces the model architecture of Q-Former, and then
+delineates the two-stage pre-training procedures.
+
+3.1. Model Architecture
+
+We propose Q-Former as the trainable module to bridge the
+gap between a frozen image encoder and a frozen LLM. It
+extracts a fixed number of output features from the image
+encoder, independent of input image resolution. As shown
+in Figure 2, Q-Former consists of two transformer submod-
+ules that share the same self-attention layers: (1) an image
+transformer that interacts with the frozen image encoder
+
+Nearby Document Text:
+BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models
+visual feature for the LLM to output the desired text. In
+the first pre-training stage, we perform vision-language rep-
+resentation learning which enforces the Q-Former to learn
+visual representation most relevant to the text. In the second
+pre-training stage, we perform vision-to-language genera-
+tive learning by connecting the output of the Q-Former to a
+frozen LLM, and trains the Q-Former such that its output
+visual representation can be interpreted by the LLM.
+We name our VLP framework as
+
+
+[RELATED PAGE TEXT]
+
+BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models
+visual feature for the LLM to output the desired text. In
+the first pre-training stage, we perform vision-language rep-
+resentation learning which enforces the Q-Former to learn
+visual representation most relevant to the text. In the second
+pre-tr
+
+
+--------------------------------------------------------------------------------
+PAGE : 3
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+ViT-L/14). This bottleneck architecture works together with
+our pre-training objectives into forcing the queries to extract
+visual information that is most relevant to the text.
+3.2. Bootstrap Vision-Language Representation
+Learning from a Frozen Image Encoder
+In the representation learning stage, we connect Q-Former to
+a frozen image encoder and perform pre-training using
+image-text pairs. We aim to train the Q-Former such that the
+queries can learn to extract visual representation that is most
+informative of the text. Inspired by BLIP (Li et al., 2022),
+
+
+--------------------------------------------------------------------------------
+PAGE : 6
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+previous state-of-the-art models, BLIP-2 achieves improved
+performance while requiring substantially fewer number of
+trainable parameters during vision-language pre-training.
+4.1. Instructed Zero-shot Image-to-Text Generation
+BLIP-2 effectively enables a LLM to understand images
+while preserving its capability in following text prompts,
+which allows us to control image-to-text generation with
+instructions. We simply append the text prompt after the
+visual prompt as input to the LLM. Figure 4 shows exam-
+ples to demonstrate a wide range of zero-shot image-to-text
+
+
+--------------------------------------------------------------------------------
+PAGE : 7
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+question. Specifically, the question tokens are given as
+input to the Q-Former and interact with the queries via the
+self-attention layers, which can guide the Q-Former’s cross-
+attention layers to focus on more informative image regions.
+Following BLIP, our VQA data includes the training and
+validation splits from VQAv2, as well as training samples
+from Visual Genome. Table 4 demonstrates the state-of-the-
+art results of BLIP-2 among open-ended generation models.
+
+
+--------------------------------------------------------------------------------
+PAGE : 8
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+6. Conclusion
+We propose BLIP-2, a generic and compute-efficient method
+for vision-language pre-training that leverages frozen pre-
+trained image encoders and LLMs. BLIP-2 achieves state-
+of-the-art performance on various vision-language tasks
+while having a small amount of trainable parameters during
+pre-training. BLIP-2 also demonstrates emerging capabil-
+ities in zero-shot instructed image-to-text generation. We
+consider BLIP-2 as an important step towards building a
+multimodal conversational AI agent.
+
+
+--------------------------------------------------------------------------------
+PAGE : 13
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models
+Image
+Encoder
+Input Image Queries
+…
+Q-Former
+…
+What is the cat wearing?
+Answer
+Fully
+Connected
+…
+LLM
+sunglasses
+Question
+What is the cat wearing?
+Question
+Figure 7. Model architecture for VQA finetuning, where the LLM
+receives Q-Former’s output and the question as input, then predicts
+answers. We also provide the question as a condition to Q-Former,
+such that the extracted image features are more relevant to the
+question.
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT
+
+Caption:
+a cat wearing sunglasses and looking up at the camera
+
+OCR Text:
+No readable text found in this image.
+
+Nearby Document Text:
+BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models
+Image
+Encoder
+Input Image
+Queries
+…
+Q-Former
+…
+What is the cat wearing?
+Answer
+Fully
+Connected
+…
+LLM
+sunglasses
+Question
+What is the cat wearing?
+Question
+Figure 7. Model architecture for VQA finetuning, where the LLM
+receives Q-Former’s output and the question as input, then predicts
+answers. We also provide the question as a condition to Q-Former,
+such that the extracted image features are more relevant to the
+question.
+
+
+[RELATED PAGE TEXT]
+
+BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models
+Image
+Encoder
+Input Image Queries
+…
+Q-Former
+…
+What is the cat wearing?
+Answer
+Fully
+Connected
+…
+LLM
+sunglasses
+Question
+What is the cat wearing?
+Question
+Figure 7. Model architecture for VQA finetuning, where the LLM
+receives Q-Former’s output an
+
+================================================================================
+
+================================================================================
+RAG PIPELINE DEBUG
+================================================================================
+Query Type        : analytical
+Retrieved Chunks  : 8
+Retrieved Images  : 3
+Reranked Chunks   : 10
+Reranked Text     : 7
+Reranked Images   : 3
+Final Context Docs: 10
+Exact Figure Query: False
+Exact Figure Match: False
+Exact Figure Final: False
+================================================================================
+
+================================================================================
+STAGE 4 — EVIDENCE VERIFICATION
+================================================================================
+Verification Units : 4
+Supported          : 2
+Partially Supported: 2
+Unsupported        : 0
+Unknown            : 0
+Groundedness Ratio : 0.50
+
+[CLAIM #1] BLIP-2 aims to solve the problem of vision-language pre-training by bridging the modality gap between frozen pre-trained image encoders and large language models (LLMs).
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.8052 | Citation=BLIP-2.pdf (Page 2)
+
+[CLAIM #2] The Q-Former, a proposed trainable module, addresses this problem by extracting a fixed number of output features from the image encoder, which are then used by the LLM to output the desired text.
+  Status=PARTIALLY_SUPPORTED | NLI=NEUTRAL | Confidence=0.5723 | Citation=BLIP-2.pdf (Page 2)
+
+[CLAIM #3] This is achieved through a two-stage pre-training procedure: (1) vision-language representation learning, where the Q-Former learns visual representation most relevant to the text, and (2) vision-to-language generative learning, where the Q-Former's output visual representation is interpreted by the LLM.
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.8101 | Citation=BLIP-2.pdf (Page 2)
+
+[CLAIM #4] The Q-Former consists of two transformer submodules that share the same self-attention layers, with one submodule interacting with the frozen image encoder.
+  Status=PARTIALLY_SUPPORTED | NLI=NEUTRAL | Confidence=0.5259 | Citation=BLIP-2.pdf (Page 2)
+================================================================================
+
+====================================================================================================
+RAG ANSWER
+====================================================================================================
+ BLIP-2 aims to solve the problem of vision-language pre-training by bridging the modality gap between frozen pre-trained image encoders and large language models (LLMs). The Q-Former, a proposed trainable module, addresses this problem by extracting a fixed number of output features from the image encoder, which are then used by the LLM to output the desired text. This is achieved through a two-stage pre-training procedure: (1) vision-language representation learning, where the Q-Former learns visual representation most relevant to the text, and (2) vision-to-language generative learning, where the Q-Former's output visual representation is interpreted by the LLM. The Q-Former consists of two transformer submodules that share the same self-attention layers, with one submodule interacting with the frozen image encoder.
+
+IMAGE PATHS:
+D:/Projects/Major-Project-2-main/extracted_images/BLIP-2_page1_img1.png
+D:/Projects/Major-Project-2-main/extracted_images/BLIP-2_page2_render.png
+D:/Projects/Major-Project-2-main/extracted_images/BLIP-2_page13_img1.png

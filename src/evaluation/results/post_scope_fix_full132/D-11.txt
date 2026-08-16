@@ -1,0 +1,1000 @@
+====================================================================================================
+QUESTION_ID   : D-11
+DOCUMENT      : Donut
+QUESTION_TYPE : Figure / visual understanding
+ELAPSED_SEC   : 88.4
+ERROR         : no
+====================================================================================================
+
+QUESTION:
+Using Figure 3, explain how Donut converts a document image into a structured JSON-like output.
+
+GROUND TRUTH ANSWER:
+Figure 3 shows the image first entering Donut's Transformer visual encoder, which converts it into embeddings. The textual decoder uses those embeddings to generate a sequence of tokens. That output sequence is then converted into the target structured representation, such as JSON; the figure illustrates this with a receipt/question example.
+
+GROUND TRUTH SOURCE:
+Donut.pdf, pp. 4–5, Figure 3
+
+====================================================================================================
+FORENSIC TRANSCRIPT
+====================================================================================================
+
+####################################################################################################
+FORENSIC CASE START
+####################################################################################################
+Original Query   : Using Figure 3, explain how Donut converts a document image into a structured JSON-like output.
+Expanded Query   : Using Figure 3, explain how Donut converts a document image into a structured JSON-like output.
+Query Type       : visual
+[DOCUMENT SCOPE] Normalized query: 'using figure 3 explain how donut converts a document image into a structured json like output'
+[DOCUMENT SCOPE] Source='BERT.pdf' -> Normalized='bert'
+[DOCUMENT SCOPE] Token overlap for 'BERT.pdf': []
+[DOCUMENT SCOPE] Source='BLIP-2.pdf' -> Normalized='blip 2'
+[DOCUMENT SCOPE] Token overlap for 'BLIP-2.pdf': []
+[DOCUMENT SCOPE] Source='CLIP.pdf' -> Normalized='clip'
+[DOCUMENT SCOPE] Token overlap for 'CLIP.pdf': []
+[DOCUMENT SCOPE] Source='CNN Paper.pdf' -> Normalized='cnn paper'
+[DOCUMENT SCOPE] Token overlap for 'CNN Paper.pdf': []
+[DOCUMENT SCOPE] Source='Donut.pdf' -> Normalized='donut'
+[DOCUMENT SCOPE] EXACT MATCH -> Donut.pdf
+[DOCUMENT SCOPE] Source='LayoutLMv3.pdf' -> Normalized='layout l mv3'
+[DOCUMENT SCOPE] Token overlap for 'LayoutLMv3.pdf': []
+[DOCUMENT SCOPE] Source='NLP Paper.pdf' -> Normalized='nlp paper'
+[DOCUMENT SCOPE] Token overlap for 'NLP Paper.pdf': []
+[DOCUMENT SCOPE] Source='RAG.pdf' -> Normalized='rag'
+[DOCUMENT SCOPE] Token overlap for 'RAG.pdf': []
+[DOCUMENT SCOPE] Source='Self-RAG.pdf' -> Normalized='self rag'
+[DOCUMENT SCOPE] Token overlap for 'Self-RAG.pdf': []
+[DOCUMENT SCOPE] Source='Vision Transformer.pdf' -> Normalized='vision transformer'
+[DOCUMENT SCOPE] Token overlap for 'Vision Transformer.pdf': []
+[DOCUMENT SCOPE] Final matched sources: ['Donut.pdf']
+
+================================================================================
+DOCUMENT SCOPE DEBUG
+================================================================================
+Query          : Using Figure 3, explain how Donut converts a document image into a structured JSON-like output.
+Expanded Query : Using Figure 3, explain how Donut converts a document image into a structured JSON-like output.
+Query Type     : visual
+Document Scope : ['Donut.pdf']
+================================================================================
+
+==========================================================================================
+STEP 3A — SCOPED HYBRID RETRIEVAL
+==========================================================================================
+Query              : Using Figure 3, explain how Donut converts a document image into a structured JSON-like output.
+Sources            : ['Donut.pdf']
+Dense candidate K  : 25
+Final hybrid K     : 8
+
+------------------------------------------------------------------------------------------
+[SCOPED DENSE / VECTOR RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=Donut.pdf | Page=13 | Type=image | Image=extracted_images\Donut_page13_img2.png
+    Content=FIGURE FROM DOCUMENT  Caption: a computer screen with a text that reads, ' i ' m and i ' m '  OCR Text: No readable text found in this image.  Nearby Document Text: OCR-free Docume
+02. Source=Donut.pdf | Page=4 | Type=text | Image=N/A
+    Content=Note that Donut does not rely on any modules related to OCR functionality but uses a visual encoder for extracting features from a given document im- age. The following textual dec
+03. Source=Donut.pdf | Page=23 | Type=image | Image=extracted_images\Donut_page23_img11.png
+    Content=FIGURE FROM DOCUMENT  Caption: a person holding up a piece of paper  OCR Text: No readable text found in this image.  Nearby Document Text: OCR-free Document Understanding Transfor
+04. Source=Donut.pdf | Page=11 | Type=image | Image=extracted_images\Donut_page11_img4.png
+    Content=FIGURE FROM DOCUMENT  Caption: a black and white photo of a man with a beard  OCR Text: No readable text found in this image.  Nearby Document Text: OCR-free Document Understanding
+05. Source=Donut.pdf | Page=14 | Type=text | Image=N/A
+    Content=have also been proposed [48]. 5 Conclusions In this work, we propose a novel end-to-end framework for visual document un- derstanding. The proposed method, Donut, directly maps an 
+06. Source=Donut.pdf | Page=3 | Type=image | Image=extracted_images\Donut_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a book with the text in english  OCR Text: OOCR-free Document Understanding Transformer 3  languages with complex character
+07. Source=Donut.pdf | Page=5 | Type=image | Image=extracted_images\Donut_page5_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a text book with an image of a person in the background  OCR Text: OOCR-free Document Understanding Transformer 5  Decoder. G
+08. Source=Donut.pdf | Page=6 | Type=text | Image=N/A
+    Content=addition, several image rendering techniques [13,41,67] are applied to mimic real documents. The generated examples are shown in Figure 4. More details of SynthDoG are available in
+09. Source=Donut.pdf | Page=11 | Type=image | Image=extracted_images\Donut_page11_img2.png
+    Content=FIGURE FROM DOCUMENT  Caption: a black and white photo of a receipt  OCR Text: rea  EVAUS ATTER 59 Snes) Be Sieh  'NOT.GOOO FOR PASSAGES =  ATE  Falow | reaper © [onoeicaars |= nr 
+10. Source=Donut.pdf | Page=4 | Type=text | Image=N/A
+    Content=effort is required to ensure the performance of an entire VDU model by using the off-the-shelf OCR engine. 2.2 Document Understanding Transformer Donut is an end-to-end (i.e., self
+11. Source=Donut.pdf | Page=6 | Type=image | Image=extracted_images\Donut_page6_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a book with a picture of a person in the background  OCR Text: 6 G. Kim et al.  Wak gaGHIe - —— ATP  Fig. 4. Generated Englis
+12. Source=Donut.pdf | Page=5 | Type=text | Image=N/A
+    Content=forcing strategy and the decoder output format are available in Appendix A.4. Output Conversion. The output token sequence is converted to a desired structured format. We adopt a J
+13. Source=Donut.pdf | Page=7 | Type=image | Image=extracted_images\Donut_page7_img5.png
+    Content=FIGURE FROM DOCUMENT  Caption: a form for a business invoice  OCR Text: No readable text found in this image.  Nearby Document Text: OCR-free Document Understanding Transformer 7 f
+14. Source=Donut.pdf | Page=2 | Type=text | Image=N/A
+    Content=structured document image. In the pipeline, (b) text detection is conducted to obtain text locations and (c) each box is passed to the recognizer to comprehend characters. (d) Fina
+15. Source=Donut.pdf | Page=2 | Type=image | Image=extracted_images\Donut_page2_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a screenshot of a computer screen with a text box and a picture of a computer screen with a text box and a picture of a computer  OCR T
+16. Source=Donut.pdf | Page=23 | Type=image | Image=extracted_images\Donut_page23_img4.png
+    Content=FIGURE FROM DOCUMENT  Caption: a piece of paper with the words written on it  OCR Text: are. brenugies ce, Se pe Se Nwinss: VY » Hae ie At ES is Pees i ' Ee Ne I a Ot et ed i aed  
+17. Source=Donut.pdf | Page=12 | Type=text | Image=N/A
+    Content=Swin Transformer [40] outperform others on both datasets. We argue that this is due to the high expressiveness of the backbones, which were shown by the strik- ing scores on severa
+18. Source=Donut.pdf | Page=9 | Type=text | Image=N/A
+    Content=3.3 Experimental Results Document Classification. The results are shown in Table 1. Without re- lying on any other resource (e.g., off-the-shelf OCR engine), Donut shows a state-of
+19. Source=Donut.pdf | Page=4 | Type=image | Image=extracted_images\Donut_page4_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram showing the different types of the different types of the different types of the different types of the different  OCR Text: 
+20. Source=Donut.pdf | Page=27 | Type=image | Image=extracted_images\Donut_page27_img1.png
+    Content=FIGURE FROM DOCUMENT  Caption: a white business card with blue writing on it  OCR Text: No readable text found in this image.  Nearby Document Text: OCR-free Document Understanding
+21. Source=Donut.pdf | Page=12 | Type=text | Image=N/A
+    Content=images are larger with many tiny texts. But, increasing the size for a precise result incurs bigger computational costs. Using an efficient attention mecha- nism [60] may avoid the
+22. Source=Donut.pdf | Page=8 | Type=image | Image=extracted_images\Donut_page8_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a book with the title of the text  OCR Text: 8 G. Kim et al.  nested groups and hierarchies such as items>item>{name, count, 
+23. Source=Donut.pdf | Page=2 | Type=text | Image=N/A
+    Content=Donut 🍩 (Proposed) 1.2 0.9 Time (sec/img) 91 82 Accuracy (%) 0.8 ~0.6 sec 143 179 +a Memory (M) (a) Pipeline Overview. (b) System Benchmarks. Fig. 2. The pipeline overview and benc
+24. Source=Donut.pdf | Page=23 | Type=image | Image=extracted_images\Donut_page23_img2.png
+    Content=FIGURE FROM DOCUMENT  Caption: a piece of paper with writing on it  OCR Text: © jee sh} Rasa aie al ae Le} ae Be ayulh oF Bay WHR OR aqUSE a S]alet te  o] Soi] DESSLaL S 7rSolal 2 
+25. Source=Donut.pdf | Page=11 | Type=text | Image=N/A
+    Content=OCR-free Document Understanding Transformer 11 Table 3. Average Normalized Levenshtein Similarity (ANLS) scores on DocVQA. Donut shows a promising result without OCR. ∗Donut shows 
+
+------------------------------------------------------------------------------------------
+[SCOPED BM25 RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=Donut.pdf | Page=4 | Type=text | Image=N/A
+    Content=Note that Donut does not rely on any modules related to OCR functionality but uses a visual encoder for extracting features from a given document im- age. The following textual dec
+02. Source=Donut.pdf | Page=14 | Type=text | Image=N/A
+    Content=have also been proposed [48]. 5 Conclusions In this work, we propose a novel end-to-end framework for visual document un- derstanding. The proposed method, Donut, directly maps an 
+03. Source=Donut.pdf | Page=4 | Type=image | Image=extracted_images\Donut_page4_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram showing the different types of the different types of the different types of the different types of the different  OCR Text: 
+04. Source=Donut.pdf | Page=4 | Type=text | Image=N/A
+    Content=Encoder. The visual encoder converts the input document image x∈RH×W ×C into a set of embeddings {zi|zi∈Rd, 1≤i≤n}, where n is feature map size or the number of image patches and d
+05. Source=Donut.pdf | Page=6 | Type=text | Image=N/A
+    Content=addition, several image rendering techniques [13,41,67] are applied to mimic real documents. The generated examples are shown in Figure 4. More details of SynthDoG are available in
+06. Source=Donut.pdf | Page=4 | Type=text | Image=N/A
+    Content="unitprice": 14000, …}], … } Output Sequence { "class":"receipt" } { "question": "what is the price of choco mochi?",    "answer": "14,000" } Fig. 3. The pipeline of Donut. The enc
+07. Source=Donut.pdf | Page=6 | Type=image | Image=extracted_images\Donut_page6_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a book with a picture of a person in the background  OCR Text: 6 G. Kim et al.  Wak gaGHIe - —— ATP  Fig. 4. Generated Englis
+08. Source=Donut.pdf | Page=28 | Type=text | Image=N/A
+    Content=backbones, such as LayoutLM [65] and LayoutLMv2 [64]. To be specific, we explain how the conventional backbones perform downstream VDU tasks; docu- ment classification, IE, and VQA
+09. Source=Donut.pdf | Page=12 | Type=text | Image=N/A
+    Content=images are larger with many tiny texts. But, increasing the size for a precise result incurs bigger computational costs. Using an efficient attention mecha- nism [60] may avoid the
+10. Source=Donut.pdf | Page=5 | Type=text | Image=N/A
+    Content=forcing strategy and the decoder output format are available in Appendix A.4. Output Conversion. The output token sequence is converted to a desired structured format. We adopt a J
+11. Source=Donut.pdf | Page=3 | Type=image | Image=extracted_images\Donut_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a book with the text in english  OCR Text: OOCR-free Document Understanding Transformer 3  languages with complex character
+12. Source=Donut.pdf | Page=3 | Type=text | Image=N/A
+    Content=language flexibility straightforwardly pre-training with synthetic data. During fine-tuning stage, Donut learns how to understand the whole document accord- ing to the downstream t
+13. Source=Donut.pdf | Page=2 | Type=text | Image=N/A
+    Content="text": "Choco"         }, {             "bbox":[[0.46,0.22],...,[0.52,0.23]],             "text": "Mochi"         }, …, {             "bbox":[[0.66,0.31],...,[0.72,0.32]],        
+14. Source=Donut.pdf | Page=14 | Type=text | Image=N/A
+    Content=14 G. Kim et al. 4.2 Visual Document Understanding Classification of the document type is a core step towards automated document processing. Early methods treated the problem as a 
+15. Source=Donut.pdf | Page=4 | Type=text | Image=N/A
+    Content=effort is required to ensure the performance of an entire VDU model by using the off-the-shelf OCR engine. 2.2 Document Understanding Transformer Donut is an end-to-end (i.e., self
+16. Source=Donut.pdf | Page=3 | Type=text | Image=N/A
+    Content=better overall performance than previous methods as shown in Figure 2. We take pre-train-and-fine-tune scheme [8,65] on Donut training. In the pre-training phase, Donut learns how 
+17. Source=Donut.pdf | Page=2 | Type=image | Image=extracted_images\Donut_page2_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a screenshot of a computer screen with a text box and a picture of a computer screen with a text box and a picture of a computer  OCR T
+18. Source=Donut.pdf | Page=2 | Type=text | Image=N/A
+    Content=on various VDU tasks are available at Section 3 showing the same trend Current VDU methods [22,24,65,64,18] solve the task in a two-stage manner: 1) reading the texts in the docume
+19. Source=Donut.pdf | Page=5 | Type=image | Image=extracted_images\Donut_page5_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a text book with an image of a person in the background  OCR Text: OOCR-free Document Understanding Transformer 5  Decoder. G
+20. Source=Donut.pdf | Page=3 | Type=text | Image=N/A
+    Content=a raw input image to the desired output without OCR. We introduce a new OCR-free VDU model to address the problems induced by the OCR-dependency. Our model is based on Transformer-
+21. Source=Donut.pdf | Page=5 | Type=text | Image=N/A
+    Content=we build a scalable Synthetic Document Generator, referred to as SynthDoG. Using the SynthDog and Chinese, Japanese, Korean and English Wikipedia, we generated 0.5M samples per lan
+22. Source=Donut.pdf | Page=2 | Type=text | Image=N/A
+    Content=structured document image. In the pipeline, (b) text detection is conducted to obtain text locations and (c) each box is passed to the recognizer to comprehend characters. (d) Fina
+23. Source=Donut.pdf | Page=25 | Type=text | Image=N/A
+    Content=64 NVIDIA A100 GPUs and a mini-batch size of 196, which takes about 2-3 GPU days. We also apply a gradient clipping technique where a maximum gra- dient norm is selected from 0.05 
+24. Source=Donut.pdf | Page=28 | Type=text | Image=N/A
+    Content=(8 V100 GPUs for 5 days). The input size was 2048 ×1536. In this setting, DonutProto also achieved comparable results on RVL-CDIP and CORD. The accuracy on RVL-CDIP was 94.5 and CO
+25. Source=Donut.pdf | Page=7 | Type=text | Image=N/A
+    Content=benchmarks and real industrial datasets. In this task, the model aims to map each document to a structured form of information that is consistent with the target ontology or databa
+
+------------------------------------------------------------------------------------------
+[RRF FUSION RANKING]
+------------------------------------------------------------------------------------------
+01. RRF=0.032522 | DenseRank=2 | BM25Rank=1 | Source=Donut.pdf | Page=4 | Type=text
+02. RRF=0.031514 | DenseRank=5 | BM25Rank=2 | Source=Donut.pdf | Page=14 | Type=text
+03. RRF=0.030090 | DenseRank=8 | BM25Rank=5 | Source=Donut.pdf | Page=6 | Type=text
+04. RRF=0.029236 | DenseRank=6 | BM25Rank=11 | Source=Donut.pdf | Page=3 | Type=image
+05. RRF=0.029010 | DenseRank=11 | BM25Rank=7 | Source=Donut.pdf | Page=6 | Type=image
+06. RRF=0.028531 | DenseRank=19 | BM25Rank=3 | Source=Donut.pdf | Page=4 | Type=image
+07. RRF=0.028175 | DenseRank=12 | BM25Rank=10 | Source=Donut.pdf | Page=5 | Type=text
+08. RRF=0.027619 | DenseRank=10 | BM25Rank=15 | Source=Donut.pdf | Page=4 | Type=text
+09. RRF=0.027584 | DenseRank=7 | BM25Rank=19 | Source=Donut.pdf | Page=5 | Type=image
+10. RRF=0.026838 | DenseRank=21 | BM25Rank=9 | Source=Donut.pdf | Page=12 | Type=text
+11. RRF=0.026320 | DenseRank=15 | BM25Rank=17 | Source=Donut.pdf | Page=2 | Type=image
+12. RRF=0.025709 | DenseRank=14 | BM25Rank=22 | Source=Donut.pdf | Page=2 | Type=text
+13. RRF=0.016393 | DenseRank=1 | BM25Rank=- | Source=Donut.pdf | Page=13 | Type=image
+14. RRF=0.015873 | DenseRank=3 | BM25Rank=- | Source=Donut.pdf | Page=23 | Type=image
+15. RRF=0.015625 | DenseRank=4 | BM25Rank=- | Source=Donut.pdf | Page=11 | Type=image
+16. RRF=0.015625 | DenseRank=- | BM25Rank=4 | Source=Donut.pdf | Page=4 | Type=text
+17. RRF=0.015152 | DenseRank=- | BM25Rank=6 | Source=Donut.pdf | Page=4 | Type=text
+18. RRF=0.014706 | DenseRank=- | BM25Rank=8 | Source=Donut.pdf | Page=28 | Type=text
+19. RRF=0.014493 | DenseRank=9 | BM25Rank=- | Source=Donut.pdf | Page=11 | Type=image
+20. RRF=0.013889 | DenseRank=- | BM25Rank=12 | Source=Donut.pdf | Page=3 | Type=text
+21. RRF=0.013699 | DenseRank=13 | BM25Rank=- | Source=Donut.pdf | Page=7 | Type=image
+22. RRF=0.013699 | DenseRank=- | BM25Rank=13 | Source=Donut.pdf | Page=2 | Type=text
+23. RRF=0.013514 | DenseRank=- | BM25Rank=14 | Source=Donut.pdf | Page=14 | Type=text
+24. RRF=0.013158 | DenseRank=16 | BM25Rank=- | Source=Donut.pdf | Page=23 | Type=image
+25. RRF=0.013158 | DenseRank=- | BM25Rank=16 | Source=Donut.pdf | Page=3 | Type=text
+26. RRF=0.012987 | DenseRank=17 | BM25Rank=- | Source=Donut.pdf | Page=12 | Type=text
+27. RRF=0.012821 | DenseRank=18 | BM25Rank=- | Source=Donut.pdf | Page=9 | Type=text
+28. RRF=0.012821 | DenseRank=- | BM25Rank=18 | Source=Donut.pdf | Page=2 | Type=text
+29. RRF=0.012500 | DenseRank=20 | BM25Rank=- | Source=Donut.pdf | Page=27 | Type=image
+30. RRF=0.012500 | DenseRank=- | BM25Rank=20 | Source=Donut.pdf | Page=3 | Type=text
+31. RRF=0.012346 | DenseRank=- | BM25Rank=21 | Source=Donut.pdf | Page=5 | Type=text
+32. RRF=0.012195 | DenseRank=22 | BM25Rank=- | Source=Donut.pdf | Page=8 | Type=image
+33. RRF=0.012048 | DenseRank=23 | BM25Rank=- | Source=Donut.pdf | Page=2 | Type=text
+34. RRF=0.012048 | DenseRank=- | BM25Rank=23 | Source=Donut.pdf | Page=25 | Type=text
+35. RRF=0.011905 | DenseRank=24 | BM25Rank=- | Source=Donut.pdf | Page=23 | Type=image
+36. RRF=0.011905 | DenseRank=- | BM25Rank=24 | Source=Donut.pdf | Page=28 | Type=text
+37. RRF=0.011765 | DenseRank=25 | BM25Rank=- | Source=Donut.pdf | Page=11 | Type=text
+38. RRF=0.011765 | DenseRank=- | BM25Rank=25 | Source=Donut.pdf | Page=7 | Type=text
+------------------------------------------------------------------------------------------
+
+==========================================================================================
+STEP 3A — RETRIEVAL STAGE SUMMARY
+==========================================================================================
+Dense candidates       : 25
+BM25 candidates        : 25
+Dense ∩ BM25           : 12
+Dense-only candidates  : 13
+BM25-only candidates   : 13
+Unique candidate pool  : 38
+RRF candidates         : 38
+Returned to pipeline   : 8
+==========================================================================================
+
+------------------------------------------------------------------------------------------
+[SCOPED FINAL HYBRID RESULT] 8 candidates
+------------------------------------------------------------------------------------------
+01. Source=Donut.pdf | Page=4 | Type=text | Image=N/A
+    Content=Note that Donut does not rely on any modules related to OCR functionality but uses a visual encoder for extracting features from a given document im- age. The following textual dec
+02. Source=Donut.pdf | Page=14 | Type=text | Image=N/A
+    Content=have also been proposed [48]. 5 Conclusions In this work, we propose a novel end-to-end framework for visual document un- derstanding. The proposed method, Donut, directly maps an 
+03. Source=Donut.pdf | Page=6 | Type=text | Image=N/A
+    Content=addition, several image rendering techniques [13,41,67] are applied to mimic real documents. The generated examples are shown in Figure 4. More details of SynthDoG are available in
+04. Source=Donut.pdf | Page=3 | Type=image | Image=extracted_images\Donut_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a book with the text in english  OCR Text: OOCR-free Document Understanding Transformer 3  languages with complex character
+05. Source=Donut.pdf | Page=6 | Type=image | Image=extracted_images\Donut_page6_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a book with a picture of a person in the background  OCR Text: 6 G. Kim et al.  Wak gaGHIe - —— ATP  Fig. 4. Generated Englis
+06. Source=Donut.pdf | Page=4 | Type=image | Image=extracted_images\Donut_page4_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram showing the different types of the different types of the different types of the different types of the different  OCR Text: 
+07. Source=Donut.pdf | Page=5 | Type=text | Image=N/A
+    Content=forcing strategy and the decoder output format are available in Appendix A.4. Output Conversion. The output token sequence is converted to a desired structured format. We adopt a J
+08. Source=Donut.pdf | Page=4 | Type=text | Image=N/A
+    Content=effort is required to ensure the performance of an entire VDU model by using the off-the-shelf OCR engine. 2.2 Document Understanding Transformer Donut is an end-to-end (i.e., self
+==========================================================================================
+
+================================================================================
+STAGE 1 — HYBRID RETRIEVAL
+================================================================================
+Retrieved Count : 8
+
+[HYBRID #1] Source=Donut.pdf | Page=4 | Type=text
+Content: Note that Donut does not rely on any modules related to OCR functionality but uses a visual encoder for extracting features from a given document im- age. The following textual decoder maps the derived features into a sequence of subword tokens to construct a desired structured format (e.g., JSON). Each model component is Transformer-based, and thus the model is trained easily in an end-to-end manner. The overall process of Donut is illustrated in Figure 3. Encoder. The visual encoder converts t
+
+[HYBRID #2] Source=Donut.pdf | Page=14 | Type=text
+Content: have also been proposed [48]. 5 Conclusions In this work, we propose a novel end-to-end framework for visual document un- derstanding. The proposed method, Donut, directly maps an input document image into a desired structured output. Unlike conventional methods, Donut does not depend on OCR and can easily be trained in an end-to-end fashion. We also propose a synthetic document image generator, SynthDoG, to alleviate the dependency on large-scale real document images and we show that Donut can 
+
+[HYBRID #3] Source=Donut.pdf | Page=6 | Type=text
+Content: addition, several image rendering techniques [13,41,67] are applied to mimic real documents. The generated examples are shown in Figure 4. More details of SynthDoG are available in the code 1 and Appendix A.2. 2.4 Fine-tuning After the model learns how to read, in the application stage (i.e., fine-tuning), we teach the model how to understand the document image. As shown in Figure 3, we interpret all downstream tasks as a JSON prediction problem. The decoder is trained to generate a token sequen
+
+[HYBRID #4] Source=Donut.pdf | Page=3 | Type=image
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a book with the text in english  OCR Text: OOCR-free Document Understanding Transformer 3  languages with complex character sets, such as Korean or Chinese, where the quality of OCR. is relatively low [50]. To deal with this, post-OCR correction module [51,50,10] is usually adopted. However, it is not a practical solution for real application environments since it increases the entire system size and main- tenance cost.  We go beyond the t
+
+[HYBRID #5] Source=Donut.pdf | Page=6 | Type=image
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a book with a picture of a person in the background  OCR Text: 6 G. Kim et al.  Wak gaGHIe - —— ATP  Fig. 4. Generated English, Chinese, Japanese, and Korean samples with SynthDoG. Heuristic random patterns are applied to mimic the real documents  several components; background, document, text, and layout. Background image is sampled from ImageNet [7], and a texture of document is sampled from the collected paper photos. Words and phrases ar
+
+[HYBRID #6] Source=Donut.pdf | Page=4 | Type=image
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram showing the different types of the different types of the different types of the different types of the different  OCR Text: 4 G. Kim et al.  Input Image and Prompt Donut @ Output Sequence Converted JSON  {"class”s"recelpt* }  {°question": “what is the price of choco mochl?*, “answer's "14,000° }  transformer encoder  Sclasa>receipi</clasa> <{dassificatlon>  14,000</anawere </vqa>  <Hem><name>3002-Kyoto Choco Mochi</name>+-* </parsing>  tran
+
+[HYBRID #7] Source=Donut.pdf | Page=5 | Type=text
+Content: forcing strategy and the decoder output format are available in Appendix A.4. Output Conversion. The output token sequence is converted to a desired structured format. We adopt a JSON format due to its high representation capacity. As shown in Figure 3, a token sequence is one-to-one invertible to a JSON data. We simply add two special tokens [START ∗] and [END ∗], where ∗ indicates each field to extract. If the output token sequence is wrongly structured, we simply treat the field is lost. For 
+
+[HYBRID #8] Source=Donut.pdf | Page=4 | Type=text
+Content: effort is required to ensure the performance of an entire VDU model by using the off-the-shelf OCR engine. 2.2 Document Understanding Transformer Donut is an end-to-end (i.e., self-contained) VDU model for general understand- ing of document images. The architecture of Donut is quite simple, which con- sists of a Transformer [58,9]-based visual encoder and textual decoder modules. Note that Donut does not rely on any modules related to OCR functionality but uses a visual encoder for extracting f
+================================================================================
+[DOCUMENT SCOPE] Text chunks: 8 -> 8
+
+================================================================================
+EXPLICIT FIGURE QUERY DETECTED
+================================================================================
+Requested Figure : 3
+================================================================================
+
+================================================================================
+FIGURE NUMBER RETRIEVAL
+================================================================================
+Requested Figure : 3
+Query            : Using Figure 3, explain how Donut converts a document image into a structured JSON-like output.
+Matched Images   : 35
+Rejected References : 6
+[MATCH 1] Source=BERT.pdf | Page=13 | Image=BERT_page13_render.png | Path=extracted_images\BERT_page13_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a textbook on the internet network  OCR Text: BERT (Ours)  OpenAl GPT  Figure 3: Differences in pre-training model architectures. BERT uses a bidirectional Transformer. OpenAI GPT uses a left-to-right Transformer. ELMo uses the concatenation o...
+[MATCH 2] Source=BERT.pdf | Page=14 | Image=BERT_page14_render.png | Path=extracted_images\BERT_page14_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a text book with an image of the text  OCR Text: * Learning rate (Adam): 5e-5, 3e-5, 2e-5 * Number of epochs: 2, 3, 4  We also observed that large data sets (e.g., 100k+ labeled training examples) were far less sensitive to hyperparameter choice...
+[MATCH 3] Source=BLIP-2.pdf | Page=4 | Image=BLIP-2_page4_img1.png | Path=extracted_images\BLIP-2_page4_img1.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a cat wearing sunglasses and looking up at the camera  OCR Text: No readable text found in this image.  Nearby Document Text: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models Image Encoder Input Image Learned Querie...
+[MATCH 4] Source=CLIP.pdf | Page=4 | Image=CLIP_page4_render.png | Path=extracted_images\CLIP_page4_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Learning Transferable Visual Models From Natural Language Supervision 4  bal...
+[MATCH 5] Source=CLIP.pdf | Page=5 | Image=CLIP_page5_render.png | Path=extracted_images\CLIP_page5_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: an example of the algorithm for the algorithm of the algorithm of the algorithm of the algorithm of the algorithm of  OCR Text: Learning Transferable Visual Models From Natural Language Supervision 5  # image_encoder - ResNet or Vision Transformer # text_...
+[MATCH 6] Source=CLIP.pdf | Page=38 | Image=CLIP_page38_render.png | Path=extracted_images\CLIP_page38_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: worksheet for algebra algebra algebra worksheet worksheet worksheet worksheet worksheet worksheet worksheet worksheet  OCR Text: Learning Transferable Visual Models From Natural Language Supervision 38  Montias ... pumps a lot of energy into his nicely nu...
+[MATCH 7] Source=CNN Paper.pdf | Page=2 | Image=CNN Paper_page2_img0.png | Path=extracted_images\CNN Paper_page2_img0.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: figure 2 training ratio curves  OCR Text: Accuracy  eo S FS SF FSF Ff oN BR DOD ®O OO  Figure 2: Training and Validation Curves over 20 Epochs  Model Accuracy  2.5 5.0 7.5 10.0 12.5 15.0 17.5 20.0 Epoch  Model Loss  2.5 5.0 7.5 10.0 12.5 15.0 17.5 20.0 Epoch  Nearby Do...
+[MATCH 8] Source=CNN Paper.pdf | Page=3 | Image=CNN Paper_page3_img0.png | Path=extracted_images\CNN Paper_page3_img0.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: figure 4 classification aneture flowchart  OCR Text: Figure 4: Image Classification System Architecture Flowchart  Input Image  Preprocessing (Resize, Normalize)  v  Valid Image?  y  Reject & CNN Feature Output Log Error Extraction Prediction  Nearby Document Text: 4. ...
+[MATCH 9] Source=CNN Paper.pdf | Page=3 | Image=CNN Paper_page3_img1.png | Path=extracted_images\CNN Paper_page3_img1.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a bar chart showing the number of different classes in each class  OCR Text: Number of Images  3500  3000  2500  2000  1500  1000  500  Figure 3: Dataset Class Distribution — Total 11,600 Images  Dog Bird Fish Rabbit Hamster Animal Class  Nearby Document Text: 4. Datas...
+[MATCH 10] Source=CNN Paper.pdf | Page=2 | Image=CNN Paper_page2_render.png | Path=extracted_images\CNN Paper_page2_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a chart showing the number of different types of water in the ocean  OCR Text: 2. Dataset Description  The dataset was compiled from three open-source repositories: ImageNet, Openlmages, and a custom web-scraped collection. Each image was manually verifie...
+[MATCH 11] Source=CNN Paper.pdf | Page=3 | Image=CNN Paper_page3_render.png | Path=extracted_images\CNN Paper_page3_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram showing the number of different types of aircrafts  OCR Text: 4. Dataset Class Distribution  The bar chart in Figure 3 provides a visual breakdown of image counts per class. The dataset is moderately imbalanced with a 4.77:1 ratio between the la...
+[MATCH 12] Source=Donut.pdf | Page=4 | Image=Donut_page4_img0.png | Path=extracted_images\Donut_page4_img0.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a person holding a receipt in their hand  OCR Text: No readable text found in this image.  Nearby Document Text: 4 G. Kim et al. <vqa><question>what is the price  of choco mochi?</question><answer> Converted JSON transformer  encoder Input Image and Prompt transformer ...
+[MATCH 13] Source=Donut.pdf | Page=4 | Image=Donut_page4_img1.png | Path=extracted_images\Donut_page4_img1.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont  OCR Text: No readable text found in this image.  Nearby Document Text: 4 G. Kim et al. <vqa><question>what is the pric...
+[MATCH 14] Source=Donut.pdf | Page=4 | Image=Donut_page4_render.png | Path=extracted_images\Donut_page4_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram showing the different types of the different types of the different types of the different types of the different  OCR Text: 4 G. Kim et al.  Input Image and Prompt Donut @ Output Sequence Converted JSON  {"class”s"recelpt* }  {°question": “what...
+[MATCH 15] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img0.png | Path=extracted_images\LayoutLMv3_page3_img0.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white document with a black and white image  OCR Text: Poros MEWSterten Bou ‘Monday, March 26; 1937.10:2840  {you fn fer con Yaga £7 eapnag Jee ban looting eo wath of stent J procats Mo pais'on this Sat:  ndlchoel doese’s want 19 raprix tho ofd FY! ord ta n...
+[MATCH 16] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img1.png | Path=extracted_images\LayoutLMv3_page3_img1.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white photo of a man in a suit and tie  OCR Text: “fuaneil, sey W.  ‘Michuat eisaant wart to rap Seine mona af 90 IF vind mistde.. Oudin Bid  battens” Coedieg Bieta  Nearby Document Text: Multimodal Transformer Seg1 [MASK] 1 + + Seg1 [MASK] 2 + + Seg2 T3 3 ...
+[MATCH 17] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img2.png | Path=extracted_images\LayoutLMv3_page3_img2.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a white paper with a black and white text on it  OCR Text: No readable text found in this image.  Nearby Document Text: Multimodal Transformer Seg1 [MASK] 1 + + Seg1 [MASK] 2 + + Seg2 T3 3 + + V1 [MASK] 1 + 2 + 3 + [MASK] [SPE] 0 + Seg3 T4 4 + + SegPAD [CLS] 0 + + 4 + ...
+[MATCH 18] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img3.png | Path=extracted_images\LayoutLMv3_page3_img3.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white poster with a quote on it  OCR Text: No readable text found in this image.  Nearby Document Text: Multimodal Transformer Seg1 [MASK] 1 + + Seg1 [MASK] 2 + + Seg2 T3 3 + + V1 [MASK] 1 + 2 + 3 + [MASK] [SPE] 0 + Seg3 T4 4 + + SegPAD [CLS] 0 + + 4 + V4 h...
+[MATCH 19] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img4.png | Path=extracted_images\LayoutLMv3_page3_img4.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a diagram showing the location of the location of the house and the location of the location of the house  OCR Text: No readable text found in this image.  Nearby Document Text: Multimodal Transformer Seg1 [MASK] 1 + + Seg1 [MASK] 2 + + Seg2 T3 3 + + V1 [MASK] 1 + 2 + ...
+[MATCH 20] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img5.png | Path=extracted_images\LayoutLMv3_page3_img5.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a letter from the department requesting that it is not available for sale  OCR Text: No readable text found in this image.  Nearby Document Text: Multimodal Transformer Seg1 [MASK] 1 + + Seg1 [MASK] 2 + + Seg2 T3 3 + + V1 [MASK] 1 + 2 + 3 + [MASK] [SPE] 0 + Seg3 T4 4 +...
+[MATCH 21] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img6.png | Path=extracted_images\LayoutLMv3_page3_img6.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a white sheet with a black and white image of a black and white image of a black and white image  OCR Text: No readable text found in this image.  Nearby Document Text: Multimodal Transformer Seg1 [MASK] 1 + + Seg1 [MASK] 2 + + Seg2 T3 3 + + V1 [MASK] 1 + 2 + 3 + [MASK...
+[MATCH 22] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img7.png | Path=extracted_images\LayoutLMv3_page3_img7.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white photo of a man in a suit and tie  OCR Text: Ciro: Matnoe’ ‘Suniect: (ICL VANTAGE HOWS Geter antuy, Mace 34), 127  Beni¥ ln haa abamey bane Sram foal Cre ea ea ves.  ar HE VANTAGE NEY. Bae Gunter, orth er  deccenoateld ei ee  Nearby Document Text: Mult...
+[MATCH 23] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img8.png | Path=extracted_images\LayoutLMv3_page3_img8.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white photo of a man in a suit and tie  OCR Text: No readable text found in this image.  Nearby Document Text: Multimodal Transformer Seg1 [MASK] 1 + + Seg1 [MASK] 2 + + Seg2 T3 3 + + V1 [MASK] 1 + 2 + 3 + [MASK] [SPE] 0 + Seg3 T4 4 + + SegPAD [CLS] 0 + + 4...
+[MATCH 24] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img9.png | Path=extracted_images\LayoutLMv3_page3_img9.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white photo of a man in a suit  OCR Text: (ebadk Lunlhias 116 ahghty hos Sree ierty we win wed We paid ase Bree  Nearby Document Text: Multimodal Transformer Seg1 [MASK] 1 + + Seg1 [MASK] 2 + + Seg2 T3 3 + + V1 [MASK] 1 + 2 + 3 + [MASK] [SPE] 0 + Seg3 T4 4 ...
+[MATCH 25] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_render.png | Path=extracted_images\LayoutLMv3_page3_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram of the structure of a computer system  OCR Text: Ty Tz  Pre-training  Objectives MLM Head  Unaligned Aligned  V2 V3  MIM Head  Multimodal Transformer  2D Position  Embedding Seba) (Sees ] Seaewo) (see) [sees] [sees] [sess] Seseso) [Ptcheno} Pate...
+[MATCH 26] Source=NLP Paper.pdf | Page=4 | Image=NLP Paper_page4_img0.png | Path=extracted_images\NLP Paper_page4_img0.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: figure 3 timing curves for dbtn, dbtn, and dbtn  OCR Text: Cross-Entropy Loss  Figure 3: Training Loss Curves for BiLSTM, BERT, and RoBERTa over 15 Epochs  BiLSTM i-BERT—— RoBERTa  Nearby Document Text: 4. Training Dynamics Figure 3 shows training loss curves for BiLST...
+[MATCH 27] Source=NLP Paper.pdf | Page=4 | Image=NLP Paper_page4_img1.png | Path=extracted_images\NLP Paper_page4_img1.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: figure 1 self - self - self - self - self - self - self - self - self - self - self - self - self - self self self - self self self self self self self self self self self self self self self self self self self self self self self self self self self self  OCR Text: F...
+[MATCH 28] Source=NLP Paper.pdf | Page=4 | Image=NLP Paper_page4_render.png | Path=extracted_images\NLP Paper_page4_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a graph graph with a line graph and a line graph with a line graph and a line graph with a  OCR Text: 4. Training Dynamics  Figure 3 shows training loss curves for BILSTM, BERT, and ROBERTa over 15 epochs. ROBERTa converges fastest, reaching a loss below ...
+[MATCH 29] Source=RAG.pdf | Page=8 | Image=RAG_page8_render.png | Path=extracted_images\RAG_page8_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Table 4: Human assessments for the Jeopardy Table 5: Ratio of distinct to total tri-grams for Question Generation Task. generation tas...
+[MATCH 30] Source=Self-RAG.pdf | Page=9 | Image=Self-RAG_page9_render.png | Path=extracted_images\Self-RAG_page9_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the textbook on the characterization and characterization of semiconductors in semiconductors and semiconductors  OCR Text: Preprint.  PubHealth  POA Med AS : 70.5 aan 1.0 >  (acc) (acc) (em) § $0.99 ose Training 0.98 0.0 NoRetrieverR 43.6 67....
+[MATCH 31] Source=Self-RAG.pdf | Page=10 | Image=Self-RAG_page10_render.png | Path=extracted_images\Self-RAG_page10_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Preprint.  in wu  g 50 23 Pop Bio. 5 60 &“ 7? S&P 92.5 70.0 & 40 n 95.0 90.0...
+[MATCH 32] Source=Vision Transformer.pdf | Page=6 | Image=Vision Transformer_page6_render.png | Path=extracted_images\Vision Transformer_page6_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with a bar chart and a bar chart on it  OCR Text: Published as a conference paper at ICLR 2021  Ours-JFT Ours-JFT Ours-I21k BiT-L Noisy Student  (ViT-H/14) = (ViT-L/16) —- (ViT-L/16) (ResNet152x4) (EfficientNet-L2) ImageNet 88.5540.04 87.764003 85...
+[MATCH 33] Source=Vision Transformer.pdf | Page=7 | Image=Vision Transformer_page7_render.png | Path=extracted_images\Vision Transformer_page7_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal on the characterization and characterization of a single - cell cell  OCR Text: Published as a conference paper at ICLR 2021  =J o  oe] wr  BiT- ViT-BB2- O...ViT-B/16. CO} iT-H/14 |  ImageNet Top! Accuracy (%]  Linear 5-shot ImageN...
+[MATCH 34] Source=Vision Transformer.pdf | Page=14 | Image=Vision Transformer_page14_render.png | Path=extracted_images\Vision Transformer_page14_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with the title of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Published as a conference paper at ICLR 2021  Dataset Steps Base LR ImageNet 2000...
+[MATCH 35] Source=Vision Transformer.pdf | Page=15 | Image=Vision Transformer_page15_render.png | Path=extracted_images\Vision Transformer_page15_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: the table shows the number of different types of the different types of the different types of the different types of  OCR Text: Published as a conference paper at ICLR 2021  ViT-B/16 ViT-B/32-ViT-L/16—ViT-L/32.—s: ViT-H/14  ImageNet CIFAR-10 98.13 97.77 ...
+[REJECTED 1] Source=BLIP-2.pdf | Page=4 | Image=BLIP-2_page4_render.png
+    Reason   : Cross-reference rather than actual Figure 3
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the journal of the journal of the journal of the journal of the journal of the journal of the journal of the  OCR Text: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models  Boot...
+[REJECTED 2] Source=CNN Paper.pdf | Page=5 | Image=CNN Paper_page5_render.png
+    Reason   : Cross-reference rather than actual Figure 3
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a table with a number of different items on it  OCR Text: 7. Discussion  The CNN model achieves strong overall performance with a weighted F1 score of 0.926. However, several limitations and areas for improvement were identified during evaluation.  7.1 St...
+[REJECTED 3] Source=Donut.pdf | Page=5 | Image=Donut_page5_render.png
+    Reason   : Cross-reference rather than actual Figure 3
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a text book with an image of a person in the background  OCR Text: OOCR-free Document Understanding Transformer 5  Decoder. Given the {z}, the textual decoder generates a token sequence (yi)*1, where y;€R” is an one-hot vector for the i-th token...
+[REJECTED 4] Source=Donut.pdf | Page=6 | Image=Donut_page6_render.png
+    Reason   : Cross-reference rather than actual Figure 3
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a book with a picture of a person in the background  OCR Text: 6 G. Kim et al.  Wak gaGHIe - —— ATP  Fig. 4. Generated English, Chinese, Japanese, and Korean samples with SynthDoG. Heuristic random patterns are applied to mimic the real document...
+[REJECTED 5] Source=Donut.pdf | Page=8 | Image=Donut_page8_render.png
+    Reason   : Cross-reference rather than actual Figure 3
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a book with the title of the text  OCR Text: 8 G. Kim et al.  nested groups and hierarchies such as items>item>{name, count, price}) in the information. See Figure 1 for more details.  Ticket. This is a public benchmark dataset [12] that consist...
+[REJECTED 6] Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_render.png
+    Reason   : Cross-reference rather than actual Figure 3
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a computer and a computer with a text that reads,  OCR Text: _(2) Pre-training Objectives of Image Modality  | — | ra  |  |  I idn, idya, idys, | idyyidys, ides, ». |  I kde dia Fao  ! teh  | fication  Masked Word...
+Matched Sources  : ['BERT.pdf', 'BLIP-2.pdf', 'CLIP.pdf', 'CNN Paper.pdf', 'Donut.pdf', 'LayoutLMv3.pdf', 'NLP Paper.pdf', 'RAG.pdf', 'Self-RAG.pdf', 'Vision Transformer.pdf']
+Matched Pages    : ['10', '13', '14', '15', '2', '3', '38', '4', '5', '6', '7', '8', '9']
+[FIGURE LOOKUP] High-confidence figure reference found. Generic CLIP fallback should not be used.
+================================================================================
+[FIGURE IMAGE DEDUPLICATION] 3 -> 1 authoritative image(s), one per source/page.
+
+================================================================================
+EXACT FIGURE RETRIEVAL RESULT
+================================================================================
+Requested Figure : 3
+Exact Match      : True
+Matched Images   : 1
+[EXACT FIGURE #1] Source=Donut.pdf | Page=4 | Image=Donut_page4_render.png | Path=extracted_images\Donut_page4_render.png
+================================================================================
+[FIGURE PIPELINE] Explicit figure/page image match found. CLIP fallback disabled.
+[DOCUMENT SCOPE] Images: 1 -> 1
+
+================================================================================
+STAGE 2 — IMAGE RETRIEVAL RESULT
+================================================================================
+Image Results       : 1
+Exact Figure Match  : True
+
+[IMAGE #1] Source=Donut.pdf | Page=4 | Image=Donut_page4_render.png
+Image Path: extracted_images\Donut_page4_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram showing the different types of the different types of the different types of the different types of the different  OCR Text: 4 G. Kim et al.  Input Image and Prompt Donut @ Output Sequence Converted JSON  {"class”s"recelpt* }  {°question": “what is the price of choco mochl?*, “answer's "14,000° }  transformer encoder  Sclasa>receipi</clasa> <{dassificatlon>  14,000</anawere </vqa>  <Hem><name>3002-Kyoto Choco Mochi</name>+-* </parsing>  tran
+================================================================================
+
+================================================================================
+COMBINED RETRIEVAL CANDIDATES
+================================================================================
+Text Candidates  : 8
+Image Candidates : 1
+Total Candidates : 9
+================================================================================
+
+================================================================================
+STEP 3A — RERANKER INPUT
+================================================================================
+Query: Using Figure 3, explain how Donut converts a document image into a structured JSON-like output.
+Input candidates: 9
+01. Source=Donut.pdf | Page=4 | Type=text | Image=N/A
+    Content=Note that Donut does not rely on any modules related to OCR functionality but uses a visual encoder for extracting features from a given document im- age. The following textual dec
+02. Source=Donut.pdf | Page=14 | Type=text | Image=N/A
+    Content=have also been proposed [48]. 5 Conclusions In this work, we propose a novel end-to-end framework for visual document un- derstanding. The proposed method, Donut, directly maps an 
+03. Source=Donut.pdf | Page=6 | Type=text | Image=N/A
+    Content=addition, several image rendering techniques [13,41,67] are applied to mimic real documents. The generated examples are shown in Figure 4. More details of SynthDoG are available in
+04. Source=Donut.pdf | Page=3 | Type=image | Image=extracted_images\Donut_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a book with the text in english  OCR Text: OOCR-free Document Understanding Transformer 3  languages with complex character
+05. Source=Donut.pdf | Page=6 | Type=image | Image=extracted_images\Donut_page6_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a book with a picture of a person in the background  OCR Text: 6 G. Kim et al.  Wak gaGHIe - —— ATP  Fig. 4. Generated Englis
+06. Source=Donut.pdf | Page=4 | Type=image | Image=extracted_images\Donut_page4_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram showing the different types of the different types of the different types of the different types of the different  OCR Text: 
+07. Source=Donut.pdf | Page=5 | Type=text | Image=N/A
+    Content=forcing strategy and the decoder output format are available in Appendix A.4. Output Conversion. The output token sequence is converted to a desired structured format. We adopt a J
+08. Source=Donut.pdf | Page=4 | Type=text | Image=N/A
+    Content=effort is required to ensure the performance of an entire VDU model by using the off-the-shelf OCR engine. 2.2 Document Understanding Transformer Donut is an end-to-end (i.e., self
+09. Source=Donut.pdf | Page=4 | Type=image | Image=extracted_images\Donut_page4_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram showing the different types of the different types of the different types of the different types of the different  OCR Text: 
+================================================================================
+
+--------------------------------------------------------------------------------
+CROSS-ENCODER RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=00 | Source=Donut.pdf | Page=4 | Type=text | CE=6.0421
+Rank=02 | OriginalIndex=06 | Source=Donut.pdf | Page=5 | Type=text | CE=5.1707
+Rank=03 | OriginalIndex=05 | Source=Donut.pdf | Page=4 | Type=image | CE=4.6356
+Rank=04 | OriginalIndex=08 | Source=Donut.pdf | Page=4 | Type=image | CE=4.6356
+Rank=05 | OriginalIndex=01 | Source=Donut.pdf | Page=14 | Type=text | CE=4.1644
+Rank=06 | OriginalIndex=02 | Source=Donut.pdf | Page=6 | Type=text | CE=2.8898
+Rank=07 | OriginalIndex=03 | Source=Donut.pdf | Page=3 | Type=image | CE=1.6278
+Rank=08 | OriginalIndex=07 | Source=Donut.pdf | Page=4 | Type=text | CE=0.2141
+Rank=09 | OriginalIndex=04 | Source=Donut.pdf | Page=6 | Type=image | CE=-4.1879
+
+--------------------------------------------------------------------------------
+CLIP IMAGE RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=04 | Source=Donut.pdf | Page=6 | Image=extracted_images\Donut_page6_render.png | CLIP=0.2561
+Rank=02 | OriginalIndex=03 | Source=Donut.pdf | Page=3 | Image=extracted_images\Donut_page3_render.png | CLIP=0.2537
+Rank=03 | OriginalIndex=05 | Source=Donut.pdf | Page=4 | Image=extracted_images\Donut_page4_render.png | CLIP=0.2382
+Rank=04 | OriginalIndex=08 | Source=Donut.pdf | Page=4 | Image=extracted_images\Donut_page4_render.png | CLIP=0.2382
+
+================================================================================
+STEP 3A — COMPLETE MULTIMODAL RERANK RESULT
+================================================================================
+Rank=01 | Type=image | Source=Donut.pdf | Page=4 | RRF=0.031746 | CE=4.6356 | CLIP=0.2382
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram showing the different types of the different types of the different types of the different types of the different  OCR Text: 
+Rank=02 | Type=image | Source=Donut.pdf | Page=4 | RRF=0.031250 | CE=4.6356 | CLIP=0.2382
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram showing the different types of the different types of the different types of the different types of the different  OCR Text: 
+Rank=03 | Type=image | Source=Donut.pdf | Page=3 | RRF=0.031054 | CE=1.6278 | CLIP=0.2537
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a book with the text in english  OCR Text: OOCR-free Document Understanding Transformer 3  languages with complex character
+Rank=04 | Type=image | Source=Donut.pdf | Page=6 | RRF=0.030886 | CE=-4.1879 | CLIP=0.2561
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a book with a picture of a person in the background  OCR Text: 6 G. Kim et al.  Wak gaGHIe - —— ATP  Fig. 4. Generated Englis
+Rank=05 | Type=text | Source=Donut.pdf | Page=4 | RRF=0.016393 | CE=6.0421 | CLIP=N/A
+    Content=Note that Donut does not rely on any modules related to OCR functionality but uses a visual encoder for extracting features from a given document im- age. The following textual dec
+Rank=06 | Type=text | Source=Donut.pdf | Page=5 | RRF=0.016129 | CE=5.1707 | CLIP=N/A
+    Content=forcing strategy and the decoder output format are available in Appendix A.4. Output Conversion. The output token sequence is converted to a desired structured format. We adopt a J
+Rank=07 | Type=text | Source=Donut.pdf | Page=14 | RRF=0.015385 | CE=4.1644 | CLIP=N/A
+    Content=have also been proposed [48]. 5 Conclusions In this work, we propose a novel end-to-end framework for visual document un- derstanding. The proposed method, Donut, directly maps an 
+Rank=08 | Type=text | Source=Donut.pdf | Page=6 | RRF=0.015152 | CE=2.8898 | CLIP=N/A
+    Content=addition, several image rendering techniques [13,41,67] are applied to mimic real documents. The generated examples are shown in Figure 4. More details of SynthDoG are available in
+Rank=09 | Type=text | Source=Donut.pdf | Page=4 | RRF=0.014706 | CE=0.2141 | CLIP=N/A
+    Content=effort is required to ensure the performance of an entire VDU model by using the off-the-shelf OCR engine. 2.2 Document Understanding Transformer Donut is an end-to-end (i.e., self
+================================================================================
+
+================================================================================
+STEP 3A — FINAL RERANK TOP-K
+================================================================================
+Requested top_k: 12
+Returned documents: 8
+01. Source=Donut.pdf | Page=4 | Type=image | Image=extracted_images\Donut_page4_render.png
+02. Source=Donut.pdf | Page=3 | Type=image | Image=extracted_images\Donut_page3_render.png
+03. Source=Donut.pdf | Page=6 | Type=image | Image=extracted_images\Donut_page6_render.png
+04. Source=Donut.pdf | Page=4 | Type=text | Image=N/A
+05. Source=Donut.pdf | Page=5 | Type=text | Image=N/A
+06. Source=Donut.pdf | Page=14 | Type=text | Image=N/A
+07. Source=Donut.pdf | Page=6 | Type=text | Image=N/A
+08. Source=Donut.pdf | Page=4 | Type=text | Image=N/A
+================================================================================
+
+================================================================================
+STAGE 3 — MULTIMODAL RERANKING
+================================================================================
+Input Candidates : 9
+Reranked Output   : 8
+
+[RERANK #1] Source=Donut.pdf | Page=4 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram showing the different types of the different types of the different types of the different types of the different  OCR Text: 4 G. Kim et al.  Input Image and Prompt Donut @ Output Sequence Converted JSON  {"class”s"recelpt* }  {°question": “what
+
+[RERANK #2] Source=Donut.pdf | Page=3 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a book with the text in english  OCR Text: OOCR-free Document Understanding Transformer 3  languages with complex character sets, such as Korean or Chinese, where the quality of OCR. is relatively low [50]. To deal with this, post-OCR correcti
+
+[RERANK #3] Source=Donut.pdf | Page=6 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a book with a picture of a person in the background  OCR Text: 6 G. Kim et al.  Wak gaGHIe - —— ATP  Fig. 4. Generated English, Chinese, Japanese, and Korean samples with SynthDoG. Heuristic random patterns are applied to mimic the real document
+
+[RERANK #4] Source=Donut.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Note that Donut does not rely on any modules related to OCR functionality but uses a visual encoder for extracting features from a given document im- age. The following textual decoder maps the derived features into a sequence of subword tokens to construct a desired structured format (e.g., JSON). 
+
+[RERANK #5] Source=Donut.pdf | Page=5 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: forcing strategy and the decoder output format are available in Appendix A.4. Output Conversion. The output token sequence is converted to a desired structured format. We adopt a JSON format due to its high representation capacity. As shown in Figure 3, a token sequence is one-to-one invertible to a
+
+[RERANK #6] Source=Donut.pdf | Page=14 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: have also been proposed [48]. 5 Conclusions In this work, we propose a novel end-to-end framework for visual document un- derstanding. The proposed method, Donut, directly maps an input document image into a desired structured output. Unlike conventional methods, Donut does not depend on OCR and can
+
+[RERANK #7] Source=Donut.pdf | Page=6 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: addition, several image rendering techniques [13,41,67] are applied to mimic real documents. The generated examples are shown in Figure 4. More details of SynthDoG are available in the code 1 and Appendix A.2. 2.4 Fine-tuning After the model learns how to read, in the application stage (i.e., fine-t
+
+[RERANK #8] Source=Donut.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: effort is required to ensure the performance of an entire VDU model by using the off-the-shelf OCR engine. 2.2 Document Understanding Transformer Donut is an end-to-end (i.e., self-contained) VDU model for general understand- ing of document images. The architecture of Donut is quite simple, which c
+================================================================================
+
+================================================================================
+FINAL CONTEXT DOCUMENTS
+================================================================================
+Final context candidates: 8
+
+[FINAL #1] Source=Donut.pdf | Page=4 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram showing the different types of the different types of the different types of the different types of the different  OCR Text: 4 G. Kim et al.  Input Image and Prompt Donut @ Output Sequence Converted JSON  {"class”s"recelpt* }  {°question": “what
+
+[FINAL #2] Source=Donut.pdf | Page=3 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a book with the text in english  OCR Text: OOCR-free Document Understanding Transformer 3  languages with complex character sets, such as Korean or Chinese, where the quality of OCR. is relatively low [50]. To deal with this, post-OCR correcti
+
+[FINAL #3] Source=Donut.pdf | Page=6 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a book with a picture of a person in the background  OCR Text: 6 G. Kim et al.  Wak gaGHIe - —— ATP  Fig. 4. Generated English, Chinese, Japanese, and Korean samples with SynthDoG. Heuristic random patterns are applied to mimic the real document
+
+[FINAL #4] Source=Donut.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Note that Donut does not rely on any modules related to OCR functionality but uses a visual encoder for extracting features from a given document im- age. The following textual decoder maps the derived features into a sequence of subword tokens to construct a desired structured format (e.g., JSON). 
+
+[FINAL #5] Source=Donut.pdf | Page=5 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: forcing strategy and the decoder output format are available in Appendix A.4. Output Conversion. The output token sequence is converted to a desired structured format. We adopt a JSON format due to its high representation capacity. As shown in Figure 3, a token sequence is one-to-one invertible to a
+
+[FINAL #6] Source=Donut.pdf | Page=14 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: have also been proposed [48]. 5 Conclusions In this work, we propose a novel end-to-end framework for visual document un- derstanding. The proposed method, Donut, directly maps an input document image into a desired structured output. Unlike conventional methods, Donut does not depend on OCR and can
+
+[FINAL #7] Source=Donut.pdf | Page=6 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: addition, several image rendering techniques [13,41,67] are applied to mimic real documents. The generated examples are shown in Figure 4. More details of SynthDoG are available in the code 1 and Appendix A.2. 2.4 Fine-tuning After the model learns how to read, in the application stage (i.e., fine-t
+
+[FINAL #8] Source=Donut.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: effort is required to ensure the performance of an entire VDU model by using the off-the-shelf OCR engine. 2.2 Document Understanding Transformer Donut is an end-to-end (i.e., self-contained) VDU model for general understand- ing of document images. The architecture of Donut is quite simple, which c
+================================================================================
+
+================================================================================
+FIGURE FINAL-CONTEXT DIAGNOSTIC
+================================================================================
+Requested Figure     : 3
+Exact Figure Match   : True
+Present In Final     : False
+[FIGURE DIAGNOSTIC] FAIL — figure/page image was retrieved but disappeared before final context.
+================================================================================
+
+================================================================================
+FINAL CONTEXT SENT TO LLM
+================================================================================
+
+================================================================================
+DOCUMENT : Donut.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 3
+--------------------------------------------------------------------------------
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a page from a book with the text in english
+
+OCR Text:
+OOCR-free Document Understanding Transformer 3
+
+languages with complex character sets, such as Korean or Chinese, where the
+quality of OCR. is relatively low [50]. To deal with this, post-OCR correction
+module [51,50,10] is usually adopted. However, it is not a practical solution for
+real application environments since it increases the entire system size and main-
+tenance cost.
+
+We go beyond the traditional framework by modeling a direct mapping from
+a raw input image to the desired output without OCR. We introduce a new
+OCR-free VDU model to address the problems induced by the OCR-dependency.
+Our model is based on Transformer-only architecture, referred to as Document
+understanding transformer (Donut), following the huge success in vision and
+language [8,9,29]. We present a minimal baseline including a simple architecture
+and pre-training method. Despite its simplicity, Donut shows comparable or
+better overall performance than previous methods as shown in Figure 2.
+
+We take pre-train-and-fine-tune scheme [8,65] on Donut training. In the
+pre-training phase, Donut learns how to read the texts by predicting the next
+words by conditioning jointly on the image and previous text contexts. Donut
+is pre-trained with document images and their text annotations. Since our pre-
+training objective is simple (7.e., reading the texts), we can realize domain and
+language flexibility straightforwardly pre-training with synthetic data. During
+fine-tuning stage, Donut learns how to understand the whole document accord-
+ing to the downstream task. We demonstrate Donut has a strong understanding
+ability through extensive evaluation on various VDU tasks and datasets. The
+experiments show a simple OCR-free VDU model can achieve state-of-the-art
+performance in terms of both speed and accuracy.
+
+The contributions are summarized as follows:
+
+1. We propose a novel OCR-free approach for VDU. To the best of our knowl-
+edge, this is the first method based on an OCR-free Transformer trained in
+end-to-end manner.
+
+2. We introduce a simple pre-training scheme that enables the utilization of
+synthetic data. By using our generator SynthDoG, we show Donut can
+easily be extended to a multi-lingual setting, which is not applicable for the
+conventional approaches that need to retrain an off-the-shelf OCR engine.
+
+3. We conduct extensive experiments and analyses on both public benchmarks
+and private industrial datasets, showing that the proposed method achieves
+not only state-of-the-art performances on benchmarks but also has many
+practical advantages (e.g., cost-effective) in real-world applications.
+
+4. The codebase, pre-trained model, and synthetic data are available at GitHub.?
+
+2 Method
+
+2.1 Preliminary: background
+
+There have been various visual document understanding (VDU) methods to un-
+derstand and extract essential information from the semi-structured documents
+such as receipts [20,25,18], invoices [49], and form documents [14,6,43].
+
+https ://github.com/clovaai/donut.
+
+Nearby Document Text:
+OCR-free Document Understanding Transformer
+3
+languages with complex character sets, such as Korean or Chinese, where the
+quality of OCR is relatively low [50]. To deal with this, post-OCR correction
+module [51,50,10] is usually adopted. However, it is not a practical solution for
+real application environments since it increases the entire system size and main-
+tenance cost.
+We go beyond the traditional framework by modeling a direct mapping from
+a raw input image to the desired output without OCR. We introduce a new
+OCR-free VDU model to address the problems induced by the OCR-dependency.
+Our
+
+
+--------------------------------------------------------------------------------
+PAGE : 4
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+Note that Donut does not rely on any modules related to OCR functionality
+but uses a visual encoder for extracting features from a given document im-
+age. The following textual decoder maps the derived features into a sequence
+of subword tokens to construct a desired structured format (e.g., JSON). Each
+model component is Transformer-based, and thus the model is trained easily in
+an end-to-end manner. The overall process of Donut is illustrated in Figure 3.
+Encoder. The visual encoder converts the input document image x∈RH×W ×C
+
+
+[TEXT]
+
+effort is required to ensure the performance of an entire VDU model by using
+the off-the-shelf OCR engine.
+2.2 Document Understanding Transformer
+Donut is an end-to-end (i.e., self-contained) VDU model for general understand-
+ing of document images. The architecture of Donut is quite simple, which con-
+sists of a Transformer [58,9]-based visual encoder and textual decoder modules.
+Note that Donut does not rely on any modules related to OCR functionality
+but uses a visual encoder for extracting features from a given document im-
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a diagram showing the different types of the different types of the different types of the different types of the different
+
+OCR Text:
+4 G. Kim et al.
+
+Input Image and Prompt Donut @ Output Sequence Converted JSON
+
+{"class”s"recelpt* }
+
+{°question": “what is the price of choco mochl?*,
+“answer's "14,000° }
+
+transformer
+encoder
+
+Sclasa>receipi</clasa>
+<{dassificatlon>
+
+14,000</anawere </vqa>
+
+<Hem><name>3002-Kyoto Choco
+Mochi</name>+-* </parsing>
+
+transformer
+
+<vqa><questlon> what is the prica
+decoder
+
+{"tams": [{'name": °2002-Kyoto Choco Mochi‘,
+of choco mochi?</question><answer by
+
+‘count’: 2,
+“unliprica’s 44000, ...}], «.. }
+
+Fig. 3. The pipeline of Donut. The encoder maps a given document image into
+embeddings. With the encoded embeddings, the decoder generates a sequence of tokens
+that can be converted into a target type of information in a structured form
+
+Earlier VDU attempts have been done with OCR-independent visual back-
+bones [27,1,15,12,31], but the performances are limited. Later, with the remark-
+able advances of OCR [4,3] and BERT [8], various OCR-dependent VDU models
+have been proposed by combining them [22,24,23]. More recently, in order to get
+a more general VDU, most state-of-the-arts [64,18] use both powerful OCR en-
+gines and large-scale real document image data. (e.g., ITT-CDIP [32]) for a model
+pre-training. Although they showed remarkable advances in recent years, extra
+effort is required to ensure the performance of an entire VDU model by using
+the off-the-shelf OCR, engine.
+
+2.2 Document Understanding Transformer
+
+Donut is an end-to-end (i.e¢., self-contained) VDU model for general understand-
+ing of document images. The architecture of Donut is quite simple, which con-
+sists of a Transformer [58,9]-based visual encoder and textual decoder modules.
+Note that Donut does not rely on any modules related to OCR functionality
+but uses a visual encoder for extracting features from a given document im-
+age. The following textual decoder maps the derived features into a sequence
+of subword tokens to construct a desired structured format (e.g., JSON). Each
+model component is Transformer-based, and thus the model is trained easily in
+an end-to-end manner. The overall process of Donut is illustrated in Figure 3.
+
+Encoder. The visual encoder converts the input document image xeR#*W*¢
+
+into a set of embeddings {z,|z,;ER¢, 1<i<n}, where n is feature map size or the
+number of image patches and d is the dimension of the latent vectors of the
+encoder. Note that CNN-based models [17] or Transformer-based models [9,40]
+can be used as the encoder network. In this study, we use Swin Transformer [40]
+because it shows the best performance in our preliminary study in document
+parsing. Swin Transformer first splits the input image x into non-overlapping
+patches. Swin Transformer blocks, consist of a shifted window-based multi-head
+self-attention module and a two-layer MLP, are applied to the patches. Then,
+patch merging layers are applied to the patch tokens at each stage. The output
+of the final Swin Transformer block {z} is fed into the following textual decoder.
+
+Nearby Document Text:
+4
+G. Kim et al.
+<vqa><question>what is the price 
+of choco mochi?</question><answer>
+Converted JSON
+transformer 
+encoder
+Input Image and Prompt
+transformer 
+decoder
+Donut 🍩
+<classification>
+<parsing>
+<class>receipt</class>
+</classification>
+14,000</answer></vqa>
+<item><name>3002-Kyoto Choco 
+Mochi</name>・・・ </parsing>
+{ "items": [{"name": "3002-Kyoto Choco Mochi",
+      "count": 2,
+      "unitprice": 14000, …}], … }
+Output Sequence
+{ "class":"receipt" }
+{ "question": "what is the price of choco mochi?",
+   "answer": "14,000" }
+Fig. 3. The pipeline of Donut. The encoder maps a given document im
+
+
+[RELATED PAGE TEXT]
+
+Note that Donut does not rely on any modules related to OCR functionality
+but uses a visual encoder for extracting features from a given document im-
+age. The following textual decoder maps the derived features into a sequence
+of subword tokens to construct a desired structured format (e.g., JSON). Each
+model component is Transformer-based, and thu
+
+
+--------------------------------------------------------------------------------
+PAGE : 5
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+forcing strategy and the decoder output format are available in Appendix A.4.
+Output Conversion. The output token sequence is converted to a desired
+structured format. We adopt a JSON format due to its high representation
+capacity. As shown in Figure 3, a token sequence is one-to-one invertible to a
+JSON data. We simply add two special tokens [START ∗] and [END ∗], where ∗
+indicates each field to extract. If the output token sequence is wrongly structured,
+we simply treat the field is lost. For example, if there is only [START name] exists
+
+
+--------------------------------------------------------------------------------
+PAGE : 6
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+addition, several image rendering techniques [13,41,67] are applied to mimic
+real documents. The generated examples are shown in Figure 4. More details of
+SynthDoG are available in the code 1 and Appendix A.2.
+2.4 Fine-tuning
+After the model learns how to read, in the application stage (i.e., fine-tuning), we
+teach the model how to understand the document image. As shown in Figure 3,
+we interpret all downstream tasks as a JSON prediction problem.
+The decoder is trained to generate a token sequence that can be converted
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a page of a book with a picture of a person in the background
+
+OCR Text:
+6 G. Kim et al.
+
+Wak gaGHIe - ——
+ATP
+
+Fig. 4. Generated English, Chinese, Japanese, and Korean samples with
+SynthDoG. Heuristic random patterns are applied to mimic the real documents
+
+several components; background, document, text, and layout. Background image
+is sampled from ImageNet [7], and a texture of document is sampled from the
+collected paper photos. Words and phrases are sampled from Wikipedia. Layout
+is generated by a simple rule-based algorithm that randomly stacks grids. In
+addition, several image rendering techniques [13,41,67] are applied to mimic
+real documents. The generated examples are shown in Figure 4. More details of
+SynthDoG are available in the code! and Appendix A.2.
+
+2.4 Fine-tuning
+
+After the model learns how to read, in the application stage (i.e., fine-tuning), we
+teach the model how to understand the document image. As shown in Figure 3,
+we interpret all downstream tasks as a JSON prediction problem.
+
+The decoder is trained to generate a token sequence that can be converted
+into a JSON that represents the desired output information. For example, in the
+document classification task, the decoder is trained to generate a token sequence
+(START_class] [memo] [END_class] which is 1-to-1 invertible to a JSON { “class”:
+“memo” }. We introduce some special tokens (¢.g., [memo] is used for representing
+the class “memo” ), if such replacement is available in the target task.
+
+3 Experiments and Analyses
+
+In this section, we present Donut fine-tuning results on three VDU applications
+on six different datasets including both public benchmarks and private industrial
+service datasets. The samples are shown in Figure 5.
+
+3.1 Downstream Tasks and Datasets
+
+Document Classification. To see whether the model can distinguish across
+different types of documents, we test a classification task. Unlike other models
+that predict the class label via a softmax on the encoded embedding, Donut
+generate a JSON that contains class information to maintain the uniformity of
+the task-solving method. We report overall classification accuracy on a test set.
+
+RVL-CDIP. The RVL-CDIP dataset [16] consists of 400K images in 16 classes,
+with 25K images per class. The classes include letter, memo, email, and so on.
+There are 320K training, 40K validation, and 40K test images.
+
+Nearby Document Text:
+6
+G. Kim et al.
+Fig. 4. Generated English, Chinese, Japanese, and Korean samples with
+SynthDoG. Heuristic random patterns are applied to mimic the real documents
+several components; background, document, text, and layout. Background image
+is sampled from ImageNet [7], and a texture of document is sampled from the
+collected paper photos. Words and phrases are sampled from Wikipedia. Layout
+is generated by a simple rule-based algorithm that randomly stacks grids. In
+addition, several image rendering techniques [13,41,67] are applied to mimic
+real documents. The generated examples are shown in Fi
+
+
+[RELATED PAGE TEXT]
+
+addition, several image rendering techniques [13,41,67] are applied to mimic
+real documents. The generated examples are shown in Figure 4. More details of
+SynthDoG are available in the code 1 and Appendix A.2.
+2.4 Fine-tuning
+After the model learns how to read, in the application stage (i.e., fine-tuning), we
+teach the model how to understand the d
+
+
+--------------------------------------------------------------------------------
+PAGE : 14
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+have also been proposed [48].
+5 Conclusions
+In this work, we propose a novel end-to-end framework for visual document un-
+derstanding. The proposed method, Donut, directly maps an input document
+image into a desired structured output. Unlike conventional methods, Donut
+does not depend on OCR and can easily be trained in an end-to-end fashion. We
+also propose a synthetic document image generator, SynthDoG, to alleviate the
+dependency on large-scale real document images and we show that Donut can
+be easily extended to a multi-lingual setting. We gradually trained the model
+
+================================================================================
+
+================================================================================
+RAG PIPELINE DEBUG
+================================================================================
+Query Type        : visual
+Retrieved Chunks  : 8
+Retrieved Images  : 1
+Reranked Chunks   : 8
+Reranked Text     : 5
+Reranked Images   : 3
+Final Context Docs: 8
+Exact Figure Query: True
+Exact Figure Match: True
+Exact Figure Final: False
+================================================================================
+
+====================================================================================================
+RAG ANSWER
+====================================================================================================
+ Donut converts a document image into a structured JSON-like output through the following process:
+
+1. Visual Encoder: The input document image is first converted into a set of embeddings by the visual encoder. This encoder can be based on CNN or Transformer models, and in this study, Swin Transformer is used due to its superior performance in document parsing. Swin Transformer splits the input image into non-overlapping patches, applies Swin Transformer blocks (consisting of a shifted window-based multi-head self-attention module and a two-layer MLP), and patch merging layers at each stage. The output of the final Swin Transformer block is a set of embeddings {z,|z,;ER¢, 1<i<n}, where n is the feature map size or the number of image patches and d is the dimension of the latent vectors of the encoder.
+
+2. Textual Decoder: The output of the final Swin Transformer block {z} is fed into the textual decoder. The decoder maps the derived features into a sequence of subword tokens to construct a desired structured format (e.g., JSON). Each model component is Transformer-based.
+
+3. Output Conversion: The output token sequence is converted to a desired structured format, such as JSON. Special tokens like [START ∗] and [END ∗] are added to the sequence to extract specific fields. If the output token sequence is wrongly structured, the field is treated as lost.
+
+In summary, Donut directly maps an input document image into a desired structured output without relying on any modules related to OCR functionality. The output is in the form of a JSON-like structure.
+
+IMAGE PATHS:
+D:/Projects/Major-Project-2-main/extracted_images/Donut_page3_render.png
+D:/Projects/Major-Project-2-main/extracted_images/Donut_page4_render.png
+D:/Projects/Major-Project-2-main/extracted_images/Donut_page6_render.png

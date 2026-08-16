@@ -1,0 +1,1312 @@
+====================================================================================================
+QUESTION_ID   : L2
+DOCUMENT      : LayoutLMv3
+QUESTION_TYPE : Core understanding
+ELAPSED_SEC   : 65.4
+ERROR         : no
+====================================================================================================
+
+QUESTION:
+What are the three pre-training objectives used by LayoutLMv3, and what does each objective learn?
+
+GROUND TRUTH ANSWER:
+LayoutLMv3 uses three objectives: (1) Masked Language Modeling (MLM), which masks text tokens and trains the model to reconstruct them; (2) Masked Image Modeling (MIM), which masks image patches and trains the model to reconstruct their discrete visual tokens obtained from a discrete VAE; and (3) Word-Patch Alignment (WPA), which predicts whether the image patch corresponding to a text word is masked, thereby learning fine-grained cross-modal alignment.
+
+GROUND TRUTH SOURCE:
+LayoutLMv3.pdf, pp. 2–3
+
+====================================================================================================
+FORENSIC TRANSCRIPT
+====================================================================================================
+
+####################################################################################################
+FORENSIC CASE START
+####################################################################################################
+Original Query   : What are the three pre-training objectives used by LayoutLMv3, and what does each objective learn?
+Expanded Query   : What are the three pre-training objectives used by LayoutLMv3, and what does each objective learn?
+Query Type       : factual
+[DOCUMENT SCOPE] Normalized query: 'what are the three pre training objectives used by layout l mv3 and what does each objective learn'
+[DOCUMENT SCOPE] Source='BERT.pdf' -> Normalized='bert'
+[DOCUMENT SCOPE] Token overlap for 'BERT.pdf': []
+[DOCUMENT SCOPE] Source='BLIP-2.pdf' -> Normalized='blip 2'
+[DOCUMENT SCOPE] Token overlap for 'BLIP-2.pdf': []
+[DOCUMENT SCOPE] Source='CLIP.pdf' -> Normalized='clip'
+[DOCUMENT SCOPE] Token overlap for 'CLIP.pdf': []
+[DOCUMENT SCOPE] Source='CNN Paper.pdf' -> Normalized='cnn paper'
+[DOCUMENT SCOPE] Token overlap for 'CNN Paper.pdf': []
+[DOCUMENT SCOPE] Source='Donut.pdf' -> Normalized='donut'
+[DOCUMENT SCOPE] Token overlap for 'Donut.pdf': []
+[DOCUMENT SCOPE] Source='LayoutLMv3.pdf' -> Normalized='layout l mv3'
+[DOCUMENT SCOPE] EXACT MATCH -> LayoutLMv3.pdf
+[DOCUMENT SCOPE] Source='NLP Paper.pdf' -> Normalized='nlp paper'
+[DOCUMENT SCOPE] Token overlap for 'NLP Paper.pdf': []
+[DOCUMENT SCOPE] Source='RAG.pdf' -> Normalized='rag'
+[DOCUMENT SCOPE] Token overlap for 'RAG.pdf': []
+[DOCUMENT SCOPE] Source='Self-RAG.pdf' -> Normalized='self rag'
+[DOCUMENT SCOPE] Token overlap for 'Self-RAG.pdf': []
+[DOCUMENT SCOPE] Source='Vision Transformer.pdf' -> Normalized='vision transformer'
+[DOCUMENT SCOPE] Token overlap for 'Vision Transformer.pdf': []
+[DOCUMENT SCOPE] Final matched sources: ['LayoutLMv3.pdf']
+
+================================================================================
+DOCUMENT SCOPE DEBUG
+================================================================================
+Query          : What are the three pre-training objectives used by LayoutLMv3, and what does each objective learn?
+Expanded Query : What are the three pre-training objectives used by LayoutLMv3, and what does each objective learn?
+Query Type     : factual
+Document Scope : ['LayoutLMv3.pdf']
+================================================================================
+
+==========================================================================================
+STEP 3A — SCOPED HYBRID RETRIEVAL
+==========================================================================================
+Query              : What are the three pre-training objectives used by LayoutLMv3, and what does each objective learn?
+Sources            : ['LayoutLMv3.pdf']
+Dense candidate K  : 25
+Final hybrid K     : 8
+
+------------------------------------------------------------------------------------------
+[SCOPED DENSE / VECTOR RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=LayoutLMv3.pdf | Page=3 | Type=text | Image=N/A
+    Content=position as bias terms in self-attention networks for text and image modalities following LayoutLMv2[56]. 2.2 Pre-training Objectives LayoutLMv3 is pre-trained with the MLM, MIM, a
+02. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=achieving an overall mAP score of 95.1. LayoutLMv3 achieves a high gain in the “Title” category. Since titles are typically much smaller than other categories and can be identified
+03. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=We compare LayoutLMv3 with typical self-supervised pre-training approaches and categorize them by their pre-training modalities. • [T] text modality: BERT [9] and RoBERTa [36] are 
+04. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=more, LayoutLMv3 is easy to reproduce for its simple and neat architecture and pre-training objectives. Our contributions are summarized as follows: • LayoutLMv3 is the first multi
+05. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=training objectives. We first build a baseline model #1 that uses text and layout information, pre-trained with MLM objective. Then we use linearly projected image patches as the i
+06. Source=LayoutLMv3.pdf | Page=3 | Type=text | Image=N/A
+    Content=and layout position information, the model takes the linear projection of patches and word tokens as inputs and encodes them into contextualized vector representations. LayoutLMv3 
+07. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=former model with unified MLM, MIM and WPA objectives. This makes LayoutLMv3 the first multimodal pre-trained Document AI model without CNNs for image embeddings, which significant
+08. Source=LayoutLMv3.pdf | Page=1 | Type=text | Image=N/A
+    Content=is pre-trained with a word-patch alignment objective to learn cross- modal alignment by predicting whether the corresponding image patch of a text word is masked. The simple unifie
+09. Source=LayoutLMv3.pdf | Page=1 | Type=text | Image=N/A
+    Content=progress in Document AI. Most multimodal pre-trained models use a masked language modeling objective to learn bidirectional representations on the text modality, but they differ in
+10. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=Table 3: Ablation study on image embeddings and pre-training objectives on typical text-centric tasks (form and receipt under- standing on FUNSD and CORD) and image-centric tasks (
+11. Source=LayoutLMv3.pdf | Page=8 | Type=text | Image=N/A
+    Content=extract visual features, significantly saving parameters and elimi- nating region annotations. We use unified text and image masking pre-training objectives: masked language modeli
+12. Source=LayoutLMv3.pdf | Page=5 | Type=text | Image=N/A
+    Content=the official 800/100 training/test receipts adopted by other works. Thus the score † is not directly comparable to other scores. Models denoted with ‡ use more data to train DocVQA
+13. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=tasks in Document AI. The code and models are publicly available at https://aka.ms/layoutlmv3. 2 LAYOUTLMV3 Figure 3 gives an overview of the LayoutLMv3. 2.1 Model Architecture Lay
+14. Source=LayoutLMv3.pdf | Page=9 | Type=text | Image=N/A
+    Content=language, we pre-train a LayoutLMv3-Chinese model in base size. It is trained on 50 million document pages in Chinese. We collect large-scale Chinese documents by downloading publi
+15. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=domly initialized the rest model parameters. We pre-train Lay- outLMv3 using Adam optimizer [23] with a batch size of 2,048 for 500,000 steps. We use a weight decay of 1𝑒 − 2, and 
+16. Source=LayoutLMv3.pdf | Page=1 | Type=text | Image=N/A
+    Content=LayoutLMv3: Pre-training for Document AI with Unified Text and Image Masking Yupan Huang∗ Sun Yat-sen University huangyp28@mail2.sysu.edu.cn Tengchao Lv Microsoft Research Asia ten
+17. Source=LayoutLMv3.pdf | Page=8 | Type=text | Image=N/A
+    Content=Various cross-modal objectives are further developed for vi- sion and language (VL) alignment learning in multimodal models. Image-text matching is widely used to learn a coarse-gr
+18. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=and #4 in Table 3, we observe that the WPA objective consistently improves all tasks. Moreover, the WPA objective decreases the loss of the vision task on PubLayNet in Figure 4. Th
+19. Source=LayoutLMv3.pdf | Page=10 | Type=text | Image=N/A
+    Content=multi-modal, multi-task learning based pre-training framework for document representation learning. arXiv preprint arXiv:2009.14457 (2020). [42] Yujie Qian. 2019. A graph-based fra
+20. Source=LayoutLMv3.pdf | Page=3 | Type=text | Image=N/A
+    Content=a sequence of vectors, which length is 𝑀 = 𝐻𝑊 /𝑃 2. Then we add learnable 1D position embeddings to each patch since we have not observed improvements from using 2D position embedd
+21. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=We adopt distributed and mixed-precision training to reduce memory costs and speed up training procedures. We also use a gradient accumulation mechanism to split the batch of sampl
+22. Source=LayoutLMv3.pdf | Page=8 | Type=text | Image=N/A
+    Content=unified objectives. In future research, we will investigate scaling up pre-trained models so that the models can leverage more training data to drive SOTA results further. In addit
+23. Source=LayoutLMv3.pdf | Page=9 | Type=text | Image=N/A
+    Content=weights of XLM-R [7]. We randomly initialized the rest model pa- rameters. Other training setting is the same as LayoutLMv3. Fine-tuning on Visual Information Extraction. The visua
+24. Source=LayoutLMv3.pdf | Page=6 | Type=text | Image=N/A
+    Content=Task III: Document Visual Question Answering. Document visual question answering requires a model to take a document image and a question as input and output an answer [ 38]. We fo
+25. Source=LayoutLMv3.pdf | Page=1 | Type=text | Image=N/A
+    Content=1 INTRODUCTION In recent years, pre-training techniques have been making waves in the Document AI community by achieving remarkable progress on document understanding tasks [2, 13–
+
+------------------------------------------------------------------------------------------
+[SCOPED BM25 RETRIEVAL] 17 candidates
+------------------------------------------------------------------------------------------
+01. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=meaningful visual representation on the linear patch embeddings without any pre-training objective associated with image modality. The MIM objective mitigates this problem by prese
+02. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=more, LayoutLMv3 is easy to reproduce for its simple and neat architecture and pre-training objectives. Our contributions are summarized as follows: • LayoutLMv3 is the first multi
+03. Source=LayoutLMv3.pdf | Page=8 | Type=text | Image=N/A
+    Content=Inspired by MLM and MIM, researchers in the field of vision- and-language have exploredreconstructive objectives for multi- modal representation learning. Whereas most well-perform
+04. Source=LayoutLMv3.pdf | Page=1 | Type=text | Image=N/A
+    Content=progress in Document AI. Most multimodal pre-trained models use a masked language modeling objective to learn bidirectional representations on the text modality, but they differ in
+05. Source=LayoutLMv3.pdf | Page=8 | Type=text | Image=N/A
+    Content=Various cross-modal objectives are further developed for vi- sion and language (VL) alignment learning in multimodal models. Image-text matching is widely used to learn a coarse-gr
+06. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=linear image embedding has improved FUNSD, MIM does not fur- ther contribute to FUNSD. By incorporating the MIM objective in training, the loss converges when fine-tuning PubLayNet
+07. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=ing, we propose LayoutLMv3 to pre-train multimodal Transform- ers for Document AI with unified text and image masking objectives MLM and MIM. As shown in Figure 3, LayoutLMv3 learn
+08. Source=LayoutLMv3.pdf | Page=3 | Type=text | Image=N/A
+    Content=and layout position information, the model takes the linear projection of patches and word tokens as inputs and encodes them into contextualized vector representations. LayoutLMv3 
+09. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=linear image embedding combined with appropriate pre-training objectives can consistently improve not only image-centric tasks, but also some text-centric tasks further. Effect of 
+10. Source=LayoutLMv3.pdf | Page=8 | Type=text | Image=N/A
+    Content=we naturally utilize the masking operations in MIM to construct aligned/unaligned pairs in an effective and unified way. 5 CONCLUSION AND FUTURE WORK In this paper, we present Layo
+11. Source=LayoutLMv3.pdf | Page=3 | Type=image | Image=extracted_images\LayoutLMv3_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram of the structure of a computer system  OCR Text: Ty Tz  Pre-training  Objectives MLM Head  Unaligned Aligned  V2 V3  MIM Head
+12. Source=LayoutLMv3.pdf | Page=2 | Type=image | Image=extracted_images\LayoutLMv3_page2_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a computer and a computer with a text that reads,  OCR Text: _(2) Pre-training Objectives of 
+13. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=crete token reconstructive objectives MLM and MIM. We further propose a Word-Patch Alignment (WPA) objective to facilitate cross-modal alignment learning. • LayoutLMv3 is a general
+14. Source=LayoutLMv3.pdf | Page=1 | Type=image | Image=extracted_images\LayoutLMv3_page1_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: the layout of the layout and layout of the layout of the layout and layout of the layout of the layout  OCR Text: 2204.08387v3 [cs.CL] 
+15. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=𝐿𝑀𝐿𝑀 (𝜃 ) = − 𝐿′ ∑︁ 𝑙=1 log 𝑝𝜃  yℓ | X𝑀′ , Y𝐿′ (1) As we keep the layout information unchanged, this objective fa- cilitates the model to learn the correspondence between layout 
+16. Source=LayoutLMv3.pdf | Page=1 | Type=text | Image=N/A
+    Content=is pre-trained with a word-patch alignment objective to learn cross- modal alignment by predicting whether the corresponding image patch of a text word is masked. The simple unifie
+17. Source=LayoutLMv3.pdf | Page=8 | Type=text | Image=N/A
+    Content=tion weights in their self-attention image encoder, which does not apply to simple linear image encoders. ViLT [22] and METER [12] attempt to leverage MPM similar to ViT [11] and B
+
+------------------------------------------------------------------------------------------
+[RRF FUSION RANKING]
+------------------------------------------------------------------------------------------
+01. RRF=0.031754 | DenseRank=4 | BM25Rank=2 | Source=LayoutLMv3.pdf | Page=2 | Type=text
+02. RRF=0.030118 | DenseRank=9 | BM25Rank=4 | Source=LayoutLMv3.pdf | Page=1 | Type=text
+03. RRF=0.029857 | DenseRank=6 | BM25Rank=8 | Source=LayoutLMv3.pdf | Page=3 | Type=text
+04. RRF=0.028372 | DenseRank=17 | BM25Rank=5 | Source=LayoutLMv3.pdf | Page=8 | Type=text
+05. RRF=0.027864 | DenseRank=8 | BM25Rank=16 | Source=LayoutLMv3.pdf | Page=1 | Type=text
+06. RRF=0.016393 | DenseRank=1 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=3 | Type=text
+07. RRF=0.016393 | DenseRank=- | BM25Rank=1 | Source=LayoutLMv3.pdf | Page=7 | Type=text
+08. RRF=0.016129 | DenseRank=2 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=7 | Type=text
+09. RRF=0.015873 | DenseRank=3 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=4 | Type=text
+10. RRF=0.015873 | DenseRank=- | BM25Rank=3 | Source=LayoutLMv3.pdf | Page=8 | Type=text
+11. RRF=0.015385 | DenseRank=5 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=7 | Type=text
+12. RRF=0.015152 | DenseRank=- | BM25Rank=6 | Source=LayoutLMv3.pdf | Page=7 | Type=text
+13. RRF=0.014925 | DenseRank=7 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=2 | Type=text
+14. RRF=0.014925 | DenseRank=- | BM25Rank=7 | Source=LayoutLMv3.pdf | Page=2 | Type=text
+15. RRF=0.014493 | DenseRank=- | BM25Rank=9 | Source=LayoutLMv3.pdf | Page=7 | Type=text
+16. RRF=0.014286 | DenseRank=10 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=7 | Type=text
+17. RRF=0.014286 | DenseRank=- | BM25Rank=10 | Source=LayoutLMv3.pdf | Page=8 | Type=text
+18. RRF=0.014085 | DenseRank=11 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=8 | Type=text
+19. RRF=0.014085 | DenseRank=- | BM25Rank=11 | Source=LayoutLMv3.pdf | Page=3 | Type=image
+20. RRF=0.013889 | DenseRank=12 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=5 | Type=text
+21. RRF=0.013889 | DenseRank=- | BM25Rank=12 | Source=LayoutLMv3.pdf | Page=2 | Type=image
+22. RRF=0.013699 | DenseRank=13 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=2 | Type=text
+23. RRF=0.013699 | DenseRank=- | BM25Rank=13 | Source=LayoutLMv3.pdf | Page=2 | Type=text
+24. RRF=0.013514 | DenseRank=14 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=9 | Type=text
+25. RRF=0.013514 | DenseRank=- | BM25Rank=14 | Source=LayoutLMv3.pdf | Page=1 | Type=image
+26. RRF=0.013333 | DenseRank=15 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=4 | Type=text
+27. RRF=0.013333 | DenseRank=- | BM25Rank=15 | Source=LayoutLMv3.pdf | Page=4 | Type=text
+28. RRF=0.013158 | DenseRank=16 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=1 | Type=text
+29. RRF=0.012987 | DenseRank=- | BM25Rank=17 | Source=LayoutLMv3.pdf | Page=8 | Type=text
+30. RRF=0.012821 | DenseRank=18 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=7 | Type=text
+31. RRF=0.012658 | DenseRank=19 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=10 | Type=text
+32. RRF=0.012500 | DenseRank=20 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=3 | Type=text
+33. RRF=0.012346 | DenseRank=21 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=4 | Type=text
+34. RRF=0.012195 | DenseRank=22 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=8 | Type=text
+35. RRF=0.012048 | DenseRank=23 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=9 | Type=text
+36. RRF=0.011905 | DenseRank=24 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=6 | Type=text
+37. RRF=0.011765 | DenseRank=25 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=1 | Type=text
+------------------------------------------------------------------------------------------
+
+==========================================================================================
+STEP 3A — RETRIEVAL STAGE SUMMARY
+==========================================================================================
+Dense candidates       : 25
+BM25 candidates        : 17
+Dense ∩ BM25           : 5
+Dense-only candidates  : 20
+BM25-only candidates   : 12
+Unique candidate pool  : 37
+RRF candidates         : 37
+Returned to pipeline   : 8
+==========================================================================================
+
+------------------------------------------------------------------------------------------
+[SCOPED FINAL HYBRID RESULT] 8 candidates
+------------------------------------------------------------------------------------------
+01. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=more, LayoutLMv3 is easy to reproduce for its simple and neat architecture and pre-training objectives. Our contributions are summarized as follows: • LayoutLMv3 is the first multi
+02. Source=LayoutLMv3.pdf | Page=1 | Type=text | Image=N/A
+    Content=progress in Document AI. Most multimodal pre-trained models use a masked language modeling objective to learn bidirectional representations on the text modality, but they differ in
+03. Source=LayoutLMv3.pdf | Page=3 | Type=text | Image=N/A
+    Content=and layout position information, the model takes the linear projection of patches and word tokens as inputs and encodes them into contextualized vector representations. LayoutLMv3 
+04. Source=LayoutLMv3.pdf | Page=8 | Type=text | Image=N/A
+    Content=Various cross-modal objectives are further developed for vi- sion and language (VL) alignment learning in multimodal models. Image-text matching is widely used to learn a coarse-gr
+05. Source=LayoutLMv3.pdf | Page=1 | Type=text | Image=N/A
+    Content=is pre-trained with a word-patch alignment objective to learn cross- modal alignment by predicting whether the corresponding image patch of a text word is masked. The simple unifie
+06. Source=LayoutLMv3.pdf | Page=3 | Type=text | Image=N/A
+    Content=position as bias terms in self-attention networks for text and image modalities following LayoutLMv2[56]. 2.2 Pre-training Objectives LayoutLMv3 is pre-trained with the MLM, MIM, a
+07. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=meaningful visual representation on the linear patch embeddings without any pre-training objective associated with image modality. The MIM objective mitigates this problem by prese
+08. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=achieving an overall mAP score of 95.1. LayoutLMv3 achieves a high gain in the “Title” category. Since titles are typically much smaller than other categories and can be identified
+==========================================================================================
+
+================================================================================
+STAGE 1 — HYBRID RETRIEVAL
+================================================================================
+Retrieved Count : 8
+
+[HYBRID #1] Source=LayoutLMv3.pdf | Page=2 | Type=text
+Content: more, LayoutLMv3 is easy to reproduce for its simple and neat architecture and pre-training objectives. Our contributions are summarized as follows: • LayoutLMv3 is the first multimodal model in Document AI that does not rely on a pre-trained CNN or Faster R-CNN backbone to extract visual features, which significantly saves parameters and eliminates region annotations. • LayoutLMv3 mitigates the discrepancy between text and image multimodal representation learning with unified dis- crete token r
+
+[HYBRID #2] Source=LayoutLMv3.pdf | Page=1 | Type=text
+Content: progress in Document AI. Most multimodal pre-trained models use a masked language modeling objective to learn bidirectional representations on the text modality, but they differ in pre-training objectives for the image modality. This discrepancy adds difficulty to multimodal representation learning. In this paper, we propose LayoutLMv3 to pre-train multimodal Transformers for Document AI with unified text and image masking. Additionally, LayoutLMv3 is pre-trained with a word-patch alignment obje
+
+[HYBRID #3] Source=LayoutLMv3.pdf | Page=3 | Type=text
+Content: and layout position information, the model takes the linear projection of patches and word tokens as inputs and encodes them into contextualized vector representations. LayoutLMv3 is pre-trained with discrete token reconstructive objectives of Masked Language Modeling (MLM) and Masked Image Modeling (MIM). Additionally, LayoutLMv3 is pre-trained with a Word-Patch Alignment (WPA) objective to learn cross-modal alignment by predicting whether the corresponding image patch of a text word is masked.
+
+[HYBRID #4] Source=LayoutLMv3.pdf | Page=8 | Type=text
+Content: Various cross-modal objectives are further developed for vi- sion and language (VL) alignment learning in multimodal models. Image-text matching is widely used to learn a coarse-grained VL alignment [2, 5, 19, 22, 56]. To learn a fine-grained VL alignment, UNITER proposes a word-region alignment objective based on opti- mal transports, which calculates the minimum cost of transporting the contextualized image embeddings to word embeddings [ 5]. ViLT extends this objective to patch-level image em
+
+[HYBRID #5] Source=LayoutLMv3.pdf | Page=1 | Type=text
+Content: is pre-trained with a word-patch alignment objective to learn cross- modal alignment by predicting whether the corresponding image patch of a text word is masked. The simple unified architecture and training objectives make LayoutLMv3 a general-purpose pre- trained model for both text-centric and image-centric Document AI tasks. Experimental results show that LayoutLMv3 achieves state- of-the-art performance not only in text-centric tasks, including form understanding, receipt understanding, and
+
+[HYBRID #6] Source=LayoutLMv3.pdf | Page=3 | Type=text
+Content: position as bias terms in self-attention networks for text and image modalities following LayoutLMv2[56]. 2.2 Pre-training Objectives LayoutLMv3 is pre-trained with the MLM, MIM, and WPA objec- tives to learn multimodal representation in a self-supervised learn- ing manner. Full pre-training objectives of LayoutLMv3 is defined as 𝐿 = 𝐿𝑀𝐿𝑀 + 𝐿𝑀𝐼 𝑀 + 𝐿𝑊 𝑃𝐴. Objective I: Masked Language Modeling (MLM). For the lan- guage side, our MLM is inspired by the masked language mod- eling in BERT [9] and ma
+
+[HYBRID #7] Source=LayoutLMv3.pdf | Page=7 | Type=text
+Content: meaningful visual representation on the linear patch embeddings without any pre-training objective associated with image modality. The MIM objective mitigates this problem by preserving the image information until the last layer of the model by randomly masking out a portion of input image patches and reconstructing them in the output [22]. Comparing the results of model #3 and model #2, the MIM objective benefits CORD and RVL-CDIP. As simply using linear image embedding has improved FUNSD, MIM 
+
+[HYBRID #8] Source=LayoutLMv3.pdf | Page=7 | Type=text
+Content: achieving an overall mAP score of 95.1. LayoutLMv3 achieves a high gain in the “Title” category. Since titles are typically much smaller than other categories and can be identified by their tex- tual content, we attribute this improvement to our incorporation of language modality in pre-training LayoutLMv3. These results demonstrate the generality and superiority of LayoutLMv3. 3.5 Ablation Study In Table 3 we study the effect of our image embeddings and pre- training objectives. We first build 
+================================================================================
+[DOCUMENT SCOPE] Text chunks: 8 -> 8
+
+================================================================================
+IMAGE RETRIEVAL DIAGNOSTIC
+================================================================================
+Query                 : What are the three pre-training objectives used by LayoutLMv3, and what does each objective learn?
+Allowed Sources       : ['LayoutLMv3.pdf']
+Image Candidates      : 554 -> 26 (scoped before ranking)
+
+ALL IMAGE CANDIDATES
+--------------------------------------------------------------------------------
+Rank=01 | Source=LayoutLMv3.pdf | Page=1 | Image=LayoutLMv3_page1_render.png | Hybrid=2.5073 | CE=4.0281 | CLIP=0.2261
+Rank=02 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_render.png | Hybrid=1.6998 | CE=2.6807 | CLIP=0.2285
+Rank=03 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_render.png | Hybrid=1.3201 | CE=2.0494 | CLIP=0.2261
+Rank=04 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img1.png | Hybrid=0.9946 | CE=1.5167 | CLIP=0.2114
+Rank=05 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img0.png | Hybrid=0.9063 | CE=1.3669 | CLIP=0.2153
+Rank=06 | Source=LayoutLMv3.pdf | Page=7 | Image=LayoutLMv3_page7_img0.png | Hybrid=0.8189 | CE=1.2196 | CLIP=0.2179
+Rank=07 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img2.png | Hybrid=0.7137 | CE=1.0627 | CLIP=0.1901
+Rank=08 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img5.png | Hybrid=0.6372 | CE=0.9110 | CLIP=0.2264
+Rank=09 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img7.png | Hybrid=0.6266 | CE=0.8992 | CLIP=0.2178
+Rank=10 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img6.png | Hybrid=0.4792 | CE=0.6446 | CLIP=0.2311
+Rank=11 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img1.png | Hybrid=0.2443 | CE=0.2604 | CLIP=0.2202
+Rank=12 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img3.png | Hybrid=0.0124 | CE=-0.1295 | CLIP=0.2253
+Rank=13 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img4.png | Hybrid=-0.0028 | CE=-0.1434 | CLIP=0.2082
+Rank=14 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img2.png | Hybrid=-0.0129 | CE=-0.1613 | CLIP=0.2099
+Rank=15 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img9.png | Hybrid=-0.0426 | CE=-0.2110 | CLIP=0.2100
+Rank=16 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img6.png | Hybrid=-0.0489 | CE=-0.2133 | CLIP=0.1979
+Rank=17 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img9.png | Hybrid=-0.0911 | CE=-0.2870 | CLIP=0.2028
+Rank=18 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img3.png | Hybrid=-0.1860 | CE=-0.4450 | CLIP=0.2026
+Rank=19 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img4.png | Hybrid=-0.3124 | CE=-0.6631 | CLIP=0.2136
+Rank=20 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img7.png | Hybrid=-0.4500 | CE=-0.8945 | CLIP=0.2167
+Rank=21 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img8.png | Hybrid=-0.6313 | CE=-1.2023 | CLIP=0.2253
+Rank=22 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img5.png | Hybrid=-0.6809 | CE=-1.2798 | CLIP=0.2174
+Rank=23 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img8.png | Hybrid=-3.5362 | CE=-6.0366 | CLIP=0.2143
+Rank=24 | Source=LayoutLMv3.pdf | Page=1 | Image=LayoutLMv3_page1_img0.png | Hybrid=-5.6480 | CE=-9.5580 | CLIP=0.2170
+Rank=25 | Source=LayoutLMv3.pdf | Page=1 | Image=LayoutLMv3_page1_img1.png | Hybrid=-6.4879 | CE=-10.9624 | CLIP=0.2238
+Rank=26 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img0.png | Hybrid=-6.7222 | CE=-11.3434 | CLIP=0.2097
+
+TOP IMAGE RESULTS
+--------------------------------------------------------------------------------
+TOP-1 | Source=LayoutLMv3.pdf | Page=1 | Image=LayoutLMv3_page1_render.png | Hybrid=2.5073 | CE=4.0281 | CLIP=0.2261
+TOP-2 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_render.png | Hybrid=1.6998 | CE=2.6807 | CLIP=0.2285
+TOP-3 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_render.png | Hybrid=1.3201 | CE=2.0494 | CLIP=0.2261
+================================================================================
+[DOCUMENT SCOPE] Images: 3 -> 3
+
+================================================================================
+STAGE 2 — IMAGE RETRIEVAL RESULT
+================================================================================
+Image Results       : 3
+Exact Figure Match  : False
+
+[IMAGE #1] Source=LayoutLMv3.pdf | Page=1 | Image=LayoutLMv3_page1_render.png
+Image Path: extracted_images\LayoutLMv3_page1_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: the layout of the layout and layout of the layout of the layout and layout of the layout of the layout  OCR Text: 2204.08387v3 [cs.CL] 19 Jul 2022  arXiv  LayoutLMv3: Pre-training for Document Al with Unified Text and Image Masking  Yupan Huang* Sun Yat-sen University huangyp28@mail2.sysu.edu.cn  Yutong Lu Sun Yat-sen University luyutong@mail.sysu.edu.cn  ABSTRACT  Self-supervised pre-training techniques have achieved remarkable progress in Document A
+
+[IMAGE #2] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_render.png
+Image Path: extracted_images\LayoutLMv3_page3_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram of the structure of a computer system  OCR Text: Ty Tz  Pre-training  Objectives MLM Head  Unaligned Aligned  V2 V3  MIM Head  Multimodal Transformer  2D Position  Embedding Seba) (Sees ] Seaewo) (see) [sees] [sees] [sess] Seseso) [Ptcheno} Patehs) (Pate [Pats] Pach) pa ae aoe soins SBOOae Embedding [3 | [4 |  “a oes bee e  OCR Parser Masking  Word Embedding  Document Image  ) foas) fas) ce  ween 1 een leet ’ (V2) (V3)  - Flatten Linear = | 
+
+[IMAGE #3] Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_render.png
+Image Path: extracted_images\LayoutLMv3_page2_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a computer and a computer with a text that reads,  OCR Text: _(2) Pre-training Objectives of Image Modality  | — | ra  |  |  I idn, idya, idys, | idyyidys, ides, ». |  I kde dia Fao  ! teh  | fication  Masked Word Masked Pai Origin Image Masked Region Token Classification Token Classi Reconstruction Feature Regression  in ist — Se ee ee Bost sS SS so  Multimodal Transformer  (1) Image Embedding  Linear Embeddi
+================================================================================
+
+================================================================================
+COMBINED RETRIEVAL CANDIDATES
+================================================================================
+Text Candidates  : 8
+Image Candidates : 3
+Total Candidates : 11
+================================================================================
+
+================================================================================
+STEP 3A — RERANKER INPUT
+================================================================================
+Query: What are the three pre-training objectives used by LayoutLMv3, and what does each objective learn?
+Input candidates: 11
+01. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=more, LayoutLMv3 is easy to reproduce for its simple and neat architecture and pre-training objectives. Our contributions are summarized as follows: • LayoutLMv3 is the first multi
+02. Source=LayoutLMv3.pdf | Page=1 | Type=text | Image=N/A
+    Content=progress in Document AI. Most multimodal pre-trained models use a masked language modeling objective to learn bidirectional representations on the text modality, but they differ in
+03. Source=LayoutLMv3.pdf | Page=3 | Type=text | Image=N/A
+    Content=and layout position information, the model takes the linear projection of patches and word tokens as inputs and encodes them into contextualized vector representations. LayoutLMv3 
+04. Source=LayoutLMv3.pdf | Page=8 | Type=text | Image=N/A
+    Content=Various cross-modal objectives are further developed for vi- sion and language (VL) alignment learning in multimodal models. Image-text matching is widely used to learn a coarse-gr
+05. Source=LayoutLMv3.pdf | Page=1 | Type=text | Image=N/A
+    Content=is pre-trained with a word-patch alignment objective to learn cross- modal alignment by predicting whether the corresponding image patch of a text word is masked. The simple unifie
+06. Source=LayoutLMv3.pdf | Page=3 | Type=text | Image=N/A
+    Content=position as bias terms in self-attention networks for text and image modalities following LayoutLMv2[56]. 2.2 Pre-training Objectives LayoutLMv3 is pre-trained with the MLM, MIM, a
+07. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=meaningful visual representation on the linear patch embeddings without any pre-training objective associated with image modality. The MIM objective mitigates this problem by prese
+08. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=achieving an overall mAP score of 95.1. LayoutLMv3 achieves a high gain in the “Title” category. Since titles are typically much smaller than other categories and can be identified
+09. Source=LayoutLMv3.pdf | Page=1 | Type=image | Image=extracted_images\LayoutLMv3_page1_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: the layout of the layout and layout of the layout of the layout and layout of the layout of the layout  OCR Text: 2204.08387v3 [cs.CL] 
+10. Source=LayoutLMv3.pdf | Page=3 | Type=image | Image=extracted_images\LayoutLMv3_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram of the structure of a computer system  OCR Text: Ty Tz  Pre-training  Objectives MLM Head  Unaligned Aligned  V2 V3  MIM Head
+11. Source=LayoutLMv3.pdf | Page=2 | Type=image | Image=extracted_images\LayoutLMv3_page2_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a computer and a computer with a text that reads,  OCR Text: _(2) Pre-training Objectives of 
+================================================================================
+
+--------------------------------------------------------------------------------
+CROSS-ENCODER RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=05 | Source=LayoutLMv3.pdf | Page=3 | Type=text | CE=7.5171
+Rank=02 | OriginalIndex=04 | Source=LayoutLMv3.pdf | Page=1 | Type=text | CE=6.7799
+Rank=03 | OriginalIndex=00 | Source=LayoutLMv3.pdf | Page=2 | Type=text | CE=6.2154
+Rank=04 | OriginalIndex=02 | Source=LayoutLMv3.pdf | Page=3 | Type=text | CE=6.2049
+Rank=05 | OriginalIndex=01 | Source=LayoutLMv3.pdf | Page=1 | Type=text | CE=5.8829
+Rank=06 | OriginalIndex=07 | Source=LayoutLMv3.pdf | Page=7 | Type=text | CE=4.5080
+Rank=07 | OriginalIndex=08 | Source=LayoutLMv3.pdf | Page=1 | Type=image | CE=4.0281
+Rank=08 | OriginalIndex=09 | Source=LayoutLMv3.pdf | Page=3 | Type=image | CE=2.6807
+Rank=09 | OriginalIndex=10 | Source=LayoutLMv3.pdf | Page=2 | Type=image | CE=2.0494
+Rank=10 | OriginalIndex=06 | Source=LayoutLMv3.pdf | Page=7 | Type=text | CE=0.4655
+Rank=11 | OriginalIndex=03 | Source=LayoutLMv3.pdf | Page=8 | Type=text | CE=-1.8872
+
+--------------------------------------------------------------------------------
+CLIP IMAGE RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=09 | Source=LayoutLMv3.pdf | Page=3 | Image=extracted_images\LayoutLMv3_page3_render.png | CLIP=0.2285
+Rank=02 | OriginalIndex=08 | Source=LayoutLMv3.pdf | Page=1 | Image=extracted_images\LayoutLMv3_page1_render.png | CLIP=0.2261
+Rank=03 | OriginalIndex=10 | Source=LayoutLMv3.pdf | Page=2 | Image=extracted_images\LayoutLMv3_page2_render.png | CLIP=0.2261
+
+================================================================================
+STEP 3A — COMPLETE MULTIMODAL RERANK RESULT
+================================================================================
+Rank=01 | Type=image | Source=LayoutLMv3.pdf | Page=3 | RRF=0.031099 | CE=2.6807 | CLIP=0.2285
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram of the structure of a computer system  OCR Text: Ty Tz  Pre-training  Objectives MLM Head  Unaligned Aligned  V2 V3  MIM Head
+Rank=02 | Type=image | Source=LayoutLMv3.pdf | Page=1 | RRF=0.031054 | CE=4.0281 | CLIP=0.2261
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: the layout of the layout and layout of the layout of the layout and layout of the layout of the layout  OCR Text: 2204.08387v3 [cs.CL] 
+Rank=03 | Type=image | Source=LayoutLMv3.pdf | Page=2 | RRF=0.030366 | CE=2.0494 | CLIP=0.2261
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a computer and a computer with a text that reads,  OCR Text: _(2) Pre-training Objectives of 
+Rank=04 | Type=text | Source=LayoutLMv3.pdf | Page=3 | RRF=0.016393 | CE=7.5171 | CLIP=N/A
+    Content=position as bias terms in self-attention networks for text and image modalities following LayoutLMv2[56]. 2.2 Pre-training Objectives LayoutLMv3 is pre-trained with the MLM, MIM, a
+Rank=05 | Type=text | Source=LayoutLMv3.pdf | Page=1 | RRF=0.016129 | CE=6.7799 | CLIP=N/A
+    Content=is pre-trained with a word-patch alignment objective to learn cross- modal alignment by predicting whether the corresponding image patch of a text word is masked. The simple unifie
+Rank=06 | Type=text | Source=LayoutLMv3.pdf | Page=2 | RRF=0.015873 | CE=6.2154 | CLIP=N/A
+    Content=more, LayoutLMv3 is easy to reproduce for its simple and neat architecture and pre-training objectives. Our contributions are summarized as follows: • LayoutLMv3 is the first multi
+Rank=07 | Type=text | Source=LayoutLMv3.pdf | Page=3 | RRF=0.015625 | CE=6.2049 | CLIP=N/A
+    Content=and layout position information, the model takes the linear projection of patches and word tokens as inputs and encodes them into contextualized vector representations. LayoutLMv3 
+Rank=08 | Type=text | Source=LayoutLMv3.pdf | Page=1 | RRF=0.015385 | CE=5.8829 | CLIP=N/A
+    Content=progress in Document AI. Most multimodal pre-trained models use a masked language modeling objective to learn bidirectional representations on the text modality, but they differ in
+Rank=09 | Type=text | Source=LayoutLMv3.pdf | Page=7 | RRF=0.015152 | CE=4.5080 | CLIP=N/A
+    Content=achieving an overall mAP score of 95.1. LayoutLMv3 achieves a high gain in the “Title” category. Since titles are typically much smaller than other categories and can be identified
+Rank=10 | Type=text | Source=LayoutLMv3.pdf | Page=7 | RRF=0.014286 | CE=0.4655 | CLIP=N/A
+    Content=meaningful visual representation on the linear patch embeddings without any pre-training objective associated with image modality. The MIM objective mitigates this problem by prese
+Rank=11 | Type=text | Source=LayoutLMv3.pdf | Page=8 | RRF=0.014085 | CE=-1.8872 | CLIP=N/A
+    Content=Various cross-modal objectives are further developed for vi- sion and language (VL) alignment learning in multimodal models. Image-text matching is widely used to learn a coarse-gr
+================================================================================
+
+================================================================================
+STEP 3A — FINAL RERANK TOP-K
+================================================================================
+Requested top_k: 12
+Returned documents: 11
+01. Source=LayoutLMv3.pdf | Page=3 | Type=image | Image=extracted_images\LayoutLMv3_page3_render.png
+02. Source=LayoutLMv3.pdf | Page=1 | Type=image | Image=extracted_images\LayoutLMv3_page1_render.png
+03. Source=LayoutLMv3.pdf | Page=2 | Type=image | Image=extracted_images\LayoutLMv3_page2_render.png
+04. Source=LayoutLMv3.pdf | Page=3 | Type=text | Image=N/A
+05. Source=LayoutLMv3.pdf | Page=1 | Type=text | Image=N/A
+06. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+07. Source=LayoutLMv3.pdf | Page=3 | Type=text | Image=N/A
+08. Source=LayoutLMv3.pdf | Page=1 | Type=text | Image=N/A
+09. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+10. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+11. Source=LayoutLMv3.pdf | Page=8 | Type=text | Image=N/A
+================================================================================
+
+================================================================================
+STAGE 3 — MULTIMODAL RERANKING
+================================================================================
+Input Candidates : 11
+Reranked Output   : 11
+
+[RERANK #1] Source=LayoutLMv3.pdf | Page=3 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram of the structure of a computer system  OCR Text: Ty Tz  Pre-training  Objectives MLM Head  Unaligned Aligned  V2 V3  MIM Head  Multimodal Transformer  2D Position  Embedding Seba) (Sees ] Seaewo) (see) [sees] [sees] [sess] Seseso) [Ptcheno} Pate
+
+[RERANK #2] Source=LayoutLMv3.pdf | Page=1 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: the layout of the layout and layout of the layout of the layout and layout of the layout of the layout  OCR Text: 2204.08387v3 [cs.CL] 19 Jul 2022  arXiv  LayoutLMv3: Pre-training for Document Al with Unified Text and Image Masking  Yupan Huang* Sun Yat-s
+
+[RERANK #3] Source=LayoutLMv3.pdf | Page=2 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a computer and a computer with a text that reads,  OCR Text: _(2) Pre-training Objectives of Image Modality  | — | ra  |  |  I idn, idya, idys, | idyyidys, ides, ». |  I kde dia Fao  ! teh  | fication  Masked Word
+
+[RERANK #4] Source=LayoutLMv3.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: position as bias terms in self-attention networks for text and image modalities following LayoutLMv2[56]. 2.2 Pre-training Objectives LayoutLMv3 is pre-trained with the MLM, MIM, and WPA objec- tives to learn multimodal representation in a self-supervised learn- ing manner. Full pre-training objecti
+
+[RERANK #5] Source=LayoutLMv3.pdf | Page=1 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: is pre-trained with a word-patch alignment objective to learn cross- modal alignment by predicting whether the corresponding image patch of a text word is masked. The simple unified architecture and training objectives make LayoutLMv3 a general-purpose pre- trained model for both text-centric and im
+
+[RERANK #6] Source=LayoutLMv3.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: more, LayoutLMv3 is easy to reproduce for its simple and neat architecture and pre-training objectives. Our contributions are summarized as follows: • LayoutLMv3 is the first multimodal model in Document AI that does not rely on a pre-trained CNN or Faster R-CNN backbone to extract visual features, 
+
+[RERANK #7] Source=LayoutLMv3.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: and layout position information, the model takes the linear projection of patches and word tokens as inputs and encodes them into contextualized vector representations. LayoutLMv3 is pre-trained with discrete token reconstructive objectives of Masked Language Modeling (MLM) and Masked Image Modeling
+
+[RERANK #8] Source=LayoutLMv3.pdf | Page=1 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: progress in Document AI. Most multimodal pre-trained models use a masked language modeling objective to learn bidirectional representations on the text modality, but they differ in pre-training objectives for the image modality. This discrepancy adds difficulty to multimodal representation learning.
+
+[RERANK #9] Source=LayoutLMv3.pdf | Page=7 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: achieving an overall mAP score of 95.1. LayoutLMv3 achieves a high gain in the “Title” category. Since titles are typically much smaller than other categories and can be identified by their tex- tual content, we attribute this improvement to our incorporation of language modality in pre-training Lay
+
+[RERANK #10] Source=LayoutLMv3.pdf | Page=7 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: meaningful visual representation on the linear patch embeddings without any pre-training objective associated with image modality. The MIM objective mitigates this problem by preserving the image information until the last layer of the model by randomly masking out a portion of input image patches a
+
+[RERANK #11] Source=LayoutLMv3.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Various cross-modal objectives are further developed for vi- sion and language (VL) alignment learning in multimodal models. Image-text matching is widely used to learn a coarse-grained VL alignment [2, 5, 19, 22, 56]. To learn a fine-grained VL alignment, UNITER proposes a word-region alignment obj
+================================================================================
+
+================================================================================
+FINAL CONTEXT DOCUMENTS
+================================================================================
+Final context candidates: 11
+
+[FINAL #1] Source=LayoutLMv3.pdf | Page=3 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram of the structure of a computer system  OCR Text: Ty Tz  Pre-training  Objectives MLM Head  Unaligned Aligned  V2 V3  MIM Head  Multimodal Transformer  2D Position  Embedding Seba) (Sees ] Seaewo) (see) [sees] [sees] [sess] Seseso) [Ptcheno} Pate
+
+[FINAL #2] Source=LayoutLMv3.pdf | Page=1 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: the layout of the layout and layout of the layout of the layout and layout of the layout of the layout  OCR Text: 2204.08387v3 [cs.CL] 19 Jul 2022  arXiv  LayoutLMv3: Pre-training for Document Al with Unified Text and Image Masking  Yupan Huang* Sun Yat-s
+
+[FINAL #3] Source=LayoutLMv3.pdf | Page=2 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a computer and a computer with a text that reads,  OCR Text: _(2) Pre-training Objectives of Image Modality  | — | ra  |  |  I idn, idya, idys, | idyyidys, ides, ». |  I kde dia Fao  ! teh  | fication  Masked Word
+
+[FINAL #4] Source=LayoutLMv3.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: position as bias terms in self-attention networks for text and image modalities following LayoutLMv2[56]. 2.2 Pre-training Objectives LayoutLMv3 is pre-trained with the MLM, MIM, and WPA objec- tives to learn multimodal representation in a self-supervised learn- ing manner. Full pre-training objecti
+
+[FINAL #5] Source=LayoutLMv3.pdf | Page=1 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: is pre-trained with a word-patch alignment objective to learn cross- modal alignment by predicting whether the corresponding image patch of a text word is masked. The simple unified architecture and training objectives make LayoutLMv3 a general-purpose pre- trained model for both text-centric and im
+
+[FINAL #6] Source=LayoutLMv3.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: more, LayoutLMv3 is easy to reproduce for its simple and neat architecture and pre-training objectives. Our contributions are summarized as follows: • LayoutLMv3 is the first multimodal model in Document AI that does not rely on a pre-trained CNN or Faster R-CNN backbone to extract visual features, 
+
+[FINAL #7] Source=LayoutLMv3.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: and layout position information, the model takes the linear projection of patches and word tokens as inputs and encodes them into contextualized vector representations. LayoutLMv3 is pre-trained with discrete token reconstructive objectives of Masked Language Modeling (MLM) and Masked Image Modeling
+
+[FINAL #8] Source=LayoutLMv3.pdf | Page=1 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: progress in Document AI. Most multimodal pre-trained models use a masked language modeling objective to learn bidirectional representations on the text modality, but they differ in pre-training objectives for the image modality. This discrepancy adds difficulty to multimodal representation learning.
+
+[FINAL #9] Source=LayoutLMv3.pdf | Page=7 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: achieving an overall mAP score of 95.1. LayoutLMv3 achieves a high gain in the “Title” category. Since titles are typically much smaller than other categories and can be identified by their tex- tual content, we attribute this improvement to our incorporation of language modality in pre-training Lay
+
+[FINAL #10] Source=LayoutLMv3.pdf | Page=7 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: meaningful visual representation on the linear patch embeddings without any pre-training objective associated with image modality. The MIM objective mitigates this problem by preserving the image information until the last layer of the model by randomly masking out a portion of input image patches a
+
+[FINAL #11] Source=LayoutLMv3.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Various cross-modal objectives are further developed for vi- sion and language (VL) alignment learning in multimodal models. Image-text matching is widely used to learn a coarse-grained VL alignment [2, 5, 19, 22, 56]. To learn a fine-grained VL alignment, UNITER proposes a word-region alignment obj
+================================================================================
+
+================================================================================
+FINAL CONTEXT SENT TO LLM
+================================================================================
+
+================================================================================
+DOCUMENT : LayoutLMv3.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 1
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+is pre-trained with a word-patch alignment objective to learn cross-
+modal alignment by predicting whether the corresponding image
+patch of a text word is masked. The simple unified architecture
+and training objectives make LayoutLMv3 a general-purpose pre-
+trained model for both text-centric and image-centric Document AI
+tasks. Experimental results show that LayoutLMv3 achieves state-
+of-the-art performance not only in text-centric tasks, including
+form understanding, receipt understanding, and document visual
+question answering, but also in image-centric tasks such as docu-
+
+
+[TEXT]
+
+progress in Document AI. Most multimodal pre-trained models
+use a masked language modeling objective to learn bidirectional
+representations on the text modality, but they differ in pre-training
+objectives for the image modality. This discrepancy adds difficulty
+to multimodal representation learning. In this paper, we propose
+LayoutLMv3 to pre-train multimodal Transformers for Document
+AI with unified text and image masking. Additionally, LayoutLMv3
+is pre-trained with a word-patch alignment objective to learn cross-
+modal alignment by predicting whether the corresponding image
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+the layout of the layout and layout of the layout of the layout and layout of the layout of the layout
+
+OCR Text:
+2204.08387v3 [cs.CL] 19 Jul 2022
+
+arXiv
+
+LayoutLMv3: Pre-training for Document Al
+with Unified Text and Image Masking
+
+Yupan Huang*
+Sun Yat-sen University
+huangyp28@mail2.sysu.edu.cn
+
+Yutong Lu
+Sun Yat-sen University
+luyutong@mail.sysu.edu.cn
+
+ABSTRACT
+
+Self-supervised pre-training techniques have achieved remarkable
+progress in Document AI. Most multimodal pre-trained models
+use a masked language modeling objective to learn bidirectional
+representations on the text modality, but they differ in pre-training
+objectives for the image modality. This discrepancy adds difficulty
+to multimodal representation learning. In this paper, we propose
+LayoutLMv3 to pre-train multimodal Transformers for Document
+Al with unified text and image masking. Additionally, LayoutLMv3
+is pre-trained with a word-patch alignment objective to learn cross-
+modal alignment by predicting whether the corresponding image
+patch of a text word is masked. The simple unified architecture
+and training objectives make LayoutLMv3 a general-purpose pre-
+trained model for both text-centric and image-centric Document AI
+tasks. Experimental results show that LayoutLMv3 achieves state-
+of-the-art performance not only in text-centric tasks, including
+form understanding, receipt understanding, and document visual
+question answering, but also in image-centric tasks such as docu-
+ment image classification and document layout analysis. The code
+and models are publicly available at https://aka.ms/layoutlmv3.
+
+CCS CONCEPTS
+
++ Applied computing — Document analysis; - Computing
+methodologies — Natural language processing.
+
+KEYWORDS
+document ai, layoutlm, multimodal pre-training, vision-and-language
+
+ACM Reference Format:
+
+Yupan Huang, Tengchao Ly, Lei Cui, Yutong Lu, and Furu Wei. 2022. Lay-
+outLMv3: Pre-training for Document AI with Unified Text and Image Mask-
+ing. In Proceedings of the 30th ACM International Conference on Multimedia
+(MM °22), October 10-14, 2022, Lisboa, Portugal. ACM, New York, NY, USA,
+10 pages. https://doi.org/10.1145/3503161.3548112
+
+“Contribution during internship at Microsoft Research. Corresponding authors: Lei
+Cui and Furu Wei,
+
+Permission to make digital or hard copies of all or part of this work for personal or
+classroom use is granted without fee provided that copies are not made or distributed
+for profit or commercial advantage and that copies bear this notice and the full citation
+on the first page. Copyrights for components of this work owned by others than ACM
+must be honored. Abstracting with credit is permitted. To copy otherwise, or republish,
+to post on servers or to redistribute to lists, requires prior specific permission and/or a
+fee. Request permissions from permissions@acm.org.
+
+MM °22, October 10-14, 2022, Lisboa, Portugal
+
+© 2022 Association for Computing Machinery.
+
+ACM ISBN 978-1-4503-9203-7/22/10...$15.00
+https://doi.org/10.1145/3503161.3548112
+
+Tengchao Lv
+Microsoft Research Asia
+tengchaolv@microsoft.com
+
+Lei Cui
+Microsoft Research Asia
+lecu@microsoft.com
+
+Furu Wei
+Microsoft Research Asia
+fuwei@microsoft.com
+
+Broure wx resToceNts sparen
+Deocementcisacace sure
+
+canter
+=
+
+om
+eat,
+et
+=o
+are
+Dewan
+
+(a) Text-centric form under-
+standing on FUNSD
+
+(b) Image-centric layout anal-
+ysis on PubLayNet
+
+Figure 1: Examples of Document AI Tasks.
+
+1 INTRODUCTION
+
+In recent years, pre-training techniques have been making waves
+in the Document AI community by achieving remarkable progress
+on document understanding tasks [2, 13-15, 17, 25, 28, 31, 32, 40,
+41, 50, 52, 54~56]. As shown in Figure 1, a pre-trained Document
+AI model can parse layout and extract key information for various
+documents such as scanned forms and academic papers, which is
+important for industrial applications and academic research [8].
+Self-supervised pre-training techniques have made rapid progress
+in representation learning due to their successful applications of re-
+constructive pre-training objectives. In NLP research, BERT firstly
+proposed “masked language modeling” (MLM) to learn bidirec-
+tional representations by predicting the original vocabulary id of
+a randomly masked word token based on its context [9]. Whereas
+most performant multimodal pre-trained Document AI models use
+the MLM proposed by BERT for text modality, they differ in pre-
+training objectives for image modality as depicted in Figure 2. For
+example, DocFormer learns to reconstruct image pixels through a
+CNN decoder [2], which tends to learn noisy details rather than
+high-level structures such as document layouts [43, 45]. SelfDoc
+proposes to regress masked region features [31], which is noisier
+and harder to learn than classifying discrete features in a smaller
+vocabulary [6, 18]. The different granularities of image (e.g., dense
+image pixels or contiguous region features) and text (i.e., discrete
+
+Nearby Document Text:
+LayoutLMv3: Pre-training for Document AI
+with Unified Text and Image Masking
+Yupan Huang∗
+Sun Yat-sen University
+huangyp28@mail2.sysu.edu.cn
+Tengchao Lv
+Microsoft Research Asia
+tengchaolv@microsoft.com
+Lei Cui
+Microsoft Research Asia
+lecu@microsoft.com
+Yutong Lu
+Sun Yat-sen University
+luyutong@mail.sysu.edu.cn
+Furu Wei
+Microsoft Research Asia
+fuwei@microsoft.com
+ABSTRACT
+Self-supervised pre-training techniques have achieved remarkable
+progress in Document AI. Most multimodal pre-trained models
+use a masked language modeling objective to learn bidirectional
+representations on the text modality,
+
+
+[RELATED PAGE TEXT]
+
+is pre-trained with a word-patch alignment objective to learn cross-
+modal alignment by predicting whether the corresponding image
+patch of a text word is masked. The simple unified architecture
+and training objectives make LayoutLMv3 a general-purpose pre-
+trained model for both text-centric and image-centric Document AI
+tasks. Experimental result
+
+
+--------------------------------------------------------------------------------
+PAGE : 2
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+more, LayoutLMv3 is easy to reproduce for its simple and neat
+architecture and pre-training objectives.
+Our contributions are summarized as follows:
+• LayoutLMv3 is the first multimodal model in Document AI
+that does not rely on a pre-trained CNN or Faster R-CNN
+backbone to extract visual features, which significantly saves
+parameters and eliminates region annotations.
+• LayoutLMv3 mitigates the discrepancy between text and
+image multimodal representation learning with unified dis-
+crete token reconstructive objectives MLM and MIM. We
+further propose a Word-Patch Alignment (WPA) objective
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a page from the book, showing an image of a computer and a computer with a text that reads,
+
+OCR Text:
+_(2) Pre-training Objectives of Image Modality
+
+|
+— |
+ra
+
+|
+
+|
+
+I
+idn, idya, idys, |
+idyyidys, ides, ». |
+
+I kde dia Fao
+
+! teh
+
+| fication
+
+Masked Word Masked Pai Origin Image Masked Region
+Token Classification Token Classi Reconstruction Feature Regression
+
+in
+ist
+— Se ee ee Bost sS SS so
+
+Multimodal Transformer
+
+(1) Image Embedding
+
+Linear Embedding Visual Transformer (Optional) |
+coc
+
+“A lew
+number of
+tumor cell...”
+
+Faster R-CNN
+
+(a) Patch (b) Grid
+(LayoutLMv3) — (e.g., DocFormer)
+
+(c) Region
+{e.g., SelfDac)
+
+Figure 2: Comparisons with existing works (e.g., DocFormer
+[2] and SelfDoc [31]) on (1) image embedding: our Lay-
+outLMv3 uses linear patches to reduce the computational
+bottleneck of CNNs and eliminate the need for region super-
+vision in training object detectors; (2) pre-training objectives
+on image modality: our LayoutLMv3 learns to reconstruct
+discrete image tokens of masked patches instead of raw pix-
+els or region features to capture high-level layout structures
+rather than noisy details.
+
+tokens) objectives further add difficulty to cross-modal alignment
+learning, which is essential to multimodal representation learning.
+
+To overcome the discrepancy in pre-training objectives of text
+and image modalities and facilitate multimodal representation learn-
+ing, we propose LayoutLMv3 to pre-train multimodal Transform-
+ers for Document Al with unified text and image masking objectives
+MLM and MIM. As shown in Figure 3, LayoutLMv3 learns to recon-
+struct masked word tokens of the text modality and symmetrically
+reconstruct masked patch tokens of the image modality. Inspired
+by DALL-E [43] and BEiT [3], we obtain the target image tokens
+from latent codes of a discrete VAE. For documents, each text word
+corresponds to an image patch. To learn this cross-modal alignment,
+we propose a Word-Patch Alignment (WPA) objective to predict
+whether the corresponding image patch of a text word is masked.
+
+Inspired by ViT [11] and ViLT [22], LayoutLMv3 directly lever-
+ages raw image patches from document images without complex
+pre-processing steps such as page object detection. LayoutLMv3
+jointly learns image, text and multimodal representations in a Trans-
+former model with unified MLM, MIM and WPA objectives. This
+makes LayoutLMv3 the first multimodal pre-trained Document AI
+
+model without CNNs for image embeddings, which significantly
+saves parameters and gets rid of region annotations. The simple
+unified architecture and objectives make LayoutLMv3 a general-
+purpose pre-trained model for both text-centric tasks and image-
+centric Document AI tasks.
+
+We evaluated pre-trained LayoutLMv3 models across five pub-
+lic benchmarks, including text-centric benchmarks: FUNSD [20]
+for form understanding, CORD [39] for receipt understanding,
+DocVQA [38] for document visual question answering, and image-
+centric benchmarks: RVL-CDIP [16] for document image classifi-
+cation, PubLayNet [59] for document layout analysis. Experiment
+results demonstrate that LayoutLMv3 achieves state-of-the-art per-
+formance on these benchmarks with parameter efficiency. Further-
+more, LayoutLMv3 is easy to reproduce for its simple and neat
+architecture and pre-training objectives.
+
+Our contributions are summarized as follows:
+
+e LayoutLMv3 is the first multimodal model in Document AI
+that does not rely on a pre-trained CNN or Faster R-CNN
+backbone to extract visual features, which significantly saves
+parameters and eliminates region annotations.
+
+e LayoutLMv3 mitigates the discrepancy between text and
+image multimodal representation learning with unified dis-
+crete token reconstructive objectives MLM and MIM. We
+further propose a Word-Patch Alignment (WPA) objective
+to facilitate cross-modal alignment learning.
+
+e LayoutLMv3 is a general-purpose model for both text-centric
+and image-centric Document AI tasks. For the first time, we
+demonstrate the generality of multimodal Transformers to
+vision tasks in Document AI.
+
+° Experimental results show that LayoutLMv3 achieves state-
+of-the-art performance in text-centric tasks and image-centric
+tasks in Document AI. The code and models are publicly
+available at https://aka.ms/layoutlmv3.
+
+2 LAYOUTLMV3
+
+Figure 3 gives an overview of the LayoutLMv3.
+
+2.1 Model Architecture
+
+LayoutLMv3 applies a unified text-image multimodal Transformer
+to learn cross-modal representations. The Transformer has a multi-
+layer architecture and each layer mainly consists of multi-head
+self-attention and position-wise fully connected feed-forward net-
+works [49]. The input of Transformer is a concatenation of text
+embedding Y = yy. and image embedding X = x.y sequences,
+where L and M are sequence lengths for text and image respectively.
+Through the Transformer, the last layer outputs text-and-image
+contextual representations.
+
+Text Embedding. Text embedding is a combination of word em-
+beddings and position embeddings. We pre-processed document
+images with an off-the-shelf OCR toolkit to obtain textual con-
+tent and corresponding 2D position information. We initialize the
+word embeddings with a word embedding matrix from a pre-trained
+model RoBERTa [36]. The position embeddings include 1D position
+and 2D layout position embeddings, where the 1D position refers
+to the index of tokens within the text sequence, and the 2D lay-
+out position refers to the bounding box coordinates of the text
+
+Nearby Document Text:
+Faster R-CNN
+Linear Embedding
+CNN
+Word Embedding
+Masked Word 
+Token Classification
+Visual Transformer (Optional)
+Origin Image 
+Reconstruction
+(a) Patch
+(LayoutLMv3)
+“A few 
+number of 
+tumor cell…”
+Masked Patch 
+Token Classification
+(c) Region
+(e.g., SelfDoc)
+(b) Grid
+(e.g., DocFormer)
+Masked Region 
+Feature Regression
+𝑖𝑑𝑡1, 𝑖𝑑𝑡2, 𝑖𝑑𝑡3,
+𝑖𝑑𝑡4, 𝑖𝑑𝑡5, 𝑖𝑑𝑡6, …
+Text
+Multimodal Transformer
+(2) Pre-training Objectives of Image Modality
+(1) Image Embedding
+Image
+𝑖𝑑𝑖1 𝑖𝑑𝑖2 𝑖𝑑𝑖3
+𝑖𝑑𝑖4 𝑖𝑑𝑖5 𝑖𝑑𝑖6
+𝑖𝑑𝑖7 𝑖𝑑𝑖8 𝑖𝑑𝑖9
+Figure 2: Comparisons with existing works (e.g., DocFormer
+[2] and SelfDoc [31]) on (1) image emb
+
+
+[RELATED PAGE TEXT]
+
+more, LayoutLMv3 is easy to reproduce for its simple and neat
+architecture and pre-training objectives.
+Our contributions are summarized as follows:
+• LayoutLMv3 is the first multimodal model in Document AI
+that does not rely on a pre-trained CNN or Faster R-CNN
+backbone to extract visual features, which significantly saves
+parameters and eliminate
+
+
+--------------------------------------------------------------------------------
+PAGE : 3
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+position as bias terms in self-attention networks for text and image
+modalities following LayoutLMv2[56].
+2.2 Pre-training Objectives
+LayoutLMv3 is pre-trained with the MLM, MIM, and WPA objec-
+tives to learn multimodal representation in a self-supervised learn-
+ing manner. Full pre-training objectives of LayoutLMv3 is defined
+as 𝐿 = 𝐿𝑀𝐿𝑀 + 𝐿𝑀𝐼 𝑀 + 𝐿𝑊 𝑃𝐴.
+Objective I: Masked Language Modeling (MLM). For the lan-
+guage side, our MLM is inspired by the masked language mod-
+eling in BERT [9] and masked visual-language modeling in Lay-
+
+
+[TEXT]
+
+and layout position information, the model takes the linear projection of patches and word tokens as inputs and encodes them
+into contextualized vector representations. LayoutLMv3 is pre-trained with discrete token reconstructive objectives of Masked
+Language Modeling (MLM) and Masked Image Modeling (MIM). Additionally, LayoutLMv3 is pre-trained with a Word-Patch
+Alignment (WPA) objective to learn cross-modal alignment by predicting whether the corresponding image patch of a text
+word is masked. “Seg” denotes segment-level positions. “[CLS]”, “[MASK]”, “[SEP]” and “[SPE]” are special tokens.
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a diagram of the structure of a computer system
+
+OCR Text:
+Ty Tz
+
+Pre-training
+
+Objectives MLM Head
+
+Unaligned Aligned
+
+V2 V3
+
+MIM Head
+
+Multimodal Transformer
+
+2D Position
+
+Embedding Seba) (Sees ] Seaewo) (see) [sees] [sees] [sess] Seseso) [Ptcheno} Patehs) (Pate [Pats] Pach)
+pa ae aoe soins SBOOae
+Embedding [3 | [4 |
+
+“a oes bee e
+
+OCR Parser
+Masking
+
+Word
+Embedding
+
+Document Image
+
+) foas) fas) ce
+
+ween 1 een leet ’ (V2) (V3)
+
+- Flatten Linear
+= | Masking | Embedding
+
+Resize
+
+Image Patches
+
+Figure 3: The architecture and pre-training objectives of LayoutLMv3. LayoutLMv3 is a pre-trained multimodal Transformer
+for Document AI with unified text and image masking objectives. Given an input document image and its corresponding text
+and layout position information, the model takes the linear projection of patches and word tokens as inputs and encodes them
+into contextualized vector representations. LayoutLMv3 is pre-trained with discrete token reconstructive objectives of Masked
+Language Modeling (MLM) and Masked Image Modeling (MIM). Additionally, LayoutLMv3 is pre-trained with a Word-Patch
+Alignment (WPA) objective to learn cross-modal alignment by predicting whether the corresponding image patch of a text
+word is masked. “Seg” denotes segment-level positions. “[CLS]”, “[MASK]”, “[SEP]” and “[SPE]” are special tokens.
+
+sequence. Following the LayoutLM, we normalize all coordinates
+by the size of images, and use embedding layers to embed x-axis,
+y-axis, width and height features separately [54]. The LayoutLM
+and LayoutLMv2 adopt word-level layout positions, where each
+word has its positions. Instead, we adopt segment-level layout posi-
+tions that words in a segment share the same 2D position since the
+words usually express the same semantic meaning [28].
+
+Image Embedding. Existing multimodal models in Document AI
+either extract CNN grid features [2, 56] or rely on an object detector
+like Faster R-CNN [44] to extract region features [14, 31, 40, 54]
+for image embeddings, which accounts for heavy computation
+bottleneck or require region supervision. Inspired by ViT [11] and
+ViLT [22], we represent document images with linear projection
+features of image patches before feeding them into the multimodal
+Transformer. Specifically, we resize a document image into H x W
+and denote the image with I ¢ R©*#*, where C, H and W are the
+channel size, width and height of the image respectively. We then
+split the image into a sequence of uniform P x P patches, linearly
+project the image patches to D dimensions and flatten them into
+a sequence of vectors, which length is M = HW/P?. Then we add
+
+learnable 1D position embeddings to each patch since we have
+not observed improvements from using 2D position embeddings in
+our preliminary experiments. LayoutLMv3 is the first multimodal
+model in Document AI that does not rely on CNNs to extract image
+features, which is vital to Document AI models to reduce parameters
+or remove complex pre-processing steps.
+
+We insert semantic 1D relative position and spatial 2D relative
+position as bias terms in self-attention networks for text and image
+modalities following LayoutLMv2([56].
+
+2.2 Pre-training Objectives
+
+LayoutLMv3 is pre-trained with the MLM, MIM, and WPA objec-
+tives to learn multimodal representation in a self-supervised learn-
+ing manner. Full pre-training objectives of LayoutLMv3 is defined
+as L = Ly +Lyim + Lyea.
+
+Objective I: Masked Language Modeling (MLM). For the lan-
+guage side, our MLM is inspired by the masked language mod-
+eling in BERT [9] and masked visual-language modeling in Lay-
+outLM [54] and LayoutLMv2 [56]. We mask 30% of text tokens with
+
+Nearby Document Text:
+Multimodal Transformer
+Seg1
+[MASK]
+1
++
++
+Seg1
+[MASK]
+2
++
++
+Seg2
+T3
+3
++
++
+V1
+[MASK]
+1
++
+2
++
+3
++
+[MASK]
+[SPE]
+0
++
+Seg3
+T4
+4
++
++
+SegPAD
+[CLS]
+0
++
++
+4
++
+V4
+h
+MLM Head
+MIM Head
+T2
+h
+V2
+h
+V3
+Pre-training
+Objectives
+Word/Patch
+Embedding
+1D Position
+Embedding
+Flatten 
+Masking
+OCR Parser
+Masking
+2D Position
+Embedding
+h
+T1
+SegPAD
+[SEP]
+5
++
++
+h
+WPA Head
+Aligned
+h
+Unaligned
+Patch1
++
+Patch2
++
+Patch3
++
+PatchPAD
++
+Patch4
++
+Image Patches
+Document Image
+Resize
+Split
+(Unaligned)
+(Aligned)
+(T1)
+(T2)
+(V2)
+(V3)
+Linear
+Embedding
+Word
+Embedding
+Figure 3: The architecture and pre-training objectives of LayoutLMv3. La
+
+
+[RELATED PAGE TEXT]
+
+position as bias terms in self-attention networks for text and image
+modalities following LayoutLMv2[56].
+2.2 Pre-training Objectives
+LayoutLMv3 is pre-trained with the MLM, MIM, and WPA objec-
+tives to learn multimodal representation in a self-supervised learn-
+ing manner. Full pre-training objectives of LayoutLMv3 is defined
+as 𝐿 = 𝐿𝑀𝐿𝑀 + 𝐿𝑀𝐼 𝑀 +
+
+
+--------------------------------------------------------------------------------
+PAGE : 7
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+achieving an overall mAP score of 95.1. LayoutLMv3 achieves a
+high gain in the “Title” category. Since titles are typically much
+smaller than other categories and can be identified by their tex-
+tual content, we attribute this improvement to our incorporation
+of language modality in pre-training LayoutLMv3. These results
+demonstrate the generality and superiority of LayoutLMv3.
+3.5 Ablation Study
+In Table 3 we study the effect of our image embeddings and pre-
+training objectives. We first build a baseline model #1 that uses text
+and layout information, pre-trained with MLM objective. Then we
+
+
+[TEXT]
+
+meaningful visual representation on the linear patch embeddings
+without any pre-training objective associated with image modality.
+The MIM objective mitigates this problem by preserving the image
+information until the last layer of the model by randomly masking
+out a portion of input image patches and reconstructing them in
+the output [22]. Comparing the results of model #3 and model #2,
+the MIM objective benefits CORD and RVL-CDIP. As simply using
+linear image embedding has improved FUNSD, MIM does not fur-
+ther contribute to FUNSD. By incorporating the MIM objective in
+
+
+--------------------------------------------------------------------------------
+PAGE : 8
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+Various cross-modal objectives are further developed for vi-
+sion and language (VL) alignment learning in multimodal models.
+Image-text matching is widely used to learn a coarse-grained VL
+alignment [2, 5, 19, 22, 56]. To learn a fine-grained VL alignment,
+UNITER proposes a word-region alignment objective based on opti-
+mal transports, which calculates the minimum cost of transporting
+the contextualized image embeddings to word embeddings [ 5].
+ViLT extends this objective to patch-level image embeddings [22].
+Unlike natural images, document images imply an explicit fine-
+
+================================================================================
+
+================================================================================
+RAG PIPELINE DEBUG
+================================================================================
+Query Type        : factual
+Retrieved Chunks  : 8
+Retrieved Images  : 3
+Reranked Chunks   : 11
+Reranked Text     : 8
+Reranked Images   : 3
+Final Context Docs: 11
+Exact Figure Query: False
+Exact Figure Match: False
+Exact Figure Final: False
+================================================================================
+
+====================================================================================================
+RAG ANSWER
+====================================================================================================
+ The three pre-training objectives used by LayoutLMv3 are:
+
+1. Masked Language Modeling (MLM): This objective learns the language representation by masking 30% of text tokens and predicting them from the context.
+
+2. Masked Image Modeling (MIM): This objective learns the image representation by masking out a portion of input image patches and reconstructing them in the output. This helps in preserving the image information until the last layer of the model.
+
+3. Word-Patch Alignment (WPA): This objective learns cross-modal alignment by predicting whether the corresponding image patch of a text word is masked. This helps in learning the relationship between text and image.
+
+Each objective learns a specific aspect of the multimodal representation, either text, image, or the relationship between them, in a self-supervised learning manner.
+
+IMAGE PATHS:
+D:/Projects/Major-Project-2-main/extracted_images/LayoutLMv3_page1_render.png
+D:/Projects/Major-Project-2-main/extracted_images/LayoutLMv3_page2_render.png
+D:/Projects/Major-Project-2-main/extracted_images/LayoutLMv3_page3_render.png

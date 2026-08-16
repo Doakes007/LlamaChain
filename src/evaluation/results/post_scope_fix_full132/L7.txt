@@ -1,0 +1,1199 @@
+====================================================================================================
+QUESTION_ID   : L7
+DOCUMENT      : LayoutLMv3
+QUESTION_TYPE : Architecture / layout understanding
+ELAPSED_SEC   : 51.3
+ERROR         : no
+====================================================================================================
+
+QUESTION:
+According to Figure 3, how are the text tokens and image patches combined before being processed by the multimodal Transformer?
+
+GROUND TRUTH ANSWER:
+LayoutLMv3 forms a text embedding sequence Y and an image embedding sequence X, then concatenates the two sequences before the multimodal Transformer. The text side contains word/position information, while the image side contains linearly projected image-patch embeddings; the Transformer jointly encodes the combined sequence into contextualized text-and-image representations.
+
+GROUND TRUTH SOURCE:
+LayoutLMv3.pdf, Figure 3, p. 3
+
+====================================================================================================
+FORENSIC TRANSCRIPT
+====================================================================================================
+
+####################################################################################################
+FORENSIC CASE START
+####################################################################################################
+Original Query   : According to Figure 3, how are the text tokens and image patches combined before being processed by the multimodal Transformer?
+Expanded Query   : According to Figure 3, how are the text tokens and image patches combined before being processed by the multimodal Transformer?
+Query Type       : visual
+[DOCUMENT SCOPE] Normalized query: 'according to figure 3 how are the text tokens and image patches combined before being processed by the multimodal transformer'
+[DOCUMENT SCOPE] Source='BERT.pdf' -> Normalized='bert'
+[DOCUMENT SCOPE] Token overlap for 'BERT.pdf': []
+[DOCUMENT SCOPE] Source='BLIP-2.pdf' -> Normalized='blip 2'
+[DOCUMENT SCOPE] Token overlap for 'BLIP-2.pdf': []
+[DOCUMENT SCOPE] Source='CLIP.pdf' -> Normalized='clip'
+[DOCUMENT SCOPE] Token overlap for 'CLIP.pdf': []
+[DOCUMENT SCOPE] Source='CNN Paper.pdf' -> Normalized='cnn paper'
+[DOCUMENT SCOPE] Token overlap for 'CNN Paper.pdf': []
+[DOCUMENT SCOPE] Source='Donut.pdf' -> Normalized='donut'
+[DOCUMENT SCOPE] Token overlap for 'Donut.pdf': []
+[DOCUMENT SCOPE] Source='LayoutLMv3.pdf' -> Normalized='layout l mv3'
+[DOCUMENT SCOPE] Token overlap for 'LayoutLMv3.pdf': []
+[DOCUMENT SCOPE] Source='NLP Paper.pdf' -> Normalized='nlp paper'
+[DOCUMENT SCOPE] Token overlap for 'NLP Paper.pdf': []
+[DOCUMENT SCOPE] Source='RAG.pdf' -> Normalized='rag'
+[DOCUMENT SCOPE] Token overlap for 'RAG.pdf': []
+[DOCUMENT SCOPE] Source='Self-RAG.pdf' -> Normalized='self rag'
+[DOCUMENT SCOPE] Token overlap for 'Self-RAG.pdf': []
+[DOCUMENT SCOPE] Source='Vision Transformer.pdf' -> Normalized='vision transformer'
+[DOCUMENT SCOPE] Token overlap for 'Vision Transformer.pdf': ['transformer']
+[DOCUMENT SCOPE] No reliable document scope detected. Retrieval remains global.
+
+================================================================================
+DOCUMENT SCOPE DEBUG
+================================================================================
+Query          : According to Figure 3, how are the text tokens and image patches combined before being processed by the multimodal Transformer?
+Expanded Query : According to Figure 3, how are the text tokens and image patches combined before being processed by the multimodal Transformer?
+Query Type     : visual
+Document Scope : None
+================================================================================
+
+==========================================================================================
+STEP 3A — GLOBAL HYBRID RETRIEVAL
+==========================================================================================
+Query              : According to Figure 3, how are the text tokens and image patches combined before being processed by the multimodal Transformer?
+Dense candidate K  : 25
+Final hybrid K     : 8
+RRF constant       : 60
+
+------------------------------------------------------------------------------------------
+[DENSE / VECTOR RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=Vision Transformer.pdf | Page=1 | Type=text | Image=N/A
+    Content=Transformer directly to images, with the fewest possible modiﬁcations. To do so, we split an image into patches and provide the sequence of linear embeddings of these patches as an
+02. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=ing, we propose LayoutLMv3 to pre-train multimodal Transform- ers for Document AI with unified text and image masking objectives MLM and MIM. As shown in Figure 3, LayoutLMv3 learn
+03. Source=LayoutLMv3.pdf | Page=3 | Type=text | Image=N/A
+    Content=+ Patch3 + PatchPAD + Patch4 + Image PatchesDocument Image Resize Split (Unaligned) (Aligned) (T1) (T2) (V2) (V3) Linear Embedding Word Embedding Figure 3: The architecture and pre
+04. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=corresponds to an image patch. To learn this cross-modal alignment, we propose a Word-Patch Alignment (WPA) objective to predict whether the corresponding image patch of a text wor
+05. Source=LayoutLMv3.pdf | Page=2 | Type=image | Image=extracted_images\LayoutLMv3_page2_img2.png
+    Content=FIGURE FROM DOCUMENT  Caption: a picture of a painting with a white background  OCR Text: No readable text found in this image.  Nearby Document Text: Faster R-CNN Linear Embedding
+06. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=discrete image tokens of masked patches instead of raw pix- els or region features to capture high-level layout structures rather than noisy details. tokens) objectives further add
+07. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=(1) Image Embedding Image 𝑖𝑑𝑖1 𝑖𝑑𝑖2 𝑖𝑑𝑖3 𝑖𝑑𝑖4 𝑖𝑑𝑖5 𝑖𝑑𝑖6 𝑖𝑑𝑖7 𝑖𝑑𝑖8 𝑖𝑑𝑖9 Figure 2: Comparisons with existing works (e.g., DocFormer [2] and SelfDoc [31]) on (1) image embedding: our 
+08. Source=Vision Transformer.pdf | Page=3 | Type=image | Image=extracted_images\Vision Transformer_page3_img1.png
+    Content=FIGURE FROM DOCUMENT  Caption: a picture of a city with buildings in the background  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conferenc
+09. Source=Vision Transformer.pdf | Page=16 | Type=text | Image=N/A
+    Content=[class] token, which is taken as image representation. The output of this token is then trans- formed into a class prediction via a small multi-layer perceptron (MLP) with tanh as 
+10. Source=Vision Transformer.pdf | Page=3 | Type=image | Image=extracted_images\Vision Transformer_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: the diagram shows the different types of the system and how they are used in the system  OCR Text: Published as a conference paper at I
+11. Source=Donut.pdf | Page=3 | Type=image | Image=extracted_images\Donut_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a book with the text in english  OCR Text: OOCR-free Document Understanding Transformer 3  languages with complex character
+12. Source=LayoutLMv3.pdf | Page=8 | Type=text | Image=N/A
+    Content=has 39.2M parameters for a text vocabulary size of 50,265. We did not take count of the image tokenizer when calculating parameters as the tokenizer is a standalone module for gene
+13. Source=CLIP.pdf | Page=5 | Type=text | Image=N/A
+    Content=Figure 3. Numpy-like pseudocode for the core of an implementa- tion of CLIP. representation of the image. For the second architecture, we experiment with the recently introduced Vi
+14. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=between text words and image patches. The WPA objective is to predict whether the corresponding image patches of a text word are masked. Specifically, we assign an aligned label to
+15. Source=Donut.pdf | Page=11 | Type=image | Image=extracted_images\Donut_page11_img4.png
+    Content=FIGURE FROM DOCUMENT  Caption: a black and white photo of a man with a beard  OCR Text: No readable text found in this image.  Nearby Document Text: OCR-free Document Understanding
+16. Source=LayoutLMv3.pdf | Page=3 | Type=image | Image=extracted_images\LayoutLMv3_page3_img2.png
+    Content=FIGURE FROM DOCUMENT  Caption: a white paper with a black and white text on it  OCR Text: No readable text found in this image.  Nearby Document Text: Multimodal Transformer Seg1 [
+17. Source=LayoutLMv3.pdf | Page=2 | Type=image | Image=extracted_images\LayoutLMv3_page2_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a computer and a computer with a text that reads,  OCR Text: _(2) Pre-training Objectives of 
+18. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=is a symmetry to the MLM objective, that we randomly mask a percentage of about 40% image tokens with the blockwise masking strategy [3]. The MIM objective is driven by a cross-ent
+19. Source=Donut.pdf | Page=23 | Type=image | Image=extracted_images\Donut_page23_img9.png
+    Content=FIGURE FROM DOCUMENT  Caption: a sign on a trash can in a park  OCR Text: No readable text found in this image.  Nearby Document Text: OCR-free Document Understanding Transformer 2
+20. Source=CLIP.pdf | Page=5 | Type=image | Image=extracted_images\CLIP_page5_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: an example of the algorithm for the algorithm of the algorithm of the algorithm of the algorithm of the algorithm of  OCR Text: Learnin
+21. Source=BLIP-2.pdf | Page=3 | Type=image | Image=extracted_images\BLIP-2_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+22. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=works [49]. The input of Transformer is a concatenation of text embedding Y = y1:𝐿 and image embedding X = x1:𝑀 sequences, where 𝐿 and 𝑀 are sequence lengths for text and image res
+23. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=patches. We use a two-layer MLP head that inputs contextual text and image and outputs the binary aligned/unaligned labels with a binary cross-entropy loss: 𝐿𝑊 𝑃𝐴 (𝜃 ) = − 𝐿−𝐿′ ∑︁ 
+24. Source=Vision Transformer.pdf | Page=9 | Type=image | Image=extracted_images\Vision Transformer_page9_img22.png
+    Content=FIGURE FROM DOCUMENT  Caption: a black and white photo of a man ' s face  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at 
+25. Source=Donut.pdf | Page=13 | Type=image | Image=extracted_images\Donut_page13_img4.png
+    Content=FIGURE FROM DOCUMENT  Caption: a computer screen with the words ' i ' m ' and ' i ' m ' on it  OCR Text: No readable text found in this image.  Nearby Document Text: OCR-free Docum
+
+------------------------------------------------------------------------------------------
+[BM25 RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=ing, we propose LayoutLMv3 to pre-train multimodal Transform- ers for Document AI with unified text and image masking objectives MLM and MIM. As shown in Figure 3, LayoutLMv3 learn
+02. Source=LayoutLMv3.pdf | Page=3 | Type=text | Image=N/A
+    Content=ViLT [22], we represent document images with linear projection features of image patches before feeding them into the multimodal Transformer. Specifically, we resize a document ima
+03. Source=LayoutLMv3.pdf | Page=3 | Type=text | Image=N/A
+    Content=tions that words in a segment share the same 2D position since the words usually express the same semantic meaning [28]. Image Embedding. Existing multimodal models in Document AI 
+04. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=discrete image tokens of masked patches instead of raw pix- els or region features to capture high-level layout structures rather than noisy details. tokens) objectives further add
+05. Source=LayoutLMv3.pdf | Page=3 | Type=text | Image=N/A
+    Content=+ Patch3 + PatchPAD + Patch4 + Image PatchesDocument Image Resize Split (Unaligned) (Aligned) (T1) (T2) (V2) (V3) Linear Embedding Word Embedding Figure 3: The architecture and pre
+06. Source=LayoutLMv3.pdf | Page=2 | Type=image | Image=extracted_images\LayoutLMv3_page2_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a computer and a computer with a text that reads,  OCR Text: _(2) Pre-training Objectives of 
+07. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=between text words and image patches. The WPA objective is to predict whether the corresponding image patches of a text word are masked. Specifically, we assign an aligned label to
+08. Source=LayoutLMv3.pdf | Page=3 | Type=image | Image=extracted_images\LayoutLMv3_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram of the structure of a computer system  OCR Text: Ty Tz  Pre-training  Objectives MLM Head  Unaligned Aligned  V2 V3  MIM Head
+09. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=corresponds to an image patch. To learn this cross-modal alignment, we propose a Word-Patch Alignment (WPA) objective to predict whether the corresponding image patch of a text wor
+10. Source=Donut.pdf | Page=6 | Type=text | Image=N/A
+    Content=addition, several image rendering techniques [13,41,67] are applied to mimic real documents. The generated examples are shown in Figure 4. More details of SynthDoG are available in
+11. Source=LayoutLMv3.pdf | Page=3 | Type=text | Image=N/A
+    Content=and layout position information, the model takes the linear projection of patches and word tokens as inputs and encodes them into contextualized vector representations. LayoutLMv3 
+12. Source=BLIP-2.pdf | Page=3 | Type=text | Image=N/A
+    Content=Q-Former to generate texts, given input images as the con- dition. Since the architecture of Q-Former does not allow direct interactions between the frozen image encoder and the te
+13. Source=Vision Transformer.pdf | Page=1 | Type=text | Image=N/A
+    Content=Transformer directly to images, with the fewest possible modiﬁcations. To do so, we split an image into patches and provide the sequence of linear embeddings of these patches as an
+14. Source=CLIP.pdf | Page=5 | Type=text | Image=N/A
+    Content=Figure 3. Numpy-like pseudocode for the core of an implementa- tion of CLIP. representation of the image. For the second architecture, we experiment with the recently introduced Vi
+15. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=(1) Image Embedding Image 𝑖𝑑𝑖1 𝑖𝑑𝑖2 𝑖𝑑𝑖3 𝑖𝑑𝑖4 𝑖𝑑𝑖5 𝑖𝑑𝑖6 𝑖𝑑𝑖7 𝑖𝑑𝑖8 𝑖𝑑𝑖9 Figure 2: Comparisons with existing works (e.g., DocFormer [2] and SelfDoc [31]) on (1) image embedding: our 
+16. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=𝐿𝑀𝐿𝑀 (𝜃 ) = − 𝐿′ ∑︁ 𝑙=1 log 𝑝𝜃  yℓ | X𝑀′ , Y𝐿′ (1) As we keep the layout information unchanged, this objective fa- cilitates the model to learn the correspondence between layout 
+17. Source=Donut.pdf | Page=6 | Type=image | Image=extracted_images\Donut_page6_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a book with a picture of a person in the background  OCR Text: 6 G. Kim et al.  Wak gaGHIe - —— ATP  Fig. 4. Generated Englis
+18. Source=LayoutLMv3.pdf | Page=1 | Type=text | Image=N/A
+    Content=progress in Document AI. Most multimodal pre-trained models use a masked language modeling objective to learn bidirectional representations on the text modality, but they differ in
+19. Source=CLIP.pdf | Page=23 | Type=text | Image=N/A
+    Content=on gender classiﬁcation and we tested for how labels were differentially distributed across two different label sets. For our ﬁrst label set, we used a label set of 300 occupations
+20. Source=LayoutLMv3.pdf | Page=8 | Type=text | Image=N/A
+    Content=tion weights in their self-attention image encoder, which does not apply to simple linear image encoders. ViLT [22] and METER [12] attempt to leverage MPM similar to ViT [11] and B
+21. Source=Vision Transformer.pdf | Page=3 | Type=image | Image=extracted_images\Vision Transformer_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: the diagram shows the different types of the system and how they are used in the system  OCR Text: Published as a conference paper at I
+22. Source=Vision Transformer.pdf | Page=4 | Type=text | Image=N/A
+    Content=baked into each layer throughout the whole model. In ViT, only MLP layers are local and transla- tionally equivariant, while the self-attention layers are global. The two-dimension
+23. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=a visual vocabulary [43]. Thus MIM facilitates learning high-level layout structures rather than noisy low-level details. Objective III: Word-Patch Alignment (WPA). For documents, 
+24. Source=Donut.pdf | Page=3 | Type=text | Image=N/A
+    Content=better overall performance than previous methods as shown in Figure 2. We take pre-train-and-fine-tune scheme [8,65] on Donut training. In the pre-training phase, Donut learns how 
+25. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=training objectives. We first build a baseline model #1 that uses text and layout information, pre-trained with MLM objective. Then we use linearly projected image patches as the i
+
+------------------------------------------------------------------------------------------
+[RRF FUSION RANKING]
+------------------------------------------------------------------------------------------
+01. RRF=0.032522 | DenseRank=2 | BM25Rank=1 | Source=LayoutLMv3.pdf | Page=2 | Type=text
+02. RRF=0.031258 | DenseRank=3 | BM25Rank=5 | Source=LayoutLMv3.pdf | Page=3 | Type=text
+03. RRF=0.030777 | DenseRank=6 | BM25Rank=4 | Source=LayoutLMv3.pdf | Page=2 | Type=text
+04. RRF=0.030118 | DenseRank=4 | BM25Rank=9 | Source=LayoutLMv3.pdf | Page=2 | Type=text
+05. RRF=0.030092 | DenseRank=1 | BM25Rank=13 | Source=Vision Transformer.pdf | Page=1 | Type=text
+06. RRF=0.028439 | DenseRank=14 | BM25Rank=7 | Source=LayoutLMv3.pdf | Page=4 | Type=text
+07. RRF=0.028259 | DenseRank=7 | BM25Rank=15 | Source=LayoutLMv3.pdf | Page=2 | Type=text
+08. RRF=0.028139 | DenseRank=17 | BM25Rank=6 | Source=LayoutLMv3.pdf | Page=2 | Type=image
+09. RRF=0.027212 | DenseRank=13 | BM25Rank=14 | Source=CLIP.pdf | Page=5 | Type=text
+10. RRF=0.026631 | DenseRank=10 | BM25Rank=21 | Source=Vision Transformer.pdf | Page=3 | Type=image
+11. RRF=0.016129 | DenseRank=- | BM25Rank=2 | Source=LayoutLMv3.pdf | Page=3 | Type=text
+12. RRF=0.015873 | DenseRank=- | BM25Rank=3 | Source=LayoutLMv3.pdf | Page=3 | Type=text
+13. RRF=0.015385 | DenseRank=5 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=2 | Type=image
+14. RRF=0.014706 | DenseRank=8 | BM25Rank=- | Source=Vision Transformer.pdf | Page=3 | Type=image
+15. RRF=0.014706 | DenseRank=- | BM25Rank=8 | Source=LayoutLMv3.pdf | Page=3 | Type=image
+16. RRF=0.014493 | DenseRank=9 | BM25Rank=- | Source=Vision Transformer.pdf | Page=16 | Type=text
+17. RRF=0.014286 | DenseRank=- | BM25Rank=10 | Source=Donut.pdf | Page=6 | Type=text
+18. RRF=0.014085 | DenseRank=11 | BM25Rank=- | Source=Donut.pdf | Page=3 | Type=image
+19. RRF=0.014085 | DenseRank=- | BM25Rank=11 | Source=LayoutLMv3.pdf | Page=3 | Type=text
+20. RRF=0.013889 | DenseRank=12 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=8 | Type=text
+21. RRF=0.013889 | DenseRank=- | BM25Rank=12 | Source=BLIP-2.pdf | Page=3 | Type=text
+22. RRF=0.013333 | DenseRank=15 | BM25Rank=- | Source=Donut.pdf | Page=11 | Type=image
+23. RRF=0.013158 | DenseRank=16 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=3 | Type=image
+24. RRF=0.013158 | DenseRank=- | BM25Rank=16 | Source=LayoutLMv3.pdf | Page=4 | Type=text
+25. RRF=0.012987 | DenseRank=- | BM25Rank=17 | Source=Donut.pdf | Page=6 | Type=image
+26. RRF=0.012821 | DenseRank=18 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=4 | Type=text
+27. RRF=0.012821 | DenseRank=- | BM25Rank=18 | Source=LayoutLMv3.pdf | Page=1 | Type=text
+28. RRF=0.012658 | DenseRank=19 | BM25Rank=- | Source=Donut.pdf | Page=23 | Type=image
+29. RRF=0.012658 | DenseRank=- | BM25Rank=19 | Source=CLIP.pdf | Page=23 | Type=text
+30. RRF=0.012500 | DenseRank=20 | BM25Rank=- | Source=CLIP.pdf | Page=5 | Type=image
+31. RRF=0.012500 | DenseRank=- | BM25Rank=20 | Source=LayoutLMv3.pdf | Page=8 | Type=text
+32. RRF=0.012346 | DenseRank=21 | BM25Rank=- | Source=BLIP-2.pdf | Page=3 | Type=image
+33. RRF=0.012195 | DenseRank=22 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=2 | Type=text
+34. RRF=0.012195 | DenseRank=- | BM25Rank=22 | Source=Vision Transformer.pdf | Page=4 | Type=text
+35. RRF=0.012048 | DenseRank=23 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=4 | Type=text
+36. RRF=0.012048 | DenseRank=- | BM25Rank=23 | Source=LayoutLMv3.pdf | Page=4 | Type=text
+37. RRF=0.011905 | DenseRank=24 | BM25Rank=- | Source=Vision Transformer.pdf | Page=9 | Type=image
+38. RRF=0.011905 | DenseRank=- | BM25Rank=24 | Source=Donut.pdf | Page=3 | Type=text
+39. RRF=0.011765 | DenseRank=25 | BM25Rank=- | Source=Donut.pdf | Page=13 | Type=image
+40. RRF=0.011765 | DenseRank=- | BM25Rank=25 | Source=LayoutLMv3.pdf | Page=7 | Type=text
+------------------------------------------------------------------------------------------
+
+==========================================================================================
+STEP 3A — RETRIEVAL STAGE SUMMARY
+==========================================================================================
+Dense candidates       : 25
+BM25 candidates        : 25
+Dense ∩ BM25           : 10
+Dense-only candidates  : 15
+BM25-only candidates   : 15
+Unique candidate pool  : 40
+RRF candidates         : 40
+Returned to pipeline   : 8
+==========================================================================================
+
+------------------------------------------------------------------------------------------
+[FINAL HYBRID RESULT] 8 candidates
+------------------------------------------------------------------------------------------
+01. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=ing, we propose LayoutLMv3 to pre-train multimodal Transform- ers for Document AI with unified text and image masking objectives MLM and MIM. As shown in Figure 3, LayoutLMv3 learn
+02. Source=LayoutLMv3.pdf | Page=3 | Type=text | Image=N/A
+    Content=+ Patch3 + PatchPAD + Patch4 + Image PatchesDocument Image Resize Split (Unaligned) (Aligned) (T1) (T2) (V2) (V3) Linear Embedding Word Embedding Figure 3: The architecture and pre
+03. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=discrete image tokens of masked patches instead of raw pix- els or region features to capture high-level layout structures rather than noisy details. tokens) objectives further add
+04. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=corresponds to an image patch. To learn this cross-modal alignment, we propose a Word-Patch Alignment (WPA) objective to predict whether the corresponding image patch of a text wor
+05. Source=Vision Transformer.pdf | Page=1 | Type=text | Image=N/A
+    Content=Transformer directly to images, with the fewest possible modiﬁcations. To do so, we split an image into patches and provide the sequence of linear embeddings of these patches as an
+06. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=between text words and image patches. The WPA objective is to predict whether the corresponding image patches of a text word are masked. Specifically, we assign an aligned label to
+07. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=(1) Image Embedding Image 𝑖𝑑𝑖1 𝑖𝑑𝑖2 𝑖𝑑𝑖3 𝑖𝑑𝑖4 𝑖𝑑𝑖5 𝑖𝑑𝑖6 𝑖𝑑𝑖7 𝑖𝑑𝑖8 𝑖𝑑𝑖9 Figure 2: Comparisons with existing works (e.g., DocFormer [2] and SelfDoc [31]) on (1) image embedding: our 
+08. Source=LayoutLMv3.pdf | Page=2 | Type=image | Image=extracted_images\LayoutLMv3_page2_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a computer and a computer with a text that reads,  OCR Text: _(2) Pre-training Objectives of 
+==========================================================================================
+
+================================================================================
+STAGE 1 — HYBRID RETRIEVAL
+================================================================================
+Retrieved Count : 8
+
+[HYBRID #1] Source=LayoutLMv3.pdf | Page=2 | Type=text
+Content: ing, we propose LayoutLMv3 to pre-train multimodal Transform- ers for Document AI with unified text and image masking objectives MLM and MIM. As shown in Figure 3, LayoutLMv3 learns to recon- struct masked word tokens of the text modality and symmetrically reconstruct masked patch tokens of the image modality. Inspired by DALL-E [43] and BEiT [3], we obtain the target image tokens from latent codes of a discrete VAE. For documents, each text word corresponds to an image patch. To learn this cros
+
+[HYBRID #2] Source=LayoutLMv3.pdf | Page=3 | Type=text
+Content: + Patch3 + PatchPAD + Patch4 + Image PatchesDocument Image Resize Split (Unaligned) (Aligned) (T1) (T2) (V2) (V3) Linear Embedding Word Embedding Figure 3: The architecture and pre-training objectives of LayoutLMv3. LayoutLMv3 is a pre-trained multimodal Transformer for Document AI with unified text and image masking objectives. Given an input document image and its corresponding text and layout position information, the model takes the linear projection of patches and word tokens as inputs and 
+
+[HYBRID #3] Source=LayoutLMv3.pdf | Page=2 | Type=text
+Content: discrete image tokens of masked patches instead of raw pix- els or region features to capture high-level layout structures rather than noisy details. tokens) objectives further add difficulty to cross-modal alignment learning, which is essential to multimodal representation learning. To overcome the discrepancy in pre-training objectives of text and image modalities and facilitate multimodal representation learn- ing, we propose LayoutLMv3 to pre-train multimodal Transform- ers for Document AI w
+
+[HYBRID #4] Source=LayoutLMv3.pdf | Page=2 | Type=text
+Content: corresponds to an image patch. To learn this cross-modal alignment, we propose a Word-Patch Alignment (WPA) objective to predict whether the corresponding image patch of a text word is masked. Inspired by ViT [11] and ViLT [22], LayoutLMv3 directly lever- ages raw image patches from document images without complex pre-processing steps such as page object detection. LayoutLMv3 jointly learns image, text and multimodal representations in a Trans- former model with unified MLM, MIM and WPA objectiv
+
+[HYBRID #5] Source=Vision Transformer.pdf | Page=1 | Type=text
+Content: Transformer directly to images, with the fewest possible modiﬁcations. To do so, we split an image into patches and provide the sequence of linear embeddings of these patches as an input to a Trans- former. Image patches are treated the same way as tokens (words) in an NLP application. We train the model on image classiﬁcation in supervised fashion. When trained on mid-sized datasets such as ImageNet without strong regularization, these mod- els yield modest accuracies of a few percentage points
+
+[HYBRID #6] Source=LayoutLMv3.pdf | Page=4 | Type=text
+Content: between text words and image patches. The WPA objective is to predict whether the corresponding image patches of a text word are masked. Specifically, we assign an aligned label to an unmasked text token when its corresponding image tokens are also unmasked. Otherwise, we assign an unaligned label. We exclude the masked text tokens when calculating WPA loss to prevent the model from learning a correspondence between masked text words and image patches. We use a two-layer MLP head that inputs con
+
+[HYBRID #7] Source=LayoutLMv3.pdf | Page=2 | Type=text
+Content: (1) Image Embedding Image 𝑖𝑑𝑖1 𝑖𝑑𝑖2 𝑖𝑑𝑖3 𝑖𝑑𝑖4 𝑖𝑑𝑖5 𝑖𝑑𝑖6 𝑖𝑑𝑖7 𝑖𝑑𝑖8 𝑖𝑑𝑖9 Figure 2: Comparisons with existing works (e.g., DocFormer [2] and SelfDoc [31]) on (1) image embedding: our Lay- outLMv3 uses linear patches to reduce the computational bottleneck of CNNs and eliminate the need for region super- vision in training object detectors; (2) pre-training objectives on image modality: our LayoutLMv3 learns to reconstruct discrete image tokens of masked patches instead of raw pix- els or region feat
+
+[HYBRID #8] Source=LayoutLMv3.pdf | Page=2 | Type=image
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a computer and a computer with a text that reads,  OCR Text: _(2) Pre-training Objectives of Image Modality  | — | ra  |  |  I idn, idya, idys, | idyyidys, ides, ». |  I kde dia Fao  ! teh  | fication  Masked Word Masked Pai Origin Image Masked Region Token Classification Token Classi Reconstruction Feature Regression  in ist — Se ee ee Bost sS SS so  Multimodal Transformer  (1) Image Embedding  Linear Embeddi
+================================================================================
+
+================================================================================
+EXPLICIT FIGURE QUERY DETECTED
+================================================================================
+Requested Figure : 3
+================================================================================
+[FIGURE SOURCE HINT] Stage-1 sources mentioning Figure 3: ['LayoutLMv3.pdf']
+
+================================================================================
+FIGURE NUMBER RETRIEVAL
+================================================================================
+Requested Figure : 3
+Query            : According to Figure 3, how are the text tokens and image patches combined before being processed by the multimodal Transformer?
+Matched Images   : 35
+Rejected References : 6
+[MATCH 1] Source=BERT.pdf | Page=13 | Image=BERT_page13_render.png | Path=extracted_images\BERT_page13_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a textbook on the internet network  OCR Text: BERT (Ours)  OpenAl GPT  Figure 3: Differences in pre-training model architectures. BERT uses a bidirectional Transformer. OpenAI GPT uses a left-to-right Transformer. ELMo uses the concatenation o...
+[MATCH 2] Source=BERT.pdf | Page=14 | Image=BERT_page14_render.png | Path=extracted_images\BERT_page14_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a text book with an image of the text  OCR Text: * Learning rate (Adam): 5e-5, 3e-5, 2e-5 * Number of epochs: 2, 3, 4  We also observed that large data sets (e.g., 100k+ labeled training examples) were far less sensitive to hyperparameter choice...
+[MATCH 3] Source=BLIP-2.pdf | Page=4 | Image=BLIP-2_page4_img1.png | Path=extracted_images\BLIP-2_page4_img1.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a cat wearing sunglasses and looking up at the camera  OCR Text: No readable text found in this image.  Nearby Document Text: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models Image Encoder Input Image Learned Querie...
+[MATCH 4] Source=CLIP.pdf | Page=4 | Image=CLIP_page4_render.png | Path=extracted_images\CLIP_page4_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Learning Transferable Visual Models From Natural Language Supervision 4  bal...
+[MATCH 5] Source=CLIP.pdf | Page=5 | Image=CLIP_page5_render.png | Path=extracted_images\CLIP_page5_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: an example of the algorithm for the algorithm of the algorithm of the algorithm of the algorithm of the algorithm of  OCR Text: Learning Transferable Visual Models From Natural Language Supervision 5  # image_encoder - ResNet or Vision Transformer # text_...
+[MATCH 6] Source=CLIP.pdf | Page=38 | Image=CLIP_page38_render.png | Path=extracted_images\CLIP_page38_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: worksheet for algebra algebra algebra worksheet worksheet worksheet worksheet worksheet worksheet worksheet worksheet  OCR Text: Learning Transferable Visual Models From Natural Language Supervision 38  Montias ... pumps a lot of energy into his nicely nu...
+[MATCH 7] Source=CNN Paper.pdf | Page=2 | Image=CNN Paper_page2_img0.png | Path=extracted_images\CNN Paper_page2_img0.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: figure 2 training ratio curves  OCR Text: Accuracy  eo S FS SF FSF Ff oN BR DOD ®O OO  Figure 2: Training and Validation Curves over 20 Epochs  Model Accuracy  2.5 5.0 7.5 10.0 12.5 15.0 17.5 20.0 Epoch  Model Loss  2.5 5.0 7.5 10.0 12.5 15.0 17.5 20.0 Epoch  Nearby Do...
+[MATCH 8] Source=CNN Paper.pdf | Page=3 | Image=CNN Paper_page3_img0.png | Path=extracted_images\CNN Paper_page3_img0.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: figure 4 classification aneture flowchart  OCR Text: Figure 4: Image Classification System Architecture Flowchart  Input Image  Preprocessing (Resize, Normalize)  v  Valid Image?  y  Reject & CNN Feature Output Log Error Extraction Prediction  Nearby Document Text: 4. ...
+[MATCH 9] Source=CNN Paper.pdf | Page=3 | Image=CNN Paper_page3_img1.png | Path=extracted_images\CNN Paper_page3_img1.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a bar chart showing the number of different classes in each class  OCR Text: Number of Images  3500  3000  2500  2000  1500  1000  500  Figure 3: Dataset Class Distribution — Total 11,600 Images  Dog Bird Fish Rabbit Hamster Animal Class  Nearby Document Text: 4. Datas...
+[MATCH 10] Source=CNN Paper.pdf | Page=2 | Image=CNN Paper_page2_render.png | Path=extracted_images\CNN Paper_page2_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a chart showing the number of different types of water in the ocean  OCR Text: 2. Dataset Description  The dataset was compiled from three open-source repositories: ImageNet, Openlmages, and a custom web-scraped collection. Each image was manually verifie...
+[MATCH 11] Source=CNN Paper.pdf | Page=3 | Image=CNN Paper_page3_render.png | Path=extracted_images\CNN Paper_page3_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram showing the number of different types of aircrafts  OCR Text: 4. Dataset Class Distribution  The bar chart in Figure 3 provides a visual breakdown of image counts per class. The dataset is moderately imbalanced with a 4.77:1 ratio between the la...
+[MATCH 12] Source=Donut.pdf | Page=4 | Image=Donut_page4_img0.png | Path=extracted_images\Donut_page4_img0.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a person holding a receipt in their hand  OCR Text: No readable text found in this image.  Nearby Document Text: 4 G. Kim et al. <vqa><question>what is the price  of choco mochi?</question><answer> Converted JSON transformer  encoder Input Image and Prompt transformer ...
+[MATCH 13] Source=Donut.pdf | Page=4 | Image=Donut_page4_img1.png | Path=extracted_images\Donut_page4_img1.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont  OCR Text: No readable text found in this image.  Nearby Document Text: 4 G. Kim et al. <vqa><question>what is the pric...
+[MATCH 14] Source=Donut.pdf | Page=4 | Image=Donut_page4_render.png | Path=extracted_images\Donut_page4_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram showing the different types of the different types of the different types of the different types of the different  OCR Text: 4 G. Kim et al.  Input Image and Prompt Donut @ Output Sequence Converted JSON  {"class”s"recelpt* }  {°question": “what...
+[MATCH 15] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img0.png | Path=extracted_images\LayoutLMv3_page3_img0.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white document with a black and white image  OCR Text: Poros MEWSterten Bou ‘Monday, March 26; 1937.10:2840  {you fn fer con Yaga £7 eapnag Jee ban looting eo wath of stent J procats Mo pais'on this Sat:  ndlchoel doese’s want 19 raprix tho ofd FY! ord ta n...
+[MATCH 16] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img1.png | Path=extracted_images\LayoutLMv3_page3_img1.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white photo of a man in a suit and tie  OCR Text: “fuaneil, sey W.  ‘Michuat eisaant wart to rap Seine mona af 90 IF vind mistde.. Oudin Bid  battens” Coedieg Bieta  Nearby Document Text: Multimodal Transformer Seg1 [MASK] 1 + + Seg1 [MASK] 2 + + Seg2 T3 3 ...
+[MATCH 17] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img2.png | Path=extracted_images\LayoutLMv3_page3_img2.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a white paper with a black and white text on it  OCR Text: No readable text found in this image.  Nearby Document Text: Multimodal Transformer Seg1 [MASK] 1 + + Seg1 [MASK] 2 + + Seg2 T3 3 + + V1 [MASK] 1 + 2 + 3 + [MASK] [SPE] 0 + Seg3 T4 4 + + SegPAD [CLS] 0 + + 4 + ...
+[MATCH 18] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img3.png | Path=extracted_images\LayoutLMv3_page3_img3.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white poster with a quote on it  OCR Text: No readable text found in this image.  Nearby Document Text: Multimodal Transformer Seg1 [MASK] 1 + + Seg1 [MASK] 2 + + Seg2 T3 3 + + V1 [MASK] 1 + 2 + 3 + [MASK] [SPE] 0 + Seg3 T4 4 + + SegPAD [CLS] 0 + + 4 + V4 h...
+[MATCH 19] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img4.png | Path=extracted_images\LayoutLMv3_page3_img4.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a diagram showing the location of the location of the house and the location of the location of the house  OCR Text: No readable text found in this image.  Nearby Document Text: Multimodal Transformer Seg1 [MASK] 1 + + Seg1 [MASK] 2 + + Seg2 T3 3 + + V1 [MASK] 1 + 2 + ...
+[MATCH 20] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img5.png | Path=extracted_images\LayoutLMv3_page3_img5.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a letter from the department requesting that it is not available for sale  OCR Text: No readable text found in this image.  Nearby Document Text: Multimodal Transformer Seg1 [MASK] 1 + + Seg1 [MASK] 2 + + Seg2 T3 3 + + V1 [MASK] 1 + 2 + 3 + [MASK] [SPE] 0 + Seg3 T4 4 +...
+[MATCH 21] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img6.png | Path=extracted_images\LayoutLMv3_page3_img6.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a white sheet with a black and white image of a black and white image of a black and white image  OCR Text: No readable text found in this image.  Nearby Document Text: Multimodal Transformer Seg1 [MASK] 1 + + Seg1 [MASK] 2 + + Seg2 T3 3 + + V1 [MASK] 1 + 2 + 3 + [MASK...
+[MATCH 22] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img7.png | Path=extracted_images\LayoutLMv3_page3_img7.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white photo of a man in a suit and tie  OCR Text: Ciro: Matnoe’ ‘Suniect: (ICL VANTAGE HOWS Geter antuy, Mace 34), 127  Beni¥ ln haa abamey bane Sram foal Cre ea ea ves.  ar HE VANTAGE NEY. Bae Gunter, orth er  deccenoateld ei ee  Nearby Document Text: Mult...
+[MATCH 23] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img8.png | Path=extracted_images\LayoutLMv3_page3_img8.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white photo of a man in a suit and tie  OCR Text: No readable text found in this image.  Nearby Document Text: Multimodal Transformer Seg1 [MASK] 1 + + Seg1 [MASK] 2 + + Seg2 T3 3 + + V1 [MASK] 1 + 2 + 3 + [MASK] [SPE] 0 + Seg3 T4 4 + + SegPAD [CLS] 0 + + 4...
+[MATCH 24] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img9.png | Path=extracted_images\LayoutLMv3_page3_img9.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white photo of a man in a suit  OCR Text: (ebadk Lunlhias 116 ahghty hos Sree ierty we win wed We paid ase Bree  Nearby Document Text: Multimodal Transformer Seg1 [MASK] 1 + + Seg1 [MASK] 2 + + Seg2 T3 3 + + V1 [MASK] 1 + 2 + 3 + [MASK] [SPE] 0 + Seg3 T4 4 ...
+[MATCH 25] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_render.png | Path=extracted_images\LayoutLMv3_page3_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram of the structure of a computer system  OCR Text: Ty Tz  Pre-training  Objectives MLM Head  Unaligned Aligned  V2 V3  MIM Head  Multimodal Transformer  2D Position  Embedding Seba) (Sees ] Seaewo) (see) [sees] [sees] [sess] Seseso) [Ptcheno} Pate...
+[MATCH 26] Source=NLP Paper.pdf | Page=4 | Image=NLP Paper_page4_img0.png | Path=extracted_images\NLP Paper_page4_img0.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: figure 3 timing curves for dbtn, dbtn, and dbtn  OCR Text: Cross-Entropy Loss  Figure 3: Training Loss Curves for BiLSTM, BERT, and RoBERTa over 15 Epochs  BiLSTM i-BERT—— RoBERTa  Nearby Document Text: 4. Training Dynamics Figure 3 shows training loss curves for BiLST...
+[MATCH 27] Source=NLP Paper.pdf | Page=4 | Image=NLP Paper_page4_img1.png | Path=extracted_images\NLP Paper_page4_img1.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: figure 1 self - self - self - self - self - self - self - self - self - self - self - self - self - self self self - self self self self self self self self self self self self self self self self self self self self self self self self self self self self  OCR Text: F...
+[MATCH 28] Source=NLP Paper.pdf | Page=4 | Image=NLP Paper_page4_render.png | Path=extracted_images\NLP Paper_page4_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a graph graph with a line graph and a line graph with a line graph and a line graph with a  OCR Text: 4. Training Dynamics  Figure 3 shows training loss curves for BILSTM, BERT, and ROBERTa over 15 epochs. ROBERTa converges fastest, reaching a loss below ...
+[MATCH 29] Source=RAG.pdf | Page=8 | Image=RAG_page8_render.png | Path=extracted_images\RAG_page8_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Table 4: Human assessments for the Jeopardy Table 5: Ratio of distinct to total tri-grams for Question Generation Task. generation tas...
+[MATCH 30] Source=Self-RAG.pdf | Page=9 | Image=Self-RAG_page9_render.png | Path=extracted_images\Self-RAG_page9_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the textbook on the characterization and characterization of semiconductors in semiconductors and semiconductors  OCR Text: Preprint.  PubHealth  POA Med AS : 70.5 aan 1.0 >  (acc) (acc) (em) § $0.99 ose Training 0.98 0.0 NoRetrieverR 43.6 67....
+[MATCH 31] Source=Self-RAG.pdf | Page=10 | Image=Self-RAG_page10_render.png | Path=extracted_images\Self-RAG_page10_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Preprint.  in wu  g 50 23 Pop Bio. 5 60 &“ 7? S&P 92.5 70.0 & 40 n 95.0 90.0...
+[MATCH 32] Source=Vision Transformer.pdf | Page=6 | Image=Vision Transformer_page6_render.png | Path=extracted_images\Vision Transformer_page6_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with a bar chart and a bar chart on it  OCR Text: Published as a conference paper at ICLR 2021  Ours-JFT Ours-JFT Ours-I21k BiT-L Noisy Student  (ViT-H/14) = (ViT-L/16) —- (ViT-L/16) (ResNet152x4) (EfficientNet-L2) ImageNet 88.5540.04 87.764003 85...
+[MATCH 33] Source=Vision Transformer.pdf | Page=7 | Image=Vision Transformer_page7_render.png | Path=extracted_images\Vision Transformer_page7_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal on the characterization and characterization of a single - cell cell  OCR Text: Published as a conference paper at ICLR 2021  =J o  oe] wr  BiT- ViT-BB2- O...ViT-B/16. CO} iT-H/14 |  ImageNet Top! Accuracy (%]  Linear 5-shot ImageN...
+[MATCH 34] Source=Vision Transformer.pdf | Page=14 | Image=Vision Transformer_page14_render.png | Path=extracted_images\Vision Transformer_page14_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with the title of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Published as a conference paper at ICLR 2021  Dataset Steps Base LR ImageNet 2000...
+[MATCH 35] Source=Vision Transformer.pdf | Page=15 | Image=Vision Transformer_page15_render.png | Path=extracted_images\Vision Transformer_page15_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: the table shows the number of different types of the different types of the different types of the different types of  OCR Text: Published as a conference paper at ICLR 2021  ViT-B/16 ViT-B/32-ViT-L/16—ViT-L/32.—s: ViT-H/14  ImageNet CIFAR-10 98.13 97.77 ...
+[REJECTED 1] Source=BLIP-2.pdf | Page=4 | Image=BLIP-2_page4_render.png
+    Reason   : Cross-reference rather than actual Figure 3
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the journal of the journal of the journal of the journal of the journal of the journal of the journal of the  OCR Text: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models  Boot...
+[REJECTED 2] Source=CNN Paper.pdf | Page=5 | Image=CNN Paper_page5_render.png
+    Reason   : Cross-reference rather than actual Figure 3
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a table with a number of different items on it  OCR Text: 7. Discussion  The CNN model achieves strong overall performance with a weighted F1 score of 0.926. However, several limitations and areas for improvement were identified during evaluation.  7.1 St...
+[REJECTED 3] Source=Donut.pdf | Page=5 | Image=Donut_page5_render.png
+    Reason   : Cross-reference rather than actual Figure 3
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a text book with an image of a person in the background  OCR Text: OOCR-free Document Understanding Transformer 5  Decoder. Given the {z}, the textual decoder generates a token sequence (yi)*1, where y;€R” is an one-hot vector for the i-th token...
+[REJECTED 4] Source=Donut.pdf | Page=6 | Image=Donut_page6_render.png
+    Reason   : Cross-reference rather than actual Figure 3
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a book with a picture of a person in the background  OCR Text: 6 G. Kim et al.  Wak gaGHIe - —— ATP  Fig. 4. Generated English, Chinese, Japanese, and Korean samples with SynthDoG. Heuristic random patterns are applied to mimic the real document...
+[REJECTED 5] Source=Donut.pdf | Page=8 | Image=Donut_page8_render.png
+    Reason   : Cross-reference rather than actual Figure 3
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a book with the title of the text  OCR Text: 8 G. Kim et al.  nested groups and hierarchies such as items>item>{name, count, price}) in the information. See Figure 1 for more details.  Ticket. This is a public benchmark dataset [12] that consist...
+[REJECTED 6] Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_render.png
+    Reason   : Cross-reference rather than actual Figure 3
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a computer and a computer with a text that reads,  OCR Text: _(2) Pre-training Objectives of Image Modality  | — | ra  |  |  I idn, idya, idys, | idyyidys, ides, ». |  I kde dia Fao  ! teh  | fication  Masked Word...
+Matched Sources  : ['BERT.pdf', 'BLIP-2.pdf', 'CLIP.pdf', 'CNN Paper.pdf', 'Donut.pdf', 'LayoutLMv3.pdf', 'NLP Paper.pdf', 'RAG.pdf', 'Self-RAG.pdf', 'Vision Transformer.pdf']
+Matched Pages    : ['10', '13', '14', '15', '2', '3', '38', '4', '5', '6', '7', '8', '9']
+[FIGURE LOOKUP] High-confidence figure reference found. Generic CLIP fallback should not be used.
+================================================================================
+[FIGURE IMAGE DEDUPLICATION] 11 -> 1 authoritative image(s), one per source/page.
+
+================================================================================
+EXACT FIGURE RETRIEVAL RESULT
+================================================================================
+Requested Figure : 3
+Exact Match      : True
+Matched Images   : 1
+[EXACT FIGURE #1] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_render.png | Path=extracted_images\LayoutLMv3_page3_render.png
+================================================================================
+[FIGURE PIPELINE] Explicit figure/page image match found. CLIP fallback disabled.
+
+================================================================================
+STAGE 2 — IMAGE RETRIEVAL RESULT
+================================================================================
+Image Results       : 1
+Exact Figure Match  : True
+
+[IMAGE #1] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_render.png
+Image Path: extracted_images\LayoutLMv3_page3_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram of the structure of a computer system  OCR Text: Ty Tz  Pre-training  Objectives MLM Head  Unaligned Aligned  V2 V3  MIM Head  Multimodal Transformer  2D Position  Embedding Seba) (Sees ] Seaewo) (see) [sees] [sees] [sess] Seseso) [Ptcheno} Patehs) (Pate [Pats] Pach) pa ae aoe soins SBOOae Embedding [3 | [4 |  “a oes bee e  OCR Parser Masking  Word Embedding  Document Image  ) foas) fas) ce  ween 1 een leet ’ (V2) (V3)  - Flatten Linear = | 
+================================================================================
+
+================================================================================
+COMBINED RETRIEVAL CANDIDATES
+================================================================================
+Text Candidates  : 8
+Image Candidates : 1
+Total Candidates : 9
+================================================================================
+
+================================================================================
+STEP 3A — RERANKER INPUT
+================================================================================
+Query: According to Figure 3, how are the text tokens and image patches combined before being processed by the multimodal Transformer?
+Input candidates: 9
+01. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=ing, we propose LayoutLMv3 to pre-train multimodal Transform- ers for Document AI with unified text and image masking objectives MLM and MIM. As shown in Figure 3, LayoutLMv3 learn
+02. Source=LayoutLMv3.pdf | Page=3 | Type=text | Image=N/A
+    Content=+ Patch3 + PatchPAD + Patch4 + Image PatchesDocument Image Resize Split (Unaligned) (Aligned) (T1) (T2) (V2) (V3) Linear Embedding Word Embedding Figure 3: The architecture and pre
+03. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=discrete image tokens of masked patches instead of raw pix- els or region features to capture high-level layout structures rather than noisy details. tokens) objectives further add
+04. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=corresponds to an image patch. To learn this cross-modal alignment, we propose a Word-Patch Alignment (WPA) objective to predict whether the corresponding image patch of a text wor
+05. Source=Vision Transformer.pdf | Page=1 | Type=text | Image=N/A
+    Content=Transformer directly to images, with the fewest possible modiﬁcations. To do so, we split an image into patches and provide the sequence of linear embeddings of these patches as an
+06. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=between text words and image patches. The WPA objective is to predict whether the corresponding image patches of a text word are masked. Specifically, we assign an aligned label to
+07. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=(1) Image Embedding Image 𝑖𝑑𝑖1 𝑖𝑑𝑖2 𝑖𝑑𝑖3 𝑖𝑑𝑖4 𝑖𝑑𝑖5 𝑖𝑑𝑖6 𝑖𝑑𝑖7 𝑖𝑑𝑖8 𝑖𝑑𝑖9 Figure 2: Comparisons with existing works (e.g., DocFormer [2] and SelfDoc [31]) on (1) image embedding: our 
+08. Source=LayoutLMv3.pdf | Page=2 | Type=image | Image=extracted_images\LayoutLMv3_page2_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a computer and a computer with a text that reads,  OCR Text: _(2) Pre-training Objectives of 
+09. Source=LayoutLMv3.pdf | Page=3 | Type=image | Image=extracted_images\LayoutLMv3_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram of the structure of a computer system  OCR Text: Ty Tz  Pre-training  Objectives MLM Head  Unaligned Aligned  V2 V3  MIM Head
+================================================================================
+
+--------------------------------------------------------------------------------
+CROSS-ENCODER RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=00 | Source=LayoutLMv3.pdf | Page=2 | Type=text | CE=3.8256
+Rank=02 | OriginalIndex=01 | Source=LayoutLMv3.pdf | Page=3 | Type=text | CE=2.7388
+Rank=03 | OriginalIndex=04 | Source=Vision Transformer.pdf | Page=1 | Type=text | CE=1.1762
+Rank=04 | OriginalIndex=08 | Source=LayoutLMv3.pdf | Page=3 | Type=image | CE=0.4780
+Rank=05 | OriginalIndex=02 | Source=LayoutLMv3.pdf | Page=2 | Type=text | CE=0.3172
+Rank=06 | OriginalIndex=03 | Source=LayoutLMv3.pdf | Page=2 | Type=text | CE=-0.1627
+Rank=07 | OriginalIndex=07 | Source=LayoutLMv3.pdf | Page=2 | Type=image | CE=-1.2698
+Rank=08 | OriginalIndex=05 | Source=LayoutLMv3.pdf | Page=4 | Type=text | CE=-1.4289
+Rank=09 | OriginalIndex=06 | Source=LayoutLMv3.pdf | Page=2 | Type=text | CE=-2.3561
+
+--------------------------------------------------------------------------------
+CLIP IMAGE RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=08 | Source=LayoutLMv3.pdf | Page=3 | Image=extracted_images\LayoutLMv3_page3_render.png | CLIP=0.2572
+Rank=02 | OriginalIndex=07 | Source=LayoutLMv3.pdf | Page=2 | Image=extracted_images\LayoutLMv3_page2_render.png | CLIP=0.2323
+
+================================================================================
+STEP 3A — COMPLETE MULTIMODAL RERANK RESULT
+================================================================================
+Rank=01 | Type=image | Source=LayoutLMv3.pdf | Page=3 | RRF=0.032018 | CE=0.4780 | CLIP=0.2572
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram of the structure of a computer system  OCR Text: Ty Tz  Pre-training  Objectives MLM Head  Unaligned Aligned  V2 V3  MIM Head
+Rank=02 | Type=image | Source=LayoutLMv3.pdf | Page=2 | RRF=0.031054 | CE=-1.2698 | CLIP=0.2323
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a computer and a computer with a text that reads,  OCR Text: _(2) Pre-training Objectives of 
+Rank=03 | Type=text | Source=LayoutLMv3.pdf | Page=2 | RRF=0.016393 | CE=3.8256 | CLIP=N/A
+    Content=ing, we propose LayoutLMv3 to pre-train multimodal Transform- ers for Document AI with unified text and image masking objectives MLM and MIM. As shown in Figure 3, LayoutLMv3 learn
+Rank=04 | Type=text | Source=LayoutLMv3.pdf | Page=3 | RRF=0.016129 | CE=2.7388 | CLIP=N/A
+    Content=+ Patch3 + PatchPAD + Patch4 + Image PatchesDocument Image Resize Split (Unaligned) (Aligned) (T1) (T2) (V2) (V3) Linear Embedding Word Embedding Figure 3: The architecture and pre
+Rank=05 | Type=text | Source=Vision Transformer.pdf | Page=1 | RRF=0.015873 | CE=1.1762 | CLIP=N/A
+    Content=Transformer directly to images, with the fewest possible modiﬁcations. To do so, we split an image into patches and provide the sequence of linear embeddings of these patches as an
+Rank=06 | Type=text | Source=LayoutLMv3.pdf | Page=2 | RRF=0.015385 | CE=0.3172 | CLIP=N/A
+    Content=discrete image tokens of masked patches instead of raw pix- els or region features to capture high-level layout structures rather than noisy details. tokens) objectives further add
+Rank=07 | Type=text | Source=LayoutLMv3.pdf | Page=2 | RRF=0.015152 | CE=-0.1627 | CLIP=N/A
+    Content=corresponds to an image patch. To learn this cross-modal alignment, we propose a Word-Patch Alignment (WPA) objective to predict whether the corresponding image patch of a text wor
+Rank=08 | Type=text | Source=LayoutLMv3.pdf | Page=4 | RRF=0.014706 | CE=-1.4289 | CLIP=N/A
+    Content=between text words and image patches. The WPA objective is to predict whether the corresponding image patches of a text word are masked. Specifically, we assign an aligned label to
+Rank=09 | Type=text | Source=LayoutLMv3.pdf | Page=2 | RRF=0.014493 | CE=-2.3561 | CLIP=N/A
+    Content=(1) Image Embedding Image 𝑖𝑑𝑖1 𝑖𝑑𝑖2 𝑖𝑑𝑖3 𝑖𝑑𝑖4 𝑖𝑑𝑖5 𝑖𝑑𝑖6 𝑖𝑑𝑖7 𝑖𝑑𝑖8 𝑖𝑑𝑖9 Figure 2: Comparisons with existing works (e.g., DocFormer [2] and SelfDoc [31]) on (1) image embedding: our 
+================================================================================
+
+================================================================================
+STEP 3A — FINAL RERANK TOP-K
+================================================================================
+Requested top_k: 12
+Returned documents: 9
+01. Source=LayoutLMv3.pdf | Page=3 | Type=image | Image=extracted_images\LayoutLMv3_page3_render.png
+02. Source=LayoutLMv3.pdf | Page=2 | Type=image | Image=extracted_images\LayoutLMv3_page2_render.png
+03. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+04. Source=LayoutLMv3.pdf | Page=3 | Type=text | Image=N/A
+05. Source=Vision Transformer.pdf | Page=1 | Type=text | Image=N/A
+06. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+07. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+08. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+09. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+================================================================================
+
+================================================================================
+STAGE 3 — MULTIMODAL RERANKING
+================================================================================
+Input Candidates : 9
+Reranked Output   : 9
+
+[RERANK #1] Source=LayoutLMv3.pdf | Page=3 | Type=image
+Exact Figure : True
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram of the structure of a computer system  OCR Text: Ty Tz  Pre-training  Objectives MLM Head  Unaligned Aligned  V2 V3  MIM Head  Multimodal Transformer  2D Position  Embedding Seba) (Sees ] Seaewo) (see) [sees] [sees] [sess] Seseso) [Ptcheno} Pate
+
+[RERANK #2] Source=LayoutLMv3.pdf | Page=2 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a computer and a computer with a text that reads,  OCR Text: _(2) Pre-training Objectives of Image Modality  | — | ra  |  |  I idn, idya, idys, | idyyidys, ides, ». |  I kde dia Fao  ! teh  | fication  Masked Word
+
+[RERANK #3] Source=LayoutLMv3.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: ing, we propose LayoutLMv3 to pre-train multimodal Transform- ers for Document AI with unified text and image masking objectives MLM and MIM. As shown in Figure 3, LayoutLMv3 learns to recon- struct masked word tokens of the text modality and symmetrically reconstruct masked patch tokens of the imag
+
+[RERANK #4] Source=LayoutLMv3.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: + Patch3 + PatchPAD + Patch4 + Image PatchesDocument Image Resize Split (Unaligned) (Aligned) (T1) (T2) (V2) (V3) Linear Embedding Word Embedding Figure 3: The architecture and pre-training objectives of LayoutLMv3. LayoutLMv3 is a pre-trained multimodal Transformer for Document AI with unified text
+
+[RERANK #5] Source=Vision Transformer.pdf | Page=1 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Transformer directly to images, with the fewest possible modiﬁcations. To do so, we split an image into patches and provide the sequence of linear embeddings of these patches as an input to a Trans- former. Image patches are treated the same way as tokens (words) in an NLP application. We train the 
+
+[RERANK #6] Source=LayoutLMv3.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: discrete image tokens of masked patches instead of raw pix- els or region features to capture high-level layout structures rather than noisy details. tokens) objectives further add difficulty to cross-modal alignment learning, which is essential to multimodal representation learning. To overcome the
+
+[RERANK #7] Source=LayoutLMv3.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: corresponds to an image patch. To learn this cross-modal alignment, we propose a Word-Patch Alignment (WPA) objective to predict whether the corresponding image patch of a text word is masked. Inspired by ViT [11] and ViLT [22], LayoutLMv3 directly lever- ages raw image patches from document images 
+
+[RERANK #8] Source=LayoutLMv3.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: between text words and image patches. The WPA objective is to predict whether the corresponding image patches of a text word are masked. Specifically, we assign an aligned label to an unmasked text token when its corresponding image tokens are also unmasked. Otherwise, we assign an unaligned label. 
+
+[RERANK #9] Source=LayoutLMv3.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: (1) Image Embedding Image 𝑖𝑑𝑖1 𝑖𝑑𝑖2 𝑖𝑑𝑖3 𝑖𝑑𝑖4 𝑖𝑑𝑖5 𝑖𝑑𝑖6 𝑖𝑑𝑖7 𝑖𝑑𝑖8 𝑖𝑑𝑖9 Figure 2: Comparisons with existing works (e.g., DocFormer [2] and SelfDoc [31]) on (1) image embedding: our Lay- outLMv3 uses linear patches to reduce the computational bottleneck of CNNs and eliminate the need for region super-
+================================================================================
+
+================================================================================
+FINAL CONTEXT DOCUMENTS
+================================================================================
+Final context candidates: 9
+
+[FINAL #1] Source=LayoutLMv3.pdf | Page=3 | Type=image
+Exact Figure : True
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram of the structure of a computer system  OCR Text: Ty Tz  Pre-training  Objectives MLM Head  Unaligned Aligned  V2 V3  MIM Head  Multimodal Transformer  2D Position  Embedding Seba) (Sees ] Seaewo) (see) [sees] [sees] [sess] Seseso) [Ptcheno} Pate
+
+[FINAL #2] Source=LayoutLMv3.pdf | Page=2 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a computer and a computer with a text that reads,  OCR Text: _(2) Pre-training Objectives of Image Modality  | — | ra  |  |  I idn, idya, idys, | idyyidys, ides, ». |  I kde dia Fao  ! teh  | fication  Masked Word
+
+[FINAL #3] Source=LayoutLMv3.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: ing, we propose LayoutLMv3 to pre-train multimodal Transform- ers for Document AI with unified text and image masking objectives MLM and MIM. As shown in Figure 3, LayoutLMv3 learns to recon- struct masked word tokens of the text modality and symmetrically reconstruct masked patch tokens of the imag
+
+[FINAL #4] Source=LayoutLMv3.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: + Patch3 + PatchPAD + Patch4 + Image PatchesDocument Image Resize Split (Unaligned) (Aligned) (T1) (T2) (V2) (V3) Linear Embedding Word Embedding Figure 3: The architecture and pre-training objectives of LayoutLMv3. LayoutLMv3 is a pre-trained multimodal Transformer for Document AI with unified text
+
+[FINAL #5] Source=Vision Transformer.pdf | Page=1 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Transformer directly to images, with the fewest possible modiﬁcations. To do so, we split an image into patches and provide the sequence of linear embeddings of these patches as an input to a Trans- former. Image patches are treated the same way as tokens (words) in an NLP application. We train the 
+
+[FINAL #6] Source=LayoutLMv3.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: discrete image tokens of masked patches instead of raw pix- els or region features to capture high-level layout structures rather than noisy details. tokens) objectives further add difficulty to cross-modal alignment learning, which is essential to multimodal representation learning. To overcome the
+
+[FINAL #7] Source=LayoutLMv3.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: corresponds to an image patch. To learn this cross-modal alignment, we propose a Word-Patch Alignment (WPA) objective to predict whether the corresponding image patch of a text word is masked. Inspired by ViT [11] and ViLT [22], LayoutLMv3 directly lever- ages raw image patches from document images 
+
+[FINAL #8] Source=LayoutLMv3.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: between text words and image patches. The WPA objective is to predict whether the corresponding image patches of a text word are masked. Specifically, we assign an aligned label to an unmasked text token when its corresponding image tokens are also unmasked. Otherwise, we assign an unaligned label. 
+
+[FINAL #9] Source=LayoutLMv3.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: (1) Image Embedding Image 𝑖𝑑𝑖1 𝑖𝑑𝑖2 𝑖𝑑𝑖3 𝑖𝑑𝑖4 𝑖𝑑𝑖5 𝑖𝑑𝑖6 𝑖𝑑𝑖7 𝑖𝑑𝑖8 𝑖𝑑𝑖9 Figure 2: Comparisons with existing works (e.g., DocFormer [2] and SelfDoc [31]) on (1) image embedding: our Lay- outLMv3 uses linear patches to reduce the computational bottleneck of CNNs and eliminate the need for region super-
+================================================================================
+
+================================================================================
+FIGURE FINAL-CONTEXT DIAGNOSTIC
+================================================================================
+Requested Figure     : 3
+Exact Figure Match   : True
+Present In Final     : True
+[FIGURE DIAGNOSTIC] PASS — exact figure/page image evidence survived into final context.
+================================================================================
+
+================================================================================
+FINAL CONTEXT SENT TO LLM
+================================================================================
+
+================================================================================
+DOCUMENT : LayoutLMv3.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 2
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+ing, we propose LayoutLMv3 to pre-train multimodal Transform-
+ers for Document AI with unified text and image masking objectives
+MLM and MIM. As shown in Figure 3, LayoutLMv3 learns to recon-
+struct masked word tokens of the text modality and symmetrically
+reconstruct masked patch tokens of the image modality. Inspired
+by DALL-E [43] and BEiT [3], we obtain the target image tokens
+from latent codes of a discrete VAE. For documents, each text word
+corresponds to an image patch. To learn this cross-modal alignment,
+we propose a Word-Patch Alignment (WPA) objective to predict
+
+
+[TEXT]
+
+discrete image tokens of masked patches instead of raw pix-
+els or region features to capture high-level layout structures
+rather than noisy details.
+tokens) objectives further add difficulty to cross-modal alignment
+learning, which is essential to multimodal representation learning.
+To overcome the discrepancy in pre-training objectives of text
+and image modalities and facilitate multimodal representation learn-
+ing, we propose LayoutLMv3 to pre-train multimodal Transform-
+ers for Document AI with unified text and image masking objectives
+
+
+[TEXT]
+
+corresponds to an image patch. To learn this cross-modal alignment,
+we propose a Word-Patch Alignment (WPA) objective to predict
+whether the corresponding image patch of a text word is masked.
+Inspired by ViT [11] and ViLT [22], LayoutLMv3 directly lever-
+ages raw image patches from document images without complex
+pre-processing steps such as page object detection. LayoutLMv3
+jointly learns image, text and multimodal representations in a Trans-
+former model with unified MLM, MIM and WPA objectives. This
+makes LayoutLMv3 the first multimodal pre-trained Document AI
+
+
+[TEXT]
+
+(1) Image Embedding
+Image
+𝑖𝑑𝑖1 𝑖𝑑𝑖2 𝑖𝑑𝑖3
+𝑖𝑑𝑖4 𝑖𝑑𝑖5 𝑖𝑑𝑖6
+𝑖𝑑𝑖7 𝑖𝑑𝑖8 𝑖𝑑𝑖9
+Figure 2: Comparisons with existing works (e.g., DocFormer
+[2] and SelfDoc [31]) on (1) image embedding: our Lay-
+outLMv3 uses linear patches to reduce the computational
+bottleneck of CNNs and eliminate the need for region super-
+vision in training object detectors; (2) pre-training objectives
+on image modality: our LayoutLMv3 learns to reconstruct
+discrete image tokens of masked patches instead of raw pix-
+els or region features to capture high-level layout structures
+rather than noisy details.
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a page from the book, showing an image of a computer and a computer with a text that reads,
+
+OCR Text:
+_(2) Pre-training Objectives of Image Modality
+
+|
+— |
+ra
+
+|
+
+|
+
+I
+idn, idya, idys, |
+idyyidys, ides, ». |
+
+I kde dia Fao
+
+! teh
+
+| fication
+
+Masked Word Masked Pai Origin Image Masked Region
+Token Classification Token Classi Reconstruction Feature Regression
+
+in
+ist
+— Se ee ee Bost sS SS so
+
+Multimodal Transformer
+
+(1) Image Embedding
+
+Linear Embedding Visual Transformer (Optional) |
+coc
+
+“A lew
+number of
+tumor cell...”
+
+Faster R-CNN
+
+(a) Patch (b) Grid
+(LayoutLMv3) — (e.g., DocFormer)
+
+(c) Region
+{e.g., SelfDac)
+
+Figure 2: Comparisons with existing works (e.g., DocFormer
+[2] and SelfDoc [31]) on (1) image embedding: our Lay-
+outLMv3 uses linear patches to reduce the computational
+bottleneck of CNNs and eliminate the need for region super-
+vision in training object detectors; (2) pre-training objectives
+on image modality: our LayoutLMv3 learns to reconstruct
+discrete image tokens of masked patches instead of raw pix-
+els or region features to capture high-level layout structures
+rather than noisy details.
+
+tokens) objectives further add difficulty to cross-modal alignment
+learning, which is essential to multimodal representation learning.
+
+To overcome the discrepancy in pre-training objectives of text
+and image modalities and facilitate multimodal representation learn-
+ing, we propose LayoutLMv3 to pre-train multimodal Transform-
+ers for Document Al with unified text and image masking objectives
+MLM and MIM. As shown in Figure 3, LayoutLMv3 learns to recon-
+struct masked word tokens of the text modality and symmetrically
+reconstruct masked patch tokens of the image modality. Inspired
+by DALL-E [43] and BEiT [3], we obtain the target image tokens
+from latent codes of a discrete VAE. For documents, each text word
+corresponds to an image patch. To learn this cross-modal alignment,
+we propose a Word-Patch Alignment (WPA) objective to predict
+whether the corresponding image patch of a text word is masked.
+
+Inspired by ViT [11] and ViLT [22], LayoutLMv3 directly lever-
+ages raw image patches from document images without complex
+pre-processing steps such as page object detection. LayoutLMv3
+jointly learns image, text and multimodal representations in a Trans-
+former model with unified MLM, MIM and WPA objectives. This
+makes LayoutLMv3 the first multimodal pre-trained Document AI
+
+model without CNNs for image embeddings, which significantly
+saves parameters and gets rid of region annotations. The simple
+unified architecture and objectives make LayoutLMv3 a general-
+purpose pre-trained model for both text-centric tasks and image-
+centric Document AI tasks.
+
+We evaluated pre-trained LayoutLMv3 models across five pub-
+lic benchmarks, including text-centric benchmarks: FUNSD [20]
+for form understanding, CORD [39] for receipt understanding,
+DocVQA [38] for document visual question answering, and image-
+centric benchmarks: RVL-CDIP [16] for document image classifi-
+cation, PubLayNet [59] for document layout analysis. Experiment
+results demonstrate that LayoutLMv3 achieves state-of-the-art per-
+formance on these benchmarks with parameter efficiency. Further-
+more, LayoutLMv3 is easy to reproduce for its simple and neat
+architecture and pre-training objectives.
+
+Our contributions are summarized as follows:
+
+e LayoutLMv3 is the first multimodal model in Document AI
+that does not rely on a pre-trained CNN or Faster R-CNN
+backbone to extract visual features, which significantly saves
+parameters and eliminates region annotations.
+
+e LayoutLMv3 mitigates the discrepancy between text and
+image multimodal representation learning with unified dis-
+crete token reconstructive objectives MLM and MIM. We
+further propose a Word-Patch Alignment (WPA) objective
+to facilitate cross-modal alignment learning.
+
+e LayoutLMv3 is a general-purpose model for both text-centric
+and image-centric Document AI tasks. For the first time, we
+demonstrate the generality of multimodal Transformers to
+vision tasks in Document AI.
+
+° Experimental results show that LayoutLMv3 achieves state-
+of-the-art performance in text-centric tasks and image-centric
+tasks in Document AI. The code and models are publicly
+available at https://aka.ms/layoutlmv3.
+
+2 LAYOUTLMV3
+
+Figure 3 gives an overview of the LayoutLMv3.
+
+2.1 Model Architecture
+
+LayoutLMv3 applies a unified text-image multimodal Transformer
+to learn cross-modal representations. The Transformer has a multi-
+layer architecture and each layer mainly consists of multi-head
+self-attention and position-wise fully connected feed-forward net-
+works [49]. The input of Transformer is a concatenation of text
+embedding Y = yy. and image embedding X = x.y sequences,
+where L and M are sequence lengths for text and image respectively.
+Through the Transformer, the last layer outputs text-and-image
+contextual representations.
+
+Text Embedding. Text embedding is a combination of word em-
+beddings and position embeddings. We pre-processed document
+images with an off-the-shelf OCR toolkit to obtain textual con-
+tent and corresponding 2D position information. We initialize the
+word embeddings with a word embedding matrix from a pre-trained
+model RoBERTa [36]. The position embeddings include 1D position
+and 2D layout position embeddings, where the 1D position refers
+to the index of tokens within the text sequence, and the 2D lay-
+out position refers to the bounding box coordinates of the text
+
+Nearby Document Text:
+Faster R-CNN
+Linear Embedding
+CNN
+Word Embedding
+Masked Word 
+Token Classification
+Visual Transformer (Optional)
+Origin Image 
+Reconstruction
+(a) Patch
+(LayoutLMv3)
+“A few 
+number of 
+tumor cell…”
+Masked Patch 
+Token Classification
+(c) Region
+(e.g., SelfDoc)
+(b) Grid
+(e.g., DocFormer)
+Masked Region 
+Feature Regression
+𝑖𝑑𝑡1, 𝑖𝑑𝑡2, 𝑖𝑑𝑡3,
+𝑖𝑑𝑡4, 𝑖𝑑𝑡5, 𝑖𝑑𝑡6, …
+Text
+Multimodal Transformer
+(2) Pre-training Objectives of Image Modality
+(1) Image Embedding
+Image
+𝑖𝑑𝑖1 𝑖𝑑𝑖2 𝑖𝑑𝑖3
+𝑖𝑑𝑖4 𝑖𝑑𝑖5 𝑖𝑑𝑖6
+𝑖𝑑𝑖7 𝑖𝑑𝑖8 𝑖𝑑𝑖9
+Figure 2: Comparisons with existing works (e.g., DocFormer
+[2] and SelfDoc [31]) on (1) image emb
+
+
+[RELATED PAGE TEXT]
+
+ing, we propose LayoutLMv3 to pre-train multimodal Transform-
+ers for Document AI with unified text and image masking objectives
+MLM and MIM. As shown in Figure 3, LayoutLMv3 learns to recon-
+struct masked word tokens of the text modality and symmetrically
+reconstruct masked patch tokens of the image modality. Inspired
+by DALL-E [43] and BEiT [3], 
+
+
+--------------------------------------------------------------------------------
+PAGE : 3
+--------------------------------------------------------------------------------
+
+[TEXT]
+
++
+Patch3
++
+PatchPAD
++
+Patch4
++
+Image PatchesDocument Image
+Resize
+Split
+(Unaligned)
+(Aligned)
+(T1) (T2) (V2) (V3)
+Linear
+Embedding
+Word
+Embedding
+Figure 3: The architecture and pre-training objectives of LayoutLMv3. LayoutLMv3 is a pre-trained multimodal Transformer
+for Document AI with unified text and image masking objectives. Given an input document image and its corresponding text
+and layout position information, the model takes the linear projection of patches and word tokens as inputs and encodes them
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a diagram of the structure of a computer system
+
+OCR Text:
+Ty Tz
+
+Pre-training
+
+Objectives MLM Head
+
+Unaligned Aligned
+
+V2 V3
+
+MIM Head
+
+Multimodal Transformer
+
+2D Position
+
+Embedding Seba) (Sees ] Seaewo) (see) [sees] [sees] [sess] Seseso) [Ptcheno} Patehs) (Pate [Pats] Pach)
+pa ae aoe soins SBOOae
+Embedding [3 | [4 |
+
+“a oes bee e
+
+OCR Parser
+Masking
+
+Word
+Embedding
+
+Document Image
+
+) foas) fas) ce
+
+ween 1 een leet ’ (V2) (V3)
+
+- Flatten Linear
+= | Masking | Embedding
+
+Resize
+
+Image Patches
+
+Figure 3: The architecture and pre-training objectives of LayoutLMv3. LayoutLMv3 is a pre-trained multimodal Transformer
+for Document AI with unified text and image masking objectives. Given an input document image and its corresponding text
+and layout position information, the model takes the linear projection of patches and word tokens as inputs and encodes them
+into contextualized vector representations. LayoutLMv3 is pre-trained with discrete token reconstructive objectives of Masked
+Language Modeling (MLM) and Masked Image Modeling (MIM). Additionally, LayoutLMv3 is pre-trained with a Word-Patch
+Alignment (WPA) objective to learn cross-modal alignment by predicting whether the corresponding image patch of a text
+word is masked. “Seg” denotes segment-level positions. “[CLS]”, “[MASK]”, “[SEP]” and “[SPE]” are special tokens.
+
+sequence. Following the LayoutLM, we normalize all coordinates
+by the size of images, and use embedding layers to embed x-axis,
+y-axis, width and height features separately [54]. The LayoutLM
+and LayoutLMv2 adopt word-level layout positions, where each
+word has its positions. Instead, we adopt segment-level layout posi-
+tions that words in a segment share the same 2D position since the
+words usually express the same semantic meaning [28].
+
+Image Embedding. Existing multimodal models in Document AI
+either extract CNN grid features [2, 56] or rely on an object detector
+like Faster R-CNN [44] to extract region features [14, 31, 40, 54]
+for image embeddings, which accounts for heavy computation
+bottleneck or require region supervision. Inspired by ViT [11] and
+ViLT [22], we represent document images with linear projection
+features of image patches before feeding them into the multimodal
+Transformer. Specifically, we resize a document image into H x W
+and denote the image with I ¢ R©*#*, where C, H and W are the
+channel size, width and height of the image respectively. We then
+split the image into a sequence of uniform P x P patches, linearly
+project the image patches to D dimensions and flatten them into
+a sequence of vectors, which length is M = HW/P?. Then we add
+
+learnable 1D position embeddings to each patch since we have
+not observed improvements from using 2D position embeddings in
+our preliminary experiments. LayoutLMv3 is the first multimodal
+model in Document AI that does not rely on CNNs to extract image
+features, which is vital to Document AI models to reduce parameters
+or remove complex pre-processing steps.
+
+We insert semantic 1D relative position and spatial 2D relative
+position as bias terms in self-attention networks for text and image
+modalities following LayoutLMv2([56].
+
+2.2 Pre-training Objectives
+
+LayoutLMv3 is pre-trained with the MLM, MIM, and WPA objec-
+tives to learn multimodal representation in a self-supervised learn-
+ing manner. Full pre-training objectives of LayoutLMv3 is defined
+as L = Ly +Lyim + Lyea.
+
+Objective I: Masked Language Modeling (MLM). For the lan-
+guage side, our MLM is inspired by the masked language mod-
+eling in BERT [9] and masked visual-language modeling in Lay-
+outLM [54] and LayoutLMv2 [56]. We mask 30% of text tokens with
+
+Nearby Document Text:
+Multimodal Transformer
+Seg1
+[MASK]
+1
++
++
+Seg1
+[MASK]
+2
++
++
+Seg2
+T3
+3
++
++
+V1
+[MASK]
+1
++
+2
++
+3
++
+[MASK]
+[SPE]
+0
++
+Seg3
+T4
+4
++
++
+SegPAD
+[CLS]
+0
++
++
+4
++
+V4
+h
+MLM Head
+MIM Head
+T2
+h
+V2
+h
+V3
+Pre-training
+Objectives
+Word/Patch
+Embedding
+1D Position
+Embedding
+Flatten 
+Masking
+OCR Parser
+Masking
+2D Position
+Embedding
+h
+T1
+SegPAD
+[SEP]
+5
++
++
+h
+WPA Head
+Aligned
+h
+Unaligned
+Patch1
++
+Patch2
++
+Patch3
++
+PatchPAD
++
+Patch4
++
+Image Patches
+Document Image
+Resize
+Split
+(Unaligned)
+(Aligned)
+(T1)
+(T2)
+(V2)
+(V3)
+Linear
+Embedding
+Word
+Embedding
+Figure 3: The architecture and pre-training objectives of LayoutLMv3. La
+
+
+[RELATED PAGE TEXT]
+
++
+Patch3
++
+PatchPAD
++
+Patch4
++
+Image PatchesDocument Image
+Resize
+Split
+(Unaligned)
+(Aligned)
+(T1) (T2) (V2) (V3)
+Linear
+Embedding
+Word
+Embedding
+Figure 3: The architecture and pre-training objectives of LayoutLMv3. LayoutLMv3 is a pre-trained multimodal Transformer
+for Document AI with unified text and image masking objectives. Given an input docu
+
+
+--------------------------------------------------------------------------------
+PAGE : 4
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+between text words and image patches. The WPA objective is to
+predict whether the corresponding image patches of a text word
+are masked. Specifically, we assign an aligned label to an unmasked
+text token when its corresponding image tokens are also unmasked.
+Otherwise, we assign an unaligned label. We exclude the masked
+text tokens when calculating WPA loss to prevent the model from
+learning a correspondence between masked text words and image
+patches. We use a two-layer MLP head that inputs contextual text
+and image and outputs the binary aligned/unaligned labels with a
+
+
+================================================================================
+DOCUMENT : Vision Transformer.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 1
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+Transformer directly to images, with the fewest possible modiﬁcations. To do so, we split an image
+into patches and provide the sequence of linear embeddings of these patches as an input to a Trans-
+former. Image patches are treated the same way as tokens (words) in an NLP application. We train
+the model on image classiﬁcation in supervised fashion.
+When trained on mid-sized datasets such as ImageNet without strong regularization, these mod-
+els yield modest accuracies of a few percentage points below ResNets of comparable size. This
+
+================================================================================
+
+================================================================================
+RAG PIPELINE DEBUG
+================================================================================
+Query Type        : visual
+Retrieved Chunks  : 8
+Retrieved Images  : 1
+Reranked Chunks   : 9
+Reranked Text     : 7
+Reranked Images   : 2
+Final Context Docs: 9
+Exact Figure Query: True
+Exact Figure Match: True
+Exact Figure Final: True
+================================================================================
+
+====================================================================================================
+RAG ANSWER
+====================================================================================================
+ The text tokens and image patches are combined by taking the linear projection of patches and word tokens as inputs and encoding them into contextualized vector representations. The image patches are first resized and split into a sequence of uniform P x P patches, linearly projected to D dimensions, flattened into a sequence of vectors, and added with learnable 1D position embeddings. The text tokens are embedded using embedding layers.
+
+IMAGE PATHS:
+D:/Projects/Major-Project-2-main/extracted_images/LayoutLMv3_page2_render.png
+D:/Projects/Major-Project-2-main/extracted_images/LayoutLMv3_page3_render.png

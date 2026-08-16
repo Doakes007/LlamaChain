@@ -1,0 +1,1110 @@
+====================================================================================================
+QUESTION_ID   : RAG-06
+DOCUMENT      : RAG
+QUESTION_TYPE : Architecture / Reasoning
+ELAPSED_SEC   : 56.4
+ERROR         : no
+====================================================================================================
+
+QUESTION:
+Why does using an external non-parametric memory make RAG easier to update with new knowledge than a purely parametric language model?
+
+GROUND TRUTH ANSWER:
+Because knowledge is stored in an external non-parametric index rather than only in model parameters, the index can be updated or replaced at test time without retraining the generator. A purely parametric model such as BART or T5 would require further training to change its stored knowledge or behavior.
+
+GROUND TRUTH SOURCE:
+RAG.pdf, p. 7
+
+====================================================================================================
+FORENSIC TRANSCRIPT
+====================================================================================================
+
+####################################################################################################
+FORENSIC CASE START
+####################################################################################################
+Original Query   : Why does using an external non-parametric memory make RAG easier to update with new knowledge than a purely parametric language model?
+Expanded Query   : Why does using an external non-parametric memory make RAG easier to update with new knowledge than a purely parametric language model?
+Query Type       : analytical
+[DOCUMENT SCOPE] Normalized query: 'why does using an external non parametric memory make rag easier to update with new knowledge than a purely parametric language model'
+[DOCUMENT SCOPE] Source='BERT.pdf' -> Normalized='bert'
+[DOCUMENT SCOPE] Token overlap for 'BERT.pdf': []
+[DOCUMENT SCOPE] Source='BLIP-2.pdf' -> Normalized='blip 2'
+[DOCUMENT SCOPE] Token overlap for 'BLIP-2.pdf': []
+[DOCUMENT SCOPE] Source='CLIP.pdf' -> Normalized='clip'
+[DOCUMENT SCOPE] Token overlap for 'CLIP.pdf': []
+[DOCUMENT SCOPE] Source='CNN Paper.pdf' -> Normalized='cnn paper'
+[DOCUMENT SCOPE] Token overlap for 'CNN Paper.pdf': []
+[DOCUMENT SCOPE] Source='Donut.pdf' -> Normalized='donut'
+[DOCUMENT SCOPE] Token overlap for 'Donut.pdf': []
+[DOCUMENT SCOPE] Source='LayoutLMv3.pdf' -> Normalized='layout l mv3'
+[DOCUMENT SCOPE] Token overlap for 'LayoutLMv3.pdf': []
+[DOCUMENT SCOPE] Source='NLP Paper.pdf' -> Normalized='nlp paper'
+[DOCUMENT SCOPE] Token overlap for 'NLP Paper.pdf': []
+[DOCUMENT SCOPE] Source='RAG.pdf' -> Normalized='rag'
+[DOCUMENT SCOPE] EXACT MATCH -> RAG.pdf
+[DOCUMENT SCOPE] Source='Self-RAG.pdf' -> Normalized='self rag'
+[DOCUMENT SCOPE] Token overlap for 'Self-RAG.pdf': ['rag']
+[DOCUMENT SCOPE] Source='Vision Transformer.pdf' -> Normalized='vision transformer'
+[DOCUMENT SCOPE] Token overlap for 'Vision Transformer.pdf': []
+[DOCUMENT SCOPE] Final matched sources: ['RAG.pdf']
+
+================================================================================
+DOCUMENT SCOPE DEBUG
+================================================================================
+Query          : Why does using an external non-parametric memory make RAG easier to update with new knowledge than a purely parametric language model?
+Expanded Query : Why does using an external non-parametric memory make RAG easier to update with new knowledge than a purely parametric language model?
+Query Type     : analytical
+Document Scope : ['RAG.pdf']
+================================================================================
+
+==========================================================================================
+STEP 3A — SCOPED HYBRID RETRIEVAL
+==========================================================================================
+Query              : Why does using an external non-parametric memory make RAG easier to update with new knowledge than a purely parametric language model?
+Sources            : ['RAG.pdf']
+Dense candidate K  : 25
+Final hybrid K     : 8
+
+------------------------------------------------------------------------------------------
+[SCOPED DENSE / VECTOR RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=explore a general-purpose ﬁne-tuning recipe for retrieval-augmented generation (RAG) — models which combine pre-trained parametric and non-parametric mem- ory for language generati
+02. Source=RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=Index hot-swapping An advantage of non-parametric memory models like RAG is that knowledge can be easily updated at test time. Parametric-only models like T5 or BART need further t
+03. Source=RAG.pdf | Page=6 | Type=text | Image=N/A
+    Content=how parametric and non-parametric memories work together—the non-parametric component helps to guide the generation, drawing out speciﬁc knowledge stored in the parametric memory. 
+04. Source=RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=could represent promising future work. 6 Discussion In this work, we presented hybrid generation models with access to parametric and non-parametric memory. We showed that our RAG 
+05. Source=RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=present without additional training. Our results highlight the beneﬁts of combining parametric and non-parametric memory with genera- tion for knowledge-intensive tasks—tasks that 
+06. Source=RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=the generation ﬂexibility of the “closed-book” (parametric only) approaches and the performance of "open-book" retrieval-based approaches. Unlike REALM and T5+SSM, RAG enjoys stron
+07. Source=RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=Machine Translation [ 18, 22] and Semantic Parsing [21]. Our approach does have several differences, including less of emphasis on lightly editing a retrieved item, but on aggregat
+08. Source=RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=more speciﬁc, diverse and factual language than a state-of-the-art parametric-only seq2seq baseline. 1 Introduction Pre-trained neural language models have been shown to learn a su
+09. Source=RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=sides: They cannot easily expand or revise their memory, can’t straightforwardly provide insight into their predictions, and may produce “hallucinations” [ 38]. Hybrid models that 
+10. Source=RAG.pdf | Page=4 | Type=text | Image=N/A
+    Content=and train RAG by directly minimizing the negative log-likelihood of answers. We compare RAG to the popular extractive QA paradigm [5, 7, 31, 26], where answers are extracted spans 
+11. Source=RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=memory which are trained from scratch for speciﬁc tasks, e.g. memory networks [ 64, 55], stack- augmented networks [25] and memory layers [ 30]. In contrast, we explore a setting w
+12. Source=RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=treatz as a latent variable and marginalize over seq2seq predictions given different documents. but have only explored open-domain extractive question answering. Here, we bring hyb
+13. Source=RAG.pdf | Page=4 | Type=text | Image=N/A
+    Content=3 Experiments We experiment with RAG in a wide range of knowledge-intensive tasks. For all experiments, we use a single Wikipedia dump for our non-parametric knowledge source. Foll
+14. Source=RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=fact embeddings [15, 13]. A key feature of our memory is that it is comprised of raw text rather distributed representations, which makes the memory both (i) human-readable, lendin
+15. Source=RAG.pdf | Page=3 | Type=text | Image=N/A
+    Content=to predict each target token. The second approach, RAG-Token, can predict each target token based on a different document. In the following, we formally introduce both models and t
+16. Source=RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=more diverse than RAG-Token’s, and both are signiﬁcantly more diverse than BART without needing any diversity-promoting decoding. Retrieval Ablations A key feature of RAG is learni
+17. Source=RAG.pdf | Page=4 | Type=text | Image=N/A
+    Content=text generation. To test RAG’s natural language generation (NLG) in a knowledge-intensive setting, we use the MSMARCO NLG task v2.1 [ 43]. The task consists of questions, ten gold 
+18. Source=RAG.pdf | Page=19 | Type=text | Image=N/A
+    Content=with 11 Billion trainable parameters. The T5 model with the closest number of parameters to our models is T5-large (770M parameters), which achieves a score of 28.9 EM on Natural Q
+19. Source=RAG.pdf | Page=17 | Type=text | Image=N/A
+    Content=GB of CPU memory for all of Wikipedia. After submission, We have ported our code to HuggingFace Transformers [66]3, which achieves equivalent performance to the previous version bu
+20. Source=RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=with a medical index and asking it open-domain questions on that topic, or by helping people be more effective at their jobs. With these advantages also come potential downsides: W
+21. Source=RAG.pdf | Page=3 | Type=text | Image=N/A
+    Content=i ∑ z∈top-k(p(·|x)) pη(z|x)pθ(yi|x,z,y 1:i−1) Finally, we note that RAG can be used for sequence classiﬁcation tasks by considering the target class as a target sequence of length 
+22. Source=RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=the input to generate the output. We marginalize the latent documents with a top-K approximation, either on a per-output basis (assuming the same document is responsible for all to
+23. Source=RAG.pdf | Page=14 | Type=text | Image=N/A
+    Content=org/anthology/N19-4009. [46] Ethan Perez, Siddharth Karamcheti, Rob Fergus, Jason Weston, Douwe Kiela, and Kyunghyun Cho. Finding generalizable evidence by learning to convince q&a
+24. Source=RAG.pdf | Page=14 | Type=text | Image=N/A
+    Content=[49] Alec Radford, Karthik Narasimhan, Tim Salimans, and Ilya Sutskever. Im- proving Language Understanding by Generative Pre-Training, 2018. URL https://s3-us-west-2.amazonaws.com
+25. Source=RAG.pdf | Page=8 | Type=text | Image=N/A
+    Content=documents. Figure 3 (right) shows that retrieving more documents leads to higher Rouge-L for RAG-Token at the expense of Bleu-1, but the effect is less pronounced for RAG-Sequence.
+
+------------------------------------------------------------------------------------------
+[SCOPED BM25 RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=could represent promising future work. 6 Discussion In this work, we presented hybrid generation models with access to parametric and non-parametric memory. We showed that our RAG 
+02. Source=RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=present without additional training. Our results highlight the beneﬁts of combining parametric and non-parametric memory with genera- tion for knowledge-intensive tasks—tasks that 
+03. Source=RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=memory which are trained from scratch for speciﬁc tasks, e.g. memory networks [ 64, 55], stack- augmented networks [25] and memory layers [ 30]. In contrast, we explore a setting w
+04. Source=RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=Index hot-swapping An advantage of non-parametric memory models like RAG is that knowledge can be easily updated at test time. Parametric-only models like T5 or BART need further t
+05. Source=RAG.pdf | Page=6 | Type=text | Image=N/A
+    Content=how parametric and non-parametric memories work together—the non-parametric component helps to guide the generation, drawing out speciﬁc knowledge stored in the parametric memory. 
+06. Source=RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=explore a general-purpose ﬁne-tuning recipe for retrieval-augmented generation (RAG) — models which combine pre-trained parametric and non-parametric mem- ory for language generati
+07. Source=RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=treatz as a latent variable and marginalize over seq2seq predictions given different documents. but have only explored open-domain extractive question answering. Here, we bring hyb
+08. Source=RAG.pdf | Page=2 | Type=image | Image=extracted_images\RAG_page2_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the textbook on the characterization of a single - cell cell  OCR Text: The middle ear includes the tympanic cavity and the
+09. Source=RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=state-of-the-art pipeline models which use strong retrieval supervision. Finally, we demonstrate that the non-parametric memory can be replaced to update the models’ knowledge as t
+10. Source=RAG.pdf | Page=17 | Type=text | Image=N/A
+    Content=GB of CPU memory for all of Wikipedia. After submission, We have ported our code to HuggingFace Transformers [66]3, which achieves equivalent performance to the previous version bu
+11. Source=RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=sides: They cannot easily expand or revise their memory, can’t straightforwardly provide insight into their predictions, and may produce “hallucinations” [ 38]. Hybrid models that 
+12. Source=RAG.pdf | Page=8 | Type=text | Image=N/A
+    Content=between these dates and use a template “Who is {position}?” (e.g. “Who is the President of Peru?”) to query our NQ RAG model with each index. RAG answers 70% correctly using the 20
+13. Source=RAG.pdf | Page=4 | Type=text | Image=N/A
+    Content=3 Experiments We experiment with RAG in a wide range of knowledge-intensive tasks. For all experiments, we use a single Wikipedia dump for our non-parametric knowledge source. Foll
+14. Source=RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=We build RAG models where the parametric memory is a pre-trained seq2seq transformer, and the non-parametric memory is a dense vector index of Wikipedia, accessed with a pre-traine
+15. Source=RAG.pdf | Page=4 | Type=text | Image=N/A
+    Content=and train RAG by directly minimizing the negative log-likelihood of answers. We compare RAG to the popular extractive QA paradigm [5, 7, 31, 26], where answers are extracted spans 
+16. Source=RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=Machine Translation [ 18, 22] and Semantic Parsing [21]. Our approach does have several differences, including less of emphasis on lightly editing a retrieved item, but on aggregat
+17. Source=RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=its effectiveness, and we illustrated how the retrieval index can be hot-swapped to update the model without requiring any retraining. In future work, it may be fruitful to investi
+18. Source=RAG.pdf | Page=19 | Type=text | Image=N/A
+    Content=with 11 Billion trainable parameters. The T5 model with the closest number of parameters to our models is T5-large (770M parameters), which achieves a score of 28.9 EM on Natural Q
+19. Source=RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=more speciﬁc, diverse and factual language than a state-of-the-art parametric-only seq2seq baseline. 1 Introduction Pre-trained neural language models have been shown to learn a su
+20. Source=RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=MSMARCO as an open-domain abstractive QA task. MSMARCO has some questions that cannot be answered in a way that matches the reference answer without access to the gold passages, su
+21. Source=RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=We compare RAG’s dense retriever to a word overlap-based BM25 retriever [53]. Here, we replace RAG’s retriever with a ﬁxed BM25 system, and use BM25 retrieval scores as logits when
+22. Source=RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=with a medical index and asking it open-domain questions on that topic, or by helping people be more effective at their jobs. With these advantages also come potential downsides: W
+23. Source=RAG.pdf | Page=14 | Type=text | Image=N/A
+    Content=https://d4mucfpksywv.cloudfront.net/better-language-models/language_ models_are_unsupervised_multitask_learners.pdf. [51] Colin Raffel, Noam Shazeer, Adam Roberts, Katherine Lee, S
+24. Source=RAG.pdf | Page=6 | Type=image | Image=extracted_images\RAG_page6_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: the table shows the number of protons and protons of protons in a, b, and c  OCR Text: Table 1: Open-Domain QA Test Scores. For TQA, Ta
+25. Source=RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=the input to generate the output. We marginalize the latent documents with a top-K approximation, either on a per-output basis (assuming the same document is responsible for all to
+
+------------------------------------------------------------------------------------------
+[RRF FUSION RANKING]
+------------------------------------------------------------------------------------------
+01. RRF=0.032018 | DenseRank=4 | BM25Rank=1 | Source=RAG.pdf | Page=9 | Type=text
+02. RRF=0.031754 | DenseRank=2 | BM25Rank=4 | Source=RAG.pdf | Page=7 | Type=text
+03. RRF=0.031545 | DenseRank=1 | BM25Rank=6 | Source=RAG.pdf | Page=1 | Type=text
+04. RRF=0.031514 | DenseRank=5 | BM25Rank=2 | Source=RAG.pdf | Page=2 | Type=text
+05. RRF=0.031258 | DenseRank=3 | BM25Rank=5 | Source=RAG.pdf | Page=6 | Type=text
+06. RRF=0.029958 | DenseRank=11 | BM25Rank=3 | Source=RAG.pdf | Page=2 | Type=text
+07. RRF=0.028814 | DenseRank=12 | BM25Rank=7 | Source=RAG.pdf | Page=2 | Type=text
+08. RRF=0.028577 | DenseRank=9 | BM25Rank=11 | Source=RAG.pdf | Page=1 | Type=text
+09. RRF=0.028083 | DenseRank=7 | BM25Rank=16 | Source=RAG.pdf | Page=9 | Type=text
+10. RRF=0.027619 | DenseRank=10 | BM25Rank=15 | Source=RAG.pdf | Page=4 | Type=text
+11. RRF=0.027397 | DenseRank=13 | BM25Rank=13 | Source=RAG.pdf | Page=4 | Type=text
+12. RRF=0.027364 | DenseRank=8 | BM25Rank=19 | Source=RAG.pdf | Page=1 | Type=text
+13. RRF=0.026944 | DenseRank=19 | BM25Rank=10 | Source=RAG.pdf | Page=17 | Type=text
+14. RRF=0.025641 | DenseRank=18 | BM25Rank=18 | Source=RAG.pdf | Page=19 | Type=text
+15. RRF=0.024695 | DenseRank=20 | BM25Rank=22 | Source=RAG.pdf | Page=10 | Type=text
+16. RRF=0.023960 | DenseRank=22 | BM25Rank=25 | Source=RAG.pdf | Page=2 | Type=text
+17. RRF=0.015152 | DenseRank=6 | BM25Rank=- | Source=RAG.pdf | Page=5 | Type=text
+18. RRF=0.014706 | DenseRank=- | BM25Rank=8 | Source=RAG.pdf | Page=2 | Type=image
+19. RRF=0.014493 | DenseRank=- | BM25Rank=9 | Source=RAG.pdf | Page=2 | Type=text
+20. RRF=0.013889 | DenseRank=- | BM25Rank=12 | Source=RAG.pdf | Page=8 | Type=text
+21. RRF=0.013514 | DenseRank=14 | BM25Rank=- | Source=RAG.pdf | Page=9 | Type=text
+22. RRF=0.013514 | DenseRank=- | BM25Rank=14 | Source=RAG.pdf | Page=2 | Type=text
+23. RRF=0.013333 | DenseRank=15 | BM25Rank=- | Source=RAG.pdf | Page=3 | Type=text
+24. RRF=0.013158 | DenseRank=16 | BM25Rank=- | Source=RAG.pdf | Page=7 | Type=text
+25. RRF=0.012987 | DenseRank=17 | BM25Rank=- | Source=RAG.pdf | Page=4 | Type=text
+26. RRF=0.012987 | DenseRank=- | BM25Rank=17 | Source=RAG.pdf | Page=9 | Type=text
+27. RRF=0.012500 | DenseRank=- | BM25Rank=20 | Source=RAG.pdf | Page=5 | Type=text
+28. RRF=0.012346 | DenseRank=21 | BM25Rank=- | Source=RAG.pdf | Page=3 | Type=text
+29. RRF=0.012346 | DenseRank=- | BM25Rank=21 | Source=RAG.pdf | Page=7 | Type=text
+30. RRF=0.012048 | DenseRank=23 | BM25Rank=- | Source=RAG.pdf | Page=14 | Type=text
+31. RRF=0.012048 | DenseRank=- | BM25Rank=23 | Source=RAG.pdf | Page=14 | Type=text
+32. RRF=0.011905 | DenseRank=24 | BM25Rank=- | Source=RAG.pdf | Page=14 | Type=text
+33. RRF=0.011905 | DenseRank=- | BM25Rank=24 | Source=RAG.pdf | Page=6 | Type=image
+34. RRF=0.011765 | DenseRank=25 | BM25Rank=- | Source=RAG.pdf | Page=8 | Type=text
+------------------------------------------------------------------------------------------
+
+==========================================================================================
+STEP 3A — RETRIEVAL STAGE SUMMARY
+==========================================================================================
+Dense candidates       : 25
+BM25 candidates        : 25
+Dense ∩ BM25           : 16
+Dense-only candidates  : 9
+BM25-only candidates   : 9
+Unique candidate pool  : 34
+RRF candidates         : 34
+Returned to pipeline   : 8
+==========================================================================================
+
+------------------------------------------------------------------------------------------
+[SCOPED FINAL HYBRID RESULT] 8 candidates
+------------------------------------------------------------------------------------------
+01. Source=RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=could represent promising future work. 6 Discussion In this work, we presented hybrid generation models with access to parametric and non-parametric memory. We showed that our RAG 
+02. Source=RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=Index hot-swapping An advantage of non-parametric memory models like RAG is that knowledge can be easily updated at test time. Parametric-only models like T5 or BART need further t
+03. Source=RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=explore a general-purpose ﬁne-tuning recipe for retrieval-augmented generation (RAG) — models which combine pre-trained parametric and non-parametric mem- ory for language generati
+04. Source=RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=present without additional training. Our results highlight the beneﬁts of combining parametric and non-parametric memory with genera- tion for knowledge-intensive tasks—tasks that 
+05. Source=RAG.pdf | Page=6 | Type=text | Image=N/A
+    Content=how parametric and non-parametric memories work together—the non-parametric component helps to guide the generation, drawing out speciﬁc knowledge stored in the parametric memory. 
+06. Source=RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=memory which are trained from scratch for speciﬁc tasks, e.g. memory networks [ 64, 55], stack- augmented networks [25] and memory layers [ 30]. In contrast, we explore a setting w
+07. Source=RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=treatz as a latent variable and marginalize over seq2seq predictions given different documents. but have only explored open-domain extractive question answering. Here, we bring hyb
+08. Source=RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=sides: They cannot easily expand or revise their memory, can’t straightforwardly provide insight into their predictions, and may produce “hallucinations” [ 38]. Hybrid models that 
+==========================================================================================
+
+================================================================================
+STAGE 1 — HYBRID RETRIEVAL
+================================================================================
+Retrieved Count : 8
+
+[HYBRID #1] Source=RAG.pdf | Page=9 | Type=text
+Content: could represent promising future work. 6 Discussion In this work, we presented hybrid generation models with access to parametric and non-parametric memory. We showed that our RAG models obtain state of the art results on open-domain QA. We found that people prefer RAG’s generation over purely parametric BART, ﬁnding RAG more factual and speciﬁc. We conducted an thorough investigation of the learned retrieval component, validating its effectiveness, and we illustrated how the retrieval index can
+
+[HYBRID #2] Source=RAG.pdf | Page=7 | Type=text
+Content: Index hot-swapping An advantage of non-parametric memory models like RAG is that knowledge can be easily updated at test time. Parametric-only models like T5 or BART need further training to update their behavior as the world changes. To demonstrate, we build an index using the DrQA [5] Wikipedia dump from December 2016 and compare outputs from RAG using this index to the newer index from our main results (December 2018). We prepare a list of 82 world leaders who had changed 7
+
+[HYBRID #3] Source=RAG.pdf | Page=1 | Type=text
+Content: explore a general-purpose ﬁne-tuning recipe for retrieval-augmented generation (RAG) — models which combine pre-trained parametric and non-parametric mem- ory for language generation. We introduce RAG models where the parametric memory is a pre-trained seq2seq model and the non-parametric memory is a dense vector index of Wikipedia, accessed with a pre-trained neural retriever. We com- pare two RAG formulations, one which conditions on the same retrieved passages across the whole generated seque
+
+[HYBRID #4] Source=RAG.pdf | Page=2 | Type=text
+Content: present without additional training. Our results highlight the beneﬁts of combining parametric and non-parametric memory with genera- tion for knowledge-intensive tasks—tasks that humans could not reasonably be expected to perform without access to an external knowledge source. Our RAG models achieve state-of-the-art results on open Natural Questions [29], WebQuestions [3] and CuratedTrec [2] and strongly outperform recent approaches that use specialised pre-training objectives on TriviaQA [24].
+
+[HYBRID #5] Source=RAG.pdf | Page=6 | Type=text
+Content: how parametric and non-parametric memories work together—the non-parametric component helps to guide the generation, drawing out speciﬁc knowledge stored in the parametric memory. 4.4 Fact Veriﬁcation Table 2 shows our results on FEVER. For 3-way classiﬁcation, RAG scores are within 4.3% of state-of-the-art models, which are complex pipeline systems with domain-speciﬁc architectures and substantial engineering, trained using intermediate retrieval supervision, which RAG does not require. 6
+
+[HYBRID #6] Source=RAG.pdf | Page=2 | Type=text
+Content: memory which are trained from scratch for speciﬁc tasks, e.g. memory networks [ 64, 55], stack- augmented networks [25] and memory layers [ 30]. In contrast, we explore a setting where both parametric and non-parametric memory components are pre-trained and pre-loaded with extensive knowledge. Crucially, by using pre-trained access mechanisms, the ability to access knowledge is present without additional training. Our results highlight the beneﬁts of combining parametric and non-parametric memor
+
+[HYBRID #7] Source=RAG.pdf | Page=2 | Type=text
+Content: treatz as a latent variable and marginalize over seq2seq predictions given different documents. but have only explored open-domain extractive question answering. Here, we bring hybrid parametric and non-parametric memory to the “workhorse of NLP,” i.e. sequence-to-sequence (seq2seq) models. We endow pre-trained, parametric-memory generation models with a non-parametric memory through a general-purpose ﬁne-tuning approach which we refer to as retrieval-augmented generation (RAG). We build RAG mod
+
+[HYBRID #8] Source=RAG.pdf | Page=1 | Type=text
+Content: sides: They cannot easily expand or revise their memory, can’t straightforwardly provide insight into their predictions, and may produce “hallucinations” [ 38]. Hybrid models that combine parametric memory with non-parametric (i.e., retrieval-based) memories [20, 26, 48] can address some of these issues because knowledge can be directly revised and expanded, and accessed knowledge can be inspected and interpreted. REALM [ 20] and ORQA [ 31], two recently introduced models that combine masked lan
+================================================================================
+[DOCUMENT SCOPE] Text chunks: 8 -> 8
+
+================================================================================
+IMAGE RETRIEVAL DIAGNOSTIC
+================================================================================
+Query                 : Why does using an external non-parametric memory make RAG easier to update with new knowledge than a purely parametric language model?
+Allowed Sources       : ['RAG.pdf']
+Image Candidates      : 554 -> 5 (scoped before ranking)
+
+ALL IMAGE CANDIDATES
+--------------------------------------------------------------------------------
+Rank=01 | Source=RAG.pdf | Page=2 | Image=RAG_page2_render.png | Hybrid=-5.8890 | CE=-9.9771 | CLIP=0.2430
+Rank=02 | Source=RAG.pdf | Page=7 | Image=RAG_page7_render.png | Hybrid=-6.0827 | CE=-10.2898 | CLIP=0.2279
+Rank=03 | Source=RAG.pdf | Page=6 | Image=RAG_page6_render.png | Hybrid=-6.2044 | CE=-10.4882 | CLIP=0.2211
+Rank=04 | Source=RAG.pdf | Page=8 | Image=RAG_page8_render.png | Hybrid=-6.4759 | CE=-10.9408 | CLIP=0.2215
+Rank=05 | Source=RAG.pdf | Page=17 | Image=RAG_page17_img0.png | Hybrid=-6.7044 | CE=-11.3155 | CLIP=0.2121
+
+TOP IMAGE RESULTS
+--------------------------------------------------------------------------------
+TOP-1 | Source=RAG.pdf | Page=2 | Image=RAG_page2_render.png | Hybrid=-5.8890 | CE=-9.9771 | CLIP=0.2430
+TOP-2 | Source=RAG.pdf | Page=7 | Image=RAG_page7_render.png | Hybrid=-6.0827 | CE=-10.2898 | CLIP=0.2279
+TOP-3 | Source=RAG.pdf | Page=6 | Image=RAG_page6_render.png | Hybrid=-6.2044 | CE=-10.4882 | CLIP=0.2211
+================================================================================
+[DOCUMENT SCOPE] Images: 3 -> 3
+
+================================================================================
+STAGE 2 — IMAGE RETRIEVAL RESULT
+================================================================================
+Image Results       : 3
+Exact Figure Match  : False
+
+[IMAGE #1] Source=RAG.pdf | Page=2 | Image=RAG_page2_render.png
+Image Path: extracted_images\RAG_page2_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the textbook on the characterization of a single - cell cell  OCR Text: The middle ear includes the tympanic cavity and the three ogsicles. (y) Question Answering: Answer Generation  Fact Verificatlon: Label Generation  Sno rloknd Backoopthraughqandpe End-to-End Backprop through q and po  Questlon Answering: Question Query  Barack Obama was born in Hawaii. (x)  Fact Verification: Fact Query  Query  Retriever p, Document Encoder  Generator 
+
+[IMAGE #2] Source=RAG.pdf | Page=7 | Image=RAG_page7_render.png
+Image Path: extracted_images\RAG_page7_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with the title of a research paper  OCR Text: Dacument 1: his works are considered classics of American literature ... His wartime experiences formed the basis for his novel “A Farewell to Arms” (1929)...  Document 2: ... artists of the 1920s “Lost Generation” expatriate  community. His debut novel, “The Sun Also Rises”, was published in 1926,  Figure 2: RAG-Token document posterior p(z:|x, yi, y_i) for each generated token for input “Hem- ing
+
+[IMAGE #3] Source=RAG.pdf | Page=6 | Image=RAG_page6_render.png
+Image Path: extracted_images\RAG_page6_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: the table shows the number of protons and protons of protons in a, b, and c  OCR Text: Table 1: Open-Domain QA Test Scores. For TQA, Table 2: Generation and classification Test Scores. left column uses the standard test set for Open- MS-MARCO SotA is [4], FEVER-3 is [68] and Domain QA, right column uses the TQA-Wiki FEVER-2 is [57] *Uses gold context/evidence. test set. See Appendix D for further details. Best model without gold access underlined.  Mo
+================================================================================
+
+================================================================================
+COMBINED RETRIEVAL CANDIDATES
+================================================================================
+Text Candidates  : 8
+Image Candidates : 3
+Total Candidates : 11
+================================================================================
+
+================================================================================
+STEP 3A — RERANKER INPUT
+================================================================================
+Query: Why does using an external non-parametric memory make RAG easier to update with new knowledge than a purely parametric language model?
+Input candidates: 11
+01. Source=RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=could represent promising future work. 6 Discussion In this work, we presented hybrid generation models with access to parametric and non-parametric memory. We showed that our RAG 
+02. Source=RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=Index hot-swapping An advantage of non-parametric memory models like RAG is that knowledge can be easily updated at test time. Parametric-only models like T5 or BART need further t
+03. Source=RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=explore a general-purpose ﬁne-tuning recipe for retrieval-augmented generation (RAG) — models which combine pre-trained parametric and non-parametric mem- ory for language generati
+04. Source=RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=present without additional training. Our results highlight the beneﬁts of combining parametric and non-parametric memory with genera- tion for knowledge-intensive tasks—tasks that 
+05. Source=RAG.pdf | Page=6 | Type=text | Image=N/A
+    Content=how parametric and non-parametric memories work together—the non-parametric component helps to guide the generation, drawing out speciﬁc knowledge stored in the parametric memory. 
+06. Source=RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=memory which are trained from scratch for speciﬁc tasks, e.g. memory networks [ 64, 55], stack- augmented networks [25] and memory layers [ 30]. In contrast, we explore a setting w
+07. Source=RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=treatz as a latent variable and marginalize over seq2seq predictions given different documents. but have only explored open-domain extractive question answering. Here, we bring hyb
+08. Source=RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=sides: They cannot easily expand or revise their memory, can’t straightforwardly provide insight into their predictions, and may produce “hallucinations” [ 38]. Hybrid models that 
+09. Source=RAG.pdf | Page=2 | Type=image | Image=extracted_images\RAG_page2_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the textbook on the characterization of a single - cell cell  OCR Text: The middle ear includes the tympanic cavity and the
+10. Source=RAG.pdf | Page=7 | Type=image | Image=extracted_images\RAG_page7_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with the title of a research paper  OCR Text: Dacument 1: his works are considered classics of American literature ... His wart
+11. Source=RAG.pdf | Page=6 | Type=image | Image=extracted_images\RAG_page6_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: the table shows the number of protons and protons of protons in a, b, and c  OCR Text: Table 1: Open-Domain QA Test Scores. For TQA, Ta
+================================================================================
+
+--------------------------------------------------------------------------------
+CROSS-ENCODER RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=01 | Source=RAG.pdf | Page=7 | Type=text | CE=5.5582
+Rank=02 | OriginalIndex=03 | Source=RAG.pdf | Page=2 | Type=text | CE=3.5952
+Rank=03 | OriginalIndex=00 | Source=RAG.pdf | Page=9 | Type=text | CE=3.2479
+Rank=04 | OriginalIndex=04 | Source=RAG.pdf | Page=6 | Type=text | CE=2.6035
+Rank=05 | OriginalIndex=02 | Source=RAG.pdf | Page=1 | Type=text | CE=2.5418
+Rank=06 | OriginalIndex=06 | Source=RAG.pdf | Page=2 | Type=text | CE=0.8954
+Rank=07 | OriginalIndex=07 | Source=RAG.pdf | Page=1 | Type=text | CE=0.8699
+Rank=08 | OriginalIndex=05 | Source=RAG.pdf | Page=2 | Type=text | CE=-0.3290
+Rank=09 | OriginalIndex=08 | Source=RAG.pdf | Page=2 | Type=image | CE=-9.9771
+Rank=10 | OriginalIndex=09 | Source=RAG.pdf | Page=7 | Type=image | CE=-10.2898
+Rank=11 | OriginalIndex=10 | Source=RAG.pdf | Page=6 | Type=image | CE=-10.4882
+
+--------------------------------------------------------------------------------
+CLIP IMAGE RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=08 | Source=RAG.pdf | Page=2 | Image=extracted_images\RAG_page2_render.png | CLIP=0.2430
+Rank=02 | OriginalIndex=09 | Source=RAG.pdf | Page=7 | Image=extracted_images\RAG_page7_render.png | CLIP=0.2279
+Rank=03 | OriginalIndex=10 | Source=RAG.pdf | Page=6 | Image=extracted_images\RAG_page6_render.png | CLIP=0.2211
+
+================================================================================
+STEP 3A — COMPLETE MULTIMODAL RERANK RESULT
+================================================================================
+Rank=01 | Type=image | Source=RAG.pdf | Page=2 | RRF=0.030886 | CE=-9.9771 | CLIP=0.2430
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the textbook on the characterization of a single - cell cell  OCR Text: The middle ear includes the tympanic cavity and the
+Rank=02 | Type=image | Source=RAG.pdf | Page=7 | RRF=0.030415 | CE=-10.2898 | CLIP=0.2279
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with the title of a research paper  OCR Text: Dacument 1: his works are considered classics of American literature ... His wart
+Rank=03 | Type=image | Source=RAG.pdf | Page=6 | RRF=0.029958 | CE=-10.4882 | CLIP=0.2211
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: the table shows the number of protons and protons of protons in a, b, and c  OCR Text: Table 1: Open-Domain QA Test Scores. For TQA, Ta
+Rank=04 | Type=text | Source=RAG.pdf | Page=7 | RRF=0.016393 | CE=5.5582 | CLIP=N/A
+    Content=Index hot-swapping An advantage of non-parametric memory models like RAG is that knowledge can be easily updated at test time. Parametric-only models like T5 or BART need further t
+Rank=05 | Type=text | Source=RAG.pdf | Page=2 | RRF=0.016129 | CE=3.5952 | CLIP=N/A
+    Content=present without additional training. Our results highlight the beneﬁts of combining parametric and non-parametric memory with genera- tion for knowledge-intensive tasks—tasks that 
+Rank=06 | Type=text | Source=RAG.pdf | Page=9 | RRF=0.015873 | CE=3.2479 | CLIP=N/A
+    Content=could represent promising future work. 6 Discussion In this work, we presented hybrid generation models with access to parametric and non-parametric memory. We showed that our RAG 
+Rank=07 | Type=text | Source=RAG.pdf | Page=6 | RRF=0.015625 | CE=2.6035 | CLIP=N/A
+    Content=how parametric and non-parametric memories work together—the non-parametric component helps to guide the generation, drawing out speciﬁc knowledge stored in the parametric memory. 
+Rank=08 | Type=text | Source=RAG.pdf | Page=1 | RRF=0.015385 | CE=2.5418 | CLIP=N/A
+    Content=explore a general-purpose ﬁne-tuning recipe for retrieval-augmented generation (RAG) — models which combine pre-trained parametric and non-parametric mem- ory for language generati
+Rank=09 | Type=text | Source=RAG.pdf | Page=2 | RRF=0.015152 | CE=0.8954 | CLIP=N/A
+    Content=treatz as a latent variable and marginalize over seq2seq predictions given different documents. but have only explored open-domain extractive question answering. Here, we bring hyb
+Rank=10 | Type=text | Source=RAG.pdf | Page=1 | RRF=0.014925 | CE=0.8699 | CLIP=N/A
+    Content=sides: They cannot easily expand or revise their memory, can’t straightforwardly provide insight into their predictions, and may produce “hallucinations” [ 38]. Hybrid models that 
+Rank=11 | Type=text | Source=RAG.pdf | Page=2 | RRF=0.014706 | CE=-0.3290 | CLIP=N/A
+    Content=memory which are trained from scratch for speciﬁc tasks, e.g. memory networks [ 64, 55], stack- augmented networks [25] and memory layers [ 30]. In contrast, we explore a setting w
+================================================================================
+
+================================================================================
+STEP 3A — FINAL RERANK TOP-K
+================================================================================
+Requested top_k: 12
+Returned documents: 11
+01. Source=RAG.pdf | Page=2 | Type=image | Image=extracted_images\RAG_page2_render.png
+02. Source=RAG.pdf | Page=7 | Type=image | Image=extracted_images\RAG_page7_render.png
+03. Source=RAG.pdf | Page=6 | Type=image | Image=extracted_images\RAG_page6_render.png
+04. Source=RAG.pdf | Page=7 | Type=text | Image=N/A
+05. Source=RAG.pdf | Page=2 | Type=text | Image=N/A
+06. Source=RAG.pdf | Page=9 | Type=text | Image=N/A
+07. Source=RAG.pdf | Page=6 | Type=text | Image=N/A
+08. Source=RAG.pdf | Page=1 | Type=text | Image=N/A
+09. Source=RAG.pdf | Page=2 | Type=text | Image=N/A
+10. Source=RAG.pdf | Page=1 | Type=text | Image=N/A
+11. Source=RAG.pdf | Page=2 | Type=text | Image=N/A
+================================================================================
+
+================================================================================
+STAGE 3 — MULTIMODAL RERANKING
+================================================================================
+Input Candidates : 11
+Reranked Output   : 11
+
+[RERANK #1] Source=RAG.pdf | Page=2 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the textbook on the characterization of a single - cell cell  OCR Text: The middle ear includes the tympanic cavity and the three ogsicles. (y) Question Answering: Answer Generation  Fact Verificatlon: Label Generation  Sno rloknd Backoopthrau
+
+[RERANK #2] Source=RAG.pdf | Page=7 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with the title of a research paper  OCR Text: Dacument 1: his works are considered classics of American literature ... His wartime experiences formed the basis for his novel “A Farewell to Arms” (1929)...  Document 2: ... artists of the 1920s “Los
+
+[RERANK #3] Source=RAG.pdf | Page=6 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: the table shows the number of protons and protons of protons in a, b, and c  OCR Text: Table 1: Open-Domain QA Test Scores. For TQA, Table 2: Generation and classification Test Scores. left column uses the standard test set for Open- MS-MARCO SotA is [4],
+
+[RERANK #4] Source=RAG.pdf | Page=7 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Index hot-swapping An advantage of non-parametric memory models like RAG is that knowledge can be easily updated at test time. Parametric-only models like T5 or BART need further training to update their behavior as the world changes. To demonstrate, we build an index using the DrQA [5] Wikipedia du
+
+[RERANK #5] Source=RAG.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: present without additional training. Our results highlight the beneﬁts of combining parametric and non-parametric memory with genera- tion for knowledge-intensive tasks—tasks that humans could not reasonably be expected to perform without access to an external knowledge source. Our RAG models achiev
+
+[RERANK #6] Source=RAG.pdf | Page=9 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: could represent promising future work. 6 Discussion In this work, we presented hybrid generation models with access to parametric and non-parametric memory. We showed that our RAG models obtain state of the art results on open-domain QA. We found that people prefer RAG’s generation over purely param
+
+[RERANK #7] Source=RAG.pdf | Page=6 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: how parametric and non-parametric memories work together—the non-parametric component helps to guide the generation, drawing out speciﬁc knowledge stored in the parametric memory. 4.4 Fact Veriﬁcation Table 2 shows our results on FEVER. For 3-way classiﬁcation, RAG scores are within 4.3% of state-of
+
+[RERANK #8] Source=RAG.pdf | Page=1 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: explore a general-purpose ﬁne-tuning recipe for retrieval-augmented generation (RAG) — models which combine pre-trained parametric and non-parametric mem- ory for language generation. We introduce RAG models where the parametric memory is a pre-trained seq2seq model and the non-parametric memory is 
+
+[RERANK #9] Source=RAG.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: treatz as a latent variable and marginalize over seq2seq predictions given different documents. but have only explored open-domain extractive question answering. Here, we bring hybrid parametric and non-parametric memory to the “workhorse of NLP,” i.e. sequence-to-sequence (seq2seq) models. We endow
+
+[RERANK #10] Source=RAG.pdf | Page=1 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: sides: They cannot easily expand or revise their memory, can’t straightforwardly provide insight into their predictions, and may produce “hallucinations” [ 38]. Hybrid models that combine parametric memory with non-parametric (i.e., retrieval-based) memories [20, 26, 48] can address some of these is
+
+[RERANK #11] Source=RAG.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: memory which are trained from scratch for speciﬁc tasks, e.g. memory networks [ 64, 55], stack- augmented networks [25] and memory layers [ 30]. In contrast, we explore a setting where both parametric and non-parametric memory components are pre-trained and pre-loaded with extensive knowledge. Cruci
+================================================================================
+
+================================================================================
+FINAL CONTEXT DOCUMENTS
+================================================================================
+Final context candidates: 11
+
+[FINAL #1] Source=RAG.pdf | Page=2 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the textbook on the characterization of a single - cell cell  OCR Text: The middle ear includes the tympanic cavity and the three ogsicles. (y) Question Answering: Answer Generation  Fact Verificatlon: Label Generation  Sno rloknd Backoopthrau
+
+[FINAL #2] Source=RAG.pdf | Page=7 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with the title of a research paper  OCR Text: Dacument 1: his works are considered classics of American literature ... His wartime experiences formed the basis for his novel “A Farewell to Arms” (1929)...  Document 2: ... artists of the 1920s “Los
+
+[FINAL #3] Source=RAG.pdf | Page=6 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: the table shows the number of protons and protons of protons in a, b, and c  OCR Text: Table 1: Open-Domain QA Test Scores. For TQA, Table 2: Generation and classification Test Scores. left column uses the standard test set for Open- MS-MARCO SotA is [4],
+
+[FINAL #4] Source=RAG.pdf | Page=7 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Index hot-swapping An advantage of non-parametric memory models like RAG is that knowledge can be easily updated at test time. Parametric-only models like T5 or BART need further training to update their behavior as the world changes. To demonstrate, we build an index using the DrQA [5] Wikipedia du
+
+[FINAL #5] Source=RAG.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: present without additional training. Our results highlight the beneﬁts of combining parametric and non-parametric memory with genera- tion for knowledge-intensive tasks—tasks that humans could not reasonably be expected to perform without access to an external knowledge source. Our RAG models achiev
+
+[FINAL #6] Source=RAG.pdf | Page=9 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: could represent promising future work. 6 Discussion In this work, we presented hybrid generation models with access to parametric and non-parametric memory. We showed that our RAG models obtain state of the art results on open-domain QA. We found that people prefer RAG’s generation over purely param
+
+[FINAL #7] Source=RAG.pdf | Page=6 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: how parametric and non-parametric memories work together—the non-parametric component helps to guide the generation, drawing out speciﬁc knowledge stored in the parametric memory. 4.4 Fact Veriﬁcation Table 2 shows our results on FEVER. For 3-way classiﬁcation, RAG scores are within 4.3% of state-of
+
+[FINAL #8] Source=RAG.pdf | Page=1 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: explore a general-purpose ﬁne-tuning recipe for retrieval-augmented generation (RAG) — models which combine pre-trained parametric and non-parametric mem- ory for language generation. We introduce RAG models where the parametric memory is a pre-trained seq2seq model and the non-parametric memory is 
+
+[FINAL #9] Source=RAG.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: treatz as a latent variable and marginalize over seq2seq predictions given different documents. but have only explored open-domain extractive question answering. Here, we bring hybrid parametric and non-parametric memory to the “workhorse of NLP,” i.e. sequence-to-sequence (seq2seq) models. We endow
+
+[FINAL #10] Source=RAG.pdf | Page=1 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: sides: They cannot easily expand or revise their memory, can’t straightforwardly provide insight into their predictions, and may produce “hallucinations” [ 38]. Hybrid models that combine parametric memory with non-parametric (i.e., retrieval-based) memories [20, 26, 48] can address some of these is
+
+[FINAL #11] Source=RAG.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: memory which are trained from scratch for speciﬁc tasks, e.g. memory networks [ 64, 55], stack- augmented networks [25] and memory layers [ 30]. In contrast, we explore a setting where both parametric and non-parametric memory components are pre-trained and pre-loaded with extensive knowledge. Cruci
+================================================================================
+
+================================================================================
+FINAL CONTEXT SENT TO LLM
+================================================================================
+
+================================================================================
+DOCUMENT : RAG.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 1
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+explore a general-purpose ﬁne-tuning recipe for retrieval-augmented generation
+(RAG) — models which combine pre-trained parametric and non-parametric mem-
+ory for language generation. We introduce RAG models where the parametric
+memory is a pre-trained seq2seq model and the non-parametric memory is a dense
+vector index of Wikipedia, accessed with a pre-trained neural retriever. We com-
+pare two RAG formulations, one which conditions on the same retrieved passages
+across the whole generated sequence, and another which can use different passages
+
+
+[TEXT]
+
+sides: They cannot easily expand or revise their memory, can’t straightforwardly provide insight into
+their predictions, and may produce “hallucinations” [ 38]. Hybrid models that combine parametric
+memory with non-parametric (i.e., retrieval-based) memories [20, 26, 48] can address some of these
+issues because knowledge can be directly revised and expanded, and accessed knowledge can be
+inspected and interpreted. REALM [ 20] and ORQA [ 31], two recently introduced models that
+combine masked language models [8] with a differentiable retriever, have shown promising results,
+
+
+--------------------------------------------------------------------------------
+PAGE : 2
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+present without additional training.
+Our results highlight the beneﬁts of combining parametric and non-parametric memory with genera-
+tion for knowledge-intensive tasks—tasks that humans could not reasonably be expected to perform
+without access to an external knowledge source. Our RAG models achieve state-of-the-art results
+on open Natural Questions [29], WebQuestions [3] and CuratedTrec [2] and strongly outperform
+recent approaches that use specialised pre-training objectives on TriviaQA [24]. Despite these being
+
+
+[TEXT]
+
+treatz as a latent variable and marginalize over seq2seq predictions given different documents.
+but have only explored open-domain extractive question answering. Here, we bring hybrid parametric
+and non-parametric memory to the “workhorse of NLP,” i.e. sequence-to-sequence (seq2seq) models.
+We endow pre-trained, parametric-memory generation models with a non-parametric memory through
+a general-purpose ﬁne-tuning approach which we refer to as retrieval-augmented generation (RAG).
+We build RAG models where the parametric memory is a pre-trained seq2seq transformer, and the
+
+
+[TEXT]
+
+memory which are trained from scratch for speciﬁc tasks, e.g. memory networks [ 64, 55], stack-
+augmented networks [25] and memory layers [ 30]. In contrast, we explore a setting where both
+parametric and non-parametric memory components are pre-trained and pre-loaded with extensive
+knowledge. Crucially, by using pre-trained access mechanisms, the ability to access knowledge is
+present without additional training.
+Our results highlight the beneﬁts of combining parametric and non-parametric memory with genera-
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a page from the textbook on the characterization of a single - cell cell
+
+OCR Text:
+The middle ear includes
+the tympanic cavity and
+the three ogsicles. (y)
+Question Answering:
+Answer Generation
+
+Fact Verificatlon:
+Label Generation
+
+Sno rloknd Backoopthraughqandpe
+End-to-End Backprop through q and po
+
+Questlon Answering:
+Question Query
+
+Barack Obama was
+born in Hawaii. (x)
+
+Fact Verification: Fact Query
+
+Query
+
+Retriever p, Document
+Encoder
+
+Generator pg
+{Non-Parametrie) Index
+
+(Parametric)
+
+a(x)
+
+-
+42%
+Coney (eo |_Ey Thig 14th century work
+medy ig divided into 3
+Jeopardy Question sections: "Inferno",
+Generation: "Purgatorio" &
+Answer Query "Paradiso" ty)
+Question Generation
+
+Figure 1: Overview of our approach. We combine a pre-trained retriever (Query Encoder + Document
+Index) with a pre-trained seq2seq model (Generator) and fine-tune end-to-end. For query x, we use
+Maximum Inner Product Search (MIPS) to find the top-K documents z;. For final prediction y, we
+treat z as a latent variable and marginalize over seq2seq predictions given different documents.
+
+but have only explored open-domain extractive question answering. Here, we bring hybrid parametric
+and non-parametric memory to the “workhorse of NLP,” i.e. sequence-to-sequence (seq2seq) models.
+
+We endow pre-trained, parametric-memory generation models with a non-parametric memory through
+a general-purpose fine-tuning approach which we refer to as retrieval-augmented generation (RAG).
+We build RAG models where the parametric memory is a pre-trained seq2seq transformer, and the
+non-parametric memory is a dense vector index of Wikipedia, accessed with a pre-trained neural
+retriever. We combine these components in a probabilistic model trained end-to-end (Fig. 1). The
+retriever (Dense Passage Retriever [26], henceforth DPR) provides latent documents conditioned on
+the input, and the seq2seq model (BART [32]) then conditions on these latent documents together with
+the input to generate the output. We marginalize the latent documents with a top-K approximation,
+either on @ per-output basis (assuming the same document is responsible for all tokens) or a per-token
+basis (where different documents are responsible for different tokens). Like TS [51] or BART, RAG
+can be fine-tuned on any seq2seq task, whereby both the generator and retriever are jointly learned.
+
+There has been extensive previous work proposing architectures to enrich systems with non-parametric
+memory which are trained from scratch for specific tasks, e.g. memory networks [64, 55], stack-
+augmented networks [25] and memory layers [30]. In contrast, we explore a setting where both
+parametric and non-parametric memory components are pre-trained and pre-loaded with extensive
+knowledge. Crucially, by using pre-trained access mechanisms, the ability to access knowledge is
+present without additional training.
+
+Our results highlight the benefits of combining parametric and non-parametric memory with genera-
+tion for knowledge-intensive tasks—tasks that humans could not reasonably be expected to perform
+without access to an external knowledge source. Our RAG models achieve state-of-the-art results
+on open Natural Questions [29], WebQuestions [3] and CuratedTrec [2] and strongly outperform
+recent approaches that use specialised pre-training objectives on TriviaQA [24]. Despite these being
+extractive tasks, we find that unconstrained generation outperforms previous extractive approaches.
+For knowledge-intensive generation, we experiment with MS-MARCO [1] and Jeopardy question
+generation, and we find that our models generate responses that are more factual, specific, and
+diverse than a BART baseline. For FEVER [56] fact verification, we achieve results within 4.3% of
+state-of-the-art pipeline models which use strong retrieval supervision. Finally, we demonstrate that
+the non-parametric memory can be replaced to update the models’ knowledge as the world changes.!
+
+2 Methods
+
+We explore RAG models, which use the input sequence = to retrieve text documents z and use them
+as additional context when generating the target sequence y. As shown in Figure 1, our models
+leverage two components: (i) a retriever p,(z|x) with parameters 7 that returns (top-K truncated)
+distributions over text passages given a query x and (ii) a generator po(y;|x, 2, yiz—1) parametrized
+
+1Code to run experiments with RAG has been open-sourced as part of the HuggingFace Transform-
+ers Library [66] and can be found at https: //github. com/huggingface/transformers/blob/master/
+examples/rag/. An interactive demo of RAG models can be found at https: //huggingface.co/rag/
+
+Nearby Document Text:
+The Divine
+Comedy (x)
+q
+Query
+Encoder
+q(x)
+MIPS
+pθ
+Generator pθ
+(Parametric)
+Margin-
+alize
+This 14th century work
+is divided into 3
+sections: "Inferno",
+"Purgatorio" &
+"Paradiso"         (y)
+End-to-End Backprop through q and pθ
+Barack Obama was
+born in Hawaii.(x)
+Fact Veriﬁcation: Fact Query
+supports (y)
+Question Generation
+Fact Veriﬁcation:
+Label Generation
+Document
+Index
+Define "middle ear"(x)
+Question Answering:
+Question Query
+The middle ear includes
+the tympanic cavity and
+the three ossicles.  (y)
+Question Answering:
+Answer Generation
+Retriever pη
+(Non-Parametric)
+z4
+z3
+z2
+z1
+d(z)
+Jeopardy
+
+
+[RELATED PAGE TEXT]
+
+present without additional training.
+Our results highlight the beneﬁts of combining parametric and non-parametric memory with genera-
+tion for knowledge-intensive tasks—tasks that humans could not reasonably be expected to perform
+without access to an external knowledge source. Our RAG models achieve state-of-the-art results
+on open Natural Questio
+
+
+--------------------------------------------------------------------------------
+PAGE : 6
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+how parametric and non-parametric memories work together—the non-parametric component helps
+to guide the generation, drawing out speciﬁc knowledge stored in the parametric memory.
+4.4 Fact Veriﬁcation
+Table 2 shows our results on FEVER. For 3-way classiﬁcation, RAG scores are within 4.3% of
+state-of-the-art models, which are complex pipeline systems with domain-speciﬁc architectures and
+substantial engineering, trained using intermediate retrieval supervision, which RAG does not require.
+6
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+the table shows the number of protons and protons of protons in a, b, and c
+
+OCR Text:
+Table 1: Open-Domain QA Test Scores. For TQA, Table 2: Generation and classification Test Scores.
+left column uses the standard test set for Open- MS-MARCO SotA is [4], FEVER-3 is [68] and
+Domain QA, right column uses the TQA-Wiki FEVER-2 is [57] *Uses gold context/evidence.
+test set. See Appendix D for further details. Best model without gold access underlined.
+
+Model NQ  TQA WQ CR 9 —
+—_____<__~"_"*“_~"_ "‘Vrsgel—Jeopardy ~MSMARCO FVR3 FVR2
+Closed TS-11B [52] 345 - /50.1 374. - Ba OBA RIL Bd Label Acc
+
+Book = T5-11B+SSM[52] 36.6 - /60.5 44.7 - ——_—.
+— - - ok ok ok
+Open REALM(20]) 404. -/- 40.7 468  SotA 49.8% 49.9% 768 92.2
+
+Book DPR [26] 41.5 57.9/ - 41.1 50.6 BART 15.1 19.7 382 416 640 81.1
+
+RAG-Token 44.1 55.2/66.1 45.5 50.0 RAG-Tok. 17.3 22.2 40.1 41.5
+RAG-Seq. 44.5 56.8/68.0 45.2 52.2 RAG-Seq. 14.7 21.4 40.8 44.2
+
+725 89.5
+
+to more effective marginalization over documents. Furthermore, RAG can generate correct answers
+even when the correct answer is not in any retrieved document, achieving 11.8% accuracy in such
+cases for NQ, where an extractive model would score 0%.
+
+4.2 Abstractive Question Answering
+
+As shown in Table 2, RAG-Sequence outperforms BART on Open MS-MARCO NLG by 2.6 Bleu
+points and 2.6 Rouge-L points. RAG approaches state-of-the-art model performance, which is
+impressive given that (i) those models access gold passages with specific information required to
+generate the reference answer , (ii) many questions are unanswerable without the gold passages, and
+(iii) not all questions are answerable from Wikipedia alone. Table 3 shows some generated answers
+from our models. Qualitatively, we find that RAG models hallucinate Jess and generate factually
+correct text more often than BART. Later, we also show that RAG generations are more diverse than
+BART generations (see §4.5).
+
+4.3 Jeopardy Question Generation
+
+Table 2 shows that RAG-Token performs better than RAG-Sequence on Jeopardy question generation,
+with both models outperforming BART on Q-BLEU-1. 4 shows human evaluation results, over 452
+pairs of generations from BART and RAG-Token. Evaluators indicated that BART was more factual
+than RAG in only 7.1% of cases, while RAG was more factual in 42.7% of cases, and both RAG and
+BART were factual in a further 17% of cases, clearly demonstrating the effectiveness of RAG on
+the task over a state-of-the-art generation model. Evaluators also find RAG generations to be more
+specific by a large margin. Table 3 shows typical generations from each model.
+
+Jeopardy questions often contain two separate pieces of information, and RAG-Token may perform
+best because it can generate responses that combine content from several documents. Figure 2 shows
+an example. When generating “Sun”, the posterior is high for document 2 which mentions “The
+Sun Also Rises”. Similarly, document 1 dominates the posterior when “A Farewell to Arms” is
+generated. Intriguingly, after the first token of each book is generated, the document posterior flattens.
+This observation suggests that the generator can complete the titles without depending on specific
+documents. In other words, the model’s parametric knowledge is sufficient to complete the titles. We
+find evidence for this hypothesis by feeding the BART-only baseline with the partial decoding [The
+Sun. BART completes the generation |"The Sun Also Rises" is a novel by this author of "The Sui
+‘Also Rises" indicating the title "The Sun Also Rises" is stored in BART’s parameters. Similarly,
+BART will complete the partial decoding ["The Sun Also Rises" is a novel by this author of "A
+with ['The Sun Also Rises" is a novel by this author of "A Farewell to Arms"), This example shows
+how parametric and non-parametric memories work together—the non-parametric component helps
+to guide the generation, drawing out specific knowledge stored in the parametric memory.
+
+4.4 Fact Verification
+
+Table 2 shows our results on FEVER. For 3-way classification, RAG scores are within 4.3% of
+state-of-the-art models, which are complex pipeline systems with domain-specific architectures and
+substantial engineering, trained using intermediate retrieval supervision, which RAG does not require.
+
+Nearby Document Text:
+Table 1: Open-Domain QA Test Scores. For TQA,
+left column uses the standard test set for Open-
+Domain QA, right column uses the TQA-Wiki
+test set. See Appendix D for further details.
+Model
+NQ
+TQA
+WQ
+CT
+Closed
+Book
+T5-11B [52]
+34.5
+- /50.1
+37.4
+-
+T5-11B+SSM[52]
+36.6
+- /60.5
+44.7
+-
+Open
+Book
+REALM [20]
+40.4
+- / -
+40.7
+46.8
+DPR [26]
+41.5
+57.9/ -
+41.1
+50.6
+RAG-Token
+44.1
+55.2/66.1
+45.5
+50.0
+RAG-Seq.
+44.5
+56.8/68.0
+45.2
+52.2
+Table 2: Generation and classiﬁcation Test Scores.
+MS-MARCO SotA is [4], FEVER-3 is [68] and
+FEVER-2 is [57] *Uses gold context/evidence.
+Best model without gold access underli
+
+
+[RELATED PAGE TEXT]
+
+how parametric and non-parametric memories work together—the non-parametric component helps
+to guide the generation, drawing out speciﬁc knowledge stored in the parametric memory.
+4.4 Fact Veriﬁcation
+Table 2 shows our results on FEVER. For 3-way classiﬁcation, RAG scores are within 4.3% of
+state-of-the-art models, which are complex pipeline system
+
+
+--------------------------------------------------------------------------------
+PAGE : 7
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+Index hot-swapping An advantage of non-parametric memory models like RAG is that knowledge
+can be easily updated at test time. Parametric-only models like T5 or BART need further training to
+update their behavior as the world changes. To demonstrate, we build an index using the DrQA [5]
+Wikipedia dump from December 2016 and compare outputs from RAG using this index to the newer
+index from our main results (December 2018). We prepare a list of 82 world leaders who had changed
+7
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a paper with the title of a research paper
+
+OCR Text:
+Dacument 1: his works are considered classics of American
+literature ... His wartime experiences formed the basis for his novel
+“A Farewell to Arms” (1929)...
+
+Document 2: ... artists of the 1920s “Lost Generation” expatriate
+
+community. His debut novel, “The Sun Also Rises”, was published
+in 1926,
+
+Figure 2: RAG-Token document posterior p(z:|x, yi, y_i) for each generated token for input “Hem-
+ingway” for Jeopardy generation with 5 retrieved documents. The posterior for document 1 is high
+when generating “A Farewell to Arms" and for document 2 when generating “The Sun Also Rises".
+
+Table 3: Examples from generation tasks. RAG models generate more specific and factually accurate
+responses. ‘?’ indicates factually incorrect responses, * indicates partially correct responses.
+
+Task Input Model Generation
+defi ddl BART The middle ear is the part of the ear between the middle ear and the nose.
+eine mice’? RAG-T The middle ear is the portion of the ear internal to the eardrum.
+MS- ear RAG-S_ The middle ear includes the tympanic cavity and the three ossicles.
+MARCO
+
+what currency BART The currency needed in Scotland is Pound sterling.
+needed in RAG-T Pound is the currency needed in Scotland.
+scotland RAG-S_ The currency needed in Scotland is the pound sterling.
+
+BART  ’ This state has the largest number of counties in the U.S.
+Jeopardy Washington RAG-T It’s the only U.S. state named for a U.S. president
+
+Question RAG-S It’s the state where you'll find Mount Rainier National Park
+Gener The Divine BART “This epic poem by Dante is divided into 3 parts: the Infemo, the Purgatorio & the Purgatorio
+
+Comedy RAG-T Dante’s "Inferno" is the first part of this epic poem
+omedy RAG-S_ This 14th century work is divided into 3 sections: "Inferno", "Purgatorio" & "Paradiso"
+
+For 2-way classification, we compare against Thorne and Vlachos [57], who train ROBERTa [35]
+to classify the claim as true or false given the gold evidence sentence. RAG achieves an accuracy
+within 2.7% of this model, despite being supplied with only the claim and retrieving its own evidence.
+We also analyze whether documents retrieved by RAG correspond to documents annotated as gold
+evidence in FEVER. We calculate the overlap in article titles between the top & documents retrieved
+by RAG and gold evidence annotations. We find that the top retrieved document is from a gold article
+in 71% of cases, and a gold article is present in the top 10 retrieved articles in 90% of cases.
+
+4.5 Additional Results
+
+Generation Diversity Section 4.3 shows that RAG models are more factual and specific than
+BART for Jeopardy question generation. Following recent work on diversity-promoting decoding
+[33, 59, 39], we also investigate generation diversity by calculating the ratio of distinct ngrams to
+total ngrams generated by different models. Table 5 shows that RAG-Sequence’s generations are
+more diverse than RAG-Token’s, and both are significantly more diverse than BART without needing
+any diversity-promoting decoding.
+
+Retrieval Ablations A key feature of RAG is learning to retrieve relevant information for the task.
+To assess the effectiveness of the retrieval mechanism, we run ablations where we freeze the retriever
+during training. As shown in Table 6, learned retrieval improves results for all tasks.
+
+We compare RAG’s dense retriever to a word overlap-based BM25 retriever [53]. Here, we replace
+RAG’s retriever with a fixed BM25 system, and use BM25 retrieval scores as logits when calculating
+p(z|z). Table 6 shows the results. For FEVER, BM25 performs best, perhaps since FEVER claims are
+heavily entity-centric and thus well-suited for word overlap-based retrieval. Differentiable retrieval
+improves results on all other tasks, especially for Open-Domain QA, where it is crucial.
+
+Index hot-swapping An advantage of non-parametric memory models like RAG is that knowledge
+can be easily updated at test time. Parametric-only models like TS or BART need further training to
+update their behavior as the world changes. To demonstrate, we build an index using the DrQA [5]
+Wikipedia dump from December 2016 and compare outputs from RAG using this index to the newer
+index from our main results (December 2018). We prepare a list of 82 world leaders who had changed
+
+Nearby Document Text:
+Document 1: his works are considered classics of American
+literature ... His wartime experiences formed the basis for his novel
+”A Farewell to Arms” (1929) ...
+Document 2: ... artists of the 1920s ”Lost Generation” expatriate
+community. His debut novel, ”The Sun Also Rises”, was published
+in 1926.
+BOS ”
+The
+Sun
+Also
+R
+ises
+”
+is
+a
+novel
+by
+this
+authorof
+”
+A
+Fare
+well
+to
+Arms”
+Doc 1
+Doc 2
+Doc 3
+Doc 4
+Doc 5
+Figure 2: RAG-Token document posterior p(zi|x, yi, y−i) for each generated token for input “Hem-
+ingway" for Jeopardy generation with 5 retrieved documents. The posterior for document 1 is hig
+
+
+[RELATED PAGE TEXT]
+
+Index hot-swapping An advantage of non-parametric memory models like RAG is that knowledge
+can be easily updated at test time. Parametric-only models like T5 or BART need further training to
+update their behavior as the world changes. To demonstrate, we build an index using the DrQA [5]
+Wikipedia dump from December 2016 and compare outputs from RAG
+
+
+--------------------------------------------------------------------------------
+PAGE : 9
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+could represent promising future work.
+6 Discussion
+In this work, we presented hybrid generation models with access to parametric and non-parametric
+memory. We showed that our RAG models obtain state of the art results on open-domain QA. We
+found that people prefer RAG’s generation over purely parametric BART, ﬁnding RAG more factual
+and speciﬁc. We conducted an thorough investigation of the learned retrieval component, validating
+its effectiveness, and we illustrated how the retrieval index can be hot-swapped to update the model
+
+================================================================================
+
+================================================================================
+RAG PIPELINE DEBUG
+================================================================================
+Query Type        : analytical
+Retrieved Chunks  : 8
+Retrieved Images  : 3
+Reranked Chunks   : 11
+Reranked Text     : 8
+Reranked Images   : 3
+Final Context Docs: 11
+Exact Figure Query: False
+Exact Figure Match: False
+Exact Figure Final: False
+================================================================================
+
+================================================================================
+STAGE 4 — EVIDENCE VERIFICATION
+================================================================================
+Verification Units : 2
+Supported          : 2
+Partially Supported: 0
+Unsupported        : 0
+Unknown            : 0
+Groundedness Ratio : 1.00
+
+[CLAIM #1] Using an external non-parametric memory makes RAG easier to update with new knowledge than a purely parametric language model because non-parametric models like RAG can easily update their knowledge at test time, while parametric-only models like T5 or BART require further training to update their behavior as the world changes.
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.8916 | Citation=RAG.pdf (Page 7)
+
+[CLAIM #2] This is because non-parametric models store specific knowledge in their memory, and this knowledge can be easily updated or replaced, whereas parametric models learn to generate responses based on the parameters learned during training, and updating these parameters requires additional training data and computational resources.
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.8857 | Citation=RAG.pdf (Page 7)
+================================================================================
+
+====================================================================================================
+RAG ANSWER
+====================================================================================================
+ Using an external non-parametric memory makes RAG easier to update with new knowledge than a purely parametric language model because non-parametric models like RAG can easily update their knowledge at test time, while parametric-only models like T5 or BART require further training to update their behavior as the world changes. This is because non-parametric models store specific knowledge in their memory, and this knowledge can be easily updated or replaced, whereas parametric models learn to generate responses based on the parameters learned during training, and updating these parameters requires additional training data and computational resources.
+
+IMAGE PATHS:
+D:/Projects/Major-Project-2-main/extracted_images/RAG_page2_render.png
+D:/Projects/Major-Project-2-main/extracted_images/RAG_page6_render.png
+D:/Projects/Major-Project-2-main/extracted_images/RAG_page7_render.png

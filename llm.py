@@ -13,15 +13,29 @@ def get_llm(mode: str = "rag"):
     model_name = "mistral:7b-instruct"
 
     if mode == "summary":
+
         llm = OllamaLLM(
             model=model_name,
             num_gpu=0,
             num_thread=8,
-            num_ctx=1536,   # 🔥 reduced (faster)
+            num_ctx=1536,
             num_predict=300,
             temperature=0.2,
         )
+
+    elif mode == "benchmark":
+
+        llm = OllamaLLM(
+            model=model_name,
+            num_gpu=0,
+            num_thread=8,
+            num_ctx=2048,
+            num_predict=200,
+            temperature=0.0,      # deterministic benchmark questions
+        )
+
     else:
+
         llm = OllamaLLM(
             model=model_name,
             num_gpu=0,

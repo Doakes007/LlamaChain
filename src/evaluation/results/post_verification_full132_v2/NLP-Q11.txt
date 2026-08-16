@@ -1,0 +1,1124 @@
+====================================================================================================
+QUESTION_ID   : NLP-Q11
+DOCUMENT      : NLP
+QUESTION_TYPE : Figure + Text Reasoning
+ELAPSED_SEC   : 54.4
+ERROR         : no
+====================================================================================================
+
+QUESTION:
+Which model converges fastest during training according to Figure 3, and what does the paper identify as a major reason for the computational advantage or disadvantage of the compared models?
+
+GROUND TRUTH ANSWER:
+RoBERTa converges fastest, reaching a loss below 0.10 by epoch 8. The paper attributes BiLSTM's slower convergence/higher final loss partly to its lack of large-corpus pre-training; RoBERTa benefits from pre-training but has substantially higher computational/training cost.
+
+GROUND TRUTH SOURCE:
+NLP Paper(2).pdf, p. 4 (Figure 3)
+
+====================================================================================================
+FORENSIC TRANSCRIPT
+====================================================================================================
+
+####################################################################################################
+FORENSIC CASE START
+####################################################################################################
+Original Query   : Which model converges fastest during training according to Figure 3, and what does the paper identify as a major reason for the computational advantage or disadvantage of the compared models?
+Expanded Query   : Which model converges fastest during training according to Figure 3, and what does the paper identify as a major reason for the computational advantage or disadvantage of the compared models?
+Query Type       : visual
+[DOCUMENT SCOPE] Normalized query: 'which model converges fastest during training according to figure 3 and what does the paper identify as a major reason for the computational advantage or disadvantage of the compared models'
+[DOCUMENT SCOPE] Source='BERT.pdf' -> Normalized='bert'
+[DOCUMENT SCOPE] Token overlap for 'BERT.pdf': []
+[DOCUMENT SCOPE] Source='BLIP-2.pdf' -> Normalized='blip 2'
+[DOCUMENT SCOPE] Token overlap for 'BLIP-2.pdf': []
+[DOCUMENT SCOPE] Source='CLIP.pdf' -> Normalized='clip'
+[DOCUMENT SCOPE] Token overlap for 'CLIP.pdf': []
+[DOCUMENT SCOPE] Source='CNN Paper.pdf' -> Normalized='cnn paper'
+[DOCUMENT SCOPE] Token overlap for 'CNN Paper.pdf': ['paper']
+[DOCUMENT SCOPE] Source='Donut.pdf' -> Normalized='donut'
+[DOCUMENT SCOPE] Token overlap for 'Donut.pdf': []
+[DOCUMENT SCOPE] Source='LayoutLMv3.pdf' -> Normalized='layout l mv3'
+[DOCUMENT SCOPE] Token overlap for 'LayoutLMv3.pdf': []
+[DOCUMENT SCOPE] Source='NLP Paper.pdf' -> Normalized='nlp paper'
+[DOCUMENT SCOPE] Token overlap for 'NLP Paper.pdf': ['paper']
+[DOCUMENT SCOPE] Source='RAG.pdf' -> Normalized='rag'
+[DOCUMENT SCOPE] Token overlap for 'RAG.pdf': []
+[DOCUMENT SCOPE] Source='Self-RAG.pdf' -> Normalized='self rag'
+[DOCUMENT SCOPE] Token overlap for 'Self-RAG.pdf': []
+[DOCUMENT SCOPE] Source='Vision Transformer.pdf' -> Normalized='vision transformer'
+[DOCUMENT SCOPE] Token overlap for 'Vision Transformer.pdf': []
+[DOCUMENT SCOPE] No reliable document scope detected. Retrieval remains global.
+
+================================================================================
+DOCUMENT SCOPE DEBUG
+================================================================================
+Query          : Which model converges fastest during training according to Figure 3, and what does the paper identify as a major reason for the computational advantage or disadvantage of the compared models?
+Expanded Query : Which model converges fastest during training according to Figure 3, and what does the paper identify as a major reason for the computational advantage or disadvantage of the compared models?
+Query Type     : visual
+Document Scope : None
+================================================================================
+
+==========================================================================================
+STEP 3A — GLOBAL HYBRID RETRIEVAL
+==========================================================================================
+Query              : Which model converges fastest during training according to Figure 3, and what does the paper identify as a major reason for the computational advantage or disadvantage of the compared models?
+Dense candidate K  : 25
+Final hybrid K     : 8
+RRF constant       : 60
+
+------------------------------------------------------------------------------------------
+[DENSE / VECTOR RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=RAG.pdf | Page=18 | Type=text | Image=N/A
+    Content=the model with each (q,a ) pair separately, leading to a small increase in accuracy. For TriviaQA, there are often many valid answers to a given question, some of which are not sui
+02. Source=CNN Paper.pdf | Page=5 | Type=text | Image=N/A
+    Content=patterns effectively. The validation curves in Figure 2 show smooth convergence with no signs of severe overfitting after epoch 16. 7.2 Limitations The model underperforms on Turtl
+03. Source=NLP Paper.pdf | Page=4 | Type=text | Image=N/A
+    Content=4. Training Dynamics Figure 3 shows training loss curves for BiLSTM, BERT, and RoBERTa over 15 epochs. RoBERTa converges fastest, reaching a loss below 0.10 by epoch 8. BERT conver
+04. Source=BERT.pdf | Page=12 | Type=text | Image=N/A
+    Content=the model’s language understanding capability. In Section C.2, we evaluate the impact this proce- dure. Compared to standard langauge model training, the masked LM only make predic
+05. Source=LayoutLMv3.pdf | Page=8 | Type=text | Image=N/A
+    Content=unified objectives. In future research, we will investigate scaling up pre-trained models so that the models can leverage more training data to drive SOTA results further. In addit
+06. Source=BERT.pdf | Page=8 | Type=text | Image=N/A
+    Content=on large-scale tasks such as machine translation and language modeling, which is demonstrated by the LM perplexity of held-out training data shown in Table 6. However, we believe t
+07. Source=BERT.pdf | Page=13 | Type=text | Image=N/A
+    Content=left LSTMs to generate features for downstream tasks. Among the three, only BERT representations are jointly conditioned on both left and right context in all layers. In addition t
+08. Source=CLIP.pdf | Page=11 | Type=text | Image=N/A
+    Content=models. Lightly shaded lines are performance on individual evals, showing that performance is much more varied despite the smooth overall trend. this is caused by high variance bet
+09. Source=CLIP.pdf | Page=17 | Type=text | Image=N/A
+    Content=While this guarantees reporting true hold-out performance, it requires knowing all possible data which a model might be evaluated on ahead of time. This has the downside of limitin
+10. Source=Donut.pdf | Page=9 | Type=text | Image=N/A
+    Content=3.3 Experimental Results Document Classification. The results are shown in Table 1. Without re- lying on any other resource (e.g., off-the-shelf OCR engine), Donut shows a state-of
+11. Source=CLIP.pdf | Page=27 | Type=text | Image=N/A
+    Content=large-scale bias-controlled dataset for pushing the lim- its of object recognition models. In Advances in Neural Information Processing Systems, pp. 9453–9463, 2019. Barnard, K., D
+12. Source=Vision Transformer.pdf | Page=8 | Type=text | Image=N/A
+    Content=Published as a conference paper at ICLR 2021 4.4 S CALING STUDY We perform a controlled scaling study of different models by evaluating transfer performance from JFT-300M. In this 
+13. Source=Self-RAG.pdf | Page=17 | Type=text | Image=N/A
+    Content=generated feedback into training, development, and test sets. The accuracy of the reward model is as follows. Table 5 shows the model performance of predicting GPT-4 judgments. As 
+14. Source=NLP Paper.pdf | Page=3 | Type=text | Image=N/A
+    Content=3. Model Comparison Figure 2 presents accuracy and F1 scores for all five models evaluated on the test set. RoBERTa achieves the best performance with 94.1% accuracy and 93.4% F1. 
+15. Source=CLIP.pdf | Page=6 | Type=text | Image=N/A
+    Content=million crowd-labeled training examples available for this dataset. Additionally, the top-5 accuracy of CLIP models are noticeably higher than their top-1, and this model has a 95%
+16. Source=CLIP.pdf | Page=44 | Type=text | Image=N/A
+    Content=(Zhang et al., 2020). It also is similar to the ﬁndings of noisy student self-training which reported only slight improve- ments when using their JFT300M dataset over YFCC100M (Xie
+17. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=We adopt distributed and mixed-precision training to reduce memory costs and speed up training procedures. We also use a gradient accumulation mechanism to split the batch of sampl
+18. Source=Vision Transformer.pdf | Page=13 | Type=text | Image=N/A
+    Content=B E XPERIMENT DETAILS B.1 T RAINING Table 3 summarizes our training setups for our different models. We found strong regularization to be key when training models from scratch on I
+19. Source=CNN Paper.pdf | Page=1 | Type=text | Image=N/A
+    Content=after 20 epochs of training using the Adam optimizer with a learning rate of 0.001. The model employs two convolutional layers followed by max-pooling and a fully-connected classif
+20. Source=Self-RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=Connections to prior work on learning with critique. Recent work incorporates additional critique (feedback) during training, e.g., RLHF (Ouyang et al. 2022) via PPO. While PPO rel
+21. Source=Self-RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=training data for each type and combine them to form training data for C. Appendix Section D shows the full list of instructions, and A.1 contains more details and our analysis. Cr
+22. Source=CLIP.pdf | Page=1 | Type=text | Image=N/A
+    Content=many types of ﬁne-grained object classiﬁcation. The model transfers non-trivially to most tasks and is often competitive with a fully supervised baseline without the need for any d
+23. Source=CLIP.pdf | Page=23 | Type=text | Image=N/A
+    Content=given the ﬂexibility it offers. In addition to choices about training data and model architecture, decisions about things like class designs and thresholding values can alter the l
+24. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=lead to further improvements, although in this work we limit our training data size to 150k. Human evaluations. We conduct small human evaluations on SELF -RAG outputs, as well as 
+25. Source=Donut.pdf | Page=5 | Type=text | Image=N/A
+    Content=scheme [62], which is a model training strategy that uses the ground truth as input instead of model output from a previous time step. In the test phase, inspired by GPT-3 [5], the
+
+------------------------------------------------------------------------------------------
+[BM25 RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=CLIP.pdf | Page=44 | Type=text | Image=N/A
+    Content=lar average performance and number of wins on zero shot and linear classiﬁer evals. However, large differences in dataset speciﬁc performance occur. We include performance on the 3
+02. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=linear image embedding has improved FUNSD, MIM does not fur- ther contribute to FUNSD. By incorporating the MIM objective in training, the loss converges when fine-tuning PubLayNet
+03. Source=CLIP.pdf | Page=4 | Type=text | Image=N/A
+    Content=recently adapted for contrastive (text, image) representation learning in the domain of medical imaging by Zhang et al. (2020). Due to the large size of our pre-training dataset, o
+04. Source=BERT.pdf | Page=9 | Type=text | Image=N/A
+    Content=all parameters are jointly ﬁne-tuned on a down- stream task. However, the feature-based approach, where ﬁxed features are extracted from the pre- trained model, has certain advanta
+05. Source=CLIP.pdf | Page=19 | Type=text | Image=N/A
+    Content=for a wide variety of tasks and datasets, CLIP is still limited to choosing from only those concepts in a given zero-shot classiﬁer. This is a signiﬁcant restriction compared to a 
+06. Source=CLIP.pdf | Page=24 | Type=text | Image=N/A
+    Content=model to correctly identify the main subject of the image (i.e. determine if the image was a picture of an empty parking lot, school campus, etc.). For ﬁne-grained classiﬁcation, t
+07. Source=CLIP.pdf | Page=23 | Type=text | Image=N/A
+    Content=given the ﬂexibility it offers. In addition to choices about training data and model architecture, decisions about things like class designs and thresholding values can alter the l
+08. Source=RAG.pdf | Page=18 | Type=text | Image=N/A
+    Content=the model with each (q,a ) pair separately, leading to a small increase in accuracy. For TriviaQA, there are often many valid answers to a given question, some of which are not sui
+09. Source=BERT.pdf | Page=5 | Type=text | Image=N/A
+    Content=tasks. Detailed descriptions of GLUE datasets are included in Appendix B.1. To ﬁne-tune on GLUE, we represent the input sequence (for single sentence or sentence pairs) as describe
+10. Source=Self-RAG.pdf | Page=9 | Type=image | Image=extracted_images\Self-RAG_page9_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the textbook on the characterization and characterization of semiconductors in semiconductors and semiconductors  OCR Text:
+11. Source=CNN Paper.pdf | Page=1 | Type=text | Image=N/A
+    Content=after 20 epochs of training using the Adam optimizer with a learning rate of 0.001. The model employs two convolutional layers followed by max-pooling and a fully-connected classif
+12. Source=NLP Paper.pdf | Page=4 | Type=text | Image=N/A
+    Content=4. Training Dynamics Figure 3 shows training loss curves for BiLSTM, BERT, and RoBERTa over 15 epochs. RoBERTa converges fastest, reaching a loss below 0.10 by epoch 8. BERT conver
+13. Source=CLIP.pdf | Page=44 | Type=image | Image=extracted_images\CLIP_page44_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the university of technology and engineering  OCR Text: Learning Transferable Visual Models From Natural Lan
+14. Source=NLP Paper.pdf | Page=4 | Type=image | Image=extracted_images\NLP Paper_page4_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a graph graph with a line graph and a line graph with a line graph and a line graph with a  OCR Text: 4. Training Dynamics  Figure 3 sh
+15. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=We show in Table 3a the ablation results. The top part of the table shows results for training ablations, and the bottom part is for inference ablations. We see that all components
+16. Source=BERT.pdf | Page=4 | Type=text | Image=N/A
+    Content=Although this allows us to obtain a bidirec- tional pre-trained model, a downside is that we are creating a mismatch between pre-training and ﬁne-tuning, since the [MASK] token doe
+17. Source=BLIP-2.pdf | Page=5 | Type=text | Image=N/A
+    Content=Love is like a sunset, it's hard to see it coming but when it does it's so beautiful. Write a romantic message that goes along this photo. Darren and Jade are a couple who have a p
+18. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=precisely grounded yet shorter outputs. Llama2-FT 7B, which is the baseline LM trained on the same instruction-output pairs as SELF -R AG without retrieval or self-reflection and i
+19. Source=RAG.pdf | Page=4 | Type=text | Image=N/A
+    Content=minimize the negative marginal log-likelihood of each target,∑ j− logp(yj|xj) using stochastic gradient descent with Adam [28]. Updating the document encoder BERTd during training 
+20. Source=BLIP-2.pdf | Page=4 | Type=text | Image=N/A
+    Content=stage. During pre-training, we convert the frozen ViTs’ and LLMs’ parameters into FP16, except for FlanT5 where we use BFloat16. We found no performance degradation compared to usi
+21. Source=BERT.pdf | Page=12 | Type=text | Image=N/A
+    Content=is hairy . The purpose of this is to bias the representation towards the actual observed word. The advantage of this procedure is that the Transformer encoder does not know which w
+22. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=SAIL. We also conduct ablation on our inference-time algorithm, including No retrieval disables retrieval during inference; Hard constraints indicates the model performance that re
+23. Source=CLIP.pdf | Page=20 | Type=text | Image=N/A
+    Content=Learning Transferable Visual Models From Natural Language Supervision 20 CLIP also does not address the poor data efﬁciency of deep learning. Instead CLIP compensates by using a so
+24. Source=BLIP-2.pdf | Page=3 | Type=text | Image=N/A
+    Content=pairwise similarity between each query output and t, and then select the highest one as the image-text similarity. To avoid information leak, we employ a unimodal self-attention ma
+25. Source=CLIP.pdf | Page=17 | Type=image | Image=extracted_images\CLIP_page17_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a graph plot with a line graph and a line graph with a line graph and a line graph with a  OCR Text: Learning Transferable Visual Model
+
+------------------------------------------------------------------------------------------
+[RRF FUSION RANKING]
+------------------------------------------------------------------------------------------
+01. RRF=0.031099 | DenseRank=1 | BM25Rank=8 | Source=RAG.pdf | Page=18 | Type=text
+02. RRF=0.029762 | DenseRank=3 | BM25Rank=12 | Source=NLP Paper.pdf | Page=4 | Type=text
+03. RRF=0.026974 | DenseRank=23 | BM25Rank=7 | Source=CLIP.pdf | Page=23 | Type=text
+04. RRF=0.026743 | DenseRank=19 | BM25Rank=11 | Source=CNN Paper.pdf | Page=1 | Type=text
+05. RRF=0.016393 | DenseRank=- | BM25Rank=1 | Source=CLIP.pdf | Page=44 | Type=text
+06. RRF=0.016129 | DenseRank=2 | BM25Rank=- | Source=CNN Paper.pdf | Page=5 | Type=text
+07. RRF=0.016129 | DenseRank=- | BM25Rank=2 | Source=LayoutLMv3.pdf | Page=7 | Type=text
+08. RRF=0.015873 | DenseRank=- | BM25Rank=3 | Source=CLIP.pdf | Page=4 | Type=text
+09. RRF=0.015625 | DenseRank=4 | BM25Rank=- | Source=BERT.pdf | Page=12 | Type=text
+10. RRF=0.015625 | DenseRank=- | BM25Rank=4 | Source=BERT.pdf | Page=9 | Type=text
+11. RRF=0.015385 | DenseRank=5 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=8 | Type=text
+12. RRF=0.015385 | DenseRank=- | BM25Rank=5 | Source=CLIP.pdf | Page=19 | Type=text
+13. RRF=0.015152 | DenseRank=6 | BM25Rank=- | Source=BERT.pdf | Page=8 | Type=text
+14. RRF=0.015152 | DenseRank=- | BM25Rank=6 | Source=CLIP.pdf | Page=24 | Type=text
+15. RRF=0.014925 | DenseRank=7 | BM25Rank=- | Source=BERT.pdf | Page=13 | Type=text
+16. RRF=0.014706 | DenseRank=8 | BM25Rank=- | Source=CLIP.pdf | Page=11 | Type=text
+17. RRF=0.014493 | DenseRank=9 | BM25Rank=- | Source=CLIP.pdf | Page=17 | Type=text
+18. RRF=0.014493 | DenseRank=- | BM25Rank=9 | Source=BERT.pdf | Page=5 | Type=text
+19. RRF=0.014286 | DenseRank=10 | BM25Rank=- | Source=Donut.pdf | Page=9 | Type=text
+20. RRF=0.014286 | DenseRank=- | BM25Rank=10 | Source=Self-RAG.pdf | Page=9 | Type=image
+21. RRF=0.014085 | DenseRank=11 | BM25Rank=- | Source=CLIP.pdf | Page=27 | Type=text
+22. RRF=0.013889 | DenseRank=12 | BM25Rank=- | Source=Vision Transformer.pdf | Page=8 | Type=text
+23. RRF=0.013699 | DenseRank=13 | BM25Rank=- | Source=Self-RAG.pdf | Page=17 | Type=text
+24. RRF=0.013699 | DenseRank=- | BM25Rank=13 | Source=CLIP.pdf | Page=44 | Type=image
+25. RRF=0.013514 | DenseRank=14 | BM25Rank=- | Source=NLP Paper.pdf | Page=3 | Type=text
+26. RRF=0.013514 | DenseRank=- | BM25Rank=14 | Source=NLP Paper.pdf | Page=4 | Type=image
+27. RRF=0.013333 | DenseRank=15 | BM25Rank=- | Source=CLIP.pdf | Page=6 | Type=text
+28. RRF=0.013333 | DenseRank=- | BM25Rank=15 | Source=Self-RAG.pdf | Page=9 | Type=text
+29. RRF=0.013158 | DenseRank=16 | BM25Rank=- | Source=CLIP.pdf | Page=44 | Type=text
+30. RRF=0.013158 | DenseRank=- | BM25Rank=16 | Source=BERT.pdf | Page=4 | Type=text
+31. RRF=0.012987 | DenseRank=17 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=4 | Type=text
+32. RRF=0.012987 | DenseRank=- | BM25Rank=17 | Source=BLIP-2.pdf | Page=5 | Type=text
+33. RRF=0.012821 | DenseRank=18 | BM25Rank=- | Source=Vision Transformer.pdf | Page=13 | Type=text
+34. RRF=0.012821 | DenseRank=- | BM25Rank=18 | Source=Self-RAG.pdf | Page=9 | Type=text
+35. RRF=0.012658 | DenseRank=- | BM25Rank=19 | Source=RAG.pdf | Page=4 | Type=text
+36. RRF=0.012500 | DenseRank=20 | BM25Rank=- | Source=Self-RAG.pdf | Page=5 | Type=text
+37. RRF=0.012500 | DenseRank=- | BM25Rank=20 | Source=BLIP-2.pdf | Page=4 | Type=text
+38. RRF=0.012346 | DenseRank=21 | BM25Rank=- | Source=Self-RAG.pdf | Page=5 | Type=text
+39. RRF=0.012346 | DenseRank=- | BM25Rank=21 | Source=BERT.pdf | Page=12 | Type=text
+40. RRF=0.012195 | DenseRank=22 | BM25Rank=- | Source=CLIP.pdf | Page=1 | Type=text
+41. RRF=0.012195 | DenseRank=- | BM25Rank=22 | Source=Self-RAG.pdf | Page=9 | Type=text
+42. RRF=0.012048 | DenseRank=- | BM25Rank=23 | Source=CLIP.pdf | Page=20 | Type=text
+43. RRF=0.011905 | DenseRank=24 | BM25Rank=- | Source=Self-RAG.pdf | Page=10 | Type=text
+44. RRF=0.011905 | DenseRank=- | BM25Rank=24 | Source=BLIP-2.pdf | Page=3 | Type=text
+45. RRF=0.011765 | DenseRank=25 | BM25Rank=- | Source=Donut.pdf | Page=5 | Type=text
+46. RRF=0.011765 | DenseRank=- | BM25Rank=25 | Source=CLIP.pdf | Page=17 | Type=image
+------------------------------------------------------------------------------------------
+
+==========================================================================================
+STEP 3A — RETRIEVAL STAGE SUMMARY
+==========================================================================================
+Dense candidates       : 25
+BM25 candidates        : 25
+Dense ∩ BM25           : 4
+Dense-only candidates  : 21
+BM25-only candidates   : 21
+Unique candidate pool  : 46
+RRF candidates         : 46
+Returned to pipeline   : 8
+==========================================================================================
+
+------------------------------------------------------------------------------------------
+[FINAL HYBRID RESULT] 8 candidates
+------------------------------------------------------------------------------------------
+01. Source=RAG.pdf | Page=18 | Type=text | Image=N/A
+    Content=the model with each (q,a ) pair separately, leading to a small increase in accuracy. For TriviaQA, there are often many valid answers to a given question, some of which are not sui
+02. Source=NLP Paper.pdf | Page=4 | Type=text | Image=N/A
+    Content=4. Training Dynamics Figure 3 shows training loss curves for BiLSTM, BERT, and RoBERTa over 15 epochs. RoBERTa converges fastest, reaching a loss below 0.10 by epoch 8. BERT conver
+03. Source=CLIP.pdf | Page=23 | Type=text | Image=N/A
+    Content=given the ﬂexibility it offers. In addition to choices about training data and model architecture, decisions about things like class designs and thresholding values can alter the l
+04. Source=CNN Paper.pdf | Page=1 | Type=text | Image=N/A
+    Content=after 20 epochs of training using the Adam optimizer with a learning rate of 0.001. The model employs two convolutional layers followed by max-pooling and a fully-connected classif
+05. Source=CLIP.pdf | Page=44 | Type=text | Image=N/A
+    Content=lar average performance and number of wins on zero shot and linear classiﬁer evals. However, large differences in dataset speciﬁc performance occur. We include performance on the 3
+06. Source=CNN Paper.pdf | Page=5 | Type=text | Image=N/A
+    Content=patterns effectively. The validation curves in Figure 2 show smooth convergence with no signs of severe overfitting after epoch 16. 7.2 Limitations The model underperforms on Turtl
+07. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=linear image embedding has improved FUNSD, MIM does not fur- ther contribute to FUNSD. By incorporating the MIM objective in training, the loss converges when fine-tuning PubLayNet
+08. Source=CLIP.pdf | Page=4 | Type=text | Image=N/A
+    Content=recently adapted for contrastive (text, image) representation learning in the domain of medical imaging by Zhang et al. (2020). Due to the large size of our pre-training dataset, o
+==========================================================================================
+
+================================================================================
+STAGE 1 — HYBRID RETRIEVAL
+================================================================================
+Retrieved Count : 8
+
+[HYBRID #1] Source=RAG.pdf | Page=18 | Type=text
+Content: the model with each (q,a ) pair separately, leading to a small increase in accuracy. For TriviaQA, there are often many valid answers to a given question, some of which are not suitable training targets, such as emoji or spelling variants. For TriviaQA, we ﬁlter out answer candidates if they do not occur in top 1000 documents for the query. CuratedTrec preprocessing The answers for CuratedTrec are given in the form of regular expres- sions, which has been suggested as a reason why it is unsuitab
+
+[HYBRID #2] Source=NLP Paper.pdf | Page=4 | Type=text
+Content: 4. Training Dynamics Figure 3 shows training loss curves for BiLSTM, BERT, and RoBERTa over 15 epochs. RoBERTa converges fastest, reaching a loss below 0.10 by epoch 8. BERT converges slightly slower but achieves a similar final loss. BiLSTM shows slower convergence and a higher final loss of 0.24, reflecting its lack of pre-training on large corpora. All three models used early stopping with patience of 3 epochs.  Figure 3: Training loss over 15 epochs for BiLSTM, BERT, and RoBERTa. RoBERTa con
+
+[HYBRID #3] Source=CLIP.pdf | Page=23 | Type=text
+Content: given the ﬂexibility it offers. In addition to choices about training data and model architecture, decisions about things like class designs and thresholding values can alter the labels a model outputs and as a result heighten or lower certain kinds of harm, such as those described by Crawford (2017). People designing and developing models and AI systems have considerable power. Decisions about things like class design are a key determiner not only of model performance, but also of how and in wh
+
+[HYBRID #4] Source=CNN Paper.pdf | Page=1 | Type=text
+Content: after 20 epochs of training using the Adam optimizer with a learning rate of 0.001. The model employs two convolutional layers followed by max-pooling and a fully-connected classification head. This report describes the system architecture, dataset composition, training procedure, and evaluation results. 1. System Architecture The CNN architecture follows a sequential design consisting of six major components as illustrated in Figure 1. The input layer accepts RGB images resized to 224x224 pixel
+
+[HYBRID #5] Source=CLIP.pdf | Page=44 | Type=text
+Content: lar average performance and number of wins on zero shot and linear classiﬁer evals. However, large differences in dataset speciﬁc performance occur. We include performance on the 3 datasets where YFCC does best and worst compared to WIT according to a linear probe in order to highlight this as well as aggregate performance across all linear and zero-shot evals and the canonical ImageNet dataset. D. Dataset Ablation on YFCC100M To study whether our custom dataset is critical to the perfor- mance 
+
+[HYBRID #6] Source=CNN Paper.pdf | Page=5 | Type=text
+Content: patterns effectively. The validation curves in Figure 2 show smooth convergence with no signs of severe overfitting after epoch 16. 7.2 Limitations The model underperforms on Turtle and Hamster classes primarily due to lower training data availability as shown in Figure 3. Additionally, the confusion matrix (Figure 5) reveals systematic confusion between visually similar classes. The current architecture does not use transfer learning from pretrained models such as ResNet or VGG which could sign
+
+[HYBRID #7] Source=LayoutLMv3.pdf | Page=7 | Type=text
+Content: linear image embedding has improved FUNSD, MIM does not fur- ther contribute to FUNSD. By incorporating the MIM objective in training, the loss converges when fine-tuning PubLayNet as shown in Figure 4, and we obtain a desirable mAP score. The results indi- cate that MIM can help regularize the training. Thus MIM is critical for vision tasks like document layout analysis on PubLayNet. Effect of WPA pre-training objective. By comparing models #3 and #4 in Table 3, we observe that the WPA objectiv
+
+[HYBRID #8] Source=CLIP.pdf | Page=4 | Type=text
+Content: recently adapted for contrastive (text, image) representation learning in the domain of medical imaging by Zhang et al. (2020). Due to the large size of our pre-training dataset, over-ﬁtting is not a major concern and the details of training CLIP are simpliﬁed compared to the implementation of Zhang et al. (2020). We train CLIP from scratch without initializing the image encoder with ImageNet weights or the text encoder with pre-trained weights. We do not use the non-linear projection between th
+================================================================================
+
+================================================================================
+EXPLICIT FIGURE QUERY DETECTED
+================================================================================
+Requested Figure : 3
+================================================================================
+[FIGURE SOURCE HINT] Stage-1 sources mentioning Figure 3: ['CNN Paper.pdf', 'NLP Paper.pdf']
+
+================================================================================
+FIGURE NUMBER RETRIEVAL
+================================================================================
+Requested Figure : 3
+Query            : Which model converges fastest during training according to Figure 3, and what does the paper identify as a major reason for the computational advantage or disadvantage of the compared models?
+Matched Images   : 35
+Rejected References : 6
+[MATCH 1] Source=BERT.pdf | Page=13 | Image=BERT_page13_render.png | Path=extracted_images\BERT_page13_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a textbook on the internet network  OCR Text: BERT (Ours)  OpenAl GPT  Figure 3: Differences in pre-training model architectures. BERT uses a bidirectional Transformer. OpenAI GPT uses a left-to-right Transformer. ELMo uses the concatenation o...
+[MATCH 2] Source=BERT.pdf | Page=14 | Image=BERT_page14_render.png | Path=extracted_images\BERT_page14_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a text book with an image of the text  OCR Text: * Learning rate (Adam): 5e-5, 3e-5, 2e-5 * Number of epochs: 2, 3, 4  We also observed that large data sets (e.g., 100k+ labeled training examples) were far less sensitive to hyperparameter choice...
+[MATCH 3] Source=BLIP-2.pdf | Page=4 | Image=BLIP-2_page4_img1.png | Path=extracted_images\BLIP-2_page4_img1.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a cat wearing sunglasses and looking up at the camera  OCR Text: No readable text found in this image.  Nearby Document Text: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models Image Encoder Input Image Learned Querie...
+[MATCH 4] Source=CLIP.pdf | Page=4 | Image=CLIP_page4_render.png | Path=extracted_images\CLIP_page4_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Learning Transferable Visual Models From Natural Language Supervision 4  bal...
+[MATCH 5] Source=CLIP.pdf | Page=5 | Image=CLIP_page5_render.png | Path=extracted_images\CLIP_page5_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: an example of the algorithm for the algorithm of the algorithm of the algorithm of the algorithm of the algorithm of  OCR Text: Learning Transferable Visual Models From Natural Language Supervision 5  # image_encoder - ResNet or Vision Transformer # text_...
+[MATCH 6] Source=CLIP.pdf | Page=38 | Image=CLIP_page38_render.png | Path=extracted_images\CLIP_page38_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: worksheet for algebra algebra algebra worksheet worksheet worksheet worksheet worksheet worksheet worksheet worksheet  OCR Text: Learning Transferable Visual Models From Natural Language Supervision 38  Montias ... pumps a lot of energy into his nicely nu...
+[MATCH 7] Source=CNN Paper.pdf | Page=2 | Image=CNN Paper_page2_img0.png | Path=extracted_images\CNN Paper_page2_img0.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: figure 2 training ratio curves  OCR Text: Accuracy  eo S FS SF FSF Ff oN BR DOD ®O OO  Figure 2: Training and Validation Curves over 20 Epochs  Model Accuracy  2.5 5.0 7.5 10.0 12.5 15.0 17.5 20.0 Epoch  Model Loss  2.5 5.0 7.5 10.0 12.5 15.0 17.5 20.0 Epoch  Nearby Do...
+[MATCH 8] Source=CNN Paper.pdf | Page=3 | Image=CNN Paper_page3_img0.png | Path=extracted_images\CNN Paper_page3_img0.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: figure 4 classification aneture flowchart  OCR Text: Figure 4: Image Classification System Architecture Flowchart  Input Image  Preprocessing (Resize, Normalize)  v  Valid Image?  y  Reject & CNN Feature Output Log Error Extraction Prediction  Nearby Document Text: 4. ...
+[MATCH 9] Source=CNN Paper.pdf | Page=3 | Image=CNN Paper_page3_img1.png | Path=extracted_images\CNN Paper_page3_img1.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a bar chart showing the number of different classes in each class  OCR Text: Number of Images  3500  3000  2500  2000  1500  1000  500  Figure 3: Dataset Class Distribution — Total 11,600 Images  Dog Bird Fish Rabbit Hamster Animal Class  Nearby Document Text: 4. Datas...
+[MATCH 10] Source=CNN Paper.pdf | Page=2 | Image=CNN Paper_page2_render.png | Path=extracted_images\CNN Paper_page2_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a chart showing the number of different types of water in the ocean  OCR Text: 2. Dataset Description  The dataset was compiled from three open-source repositories: ImageNet, Openlmages, and a custom web-scraped collection. Each image was manually verifie...
+[MATCH 11] Source=CNN Paper.pdf | Page=3 | Image=CNN Paper_page3_render.png | Path=extracted_images\CNN Paper_page3_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram showing the number of different types of aircrafts  OCR Text: 4. Dataset Class Distribution  The bar chart in Figure 3 provides a visual breakdown of image counts per class. The dataset is moderately imbalanced with a 4.77:1 ratio between the la...
+[MATCH 12] Source=Donut.pdf | Page=4 | Image=Donut_page4_img0.png | Path=extracted_images\Donut_page4_img0.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a person holding a receipt in their hand  OCR Text: No readable text found in this image.  Nearby Document Text: 4 G. Kim et al. <vqa><question>what is the price  of choco mochi?</question><answer> Converted JSON transformer  encoder Input Image and Prompt transformer ...
+[MATCH 13] Source=Donut.pdf | Page=4 | Image=Donut_page4_img1.png | Path=extracted_images\Donut_page4_img1.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont  OCR Text: No readable text found in this image.  Nearby Document Text: 4 G. Kim et al. <vqa><question>what is the pric...
+[MATCH 14] Source=Donut.pdf | Page=4 | Image=Donut_page4_render.png | Path=extracted_images\Donut_page4_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram showing the different types of the different types of the different types of the different types of the different  OCR Text: 4 G. Kim et al.  Input Image and Prompt Donut @ Output Sequence Converted JSON  {"class”s"recelpt* }  {°question": “what...
+[MATCH 15] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img0.png | Path=extracted_images\LayoutLMv3_page3_img0.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white document with a black and white image  OCR Text: Poros MEWSterten Bou ‘Monday, March 26; 1937.10:2840  {you fn fer con Yaga £7 eapnag Jee ban looting eo wath of stent J procats Mo pais'on this Sat:  ndlchoel doese’s want 19 raprix tho ofd FY! ord ta n...
+[MATCH 16] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img1.png | Path=extracted_images\LayoutLMv3_page3_img1.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white photo of a man in a suit and tie  OCR Text: “fuaneil, sey W.  ‘Michuat eisaant wart to rap Seine mona af 90 IF vind mistde.. Oudin Bid  battens” Coedieg Bieta  Nearby Document Text: Multimodal Transformer Seg1 [MASK] 1 + + Seg1 [MASK] 2 + + Seg2 T3 3 ...
+[MATCH 17] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img2.png | Path=extracted_images\LayoutLMv3_page3_img2.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a white paper with a black and white text on it  OCR Text: No readable text found in this image.  Nearby Document Text: Multimodal Transformer Seg1 [MASK] 1 + + Seg1 [MASK] 2 + + Seg2 T3 3 + + V1 [MASK] 1 + 2 + 3 + [MASK] [SPE] 0 + Seg3 T4 4 + + SegPAD [CLS] 0 + + 4 + ...
+[MATCH 18] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img3.png | Path=extracted_images\LayoutLMv3_page3_img3.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white poster with a quote on it  OCR Text: No readable text found in this image.  Nearby Document Text: Multimodal Transformer Seg1 [MASK] 1 + + Seg1 [MASK] 2 + + Seg2 T3 3 + + V1 [MASK] 1 + 2 + 3 + [MASK] [SPE] 0 + Seg3 T4 4 + + SegPAD [CLS] 0 + + 4 + V4 h...
+[MATCH 19] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img4.png | Path=extracted_images\LayoutLMv3_page3_img4.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a diagram showing the location of the location of the house and the location of the location of the house  OCR Text: No readable text found in this image.  Nearby Document Text: Multimodal Transformer Seg1 [MASK] 1 + + Seg1 [MASK] 2 + + Seg2 T3 3 + + V1 [MASK] 1 + 2 + ...
+[MATCH 20] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img5.png | Path=extracted_images\LayoutLMv3_page3_img5.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a letter from the department requesting that it is not available for sale  OCR Text: No readable text found in this image.  Nearby Document Text: Multimodal Transformer Seg1 [MASK] 1 + + Seg1 [MASK] 2 + + Seg2 T3 3 + + V1 [MASK] 1 + 2 + 3 + [MASK] [SPE] 0 + Seg3 T4 4 +...
+[MATCH 21] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img6.png | Path=extracted_images\LayoutLMv3_page3_img6.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a white sheet with a black and white image of a black and white image of a black and white image  OCR Text: No readable text found in this image.  Nearby Document Text: Multimodal Transformer Seg1 [MASK] 1 + + Seg1 [MASK] 2 + + Seg2 T3 3 + + V1 [MASK] 1 + 2 + 3 + [MASK...
+[MATCH 22] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img7.png | Path=extracted_images\LayoutLMv3_page3_img7.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white photo of a man in a suit and tie  OCR Text: Ciro: Matnoe’ ‘Suniect: (ICL VANTAGE HOWS Geter antuy, Mace 34), 127  Beni¥ ln haa abamey bane Sram foal Cre ea ea ves.  ar HE VANTAGE NEY. Bae Gunter, orth er  deccenoateld ei ee  Nearby Document Text: Mult...
+[MATCH 23] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img8.png | Path=extracted_images\LayoutLMv3_page3_img8.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white photo of a man in a suit and tie  OCR Text: No readable text found in this image.  Nearby Document Text: Multimodal Transformer Seg1 [MASK] 1 + + Seg1 [MASK] 2 + + Seg2 T3 3 + + V1 [MASK] 1 + 2 + 3 + [MASK] [SPE] 0 + Seg3 T4 4 + + SegPAD [CLS] 0 + + 4...
+[MATCH 24] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img9.png | Path=extracted_images\LayoutLMv3_page3_img9.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white photo of a man in a suit  OCR Text: (ebadk Lunlhias 116 ahghty hos Sree ierty we win wed We paid ase Bree  Nearby Document Text: Multimodal Transformer Seg1 [MASK] 1 + + Seg1 [MASK] 2 + + Seg2 T3 3 + + V1 [MASK] 1 + 2 + 3 + [MASK] [SPE] 0 + Seg3 T4 4 ...
+[MATCH 25] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_render.png | Path=extracted_images\LayoutLMv3_page3_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram of the structure of a computer system  OCR Text: Ty Tz  Pre-training  Objectives MLM Head  Unaligned Aligned  V2 V3  MIM Head  Multimodal Transformer  2D Position  Embedding Seba) (Sees ] Seaewo) (see) [sees] [sees] [sess] Seseso) [Ptcheno} Pate...
+[MATCH 26] Source=NLP Paper.pdf | Page=4 | Image=NLP Paper_page4_img0.png | Path=extracted_images\NLP Paper_page4_img0.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: figure 3 timing curves for dbtn, dbtn, and dbtn  OCR Text: Cross-Entropy Loss  Figure 3: Training Loss Curves for BiLSTM, BERT, and RoBERTa over 15 Epochs  BiLSTM i-BERT—— RoBERTa  Nearby Document Text: 4. Training Dynamics Figure 3 shows training loss curves for BiLST...
+[MATCH 27] Source=NLP Paper.pdf | Page=4 | Image=NLP Paper_page4_img1.png | Path=extracted_images\NLP Paper_page4_img1.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: figure 1 self - self - self - self - self - self - self - self - self - self - self - self - self - self self self - self self self self self self self self self self self self self self self self self self self self self self self self self self self self  OCR Text: F...
+[MATCH 28] Source=NLP Paper.pdf | Page=4 | Image=NLP Paper_page4_render.png | Path=extracted_images\NLP Paper_page4_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a graph graph with a line graph and a line graph with a line graph and a line graph with a  OCR Text: 4. Training Dynamics  Figure 3 shows training loss curves for BILSTM, BERT, and ROBERTa over 15 epochs. ROBERTa converges fastest, reaching a loss below ...
+[MATCH 29] Source=RAG.pdf | Page=8 | Image=RAG_page8_render.png | Path=extracted_images\RAG_page8_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Table 4: Human assessments for the Jeopardy Table 5: Ratio of distinct to total tri-grams for Question Generation Task. generation tas...
+[MATCH 30] Source=Self-RAG.pdf | Page=9 | Image=Self-RAG_page9_render.png | Path=extracted_images\Self-RAG_page9_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the textbook on the characterization and characterization of semiconductors in semiconductors and semiconductors  OCR Text: Preprint.  PubHealth  POA Med AS : 70.5 aan 1.0 >  (acc) (acc) (em) § $0.99 ose Training 0.98 0.0 NoRetrieverR 43.6 67....
+[MATCH 31] Source=Self-RAG.pdf | Page=10 | Image=Self-RAG_page10_render.png | Path=extracted_images\Self-RAG_page10_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Preprint.  in wu  g 50 23 Pop Bio. 5 60 &“ 7? S&P 92.5 70.0 & 40 n 95.0 90.0...
+[MATCH 32] Source=Vision Transformer.pdf | Page=6 | Image=Vision Transformer_page6_render.png | Path=extracted_images\Vision Transformer_page6_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with a bar chart and a bar chart on it  OCR Text: Published as a conference paper at ICLR 2021  Ours-JFT Ours-JFT Ours-I21k BiT-L Noisy Student  (ViT-H/14) = (ViT-L/16) —- (ViT-L/16) (ResNet152x4) (EfficientNet-L2) ImageNet 88.5540.04 87.764003 85...
+[MATCH 33] Source=Vision Transformer.pdf | Page=7 | Image=Vision Transformer_page7_render.png | Path=extracted_images\Vision Transformer_page7_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal on the characterization and characterization of a single - cell cell  OCR Text: Published as a conference paper at ICLR 2021  =J o  oe] wr  BiT- ViT-BB2- O...ViT-B/16. CO} iT-H/14 |  ImageNet Top! Accuracy (%]  Linear 5-shot ImageN...
+[MATCH 34] Source=Vision Transformer.pdf | Page=14 | Image=Vision Transformer_page14_render.png | Path=extracted_images\Vision Transformer_page14_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with the title of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Published as a conference paper at ICLR 2021  Dataset Steps Base LR ImageNet 2000...
+[MATCH 35] Source=Vision Transformer.pdf | Page=15 | Image=Vision Transformer_page15_render.png | Path=extracted_images\Vision Transformer_page15_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: the table shows the number of different types of the different types of the different types of the different types of  OCR Text: Published as a conference paper at ICLR 2021  ViT-B/16 ViT-B/32-ViT-L/16—ViT-L/32.—s: ViT-H/14  ImageNet CIFAR-10 98.13 97.77 ...
+[REJECTED 1] Source=BLIP-2.pdf | Page=4 | Image=BLIP-2_page4_render.png
+    Reason   : Cross-reference rather than actual Figure 3
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the journal of the journal of the journal of the journal of the journal of the journal of the journal of the  OCR Text: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models  Boot...
+[REJECTED 2] Source=CNN Paper.pdf | Page=5 | Image=CNN Paper_page5_render.png
+    Reason   : Cross-reference rather than actual Figure 3
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a table with a number of different items on it  OCR Text: 7. Discussion  The CNN model achieves strong overall performance with a weighted F1 score of 0.926. However, several limitations and areas for improvement were identified during evaluation.  7.1 St...
+[REJECTED 3] Source=Donut.pdf | Page=5 | Image=Donut_page5_render.png
+    Reason   : Cross-reference rather than actual Figure 3
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a text book with an image of a person in the background  OCR Text: OOCR-free Document Understanding Transformer 5  Decoder. Given the {z}, the textual decoder generates a token sequence (yi)*1, where y;€R” is an one-hot vector for the i-th token...
+[REJECTED 4] Source=Donut.pdf | Page=6 | Image=Donut_page6_render.png
+    Reason   : Cross-reference rather than actual Figure 3
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a book with a picture of a person in the background  OCR Text: 6 G. Kim et al.  Wak gaGHIe - —— ATP  Fig. 4. Generated English, Chinese, Japanese, and Korean samples with SynthDoG. Heuristic random patterns are applied to mimic the real document...
+[REJECTED 5] Source=Donut.pdf | Page=8 | Image=Donut_page8_render.png
+    Reason   : Cross-reference rather than actual Figure 3
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a book with the title of the text  OCR Text: 8 G. Kim et al.  nested groups and hierarchies such as items>item>{name, count, price}) in the information. See Figure 1 for more details.  Ticket. This is a public benchmark dataset [12] that consist...
+[REJECTED 6] Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_render.png
+    Reason   : Cross-reference rather than actual Figure 3
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a computer and a computer with a text that reads,  OCR Text: _(2) Pre-training Objectives of Image Modality  | — | ra  |  |  I idn, idya, idys, | idyyidys, ides, ». |  I kde dia Fao  ! teh  | fication  Masked Word...
+Matched Sources  : ['BERT.pdf', 'BLIP-2.pdf', 'CLIP.pdf', 'CNN Paper.pdf', 'Donut.pdf', 'LayoutLMv3.pdf', 'NLP Paper.pdf', 'RAG.pdf', 'Self-RAG.pdf', 'Vision Transformer.pdf']
+Matched Pages    : ['10', '13', '14', '15', '2', '3', '38', '4', '5', '6', '7', '8', '9']
+[FIGURE LOOKUP] High-confidence figure reference found. Generic CLIP fallback should not be used.
+================================================================================
+[FIGURE IMAGE DEDUPLICATION] 8 -> 3 authoritative image(s), one per source/page.
+
+================================================================================
+EXACT FIGURE RETRIEVAL RESULT
+================================================================================
+Requested Figure : 3
+Exact Match      : True
+Matched Images   : 3
+[EXACT FIGURE #1] Source=CNN Paper.pdf | Page=2 | Image=CNN Paper_page2_render.png | Path=extracted_images\CNN Paper_page2_render.png
+[EXACT FIGURE #2] Source=CNN Paper.pdf | Page=3 | Image=CNN Paper_page3_render.png | Path=extracted_images\CNN Paper_page3_render.png
+[EXACT FIGURE #3] Source=NLP Paper.pdf | Page=4 | Image=NLP Paper_page4_render.png | Path=extracted_images\NLP Paper_page4_render.png
+================================================================================
+[FIGURE PIPELINE] Explicit figure/page image match found. CLIP fallback disabled.
+
+================================================================================
+STAGE 2 — IMAGE RETRIEVAL RESULT
+================================================================================
+Image Results       : 3
+Exact Figure Match  : True
+
+[IMAGE #1] Source=CNN Paper.pdf | Page=2 | Image=CNN Paper_page2_render.png
+Image Path: extracted_images\CNN Paper_page2_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a chart showing the number of different types of water in the ocean  OCR Text: 2. Dataset Description  The dataset was compiled from three open-source repositories: ImageNet, Openlmages, and a custom web-scraped collection. Each image was manually verified to ensure correct labeling. Images were standardized to JPEG format with a minimum resolution of 224x224 pixels. Class imbalance was addressed using weighted random sampling during training.  2.1 Cl
+
+[IMAGE #2] Source=CNN Paper.pdf | Page=3 | Image=CNN Paper_page3_render.png
+Image Path: extracted_images\CNN Paper_page3_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram showing the number of different types of aircrafts  OCR Text: 4. Dataset Class Distribution  The bar chart in Figure 3 provides a visual breakdown of image counts per class. The dataset is moderately imbalanced with a 4.77:1 ratio between the largest class (Dog, 3,100) and smallest (Turtle, 650). To handle this during evaluation, per-class F1 scores are reported alongside the overall accuracy metric to give a complete picture of model perfor
+
+[IMAGE #3] Source=NLP Paper.pdf | Page=4 | Image=NLP Paper_page4_render.png
+Image Path: extracted_images\NLP Paper_page4_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a graph graph with a line graph and a line graph with a line graph and a line graph with a  OCR Text: 4. Training Dynamics  Figure 3 shows training loss curves for BILSTM, BERT, and ROBERTa over 15 epochs. ROBERTa converges fastest, reaching a loss below 0.10 by epoch 8. BERT converges slightly slower but achieves a similar final loss. BiLSTM shows slower convergence and a higher final loss of 0.24, reflecting its lack of pre-training on large corpora
+================================================================================
+
+================================================================================
+COMBINED RETRIEVAL CANDIDATES
+================================================================================
+Text Candidates  : 8
+Image Candidates : 3
+Total Candidates : 11
+================================================================================
+
+================================================================================
+STEP 3A — RERANKER INPUT
+================================================================================
+Query: Which model converges fastest during training according to Figure 3, and what does the paper identify as a major reason for the computational advantage or disadvantage of the compared models?
+Input candidates: 11
+01. Source=RAG.pdf | Page=18 | Type=text | Image=N/A
+    Content=the model with each (q,a ) pair separately, leading to a small increase in accuracy. For TriviaQA, there are often many valid answers to a given question, some of which are not sui
+02. Source=NLP Paper.pdf | Page=4 | Type=text | Image=N/A
+    Content=4. Training Dynamics Figure 3 shows training loss curves for BiLSTM, BERT, and RoBERTa over 15 epochs. RoBERTa converges fastest, reaching a loss below 0.10 by epoch 8. BERT conver
+03. Source=CLIP.pdf | Page=23 | Type=text | Image=N/A
+    Content=given the ﬂexibility it offers. In addition to choices about training data and model architecture, decisions about things like class designs and thresholding values can alter the l
+04. Source=CNN Paper.pdf | Page=1 | Type=text | Image=N/A
+    Content=after 20 epochs of training using the Adam optimizer with a learning rate of 0.001. The model employs two convolutional layers followed by max-pooling and a fully-connected classif
+05. Source=CLIP.pdf | Page=44 | Type=text | Image=N/A
+    Content=lar average performance and number of wins on zero shot and linear classiﬁer evals. However, large differences in dataset speciﬁc performance occur. We include performance on the 3
+06. Source=CNN Paper.pdf | Page=5 | Type=text | Image=N/A
+    Content=patterns effectively. The validation curves in Figure 2 show smooth convergence with no signs of severe overfitting after epoch 16. 7.2 Limitations The model underperforms on Turtl
+07. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=linear image embedding has improved FUNSD, MIM does not fur- ther contribute to FUNSD. By incorporating the MIM objective in training, the loss converges when fine-tuning PubLayNet
+08. Source=CLIP.pdf | Page=4 | Type=text | Image=N/A
+    Content=recently adapted for contrastive (text, image) representation learning in the domain of medical imaging by Zhang et al. (2020). Due to the large size of our pre-training dataset, o
+09. Source=CNN Paper.pdf | Page=2 | Type=image | Image=extracted_images\CNN Paper_page2_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a chart showing the number of different types of water in the ocean  OCR Text: 2. Dataset Description  The dataset was compiled from th
+10. Source=CNN Paper.pdf | Page=3 | Type=image | Image=extracted_images\CNN Paper_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram showing the number of different types of aircrafts  OCR Text: 4. Dataset Class Distribution  The bar chart in Figure 3 provid
+11. Source=NLP Paper.pdf | Page=4 | Type=image | Image=extracted_images\NLP Paper_page4_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a graph graph with a line graph and a line graph with a line graph and a line graph with a  OCR Text: 4. Training Dynamics  Figure 3 sh
+================================================================================
+
+--------------------------------------------------------------------------------
+CROSS-ENCODER RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=01 | Source=NLP Paper.pdf | Page=4 | Type=text | CE=3.7537
+Rank=02 | OriginalIndex=10 | Source=NLP Paper.pdf | Page=4 | Type=image | CE=2.9269
+Rank=03 | OriginalIndex=05 | Source=CNN Paper.pdf | Page=5 | Type=text | CE=1.2430
+Rank=04 | OriginalIndex=06 | Source=LayoutLMv3.pdf | Page=7 | Type=text | CE=-0.3203
+Rank=05 | OriginalIndex=00 | Source=RAG.pdf | Page=18 | Type=text | CE=-5.9993
+Rank=06 | OriginalIndex=08 | Source=CNN Paper.pdf | Page=2 | Type=image | CE=-6.6077
+Rank=07 | OriginalIndex=03 | Source=CNN Paper.pdf | Page=1 | Type=text | CE=-6.6303
+Rank=08 | OriginalIndex=09 | Source=CNN Paper.pdf | Page=3 | Type=image | CE=-6.8694
+Rank=09 | OriginalIndex=04 | Source=CLIP.pdf | Page=44 | Type=text | CE=-7.4900
+Rank=10 | OriginalIndex=02 | Source=CLIP.pdf | Page=23 | Type=text | CE=-8.1979
+Rank=11 | OriginalIndex=07 | Source=CLIP.pdf | Page=4 | Type=text | CE=-9.3746
+
+--------------------------------------------------------------------------------
+CLIP IMAGE RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=08 | Source=CNN Paper.pdf | Page=2 | Image=extracted_images\CNN Paper_page2_render.png | CLIP=0.2878
+Rank=02 | OriginalIndex=09 | Source=CNN Paper.pdf | Page=3 | Image=extracted_images\CNN Paper_page3_render.png | CLIP=0.2561
+Rank=03 | OriginalIndex=10 | Source=NLP Paper.pdf | Page=4 | Image=extracted_images\NLP Paper_page4_render.png | CLIP=0.2537
+
+================================================================================
+STEP 3A — COMPLETE MULTIMODAL RERANK RESULT
+================================================================================
+Rank=01 | Type=image | Source=NLP Paper.pdf | Page=4 | RRF=0.032002 | CE=2.9269 | CLIP=0.2537
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a graph graph with a line graph and a line graph with a line graph and a line graph with a  OCR Text: 4. Training Dynamics  Figure 3 sh
+Rank=02 | Type=image | Source=CNN Paper.pdf | Page=2 | RRF=0.031545 | CE=-6.6077 | CLIP=0.2878
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a chart showing the number of different types of water in the ocean  OCR Text: 2. Dataset Description  The dataset was compiled from th
+Rank=03 | Type=image | Source=CNN Paper.pdf | Page=3 | RRF=0.030835 | CE=-6.8694 | CLIP=0.2561
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram showing the number of different types of aircrafts  OCR Text: 4. Dataset Class Distribution  The bar chart in Figure 3 provid
+Rank=04 | Type=text | Source=NLP Paper.pdf | Page=4 | RRF=0.016393 | CE=3.7537 | CLIP=N/A
+    Content=4. Training Dynamics Figure 3 shows training loss curves for BiLSTM, BERT, and RoBERTa over 15 epochs. RoBERTa converges fastest, reaching a loss below 0.10 by epoch 8. BERT conver
+Rank=05 | Type=text | Source=CNN Paper.pdf | Page=5 | RRF=0.015873 | CE=1.2430 | CLIP=N/A
+    Content=patterns effectively. The validation curves in Figure 2 show smooth convergence with no signs of severe overfitting after epoch 16. 7.2 Limitations The model underperforms on Turtl
+Rank=06 | Type=text | Source=LayoutLMv3.pdf | Page=7 | RRF=0.015625 | CE=-0.3203 | CLIP=N/A
+    Content=linear image embedding has improved FUNSD, MIM does not fur- ther contribute to FUNSD. By incorporating the MIM objective in training, the loss converges when fine-tuning PubLayNet
+Rank=07 | Type=text | Source=RAG.pdf | Page=18 | RRF=0.015385 | CE=-5.9993 | CLIP=N/A
+    Content=the model with each (q,a ) pair separately, leading to a small increase in accuracy. For TriviaQA, there are often many valid answers to a given question, some of which are not sui
+Rank=08 | Type=text | Source=CNN Paper.pdf | Page=1 | RRF=0.014925 | CE=-6.6303 | CLIP=N/A
+    Content=after 20 epochs of training using the Adam optimizer with a learning rate of 0.001. The model employs two convolutional layers followed by max-pooling and a fully-connected classif
+Rank=09 | Type=text | Source=CLIP.pdf | Page=44 | RRF=0.014493 | CE=-7.4900 | CLIP=N/A
+    Content=lar average performance and number of wins on zero shot and linear classiﬁer evals. However, large differences in dataset speciﬁc performance occur. We include performance on the 3
+Rank=10 | Type=text | Source=CLIP.pdf | Page=23 | RRF=0.014286 | CE=-8.1979 | CLIP=N/A
+    Content=given the ﬂexibility it offers. In addition to choices about training data and model architecture, decisions about things like class designs and thresholding values can alter the l
+Rank=11 | Type=text | Source=CLIP.pdf | Page=4 | RRF=0.014085 | CE=-9.3746 | CLIP=N/A
+    Content=recently adapted for contrastive (text, image) representation learning in the domain of medical imaging by Zhang et al. (2020). Due to the large size of our pre-training dataset, o
+================================================================================
+
+================================================================================
+STEP 3A — FINAL RERANK TOP-K
+================================================================================
+Requested top_k: 12
+Returned documents: 11
+01. Source=NLP Paper.pdf | Page=4 | Type=image | Image=extracted_images\NLP Paper_page4_render.png
+02. Source=CNN Paper.pdf | Page=2 | Type=image | Image=extracted_images\CNN Paper_page2_render.png
+03. Source=CNN Paper.pdf | Page=3 | Type=image | Image=extracted_images\CNN Paper_page3_render.png
+04. Source=NLP Paper.pdf | Page=4 | Type=text | Image=N/A
+05. Source=CNN Paper.pdf | Page=5 | Type=text | Image=N/A
+06. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+07. Source=RAG.pdf | Page=18 | Type=text | Image=N/A
+08. Source=CNN Paper.pdf | Page=1 | Type=text | Image=N/A
+09. Source=CLIP.pdf | Page=44 | Type=text | Image=N/A
+10. Source=CLIP.pdf | Page=23 | Type=text | Image=N/A
+11. Source=CLIP.pdf | Page=4 | Type=text | Image=N/A
+================================================================================
+
+================================================================================
+STAGE 3 — MULTIMODAL RERANKING
+================================================================================
+Input Candidates : 11
+Reranked Output   : 11
+
+[RERANK #1] Source=NLP Paper.pdf | Page=4 | Type=image
+Exact Figure : True
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a graph graph with a line graph and a line graph with a line graph and a line graph with a  OCR Text: 4. Training Dynamics  Figure 3 shows training loss curves for BILSTM, BERT, and ROBERTa over 15 epochs. ROBERTa converges fastest, reaching a loss below 
+
+[RERANK #2] Source=CNN Paper.pdf | Page=2 | Type=image
+Exact Figure : True
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a chart showing the number of different types of water in the ocean  OCR Text: 2. Dataset Description  The dataset was compiled from three open-source repositories: ImageNet, Openlmages, and a custom web-scraped collection. Each image was manually verifie
+
+[RERANK #3] Source=CNN Paper.pdf | Page=3 | Type=image
+Exact Figure : True
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram showing the number of different types of aircrafts  OCR Text: 4. Dataset Class Distribution  The bar chart in Figure 3 provides a visual breakdown of image counts per class. The dataset is moderately imbalanced with a 4.77:1 ratio between the la
+
+[RERANK #4] Source=NLP Paper.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: 4. Training Dynamics Figure 3 shows training loss curves for BiLSTM, BERT, and RoBERTa over 15 epochs. RoBERTa converges fastest, reaching a loss below 0.10 by epoch 8. BERT converges slightly slower but achieves a similar final loss. BiLSTM shows slower convergence and a higher final loss of 0.24, 
+
+[RERANK #5] Source=CNN Paper.pdf | Page=5 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: patterns effectively. The validation curves in Figure 2 show smooth convergence with no signs of severe overfitting after epoch 16. 7.2 Limitations The model underperforms on Turtle and Hamster classes primarily due to lower training data availability as shown in Figure 3. Additionally, the confusio
+
+[RERANK #6] Source=LayoutLMv3.pdf | Page=7 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: linear image embedding has improved FUNSD, MIM does not fur- ther contribute to FUNSD. By incorporating the MIM objective in training, the loss converges when fine-tuning PubLayNet as shown in Figure 4, and we obtain a desirable mAP score. The results indi- cate that MIM can help regularize the trai
+
+[RERANK #7] Source=RAG.pdf | Page=18 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: the model with each (q,a ) pair separately, leading to a small increase in accuracy. For TriviaQA, there are often many valid answers to a given question, some of which are not suitable training targets, such as emoji or spelling variants. For TriviaQA, we ﬁlter out answer candidates if they do not 
+
+[RERANK #8] Source=CNN Paper.pdf | Page=1 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: after 20 epochs of training using the Adam optimizer with a learning rate of 0.001. The model employs two convolutional layers followed by max-pooling and a fully-connected classification head. This report describes the system architecture, dataset composition, training procedure, and evaluation res
+
+[RERANK #9] Source=CLIP.pdf | Page=44 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: lar average performance and number of wins on zero shot and linear classiﬁer evals. However, large differences in dataset speciﬁc performance occur. We include performance on the 3 datasets where YFCC does best and worst compared to WIT according to a linear probe in order to highlight this as well 
+
+[RERANK #10] Source=CLIP.pdf | Page=23 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: given the ﬂexibility it offers. In addition to choices about training data and model architecture, decisions about things like class designs and thresholding values can alter the labels a model outputs and as a result heighten or lower certain kinds of harm, such as those described by Crawford (2017
+
+[RERANK #11] Source=CLIP.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: recently adapted for contrastive (text, image) representation learning in the domain of medical imaging by Zhang et al. (2020). Due to the large size of our pre-training dataset, over-ﬁtting is not a major concern and the details of training CLIP are simpliﬁed compared to the implementation of Zhang
+================================================================================
+
+================================================================================
+FINAL CONTEXT DOCUMENTS
+================================================================================
+Final context candidates: 11
+
+[FINAL #1] Source=NLP Paper.pdf | Page=4 | Type=image
+Exact Figure : True
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a graph graph with a line graph and a line graph with a line graph and a line graph with a  OCR Text: 4. Training Dynamics  Figure 3 shows training loss curves for BILSTM, BERT, and ROBERTa over 15 epochs. ROBERTa converges fastest, reaching a loss below 
+
+[FINAL #2] Source=CNN Paper.pdf | Page=2 | Type=image
+Exact Figure : True
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a chart showing the number of different types of water in the ocean  OCR Text: 2. Dataset Description  The dataset was compiled from three open-source repositories: ImageNet, Openlmages, and a custom web-scraped collection. Each image was manually verifie
+
+[FINAL #3] Source=CNN Paper.pdf | Page=3 | Type=image
+Exact Figure : True
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram showing the number of different types of aircrafts  OCR Text: 4. Dataset Class Distribution  The bar chart in Figure 3 provides a visual breakdown of image counts per class. The dataset is moderately imbalanced with a 4.77:1 ratio between the la
+
+[FINAL #4] Source=NLP Paper.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: 4. Training Dynamics Figure 3 shows training loss curves for BiLSTM, BERT, and RoBERTa over 15 epochs. RoBERTa converges fastest, reaching a loss below 0.10 by epoch 8. BERT converges slightly slower but achieves a similar final loss. BiLSTM shows slower convergence and a higher final loss of 0.24, 
+
+[FINAL #5] Source=CNN Paper.pdf | Page=5 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: patterns effectively. The validation curves in Figure 2 show smooth convergence with no signs of severe overfitting after epoch 16. 7.2 Limitations The model underperforms on Turtle and Hamster classes primarily due to lower training data availability as shown in Figure 3. Additionally, the confusio
+
+[FINAL #6] Source=LayoutLMv3.pdf | Page=7 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: linear image embedding has improved FUNSD, MIM does not fur- ther contribute to FUNSD. By incorporating the MIM objective in training, the loss converges when fine-tuning PubLayNet as shown in Figure 4, and we obtain a desirable mAP score. The results indi- cate that MIM can help regularize the trai
+
+[FINAL #7] Source=RAG.pdf | Page=18 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: the model with each (q,a ) pair separately, leading to a small increase in accuracy. For TriviaQA, there are often many valid answers to a given question, some of which are not suitable training targets, such as emoji or spelling variants. For TriviaQA, we ﬁlter out answer candidates if they do not 
+
+[FINAL #8] Source=CNN Paper.pdf | Page=1 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: after 20 epochs of training using the Adam optimizer with a learning rate of 0.001. The model employs two convolutional layers followed by max-pooling and a fully-connected classification head. This report describes the system architecture, dataset composition, training procedure, and evaluation res
+
+[FINAL #9] Source=CLIP.pdf | Page=44 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: lar average performance and number of wins on zero shot and linear classiﬁer evals. However, large differences in dataset speciﬁc performance occur. We include performance on the 3 datasets where YFCC does best and worst compared to WIT according to a linear probe in order to highlight this as well 
+
+[FINAL #10] Source=CLIP.pdf | Page=23 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: given the ﬂexibility it offers. In addition to choices about training data and model architecture, decisions about things like class designs and thresholding values can alter the labels a model outputs and as a result heighten or lower certain kinds of harm, such as those described by Crawford (2017
+
+[FINAL #11] Source=CLIP.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: recently adapted for contrastive (text, image) representation learning in the domain of medical imaging by Zhang et al. (2020). Due to the large size of our pre-training dataset, over-ﬁtting is not a major concern and the details of training CLIP are simpliﬁed compared to the implementation of Zhang
+================================================================================
+
+================================================================================
+FIGURE FINAL-CONTEXT DIAGNOSTIC
+================================================================================
+Requested Figure     : 3
+Exact Figure Match   : True
+Present In Final     : True
+[FIGURE DIAGNOSTIC] PASS — exact figure/page image evidence survived into final context.
+================================================================================
+
+================================================================================
+FINAL CONTEXT SENT TO LLM
+================================================================================
+
+================================================================================
+DOCUMENT : NLP Paper.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 4
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+4. Training Dynamics
+Figure 3 shows training loss curves for BiLSTM, BERT, and RoBERTa over 15 epochs. RoBERTa
+converges fastest, reaching a loss below 0.10 by epoch 8. BERT converges slightly slower but achieves a
+similar final loss. BiLSTM shows slower convergence and a higher final loss of 0.24, reflecting its lack of
+pre-training on large corpora. All three models used early stopping with patience of 3 epochs.
+ Figure 3: Training loss over 15 epochs for BiLSTM, BERT, and RoBERTa. RoBERTa converges fastest; BiLSTM has
+ the highest final loss.
+4.1 Attention Analysis
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a graph graph with a line graph and a line graph with a line graph and a line graph with a
+
+OCR Text:
+4. Training Dynamics
+
+Figure 3 shows training loss curves for BILSTM, BERT, and ROBERTa over 15 epochs. ROBERTa
+converges fastest, reaching a loss below 0.10 by epoch 8. BERT converges slightly slower but achieves a
+similar final loss. BiLSTM shows slower convergence and a higher final loss of 0.24, reflecting its lack of
+pre-training on large corpora. All three models used early stopping with patience of 3 epochs.
+
+Figure 3: Training Loss Curves for BiLSTM, BERT, and RoBERTa over 15 Epochs
+
+1.0
+wn
+8 08 4—
+~
+o
+5 0.6 st
+c
+WwW
+“a
+& 0.4
+s
+
+0.2
+
+2 4 6 8 10 12 14
+Epoch
+
+Figure 3: Training loss over 15 epochs for BILSTM, BERT, and RoBERTa. RoBERTa converges fastest; BILSTM has
+the highest final loss.
+
+4.1 Attention Analysis
+
+Figure 5 shows a self-attention heatmap from BERT processing a Health category article. The word
+"cancer" receives the highest attention weights (0.40-0.45) when attended to by most other tokens,
+confirming that BERT correctly identifies the medically significant term as the central concept. "drug" and
+"risk" also receive elevated attention, while function words like "The" receive minimal weights.
+
+Figure 5: Self-Attention Heatmap — BERT on Health News Sample
+
+The
+0.4
+drug
+w
+<=
+Lo)
+reduces 0.3 3
+=
+5
+cancer 0.2 5
+=
+risk
+0.1
+significantly
+0.0
+2 Nw) 2 & at es
+wo rN oe ow ew ™
+30%
+
+Figure 5: BERT self-attention heatmap on a Health news sample. Darker cells indicate higher attention. “cancer”
+dominates with weights up to 0.45.
+
+Nearby Document Text:
+4. Training Dynamics
+Figure 3 shows training loss curves for BiLSTM, BERT, and RoBERTa over 15 epochs. RoBERTa
+converges fastest, reaching a loss below 0.10 by epoch 8. BERT converges slightly slower but achieves a
+similar final loss. BiLSTM shows slower convergence and a higher final loss of 0.24, reflecting its lack of
+pre-training on large corpora. All three models used early stopping with patience of 3 epochs.
+Figure 3: Training loss over 15 epochs for BiLSTM, BERT, and RoBERTa. RoBERTa converges fastest; BiLSTM has
+the highest final loss.
+4.1 Attention Analysis
+Figure 5 shows a self-atten
+
+
+[RELATED PAGE TEXT]
+
+4. Training Dynamics
+Figure 3 shows training loss curves for BiLSTM, BERT, and RoBERTa over 15 epochs. RoBERTa
+converges fastest, reaching a loss below 0.10 by epoch 8. BERT converges slightly slower but achieves a
+similar final loss. BiLSTM shows slower convergence and a higher final loss of 0.24, reflecting its lack of
+pre-training on large corpo
+
+
+================================================================================
+DOCUMENT : CNN Paper.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 1
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+after 20 epochs of training using the Adam optimizer with a learning rate of 0.001. The model employs two
+convolutional layers followed by max-pooling and a fully-connected classification head. This report
+describes the system architecture, dataset composition, training procedure, and evaluation results.
+1. System Architecture
+The CNN architecture follows a sequential design consisting of six major components as illustrated in
+Figure 1. The input layer accepts RGB images resized to 224x224 pixels. Two convolutional layers extract
+
+
+--------------------------------------------------------------------------------
+PAGE : 2
+--------------------------------------------------------------------------------
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a chart showing the number of different types of water in the ocean
+
+OCR Text:
+2. Dataset Description
+
+The dataset was compiled from three open-source repositories: ImageNet, Openlmages, and a custom
+web-scraped collection. Each image was manually verified to ensure correct labeling. Images were
+standardized to JPEG format with a minimum resolution of 224x224 pixels. Class imbalance was
+addressed using weighted random sampling during training.
+
+2.1 Class Distribution
+
+Figure 3 on page 3 shows the class distribution across all seven animal categories. The Dog class has the
+highest representation with 3,100 images, while Turtle has the fewest with 650 images. The significant
+imbalance between Dog (3,100) and Turtle (650) was addressed by applying class weights inversely
+proportional to class frequency during loss computation.
+
+ae
+
+Rabbit
+
+Hamster
+
+9,280 1,160 1,160 11,600
+
+Table 1: Dataset split across train, validation, and test sets.
+
+3. Training Results
+
+The model was trained for 20 epochs using the Adam optimizer with an initial learning rate of 0.001 and a
+batch size of 32. Figure 2 shows both accuracy and loss curves for the training and validation sets. The
+training accuracy reached 97.3% while validation accuracy plateaued at 94.2% by epoch 18, indicating
+slight overfitting. Early stopping with a patience of 5 epochs was applied.
+
+Figure 2: Training and Validation Curves over 20 Epochs
+
+Model Accuracy Model Loss
+
+—e—“Train—-
+-=-+ Validation
+
+Accuracy
+
+25 50 7.5 10.0 12.5 15.0 17.5 20.0 25 50 7.5 10.0 12.5 15.0 17.5 20.0
+Epoch Epoch
+
+Figure 2: Training and validation accuracy (left) and loss (right) over 20 epochs. Validation accuracy stabilizes at
+
+94.2% around epoch 16.
+
+Nearby Document Text:
+2. Dataset Description
+The dataset was compiled from three open-source repositories: ImageNet, OpenImages, and a custom
+web-scraped collection. Each image was manually verified to ensure correct labeling. Images were
+standardized to JPEG format with a minimum resolution of 224x224 pixels. Class imbalance was
+addressed using weighted random sampling during training.
+2.1 Class Distribution
+Figure 3 on page 3 shows the class distribution across all seven animal categories. The Dog class has the
+highest representation with 3,100 images, while Turtle has the fewest with 650 images. The significant
+
+
+--------------------------------------------------------------------------------
+PAGE : 3
+--------------------------------------------------------------------------------
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a diagram showing the number of different types of aircrafts
+
+OCR Text:
+4. Dataset Class Distribution
+
+The bar chart in Figure 3 provides a visual breakdown of image counts per class. The dataset is
+moderately imbalanced with a 4.77:1 ratio between the largest class (Dog, 3,100) and smallest (Turtle,
+650). To handle this during evaluation, per-class F1 scores are reported alongside the overall accuracy
+metric to give a complete picture of model performance.
+
+Figure 3: Dataset Class Distribution — Total 11,600 Images
+
+3500
+
+3000
+
+N
+u
+fo]
+Oo
+
+2000
+
+er Be
+o uw
+So 9o
+So 3
+
+Number of Images
+
+wi
+oOo
+Oo
+
+Cat Dog Bird Fish Rabbit Hamster Turtle
+Animal Class
+
+Figure 3: Bar chart showing the number of images per animal class in the full dataset. Dog has the most images
+(3,100) and Turtle the fewest (650).
+
+5. System Architecture Flowchart
+
+Figure 4 presenis the complete processing flowchart for the image classification system. An input image
+first undergoes preprocessing including resizing to 224x224 pixels and pixel normalization to the range [0,
+1]. A validation check rejects corrupted or non-image files before passing valid inputs to the CNN feature
+extraction stage. The final stage produces a class prediction with associated confidence scores for all
+seven animal categories.
+
+Figure 4: Image Classification System Architecture Flowchart
+
+Input Image
+
+Preprocessing
+(Resize, Normalize)
+
+v
+
+Valid
+Image?
+
+Y
+
+No va
+Reject & CNN Feature 5 Output
+Log Error Extraction Prediction
+
+Figure 4: End-to-end system flowchart showing preprocessing, validation check, CNN feature extraction, and final
+output prediction stages.
+
+Nearby Document Text:
+4. Dataset Class Distribution
+The bar chart in Figure 3 provides a visual breakdown of image counts per class. The dataset is
+moderately imbalanced with a 4.77:1 ratio between the largest class (Dog, 3,100) and smallest (Turtle,
+650). To handle this during evaluation, per-class F1 scores are reported alongside the overall accuracy
+metric to give a complete picture of model performance.
+Figure 3: Bar chart showing the number of images per animal class in the full dataset. Dog has the most images
+(3,100) and Turtle the fewest (650).
+5. System Architecture Flowchart
+Figure 4 presents the complete
+
+
+--------------------------------------------------------------------------------
+PAGE : 5
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+patterns effectively. The validation curves in Figure 2 show smooth convergence with no signs of severe
+overfitting after epoch 16.
+7.2 Limitations
+The model underperforms on Turtle and Hamster classes primarily due to lower training data availability as
+shown in Figure 3. Additionally, the confusion matrix (Figure 5) reveals systematic confusion between
+visually similar classes. The current architecture does not use transfer learning from pretrained models
+such as ResNet or VGG which could significantly boost performance.
+7.3 Comparison with Baselines
+Model
+Parameters
+Val Accuracy
+
+
+================================================================================
+DOCUMENT : LayoutLMv3.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 7
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+linear image embedding has improved FUNSD, MIM does not fur-
+ther contribute to FUNSD. By incorporating the MIM objective in
+training, the loss converges when fine-tuning PubLayNet as shown
+in Figure 4, and we obtain a desirable mAP score. The results indi-
+cate that MIM can help regularize the training. Thus MIM is critical
+for vision tasks like document layout analysis on PubLayNet.
+Effect of WPA pre-training objective. By comparing models #3
+and #4 in Table 3, we observe that the WPA objective consistently
+improves all tasks. Moreover, the WPA objective decreases the loss
+
+
+================================================================================
+DOCUMENT : RAG.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 18
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+the model with each (q,a ) pair separately, leading to a small increase in accuracy. For TriviaQA,
+there are often many valid answers to a given question, some of which are not suitable training targets,
+such as emoji or spelling variants. For TriviaQA, we ﬁlter out answer candidates if they do not occur
+in top 1000 documents for the query.
+CuratedTrec preprocessing The answers for CuratedTrec are given in the form of regular expres-
+sions, which has been suggested as a reason why it is unsuitable for answer-generation models [20].
+
+
+================================================================================
+DOCUMENT : CLIP.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 4
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+recently adapted for contrastive (text, image) representation
+learning in the domain of medical imaging by Zhang et al.
+(2020).
+Due to the large size of our pre-training dataset, over-ﬁtting
+is not a major concern and the details of training CLIP are
+simpliﬁed compared to the implementation of Zhang et al.
+(2020). We train CLIP from scratch without initializing the
+image encoder with ImageNet weights or the text encoder
+with pre-trained weights. We do not use the non-linear
+projection between the representation and the contrastive
+embedding space, a change which was introduced by Bach-
+
+
+--------------------------------------------------------------------------------
+PAGE : 23
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+given the ﬂexibility it offers. In addition to choices about
+training data and model architecture, decisions about things
+like class designs and thresholding values can alter the labels
+a model outputs and as a result heighten or lower certain
+kinds of harm, such as those described by Crawford (2017).
+People designing and developing models and AI systems
+have considerable power. Decisions about things like class
+design are a key determiner not only of model performance,
+but also of how and in what contexts model biases manifest.
+These experiments are not comprehensive. They illus-
+
+
+--------------------------------------------------------------------------------
+PAGE : 44
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+lar average performance and number of wins on zero shot and
+linear classiﬁer evals. However, large differences in dataset
+speciﬁc performance occur. We include performance on the 3
+datasets where YFCC does best and worst compared to WIT
+according to a linear probe in order to highlight this as well as
+aggregate performance across all linear and zero-shot evals and
+the canonical ImageNet dataset.
+D. Dataset Ablation on YFCC100M
+To study whether our custom dataset is critical to the perfor-
+mance of CLIP, we trained a model on a ﬁltered subset of
+
+================================================================================
+
+================================================================================
+RAG PIPELINE DEBUG
+================================================================================
+Query Type        : visual
+Retrieved Chunks  : 8
+Retrieved Images  : 3
+Reranked Chunks   : 11
+Reranked Text     : 8
+Reranked Images   : 3
+Final Context Docs: 11
+Exact Figure Query: True
+Exact Figure Match: True
+Exact Figure Final: True
+================================================================================
+
+================================================================================
+STAGE 4 — EVIDENCE VERIFICATION
+================================================================================
+Verification Units : 4
+Supported          : 2
+Partially Supported: 2
+Unsupported        : 0
+Unknown            : 0
+Groundedness Ratio : 0.50
+
+[CLAIM #1] The model that converges fastest during training, according to Figure 3, is not explicitly mentioned in the provided text.
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.9702 | Citation=CNN Paper.pdf (Page 2)
+
+[CLAIM #2] However, the paper does not discuss computational advantages or disadvantages of the compared models in the context of Figure 3.
+  Status=PARTIALLY_SUPPORTED | NLI=NEUTRAL | Confidence=0.8247 | Citation=CNN Paper.pdf (Page 5)
+
+[CLAIM #3] The paper focuses on the performance of an image classification system for seven animal categories, discussing the dataset, system architecture, and limitations.
+  Status=PARTIALLY_SUPPORTED | NLI=NEUTRAL | Confidence=0.8569 | Citation=CNN Paper.pdf (Page 5)
+
+[CLAIM #4] The major reason for underperformance on certain classes (Turtle and Hamster) is identified as lower training data availability.
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.9985 | Citation=CNN Paper.pdf (Page 5)
+================================================================================
+
+====================================================================================================
+RAG ANSWER
+====================================================================================================
+ The model that converges fastest during training, according to Figure 3, is not explicitly mentioned in the provided text. However, the paper does not discuss computational advantages or disadvantages of the compared models in the context of Figure 3. The paper focuses on the performance of an image classification system for seven animal categories, discussing the dataset, system architecture, and limitations. The major reason for underperformance on certain classes (Turtle and Hamster) is identified as lower training data availability.
+
+IMAGE PATHS:
+D:/Projects/Major-Project-2-main/extracted_images/NLP Paper_page4_render.png
+D:/Projects/Major-Project-2-main/extracted_images/CNN Paper_page2_render.png
+D:/Projects/Major-Project-2-main/extracted_images/CNN Paper_page3_render.png

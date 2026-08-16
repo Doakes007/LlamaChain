@@ -1,0 +1,1706 @@
+====================================================================================================
+QUESTION_ID   : D-12
+DOCUMENT      : Donut
+QUESTION_TYPE : Figure / visual understanding
+ELAPSED_SEC   : 83.2
+ERROR         : no
+====================================================================================================
+
+QUESTION:
+In Figure 6, what examples demonstrate the strengths and limitations of Donut compared with LayoutLMv2 on DocVQA?
+
+GROUND TRUTH ANSWER:
+Figure 6 shows that OCR errors can cause LayoutLMv2-based systems to produce incorrect answers: for example, LayoutLMv2-Large-QG outputs an incorrect passenger name and phone number in the shown examples. Donut correctly answers some examples, including the passenger name and phone number, but in the rightmost large-scale image it misses tiny text because of its input-resolution constraint. The paper notes that increasing input resolution can mitigate this limitation.
+
+GROUND TRUTH SOURCE:
+Donut.pdf, p. 11, Figure 6
+
+====================================================================================================
+FORENSIC TRANSCRIPT
+====================================================================================================
+
+####################################################################################################
+FORENSIC CASE START
+####################################################################################################
+Original Query   : In Figure 6, what examples demonstrate the strengths and limitations of Donut compared with LayoutLMv2 on DocVQA?
+Expanded Query   : In Figure 6, what examples demonstrate the strengths and limitations of Donut compared with LayoutLMv2 on DocVQA?
+Query Type       : visual
+[DOCUMENT SCOPE] Normalized query: 'in figure 6 what examples demonstrate the strengths and limitations of donut compared with layout l mv2 on doc vqa'
+[DOCUMENT SCOPE] Source='BERT.pdf' -> Normalized='bert'
+[DOCUMENT SCOPE] Token overlap for 'BERT.pdf': []
+[DOCUMENT SCOPE] Source='BLIP-2.pdf' -> Normalized='blip 2'
+[DOCUMENT SCOPE] Token overlap for 'BLIP-2.pdf': []
+[DOCUMENT SCOPE] Source='CLIP.pdf' -> Normalized='clip'
+[DOCUMENT SCOPE] Token overlap for 'CLIP.pdf': []
+[DOCUMENT SCOPE] Source='CNN Paper.pdf' -> Normalized='cnn paper'
+[DOCUMENT SCOPE] Token overlap for 'CNN Paper.pdf': []
+[DOCUMENT SCOPE] Source='Donut.pdf' -> Normalized='donut'
+[DOCUMENT SCOPE] EXACT MATCH -> Donut.pdf
+[DOCUMENT SCOPE] Source='LayoutLMv3.pdf' -> Normalized='layout l mv3'
+[DOCUMENT SCOPE] Token overlap for 'LayoutLMv3.pdf': ['layout']
+[DOCUMENT SCOPE] Source='NLP Paper.pdf' -> Normalized='nlp paper'
+[DOCUMENT SCOPE] Token overlap for 'NLP Paper.pdf': []
+[DOCUMENT SCOPE] Source='RAG.pdf' -> Normalized='rag'
+[DOCUMENT SCOPE] Token overlap for 'RAG.pdf': []
+[DOCUMENT SCOPE] Source='Self-RAG.pdf' -> Normalized='self rag'
+[DOCUMENT SCOPE] Token overlap for 'Self-RAG.pdf': []
+[DOCUMENT SCOPE] Source='Vision Transformer.pdf' -> Normalized='vision transformer'
+[DOCUMENT SCOPE] Token overlap for 'Vision Transformer.pdf': []
+[DOCUMENT SCOPE] Final matched sources: ['Donut.pdf']
+
+================================================================================
+DOCUMENT SCOPE DEBUG
+================================================================================
+Query          : In Figure 6, what examples demonstrate the strengths and limitations of Donut compared with LayoutLMv2 on DocVQA?
+Expanded Query : In Figure 6, what examples demonstrate the strengths and limitations of Donut compared with LayoutLMv2 on DocVQA?
+Query Type     : visual
+Document Scope : ['Donut.pdf']
+================================================================================
+
+==========================================================================================
+STEP 3A — SCOPED HYBRID RETRIEVAL
+==========================================================================================
+Query              : In Figure 6, what examples demonstrate the strengths and limitations of Donut compared with LayoutLMv2 on DocVQA?
+Sources            : ['Donut.pdf']
+Dense candidate K  : 25
+Final hybrid K     : 8
+
+------------------------------------------------------------------------------------------
+[SCOPED DENSE / VECTOR RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=Donut.pdf | Page=10 | Type=text | Image=N/A
+    Content=tasks are already actively used in industries. Document Visual Question Answering. Table 3 shows the results on the DocVQA dataset. The first group is the general-purposed VDU back
+02. Source=Donut.pdf | Page=11 | Type=table | Image=N/A
+    Content=outLMv2 (left and middle examples). Due to the input resolution constraint of the end-to-end pipeline, Donut miss some tiny texts in large-scale images (right example) but this cou
+03. Source=Donut.pdf | Page=9 | Type=text | Image=N/A
+    Content=3.3 Experimental Results Document Classification. The results are shown in Table 1. Without re- lying on any other resource (e.g., off-the-shelf OCR engine), Donut shows a state-of
+04. Source=Donut.pdf | Page=11 | Type=image | Image=extracted_images\Donut_page11_img4.png
+    Content=FIGURE FROM DOCUMENT  Caption: a black and white photo of a man with a beard  OCR Text: No readable text found in this image.  Nearby Document Text: OCR-free Document Understanding
+05. Source=Donut.pdf | Page=11 | Type=text | Image=N/A
+    Content=Answer: 540 Donut: 943  (another number in the image is extracted) LayoutLMv2-Large-QG: 540 Q: What is the phone number given? Answer: 336-723-6100 Donut: 336-723-6100 LayoutLMv2-L
+06. Source=Donut.pdf | Page=8 | Type=text | Image=N/A
+    Content=in Figure 5 and in the supplementary material. Document Visual Question Answering. To validate the further capacity of the model, we conduct a document visual question answering ta
+07. Source=Donut.pdf | Page=27 | Type=text | Image=N/A
+    Content=the SPADE [25] baseline, the official implementation 16 is used. The models are trained using NVIDIA P40, V100, or A100 GPUs. The major hyperparameters, such as initial learning ra
+08. Source=Donut.pdf | Page=28 | Type=text | Image=N/A
+    Content=backbones, such as LayoutLM [65] and LayoutLMv2 [64]. To be specific, we explain how the conventional backbones perform downstream VDU tasks; docu- ment classification, IE, and VQA
+09. Source=Donut.pdf | Page=14 | Type=text | Image=N/A
+    Content=have also been proposed [48]. 5 Conclusions In this work, we propose a novel end-to-end framework for visual document un- derstanding. The proposed method, Donut, directly maps an 
+10. Source=Donut.pdf | Page=11 | Type=text | Image=N/A
+    Content=of Donut as well as the left challenges in the Donut-like end-to-end approach. Further analysis and ablation is available in Section 3.4. 3.4 Further Studies In this section, we st
+11. Source=Donut.pdf | Page=13 | Type=text | Image=N/A
+    Content=On Low Resourced Situation. We evaluate the models by limiting the size of training set of CORD [45]. The performance curves are shown in the right Figure 9. Donut shows a robust p
+12. Source=Donut.pdf | Page=12 | Type=text | Image=N/A
+    Content=document IE task in our analysis. However, in the DocVQA task, it was impor- tant to see the real images. This is probably because the image distributions of IIT-CDIP and DocVQA ar
+13. Source=Donut.pdf | Page=10 | Type=text | Image=N/A
+    Content=in the official leader-board. 6 As can be seen, Donut achieves competitive scores with the baselines that are dependent on external OCR engines. Especially, Donut shows that it is 
+14. Source=Donut.pdf | Page=8 | Type=text | Image=N/A
+    Content=a starting prompt to keep the uniformity of the method (See Figure 3). DocVQA. The dataset is from Document Visual Question Answering competi- tion4 and consists of 50K questions d
+15. Source=Donut.pdf | Page=12 | Type=text | Image=N/A
+    Content=Fig. 7. Analysis on (a) pre-training strategies, (b) image backbones, and (c) input resolutions. Performances on CORD [45] and DocVQA [44] are shown simple yet effective approach. 
+16. Source=Donut.pdf | Page=28 | Type=text | Image=N/A
+    Content=(8 V100 GPUs for 5 days). The input size was 2048 ×1536. In this setting, DonutProto also achieved comparable results on RVL-CDIP and CORD. The accuracy on RVL-CDIP was 94.5 and CO
+17. Source=Donut.pdf | Page=3 | Type=text | Image=N/A
+    Content=2 Method 2.1 Preliminary: background There have been various visual document understanding (VDU) methods to un- derstand and extract essential information from the semi-structured 
+18. Source=Donut.pdf | Page=11 | Type=text | Image=N/A
+    Content=but this could be mitigated by scaling the input image size (See Section 3.4) errors is an option to strengthen the pipeline [51,50,10] or adopting an encoder- decoder architecture
+19. Source=Donut.pdf | Page=9 | Type=text | Image=N/A
+    Content=RoBERTa ✓ 125M + α† 1392 90.06 LayoutLM ✓ 113M + α† 1396 91.78 LayoutLM (w/ image) ✓ 160M + α† 1426 94.42 LayoutLMv2 ✓ 200M + α† 1489 95.25 Donut (Proposed) 143M 752 95.30 from 1e-
+20. Source=Donut.pdf | Page=24 | Type=text | Image=N/A
+    Content=ness Card and Receipt). Figure B shows examples of Ticket with the outputs of Donut. Figure C shows examples of CORD with the outputs of Donut. Due to strict industrial policies on
+21. Source=Donut.pdf | Page=3 | Type=text | Image=N/A
+    Content=language flexibility straightforwardly pre-training with synthetic data. During fine-tuning stage, Donut learns how to understand the whole document accord- ing to the downstream t
+22. Source=Donut.pdf | Page=23 | Type=image | Image=extracted_images\Donut_page23_img3.png
+    Content=FIGURE FROM DOCUMENT  Caption: a car parked in front of a building with a sign on it  OCR Text: rr  ORAS ene!  eo m7 ae ate as yi Tiree ht SN £505  Wht reat  Nearby Document Text: 
+23. Source=Donut.pdf | Page=22 | Type=text | Image=N/A
+    Content=22 G. Kim et al. A Appendix A.1 Details of OCR Engines (MS, CLOVA, Easy, Paddle) Current state-of-the-art visual document understanding (VDU) backbones, such as BROS [18], LayoutLM
+24. Source=Donut.pdf | Page=13 | Type=text | Image=N/A
+    Content=OCR-free Document Understanding Transformer 13 K Cho co Mo chi yo to300 2- Fig. 8. Visualization of cross-attention maps in the decoder and its applica- tion to text localization. 
+25. Source=Donut.pdf | Page=12 | Type=text | Image=N/A
+    Content=Swin Transformer [40] outperform others on both datasets. We argue that this is due to the high expressiveness of the backbones, which were shown by the strik- ing scores on severa
+
+------------------------------------------------------------------------------------------
+[SCOPED BM25 RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=Donut.pdf | Page=13 | Type=text | Image=N/A
+    Content=1280   2560 EasyOCR PaddleOCR MSAzure ClovaOCR 80 160 400 800 number of samples 50 60 70 80 90Accuracy Donut, 2560 Donut, 1280 LayoutLMv2 BERT Fig. 9. Comparison of BERT, LayoutLMv
+02. Source=Donut.pdf | Page=11 | Type=text | Image=N/A
+    Content=but this could be mitigated by scaling the input image size (See Section 3.4) errors is an option to strengthen the pipeline [51,50,10] or adopting an encoder- decoder architecture
+03. Source=Donut.pdf | Page=13 | Type=image | Image=extracted_images\Donut_page13_img1.png
+    Content=FIGURE FROM DOCUMENT  Caption: a purple background with a black and white text that reads, ' i am and am '  OCR Text: No readable text found in this image.  Nearby Document Text: O
+04. Source=Donut.pdf | Page=13 | Type=image | Image=extracted_images\Donut_page13_img4.png
+    Content=FIGURE FROM DOCUMENT  Caption: a computer screen with the words ' i ' m ' and ' i ' m ' on it  OCR Text: No readable text found in this image.  Nearby Document Text: OCR-free Docum
+05. Source=Donut.pdf | Page=13 | Type=image | Image=extracted_images\Donut_page13_img5.png
+    Content=FIGURE FROM DOCUMENT  Caption: a computer screen with the words ' i ' m ' and ' i ' m ' on it  OCR Text: No readable text found in this image.  Nearby Document Text: OCR-free Docum
+06. Source=Donut.pdf | Page=13 | Type=image | Image=extracted_images\Donut_page13_img3.png
+    Content=FIGURE FROM DOCUMENT  Caption: a computer screen with a text that reads, ' i ' m and i ' m '  OCR Text: No readable text found in this image.  Nearby Document Text: OCR-free Docume
+07. Source=Donut.pdf | Page=13 | Type=image | Image=extracted_images\Donut_page13_img7.png
+    Content=FIGURE FROM DOCUMENT  Caption: a computer screen with a text that reads, ' i ' m and i ' m '  OCR Text: No readable text found in this image.  Nearby Document Text: OCR-free Docume
+08. Source=Donut.pdf | Page=13 | Type=image | Image=extracted_images\Donut_page13_img2.png
+    Content=FIGURE FROM DOCUMENT  Caption: a computer screen with a text that reads, ' i ' m and i ' m '  OCR Text: No readable text found in this image.  Nearby Document Text: OCR-free Docume
+09. Source=Donut.pdf | Page=13 | Type=image | Image=extracted_images\Donut_page13_img6.png
+    Content=FIGURE FROM DOCUMENT  Caption: a computer screen with a text that reads, ' i ' m and i ' m '  OCR Text: No readable text found in this image.  Nearby Document Text: OCR-free Docume
+10. Source=Donut.pdf | Page=13 | Type=text | Image=N/A
+    Content=OCR-free Document Understanding Transformer 13 K Cho co Mo chi yo to300 2- Fig. 8. Visualization of cross-attention maps in the decoder and its applica- tion to text localization. 
+11. Source=Donut.pdf | Page=13 | Type=image | Image=extracted_images\Donut_page13_img0.png
+    Content=FIGURE FROM DOCUMENT  Caption: a computer screen with the words, ' i am am am am am am am am am am am am  OCR Text: No readable text found in this image.  Nearby Document Text: OCR
+12. Source=Donut.pdf | Page=13 | Type=image | Image=extracted_images\Donut_page13_img8.png
+    Content=FIGURE FROM DOCUMENT  Caption: a computer screen with a text that reads, ' i am am am am am am am am am am  OCR Text: No readable text found in this image.  Nearby Document Text: O
+13. Source=Donut.pdf | Page=24 | Type=text | Image=N/A
+    Content=ness Card and Receipt). Figure B shows examples of Ticket with the outputs of Donut. Figure C shows examples of CORD with the outputs of Donut. Due to strict industrial policies on
+14. Source=Donut.pdf | Page=11 | Type=text | Image=N/A
+    Content=Answer: 540 Donut: 943  (another number in the image is extracted) LayoutLMv2-Large-QG: 540 Q: What is the phone number given? Answer: 336-723-6100 Donut: 336-723-6100 LayoutLMv2-L
+15. Source=Donut.pdf | Page=9 | Type=text | Image=N/A
+    Content=3.3 Experimental Results Document Classification. The results are shown in Table 1. Without re- lying on any other resource (e.g., off-the-shelf OCR engine), Donut shows a state-of
+16. Source=Donut.pdf | Page=13 | Type=text | Image=N/A
+    Content=On Low Resourced Situation. We evaluate the models by limiting the size of training set of CORD [45]. The performance curves are shown in the right Figure 9. Donut shows a robust p
+17. Source=Donut.pdf | Page=24 | Type=text | Image=N/A
+    Content=case, only (a) and (b) are required for IE models. We go beyond the previous works by considering (c) also. Although the task is complex, its interface (i.e., the format of input a
+18. Source=Donut.pdf | Page=11 | Type=text | Image=N/A
+    Content=of Donut as well as the left challenges in the Donut-like end-to-end approach. Further analysis and ablation is available in Section 3.4. 3.4 Further Studies In this section, we st
+19. Source=Donut.pdf | Page=6 | Type=image | Image=extracted_images\Donut_page6_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a book with a picture of a person in the background  OCR Text: 6 G. Kim et al.  Wak gaGHIe - —— ATP  Fig. 4. Generated Englis
+20. Source=Donut.pdf | Page=4 | Type=image | Image=extracted_images\Donut_page4_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram showing the different types of the different types of the different types of the different types of the different  OCR Text: 
+21. Source=Donut.pdf | Page=6 | Type=text | Image=N/A
+    Content=the class “memo”), if such replacement is available in the target task. 3 Experiments and Analyses In this section, we present Donut fine-tuning results on three VDU applications o
+22. Source=Donut.pdf | Page=27 | Type=text | Image=N/A
+    Content=the SPADE [25] baseline, the official implementation 16 is used. The models are trained using NVIDIA P40, V100, or A100 GPUs. The major hyperparameters, such as initial learning ra
+23. Source=Donut.pdf | Page=3 | Type=text | Image=N/A
+    Content=better overall performance than previous methods as shown in Figure 2. We take pre-train-and-fine-tune scheme [8,65] on Donut training. In the pre-training phase, Donut learns how 
+24. Source=Donut.pdf | Page=3 | Type=image | Image=extracted_images\Donut_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a book with the text in english  OCR Text: OOCR-free Document Understanding Transformer 3  languages with complex character
+25. Source=Donut.pdf | Page=26 | Type=text | Image=N/A
+    Content=Fig. C. Examples of CORD [45] with Donut predictions. There is a hierarchy in the structure of information (i.e., depth = 2). Donut not only reads some important key information fr
+
+------------------------------------------------------------------------------------------
+[RRF FUSION RANKING]
+------------------------------------------------------------------------------------------
+01. RRF=0.029206 | DenseRank=3 | BM25Rank=15 | Source=Donut.pdf | Page=9 | Type=text
+02. RRF=0.028950 | DenseRank=18 | BM25Rank=2 | Source=Donut.pdf | Page=11 | Type=text
+03. RRF=0.028898 | DenseRank=5 | BM25Rank=14 | Source=Donut.pdf | Page=11 | Type=text
+04. RRF=0.027242 | DenseRank=11 | BM25Rank=16 | Source=Donut.pdf | Page=13 | Type=text
+05. RRF=0.027120 | DenseRank=7 | BM25Rank=22 | Source=Donut.pdf | Page=27 | Type=text
+06. RRF=0.027106 | DenseRank=10 | BM25Rank=18 | Source=Donut.pdf | Page=11 | Type=text
+07. RRF=0.026199 | DenseRank=20 | BM25Rank=13 | Source=Donut.pdf | Page=24 | Type=text
+08. RRF=0.026190 | DenseRank=24 | BM25Rank=10 | Source=Donut.pdf | Page=13 | Type=text
+09. RRF=0.016393 | DenseRank=1 | BM25Rank=- | Source=Donut.pdf | Page=10 | Type=text
+10. RRF=0.016393 | DenseRank=- | BM25Rank=1 | Source=Donut.pdf | Page=13 | Type=text
+11. RRF=0.016129 | DenseRank=2 | BM25Rank=- | Source=Donut.pdf | Page=11 | Type=table
+12. RRF=0.015873 | DenseRank=- | BM25Rank=3 | Source=Donut.pdf | Page=13 | Type=image
+13. RRF=0.015625 | DenseRank=4 | BM25Rank=- | Source=Donut.pdf | Page=11 | Type=image
+14. RRF=0.015625 | DenseRank=- | BM25Rank=4 | Source=Donut.pdf | Page=13 | Type=image
+15. RRF=0.015385 | DenseRank=- | BM25Rank=5 | Source=Donut.pdf | Page=13 | Type=image
+16. RRF=0.015152 | DenseRank=6 | BM25Rank=- | Source=Donut.pdf | Page=8 | Type=text
+17. RRF=0.015152 | DenseRank=- | BM25Rank=6 | Source=Donut.pdf | Page=13 | Type=image
+18. RRF=0.014925 | DenseRank=- | BM25Rank=7 | Source=Donut.pdf | Page=13 | Type=image
+19. RRF=0.014706 | DenseRank=8 | BM25Rank=- | Source=Donut.pdf | Page=28 | Type=text
+20. RRF=0.014706 | DenseRank=- | BM25Rank=8 | Source=Donut.pdf | Page=13 | Type=image
+21. RRF=0.014493 | DenseRank=9 | BM25Rank=- | Source=Donut.pdf | Page=14 | Type=text
+22. RRF=0.014493 | DenseRank=- | BM25Rank=9 | Source=Donut.pdf | Page=13 | Type=image
+23. RRF=0.014085 | DenseRank=- | BM25Rank=11 | Source=Donut.pdf | Page=13 | Type=image
+24. RRF=0.013889 | DenseRank=12 | BM25Rank=- | Source=Donut.pdf | Page=12 | Type=text
+25. RRF=0.013889 | DenseRank=- | BM25Rank=12 | Source=Donut.pdf | Page=13 | Type=image
+26. RRF=0.013699 | DenseRank=13 | BM25Rank=- | Source=Donut.pdf | Page=10 | Type=text
+27. RRF=0.013514 | DenseRank=14 | BM25Rank=- | Source=Donut.pdf | Page=8 | Type=text
+28. RRF=0.013333 | DenseRank=15 | BM25Rank=- | Source=Donut.pdf | Page=12 | Type=text
+29. RRF=0.013158 | DenseRank=16 | BM25Rank=- | Source=Donut.pdf | Page=28 | Type=text
+30. RRF=0.012987 | DenseRank=17 | BM25Rank=- | Source=Donut.pdf | Page=3 | Type=text
+31. RRF=0.012987 | DenseRank=- | BM25Rank=17 | Source=Donut.pdf | Page=24 | Type=text
+32. RRF=0.012658 | DenseRank=19 | BM25Rank=- | Source=Donut.pdf | Page=9 | Type=text
+33. RRF=0.012658 | DenseRank=- | BM25Rank=19 | Source=Donut.pdf | Page=6 | Type=image
+34. RRF=0.012500 | DenseRank=- | BM25Rank=20 | Source=Donut.pdf | Page=4 | Type=image
+35. RRF=0.012346 | DenseRank=21 | BM25Rank=- | Source=Donut.pdf | Page=3 | Type=text
+36. RRF=0.012346 | DenseRank=- | BM25Rank=21 | Source=Donut.pdf | Page=6 | Type=text
+37. RRF=0.012195 | DenseRank=22 | BM25Rank=- | Source=Donut.pdf | Page=23 | Type=image
+38. RRF=0.012048 | DenseRank=23 | BM25Rank=- | Source=Donut.pdf | Page=22 | Type=text
+39. RRF=0.012048 | DenseRank=- | BM25Rank=23 | Source=Donut.pdf | Page=3 | Type=text
+40. RRF=0.011905 | DenseRank=- | BM25Rank=24 | Source=Donut.pdf | Page=3 | Type=image
+41. RRF=0.011765 | DenseRank=25 | BM25Rank=- | Source=Donut.pdf | Page=12 | Type=text
+42. RRF=0.011765 | DenseRank=- | BM25Rank=25 | Source=Donut.pdf | Page=26 | Type=text
+------------------------------------------------------------------------------------------
+
+==========================================================================================
+STEP 3A — RETRIEVAL STAGE SUMMARY
+==========================================================================================
+Dense candidates       : 25
+BM25 candidates        : 25
+Dense ∩ BM25           : 8
+Dense-only candidates  : 17
+BM25-only candidates   : 17
+Unique candidate pool  : 42
+RRF candidates         : 42
+Returned to pipeline   : 8
+==========================================================================================
+
+------------------------------------------------------------------------------------------
+[SCOPED FINAL HYBRID RESULT] 8 candidates
+------------------------------------------------------------------------------------------
+01. Source=Donut.pdf | Page=9 | Type=text | Image=N/A
+    Content=3.3 Experimental Results Document Classification. The results are shown in Table 1. Without re- lying on any other resource (e.g., off-the-shelf OCR engine), Donut shows a state-of
+02. Source=Donut.pdf | Page=11 | Type=text | Image=N/A
+    Content=but this could be mitigated by scaling the input image size (See Section 3.4) errors is an option to strengthen the pipeline [51,50,10] or adopting an encoder- decoder architecture
+03. Source=Donut.pdf | Page=11 | Type=text | Image=N/A
+    Content=Answer: 540 Donut: 943  (another number in the image is extracted) LayoutLMv2-Large-QG: 540 Q: What is the phone number given? Answer: 336-723-6100 Donut: 336-723-6100 LayoutLMv2-L
+04. Source=Donut.pdf | Page=13 | Type=text | Image=N/A
+    Content=On Low Resourced Situation. We evaluate the models by limiting the size of training set of CORD [45]. The performance curves are shown in the right Figure 9. Donut shows a robust p
+05. Source=Donut.pdf | Page=27 | Type=text | Image=N/A
+    Content=the SPADE [25] baseline, the official implementation 16 is used. The models are trained using NVIDIA P40, V100, or A100 GPUs. The major hyperparameters, such as initial learning ra
+06. Source=Donut.pdf | Page=11 | Type=text | Image=N/A
+    Content=of Donut as well as the left challenges in the Donut-like end-to-end approach. Further analysis and ablation is available in Section 3.4. 3.4 Further Studies In this section, we st
+07. Source=Donut.pdf | Page=24 | Type=text | Image=N/A
+    Content=ness Card and Receipt). Figure B shows examples of Ticket with the outputs of Donut. Figure C shows examples of CORD with the outputs of Donut. Due to strict industrial policies on
+08. Source=Donut.pdf | Page=13 | Type=text | Image=N/A
+    Content=OCR-free Document Understanding Transformer 13 K Cho co Mo chi yo to300 2- Fig. 8. Visualization of cross-attention maps in the decoder and its applica- tion to text localization. 
+==========================================================================================
+
+================================================================================
+STAGE 1 — HYBRID RETRIEVAL
+================================================================================
+Retrieved Count : 8
+
+[HYBRID #1] Source=Donut.pdf | Page=9 | Type=text
+Content: 3.3 Experimental Results Document Classification. The results are shown in Table 1. Without re- lying on any other resource (e.g., off-the-shelf OCR engine), Donut shows a state-of-the-art performance among the general-purpose VDU models such as LayoutLM [65] and LayoutLMv2 [64]. In particular, Donut surpasses the Lay- outLMv2 accuracy reported in [64], while using fewer parameters with the 2x faster speed. Note that the OCR-based models must consider additional model parameters and speed for th
+
+[HYBRID #2] Source=Donut.pdf | Page=11 | Type=text
+Content: but this could be mitigated by scaling the input image size (See Section 3.4) errors is an option to strengthen the pipeline [51,50,10] or adopting an encoder- decoder architecture on the OCR outputs can mitigate the problems of OCR errors [23]. However, this kind of approaches tend to increase the entire system size and maintenance cost. Donut shows a completely different direction. Some inference results are shown in Figure 6. The samples show the current strengths of Donut as well as the left
+
+[HYBRID #3] Source=Donut.pdf | Page=11 | Type=text
+Content: Answer: 540 Donut: 943  (another number in the image is extracted) LayoutLMv2-Large-QG: 540 Q: What is the phone number given? Answer: 336-723-6100 Donut: 336-723-6100 LayoutLMv2-Large-QG: 336-723- 4100 Fig. 6. Examples of Donut and LayoutLMv2 outputs on DocVQA.The OCR- errors make a performance upper-bound of the OCR-dependent baselines, e.g., Lay- outLMv2 (left and middle examples). Due to the input resolution constraint of the end-to-end pipeline, Donut miss some tiny texts in large-scale ima
+
+[HYBRID #4] Source=Donut.pdf | Page=13 | Type=text
+Content: On Low Resourced Situation. We evaluate the models by limiting the size of training set of CORD [45]. The performance curves are shown in the right Figure 9. Donut shows a robust performances. We also observe that a larger input resolution, 2560 ×1920, shows more robust scores on the extremely low- resourced situation, e.g., 80 samples. As can be seen, Donut outperformed the LayoutLMv2 accuracy only with 10% of the data, which is only 80 samples. 4 Related Work 4.1 Optical Character Recognition 
+
+[HYBRID #5] Source=Donut.pdf | Page=27 | Type=text
+Content: the SPADE [25] baseline, the official implementation 16 is used. The models are trained using NVIDIA P40, V100, or A100 GPUs. The major hyperparameters, such as initial learning rate and number of epochs, are adjusted by monitoring the scores on the validation set. The architectural details of the OCR-dependent VDU backbone baselines (e.g., LayoutLM and LayoutLMv2) are available in Appendix A.7. A.6 Preliminary Experiments in Smaller Resources In our preliminary experiments, we pre-trained Donut
+
+[HYBRID #6] Source=Donut.pdf | Page=11 | Type=text
+Content: of Donut as well as the left challenges in the Donut-like end-to-end approach. Further analysis and ablation is available in Section 3.4. 3.4 Further Studies In this section, we study several elements of understanding Donut. We show some striking characteristics of Donut through the experiments and visualization. On Pre-training Strategy. We test several pre-training tasks for VDUs. Fig- ure 7(a) shows that the Donut pre-training task (i.e., text reading) is the most
+
+[HYBRID #7] Source=Donut.pdf | Page=24 | Type=text
+Content: ness Card and Receipt). Figure B shows examples of Ticket with the outputs of Donut. Figure C shows examples of CORD with the outputs of Donut. Due to strict industrial policies on the private industrial datasets, we instead show some real-like high-quality samples of Business Card and Receipt in Figure D. A.4 Details of Model Training Scheme and Output Format In the model architecture and training objective, we basically followed the orig- inal Transformer [58], which uses a Transformer encoder
+
+[HYBRID #8] Source=Donut.pdf | Page=13 | Type=text
+Content: OCR-free Document Understanding Transformer 13 K Cho co Mo chi yo to300 2- Fig. 8. Visualization of cross-attention maps in the decoder and its applica- tion to text localization. Donut is trained without any supervision for the localiza- tion. The Donut decoder attends proper text regions to process the image LayoutLMv2 BERT Donut40 50 60 70 80 90Accuracy 1280   2560 EasyOCR PaddleOCR MSAzure ClovaOCR LayoutLMv2 BERT Donut0.5 1.0 1.5time(s/image) 1280   2560 EasyOCR PaddleOCR MSAzure ClovaOCR 8
+================================================================================
+[DOCUMENT SCOPE] Text chunks: 8 -> 8
+
+================================================================================
+EXPLICIT FIGURE QUERY DETECTED
+================================================================================
+Requested Figure : 6
+================================================================================
+
+================================================================================
+FIGURE NUMBER RETRIEVAL
+================================================================================
+Requested Figure : 6
+Query            : In Figure 6, what examples demonstrate the strengths and limitations of Donut compared with LayoutLMv2 on DocVQA?
+Matched Images   : 257
+Rejected References : 5
+[MATCH 1] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img0.png | Path=extracted_images\Vision Transformer_page21_img0.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a large tree with green leaves  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 4...
+[MATCH 2] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img1.png | Path=extracted_images\Vision Transformer_page21_img1.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white cat sitting on top of a tree  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 ...
+[MATCH 3] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img2.png | Path=extracted_images\Vision Transformer_page21_img2.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a small bird sitting on top of a bed of dirt  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39...
+[MATCH 4] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img3.png | Path=extracted_images\Vision Transformer_page21_img3.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a close up of a plant with dirt on the ground  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 3...
+[MATCH 5] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img4.png | Path=extracted_images\Vision Transformer_page21_img4.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a bird flying in the sky  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 4...
+[MATCH 6] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img5.png | Path=extracted_images\Vision Transformer_page21_img5.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: the bird is flying in the dark sky  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 ...
+[MATCH 7] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img6.png | Path=extracted_images\Vision Transformer_page21_img6.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a white dog laying on top of a grass covered field  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37...
+[MATCH 8] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img7.png | Path=extracted_images\Vision Transformer_page21_img7.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a white dog sitting on top of a grass covered field  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 3...
+[MATCH 9] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img8.png | Path=extracted_images\Vision Transformer_page21_img8.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a red truck parked in front of a building  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40...
+[MATCH 10] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img9.png | Path=extracted_images\Vision Transformer_page21_img9.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a group of old trucks parked in a parking lot  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 3...
+[MATCH 11] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img10.png | Path=extracted_images\Vision Transformer_page21_img10.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a house with a thatched roof  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 ...
+[MATCH 12] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img11.png | Path=extracted_images\Vision Transformer_page21_img11.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a house with a fire in the front yard  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 ...
+[MATCH 13] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img12.png | Path=extracted_images\Vision Transformer_page21_img12.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a close up of a piece of fruit on a table  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40...
+[MATCH 14] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img13.png | Path=extracted_images\Vision Transformer_page21_img13.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a close up of a piece of ice on a table  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 4...
+[MATCH 15] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img14.png | Path=extracted_images\Vision Transformer_page21_img14.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a green butterfly sitting on top of a purple flower  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 3...
+[MATCH 16] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img15.png | Path=extracted_images\Vision Transformer_page21_img15.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a bird is perched on a branch of a tree  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 4...
+[MATCH 17] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img16.png | Path=extracted_images\Vision Transformer_page21_img16.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: the fish is swimming in the water  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 4...
+[MATCH 18] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img17.png | Path=extracted_images\Vision Transformer_page21_img17.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a fish in the water  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 ...
+[MATCH 19] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img18.png | Path=extracted_images\Vision Transformer_page21_img18.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: an image of a tree in the middle of a forest  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39...
+[MATCH 20] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img19.png | Path=extracted_images\Vision Transformer_page21_img19.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a bird is flying in the air over a tree  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 4...
+[MATCH 21] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img20.png | Path=extracted_images\Vision Transformer_page21_img20.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a kitchen with a sink and a dishwasher  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41...
+[MATCH 22] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img21.png | Path=extracted_images\Vision Transformer_page21_img21.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: this is an image of a sink in a bathroom  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 ...
+[MATCH 23] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img22.png | Path=extracted_images\Vision Transformer_page21_img22.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a body of water  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 4...
+[MATCH 24] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img23.png | Path=extracted_images\Vision Transformer_page21_img23.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a group of people sitting on a rock by the water  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 3...
+[MATCH 25] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img24.png | Path=extracted_images\Vision Transformer_page21_img24.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: the water is calm  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48...
+[MATCH 26] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img25.png | Path=extracted_images\Vision Transformer_page21_img25.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a bird flying over a body of water  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 ...
+[MATCH 27] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img26.png | Path=extracted_images\Vision Transformer_page21_img26.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: this is a computer  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 4...
+[MATCH 28] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img27.png | Path=extracted_images\Vision Transformer_page21_img27.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: this is a picture of a computer screen  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41...
+[MATCH 29] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img28.png | Path=extracted_images\Vision Transformer_page21_img28.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a small metal object on a black surface  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 4...
+[MATCH 30] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img29.png | Path=extracted_images\Vision Transformer_page21_img29.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a gold - plated, silver - plated, brass - plated, and silver - plated  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 3...
+[MATCH 31] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img30.png | Path=extracted_images\Vision Transformer_page21_img30.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a red, white and blue rug on a wooden floor  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 ...
+[MATCH 32] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img31.png | Path=extracted_images\Vision Transformer_page21_img31.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a red, white and blue blanket hanging on a wall  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38...
+[MATCH 33] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img32.png | Path=extracted_images\Vision Transformer_page21_img32.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a chalk drawing on the ground  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44...
+[MATCH 34] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img33.png | Path=extracted_images\Vision Transformer_page21_img33.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a car is driving down the road in the rain  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 4...
+[MATCH 35] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img34.png | Path=extracted_images\Vision Transformer_page21_img34.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a close up of a metal object on a white surface  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38...
+[MATCH 36] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img35.png | Path=extracted_images\Vision Transformer_page21_img35.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a close up of a metal object on a table  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 4...
+[MATCH 37] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img36.png | Path=extracted_images\Vision Transformer_page21_img36.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a white remote control device on a brown surface  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 3...
+[MATCH 38] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img37.png | Path=extracted_images\Vision Transformer_page21_img37.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a white wii game controller on a black background  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 ...
+[MATCH 39] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img38.png | Path=extracted_images\Vision Transformer_page21_img38.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a man in a red robe standing in a room  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41...
+[MATCH 40] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img39.png | Path=extracted_images\Vision Transformer_page21_img39.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a woman in a red dress standing in a room  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40...
+[MATCH 41] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img40.png | Path=extracted_images\Vision Transformer_page21_img40.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: an aerial view of a green field  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 ...
+[MATCH 42] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img41.png | Path=extracted_images\Vision Transformer_page21_img41.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a man is standing in the middle of a green field  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 3...
+[MATCH 43] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img42.png | Path=extracted_images\Vision Transformer_page21_img42.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a small black and brown puppy standing on a ledge  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 ...
+[MATCH 44] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img43.png | Path=extracted_images\Vision Transformer_page21_img43.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and brown dog standing on top of a table  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 3...
+[MATCH 45] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img44.png | Path=extracted_images\Vision Transformer_page21_img44.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a dog with a toy in its mouth  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44...
+[MATCH 46] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img45.png | Path=extracted_images\Vision Transformer_page21_img45.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a small brown dog standing in the grass  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 4...
+[MATCH 47] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img46.png | Path=extracted_images\Vision Transformer_page21_img46.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: palm trees on the beach  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46...
+[MATCH 48] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img47.png | Path=extracted_images\Vision Transformer_page21_img47.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: an elephant is standing in the middle of the street  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 3...
+[MATCH 49] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img48.png | Path=extracted_images\Vision Transformer_page21_img48.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: yellow leaves on the ground  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 4...
+[MATCH 50] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img49.png | Path=extracted_images\Vision Transformer_page21_img49.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: the leaves are yellow  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 4...
+[MATCH 51] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img50.png | Path=extracted_images\Vision Transformer_page21_img50.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a painting of a lizard on a wall  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43...
+[MATCH 52] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img51.png | Path=extracted_images\Vision Transformer_page21_img51.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a kitchen with pots and pans hanging on the wall  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 3...
+[MATCH 53] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img52.png | Path=extracted_images\Vision Transformer_page21_img52.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a table with a bunch of pots and pans on it  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 ...
+[MATCH 54] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img53.png | Path=extracted_images\Vision Transformer_page21_img53.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a piece of bread sitting on top of a piece of paper  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 3...
+[MATCH 55] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img54.png | Path=extracted_images\Vision Transformer_page21_img54.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a loaf of bread sitting on top of a table  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40...
+[MATCH 56] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img55.png | Path=extracted_images\Vision Transformer_page21_img55.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a picture of a blue truck driving down the street  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 ...
+[MATCH 57] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img56.png | Path=extracted_images\Vision Transformer_page21_img56.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a blue truck driving down a street next to a building  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36...
+[MATCH 58] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img57.png | Path=extracted_images\Vision Transformer_page21_img57.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black dog sitting on a white couch  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 4...
+[MATCH 59] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img58.png | Path=extracted_images\Vision Transformer_page21_img58.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black dog sitting on a couch in a living room  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38...
+[MATCH 60] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img59.png | Path=extracted_images\Vision Transformer_page21_img59.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a close up of an orange with a white center  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 ...
+[MATCH 61] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img60.png | Path=extracted_images\Vision Transformer_page21_img60.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: an orange and yellow background with a star in the middle  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 3...
+[MATCH 62] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img61.png | Path=extracted_images\Vision Transformer_page21_img61.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a white plate with food on it  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44...
+[MATCH 63] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img62.png | Path=extracted_images\Vision Transformer_page21_img62.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: the leaves are brown  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47...
+[MATCH 64] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img63.png | Path=extracted_images\Vision Transformer_page21_img63.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a close up of a piano keyboard  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 4...
+[MATCH 65] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img64.png | Path=extracted_images\Vision Transformer_page21_img64.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a close up of a piano keyboard  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 4...
+[MATCH 66] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img65.png | Path=extracted_images\Vision Transformer_page21_img65.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a red convertible car parked in front of a house  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 3...
+[MATCH 67] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img66.png | Path=extracted_images\Vision Transformer_page21_img66.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a red convertible car parked in front of a building  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 3...
+[MATCH 68] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img67.png | Path=extracted_images\Vision Transformer_page21_img67.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: the screen is on the wall  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 ...
+[MATCH 69] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img68.png | Path=extracted_images\Vision Transformer_page21_img68.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a computer monitor on a desk in a room  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41...
+[MATCH 70] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img69.png | Path=extracted_images\Vision Transformer_page21_img69.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a small animal sitting on top of a rock  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 4...
+[MATCH 71] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img70.png | Path=extracted_images\Vision Transformer_page21_img70.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: the bear is brown in color  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45...
+[MATCH 72] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img71.png | Path=extracted_images\Vision Transformer_page21_img71.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a woman walking through a forest filled with trees  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37...
+[MATCH 73] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img72.png | Path=extracted_images\Vision Transformer_page21_img72.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a woman standing in the middle of a forest  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 4...
+[MATCH 74] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img73.png | Path=extracted_images\Vision Transformer_page21_img73.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a brown puppy sitting on top of a white blanket  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38...
+[MATCH 75] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img74.png | Path=extracted_images\Vision Transformer_page21_img74.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a brown puppy is sitting on the floor  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 ...
+[MATCH 76] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img75.png | Path=extracted_images\Vision Transformer_page21_img75.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a tent is set up in the middle of a forest  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 4...
+[MATCH 77] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img76.png | Path=extracted_images\Vision Transformer_page21_img76.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: there is a picture of a road in the woods  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40...
+[MATCH 78] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img77.png | Path=extracted_images\Vision Transformer_page21_img77.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white bird flying in a blue sky  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 ...
+[MATCH 79] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img78.png | Path=extracted_images\Vision Transformer_page21_img78.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a bird flying in the night sky  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 4...
+[MATCH 80] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img79.png | Path=extracted_images\Vision Transformer_page21_img79.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a plant in a pot  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 ...
+[MATCH 81] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img80.png | Path=extracted_images\Vision Transformer_page21_img80.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a plant in a pot  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 ...
+[MATCH 82] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img81.png | Path=extracted_images\Vision Transformer_page21_img81.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a bird flying in the night sky  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 4...
+[MATCH 83] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img82.png | Path=extracted_images\Vision Transformer_page21_img82.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a white towel hanging on a glass door  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 ...
+[MATCH 84] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img83.png | Path=extracted_images\Vision Transformer_page21_img83.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a person standing in front of a glass door  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 4...
+[MATCH 85] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img84.png | Path=extracted_images\Vision Transformer_page21_img84.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a white flower with a yellow center  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42...
+[MATCH 86] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img85.png | Path=extracted_images\Vision Transformer_page21_img85.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a white flower with a yellow center  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42...
+[MATCH 87] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img86.png | Path=extracted_images\Vision Transformer_page21_img86.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: two jars of cream on a black surface  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 4...
+[MATCH 88] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img87.png | Path=extracted_images\Vision Transformer_page21_img87.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: two ice creams sitting on top of each other ice creams  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 3...
+[MATCH 89] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img88.png | Path=extracted_images\Vision Transformer_page21_img88.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a small black and brown dog laying on the ground  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 3...
+[MATCH 90] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img89.png | Path=extracted_images\Vision Transformer_page21_img89.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and brown dog running through a tunnel  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 ...
+[MATCH 91] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img90.png | Path=extracted_images\Vision Transformer_page21_img90.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white dog standing on top of a lush green field  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34...
+[MATCH 92] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img91.png | Path=extracted_images\Vision Transformer_page21_img91.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white dog standing in the grass  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 ...
+[MATCH 93] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img92.png | Path=extracted_images\Vision Transformer_page21_img92.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a close up of a green apple on a white background  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 ...
+[MATCH 94] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img93.png | Path=extracted_images\Vision Transformer_page21_img93.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a group of monkeys hanging on a tree branch  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 ...
+[MATCH 95] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img94.png | Path=extracted_images\Vision Transformer_page21_img94.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a group of monkeys sitting on a tree branch  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 ...
+[MATCH 96] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img95.png | Path=extracted_images\Vision Transformer_page21_img95.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a man holding a fish in a body of water  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 4...
+[MATCH 97] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img96.png | Path=extracted_images\Vision Transformer_page21_img96.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a man holding a fish in his hands  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 4...
+[MATCH 98] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img97.png | Path=extracted_images\Vision Transformer_page21_img97.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a group of raccos on the ground  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 ...
+[MATCH 99] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img98.png | Path=extracted_images\Vision Transformer_page21_img98.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a close up of a black bear in the woods  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 4...
+[MATCH 100] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img99.png | Path=extracted_images\Vision Transformer_page21_img99.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black metal fence  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 ...
+[MATCH 101] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img100.png | Path=extracted_images\Vision Transformer_page21_img100.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: this is a house  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 4...
+[MATCH 102] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img101.png | Path=extracted_images\Vision Transformer_page21_img101.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a white and yellow train  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 4...
+[MATCH 103] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img102.png | Path=extracted_images\Vision Transformer_page21_img102.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a car is parked in a parking lot  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43...
+[MATCH 104] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img103.png | Path=extracted_images\Vision Transformer_page21_img103.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and brown dog sitting on the floor  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 4...
+[MATCH 105] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img104.png | Path=extracted_images\Vision Transformer_page21_img104.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a dog sitting on the floor with a bunch of chips in it ' s mouth  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 ...
+[MATCH 106] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img105.png | Path=extracted_images\Vision Transformer_page21_img105.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a tennis ball sitting on a tennis court  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 4...
+[MATCH 107] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img106.png | Path=extracted_images\Vision Transformer_page21_img106.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a tennis ball on a tennis court  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 ...
+[MATCH 108] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img107.png | Path=extracted_images\Vision Transformer_page21_img107.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black cat laying on the floor next to a window  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 3...
+[MATCH 109] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img108.png | Path=extracted_images\Vision Transformer_page21_img108.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white photo of a person on a skateboard  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 3...
+[MATCH 110] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img109.png | Path=extracted_images\Vision Transformer_page21_img109.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a red heart on a white background  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 4...
+[MATCH 111] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img110.png | Path=extracted_images\Vision Transformer_page21_img110.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a red heart on a black and white background  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 ...
+[MATCH 112] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img111.png | Path=extracted_images\Vision Transformer_page21_img111.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a brown horse standing on top of a dirt covered field  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36...
+[MATCH 113] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img112.png | Path=extracted_images\Vision Transformer_page21_img112.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a brown horse standing on top of a green field  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 ...
+[MATCH 114] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img113.png | Path=extracted_images\Vision Transformer_page21_img113.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black bug on a green leaf  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 4...
+[MATCH 115] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img114.png | Path=extracted_images\Vision Transformer_page21_img114.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a fish in a fish tank  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 4...
+[MATCH 116] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img115.png | Path=extracted_images\Vision Transformer_page21_img115.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: the leaves are green  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47...
+[MATCH 117] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img116.png | Path=extracted_images\Vision Transformer_page21_img116.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a group of people walking down a street  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 4...
+[MATCH 118] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img117.png | Path=extracted_images\Vision Transformer_page21_img117.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a group of people walking down a street  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 4...
+[MATCH 119] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img118.png | Path=extracted_images\Vision Transformer_page21_img118.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a group of fish swimming in a tank  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 ...
+[MATCH 120] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img119.png | Path=extracted_images\Vision Transformer_page21_img119.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: this is a picture of a cat in a window  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41...
+[MATCH 121] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img120.png | Path=extracted_images\Vision Transformer_page21_img120.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a white plate with a dessert on it  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 ...
+[MATCH 122] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img121.png | Path=extracted_images\Vision Transformer_page21_img121.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a close up of a piece of food on a plate  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 ...
+[MATCH 123] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img122.png | Path=extracted_images\Vision Transformer_page21_img122.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a metal object sitting on top of a table  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 ...
+[MATCH 124] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img123.png | Path=extracted_images\Vision Transformer_page21_img123.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a machine that is sitting on top of a table  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 ...
+[MATCH 125] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img124.png | Path=extracted_images\Vision Transformer_page21_img124.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and brown dog laying on a beach  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 4...
+[MATCH 126] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img125.png | Path=extracted_images\Vision Transformer_page21_img125.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: the grass is green in color  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 4...
+[MATCH 127] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img126.png | Path=extracted_images\Vision Transformer_page21_img126.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a bird is sitting on a branch of a tree  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 4...
+[MATCH 128] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img127.png | Path=extracted_images\Vision Transformer_page21_img127.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a green cup sitting on top of a brown table  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 ...
+[MATCH 129] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img128.png | Path=extracted_images\Vision Transformer_page21_img128.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black background  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 4...
+[MATCH 130] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img129.png | Path=extracted_images\Vision Transformer_page21_img129.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: the dome is white in color  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45...
+[MATCH 131] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img130.png | Path=extracted_images\Vision Transformer_page21_img130.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a large building with a dome on top of it  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40...
+[MATCH 132] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img131.png | Path=extracted_images\Vision Transformer_page21_img131.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: white clouds in the sky  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46...
+[MATCH 133] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img132.png | Path=extracted_images\Vision Transformer_page21_img132.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a large body of water  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 4...
+[MATCH 134] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img133.png | Path=extracted_images\Vision Transformer_page21_img133.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a small dog standing on a dirt road  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42...
+[MATCH 135] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img134.png | Path=extracted_images\Vision Transformer_page21_img134.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a small white dog standing next to a wooden fence  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 ...
+[MATCH 136] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img135.png | Path=extracted_images\Vision Transformer_page21_img135.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: the dog is white and black  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45...
+[MATCH 137] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img136.png | Path=extracted_images\Vision Transformer_page21_img136.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: the dog is laying on the grass  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 4...
+[MATCH 138] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img137.png | Path=extracted_images\Vision Transformer_page21_img137.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: the table is made of wood  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 ...
+[MATCH 139] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img138.png | Path=extracted_images\Vision Transformer_page21_img138.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a red heart on a wall  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 4...
+[MATCH 140] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img139.png | Path=extracted_images\Vision Transformer_page21_img139.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a white toilet sitting in a bathroom next to a sink  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 3...
+[MATCH 141] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img140.png | Path=extracted_images\Vision Transformer_page21_img140.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a man is standing in a room with his head in the door  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36...
+[MATCH 142] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img141.png | Path=extracted_images\Vision Transformer_page21_img141.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: the fish is swimming in the water  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 4...
+[MATCH 143] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img142.png | Path=extracted_images\Vision Transformer_page21_img142.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: an image of a bird flying in the sky  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 4...
+[MATCH 144] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img143.png | Path=extracted_images\Vision Transformer_page21_img143.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a man sitting at a table in a kitchen  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 ...
+[MATCH 145] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img144.png | Path=extracted_images\Vision Transformer_page21_img144.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: this is a kitchen  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48...
+[MATCH 146] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img145.png | Path=extracted_images\Vision Transformer_page21_img145.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and brown dog laying down on the ground  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38...
+[MATCH 147] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img146.png | Path=extracted_images\Vision Transformer_page21_img146.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and brown dog standing in the grass  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 ...
+[MATCH 148] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img147.png | Path=extracted_images\Vision Transformer_page21_img147.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and brown dog standing in the grass  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 ...
+[MATCH 149] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img148.png | Path=extracted_images\Vision Transformer_page21_img148.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a white dog with a pink nose  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 ...
+[MATCH 150] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img149.png | Path=extracted_images\Vision Transformer_page21_img149.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a white dog with a pink nose  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 ...
+[MATCH 151] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img150.png | Path=extracted_images\Vision Transformer_page21_img150.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a yellow flower in the middle of a field  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 ...
+[MATCH 152] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img151.png | Path=extracted_images\Vision Transformer_page21_img151.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a yellow and white flower in the dark  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 ...
+[MATCH 153] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img152.png | Path=extracted_images\Vision Transformer_page21_img152.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white photo of a man playing a trumpet  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37...
+[MATCH 154] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img153.png | Path=extracted_images\Vision Transformer_page21_img153.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white photo of two men playing instruments  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 3...
+[MATCH 155] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img154.png | Path=extracted_images\Vision Transformer_page21_img154.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a model of a military vehicle on a blue background  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37...
+[MATCH 156] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img155.png | Path=extracted_images\Vision Transformer_page21_img155.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a military vehicle is shown in this image  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40...
+[MATCH 157] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img156.png | Path=extracted_images\Vision Transformer_page21_img156.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a bird is perched on a branch in the grass  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 4...
+[MATCH 158] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img157.png | Path=extracted_images\Vision Transformer_page21_img157.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: two bears in the woods  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 ...
+[MATCH 159] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img158.png | Path=extracted_images\Vision Transformer_page21_img158.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a painting of a bear in the woods  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 4...
+[MATCH 160] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img159.png | Path=extracted_images\Vision Transformer_page21_img159.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a person riding a bike down a road  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 ...
+[MATCH 161] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img160.png | Path=extracted_images\Vision Transformer_page21_img160.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a person riding a bike down a road  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 ...
+[MATCH 162] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img161.png | Path=extracted_images\Vision Transformer_page21_img161.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a harp that is sitting on top of a table  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 ...
+[MATCH 163] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img162.png | Path=extracted_images\Vision Transformer_page21_img162.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white cat sitting on top of a wooden chair  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 3...
+[MATCH 164] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img163.png | Path=extracted_images\Vision Transformer_page21_img163.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a bowl of food on a table  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 ...
+[MATCH 165] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img164.png | Path=extracted_images\Vision Transformer_page21_img164.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a plate of food on a table  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45...
+[MATCH 166] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img165.png | Path=extracted_images\Vision Transformer_page21_img165.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a duck standing in the snow  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 4...
+[MATCH 167] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img166.png | Path=extracted_images\Vision Transformer_page21_img166.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a duck with a green head and yellow beak  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 ...
+[MATCH 168] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img167.png | Path=extracted_images\Vision Transformer_page21_img167.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a pile of black rubber pads on a white background  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 ...
+[MATCH 169] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img168.png | Path=extracted_images\Vision Transformer_page21_img168.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a pair of knee pads on a black background  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40...
+[MATCH 170] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img169.png | Path=extracted_images\Vision Transformer_page21_img169.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a man playing a game of golf on a green field  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 3...
+[MATCH 171] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img170.png | Path=extracted_images\Vision Transformer_page21_img170.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a man in a white shirt playing golf  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42...
+[MATCH 172] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img171.png | Path=extracted_images\Vision Transformer_page21_img171.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a computer sitting on a desk next to a keyboard  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38...
+[MATCH 173] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img172.png | Path=extracted_images\Vision Transformer_page21_img172.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a computer monitor on a desk with a mouse on it  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38...
+[MATCH 174] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img173.png | Path=extracted_images\Vision Transformer_page21_img173.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: this is a picture of a cemetery in the fall  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 ...
+[MATCH 175] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img174.png | Path=extracted_images\Vision Transformer_page21_img174.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: an aerial view of a fire burning in a residential area  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 3...
+[MATCH 176] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img175.png | Path=extracted_images\Vision Transformer_page21_img175.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a body of water  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 4...
+[MATCH 177] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img176.png | Path=extracted_images\Vision Transformer_page21_img176.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a large body of water  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 4...
+[MATCH 178] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img177.png | Path=extracted_images\Vision Transformer_page21_img177.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: an owl is perched on a tree branch  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 ...
+[MATCH 179] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img178.png | Path=extracted_images\Vision Transformer_page21_img178.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: an old church in the middle of a forest  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 4...
+[MATCH 180] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img179.png | Path=extracted_images\Vision Transformer_page21_img179.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: an old house in the middle of the night  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 4...
+[MATCH 181] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img180.png | Path=extracted_images\Vision Transformer_page21_img180.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a close up view of the inside of a window  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40...
+[MATCH 182] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img181.png | Path=extracted_images\Vision Transformer_page21_img181.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a close up of a window with a window pane  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40...
+[MATCH 183] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img182.png | Path=extracted_images\Vision Transformer_page21_img182.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a woman walking two dogs on a leash  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42...
+[MATCH 184] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img183.png | Path=extracted_images\Vision Transformer_page21_img183.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a woman walking a group of dogs on a leash  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 4...
+[MATCH 185] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img184.png | Path=extracted_images\Vision Transformer_page21_img184.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a dog sitting on top of a table with its tongue out  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 3...
+[MATCH 186] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img185.png | Path=extracted_images\Vision Transformer_page21_img185.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a dog sitting on top of a table with its tongue out  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 3...
+[MATCH 187] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img186.png | Path=extracted_images\Vision Transformer_page21_img186.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a man holding a baby in his arms  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43...
+[MATCH 188] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img187.png | Path=extracted_images\Vision Transformer_page21_img187.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a man holding a baby in his arms  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43...
+[MATCH 189] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img188.png | Path=extracted_images\Vision Transformer_page21_img188.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a table full of food  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47...
+[MATCH 190] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img189.png | Path=extracted_images\Vision Transformer_page21_img189.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: the building is made of stone  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44...
+[MATCH 191] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img190.png | Path=extracted_images\Vision Transformer_page21_img190.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: an old building is lit up at night  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 ...
+[MATCH 192] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img191.png | Path=extracted_images\Vision Transformer_page21_img191.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a table with a bunch of food on it  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 ...
+[MATCH 193] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img192.png | Path=extracted_images\Vision Transformer_page21_img192.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a woman sitting on the floor  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 ...
+[MATCH 194] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img193.png | Path=extracted_images\Vision Transformer_page21_img193.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a woman sitting on the floor  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 ...
+[MATCH 195] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img194.png | Path=extracted_images\Vision Transformer_page21_img194.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a bird standing in a body of water  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 ...
+[MATCH 196] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img195.png | Path=extracted_images\Vision Transformer_page21_img195.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a bird is standing on a rock in the water  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40...
+[MATCH 197] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img196.png | Path=extracted_images\Vision Transformer_page21_img196.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: two dogs sitting on red stools in a room  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 ...
+[MATCH 198] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img197.png | Path=extracted_images\Vision Transformer_page21_img197.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a dog sitting on top of a red chair  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42...
+[MATCH 199] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img198.png | Path=extracted_images\Vision Transformer_page21_img198.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a small bird sitting on top of a tree branch  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39...
+[MATCH 200] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img199.png | Path=extracted_images\Vision Transformer_page21_img199.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a small bird perched on a branch of a tree  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 4...
+[MATCH 201] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img200.png | Path=extracted_images\Vision Transformer_page21_img200.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black dog is swimming in the ocean  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 4...
+[MATCH 202] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img201.png | Path=extracted_images\Vision Transformer_page21_img201.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a small boat floating in a body of water  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 ...
+[MATCH 203] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img202.png | Path=extracted_images\Vision Transformer_page21_img202.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a bird standing in a field of green grass  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40...
+[MATCH 204] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img203.png | Path=extracted_images\Vision Transformer_page21_img203.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a bird is standing in the dark grass  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 4...
+[MATCH 205] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img204.png | Path=extracted_images\Vision Transformer_page21_img204.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a room filled with lots of different types of bikes  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 3...
+[MATCH 206] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img205.png | Path=extracted_images\Vision Transformer_page21_img205.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a group of people sitting at a table in a room  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 ...
+[MATCH 207] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img206.png | Path=extracted_images\Vision Transformer_page21_img206.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a small gray cat laying on the ground  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 ...
+[MATCH 208] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img207.png | Path=extracted_images\Vision Transformer_page21_img207.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a small white dog laying on the ground  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41...
+[MATCH 209] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img208.png | Path=extracted_images\Vision Transformer_page21_img208.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a close up of a plant with a green seed  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 4...
+[MATCH 210] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img209.png | Path=extracted_images\Vision Transformer_page21_img209.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a tennis ball sitting on top of a pile of dirt  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 ...
+[MATCH 211] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img210.png | Path=extracted_images\Vision Transformer_page21_img210.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a brown teddy bear with a green leaf on it ' s back  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 3...
+[MATCH 212] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img211.png | Path=extracted_images\Vision Transformer_page21_img211.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a close up of a brown and green hat  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42...
+[MATCH 213] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img212.png | Path=extracted_images\Vision Transformer_page21_img212.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a ram ram ram ram ram ram ram ram ram ram ram ram ram ram ram ram ram ram ram ram  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 2...
+[MATCH 214] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img213.png | Path=extracted_images\Vision Transformer_page21_img213.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: this is a goat  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49...
+[MATCH 215] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img214.png | Path=extracted_images\Vision Transformer_page21_img214.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: an old photo of a man and a woman  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 4...
+[MATCH 216] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img215.png | Path=extracted_images\Vision Transformer_page21_img215.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a man and a woman walking down a street  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 4...
+[MATCH 217] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img216.png | Path=extracted_images\Vision Transformer_page21_img216.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a white building with a cross in front of it  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39...
+[MATCH 218] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img217.png | Path=extracted_images\Vision Transformer_page21_img217.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a large white building with a clock on the front  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 3...
+[MATCH 219] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img218.png | Path=extracted_images\Vision Transformer_page21_img218.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: this is an image of a diamond  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44...
+[MATCH 220] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img219.png | Path=extracted_images\Vision Transformer_page21_img219.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a close up of a black object on a table  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 4...
+[MATCH 221] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img220.png | Path=extracted_images\Vision Transformer_page21_img220.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: an alpacal alpacal alpacal alpacal alpacal alpacal alpacal alpacal alpacal alpacal alpac alpac alpac alpac alpac alpac alpac alpac alpac alpac alpac alpac alpac alpac al  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference p...
+[MATCH 222] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img221.png | Path=extracted_images\Vision Transformer_page21_img221.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a close up of a ll with a blury background  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 4...
+[MATCH 223] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img222.png | Path=extracted_images\Vision Transformer_page21_img222.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a person scubas in the ocean near a coral reef  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 ...
+[MATCH 224] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img223.png | Path=extracted_images\Vision Transformer_page21_img223.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a group of people swimming in the ocean  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 4...
+[MATCH 225] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img224.png | Path=extracted_images\Vision Transformer_page21_img224.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a piece of metal that is sitting on the floor  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 3...
+[MATCH 226] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img225.png | Path=extracted_images\Vision Transformer_page21_img225.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a piece of metal that is sitting on top of a piece of metal  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34...
+[MATCH 227] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img226.png | Path=extracted_images\Vision Transformer_page21_img226.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: the sky is blue  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 4...
+[MATCH 228] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img227.png | Path=extracted_images\Vision Transformer_page21_img227.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a large ship in the middle of a body of water  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 3...
+[MATCH 229] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img228.png | Path=extracted_images\Vision Transformer_page21_img228.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a close up picture of a lizard on a branch  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 4...
+[MATCH 230] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img229.png | Path=extracted_images\Vision Transformer_page21_img229.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a close up of a piece of bread on a plate  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40...
+[MATCH 231] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img230.png | Path=extracted_images\Vision Transformer_page21_img230.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a bowl of soup with carrots and onions  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41...
+[MATCH 232] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img231.png | Path=extracted_images\Vision Transformer_page21_img231.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a bowl of food  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49...
+[MATCH 233] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img232.png | Path=extracted_images\Vision Transformer_page21_img232.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a baby sitting in a high chair eating food  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 4...
+[MATCH 234] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img233.png | Path=extracted_images\Vision Transformer_page21_img233.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: the baby is wearing a hat  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 ...
+[MATCH 235] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img234.png | Path=extracted_images\Vision Transformer_page21_img234.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a baby orangus in its mother ' s arms  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 ...
+[MATCH 236] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img235.png | Path=extracted_images\Vision Transformer_page21_img235.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: this is a cat  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 ...
+[MATCH 237] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img236.png | Path=extracted_images\Vision Transformer_page21_img236.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a dog with its tongue out looking at the camera  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38...
+[MATCH 238] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img237.png | Path=extracted_images\Vision Transformer_page21_img237.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a dog with its tongue sticking out  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 ...
+[MATCH 239] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img238.png | Path=extracted_images\Vision Transformer_page21_img238.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a small dog standing on a lush green field  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 4...
+[MATCH 240] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img239.png | Path=extracted_images\Vision Transformer_page21_img239.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: this is a dog  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 ...
+[MATCH 241] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img240.png | Path=extracted_images\Vision Transformer_page21_img240.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a plane flying in the sky  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 ...
+[MATCH 242] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img241.png | Path=extracted_images\Vision Transformer_page21_img241.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: an airplane flying in the sky  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44...
+[MATCH 243] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img242.png | Path=extracted_images\Vision Transformer_page21_img242.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a dragon sitting on top of a stick  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 ...
+[MATCH 244] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img243.png | Path=extracted_images\Vision Transformer_page21_img243.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a green dragon sitting on top of a leaf  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 4...
+[MATCH 245] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img244.png | Path=extracted_images\Vision Transformer_page21_img244.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a white ball on a shelf  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46...
+[MATCH 246] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img245.png | Path=extracted_images\Vision Transformer_page21_img245.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a red car is parked in a dark room  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 ...
+[MATCH 247] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img246.png | Path=extracted_images\Vision Transformer_page21_img246.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a picture of a pair of green shoes  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 ...
+[MATCH 248] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img247.png | Path=extracted_images\Vision Transformer_page21_img247.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a picture of a man in a purple shirt  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 4...
+[MATCH 249] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img248.png | Path=extracted_images\Vision Transformer_page21_img248.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a red car parked in front of a church  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 ...
+[MATCH 250] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img249.png | Path=extracted_images\Vision Transformer_page21_img249.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a red truck parked in front of a brick building  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38...
+[MATCH 251] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img250.png | Path=extracted_images\Vision Transformer_page21_img250.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: an image of an electronic device on a white background  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 3...
+[MATCH 252] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img251.png | Path=extracted_images\Vision Transformer_page21_img251.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white photo of a black and white photo of a black and white photo of a black and  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23...
+[MATCH 253] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img252.png | Path=extracted_images\Vision Transformer_page21_img252.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a glass bowl sitting on top of a table  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41...
+[MATCH 254] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img253.png | Path=extracted_images\Vision Transformer_page21_img253.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a glass bowl with a red and white logo on it  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39...
+[MATCH 255] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img254.png | Path=extracted_images\Vision Transformer_page21_img254.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a small animal standing on top of a rock  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 ...
+[MATCH 256] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img255.png | Path=extracted_images\Vision Transformer_page21_img255.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: this is a cat  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 ...
+[MATCH 257] Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_render.png | Path=extracted_images\Vision Transformer_page21_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: the cover of the publication of the publication of the publication of the publication of the publication of the publication of  OCR Text: Published as a conference paper at ICLR 2021  Jaane ee! va  at  Figure 14: Further example attention maps as in Figur...
+[REJECTED 1] Source=Donut.pdf | Page=11 | Image=Donut_page11_img0.png
+    Reason   : Cross-reference rather than actual Figure 6
+    Evidence : FIGURE FROM DOCUMENT  Caption: the answer group, the answer group, the answer group, answer group, answer group, answer group, answer group, answer group answer group, answer group, answer group, answer group, answer group, answer group, answer group, answer group, answer group, answer group, answer...
+[REJECTED 2] Source=Donut.pdf | Page=11 | Image=Donut_page11_img1.png
+    Reason   : Cross-reference rather than actual Figure 6
+    Evidence : FIGURE FROM DOCUMENT  Caption: a map of the united with the states highlighted in black and white  OCR Text: as Obed Pistay eI Mates waving oe ‘mare sits & Fuss uF nasa Bale ‘Havearily tetera weca, ors  a  pode  Sign aie oe  e  Alife  SERS Feats EES  Gal pail Heer eel  a  ns} Papa 2 2  a me SS  (=f ...
+[REJECTED 3] Source=Donut.pdf | Page=11 | Image=Donut_page11_img2.png
+    Reason   : Cross-reference rather than actual Figure 6
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white photo of a receipt  OCR Text: rea  EVAUS ATTER 59 Snes) Be Sieh  'NOT.GOOO FOR PASSAGES =  ATE  Falow | reaper © [onoeicaars |= nr  ALAR SCE Dari: il eA  Nearby Document Text: OCR-free Document Understanding Transformer 11 Table 3. Average Normalized ...
+[REJECTED 4] Source=Donut.pdf | Page=11 | Image=Donut_page11_img3.png
+    Reason   : Cross-reference rather than actual Figure 6
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white photo of a receipt  OCR Text: rea  EVAUS ATTER 59 Snes) Be Sieh  'NOT.GOOO FOR PASSAGES =  ATE  Falow | reaper © [onoeicaars |= nr  ALAR SCE Dari: il eA  Nearby Document Text: OCR-free Document Understanding Transformer 11 Table 3. Average Normalized ...
+[REJECTED 5] Source=Donut.pdf | Page=11 | Image=Donut_page11_img4.png
+    Reason   : Cross-reference rather than actual Figure 6
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white photo of a man with a beard  OCR Text: No readable text found in this image.  Nearby Document Text: OCR-free Document Understanding Transformer 11 Table 3. Average Normalized Levenshtein Similarity (ANLS) scores on DocVQA. Donut shows a promising resu...
+Matched Sources  : ['Vision Transformer.pdf']
+Matched Pages    : ['21']
+[FIGURE LOOKUP] High-confidence figure reference found. Generic CLIP fallback should not be used.
+================================================================================
+
+================================================================================
+EXACT FIGURE RETRIEVAL RESULT
+================================================================================
+Requested Figure : 6
+Exact Match      : False
+Matched Images   : 0
+================================================================================
+
+================================================================================
+FIGURE PAGE → IMAGE ASSOCIATION
+================================================================================
+Figure Page Candidates : 1
+[FIGURE PAGE] Source=Donut.pdf | Page=11
+[FIGURE PAGE IMAGE LOOKUP] Found 5 image(s) on the Figure 6 page.
+[FIGURE PAGE IMAGE #1] Source=Donut.pdf | Page=11 | Image=Donut_page11_img0.png
+[FIGURE PAGE IMAGE #2] Source=Donut.pdf | Page=11 | Image=Donut_page11_img1.png
+[FIGURE PAGE IMAGE #3] Source=Donut.pdf | Page=11 | Image=Donut_page11_img2.png
+[FIGURE PAGE IMAGE #4] Source=Donut.pdf | Page=11 | Image=Donut_page11_img3.png
+[FIGURE PAGE IMAGE #5] Source=Donut.pdf | Page=11 | Image=Donut_page11_img4.png
+[FIGURE PAGE IMAGE LOOKUP] Same-page figure evidence will be treated as authoritative.
+[FIGURE PIPELINE] Explicit figure/page image match found. CLIP fallback disabled.
+[DOCUMENT SCOPE] Images: 5 -> 5
+
+================================================================================
+STAGE 2 — IMAGE RETRIEVAL RESULT
+================================================================================
+Image Results       : 5
+Exact Figure Match  : True
+
+[IMAGE #1] Source=Donut.pdf | Page=11 | Image=Donut_page11_img0.png
+Image Path: extracted_images\Donut_page11_img0.png
+Figure Page Match: True
+Content: FIGURE FROM DOCUMENT  Caption: the answer group, the answer group, the answer group, answer group, answer group, answer group, answer group, answer group answer group, answer group, answer group, answer group, answer group, answer group, answer group, answer group, answer group, answer group, answer group, answer  OCR Text: M  es é  gsogs!  i By  Nearby Document Text: OCR-free Document Understanding Transformer 11 Table 3. Average Normalized Levenshtein Similarity (ANLS) scores on DocVQA. Donut 
+
+[IMAGE #2] Source=Donut.pdf | Page=11 | Image=Donut_page11_img1.png
+Image Path: extracted_images\Donut_page11_img1.png
+Figure Page Match: True
+Content: FIGURE FROM DOCUMENT  Caption: a map of the united with the states highlighted in black and white  OCR Text: as Obed Pistay eI Mates waving oe ‘mare sits & Fuss uF nasa Bale ‘Havearily tetera weca, ors  a  pode  Sign aie oe  e  Alife  SERS Feats EES  Gal pail Heer eel  a  ns} Papa 2 2  a me SS  (=f =  Wk  Ey Me a  Fry i  v oe  Nearby Document Text: OCR-free Document Understanding Transformer 11 Table 3. Average Normalized Levenshtein Similarity (ANLS) scores on DocVQA. Donut shows a promising re
+
+[IMAGE #3] Source=Donut.pdf | Page=11 | Image=Donut_page11_img2.png
+Image Path: extracted_images\Donut_page11_img2.png
+Figure Page Match: True
+Content: FIGURE FROM DOCUMENT  Caption: a black and white photo of a receipt  OCR Text: rea  EVAUS ATTER 59 Snes) Be Sieh  'NOT.GOOO FOR PASSAGES =  ATE  Falow | reaper © [onoeicaars |= nr  ALAR SCE Dari: il eA  Nearby Document Text: OCR-free Document Understanding Transformer 11 Table 3. Average Normalized Levenshtein Similarity (ANLS) scores on DocVQA. Donut shows a promising result without OCR. ∗Donut shows a high ANLS score on the handwritten documents which are known to be challenging due to the dif
+
+[IMAGE #4] Source=Donut.pdf | Page=11 | Image=Donut_page11_img3.png
+Image Path: extracted_images\Donut_page11_img3.png
+Figure Page Match: True
+Content: FIGURE FROM DOCUMENT  Caption: a black and white photo of a receipt  OCR Text: rea  EVAUS ATTER 59 Snes) Be Sieh  'NOT.GOOO FOR PASSAGES =  ATE  Falow | reaper © [onoeicaars |= nr  ALAR SCE Dari: il eA  Nearby Document Text: OCR-free Document Understanding Transformer 11 Table 3. Average Normalized Levenshtein Similarity (ANLS) scores on DocVQA. Donut shows a promising result without OCR. ∗Donut shows a high ANLS score on the handwritten documents which are known to be challenging due to the dif
+
+[IMAGE #5] Source=Donut.pdf | Page=11 | Image=Donut_page11_img4.png
+Image Path: extracted_images\Donut_page11_img4.png
+Figure Page Match: True
+Content: FIGURE FROM DOCUMENT  Caption: a black and white photo of a man with a beard  OCR Text: No readable text found in this image.  Nearby Document Text: OCR-free Document Understanding Transformer 11 Table 3. Average Normalized Levenshtein Similarity (ANLS) scores on DocVQA. Donut shows a promising result without OCR. ∗Donut shows a high ANLS score on the handwritten documents which are known to be challenging due to the difficulty of handwriting OCR (See Figure 6). †Token embeddings for English is 
+================================================================================
+
+================================================================================
+COMBINED RETRIEVAL CANDIDATES
+================================================================================
+Text Candidates  : 8
+Image Candidates : 5
+Total Candidates : 13
+================================================================================
+
+================================================================================
+STEP 3A — RERANKER INPUT
+================================================================================
+Query: In Figure 6, what examples demonstrate the strengths and limitations of Donut compared with LayoutLMv2 on DocVQA?
+Input candidates: 13
+01. Source=Donut.pdf | Page=9 | Type=text | Image=N/A
+    Content=3.3 Experimental Results Document Classification. The results are shown in Table 1. Without re- lying on any other resource (e.g., off-the-shelf OCR engine), Donut shows a state-of
+02. Source=Donut.pdf | Page=11 | Type=text | Image=N/A
+    Content=but this could be mitigated by scaling the input image size (See Section 3.4) errors is an option to strengthen the pipeline [51,50,10] or adopting an encoder- decoder architecture
+03. Source=Donut.pdf | Page=11 | Type=text | Image=N/A
+    Content=Answer: 540 Donut: 943  (another number in the image is extracted) LayoutLMv2-Large-QG: 540 Q: What is the phone number given? Answer: 336-723-6100 Donut: 336-723-6100 LayoutLMv2-L
+04. Source=Donut.pdf | Page=13 | Type=text | Image=N/A
+    Content=On Low Resourced Situation. We evaluate the models by limiting the size of training set of CORD [45]. The performance curves are shown in the right Figure 9. Donut shows a robust p
+05. Source=Donut.pdf | Page=27 | Type=text | Image=N/A
+    Content=the SPADE [25] baseline, the official implementation 16 is used. The models are trained using NVIDIA P40, V100, or A100 GPUs. The major hyperparameters, such as initial learning ra
+06. Source=Donut.pdf | Page=11 | Type=text | Image=N/A
+    Content=of Donut as well as the left challenges in the Donut-like end-to-end approach. Further analysis and ablation is available in Section 3.4. 3.4 Further Studies In this section, we st
+07. Source=Donut.pdf | Page=24 | Type=text | Image=N/A
+    Content=ness Card and Receipt). Figure B shows examples of Ticket with the outputs of Donut. Figure C shows examples of CORD with the outputs of Donut. Due to strict industrial policies on
+08. Source=Donut.pdf | Page=13 | Type=text | Image=N/A
+    Content=OCR-free Document Understanding Transformer 13 K Cho co Mo chi yo to300 2- Fig. 8. Visualization of cross-attention maps in the decoder and its applica- tion to text localization. 
+09. Source=Donut.pdf | Page=11 | Type=image | Image=extracted_images\Donut_page11_img0.png
+    Content=FIGURE FROM DOCUMENT  Caption: the answer group, the answer group, the answer group, answer group, answer group, answer group, answer group, answer group answer group, answer group
+10. Source=Donut.pdf | Page=11 | Type=image | Image=extracted_images\Donut_page11_img1.png
+    Content=FIGURE FROM DOCUMENT  Caption: a map of the united with the states highlighted in black and white  OCR Text: as Obed Pistay eI Mates waving oe ‘mare sits & Fuss uF nasa Bale ‘Havea
+11. Source=Donut.pdf | Page=11 | Type=image | Image=extracted_images\Donut_page11_img2.png
+    Content=FIGURE FROM DOCUMENT  Caption: a black and white photo of a receipt  OCR Text: rea  EVAUS ATTER 59 Snes) Be Sieh  'NOT.GOOO FOR PASSAGES =  ATE  Falow | reaper © [onoeicaars |= nr 
+12. Source=Donut.pdf | Page=11 | Type=image | Image=extracted_images\Donut_page11_img3.png
+    Content=FIGURE FROM DOCUMENT  Caption: a black and white photo of a receipt  OCR Text: rea  EVAUS ATTER 59 Snes) Be Sieh  'NOT.GOOO FOR PASSAGES =  ATE  Falow | reaper © [onoeicaars |= nr 
+13. Source=Donut.pdf | Page=11 | Type=image | Image=extracted_images\Donut_page11_img4.png
+    Content=FIGURE FROM DOCUMENT  Caption: a black and white photo of a man with a beard  OCR Text: No readable text found in this image.  Nearby Document Text: OCR-free Document Understanding
+================================================================================
+
+--------------------------------------------------------------------------------
+CROSS-ENCODER RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=02 | Source=Donut.pdf | Page=11 | Type=text | CE=3.4436
+Rank=02 | OriginalIndex=03 | Source=Donut.pdf | Page=13 | Type=text | CE=0.6943
+Rank=03 | OriginalIndex=12 | Source=Donut.pdf | Page=11 | Type=image | CE=0.5631
+Rank=04 | OriginalIndex=01 | Source=Donut.pdf | Page=11 | Type=text | CE=0.4075
+Rank=05 | OriginalIndex=08 | Source=Donut.pdf | Page=11 | Type=image | CE=0.1225
+Rank=06 | OriginalIndex=00 | Source=Donut.pdf | Page=9 | Type=text | CE=-0.0336
+Rank=07 | OriginalIndex=10 | Source=Donut.pdf | Page=11 | Type=image | CE=-0.6819
+Rank=08 | OriginalIndex=11 | Source=Donut.pdf | Page=11 | Type=image | CE=-0.6819
+Rank=09 | OriginalIndex=09 | Source=Donut.pdf | Page=11 | Type=image | CE=-2.0209
+Rank=10 | OriginalIndex=06 | Source=Donut.pdf | Page=24 | Type=text | CE=-2.9940
+Rank=11 | OriginalIndex=04 | Source=Donut.pdf | Page=27 | Type=text | CE=-3.0316
+Rank=12 | OriginalIndex=07 | Source=Donut.pdf | Page=13 | Type=text | CE=-3.9900
+Rank=13 | OriginalIndex=05 | Source=Donut.pdf | Page=11 | Type=text | CE=-5.9450
+
+--------------------------------------------------------------------------------
+CLIP IMAGE RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=08 | Source=Donut.pdf | Page=11 | Image=extracted_images\Donut_page11_img0.png | CLIP=0.2236
+Rank=02 | OriginalIndex=10 | Source=Donut.pdf | Page=11 | Image=extracted_images\Donut_page11_img2.png | CLIP=0.2149
+Rank=03 | OriginalIndex=11 | Source=Donut.pdf | Page=11 | Image=extracted_images\Donut_page11_img3.png | CLIP=0.2149
+Rank=04 | OriginalIndex=09 | Source=Donut.pdf | Page=11 | Image=extracted_images\Donut_page11_img1.png | CLIP=0.2149
+Rank=05 | OriginalIndex=12 | Source=Donut.pdf | Page=11 | Image=extracted_images\Donut_page11_img4.png | CLIP=0.2070
+
+================================================================================
+STEP 3A — COMPLETE MULTIMODAL RERANK RESULT
+================================================================================
+Rank=01 | Type=image | Source=Donut.pdf | Page=11 | RRF=0.031778 | CE=0.1225 | CLIP=0.2236
+    Content=FIGURE FROM DOCUMENT  Caption: the answer group, the answer group, the answer group, answer group, answer group, answer group, answer group, answer group answer group, answer group
+Rank=02 | Type=image | Source=Donut.pdf | Page=11 | RRF=0.031258 | CE=0.5631 | CLIP=0.2070
+    Content=FIGURE FROM DOCUMENT  Caption: a black and white photo of a man with a beard  OCR Text: No readable text found in this image.  Nearby Document Text: OCR-free Document Understanding
+Rank=03 | Type=image | Source=Donut.pdf | Page=11 | RRF=0.031054 | CE=-0.6819 | CLIP=0.2149
+    Content=FIGURE FROM DOCUMENT  Caption: a black and white photo of a receipt  OCR Text: rea  EVAUS ATTER 59 Snes) Be Sieh  'NOT.GOOO FOR PASSAGES =  ATE  Falow | reaper © [onoeicaars |= nr 
+Rank=04 | Type=image | Source=Donut.pdf | Page=11 | RRF=0.030579 | CE=-0.6819 | CLIP=0.2149
+    Content=FIGURE FROM DOCUMENT  Caption: a black and white photo of a receipt  OCR Text: rea  EVAUS ATTER 59 Snes) Be Sieh  'NOT.GOOO FOR PASSAGES =  ATE  Falow | reaper © [onoeicaars |= nr 
+Rank=05 | Type=image | Source=Donut.pdf | Page=11 | RRF=0.030118 | CE=-2.0209 | CLIP=0.2149
+    Content=FIGURE FROM DOCUMENT  Caption: a map of the united with the states highlighted in black and white  OCR Text: as Obed Pistay eI Mates waving oe ‘mare sits & Fuss uF nasa Bale ‘Havea
+Rank=06 | Type=text | Source=Donut.pdf | Page=11 | RRF=0.016393 | CE=3.4436 | CLIP=N/A
+    Content=Answer: 540 Donut: 943  (another number in the image is extracted) LayoutLMv2-Large-QG: 540 Q: What is the phone number given? Answer: 336-723-6100 Donut: 336-723-6100 LayoutLMv2-L
+Rank=07 | Type=text | Source=Donut.pdf | Page=13 | RRF=0.016129 | CE=0.6943 | CLIP=N/A
+    Content=On Low Resourced Situation. We evaluate the models by limiting the size of training set of CORD [45]. The performance curves are shown in the right Figure 9. Donut shows a robust p
+Rank=08 | Type=text | Source=Donut.pdf | Page=11 | RRF=0.015625 | CE=0.4075 | CLIP=N/A
+    Content=but this could be mitigated by scaling the input image size (See Section 3.4) errors is an option to strengthen the pipeline [51,50,10] or adopting an encoder- decoder architecture
+Rank=09 | Type=text | Source=Donut.pdf | Page=9 | RRF=0.015152 | CE=-0.0336 | CLIP=N/A
+    Content=3.3 Experimental Results Document Classification. The results are shown in Table 1. Without re- lying on any other resource (e.g., off-the-shelf OCR engine), Donut shows a state-of
+Rank=10 | Type=text | Source=Donut.pdf | Page=24 | RRF=0.014286 | CE=-2.9940 | CLIP=N/A
+    Content=ness Card and Receipt). Figure B shows examples of Ticket with the outputs of Donut. Figure C shows examples of CORD with the outputs of Donut. Due to strict industrial policies on
+Rank=11 | Type=text | Source=Donut.pdf | Page=27 | RRF=0.014085 | CE=-3.0316 | CLIP=N/A
+    Content=the SPADE [25] baseline, the official implementation 16 is used. The models are trained using NVIDIA P40, V100, or A100 GPUs. The major hyperparameters, such as initial learning ra
+Rank=12 | Type=text | Source=Donut.pdf | Page=13 | RRF=0.013889 | CE=-3.9900 | CLIP=N/A
+    Content=OCR-free Document Understanding Transformer 13 K Cho co Mo chi yo to300 2- Fig. 8. Visualization of cross-attention maps in the decoder and its applica- tion to text localization. 
+Rank=13 | Type=text | Source=Donut.pdf | Page=11 | RRF=0.013699 | CE=-5.9450 | CLIP=N/A
+    Content=of Donut as well as the left challenges in the Donut-like end-to-end approach. Further analysis and ablation is available in Section 3.4. 3.4 Further Studies In this section, we st
+================================================================================
+
+================================================================================
+STEP 3A — FINAL RERANK TOP-K
+================================================================================
+Requested top_k: 12
+Returned documents: 12
+01. Source=Donut.pdf | Page=11 | Type=image | Image=extracted_images\Donut_page11_img0.png
+02. Source=Donut.pdf | Page=11 | Type=image | Image=extracted_images\Donut_page11_img4.png
+03. Source=Donut.pdf | Page=11 | Type=image | Image=extracted_images\Donut_page11_img2.png
+04. Source=Donut.pdf | Page=11 | Type=image | Image=extracted_images\Donut_page11_img3.png
+05. Source=Donut.pdf | Page=11 | Type=image | Image=extracted_images\Donut_page11_img1.png
+06. Source=Donut.pdf | Page=11 | Type=text | Image=N/A
+07. Source=Donut.pdf | Page=13 | Type=text | Image=N/A
+08. Source=Donut.pdf | Page=11 | Type=text | Image=N/A
+09. Source=Donut.pdf | Page=9 | Type=text | Image=N/A
+10. Source=Donut.pdf | Page=24 | Type=text | Image=N/A
+11. Source=Donut.pdf | Page=27 | Type=text | Image=N/A
+12. Source=Donut.pdf | Page=13 | Type=text | Image=N/A
+================================================================================
+
+================================================================================
+STAGE 3 — MULTIMODAL RERANKING
+================================================================================
+Input Candidates : 13
+Reranked Output   : 12
+
+[RERANK #1] Source=Donut.pdf | Page=11 | Type=image
+Exact Figure : True
+Figure Page Match : True
+Content: FIGURE FROM DOCUMENT  Caption: the answer group, the answer group, the answer group, answer group, answer group, answer group, answer group, answer group answer group, answer group, answer group, answer group, answer group, answer group, answer group, answer group, answer group, answer group, answer
+
+[RERANK #2] Source=Donut.pdf | Page=11 | Type=image
+Exact Figure : True
+Figure Page Match : True
+Content: FIGURE FROM DOCUMENT  Caption: a black and white photo of a man with a beard  OCR Text: No readable text found in this image.  Nearby Document Text: OCR-free Document Understanding Transformer 11 Table 3. Average Normalized Levenshtein Similarity (ANLS) scores on DocVQA. Donut shows a promising resu
+
+[RERANK #3] Source=Donut.pdf | Page=11 | Type=image
+Exact Figure : True
+Figure Page Match : True
+Content: FIGURE FROM DOCUMENT  Caption: a black and white photo of a receipt  OCR Text: rea  EVAUS ATTER 59 Snes) Be Sieh  'NOT.GOOO FOR PASSAGES =  ATE  Falow | reaper © [onoeicaars |= nr  ALAR SCE Dari: il eA  Nearby Document Text: OCR-free Document Understanding Transformer 11 Table 3. Average Normalized 
+
+[RERANK #4] Source=Donut.pdf | Page=11 | Type=image
+Exact Figure : True
+Figure Page Match : True
+Content: FIGURE FROM DOCUMENT  Caption: a black and white photo of a receipt  OCR Text: rea  EVAUS ATTER 59 Snes) Be Sieh  'NOT.GOOO FOR PASSAGES =  ATE  Falow | reaper © [onoeicaars |= nr  ALAR SCE Dari: il eA  Nearby Document Text: OCR-free Document Understanding Transformer 11 Table 3. Average Normalized 
+
+[RERANK #5] Source=Donut.pdf | Page=11 | Type=image
+Exact Figure : True
+Figure Page Match : True
+Content: FIGURE FROM DOCUMENT  Caption: a map of the united with the states highlighted in black and white  OCR Text: as Obed Pistay eI Mates waving oe ‘mare sits & Fuss uF nasa Bale ‘Havearily tetera weca, ors  a  pode  Sign aie oe  e  Alife  SERS Feats EES  Gal pail Heer eel  a  ns} Papa 2 2  a me SS  (=f 
+
+[RERANK #6] Source=Donut.pdf | Page=11 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Answer: 540 Donut: 943  (another number in the image is extracted) LayoutLMv2-Large-QG: 540 Q: What is the phone number given? Answer: 336-723-6100 Donut: 336-723-6100 LayoutLMv2-Large-QG: 336-723- 4100 Fig. 6. Examples of Donut and LayoutLMv2 outputs on DocVQA.The OCR- errors make a performance upp
+
+[RERANK #7] Source=Donut.pdf | Page=13 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: On Low Resourced Situation. We evaluate the models by limiting the size of training set of CORD [45]. The performance curves are shown in the right Figure 9. Donut shows a robust performances. We also observe that a larger input resolution, 2560 ×1920, shows more robust scores on the extremely low- 
+
+[RERANK #8] Source=Donut.pdf | Page=11 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: but this could be mitigated by scaling the input image size (See Section 3.4) errors is an option to strengthen the pipeline [51,50,10] or adopting an encoder- decoder architecture on the OCR outputs can mitigate the problems of OCR errors [23]. However, this kind of approaches tend to increase the 
+
+[RERANK #9] Source=Donut.pdf | Page=9 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: 3.3 Experimental Results Document Classification. The results are shown in Table 1. Without re- lying on any other resource (e.g., off-the-shelf OCR engine), Donut shows a state-of-the-art performance among the general-purpose VDU models such as LayoutLM [65] and LayoutLMv2 [64]. In particular, Donu
+
+[RERANK #10] Source=Donut.pdf | Page=24 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: ness Card and Receipt). Figure B shows examples of Ticket with the outputs of Donut. Figure C shows examples of CORD with the outputs of Donut. Due to strict industrial policies on the private industrial datasets, we instead show some real-like high-quality samples of Business Card and Receipt in Fi
+
+[RERANK #11] Source=Donut.pdf | Page=27 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: the SPADE [25] baseline, the official implementation 16 is used. The models are trained using NVIDIA P40, V100, or A100 GPUs. The major hyperparameters, such as initial learning rate and number of epochs, are adjusted by monitoring the scores on the validation set. The architectural details of the O
+
+[RERANK #12] Source=Donut.pdf | Page=13 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: OCR-free Document Understanding Transformer 13 K Cho co Mo chi yo to300 2- Fig. 8. Visualization of cross-attention maps in the decoder and its applica- tion to text localization. Donut is trained without any supervision for the localiza- tion. The Donut decoder attends proper text regions to proces
+================================================================================
+
+================================================================================
+FINAL CONTEXT DOCUMENTS
+================================================================================
+Final context candidates: 12
+
+[FINAL #1] Source=Donut.pdf | Page=11 | Type=image
+Exact Figure : True
+Figure Page Match : True
+Content: FIGURE FROM DOCUMENT  Caption: the answer group, the answer group, the answer group, answer group, answer group, answer group, answer group, answer group answer group, answer group, answer group, answer group, answer group, answer group, answer group, answer group, answer group, answer group, answer
+
+[FINAL #2] Source=Donut.pdf | Page=11 | Type=image
+Exact Figure : True
+Figure Page Match : True
+Content: FIGURE FROM DOCUMENT  Caption: a black and white photo of a man with a beard  OCR Text: No readable text found in this image.  Nearby Document Text: OCR-free Document Understanding Transformer 11 Table 3. Average Normalized Levenshtein Similarity (ANLS) scores on DocVQA. Donut shows a promising resu
+
+[FINAL #3] Source=Donut.pdf | Page=11 | Type=image
+Exact Figure : True
+Figure Page Match : True
+Content: FIGURE FROM DOCUMENT  Caption: a black and white photo of a receipt  OCR Text: rea  EVAUS ATTER 59 Snes) Be Sieh  'NOT.GOOO FOR PASSAGES =  ATE  Falow | reaper © [onoeicaars |= nr  ALAR SCE Dari: il eA  Nearby Document Text: OCR-free Document Understanding Transformer 11 Table 3. Average Normalized 
+
+[FINAL #4] Source=Donut.pdf | Page=11 | Type=image
+Exact Figure : True
+Figure Page Match : True
+Content: FIGURE FROM DOCUMENT  Caption: a black and white photo of a receipt  OCR Text: rea  EVAUS ATTER 59 Snes) Be Sieh  'NOT.GOOO FOR PASSAGES =  ATE  Falow | reaper © [onoeicaars |= nr  ALAR SCE Dari: il eA  Nearby Document Text: OCR-free Document Understanding Transformer 11 Table 3. Average Normalized 
+
+[FINAL #5] Source=Donut.pdf | Page=11 | Type=image
+Exact Figure : True
+Figure Page Match : True
+Content: FIGURE FROM DOCUMENT  Caption: a map of the united with the states highlighted in black and white  OCR Text: as Obed Pistay eI Mates waving oe ‘mare sits & Fuss uF nasa Bale ‘Havearily tetera weca, ors  a  pode  Sign aie oe  e  Alife  SERS Feats EES  Gal pail Heer eel  a  ns} Papa 2 2  a me SS  (=f 
+
+[FINAL #6] Source=Donut.pdf | Page=11 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Answer: 540 Donut: 943  (another number in the image is extracted) LayoutLMv2-Large-QG: 540 Q: What is the phone number given? Answer: 336-723-6100 Donut: 336-723-6100 LayoutLMv2-Large-QG: 336-723- 4100 Fig. 6. Examples of Donut and LayoutLMv2 outputs on DocVQA.The OCR- errors make a performance upp
+
+[FINAL #7] Source=Donut.pdf | Page=13 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: On Low Resourced Situation. We evaluate the models by limiting the size of training set of CORD [45]. The performance curves are shown in the right Figure 9. Donut shows a robust performances. We also observe that a larger input resolution, 2560 ×1920, shows more robust scores on the extremely low- 
+
+[FINAL #8] Source=Donut.pdf | Page=11 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: but this could be mitigated by scaling the input image size (See Section 3.4) errors is an option to strengthen the pipeline [51,50,10] or adopting an encoder- decoder architecture on the OCR outputs can mitigate the problems of OCR errors [23]. However, this kind of approaches tend to increase the 
+
+[FINAL #9] Source=Donut.pdf | Page=9 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: 3.3 Experimental Results Document Classification. The results are shown in Table 1. Without re- lying on any other resource (e.g., off-the-shelf OCR engine), Donut shows a state-of-the-art performance among the general-purpose VDU models such as LayoutLM [65] and LayoutLMv2 [64]. In particular, Donu
+
+[FINAL #10] Source=Donut.pdf | Page=24 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: ness Card and Receipt). Figure B shows examples of Ticket with the outputs of Donut. Figure C shows examples of CORD with the outputs of Donut. Due to strict industrial policies on the private industrial datasets, we instead show some real-like high-quality samples of Business Card and Receipt in Fi
+
+[FINAL #11] Source=Donut.pdf | Page=27 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: the SPADE [25] baseline, the official implementation 16 is used. The models are trained using NVIDIA P40, V100, or A100 GPUs. The major hyperparameters, such as initial learning rate and number of epochs, are adjusted by monitoring the scores on the validation set. The architectural details of the O
+
+[FINAL #12] Source=Donut.pdf | Page=13 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: OCR-free Document Understanding Transformer 13 K Cho co Mo chi yo to300 2- Fig. 8. Visualization of cross-attention maps in the decoder and its applica- tion to text localization. Donut is trained without any supervision for the localiza- tion. The Donut decoder attends proper text regions to proces
+================================================================================
+
+================================================================================
+FIGURE FINAL-CONTEXT DIAGNOSTIC
+================================================================================
+Requested Figure     : 6
+Exact Figure Match   : True
+Present In Final     : True
+[FIGURE DIAGNOSTIC] PASS — exact figure/page image evidence survived into final context.
+================================================================================
+
+================================================================================
+FINAL CONTEXT SENT TO LLM
+================================================================================
+
+================================================================================
+DOCUMENT : Donut.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 9
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+3.3 Experimental Results
+Document Classification. The results are shown in Table 1. Without re-
+lying on any other resource (e.g., off-the-shelf OCR engine), Donut shows a
+state-of-the-art performance among the general-purpose VDU models such as
+LayoutLM [65] and LayoutLMv2 [64]. In particular, Donut surpasses the Lay-
+outLMv2 accuracy reported in [64], while using fewer parameters with the 2x
+faster speed. Note that the OCR-based models must consider additional model
+parameters and speed for the entire OCR framework, which is not small in gen-
+
+
+--------------------------------------------------------------------------------
+PAGE : 11
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+Answer: 540
+Donut: 943  (another number in the image is extracted)
+LayoutLMv2-Large-QG: 540
+Q: What is the phone number given?
+Answer: 336-723-6100
+Donut: 336-723-6100
+LayoutLMv2-Large-QG: 336-723- 4100
+Fig. 6. Examples of Donut and LayoutLMv2 outputs on DocVQA.The OCR-
+errors make a performance upper-bound of the OCR-dependent baselines, e.g., Lay-
+outLMv2 (left and middle examples). Due to the input resolution constraint of the
+end-to-end pipeline, Donut miss some tiny texts in large-scale images (right example)
+but this could be mitigated by scaling the input image size (See Section 3.4)
+
+
+[TEXT]
+
+but this could be mitigated by scaling the input image size (See Section 3.4)
+errors is an option to strengthen the pipeline [51,50,10] or adopting an encoder-
+decoder architecture on the OCR outputs can mitigate the problems of OCR
+errors [23]. However, this kind of approaches tend to increase the entire system
+size and maintenance cost. Donut shows a completely different direction. Some
+inference results are shown in Figure 6. The samples show the current strengths
+of Donut as well as the left challenges in the Donut-like end-to-end approach.
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT
+
+Caption:
+the answer group, the answer group, the answer group, answer group, answer group, answer group, answer group, answer group answer group, answer group, answer group, answer group, answer group, answer group, answer group, answer group, answer group, answer group, answer group, answer
+
+OCR Text:
+M
+
+es
+é
+
+gsogs!
+
+i
+By
+
+Nearby Document Text:
+OCR-free Document Understanding Transformer
+11
+Table 3. Average Normalized Levenshtein Similarity (ANLS) scores on
+DocVQA. Donut shows a promising result without OCR. ∗Donut shows a high
+ANLS score on the handwritten documents which are known to be challenging due to
+the difficulty of handwriting OCR (See Figure 6). †Token embeddings for English is
+counted for a fair comparison. ‡# parameters for OCR should be considered
+Fine-tuning set
+OCR #Params† Time (ms) ANLS
+test set
+ANLS∗
+handwritten
+BERT [64]
+train set
+✓
+110M + α‡
+1517
+63.5
+n/a
+LayoutLM[65]
+train set
+✓
+113M + α‡
+1519
+69.8
+n/a
+LayoutLMv
+
+
+[RELATED PAGE TEXT]
+
+Answer: 540
+Donut: 943  (another number in the image is extracted)
+LayoutLMv2-Large-QG: 540
+Q: What is the phone number given?
+Answer: 336-723-6100
+Donut: 336-723-6100
+LayoutLMv2-Large-QG: 336-723- 4100
+Fig. 6. Examples of Donut and LayoutLMv2 outputs on DocVQA.The OCR-
+errors make a performance upper-bound of the OCR-dependent baselines, e.g., Lay
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT
+
+Caption:
+a black and white photo of a man with a beard
+
+OCR Text:
+No readable text found in this image.
+
+Nearby Document Text:
+OCR-free Document Understanding Transformer
+11
+Table 3. Average Normalized Levenshtein Similarity (ANLS) scores on
+DocVQA. Donut shows a promising result without OCR. ∗Donut shows a high
+ANLS score on the handwritten documents which are known to be challenging due to
+the difficulty of handwriting OCR (See Figure 6). †Token embeddings for English is
+counted for a fair comparison. ‡# parameters for OCR should be considered
+Fine-tuning set
+OCR #Params† Time (ms) ANLS
+test set
+ANLS∗
+handwritten
+BERT [64]
+train set
+✓
+110M + α‡
+1517
+63.5
+n/a
+LayoutLM[65]
+train set
+✓
+113M + α‡
+1519
+69.8
+n/a
+LayoutLMv
+
+
+[RELATED PAGE TEXT]
+
+Answer: 540
+Donut: 943  (another number in the image is extracted)
+LayoutLMv2-Large-QG: 540
+Q: What is the phone number given?
+Answer: 336-723-6100
+Donut: 336-723-6100
+LayoutLMv2-Large-QG: 336-723- 4100
+Fig. 6. Examples of Donut and LayoutLMv2 outputs on DocVQA.The OCR-
+errors make a performance upper-bound of the OCR-dependent baselines, e.g., Lay
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT
+
+Caption:
+a black and white photo of a receipt
+
+OCR Text:
+rea
+
+EVAUS ATTER 59
+Snes) Be Sieh
+
+'NOT.GOOO FOR PASSAGES =
+
+ATE
+
+Falow | reaper © [onoeicaars |= nr
+
+ALAR SCE
+Dari: il eA
+
+Nearby Document Text:
+OCR-free Document Understanding Transformer
+11
+Table 3. Average Normalized Levenshtein Similarity (ANLS) scores on
+DocVQA. Donut shows a promising result without OCR. ∗Donut shows a high
+ANLS score on the handwritten documents which are known to be challenging due to
+the difficulty of handwriting OCR (See Figure 6). †Token embeddings for English is
+counted for a fair comparison. ‡# parameters for OCR should be considered
+Fine-tuning set
+OCR #Params† Time (ms) ANLS
+test set
+ANLS∗
+handwritten
+BERT [64]
+train set
+✓
+110M + α‡
+1517
+63.5
+n/a
+LayoutLM[65]
+train set
+✓
+113M + α‡
+1519
+69.8
+n/a
+LayoutLMv
+
+
+[RELATED PAGE TEXT]
+
+Answer: 540
+Donut: 943  (another number in the image is extracted)
+LayoutLMv2-Large-QG: 540
+Q: What is the phone number given?
+Answer: 336-723-6100
+Donut: 336-723-6100
+LayoutLMv2-Large-QG: 336-723- 4100
+Fig. 6. Examples of Donut and LayoutLMv2 outputs on DocVQA.The OCR-
+errors make a performance upper-bound of the OCR-dependent baselines, e.g., Lay
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT
+
+Caption:
+a black and white photo of a receipt
+
+OCR Text:
+rea
+
+EVAUS ATTER 59
+Snes) Be Sieh
+
+'NOT.GOOO FOR PASSAGES =
+
+ATE
+
+Falow | reaper © [onoeicaars |= nr
+
+ALAR SCE
+Dari: il eA
+
+Nearby Document Text:
+OCR-free Document Understanding Transformer
+11
+Table 3. Average Normalized Levenshtein Similarity (ANLS) scores on
+DocVQA. Donut shows a promising result without OCR. ∗Donut shows a high
+ANLS score on the handwritten documents which are known to be challenging due to
+the difficulty of handwriting OCR (See Figure 6). †Token embeddings for English is
+counted for a fair comparison. ‡# parameters for OCR should be considered
+Fine-tuning set
+OCR #Params† Time (ms) ANLS
+test set
+ANLS∗
+handwritten
+BERT [64]
+train set
+✓
+110M + α‡
+1517
+63.5
+n/a
+LayoutLM[65]
+train set
+✓
+113M + α‡
+1519
+69.8
+n/a
+LayoutLMv
+
+
+[RELATED PAGE TEXT]
+
+Answer: 540
+Donut: 943  (another number in the image is extracted)
+LayoutLMv2-Large-QG: 540
+Q: What is the phone number given?
+Answer: 336-723-6100
+Donut: 336-723-6100
+LayoutLMv2-Large-QG: 336-723- 4100
+Fig. 6. Examples of Donut and LayoutLMv2 outputs on DocVQA.The OCR-
+errors make a performance upper-bound of the OCR-dependent baselines, e.g., Lay
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT
+
+Caption:
+a map of the united with the states highlighted in black and white
+
+OCR Text:
+as Obed Pistay eI Mates waving oe
+‘mare sits & Fuss uF nasa Bale
+‘Havearily tetera weca,
+ors
+
+a
+
+pode
+
+Sign aie
+oe
+
+e
+
+Alife
+
+SERS
+Feats
+EES
+
+Gal pail
+Heer
+eel
+
+a
+
+ns} Papa 2
+2
+
+a
+me
+SS
+
+(=f
+=
+
+Wk
+
+Ey
+Me
+a
+
+Fry i
+
+v
+oe
+
+Nearby Document Text:
+OCR-free Document Understanding Transformer
+11
+Table 3. Average Normalized Levenshtein Similarity (ANLS) scores on
+DocVQA. Donut shows a promising result without OCR. ∗Donut shows a high
+ANLS score on the handwritten documents which are known to be challenging due to
+the difficulty of handwriting OCR (See Figure 6). †Token embeddings for English is
+counted for a fair comparison. ‡# parameters for OCR should be considered
+Fine-tuning set
+OCR #Params† Time (ms) ANLS
+test set
+ANLS∗
+handwritten
+BERT [64]
+train set
+✓
+110M + α‡
+1517
+63.5
+n/a
+LayoutLM[65]
+train set
+✓
+113M + α‡
+1519
+69.8
+n/a
+LayoutLMv
+
+
+[RELATED PAGE TEXT]
+
+Answer: 540
+Donut: 943  (another number in the image is extracted)
+LayoutLMv2-Large-QG: 540
+Q: What is the phone number given?
+Answer: 336-723-6100
+Donut: 336-723-6100
+LayoutLMv2-Large-QG: 336-723- 4100
+Fig. 6. Examples of Donut and LayoutLMv2 outputs on DocVQA.The OCR-
+errors make a performance upper-bound of the OCR-dependent baselines, e.g., Lay
+
+
+--------------------------------------------------------------------------------
+PAGE : 13
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+On Low Resourced Situation. We evaluate the models by limiting the size
+of training set of CORD [45]. The performance curves are shown in the right
+Figure 9. Donut shows a robust performances. We also observe that a larger
+input resolution, 2560 ×1920, shows more robust scores on the extremely low-
+resourced situation, e.g., 80 samples. As can be seen, Donut outperformed the
+LayoutLMv2 accuracy only with 10% of the data, which is only 80 samples.
+4 Related Work
+4.1 Optical Character Recognition
+Recent trends of OCR study are to utilize deep learning models in its two sub-
+
+
+[TEXT]
+
+OCR-free Document Understanding Transformer 13
+K
+Cho co Mo chi
+yo to300 2-
+Fig. 8. Visualization of cross-attention maps in the decoder and its applica-
+tion to text localization. Donut is trained without any supervision for the localiza-
+tion. The Donut decoder attends proper text regions to process the image
+LayoutLMv2 BERT Donut40
+50
+60
+70
+80
+90Accuracy
+1280   2560
+EasyOCR
+PaddleOCR
+MSAzure
+ClovaOCR
+LayoutLMv2 BERT Donut0.5
+1.0
+1.5time(s/image)
+1280   2560
+EasyOCR
+PaddleOCR
+MSAzure
+ClovaOCR
+80 160 400 800
+number of samples
+50
+60
+70
+80
+90Accuracy
+Donut, 2560
+Donut, 1280
+LayoutLMv2
+BERT
+
+
+--------------------------------------------------------------------------------
+PAGE : 24
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+ness Card and Receipt). Figure B shows examples of Ticket with the outputs
+of Donut. Figure C shows examples of CORD with the outputs of Donut. Due
+to strict industrial policies on the private industrial datasets, we instead show
+some real-like high-quality samples of Business Card and Receipt in Figure D.
+A.4 Details of Model Training Scheme and Output Format
+In the model architecture and training objective, we basically followed the orig-
+inal Transformer [58], which uses a Transformer encoder-decoder architecture
+and a teacher-forcing training scheme. The teacher-forcing scheme is a model
+
+
+--------------------------------------------------------------------------------
+PAGE : 27
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+the SPADE [25] baseline, the official implementation 16 is used. The models are
+trained using NVIDIA P40, V100, or A100 GPUs. The major hyperparameters,
+such as initial learning rate and number of epochs, are adjusted by monitoring
+the scores on the validation set. The architectural details of the OCR-dependent
+VDU backbone baselines (e.g., LayoutLM and LayoutLMv2) are available in
+Appendix A.7.
+A.6 Preliminary Experiments in Smaller Resources
+In our preliminary experiments, we pre-trained Donut with smaller resources
+(denoted as Donut Proto), i.e., smaller data (SynthDoG 1.2M) and fewer GPUs
+
+================================================================================
+
+================================================================================
+RAG PIPELINE DEBUG
+================================================================================
+Query Type        : visual
+Retrieved Chunks  : 8
+Retrieved Images  : 5
+Reranked Chunks   : 12
+Reranked Text     : 7
+Reranked Images   : 5
+Final Context Docs: 12
+Exact Figure Query: True
+Exact Figure Match: True
+Exact Figure Final: True
+================================================================================
+
+================================================================================
+STAGE 4 — EVIDENCE VERIFICATION
+================================================================================
+Verification Units : 7
+Supported          : 4
+Partially Supported: 3
+Unsupported        : 0
+Unknown            : 0
+Groundedness Ratio : 0.57
+
+[CLAIM #1] In Figure 6, the examples demonstrate the strengths and limitations of Donut compared with LayoutLMv2 on DocVQA as follows:
+Strengths of Donut:
+  Status=PARTIALLY_SUPPORTED | NLI=NEUTRAL | Confidence=0.8706 | Citation=Donut.pdf (Page 11)
+
+[CLAIM #2] Donut shows a promising result without OCR, as shown by the high ANLS score on the handwritten documents which are known to be challenging due to the difficulty of handwriting OCR (See Figure 6).
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.6899 | Citation=Donut.pdf (Page 11)
+
+[CLAIM #3] Donut shows robust performances, especially in low-resourced situations.
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.9497 | Citation=Donut.pdf (Page 13)
+
+[CLAIM #4] For example, Donut outperformed the LayoutLMv2 accuracy only with 10% of the data, which is only 80 samples, in an extremely low-resourced situation (See right Figure 9).
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.9004 | Citation=Donut.pdf (Page 13)
+
+[CLAIM #5] Donut sometimes makes OCR errors, as shown in Figure 6 where LayoutLMv2-Large-QG correctly identifies the phone number as 336-723-6100, while Donut and LayoutLMv2-Large-QG incorrectly identify it as 336-723-4100.
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.603 | Citation=Donut.pdf (Page 11)
+
+[CLAIM #6] Donut is trained without any supervision for the localization, which might affect its performance in certain tasks that require precise text localization (See Figure 8).
+  Status=PARTIALLY_SUPPORTED | NLI=NEUTRAL | Confidence=0.9829 | Citation=Donut.pdf (Page 13)
+
+[CLAIM #7] Overall, Donut shows promising results in handling handwritten documents and low-resourced situations, but it may have OCR errors and lacks precise text localization capabilities compared to LayoutLMv2.
+  Status=PARTIALLY_SUPPORTED | NLI=NEUTRAL | Confidence=0.9937 | Citation=Donut.pdf (Page 11)
+================================================================================
+
+====================================================================================================
+RAG ANSWER
+====================================================================================================
+ In Figure 6, the examples demonstrate the strengths and limitations of Donut compared with LayoutLMv2 on DocVQA as follows:
+
+Strengths of Donut:
+1. Donut shows a promising result without OCR, as shown by the high ANLS score on the handwritten documents which are known to be challenging due to the difficulty of handwriting OCR (See Figure 6).
+2. Donut shows robust performances, especially in low-resourced situations. For example, Donut outperformed the LayoutLMv2 accuracy only with 10% of the data, which is only 80 samples, in an extremely low-resourced situation (See right Figure 9).
+
+Limitations of Donut:
+1. Donut sometimes makes OCR errors, as shown in Figure 6 where LayoutLMv2-Large-QG correctly identifies the phone number as 336-723-6100, while Donut and LayoutLMv2-Large-QG incorrectly identify it as 336-723-4100.
+2. Donut is trained without any supervision for the localization, which might affect its performance in certain tasks that require precise text localization (See Figure 8).
+
+Overall, Donut shows promising results in handling handwritten documents and low-resourced situations, but it may have OCR errors and lacks precise text localization capabilities compared to LayoutLMv2.
+
+IMAGE PATHS:
+D:/Projects/Major-Project-2-main/extracted_images/Donut_page11_img0.png
+D:/Projects/Major-Project-2-main/extracted_images/Donut_page11_img4.png
+D:/Projects/Major-Project-2-main/extracted_images/Donut_page11_img2.png
+D:/Projects/Major-Project-2-main/extracted_images/Donut_page11_img3.png
+D:/Projects/Major-Project-2-main/extracted_images/Donut_page11_img1.png

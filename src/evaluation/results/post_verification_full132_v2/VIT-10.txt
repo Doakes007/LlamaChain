@@ -1,0 +1,1111 @@
+====================================================================================================
+QUESTION_ID   : VIT-10
+DOCUMENT      : Vision Transformer
+QUESTION_TYPE : Experiments / Results
+ELAPSED_SEC   : 83.6
+ERROR         : no
+====================================================================================================
+
+QUESTION:
+How does the amount of pre-training data affect the performance of Vision Transformer models?
+
+GROUND TRUTH ANSWER:
+Increasing pre-training data substantially improves ViT performance. With small datasets such as ImageNet, larger ViT models can underperform smaller ones and BiT ResNets. With ImageNet-21k their performance becomes similar, while JFT-300M enables the full benefit of larger ViT models. Figure 4 also shows ViT improving more than ResNets as the JFT subset grows.
+
+GROUND TRUTH SOURCE:
+Vision Transformer.pdf, pp. 6–7
+
+====================================================================================================
+FORENSIC TRANSCRIPT
+====================================================================================================
+
+####################################################################################################
+FORENSIC CASE START
+####################################################################################################
+Original Query   : How does the amount of pre-training data affect the performance of Vision Transformer models?
+Expanded Query   : How does the amount of pre-training data affect the performance of Vision Transformer models?
+Query Type       : analytical
+[DOCUMENT SCOPE] Normalized query: 'how does the amount of pre training data affect the performance of vision transformer models'
+[DOCUMENT SCOPE] Source='BERT.pdf' -> Normalized='bert'
+[DOCUMENT SCOPE] Token overlap for 'BERT.pdf': []
+[DOCUMENT SCOPE] Source='BLIP-2.pdf' -> Normalized='blip 2'
+[DOCUMENT SCOPE] Token overlap for 'BLIP-2.pdf': []
+[DOCUMENT SCOPE] Source='CLIP.pdf' -> Normalized='clip'
+[DOCUMENT SCOPE] Token overlap for 'CLIP.pdf': []
+[DOCUMENT SCOPE] Source='CNN Paper.pdf' -> Normalized='cnn paper'
+[DOCUMENT SCOPE] Token overlap for 'CNN Paper.pdf': []
+[DOCUMENT SCOPE] Source='Donut.pdf' -> Normalized='donut'
+[DOCUMENT SCOPE] Token overlap for 'Donut.pdf': []
+[DOCUMENT SCOPE] Source='LayoutLMv3.pdf' -> Normalized='layout l mv3'
+[DOCUMENT SCOPE] Token overlap for 'LayoutLMv3.pdf': []
+[DOCUMENT SCOPE] Source='NLP Paper.pdf' -> Normalized='nlp paper'
+[DOCUMENT SCOPE] Token overlap for 'NLP Paper.pdf': []
+[DOCUMENT SCOPE] Source='RAG.pdf' -> Normalized='rag'
+[DOCUMENT SCOPE] Token overlap for 'RAG.pdf': []
+[DOCUMENT SCOPE] Source='Self-RAG.pdf' -> Normalized='self rag'
+[DOCUMENT SCOPE] Token overlap for 'Self-RAG.pdf': []
+[DOCUMENT SCOPE] Source='Vision Transformer.pdf' -> Normalized='vision transformer'
+[DOCUMENT SCOPE] EXACT MATCH -> Vision Transformer.pdf
+[DOCUMENT SCOPE] Final matched sources: ['Vision Transformer.pdf']
+
+================================================================================
+DOCUMENT SCOPE DEBUG
+================================================================================
+Query          : How does the amount of pre-training data affect the performance of Vision Transformer models?
+Expanded Query : How does the amount of pre-training data affect the performance of Vision Transformer models?
+Query Type     : analytical
+Document Scope : ['Vision Transformer.pdf']
+================================================================================
+
+==========================================================================================
+STEP 3A — SCOPED HYBRID RETRIEVAL
+==========================================================================================
+Query              : How does the amount of pre-training data affect the performance of Vision Transformer models?
+Sources            : ['Vision Transformer.pdf']
+Dense candidate K  : 25
+Final hybrid K     : 8
+
+------------------------------------------------------------------------------------------
+[SCOPED DENSE / VECTOR RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=Vision Transformer.pdf | Page=6 | Type=text | Image=N/A
+    Content=4.3 P RE-TRAINING DATA REQUIREMENTS The Vision Transformer performs well when pre-trained on a large JFT-300M dataset. With fewer inductive biases for vision than ResNets, how cruc
+02. Source=Vision Transformer.pdf | Page=9 | Type=text | Image=N/A
+    Content=Thus, Vision Transformer matches or exceeds the state of the art on many image classiﬁcation datasets, whilst being relatively cheap to pre-train. While these initial results are e
+03. Source=Vision Transformer.pdf | Page=2 | Type=text | Image=N/A
+    Content=come the state of the art method in many NLP tasks. Large Transformer-based models are often pre-trained on large corpora and then ﬁne-tuned for the task at hand: BERT (Devlin et a
+04. Source=Vision Transformer.pdf | Page=4 | Type=text | Image=N/A
+    Content=4 E XPERIMENTS We evaluate the representation learning capabilities of ResNet, Vision Transformer (ViT), and the hybrid. To understand the data requirements of each model, we pre-t
+05. Source=Vision Transformer.pdf | Page=8 | Type=text | Image=N/A
+    Content=since one might expect convolutional local feature processing to assist ViT at any size. Third, Vision Transformers appear not to saturate within the range tried, motivating future
+06. Source=Vision Transformer.pdf | Page=7 | Type=text | Image=N/A
+    Content=effect of regularization. We do, however, use early-stopping, and report the best validation accuracy achieved during training. To save compute, we report few-shot linear accuracy 
+07. Source=Vision Transformer.pdf | Page=9 | Type=text | Image=N/A
+    Content=supervised pre-training methods. Our initial experiments show improvement from self-supervised pre-training, but there is still large gap between self-supervised and large-scale su
+08. Source=Vision Transformer.pdf | Page=2 | Type=text | Image=N/A
+    Content=to image pixels after reducing image resolution and color space. The model is trained in an unsu- pervised fashion as a generative model, and the resulting representation can then 
+09. Source=Vision Transformer.pdf | Page=4 | Type=text | Image=N/A
+    Content=however, the pre-trained position embeddings may no longer be meaningful. We therefore perform 2D interpolation of the pre-trained position embeddings, according to their location 
+10. Source=Vision Transformer.pdf | Page=2 | Type=text | Image=N/A
+    Content=Published as a conference paper at ICLR 2021 inherent to CNNs, such as translation equivariance and locality, and therefore do not generalize well when trained on insufﬁcient amoun
+11. Source=Vision Transformer.pdf | Page=8 | Type=text | Image=N/A
+    Content=age data, we analyze its internal representations. The ﬁrst layer of the Vision Transformer linearly projects the ﬂattened patches into a lower-dimensional space (Eq. 1). Figure 7 
+12. Source=Vision Transformer.pdf | Page=8 | Type=text | Image=N/A
+    Content=attention distance increases with network depth. Globally, we ﬁnd that the model attends to image regions that are semantically relevant for classiﬁcation (Figure 6). 4.6 S ELF -SU
+13. Source=Vision Transformer.pdf | Page=2 | Type=text | Image=N/A
+    Content=promising results on computer vision tasks, but require complex engineering to be implemented efﬁciently on hardware accelerators. Most related to ours is the model of Cordonnier e
+14. Source=Vision Transformer.pdf | Page=8 | Type=text | Image=N/A
+    Content=Published as a conference paper at ICLR 2021 4.4 S CALING STUDY We perform a controlled scaling study of different models by evaluating transfer performance from JFT-300M. In this 
+15. Source=Vision Transformer.pdf | Page=4 | Type=text | Image=N/A
+    Content=this, we remove the pre-trained prediction head and attach a zero-initialized D×K feedforward layer, where K is the number of downstream classes. It is often beneﬁcial to ﬁne-tune 
+16. Source=Vision Transformer.pdf | Page=5 | Type=text | Image=N/A
+    Content=Fine-tuning accuracies capture the performance of each model after ﬁne-tuning it on the respective dataset. Few-shot accuracies are obtained by solving a regularized least-squares 
+17. Source=Vision Transformer.pdf | Page=16 | Type=text | Image=N/A
+    Content=effective sequence length shows surprisingly robust improvements without introducing parameters. These ﬁndings suggest that compute might be a better predictor of performance than 
+18. Source=Vision Transformer.pdf | Page=14 | Type=text | Image=N/A
+    Content=setting for all tasks. We use a learning rate of 0.01 and train for 2500 steps (Tab. 4). We chose this setting by running a small sweep over two learning rates and two schedules, a
+19. Source=Vision Transformer.pdf | Page=14 | Type=text | Image=N/A
+    Content=predict the 3-bit, mean color (i.e., 512 colors in total) of every corrupted patch using their respective patch representations. We trained our self-supervised model for 1M steps (
+20. Source=Vision Transformer.pdf | Page=6 | Type=text | Image=N/A
+    Content=2Note that the ImageNet pre-trained models are also ﬁne-tuned, but again on ImageNet. This is because the resolution increase during ﬁne-tuning improves the performance. 6
+21. Source=Vision Transformer.pdf | Page=12 | Type=text | Image=N/A
+    Content=Gelly, and Mario Lucic. Self-supervised learning of video-induced visual invariances. In Pro- ceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR),
+22. Source=Vision Transformer.pdf | Page=3 | Type=text | Image=N/A
+    Content=their efﬁcient implementations – can be used almost out of the box. 3.1 V ISION TRANSFORMER (V IT) An overview of the model is depicted in Figure 1. The standard Transformer receiv
+23. Source=Vision Transformer.pdf | Page=11 | Type=text | Image=N/A
+    Content=models are unsupervised multitask learners. Technical Report, 2019. Prajit Ramachandran, Niki Parmar, Ashish Vaswani, Irwan Bello, Anselm Levskaya, and Jon Shlens. Stand-alone self
+24. Source=Vision Transformer.pdf | Page=8 | Type=text | Image=N/A
+    Content=for 14 epochs; 6 Vision Transformers, ViT-B/32, B/16, L/32, L/16, pre-trained for 7 epochs, plus L/16 and H/14 pre-trained for 14 epochs; and 5 hybrids, R50+ViT-B/32, B/16, L/32, L
+25. Source=Vision Transformer.pdf | Page=1 | Type=text | Image=N/A
+    Content=els yield modest accuracies of a few percentage points below ResNets of comparable size. This seemingly discouraging outcome may be expected: Transformers lack some of the inductiv
+
+------------------------------------------------------------------------------------------
+[SCOPED BM25 RETRIEVAL] 20 candidates
+------------------------------------------------------------------------------------------
+01. Source=Vision Transformer.pdf | Page=4 | Type=text | Image=N/A
+    Content=4 E XPERIMENTS We evaluate the representation learning capabilities of ResNet, Vision Transformer (ViT), and the hybrid. To understand the data requirements of each model, we pre-t
+02. Source=Vision Transformer.pdf | Page=8 | Type=text | Image=N/A
+    Content=Published as a conference paper at ICLR 2021 4.4 S CALING STUDY We perform a controlled scaling study of different models by evaluating transfer performance from JFT-300M. In this 
+03. Source=Vision Transformer.pdf | Page=8 | Type=image | Image=extracted_images\Vision Transformer_page8_img2.png
+    Content=FIGURE FROM DOCUMENT  Caption: a plane flying in the sky  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 4.4 SC
+04. Source=Vision Transformer.pdf | Page=8 | Type=image | Image=extracted_images\Vision Transformer_page8_img3.png
+    Content=FIGURE FROM DOCUMENT  Caption: a plane flying in the sky  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 4.4 SC
+05. Source=Vision Transformer.pdf | Page=8 | Type=image | Image=extracted_images\Vision Transformer_page8_img5.png
+    Content=FIGURE FROM DOCUMENT  Caption: a yellow leaf laying on the ground  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 20
+06. Source=Vision Transformer.pdf | Page=8 | Type=image | Image=extracted_images\Vision Transformer_page8_img4.png
+    Content=FIGURE FROM DOCUMENT  Caption: a snake that is laying on the ground  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 
+07. Source=Vision Transformer.pdf | Page=8 | Type=image | Image=extracted_images\Vision Transformer_page8_img1.png
+    Content=FIGURE FROM DOCUMENT  Caption: a dog standing in the grass with its tongue out  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference pap
+08. Source=Vision Transformer.pdf | Page=9 | Type=text | Image=N/A
+    Content=5 C ONCLUSION We have explored the direct application of Transformers to image recognition. Unlike prior works using self-attention in computer vision, we do not introduce image-sp
+09. Source=Vision Transformer.pdf | Page=3 | Type=image | Image=extracted_images\Vision Transformer_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: the diagram shows the different types of the system and how they are used in the system  OCR Text: Published as a conference paper at I
+10. Source=Vision Transformer.pdf | Page=8 | Type=image | Image=extracted_images\Vision Transformer_page8_img0.png
+    Content=FIGURE FROM DOCUMENT  Caption: a small dog walking across a lush green field  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper
+11. Source=Vision Transformer.pdf | Page=4 | Type=text | Image=N/A
+    Content=however, the pre-trained position embeddings may no longer be meaningful. We therefore perform 2D interpolation of the pre-trained position embeddings, according to their location 
+12. Source=Vision Transformer.pdf | Page=8 | Type=text | Image=N/A
+    Content=since one might expect convolutional local feature processing to assist ViT at any size. Third, Vision Transformers appear not to saturate within the range tried, motivating future
+13. Source=Vision Transformer.pdf | Page=7 | Type=text | Image=N/A
+    Content=102 103 90 95Transfer accuracy [%] Average-5 Transformer (ViT) ResNet (BiT) Hybrid 102 10375 80 85 90 ImageNet Transformer (ViT) ResNet (BiT) Hybrid Total pre-training compute [exa
+14. Source=Vision Transformer.pdf | Page=16 | Type=text | Image=N/A
+    Content=Models All Depth Patch size Width MLP Width 100 101 Relative Compute 0.4 0.5 0.6 0.7 0.8Average 5shot Models All Depth Patch size Width MLP Width Figure 8: Scaling different model 
+15. Source=Vision Transformer.pdf | Page=4 | Type=text | Image=N/A
+    Content=this, we remove the pre-trained prediction head and attach a zero-initialized D×K feedforward layer, where K is the number of downstream classes. It is often beneﬁcial to ﬁne-tune 
+16. Source=Vision Transformer.pdf | Page=6 | Type=text | Image=N/A
+    Content=4.3 P RE-TRAINING DATA REQUIREMENTS The Vision Transformer performs well when pre-trained on a large JFT-300M dataset. With fewer inductive biases for vision than ResNets, how cruc
+17. Source=Vision Transformer.pdf | Page=9 | Type=text | Image=N/A
+    Content=Thus, Vision Transformer matches or exceeds the state of the art on many image classiﬁcation datasets, whilst being relatively cheap to pre-train. While these initial results are e
+18. Source=Vision Transformer.pdf | Page=8 | Type=text | Image=N/A
+    Content=age data, we analyze its internal representations. The ﬁrst layer of the Vision Transformer linearly projects the ﬂattened patches into a lower-dimensional space (Eq. 1). Figure 7 
+19. Source=Vision Transformer.pdf | Page=7 | Type=image | Image=extracted_images\Vision Transformer_page7_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal on the characterization and characterization of a single - cell cell  OCR Text: Published as a conference paper
+20. Source=Vision Transformer.pdf | Page=2 | Type=text | Image=N/A
+    Content=come the state of the art method in many NLP tasks. Large Transformer-based models are often pre-trained on large corpora and then ﬁne-tuned for the task at hand: BERT (Devlin et a
+
+------------------------------------------------------------------------------------------
+[RRF FUSION RANKING]
+------------------------------------------------------------------------------------------
+01. RRF=0.032018 | DenseRank=4 | BM25Rank=1 | Source=Vision Transformer.pdf | Page=4 | Type=text
+02. RRF=0.029643 | DenseRank=14 | BM25Rank=2 | Source=Vision Transformer.pdf | Page=8 | Type=text
+03. RRF=0.029551 | DenseRank=1 | BM25Rank=16 | Source=Vision Transformer.pdf | Page=6 | Type=text
+04. RRF=0.029274 | DenseRank=5 | BM25Rank=12 | Source=Vision Transformer.pdf | Page=8 | Type=text
+05. RRF=0.029116 | DenseRank=2 | BM25Rank=17 | Source=Vision Transformer.pdf | Page=9 | Type=text
+06. RRF=0.028577 | DenseRank=9 | BM25Rank=11 | Source=Vision Transformer.pdf | Page=4 | Type=text
+07. RRF=0.028373 | DenseRank=3 | BM25Rank=20 | Source=Vision Transformer.pdf | Page=2 | Type=text
+08. RRF=0.026905 | DenseRank=11 | BM25Rank=18 | Source=Vision Transformer.pdf | Page=8 | Type=text
+09. RRF=0.026667 | DenseRank=15 | BM25Rank=15 | Source=Vision Transformer.pdf | Page=4 | Type=text
+10. RRF=0.015873 | DenseRank=- | BM25Rank=3 | Source=Vision Transformer.pdf | Page=8 | Type=image
+11. RRF=0.015625 | DenseRank=- | BM25Rank=4 | Source=Vision Transformer.pdf | Page=8 | Type=image
+12. RRF=0.015385 | DenseRank=- | BM25Rank=5 | Source=Vision Transformer.pdf | Page=8 | Type=image
+13. RRF=0.015152 | DenseRank=6 | BM25Rank=- | Source=Vision Transformer.pdf | Page=7 | Type=text
+14. RRF=0.015152 | DenseRank=- | BM25Rank=6 | Source=Vision Transformer.pdf | Page=8 | Type=image
+15. RRF=0.014925 | DenseRank=7 | BM25Rank=- | Source=Vision Transformer.pdf | Page=9 | Type=text
+16. RRF=0.014925 | DenseRank=- | BM25Rank=7 | Source=Vision Transformer.pdf | Page=8 | Type=image
+17. RRF=0.014706 | DenseRank=8 | BM25Rank=- | Source=Vision Transformer.pdf | Page=2 | Type=text
+18. RRF=0.014706 | DenseRank=- | BM25Rank=8 | Source=Vision Transformer.pdf | Page=9 | Type=text
+19. RRF=0.014493 | DenseRank=- | BM25Rank=9 | Source=Vision Transformer.pdf | Page=3 | Type=image
+20. RRF=0.014286 | DenseRank=10 | BM25Rank=- | Source=Vision Transformer.pdf | Page=2 | Type=text
+21. RRF=0.014286 | DenseRank=- | BM25Rank=10 | Source=Vision Transformer.pdf | Page=8 | Type=image
+22. RRF=0.013889 | DenseRank=12 | BM25Rank=- | Source=Vision Transformer.pdf | Page=8 | Type=text
+23. RRF=0.013699 | DenseRank=13 | BM25Rank=- | Source=Vision Transformer.pdf | Page=2 | Type=text
+24. RRF=0.013699 | DenseRank=- | BM25Rank=13 | Source=Vision Transformer.pdf | Page=7 | Type=text
+25. RRF=0.013514 | DenseRank=- | BM25Rank=14 | Source=Vision Transformer.pdf | Page=16 | Type=text
+26. RRF=0.013158 | DenseRank=16 | BM25Rank=- | Source=Vision Transformer.pdf | Page=5 | Type=text
+27. RRF=0.012987 | DenseRank=17 | BM25Rank=- | Source=Vision Transformer.pdf | Page=16 | Type=text
+28. RRF=0.012821 | DenseRank=18 | BM25Rank=- | Source=Vision Transformer.pdf | Page=14 | Type=text
+29. RRF=0.012658 | DenseRank=19 | BM25Rank=- | Source=Vision Transformer.pdf | Page=14 | Type=text
+30. RRF=0.012658 | DenseRank=- | BM25Rank=19 | Source=Vision Transformer.pdf | Page=7 | Type=image
+31. RRF=0.012500 | DenseRank=20 | BM25Rank=- | Source=Vision Transformer.pdf | Page=6 | Type=text
+32. RRF=0.012346 | DenseRank=21 | BM25Rank=- | Source=Vision Transformer.pdf | Page=12 | Type=text
+33. RRF=0.012195 | DenseRank=22 | BM25Rank=- | Source=Vision Transformer.pdf | Page=3 | Type=text
+34. RRF=0.012048 | DenseRank=23 | BM25Rank=- | Source=Vision Transformer.pdf | Page=11 | Type=text
+35. RRF=0.011905 | DenseRank=24 | BM25Rank=- | Source=Vision Transformer.pdf | Page=8 | Type=text
+36. RRF=0.011765 | DenseRank=25 | BM25Rank=- | Source=Vision Transformer.pdf | Page=1 | Type=text
+------------------------------------------------------------------------------------------
+
+==========================================================================================
+STEP 3A — RETRIEVAL STAGE SUMMARY
+==========================================================================================
+Dense candidates       : 25
+BM25 candidates        : 20
+Dense ∩ BM25           : 9
+Dense-only candidates  : 16
+BM25-only candidates   : 11
+Unique candidate pool  : 36
+RRF candidates         : 36
+Returned to pipeline   : 8
+==========================================================================================
+
+------------------------------------------------------------------------------------------
+[SCOPED FINAL HYBRID RESULT] 8 candidates
+------------------------------------------------------------------------------------------
+01. Source=Vision Transformer.pdf | Page=4 | Type=text | Image=N/A
+    Content=4 E XPERIMENTS We evaluate the representation learning capabilities of ResNet, Vision Transformer (ViT), and the hybrid. To understand the data requirements of each model, we pre-t
+02. Source=Vision Transformer.pdf | Page=8 | Type=text | Image=N/A
+    Content=Published as a conference paper at ICLR 2021 4.4 S CALING STUDY We perform a controlled scaling study of different models by evaluating transfer performance from JFT-300M. In this 
+03. Source=Vision Transformer.pdf | Page=6 | Type=text | Image=N/A
+    Content=4.3 P RE-TRAINING DATA REQUIREMENTS The Vision Transformer performs well when pre-trained on a large JFT-300M dataset. With fewer inductive biases for vision than ResNets, how cruc
+04. Source=Vision Transformer.pdf | Page=8 | Type=text | Image=N/A
+    Content=since one might expect convolutional local feature processing to assist ViT at any size. Third, Vision Transformers appear not to saturate within the range tried, motivating future
+05. Source=Vision Transformer.pdf | Page=9 | Type=text | Image=N/A
+    Content=Thus, Vision Transformer matches or exceeds the state of the art on many image classiﬁcation datasets, whilst being relatively cheap to pre-train. While these initial results are e
+06. Source=Vision Transformer.pdf | Page=4 | Type=text | Image=N/A
+    Content=however, the pre-trained position embeddings may no longer be meaningful. We therefore perform 2D interpolation of the pre-trained position embeddings, according to their location 
+07. Source=Vision Transformer.pdf | Page=2 | Type=text | Image=N/A
+    Content=come the state of the art method in many NLP tasks. Large Transformer-based models are often pre-trained on large corpora and then ﬁne-tuned for the task at hand: BERT (Devlin et a
+08. Source=Vision Transformer.pdf | Page=8 | Type=text | Image=N/A
+    Content=age data, we analyze its internal representations. The ﬁrst layer of the Vision Transformer linearly projects the ﬂattened patches into a lower-dimensional space (Eq. 1). Figure 7 
+==========================================================================================
+
+================================================================================
+STAGE 1 — HYBRID RETRIEVAL
+================================================================================
+Retrieved Count : 8
+
+[HYBRID #1] Source=Vision Transformer.pdf | Page=4 | Type=text
+Content: 4 E XPERIMENTS We evaluate the representation learning capabilities of ResNet, Vision Transformer (ViT), and the hybrid. To understand the data requirements of each model, we pre-train on datasets of varying size and evaluate many benchmark tasks. When considering the computational cost of pre-training the model, ViT performs very favourably, attaining state of the art on most recognition benchmarks at a lower pre-training cost. Lastly, we perform a small experiment using self-supervision, and s
+
+[HYBRID #2] Source=Vision Transformer.pdf | Page=8 | Type=text
+Content: Published as a conference paper at ICLR 2021 4.4 S CALING STUDY We perform a controlled scaling study of different models by evaluating transfer performance from JFT-300M. In this setting data size does not bottleneck the models’ performances, and we assess performance versus pre-training cost of each model. The model set includes: 7 ResNets, R50x1, R50x2 R101x1, R152x1, R152x2, pre-trained for 7 epochs, plus R152x2 and R200x3 pre-trained for 14 epochs; 6 Vision Transformers, ViT-B/32, B/16, L/3
+
+[HYBRID #3] Source=Vision Transformer.pdf | Page=6 | Type=text
+Content: 4.3 P RE-TRAINING DATA REQUIREMENTS The Vision Transformer performs well when pre-trained on a large JFT-300M dataset. With fewer inductive biases for vision than ResNets, how crucial is the dataset size? We perform two series of experiments. First, we pre-train ViT models on datasets of increasing size: ImageNet, ImageNet-21k, and JFT- 300M. To boost the performance on the smaller datasets, we optimize three basic regularization parameters – weight decay, dropout, and label smoothing. Figure 3 
+
+[HYBRID #4] Source=Vision Transformer.pdf | Page=8 | Type=text
+Content: since one might expect convolutional local feature processing to assist ViT at any size. Third, Vision Transformers appear not to saturate within the range tried, motivating future scaling efforts. 4.5 I NSPECTING VISION TRANSFORMER Input  Attention Figure 6: Representative ex- amples of attention from the output token to the input space. See Appendix D.7 for details. To begin to understand how the Vision Transformer processes im- age data, we analyze its internal representations. The ﬁrst layer
+
+[HYBRID #5] Source=Vision Transformer.pdf | Page=9 | Type=text
+Content: Thus, Vision Transformer matches or exceeds the state of the art on many image classiﬁcation datasets, whilst being relatively cheap to pre-train. While these initial results are encouraging, many challenges remain. One is to apply ViT to other computer vision tasks, such as detection and segmentation. Our results, coupled with those in Carion et al. (2020), indicate the promise of this approach. Another challenge is to continue exploring self- supervised pre-training methods. Our initial experi
+
+[HYBRID #6] Source=Vision Transformer.pdf | Page=4 | Type=text
+Content: however, the pre-trained position embeddings may no longer be meaningful. We therefore perform 2D interpolation of the pre-trained position embeddings, according to their location in the original image. Note that this resolution adjustment and patch extraction are the only points at which an inductive bias about the 2D structure of the images is manually injected into the Vision Transformer. 4 E XPERIMENTS We evaluate the representation learning capabilities of ResNet, Vision Transformer (ViT), 
+
+[HYBRID #7] Source=Vision Transformer.pdf | Page=2 | Type=text
+Content: come the state of the art method in many NLP tasks. Large Transformer-based models are often pre-trained on large corpora and then ﬁne-tuned for the task at hand: BERT (Devlin et al., 2019) uses a denoising self-supervised pre-training task, while the GPT line of work uses language mod- eling as its pre-training task (Radford et al., 2018; 2019; Brown et al., 2020). Naive application of self-attention to images would require that each pixel attends to every other pixel. With quadratic cost in th
+
+[HYBRID #8] Source=Vision Transformer.pdf | Page=8 | Type=text
+Content: age data, we analyze its internal representations. The ﬁrst layer of the Vision Transformer linearly projects the ﬂattened patches into a lower-dimensional space (Eq. 1). Figure 7 (left) shows the top prin- cipal components of the the learned embedding ﬁlters. The com- ponents resemble plausible basis functions for a low-dimensional representation of the ﬁne structure within each patch. After the projection, a learned position embedding is added to the patch representations. Figure 7 (center) sh
+================================================================================
+[DOCUMENT SCOPE] Text chunks: 8 -> 8
+
+================================================================================
+IMAGE RETRIEVAL DIAGNOSTIC
+================================================================================
+Query                 : How does the amount of pre-training data affect the performance of Vision Transformer models?
+Allowed Sources       : ['Vision Transformer.pdf']
+Image Candidates      : 554 -> 304 (scoped before ranking)
+
+ALL IMAGE CANDIDATES
+--------------------------------------------------------------------------------
+Rank=01 | Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img5.png | Hybrid=0.8527 | CE=1.2920 | CLIP=0.1937
+Rank=02 | Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img3.png | Hybrid=0.8523 | CE=1.2771 | CLIP=0.2151
+Rank=03 | Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img2.png | Hybrid=0.8444 | CE=1.2771 | CLIP=0.1953
+Rank=04 | Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img4.png | Hybrid=0.8118 | CE=1.2388 | CLIP=0.1714
+Rank=05 | Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img0.png | Hybrid=0.6088 | CE=0.8976 | CLIP=0.1756
+Rank=06 | Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img1.png | Hybrid=0.3669 | CE=0.4790 | CLIP=0.1987
+Rank=07 | Source=Vision Transformer.pdf | Page=6 | Image=Vision Transformer_page6_render.png | Hybrid=-0.8666 | CE=-1.6125 | CLIP=0.2524
+Rank=08 | Source=Vision Transformer.pdf | Page=7 | Image=Vision Transformer_page7_render.png | Hybrid=-2.2798 | CE=-3.9880 | CLIP=0.2825
+Rank=09 | Source=Vision Transformer.pdf | Page=3 | Image=Vision Transformer_page3_render.png | Hybrid=-3.5353 | CE=-6.0514 | CLIP=0.2388
+Rank=10 | Source=Vision Transformer.pdf | Page=3 | Image=Vision Transformer_page3_img1.png | Hybrid=-4.0676 | CE=-6.9200 | CLIP=0.2111
+Rank=11 | Source=Vision Transformer.pdf | Page=3 | Image=Vision Transformer_page3_img0.png | Hybrid=-4.1610 | CE=-7.0683 | CLIP=0.2000
+Rank=12 | Source=Vision Transformer.pdf | Page=20 | Image=Vision Transformer_page20_render.png | Hybrid=-5.9618 | CE=-10.1096 | CLIP=0.2600
+Rank=13 | Source=Vision Transformer.pdf | Page=19 | Image=Vision Transformer_page19_render.png | Hybrid=-6.0643 | CE=-10.2829 | CLIP=0.2636
+Rank=14 | Source=Vision Transformer.pdf | Page=18 | Image=Vision Transformer_page18_render.png | Hybrid=-6.1316 | CE=-10.4095 | CLIP=0.2853
+Rank=15 | Source=Vision Transformer.pdf | Page=18 | Image=Vision Transformer_page18_img0.png | Hybrid=-6.5370 | CE=-11.0690 | CLIP=0.2610
+Rank=16 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img154.png | Hybrid=-6.6217 | CE=-11.1895 | CLIP=0.2300
+Rank=17 | Source=Vision Transformer.pdf | Page=18 | Image=Vision Transformer_page18_img2.png | Hybrid=-6.6417 | CE=-11.2268 | CLIP=0.2359
+Rank=18 | Source=Vision Transformer.pdf | Page=18 | Image=Vision Transformer_page18_img4.png | Hybrid=-6.6419 | CE=-11.2268 | CLIP=0.2354
+Rank=19 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img101.png | Hybrid=-6.6486 | CE=-11.2221 | CLIP=0.2117
+Rank=20 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img128.png | Hybrid=-6.6708 | CE=-11.2675 | CLIP=0.2242
+Rank=21 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img60.png | Hybrid=-6.6712 | CE=-11.2798 | CLIP=0.2419
+Rank=22 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img62.png | Hybrid=-6.6735 | CE=-11.2719 | CLIP=0.2242
+Rank=23 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img113.png | Hybrid=-6.6756 | CE=-11.2857 | CLIP=0.2396
+Rank=24 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img207.png | Hybrid=-6.6756 | CE=-11.2692 | CLIP=0.2148
+Rank=25 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img49.png | Hybrid=-6.6766 | CE=-11.2726 | CLIP=0.2175
+Rank=26 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img250.png | Hybrid=-6.6770 | CE=-11.2841 | CLIP=0.2337
+Rank=27 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img167.png | Hybrid=-6.6773 | CE=-11.2756 | CLIP=0.2203
+Rank=28 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img45.png | Hybrid=-6.6775 | CE=-11.2688 | CLIP=0.2094
+Rank=29 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img144.png | Hybrid=-6.6784 | CE=-11.2869 | CLIP=0.2343
+Rank=30 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img244.png | Hybrid=-6.6788 | CE=-11.2810 | CLIP=0.2247
+Rank=31 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img85.png | Hybrid=-6.6803 | CE=-11.2757 | CLIP=0.2129
+Rank=32 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img145.png | Hybrid=-6.6803 | CE=-11.2744 | CLIP=0.2109
+Rank=33 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img77.png | Hybrid=-6.6806 | CE=-11.2799 | CLIP=0.2182
+Rank=34 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img91.png | Hybrid=-6.6809 | CE=-11.2813 | CLIP=0.2197
+Rank=35 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img59.png | Hybrid=-6.6812 | CE=-11.2860 | CLIP=0.2260
+Rank=36 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img112.png | Hybrid=-6.6812 | CE=-11.2905 | CLIP=0.2328
+Rank=37 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img14.png | Hybrid=-6.6812 | CE=-11.2766 | CLIP=0.2118
+Rank=38 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img220.png | Hybrid=-6.6824 | CE=-11.2551 | CLIP=0.1767
+Rank=39 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img211.png | Hybrid=-6.6827 | CE=-11.2839 | CLIP=0.2192
+Rank=40 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img41.png | Hybrid=-6.6829 | CE=-11.2926 | CLIP=0.2317
+Rank=41 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img43.png | Hybrid=-6.6832 | CE=-11.2759 | CLIP=0.2059
+Rank=42 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img100.png | Hybrid=-6.6835 | CE=-11.2917 | CLIP=0.2287
+Rank=43 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img110.png | Hybrid=-6.6835 | CE=-11.2790 | CLIP=0.2096
+Rank=44 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img109.png | Hybrid=-6.6835 | CE=-11.2770 | CLIP=0.2066
+Rank=45 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img82.png | Hybrid=-6.6838 | CE=-11.2843 | CLIP=0.2170
+Rank=46 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img92.png | Hybrid=-6.6843 | CE=-11.2938 | CLIP=0.2300
+Rank=47 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img17.png | Hybrid=-6.6845 | CE=-11.2891 | CLIP=0.2224
+Rank=48 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img96.png | Hybrid=-6.6846 | CE=-11.2886 | CLIP=0.2215
+Rank=49 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img158.png | Hybrid=-6.6847 | CE=-11.2872 | CLIP=0.2192
+Rank=50 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img149.png | Hybrid=-6.6847 | CE=-11.2821 | CLIP=0.2115
+Rank=51 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img251.png | Hybrid=-6.6847 | CE=-11.2989 | CLIP=0.2366
+Rank=52 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img5.png | Hybrid=-6.6852 | CE=-11.2881 | CLIP=0.2192
+Rank=53 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img151.png | Hybrid=-6.6853 | CE=-11.2684 | CLIP=0.1892
+Rank=54 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img61.png | Hybrid=-6.6855 | CE=-11.2821 | CLIP=0.2094
+Rank=55 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img1.png | Hybrid=-6.6861 | CE=-11.2899 | CLIP=0.2194
+Rank=56 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img48.png | Hybrid=-6.6862 | CE=-11.2712 | CLIP=0.1914
+Rank=57 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img66.png | Hybrid=-6.6863 | CE=-11.3041 | CLIP=0.2404
+Rank=58 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img27.png | Hybrid=-6.6869 | CE=-11.2858 | CLIP=0.2114
+Rank=59 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img98.png | Hybrid=-6.6870 | CE=-11.2929 | CLIP=0.2219
+Rank=60 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img84.png | Hybrid=-6.6870 | CE=-11.2757 | CLIP=0.1960
+Rank=61 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img121.png | Hybrid=-6.6870 | CE=-11.2921 | CLIP=0.2206
+Rank=62 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img255.png | Hybrid=-6.6872 | CE=-11.2886 | CLIP=0.2148
+Rank=63 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img26.png | Hybrid=-6.6873 | CE=-11.2830 | CLIP=0.2062
+Rank=64 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img217.png | Hybrid=-6.6873 | CE=-11.2940 | CLIP=0.2227
+Rank=65 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img229.png | Hybrid=-6.6873 | CE=-11.2877 | CLIP=0.2133
+Rank=66 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img40.png | Hybrid=-6.6875 | CE=-11.2816 | CLIP=0.2036
+Rank=67 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img213.png | Hybrid=-6.6875 | CE=-11.2882 | CLIP=0.2135
+Rank=68 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img28.png | Hybrid=-6.6878 | CE=-11.2830 | CLIP=0.2052
+Rank=69 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img135.png | Hybrid=-6.6880 | CE=-11.2802 | CLIP=0.2004
+Rank=70 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img141.png | Hybrid=-6.6881 | CE=-11.2886 | CLIP=0.2125
+Rank=71 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img190.png | Hybrid=-6.6884 | CE=-11.2953 | CLIP=0.2218
+Rank=72 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img155.png | Hybrid=-6.6885 | CE=-11.3113 | CLIP=0.2456
+Rank=73 | Source=Vision Transformer.pdf | Page=15 | Image=Vision Transformer_page15_render.png | Hybrid=-6.6885 | CE=-11.3032 | CLIP=0.2334
+Rank=74 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img57.png | Hybrid=-6.6887 | CE=-11.2790 | CLIP=0.1968
+Rank=75 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img132.png | Hybrid=-6.6887 | CE=-11.2880 | CLIP=0.2101
+Rank=76 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img219.png | Hybrid=-6.6888 | CE=-11.2903 | CLIP=0.2135
+Rank=77 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img18.png | Hybrid=-6.6888 | CE=-11.2959 | CLIP=0.2218
+Rank=78 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img78.png | Hybrid=-6.6888 | CE=-11.2956 | CLIP=0.2213
+Rank=79 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img203.png | Hybrid=-6.6888 | CE=-11.2897 | CLIP=0.2125
+Rank=80 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img225.png | Hybrid=-6.6889 | CE=-11.2958 | CLIP=0.2214
+Rank=81 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img125.png | Hybrid=-6.6890 | CE=-11.2874 | CLIP=0.2086
+Rank=82 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img137.png | Hybrid=-6.6896 | CE=-11.2805 | CLIP=0.1968
+Rank=83 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img32.png | Hybrid=-6.6896 | CE=-11.2843 | CLIP=0.2024
+Rank=84 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img237.png | Hybrid=-6.6897 | CE=-11.2984 | CLIP=0.2234
+Rank=85 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img142.png | Hybrid=-6.6898 | CE=-11.3044 | CLIP=0.2321
+Rank=86 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img206.png | Hybrid=-6.6898 | CE=-11.2860 | CLIP=0.2044
+Rank=87 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img170.png | Hybrid=-6.6899 | CE=-11.3098 | CLIP=0.2400
+Rank=88 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img23.png | Hybrid=-6.6899 | CE=-11.2971 | CLIP=0.2210
+Rank=89 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img129.png | Hybrid=-6.6902 | CE=-11.2793 | CLIP=0.1934
+Rank=90 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img181.png | Hybrid=-6.6902 | CE=-11.2913 | CLIP=0.2114
+Rank=91 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img13.png | Hybrid=-6.6903 | CE=-11.2964 | CLIP=0.2189
+Rank=92 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img118.png | Hybrid=-6.6905 | CE=-11.2840 | CLIP=0.1999
+Rank=93 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img35.png | Hybrid=-6.6907 | CE=-11.2996 | CLIP=0.2227
+Rank=94 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img115.png | Hybrid=-6.6907 | CE=-11.2760 | CLIP=0.1873
+Rank=95 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img106.png | Hybrid=-6.6907 | CE=-11.3108 | CLIP=0.2395
+Rank=96 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img58.png | Hybrid=-6.6909 | CE=-11.2999 | CLIP=0.2226
+Rank=97 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img242.png | Hybrid=-6.6910 | CE=-11.2928 | CLIP=0.2117
+Rank=98 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img166.png | Hybrid=-6.6914 | CE=-11.2779 | CLIP=0.1885
+Rank=99 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img180.png | Hybrid=-6.6915 | CE=-11.2882 | CLIP=0.2036
+Rank=100 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img126.png | Hybrid=-6.6915 | CE=-11.3003 | CLIP=0.2217
+Rank=101 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img83.png | Hybrid=-6.6915 | CE=-11.3022 | CLIP=0.2245
+Rank=102 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img223.png | Hybrid=-6.6917 | CE=-11.2967 | CLIP=0.2157
+Rank=103 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img148.png | Hybrid=-6.6917 | CE=-11.2821 | CLIP=0.1938
+Rank=104 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img205.png | Hybrid=-6.6918 | CE=-11.3019 | CLIP=0.2235
+Rank=105 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img47.png | Hybrid=-6.6918 | CE=-11.3056 | CLIP=0.2289
+Rank=106 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img193.png | Hybrid=-6.6919 | CE=-11.2973 | CLIP=0.2161
+Rank=107 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img105.png | Hybrid=-6.6920 | CE=-11.3058 | CLIP=0.2288
+Rank=108 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img29.png | Hybrid=-6.6921 | CE=-11.2924 | CLIP=0.2084
+Rank=109 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img117.png | Hybrid=-6.6921 | CE=-11.2996 | CLIP=0.2191
+Rank=110 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img88.png | Hybrid=-6.6923 | CE=-11.2706 | CLIP=0.1752
+Rank=111 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img80.png | Hybrid=-6.6923 | CE=-11.3035 | CLIP=0.2245
+Rank=112 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img52.png | Hybrid=-6.6923 | CE=-11.3051 | CLIP=0.2268
+Rank=113 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img157.png | Hybrid=-6.6923 | CE=-11.2989 | CLIP=0.2175
+Rank=114 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img0.png | Hybrid=-6.6924 | CE=-11.2878 | CLIP=0.2006
+Rank=115 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img12.png | Hybrid=-6.6925 | CE=-11.2953 | CLIP=0.2118
+Rank=116 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img90.png | Hybrid=-6.6925 | CE=-11.2806 | CLIP=0.1897
+Rank=117 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img147.png | Hybrid=-6.6926 | CE=-11.2810 | CLIP=0.1901
+Rank=118 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img210.png | Hybrid=-6.6926 | CE=-11.2930 | CLIP=0.2080
+Rank=119 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img24.png | Hybrid=-6.6930 | CE=-11.2823 | CLIP=0.1909
+Rank=120 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img74.png | Hybrid=-6.6931 | CE=-11.2765 | CLIP=0.1821
+Rank=121 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img177.png | Hybrid=-6.6931 | CE=-11.3010 | CLIP=0.2189
+Rank=122 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img81.png | Hybrid=-6.6931 | CE=-11.2956 | CLIP=0.2106
+Rank=123 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img65.png | Hybrid=-6.6931 | CE=-11.3067 | CLIP=0.2271
+Rank=124 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img171.png | Hybrid=-6.6932 | CE=-11.3107 | CLIP=0.2332
+Rank=125 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img111.png | Hybrid=-6.6932 | CE=-11.2935 | CLIP=0.2073
+Rank=126 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img138.png | Hybrid=-6.6933 | CE=-11.2881 | CLIP=0.1990
+Rank=127 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img103.png | Hybrid=-6.6933 | CE=-11.2824 | CLIP=0.1903
+Rank=128 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img19.png | Hybrid=-6.6933 | CE=-11.3042 | CLIP=0.2230
+Rank=129 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img86.png | Hybrid=-6.6934 | CE=-11.2780 | CLIP=0.1834
+Rank=130 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img249.png | Hybrid=-6.6934 | CE=-11.3036 | CLIP=0.2217
+Rank=131 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img7.png | Hybrid=-6.6937 | CE=-11.2875 | CLIP=0.1972
+Rank=132 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img173.png | Hybrid=-6.6937 | CE=-11.2951 | CLIP=0.2084
+Rank=133 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img153.png | Hybrid=-6.6939 | CE=-11.2820 | CLIP=0.1882
+Rank=134 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img146.png | Hybrid=-6.6939 | CE=-11.2810 | CLIP=0.1867
+Rank=135 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img235.png | Hybrid=-6.6940 | CE=-11.2886 | CLIP=0.1979
+Rank=136 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img134.png | Hybrid=-6.6940 | CE=-11.2871 | CLIP=0.1956
+Rank=137 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img97.png | Hybrid=-6.6942 | CE=-11.2854 | CLIP=0.1927
+Rank=138 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img6.png | Hybrid=-6.6943 | CE=-11.2891 | CLIP=0.1980
+Rank=139 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img4.png | Hybrid=-6.6943 | CE=-11.2974 | CLIP=0.2103
+Rank=140 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img168.png | Hybrid=-6.6944 | CE=-11.3009 | CLIP=0.2155
+Rank=141 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img124.png | Hybrid=-6.6945 | CE=-11.2873 | CLIP=0.1948
+Rank=142 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img67.png | Hybrid=-6.6945 | CE=-11.2825 | CLIP=0.1875
+Rank=143 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img230.png | Hybrid=-6.6946 | CE=-11.2826 | CLIP=0.1875
+Rank=144 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img253.png | Hybrid=-6.6946 | CE=-11.2888 | CLIP=0.1966
+Rank=145 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img64.png | Hybrid=-6.6946 | CE=-11.3024 | CLIP=0.2171
+Rank=146 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img108.png | Hybrid=-6.6947 | CE=-11.3044 | CLIP=0.2198
+Rank=147 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img16.png | Hybrid=-6.6948 | CE=-11.2886 | CLIP=0.1958
+Rank=148 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img22.png | Hybrid=-6.6949 | CE=-11.2929 | CLIP=0.2021
+Rank=149 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_render.png | Hybrid=-6.6949 | CE=-11.3100 | CLIP=0.2277
+Rank=150 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img221.png | Hybrid=-6.6950 | CE=-11.2868 | CLIP=0.1929
+Rank=151 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img89.png | Hybrid=-6.6952 | CE=-11.2897 | CLIP=0.1965
+Rank=152 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img107.png | Hybrid=-6.6954 | CE=-11.2973 | CLIP=0.2075
+Rank=153 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img174.png | Hybrid=-6.6955 | CE=-11.2949 | CLIP=0.2036
+Rank=154 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img15.png | Hybrid=-6.6955 | CE=-11.3098 | CLIP=0.2258
+Rank=155 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img102.png | Hybrid=-6.6957 | CE=-11.3116 | CLIP=0.2281
+Rank=156 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img248.png | Hybrid=-6.6962 | CE=-11.2996 | CLIP=0.2091
+Rank=157 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img247.png | Hybrid=-6.6962 | CE=-11.2972 | CLIP=0.2054
+Rank=158 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img34.png | Hybrid=-6.6962 | CE=-11.2957 | CLIP=0.2031
+Rank=159 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img99.png | Hybrid=-6.6962 | CE=-11.2925 | CLIP=0.1982
+Rank=160 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img228.png | Hybrid=-6.6962 | CE=-11.3021 | CLIP=0.2125
+Rank=161 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img95.png | Hybrid=-6.6963 | CE=-11.2962 | CLIP=0.2035
+Rank=162 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img136.png | Hybrid=-6.6965 | CE=-11.2940 | CLIP=0.1999
+Rank=163 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img199.png | Hybrid=-6.6965 | CE=-11.3059 | CLIP=0.2176
+Rank=164 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img185.png | Hybrid=-6.6965 | CE=-11.3022 | CLIP=0.2120
+Rank=165 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img87.png | Hybrid=-6.6967 | CE=-11.2907 | CLIP=0.1943
+Rank=166 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img164.png | Hybrid=-6.6968 | CE=-11.2876 | CLIP=0.1895
+Rank=167 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img245.png | Hybrid=-6.6968 | CE=-11.3056 | CLIP=0.2164
+Rank=168 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img127.png | Hybrid=-6.6970 | CE=-11.2868 | CLIP=0.1877
+Rank=169 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img70.png | Hybrid=-6.6970 | CE=-11.2808 | CLIP=0.1787
+Rank=170 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img243.png | Hybrid=-6.6970 | CE=-11.3037 | CLIP=0.2129
+Rank=171 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img120.png | Hybrid=-6.6971 | CE=-11.2781 | CLIP=0.1745
+Rank=172 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img123.png | Hybrid=-6.6971 | CE=-11.2998 | CLIP=0.2070
+Rank=173 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img152.png | Hybrid=-6.6972 | CE=-11.2738 | CLIP=0.1677
+Rank=174 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img176.png | Hybrid=-6.6972 | CE=-11.2880 | CLIP=0.1889
+Rank=175 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img94.png | Hybrid=-6.6973 | CE=-11.3049 | CLIP=0.2142
+Rank=176 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img76.png | Hybrid=-6.6977 | CE=-11.3050 | CLIP=0.2134
+Rank=177 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img116.png | Hybrid=-6.6977 | CE=-11.2996 | CLIP=0.2051
+Rank=178 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img31.png | Hybrid=-6.6978 | CE=-11.2937 | CLIP=0.1960
+Rank=179 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img197.png | Hybrid=-6.6978 | CE=-11.2997 | CLIP=0.2050
+Rank=180 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img63.png | Hybrid=-6.6980 | CE=-11.3024 | CLIP=0.2087
+Rank=181 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img186.png | Hybrid=-6.6980 | CE=-11.2993 | CLIP=0.2040
+Rank=182 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img36.png | Hybrid=-6.6981 | CE=-11.2815 | CLIP=0.1770
+Rank=183 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img75.png | Hybrid=-6.6982 | CE=-11.2980 | CLIP=0.2016
+Rank=184 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img189.png | Hybrid=-6.6982 | CE=-11.2907 | CLIP=0.1904
+Rank=185 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img79.png | Hybrid=-6.6983 | CE=-11.3035 | CLIP=0.2094
+Rank=186 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img11.png | Hybrid=-6.6985 | CE=-11.3153 | CLIP=0.2267
+Rank=187 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img231.png | Hybrid=-6.6985 | CE=-11.2953 | CLIP=0.1966
+Rank=188 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img238.png | Hybrid=-6.6987 | CE=-11.2900 | CLIP=0.1882
+Rank=189 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img104.png | Hybrid=-6.6987 | CE=-11.3024 | CLIP=0.2068
+Rank=190 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img25.png | Hybrid=-6.6988 | CE=-11.2948 | CLIP=0.1952
+Rank=191 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img246.png | Hybrid=-6.6989 | CE=-11.2936 | CLIP=0.1933
+Rank=192 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img188.png | Hybrid=-6.6989 | CE=-11.2866 | CLIP=0.1825
+Rank=193 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img33.png | Hybrid=-6.6992 | CE=-11.3113 | CLIP=0.2190
+Rank=194 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img192.png | Hybrid=-6.6992 | CE=-11.2973 | CLIP=0.1978
+Rank=195 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img200.png | Hybrid=-6.6995 | CE=-11.2909 | CLIP=0.1877
+Rank=196 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img198.png | Hybrid=-6.6996 | CE=-11.2969 | CLIP=0.1965
+Rank=197 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img195.png | Hybrid=-6.6999 | CE=-11.3014 | CLIP=0.2024
+Rank=198 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img226.png | Hybrid=-6.7000 | CE=-11.2888 | CLIP=0.1831
+Rank=199 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img172.png | Hybrid=-6.7001 | CE=-11.3188 | CLIP=0.2280
+Rank=200 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img162.png | Hybrid=-6.7001 | CE=-11.2857 | CLIP=0.1783
+Rank=201 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img46.png | Hybrid=-6.7002 | CE=-11.2955 | CLIP=0.1927
+Rank=202 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img165.png | Hybrid=-6.7002 | CE=-11.2873 | CLIP=0.1803
+Rank=203 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img208.png | Hybrid=-6.7004 | CE=-11.3018 | CLIP=0.2017
+Rank=204 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img21.png | Hybrid=-6.7004 | CE=-11.3063 | CLIP=0.2083
+Rank=205 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img239.png | Hybrid=-6.7005 | CE=-11.3043 | CLIP=0.2052
+Rank=206 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img224.png | Hybrid=-6.7006 | CE=-11.2948 | CLIP=0.1908
+Rank=207 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img209.png | Hybrid=-6.7007 | CE=-11.3054 | CLIP=0.2064
+Rank=208 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img212.png | Hybrid=-6.7009 | CE=-11.2981 | CLIP=0.1949
+Rank=209 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img187.png | Hybrid=-6.7010 | CE=-11.2993 | CLIP=0.1964
+Rank=210 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img241.png | Hybrid=-6.7011 | CE=-11.3168 | CLIP=0.2223
+Rank=211 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img54.png | Hybrid=-6.7012 | CE=-11.2906 | CLIP=0.1829
+Rank=212 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img51.png | Hybrid=-6.7013 | CE=-11.3188 | CLIP=0.2251
+Rank=213 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img191.png | Hybrid=-6.7013 | CE=-11.2997 | CLIP=0.1963
+Rank=214 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img39.png | Hybrid=-6.7013 | CE=-11.3093 | CLIP=0.2106
+Rank=215 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img3.png | Hybrid=-6.7015 | CE=-11.3043 | CLIP=0.2028
+Rank=216 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img30.png | Hybrid=-6.7015 | CE=-11.2854 | CLIP=0.1742
+Rank=217 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img50.png | Hybrid=-6.7017 | CE=-11.2970 | CLIP=0.1913
+Rank=218 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img218.png | Hybrid=-6.7020 | CE=-11.2911 | CLIP=0.1816
+Rank=219 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img119.png | Hybrid=-6.7023 | CE=-11.3090 | CLIP=0.2078
+Rank=220 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img73.png | Hybrid=-6.7023 | CE=-11.2880 | CLIP=0.1763
+Rank=221 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img143.png | Hybrid=-6.7023 | CE=-11.3067 | CLIP=0.2043
+Rank=222 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img150.png | Hybrid=-6.7023 | CE=-11.2892 | CLIP=0.1780
+Rank=223 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img227.png | Hybrid=-6.7024 | CE=-11.3075 | CLIP=0.2051
+Rank=224 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img131.png | Hybrid=-6.7025 | CE=-11.2881 | CLIP=0.1760
+Rank=225 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img234.png | Hybrid=-6.7026 | CE=-11.3064 | CLIP=0.2029
+Rank=226 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img114.png | Hybrid=-6.7029 | CE=-11.2939 | CLIP=0.1836
+Rank=227 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img160.png | Hybrid=-6.7030 | CE=-11.3182 | CLIP=0.2198
+Rank=228 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img240.png | Hybrid=-6.7031 | CE=-11.3119 | CLIP=0.2100
+Rank=229 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img37.png | Hybrid=-6.7031 | CE=-11.3067 | CLIP=0.2022
+Rank=230 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img93.png | Hybrid=-6.7034 | CE=-11.3079 | CLIP=0.2032
+Rank=231 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img169.png | Hybrid=-6.7037 | CE=-11.3200 | CLIP=0.2206
+Rank=232 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img42.png | Hybrid=-6.7038 | CE=-11.2904 | CLIP=0.1760
+Rank=233 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img254.png | Hybrid=-6.7039 | CE=-11.3069 | CLIP=0.2004
+Rank=234 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img252.png | Hybrid=-6.7041 | CE=-11.3036 | CLIP=0.1951
+Rank=235 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img140.png | Hybrid=-6.7043 | CE=-11.3135 | CLIP=0.2095
+Rank=236 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img38.png | Hybrid=-6.7047 | CE=-11.3074 | CLIP=0.1993
+Rank=237 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img44.png | Hybrid=-6.7049 | CE=-11.3069 | CLIP=0.1980
+Rank=238 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img9.png | Hybrid=-6.7050 | CE=-11.3167 | CLIP=0.2127
+Rank=239 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img175.png | Hybrid=-6.7050 | CE=-11.2929 | CLIP=0.1768
+Rank=240 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img184.png | Hybrid=-6.7051 | CE=-11.3022 | CLIP=0.1904
+Rank=241 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img216.png | Hybrid=-6.7053 | CE=-11.2998 | CLIP=0.1864
+Rank=242 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img236.png | Hybrid=-6.7053 | CE=-11.3075 | CLIP=0.1979
+Rank=243 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img130.png | Hybrid=-6.7054 | CE=-11.3158 | CLIP=0.2102
+Rank=244 | Source=Vision Transformer.pdf | Page=14 | Image=Vision Transformer_page14_render.png | Hybrid=-6.7055 | CE=-11.3358 | CLIP=0.2398
+Rank=245 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img68.png | Hybrid=-6.7056 | CE=-11.3195 | CLIP=0.2154
+Rank=246 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img204.png | Hybrid=-6.7057 | CE=-11.3077 | CLIP=0.1973
+Rank=247 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img56.png | Hybrid=-6.7060 | CE=-11.3111 | CLIP=0.2016
+Rank=248 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img69.png | Hybrid=-6.7061 | CE=-11.3083 | CLIP=0.1971
+Rank=249 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img201.png | Hybrid=-6.7062 | CE=-11.3173 | CLIP=0.2104
+Rank=250 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img233.png | Hybrid=-6.7062 | CE=-11.2932 | CLIP=0.1742
+Rank=251 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img178.png | Hybrid=-6.7063 | CE=-11.3060 | CLIP=0.1934
+Rank=252 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img122.png | Hybrid=-6.7066 | CE=-11.3062 | CLIP=0.1927
+Rank=253 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img163.png | Hybrid=-6.7067 | CE=-11.2911 | CLIP=0.1698
+Rank=254 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img194.png | Hybrid=-6.7067 | CE=-11.2923 | CLIP=0.1716
+Rank=255 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img8.png | Hybrid=-6.7068 | CE=-11.3111 | CLIP=0.1997
+Rank=256 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img202.png | Hybrid=-6.7069 | CE=-11.3010 | CLIP=0.1842
+Rank=257 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img133.png | Hybrid=-6.7070 | CE=-11.2943 | CLIP=0.1740
+Rank=258 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img72.png | Hybrid=-6.7082 | CE=-11.3107 | CLIP=0.1955
+Rank=259 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img179.png | Hybrid=-6.7083 | CE=-11.3105 | CLIP=0.1951
+Rank=260 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img156.png | Hybrid=-6.7084 | CE=-11.3153 | CLIP=0.2020
+Rank=261 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img55.png | Hybrid=-6.7087 | CE=-11.3073 | CLIP=0.1892
+Rank=262 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img2.png | Hybrid=-6.7095 | CE=-11.3053 | CLIP=0.1841
+Rank=263 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img161.png | Hybrid=-6.7103 | CE=-11.2962 | CLIP=0.1685
+Rank=264 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img53.png | Hybrid=-6.7107 | CE=-11.2951 | CLIP=0.1658
+Rank=265 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img196.png | Hybrid=-6.7115 | CE=-11.3119 | CLIP=0.1892
+Rank=266 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img139.png | Hybrid=-6.7115 | CE=-11.3043 | CLIP=0.1776
+Rank=267 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img222.png | Hybrid=-6.7135 | CE=-11.3237 | CLIP=0.2017
+Rank=268 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img20.png | Hybrid=-6.7136 | CE=-11.3107 | CLIP=0.1820
+Rank=269 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img215.png | Hybrid=-6.7146 | CE=-11.3196 | CLIP=0.1928
+Rank=270 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img159.png | Hybrid=-6.7149 | CE=-11.3182 | CLIP=0.1900
+Rank=271 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img71.png | Hybrid=-6.7157 | CE=-11.3182 | CLIP=0.1879
+Rank=272 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img10.png | Hybrid=-6.7173 | CE=-11.3057 | CLIP=0.1653
+Rank=273 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img214.png | Hybrid=-6.7181 | CE=-11.3156 | CLIP=0.1781
+Rank=274 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img183.png | Hybrid=-6.7193 | CE=-11.3307 | CLIP=0.1976
+Rank=275 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img232.png | Hybrid=-6.7243 | CE=-11.3150 | CLIP=0.1617
+Rank=276 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img182.png | Hybrid=-6.7259 | CE=-11.3292 | CLIP=0.1791
+Rank=277 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img22.png | Hybrid=-6.7271 | CE=-11.3644 | CLIP=0.2289
+Rank=278 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img0.png | Hybrid=-6.7273 | CE=-11.3622 | CLIP=0.2252
+Rank=279 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img23.png | Hybrid=-6.7279 | CE=-11.3645 | CLIP=0.2270
+Rank=280 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img2.png | Hybrid=-6.7289 | CE=-11.3594 | CLIP=0.2168
+Rank=281 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img19.png | Hybrid=-6.7299 | CE=-11.3706 | CLIP=0.2311
+Rank=282 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img14.png | Hybrid=-6.7299 | CE=-11.3683 | CLIP=0.2276
+Rank=283 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img13.png | Hybrid=-6.7305 | CE=-11.3695 | CLIP=0.2278
+Rank=284 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img20.png | Hybrid=-6.7308 | CE=-11.3711 | CLIP=0.2295
+Rank=285 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img24.png | Hybrid=-6.7310 | CE=-11.3645 | CLIP=0.2193
+Rank=286 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img1.png | Hybrid=-6.7321 | CE=-11.3620 | CLIP=0.2128
+Rank=287 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img5.png | Hybrid=-6.7324 | CE=-11.3695 | CLIP=0.2233
+Rank=288 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img8.png | Hybrid=-6.7324 | CE=-11.3657 | CLIP=0.2175
+Rank=289 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img25.png | Hybrid=-6.7326 | CE=-11.3615 | CLIP=0.2109
+Rank=290 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img16.png | Hybrid=-6.7329 | CE=-11.3706 | CLIP=0.2238
+Rank=291 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img9.png | Hybrid=-6.7331 | CE=-11.3625 | CLIP=0.2109
+Rank=292 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img11.png | Hybrid=-6.7333 | CE=-11.3740 | CLIP=0.2277
+Rank=293 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img7.png | Hybrid=-6.7335 | CE=-11.3687 | CLIP=0.2192
+Rank=294 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img27.png | Hybrid=-6.7345 | CE=-11.3639 | CLIP=0.2095
+Rank=295 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img6.png | Hybrid=-6.7351 | CE=-11.3704 | CLIP=0.2178
+Rank=296 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img17.png | Hybrid=-6.7398 | CE=-11.3850 | CLIP=0.2280
+Rank=297 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img3.png | Hybrid=-6.7403 | CE=-11.3814 | CLIP=0.2214
+Rank=298 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img26.png | Hybrid=-6.7405 | CE=-11.3819 | CLIP=0.2216
+Rank=299 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img21.png | Hybrid=-6.7406 | CE=-11.3706 | CLIP=0.2045
+Rank=300 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img15.png | Hybrid=-6.7418 | CE=-11.3902 | CLIP=0.2307
+Rank=301 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img12.png | Hybrid=-6.7459 | CE=-11.3889 | CLIP=0.2186
+Rank=302 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img4.png | Hybrid=-6.7477 | CE=-11.3886 | CLIP=0.2137
+Rank=303 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img10.png | Hybrid=-6.7501 | CE=-11.4008 | CLIP=0.2259
+Rank=304 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img18.png | Hybrid=-6.7531 | CE=-11.4045 | CLIP=0.2241
+
+TOP IMAGE RESULTS
+--------------------------------------------------------------------------------
+TOP-1 | Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img5.png | Hybrid=0.8527 | CE=1.2920 | CLIP=0.1937
+TOP-2 | Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img3.png | Hybrid=0.8523 | CE=1.2771 | CLIP=0.2151
+TOP-3 | Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img2.png | Hybrid=0.8444 | CE=1.2771 | CLIP=0.1953
+================================================================================
+[DOCUMENT SCOPE] Images: 3 -> 3
+
+================================================================================
+STAGE 2 — IMAGE RETRIEVAL RESULT
+================================================================================
+Image Results       : 3
+Exact Figure Match  : False
+
+[IMAGE #1] Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img5.png
+Image Path: extracted_images\Vision Transformer_page8_img5.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT  Caption: a yellow leaf laying on the ground  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 4.4 SCALING STUDY We perform a controlled scaling study of different models by evaluating transfer performance from JFT-300M. In this setting data size does not bottleneck the models’ performances, and we assess performance versus pre-training cost of each model. The model set includes: 7 ResNets, R50x1, R50x2 R101x
+
+[IMAGE #2] Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img3.png
+Image Path: extracted_images\Vision Transformer_page8_img3.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT  Caption: a plane flying in the sky  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 4.4 SCALING STUDY We perform a controlled scaling study of different models by evaluating transfer performance from JFT-300M. In this setting data size does not bottleneck the models’ performances, and we assess performance versus pre-training cost of each model. The model set includes: 7 ResNets, R50x1, R50x2 R101x1, R152x1
+
+[IMAGE #3] Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img2.png
+Image Path: extracted_images\Vision Transformer_page8_img2.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT  Caption: a plane flying in the sky  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 4.4 SCALING STUDY We perform a controlled scaling study of different models by evaluating transfer performance from JFT-300M. In this setting data size does not bottleneck the models’ performances, and we assess performance versus pre-training cost of each model. The model set includes: 7 ResNets, R50x1, R50x2 R101x1, R152x1
+================================================================================
+
+================================================================================
+COMBINED RETRIEVAL CANDIDATES
+================================================================================
+Text Candidates  : 8
+Image Candidates : 3
+Total Candidates : 11
+================================================================================
+
+================================================================================
+STEP 3A — RERANKER INPUT
+================================================================================
+Query: How does the amount of pre-training data affect the performance of Vision Transformer models?
+Input candidates: 11
+01. Source=Vision Transformer.pdf | Page=4 | Type=text | Image=N/A
+    Content=4 E XPERIMENTS We evaluate the representation learning capabilities of ResNet, Vision Transformer (ViT), and the hybrid. To understand the data requirements of each model, we pre-t
+02. Source=Vision Transformer.pdf | Page=8 | Type=text | Image=N/A
+    Content=Published as a conference paper at ICLR 2021 4.4 S CALING STUDY We perform a controlled scaling study of different models by evaluating transfer performance from JFT-300M. In this 
+03. Source=Vision Transformer.pdf | Page=6 | Type=text | Image=N/A
+    Content=4.3 P RE-TRAINING DATA REQUIREMENTS The Vision Transformer performs well when pre-trained on a large JFT-300M dataset. With fewer inductive biases for vision than ResNets, how cruc
+04. Source=Vision Transformer.pdf | Page=8 | Type=text | Image=N/A
+    Content=since one might expect convolutional local feature processing to assist ViT at any size. Third, Vision Transformers appear not to saturate within the range tried, motivating future
+05. Source=Vision Transformer.pdf | Page=9 | Type=text | Image=N/A
+    Content=Thus, Vision Transformer matches or exceeds the state of the art on many image classiﬁcation datasets, whilst being relatively cheap to pre-train. While these initial results are e
+06. Source=Vision Transformer.pdf | Page=4 | Type=text | Image=N/A
+    Content=however, the pre-trained position embeddings may no longer be meaningful. We therefore perform 2D interpolation of the pre-trained position embeddings, according to their location 
+07. Source=Vision Transformer.pdf | Page=2 | Type=text | Image=N/A
+    Content=come the state of the art method in many NLP tasks. Large Transformer-based models are often pre-trained on large corpora and then ﬁne-tuned for the task at hand: BERT (Devlin et a
+08. Source=Vision Transformer.pdf | Page=8 | Type=text | Image=N/A
+    Content=age data, we analyze its internal representations. The ﬁrst layer of the Vision Transformer linearly projects the ﬂattened patches into a lower-dimensional space (Eq. 1). Figure 7 
+09. Source=Vision Transformer.pdf | Page=8 | Type=image | Image=extracted_images\Vision Transformer_page8_img5.png
+    Content=FIGURE FROM DOCUMENT  Caption: a yellow leaf laying on the ground  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 20
+10. Source=Vision Transformer.pdf | Page=8 | Type=image | Image=extracted_images\Vision Transformer_page8_img3.png
+    Content=FIGURE FROM DOCUMENT  Caption: a plane flying in the sky  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 4.4 SC
+11. Source=Vision Transformer.pdf | Page=8 | Type=image | Image=extracted_images\Vision Transformer_page8_img2.png
+    Content=FIGURE FROM DOCUMENT  Caption: a plane flying in the sky  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 4.4 SC
+================================================================================
+
+--------------------------------------------------------------------------------
+CROSS-ENCODER RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=02 | Source=Vision Transformer.pdf | Page=6 | Type=text | CE=5.5410
+Rank=02 | OriginalIndex=01 | Source=Vision Transformer.pdf | Page=8 | Type=text | CE=2.8060
+Rank=03 | OriginalIndex=00 | Source=Vision Transformer.pdf | Page=4 | Type=text | CE=2.5767
+Rank=04 | OriginalIndex=04 | Source=Vision Transformer.pdf | Page=9 | Type=text | CE=2.0463
+Rank=05 | OriginalIndex=08 | Source=Vision Transformer.pdf | Page=8 | Type=image | CE=1.2920
+Rank=06 | OriginalIndex=09 | Source=Vision Transformer.pdf | Page=8 | Type=image | CE=1.2771
+Rank=07 | OriginalIndex=10 | Source=Vision Transformer.pdf | Page=8 | Type=image | CE=1.2771
+Rank=08 | OriginalIndex=05 | Source=Vision Transformer.pdf | Page=4 | Type=text | CE=0.0094
+Rank=09 | OriginalIndex=06 | Source=Vision Transformer.pdf | Page=2 | Type=text | CE=-0.2846
+Rank=10 | OriginalIndex=03 | Source=Vision Transformer.pdf | Page=8 | Type=text | CE=-2.1638
+Rank=11 | OriginalIndex=07 | Source=Vision Transformer.pdf | Page=8 | Type=text | CE=-2.7886
+
+--------------------------------------------------------------------------------
+CLIP IMAGE RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=09 | Source=Vision Transformer.pdf | Page=8 | Image=extracted_images\Vision Transformer_page8_img3.png | CLIP=0.2151
+Rank=02 | OriginalIndex=10 | Source=Vision Transformer.pdf | Page=8 | Image=extracted_images\Vision Transformer_page8_img2.png | CLIP=0.1953
+Rank=03 | OriginalIndex=08 | Source=Vision Transformer.pdf | Page=8 | Image=extracted_images\Vision Transformer_page8_img5.png | CLIP=0.1937
+
+================================================================================
+STEP 3A — COMPLETE MULTIMODAL RERANK RESULT
+================================================================================
+Rank=01 | Type=image | Source=Vision Transformer.pdf | Page=8 | RRF=0.031545 | CE=1.2771 | CLIP=0.2151
+    Content=FIGURE FROM DOCUMENT  Caption: a plane flying in the sky  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 4.4 SC
+Rank=02 | Type=image | Source=Vision Transformer.pdf | Page=8 | RRF=0.031258 | CE=1.2920 | CLIP=0.1937
+    Content=FIGURE FROM DOCUMENT  Caption: a yellow leaf laying on the ground  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 20
+Rank=03 | Type=image | Source=Vision Transformer.pdf | Page=8 | RRF=0.031054 | CE=1.2771 | CLIP=0.1953
+    Content=FIGURE FROM DOCUMENT  Caption: a plane flying in the sky  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 4.4 SC
+Rank=04 | Type=text | Source=Vision Transformer.pdf | Page=6 | RRF=0.016393 | CE=5.5410 | CLIP=N/A
+    Content=4.3 P RE-TRAINING DATA REQUIREMENTS The Vision Transformer performs well when pre-trained on a large JFT-300M dataset. With fewer inductive biases for vision than ResNets, how cruc
+Rank=05 | Type=text | Source=Vision Transformer.pdf | Page=8 | RRF=0.016129 | CE=2.8060 | CLIP=N/A
+    Content=Published as a conference paper at ICLR 2021 4.4 S CALING STUDY We perform a controlled scaling study of different models by evaluating transfer performance from JFT-300M. In this 
+Rank=06 | Type=text | Source=Vision Transformer.pdf | Page=4 | RRF=0.015873 | CE=2.5767 | CLIP=N/A
+    Content=4 E XPERIMENTS We evaluate the representation learning capabilities of ResNet, Vision Transformer (ViT), and the hybrid. To understand the data requirements of each model, we pre-t
+Rank=07 | Type=text | Source=Vision Transformer.pdf | Page=9 | RRF=0.015625 | CE=2.0463 | CLIP=N/A
+    Content=Thus, Vision Transformer matches or exceeds the state of the art on many image classiﬁcation datasets, whilst being relatively cheap to pre-train. While these initial results are e
+Rank=08 | Type=text | Source=Vision Transformer.pdf | Page=4 | RRF=0.014706 | CE=0.0094 | CLIP=N/A
+    Content=however, the pre-trained position embeddings may no longer be meaningful. We therefore perform 2D interpolation of the pre-trained position embeddings, according to their location 
+Rank=09 | Type=text | Source=Vision Transformer.pdf | Page=2 | RRF=0.014493 | CE=-0.2846 | CLIP=N/A
+    Content=come the state of the art method in many NLP tasks. Large Transformer-based models are often pre-trained on large corpora and then ﬁne-tuned for the task at hand: BERT (Devlin et a
+Rank=10 | Type=text | Source=Vision Transformer.pdf | Page=8 | RRF=0.014286 | CE=-2.1638 | CLIP=N/A
+    Content=since one might expect convolutional local feature processing to assist ViT at any size. Third, Vision Transformers appear not to saturate within the range tried, motivating future
+Rank=11 | Type=text | Source=Vision Transformer.pdf | Page=8 | RRF=0.014085 | CE=-2.7886 | CLIP=N/A
+    Content=age data, we analyze its internal representations. The ﬁrst layer of the Vision Transformer linearly projects the ﬂattened patches into a lower-dimensional space (Eq. 1). Figure 7 
+================================================================================
+
+================================================================================
+STEP 3A — FINAL RERANK TOP-K
+================================================================================
+Requested top_k: 12
+Returned documents: 11
+01. Source=Vision Transformer.pdf | Page=8 | Type=image | Image=extracted_images\Vision Transformer_page8_img3.png
+02. Source=Vision Transformer.pdf | Page=8 | Type=image | Image=extracted_images\Vision Transformer_page8_img5.png
+03. Source=Vision Transformer.pdf | Page=8 | Type=image | Image=extracted_images\Vision Transformer_page8_img2.png
+04. Source=Vision Transformer.pdf | Page=6 | Type=text | Image=N/A
+05. Source=Vision Transformer.pdf | Page=8 | Type=text | Image=N/A
+06. Source=Vision Transformer.pdf | Page=4 | Type=text | Image=N/A
+07. Source=Vision Transformer.pdf | Page=9 | Type=text | Image=N/A
+08. Source=Vision Transformer.pdf | Page=4 | Type=text | Image=N/A
+09. Source=Vision Transformer.pdf | Page=2 | Type=text | Image=N/A
+10. Source=Vision Transformer.pdf | Page=8 | Type=text | Image=N/A
+11. Source=Vision Transformer.pdf | Page=8 | Type=text | Image=N/A
+================================================================================
+
+================================================================================
+STAGE 3 — MULTIMODAL RERANKING
+================================================================================
+Input Candidates : 11
+Reranked Output   : 11
+
+[RERANK #1] Source=Vision Transformer.pdf | Page=8 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT  Caption: a plane flying in the sky  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 4.4 SCALING STUDY We perform a controlled scaling study of different models by evaluating transfer performance from JFT-300M. 
+
+[RERANK #2] Source=Vision Transformer.pdf | Page=8 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT  Caption: a yellow leaf laying on the ground  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 4.4 SCALING STUDY We perform a controlled scaling study of different models by evaluating transfer performance from J
+
+[RERANK #3] Source=Vision Transformer.pdf | Page=8 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT  Caption: a plane flying in the sky  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 4.4 SCALING STUDY We perform a controlled scaling study of different models by evaluating transfer performance from JFT-300M. 
+
+[RERANK #4] Source=Vision Transformer.pdf | Page=6 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: 4.3 P RE-TRAINING DATA REQUIREMENTS The Vision Transformer performs well when pre-trained on a large JFT-300M dataset. With fewer inductive biases for vision than ResNets, how crucial is the dataset size? We perform two series of experiments. First, we pre-train ViT models on datasets of increasing 
+
+[RERANK #5] Source=Vision Transformer.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Published as a conference paper at ICLR 2021 4.4 S CALING STUDY We perform a controlled scaling study of different models by evaluating transfer performance from JFT-300M. In this setting data size does not bottleneck the models’ performances, and we assess performance versus pre-training cost of ea
+
+[RERANK #6] Source=Vision Transformer.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: 4 E XPERIMENTS We evaluate the representation learning capabilities of ResNet, Vision Transformer (ViT), and the hybrid. To understand the data requirements of each model, we pre-train on datasets of varying size and evaluate many benchmark tasks. When considering the computational cost of pre-train
+
+[RERANK #7] Source=Vision Transformer.pdf | Page=9 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Thus, Vision Transformer matches or exceeds the state of the art on many image classiﬁcation datasets, whilst being relatively cheap to pre-train. While these initial results are encouraging, many challenges remain. One is to apply ViT to other computer vision tasks, such as detection and segmentati
+
+[RERANK #8] Source=Vision Transformer.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: however, the pre-trained position embeddings may no longer be meaningful. We therefore perform 2D interpolation of the pre-trained position embeddings, according to their location in the original image. Note that this resolution adjustment and patch extraction are the only points at which an inducti
+
+[RERANK #9] Source=Vision Transformer.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: come the state of the art method in many NLP tasks. Large Transformer-based models are often pre-trained on large corpora and then ﬁne-tuned for the task at hand: BERT (Devlin et al., 2019) uses a denoising self-supervised pre-training task, while the GPT line of work uses language mod- eling as its
+
+[RERANK #10] Source=Vision Transformer.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: since one might expect convolutional local feature processing to assist ViT at any size. Third, Vision Transformers appear not to saturate within the range tried, motivating future scaling efforts. 4.5 I NSPECTING VISION TRANSFORMER Input  Attention Figure 6: Representative ex- amples of attention f
+
+[RERANK #11] Source=Vision Transformer.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: age data, we analyze its internal representations. The ﬁrst layer of the Vision Transformer linearly projects the ﬂattened patches into a lower-dimensional space (Eq. 1). Figure 7 (left) shows the top prin- cipal components of the the learned embedding ﬁlters. The com- ponents resemble plausible bas
+================================================================================
+
+================================================================================
+FINAL CONTEXT DOCUMENTS
+================================================================================
+Final context candidates: 11
+
+[FINAL #1] Source=Vision Transformer.pdf | Page=8 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT  Caption: a plane flying in the sky  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 4.4 SCALING STUDY We perform a controlled scaling study of different models by evaluating transfer performance from JFT-300M. 
+
+[FINAL #2] Source=Vision Transformer.pdf | Page=8 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT  Caption: a yellow leaf laying on the ground  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 4.4 SCALING STUDY We perform a controlled scaling study of different models by evaluating transfer performance from J
+
+[FINAL #3] Source=Vision Transformer.pdf | Page=8 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT  Caption: a plane flying in the sky  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 4.4 SCALING STUDY We perform a controlled scaling study of different models by evaluating transfer performance from JFT-300M. 
+
+[FINAL #4] Source=Vision Transformer.pdf | Page=6 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: 4.3 P RE-TRAINING DATA REQUIREMENTS The Vision Transformer performs well when pre-trained on a large JFT-300M dataset. With fewer inductive biases for vision than ResNets, how crucial is the dataset size? We perform two series of experiments. First, we pre-train ViT models on datasets of increasing 
+
+[FINAL #5] Source=Vision Transformer.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Published as a conference paper at ICLR 2021 4.4 S CALING STUDY We perform a controlled scaling study of different models by evaluating transfer performance from JFT-300M. In this setting data size does not bottleneck the models’ performances, and we assess performance versus pre-training cost of ea
+
+[FINAL #6] Source=Vision Transformer.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: 4 E XPERIMENTS We evaluate the representation learning capabilities of ResNet, Vision Transformer (ViT), and the hybrid. To understand the data requirements of each model, we pre-train on datasets of varying size and evaluate many benchmark tasks. When considering the computational cost of pre-train
+
+[FINAL #7] Source=Vision Transformer.pdf | Page=9 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Thus, Vision Transformer matches or exceeds the state of the art on many image classiﬁcation datasets, whilst being relatively cheap to pre-train. While these initial results are encouraging, many challenges remain. One is to apply ViT to other computer vision tasks, such as detection and segmentati
+
+[FINAL #8] Source=Vision Transformer.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: however, the pre-trained position embeddings may no longer be meaningful. We therefore perform 2D interpolation of the pre-trained position embeddings, according to their location in the original image. Note that this resolution adjustment and patch extraction are the only points at which an inducti
+
+[FINAL #9] Source=Vision Transformer.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: come the state of the art method in many NLP tasks. Large Transformer-based models are often pre-trained on large corpora and then ﬁne-tuned for the task at hand: BERT (Devlin et al., 2019) uses a denoising self-supervised pre-training task, while the GPT line of work uses language mod- eling as its
+
+[FINAL #10] Source=Vision Transformer.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: since one might expect convolutional local feature processing to assist ViT at any size. Third, Vision Transformers appear not to saturate within the range tried, motivating future scaling efforts. 4.5 I NSPECTING VISION TRANSFORMER Input  Attention Figure 6: Representative ex- amples of attention f
+
+[FINAL #11] Source=Vision Transformer.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: age data, we analyze its internal representations. The ﬁrst layer of the Vision Transformer linearly projects the ﬂattened patches into a lower-dimensional space (Eq. 1). Figure 7 (left) shows the top prin- cipal components of the the learned embedding ﬁlters. The com- ponents resemble plausible bas
+================================================================================
+
+================================================================================
+FINAL CONTEXT SENT TO LLM
+================================================================================
+
+================================================================================
+DOCUMENT : Vision Transformer.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 2
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+come the state of the art method in many NLP tasks. Large Transformer-based models are often
+pre-trained on large corpora and then ﬁne-tuned for the task at hand: BERT (Devlin et al., 2019)
+uses a denoising self-supervised pre-training task, while the GPT line of work uses language mod-
+eling as its pre-training task (Radford et al., 2018; 2019; Brown et al., 2020).
+Naive application of self-attention to images would require that each pixel attends to every other
+pixel. With quadratic cost in the number of pixels, this does not scale to realistic input sizes. Thus,
+
+
+--------------------------------------------------------------------------------
+PAGE : 4
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+4 E XPERIMENTS
+We evaluate the representation learning capabilities of ResNet, Vision Transformer (ViT), and the
+hybrid. To understand the data requirements of each model, we pre-train on datasets of varying size
+and evaluate many benchmark tasks. When considering the computational cost of pre-training the
+model, ViT performs very favourably, attaining state of the art on most recognition benchmarks at
+a lower pre-training cost. Lastly, we perform a small experiment using self-supervision, and show
+that self-supervised ViT holds promise for the future.
+4.1 S ETUP
+
+
+[TEXT]
+
+however, the pre-trained position embeddings may no longer be meaningful. We therefore perform
+2D interpolation of the pre-trained position embeddings, according to their location in the original
+image. Note that this resolution adjustment and patch extraction are the only points at which an
+inductive bias about the 2D structure of the images is manually injected into the Vision Transformer.
+4 E XPERIMENTS
+We evaluate the representation learning capabilities of ResNet, Vision Transformer (ViT), and the
+
+
+--------------------------------------------------------------------------------
+PAGE : 6
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+4.3 P RE-TRAINING DATA REQUIREMENTS
+The Vision Transformer performs well when pre-trained on a large JFT-300M dataset. With fewer
+inductive biases for vision than ResNets, how crucial is the dataset size? We perform two series of
+experiments.
+First, we pre-train ViT models on datasets of increasing size: ImageNet, ImageNet-21k, and JFT-
+300M. To boost the performance on the smaller datasets, we optimize three basic regularization
+parameters – weight decay, dropout, and label smoothing. Figure 3 shows the results after ﬁne-
+
+
+--------------------------------------------------------------------------------
+PAGE : 8
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+Published as a conference paper at ICLR 2021
+4.4 S CALING STUDY
+We perform a controlled scaling study of different models by evaluating transfer performance from
+JFT-300M. In this setting data size does not bottleneck the models’ performances, and we assess
+performance versus pre-training cost of each model. The model set includes: 7 ResNets, R50x1,
+R50x2 R101x1, R152x1, R152x2, pre-trained for 7 epochs, plus R152x2 and R200x3 pre-trained
+for 14 epochs; 6 Vision Transformers, ViT-B/32, B/16, L/32, L/16, pre-trained for 7 epochs, plus
+
+
+[TEXT]
+
+since one might expect convolutional local feature processing to assist ViT at any size. Third, Vision
+Transformers appear not to saturate within the range tried, motivating future scaling efforts.
+4.5 I NSPECTING VISION TRANSFORMER
+Input
+ Attention
+Figure 6: Representative ex-
+amples of attention from the
+output token to the input
+space. See Appendix D.7 for
+details.
+To begin to understand how the Vision Transformer processes im-
+age data, we analyze its internal representations. The ﬁrst layer of
+the Vision Transformer linearly projects the ﬂattened patches into a
+
+
+[TEXT]
+
+age data, we analyze its internal representations. The ﬁrst layer of
+the Vision Transformer linearly projects the ﬂattened patches into a
+lower-dimensional space (Eq. 1). Figure 7 (left) shows the top prin-
+cipal components of the the learned embedding ﬁlters. The com-
+ponents resemble plausible basis functions for a low-dimensional
+representation of the ﬁne structure within each patch.
+After the projection, a learned position embedding is added to the
+patch representations. Figure 7 (center) shows that the model learns
+to encode distance within the image in the similarity of position em-
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT
+
+Caption:
+a plane flying in the sky
+
+OCR Text:
+No readable text found in this image.
+
+Nearby Document Text:
+Published as a conference paper at ICLR 2021
+4.4
+SCALING STUDY
+We perform a controlled scaling study of different models by evaluating transfer performance from
+JFT-300M. In this setting data size does not bottleneck the models’ performances, and we assess
+performance versus pre-training cost of each model. The model set includes: 7 ResNets, R50x1,
+R50x2 R101x1, R152x1, R152x2, pre-trained for 7 epochs, plus R152x2 and R200x3 pre-trained
+for 14 epochs; 6 Vision Transformers, ViT-B/32, B/16, L/32, L/16, pre-trained for 7 epochs, plus
+L/16 and H/14 pre-trained for 14 epochs; and 5 hybrids, R50+V
+
+
+[RELATED PAGE TEXT]
+
+Published as a conference paper at ICLR 2021
+4.4 S CALING STUDY
+We perform a controlled scaling study of different models by evaluating transfer performance from
+JFT-300M. In this setting data size does not bottleneck the models’ performances, and we assess
+performance versus pre-training cost of each model. The model set includes: 7 ResNets, R50x1
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT
+
+Caption:
+a yellow leaf laying on the ground
+
+OCR Text:
+No readable text found in this image.
+
+Nearby Document Text:
+Published as a conference paper at ICLR 2021
+4.4
+SCALING STUDY
+We perform a controlled scaling study of different models by evaluating transfer performance from
+JFT-300M. In this setting data size does not bottleneck the models’ performances, and we assess
+performance versus pre-training cost of each model. The model set includes: 7 ResNets, R50x1,
+R50x2 R101x1, R152x1, R152x2, pre-trained for 7 epochs, plus R152x2 and R200x3 pre-trained
+for 14 epochs; 6 Vision Transformers, ViT-B/32, B/16, L/32, L/16, pre-trained for 7 epochs, plus
+L/16 and H/14 pre-trained for 14 epochs; and 5 hybrids, R50+V
+
+
+[RELATED PAGE TEXT]
+
+Published as a conference paper at ICLR 2021
+4.4 S CALING STUDY
+We perform a controlled scaling study of different models by evaluating transfer performance from
+JFT-300M. In this setting data size does not bottleneck the models’ performances, and we assess
+performance versus pre-training cost of each model. The model set includes: 7 ResNets, R50x1
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT
+
+Caption:
+a plane flying in the sky
+
+OCR Text:
+No readable text found in this image.
+
+Nearby Document Text:
+Published as a conference paper at ICLR 2021
+4.4
+SCALING STUDY
+We perform a controlled scaling study of different models by evaluating transfer performance from
+JFT-300M. In this setting data size does not bottleneck the models’ performances, and we assess
+performance versus pre-training cost of each model. The model set includes: 7 ResNets, R50x1,
+R50x2 R101x1, R152x1, R152x2, pre-trained for 7 epochs, plus R152x2 and R200x3 pre-trained
+for 14 epochs; 6 Vision Transformers, ViT-B/32, B/16, L/32, L/16, pre-trained for 7 epochs, plus
+L/16 and H/14 pre-trained for 14 epochs; and 5 hybrids, R50+V
+
+
+[RELATED PAGE TEXT]
+
+Published as a conference paper at ICLR 2021
+4.4 S CALING STUDY
+We perform a controlled scaling study of different models by evaluating transfer performance from
+JFT-300M. In this setting data size does not bottleneck the models’ performances, and we assess
+performance versus pre-training cost of each model. The model set includes: 7 ResNets, R50x1
+
+
+--------------------------------------------------------------------------------
+PAGE : 9
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+Thus, Vision Transformer matches or exceeds the state of the art on many image classiﬁcation
+datasets, whilst being relatively cheap to pre-train.
+While these initial results are encouraging, many challenges remain. One is to apply ViT to other
+computer vision tasks, such as detection and segmentation. Our results, coupled with those in Carion
+et al. (2020), indicate the promise of this approach. Another challenge is to continue exploring self-
+supervised pre-training methods. Our initial experiments show improvement from self-supervised
+
+================================================================================
+
+================================================================================
+RAG PIPELINE DEBUG
+================================================================================
+Query Type        : analytical
+Retrieved Chunks  : 8
+Retrieved Images  : 3
+Reranked Chunks   : 11
+Reranked Text     : 8
+Reranked Images   : 3
+Final Context Docs: 11
+Exact Figure Query: False
+Exact Figure Match: False
+Exact Figure Final: False
+================================================================================
+
+================================================================================
+STAGE 4 — EVIDENCE VERIFICATION
+================================================================================
+Verification Units : 6
+Supported          : 4
+Partially Supported: 2
+Unsupported        : 0
+Unknown            : 0
+Groundedness Ratio : 0.67
+
+[CLAIM #1] The provided context indicates that the performance of Vision Transformer models improves with an increase in the size of the pre-training data.
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.854 | Citation=Vision Transformer.pdf (Page 6)
+
+[CLAIM #2] The authors pre-train ViT models on datasets of increasing size:
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.9976 | Citation=Vision Transformer.pdf (Page 6)
+
+[CLAIM #3] ImageNet, ImageNet-21k, and JFT-300M.
+  Status=PARTIALLY_SUPPORTED | NLI=NEUTRAL | Confidence=0.77 | Citation=Vision Transformer.pdf (Page 6)
+
+[CLAIM #4] The results show that the Vision Transformer performs well when pre-trained on a large JFT-300M dataset.
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.9897 | Citation=Vision Transformer.pdf (Page 6)
+
+[CLAIM #5] However, the authors also optimize three basic regularization parameters – weight decay, dropout, and label smoothing – to boost the performance on the smaller datasets.
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.7681 | Citation=Vision Transformer.pdf (Page 6)
+
+[CLAIM #6] (Refer to pages 6 and 8 of the document "Vision Transformer.pdf")
+  Status=PARTIALLY_SUPPORTED | NLI=NEUTRAL | Confidence=0.9282 | Citation=Vision Transformer.pdf (Page 8)
+================================================================================
+
+====================================================================================================
+RAG ANSWER
+====================================================================================================
+ The provided context indicates that the performance of Vision Transformer models improves with an increase in the size of the pre-training data. The authors pre-train ViT models on datasets of increasing size: ImageNet, ImageNet-21k, and JFT-300M. The results show that the Vision Transformer performs well when pre-trained on a large JFT-300M dataset. However, the authors also optimize three basic regularization parameters – weight decay, dropout, and label smoothing – to boost the performance on the smaller datasets. (Refer to pages 6 and 8 of the document "Vision Transformer.pdf")
+
+IMAGE PATHS:
+D:/Projects/Major-Project-2-main/extracted_images/Vision Transformer_page8_img3.png
+D:/Projects/Major-Project-2-main/extracted_images/Vision Transformer_page8_img5.png
+D:/Projects/Major-Project-2-main/extracted_images/Vision Transformer_page8_img2.png

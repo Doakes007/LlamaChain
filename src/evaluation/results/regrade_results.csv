@@ -1,0 +1,133 @@
+question_id,grade,reason
+SR-01,CORRECT,Matches GT: on-demand retrieval + self-reflection to improve quality/factuality.
+SR-02,PARTIAL,Names reflection tokens but omits the retrieval-vs-critique token distinction GT specifically asks for.
+SR-03,CORRECT,Retrieve-token mechanism matches GT and adds accurate ISREL/ISSUP detail.
+SR-04,CORRECT,ISREL/ISSUP/ISUSE all correctly defined, matches GT.
+SR-05,PARTIAL,"Says ""same LM as generator"" (true) but never names Llama 2-7B as GT does, so incomplete."
+SR-06,CORRECT,Captures on-demand vs fixed-retrieval distinction correctly despite extra verbosity.
+SR-07,PARTIAL,Captures general reflection-token theme but misses the specific training-data-construction process GT asks about.
+SR-08,CORRECT,Matches GT: reflection tokens inserted by critic offline, generator trained with standard next-token objective.
+SR-09,PARTIAL,Describes a plausible but unsupported "keep retrieving until supported" loop instead of GT's ISREL/ISSUP/ISUSE ranking-based selection mechanism.
+SR-10,INCORRECT,Misattributes to RAG.pdf and refuses to give Figure 3(a) numbers that GT states explicitly -- known retrieval/page-localization failure.
+SR-11,CORRECT,Matches GT directly.
+SR-12,INCORRECT,"Asserts ""no significant improvements on PubHealth"" which contradicts GT's ""generally improves ... on PopQA, PubHealth, and ASQA""."
+SR-13,CORRECT,Matches GT well.
+SR-14,CORRECT,Matches GT's reasoning about reflection-based evaluation vs pure copying.
+SR-15,INCORRECT,Vague/garbled; omits the actual S&P/ISREL/ISSUP percentages GT reports and includes a nonsensical fragment ("ISUSE evaluation is 5").
+D-01,CORRECT,Matches GT.
+D-02,CORRECT,All three problems (cost, inflexibility, OCR-error propagation) correctly captured.
+D-03,PARTIAL,"Correct core fact buried inside an off-topic templated dump with many ""Not specified in document"" fields not relevant to the question asked."
+D-04,CORRECT,Matches GT verbatim (verification layer's UNSUPPORTED label on this is a known NLI false negative, documented separately in Section 6.5 -- answer itself is correct).
+D-05,CORRECT,Matches GT (BART decoder).
+D-06,CORRECT,"Correctly describes Swin encoder to embeddings, textual decoder to token sequence, JSON structuring."
+D-07,CORRECT,Matches GT.
+D-08,CORRECT,Matches GT.
+D-09,PARTIAL,"Correctly states SynthDoG generates pre-training samples but misses GT's key point (reduces dependence on large-scale real data, eases multilingual extension); adds unverified specifics instead."
+D-10,INCORRECT,"Numbers (91M/0.6s/0.8%) do not match GT's reported figures (143M vs 179M, 0.9 vs 1.2 sec, 91% vs 82%) and the answer wrongly claims the comparison values are unavailable."
+D-11,CORRECT,"Correctly describes the Figure 3 flow: visual encoder to embeddings, decoder to token sequence, structured JSON output."
+D-12,INCORRECT,"Reverses GT's example: GT attributes the phone-number error to LayoutLMv2's OCR pipeline, current answer wrongly attributes an ""OCR error"" to OCR-free Donut itself -- self-contradictory and factually backwards."
+D-13,INCORRECT,"Numbers (943 vs 540) do not match GT's actual Table 3 ANLS scores (67.5/72.1 Donut, 78.1 LayoutLMv2) and the answer wrongly claims the DocVQA test-set score is unavailable."
+D-14,CORRECT,Matches GT.
+D-15,CORRECT,Matches GT reasoning.
+L1,INCORRECT,"Answers a different question (CNN/Faster-R-CNN backbone avoidance, which is L3's topic) instead of the actual pre-training-objective-mismatch problem GT describes."
+L2,CORRECT,"Matches GT; the 30%-masking detail was independently verified against the source text and is accurate."
+L3,CORRECT,Matches GT.
+L4,CORRECT,Matches GT's image-patch representation steps.
+L5,INCORRECT,"""word-level spatial embeddings and embeddings of BERT"" does not match GT's word embeddings + 1D/2D position embeddings; wrong terminology."
+L6,CORRECT,Matches GT closely.
+L7,CORRECT,Matches GT's description of concatenated text/image embedding sequences.
+L8,CORRECT,Matches GT.
+L9,PARTIAL,"Captures ""not raw pixels"" correctly but omits/misstates the actual mechanism GT specifies (discrete VAE latent-code tokens)."
+L10,INCORRECT,"Describes CLIP-style contrastive dot-product/natural-language-supervision learning, unrelated to LayoutLMv3's actual patch-embedding approach -- apparent cross-document contamination."
+L11,PARTIAL,"Direction of finding (MIM+WPA improves over MLM-only) is right, but the specific MAP numbers (88.64/89.78) do not match GT's actual Table 3 figures (94.38/94.43)."
+L12,PARTIAL,"4 of 5 datasets correctly described; CORD is mischaracterized as ""named entity recognition and coreference resolution"" instead of receipt understanding."
+B1,CORRECT,Matches GT accurately.
+B2,INCORRECT,"Answers with training hyperparameters (steps, batch sizes, LR schedule) instead of the actual two named stages (representation learning, generative learning) GT asks about."
+B3,INCORRECT,"Mislabels the Q-Former's two submodules as ""Image Encoder and LLM""; description matches a different figure (VQA finetuning) rather than the Q-Former's own image/text transformer submodules."
+B4,CORRECT,Matches GT's description of query-image and query-text interaction.
+B5,INCORRECT,"Claims the document does not specify query count/dimensionality (GT: 32 queries, 768-dim) -- a retrieval-miss/refusal when the corpus elsewhere states this exact figure."
+B6,INCORRECT,"States ~1.3 billion parameters vs GT's 188M -- wrong/hallucinated number."
+B7,INCORRECT,"Answer is broken/incomplete, cuts off mid-sentence, and bleeds a second unrelated question block into the output -- degenerate generation."
+B8,INCORRECT,"Fails to name the three actual first-stage objectives (ITC/ITG/ITM) GT asks about; substitutes vague, generic Q-Former benefits instead."
+B9,CORRECT,Matches GT closely and accurately.
+B10,INCORRECT,"Describes a causal/UniLM-style attention mask (which matches ITG, a different objective), not ITM's actual bi-directional mask per GT."
+B11,CORRECT,Matches GT with accurate supporting detail.
+B12,CORRECT,Exact match with GT (8.7%, 54x fewer parameters).
+VIT-01,CORRECT,Matches GT.
+VIT-02,CORRECT,Matches GT thoroughly.
+VIT-03,CORRECT,Matches GT.
+VIT-04,PARTIAL,"Correct high-level reason (retain positional info) but the supporting explanation is garbled/self-contradictory about what position embeddings do and don't encode."
+VIT-05,CORRECT,Matches GT.
+VIT-06,CORRECT,"Accurately captures minimal inductive bias at patch extraction and the position-embedding-interpolation detail, though omits GT's ""needs more data"" framing."
+VIT-07,PARTIAL,"Explicitly hedges (""context does not explicitly state"") rather than giving GT's actual causal reasoning (lacks translation equivariance/locality), though the supporting observations given are accurate."
+VIT-08,INCORRECT,"Describes ""Axial Transformer"" row/column self-attention, which is not what GT (or the paper) describes for the hybrid ResNet-ViT input representation -- unrelated architecture, apparent hallucination."
+VIT-09,INCORRECT,"Garbled/off-topic: brings in unrelated Axial-ViT/TPU-speed and masked-patch-color details instead of GT's actual finding (ViT matches/outperforms SOTA CNNs when sufficiently pre-trained, ImageNet/ReaL/CIFAR-100/VTAB results)."
+VIT-10,CORRECT,Matches GT.
+VIT-11,PARTIAL,"Core direction (large-scale pre-training transfers well) is present but the phrasing is confusing/self-contradictory (""performs worse ... but it shines"")."
+VIT-12,CORRECT,Direct match with GT.
+VIT-13,PARTIAL,"Hedges heavily (""does not explicitly show attention maps"") but the supporting detail given (heads attending broadly even in low layers) does match GT's actual content; incomplete rather than wrong."
+VIT-14,CORRECT,Matches GT's finding and cites the correct table.
+VIT-15,CORRECT,"Matches GT closely including exact figures (79.9%, +2% vs scratch, -4% vs supervised)."
+CLIP-01,CORRECT,Matches GT.
+CLIP-02,CORRECT,Matches GT's core reasoning.
+CLIP-03,CORRECT,"Gives the correct 400M figure, despite awkward self-contradictory phrasing."
+CLIP-04,INCORRECT,"""performing a single dot product in a learned joint embedding space"" does not describe CLIP's actual batch contrastive training objective GT specifies; same stray phrase also wrongly appears in L10, suggesting a recurring contamination artifact worth flagging separately."
+CLIP-05,PARTIAL,"Pulls in the hypernetwork framing (which belongs to CLIP-11) instead of GT's more basic ""both encoders project into a shared multimodal embedding space"" answer; not wrong, but answers a different aspect than asked."
+CLIP-06,PARTIAL,"Core mechanism (contrastive/cosine similarity, temperature) is right, but adds an unverified ""5 of 7 datasets"" claim not part of GT's expected scope for this question."
+CLIP-07,PARTIAL,"General idea (no target-dataset training) correct but omits GT's specific mechanism (class concepts converted to text descriptions, embedded, compared)."
+CLIP-08,INCORRECT,"Directly contradicts GT: claims class names are NOT used to build the zero-shot classifier, when GT (and the paper) state class-name text descriptions ARE the classifier weights -- confuses pre-training with zero-shot classifier construction."
+CLIP-09,CORRECT,Core mechanism (embedding comparison, highest similarity selected) matches GT.
+CLIP-10,PARTIAL,"Self-undermining hedge (""not explicitly mentioned"") despite then giving a correct general explanation of temperature's role that matches GT."
+CLIP-11,CORRECT,Matches GT's hypernetwork framing.
+CLIP-12,INCORRECT,"93.5% vs GT's 76.2% top-1 -- wrong/hallucinated number."
+CLIP-13,INCORRECT,"Top-1 80.3%/top-5 69.6% (impossible ordering) vs GT's 76.2%/95% -- already-documented page-6-vs-7 retrieval miss (Section 6.4)."
+CLIP-14,INCORRECT,"Claims no direct comparison is available and gives a wrong ImageNet figure (62.0% vs GT's 76.2%) -- same known CLIP page-localization gap."
+CLIP-15,INCORRECT,"Cites Kinetics-700/RareAct reasoning instead of GT's actual stated reasoning (natural-language class specification removes need for per-dataset labeled classifiers)."
+RAG-01,PARTIAL,"Captures the general ""knowledge-intensive tasks"" framing but misses GT's core architectural definition (parametric+non-parametric memory combination) and the hallucination/knowledge-editing motivation."
+RAG-02,INCORRECT,"Names ""non-parametric memory and latent documents"" as the two memory types, omitting parametric memory (BART) entirely and substituting an unrelated concept (latent documents) in its place."
+RAG-03,PARTIAL,"Gives the correct ~21M vector count but never states the index is a Wikipedia dense-vector index, omitting GT's key content."
+RAG-04,PARTIAL,"Correctly names BART as parametric memory but only vaguely describes the retriever (""learned retrieval mechanism""), omitting DPR/BERT-encoders/MIPS that GT specifies."
+RAG-05,INCORRECT,"Answer discusses ""reflection tokens"" and ""critique tokens"" -- SELF-RAG terminology, not RAG-Sequence/RAG-Token content -- clear cross-document contamination; does not address the actual per-sequence vs per-token retrieval-document distinction GT asks about."
+RAG-06,CORRECT,Matches GT.
+RAG-07,CORRECT,Matches GT with accurate supporting detail.
+RAG-08,PARTIAL,"General concept (test-time index update) right, but omits GT's specific mechanism (DPR, BERT query/doc encoders, MIPS)."
+RAG-09,PARTIAL,"Most tasks correctly listed but ""Commonsense Reasoning (CT)"" mislabels CuratedTrec, and extraneous unrelated tasks (dialogue, translation, language modeling) are appended that RAG was not evaluated on per GT."
+RAG-10,PARTIAL,"Captures ""more factual and specific"" but omits ""diverse"" and the specific reported numbers (2.6 BLEU/ROUGE-L, human eval) GT gives."
+RAG-11,CORRECT,Matches GT's reasoning; Wikipedia not named explicitly but no factual error.
+RAG-12,CORRECT,Matches GT closely including the Dec 2016 to Dec 2018 example.
+BERT-01,CORRECT,Matches GT.
+BERT-02,CORRECT,Matches GT.
+BERT-03,CORRECT,Matches GT.
+BERT-04,CORRECT,Captures the right general reasoning without contradicting GT.
+BERT-05,CORRECT,Matches GT.
+BERT-06,CORRECT,Exact match with GT (50%/50%).
+BERT-07,CORRECT,Thorough and accurate, matches GT and adds correct supporting detail.
+BERT-08,INCORRECT,"States 80% masking rate (confusing the within-mask 80/10/10 sub-strategy split with the overall 15% masking rate GT asks about) -- wrong number for the actual question asked."
+BERT-09,INCORRECT,"5e-5 vs GT's 1e-4 -- the project's central motivating example (correct retrieval, wrong generated fact)."
+BERT-10,INCORRECT,"Layer/parameter counts correct, but wrongly states BERTBASE was pre-trained on ""a single GPU"" when GT (and the paper) state Cloud TPU pods -- a clear, checkable factual error on training hardware."
+BERT-11,CORRECT,Matches GT's reasoning.
+BERT-12,INCORRECT,"GLUE 82.1 vs GT's 80.5, MultiNLI framed as ""4.6% improvement"" instead of GT's 86.7% score, and admits missing the SQuAD v1.1/v2.0 improvement numbers that GT states explicitly."
+NLP-Q1,CORRECT,Matches GT's six stages with accurate supporting detail.
+NLP-Q2,CORRECT,Matches GT thoroughly and accurately.
+NLP-Q3,INCORRECT,"States BiLSTM uses WordPiece tokenization; GT (and the paper) state BiLSTM uses GloVe word embeddings -- swaps the two models' tokenization schemes."
+NLP-Q4,CORRECT,Exact match with GT.
+NLP-Q5,CORRECT,Exact match with GT.
+NLP-Q6,CORRECT,Exact match with GT.
+NLP-Q7,INCORRECT,"Refuses to answer (""not possible to determine"") when GT's figure (RoBERTa, 94.1%) is available elsewhere in the same corpus -- retrieval-miss/refusal."
+NLP-Q8,INCORRECT,"Claims accuracy/F1 figures are unavailable; GT's exact numbers are available elsewhere in the corpus (confirmed by NLP-Q9's own correctly-retrieved figures) -- retrieval-miss/refusal."
+NLP-Q9,CORRECT,Exact match with GT.
+NLP-Q10,INCORRECT,"Claims ""the document does not contain Figure 5"" and refuses to answer; GT confirms Figure 5 and its answer (""cancer"") exist in the source -- refusal error."
+NLP-Q11,INCORRECT,"Answer describes an unrelated animal-image-classification system (Turtle/Hamster underperformance) -- CNN Paper content bleeding into an NLP-Q question; does not address RoBERTa/BiLSTM convergence at all. Severe cross-document contamination."
+NLP-Q12,CORRECT,"Matches GT precisely, including both models' exact accuracy/training-time figures."
+CNN-Q1,PARTIAL,"Correctly states ""two convolutional layers"" (the key fact asked), but the listed six components differ from GT's named list (adds a second pooling layer, omits explicit output-classes/softmax naming)."
+CNN-Q2,CORRECT,"Core processing order matches GT (Input to Conv1 to Pool to Conv2 to FC to Output), more granular but not contradictory."
+CNN-Q3,CORRECT,Exact match with GT.
+CNN-Q4,CORRECT,Exact match with GT (same seven categories, different listed order).
+CNN-Q5,CORRECT,Exact match with GT.
+CNN-Q6,CORRECT,Exact match with GT.
+CNN-Q7,PARTIAL,"Epoch figure (16) matches one of GT's two internally-inconsistent source values, but wrongly claims the final training accuracy (97.3% per GT) is unavailable."
+CNN-Q8,CORRECT,"Matches GT well, including resolving the source document's own epoch-16-vs-18 inconsistency by citing both values."
+CNN-Q9,CORRECT,Exact match with GT.
+CNN-Q10,PARTIAL,"""12"" matches the source paper's own prose claim, which GT notes conflicts with the actual plotted matrix (8) -- a defensible reading of the source's internal inconsistency, not a clean-cut error."
+CNN-Q11,INCORRECT,"Answer describes Donut's Swin Transformer/textual-decoder pipeline instead of the CNN paper's Figure 4 preprocessing pipeline -- severe cross-document contamination, explicitly mislabeled as Donut content."
+CNN-Q12,INCORRECT,"Claims no direct comparison is available and brings in unrelated Vision Transformer/ResNet152x4 content instead of GT's actual Table 3 comparison numbers -- refusal plus cross-document contamination."

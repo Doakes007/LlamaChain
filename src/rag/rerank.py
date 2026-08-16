@@ -8,22 +8,26 @@ from PIL import Image
 from sentence_transformers import CrossEncoder
 from sklearn.metrics.pairwise import cosine_similarity
 
+
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 
 @lru_cache(maxsize=1)
 def get_clip_model():
     """Load and cache CLIP model and preprocess."""
+
     model, _, preprocess = open_clip.create_model_and_transforms(
         "ViT-B-32",
         pretrained="openai"
     )
+
     return model.to(device).eval(), preprocess
 
 
 @lru_cache(maxsize=1)
 def get_reranker():
     """Load and cache Cross-Encoder."""
+
     return CrossEncoder(
         "cross-encoder/ms-marco-MiniLM-L-6-v2",
         device=device
@@ -35,30 +39,45 @@ _ce_score_cache = {}
 
 def get_ce_score(query, content):
     """Cache Cross-Encoder scores to prevent redundant computation."""
-    cache_key = f"{query}||{content[:100]}"
+
+    # Use a larger content window for Cross-Encoder scoring.
+    # The previous 300-character truncation could hide the
+    # actual evidence inside technical/table/figure chunks.
+    content_for_reranking = content[:1000]
+
+    cache_key = f"{query}||{content_for_reranking}"
 
     if cache_key not in _ce_score_cache:
-        pairs = [(query, content[:300])]
+
+        pairs = [
+            (query, content_for_reranking)
+        ]
+
         _ce_score_cache[cache_key] = float(
             get_reranker().predict(pairs)[0]
         )
 
     return _ce_score_cache[cache_key]
 
-
 def clear_ce_cache():
     """Clear Cross-Encoder score cache."""
+
     global _ce_score_cache
+
     _ce_score_cache = {}
 
 
 def encode_query_clip(query):
     """Generate CLIP text embedding for the query."""
+
     model, _ = get_clip_model()
 
-    tokenizer = open_clip.get_tokenizer("ViT-B-32")
+    tokenizer = open_clip.get_tokenizer(
+        "ViT-B-32"
+    )
 
     with torch.no_grad():
+
         text_features = model.encode_text(
             tokenizer([query]).to(device)
         )
@@ -81,10 +100,53 @@ def multimodal_rerank(query, docs, top_k=5):
     Rank fusion avoids directly combining raw Cross-Encoder
     logits with CLIP cosine similarity, since those scores
     are on different numerical scales.
+
+    Diagnostic instrumentation:
+        Prints the complete reranker input and complete
+        reranker ranking so that retrieval failures can be
+        distinguished from reranking failures.
     """
 
     if not docs:
         return []
+
+    # =================================================
+    # DIAGNOSTIC — RERANKER INPUT
+    # =================================================
+
+    print("\n" + "=" * 80)
+    print("STEP 3A — RERANKER INPUT")
+    print("=" * 80)
+
+    print(f"Query: {query}")
+    print(f"Input candidates: {len(docs)}")
+
+    for rank, doc in enumerate(
+        docs,
+        start=1,
+    ):
+
+        metadata = doc.metadata or {}
+
+        print(
+            f"{rank:02d}. "
+            f"Source={metadata.get('source')} | "
+            f"Page={metadata.get('page')} | "
+            f"Type={metadata.get('chunk_type', 'text')} | "
+            f"Image={metadata.get('image_path', 'N/A')}"
+        )
+
+        preview = (
+            (doc.page_content or "")
+            .replace("\n", " ")
+            .strip()
+        )
+
+        print(
+            f"    Content={preview[:180]}"
+        )
+
+    print("=" * 80)
 
     # -------------------------------------------------
     # 1. CROSS-ENCODER SCORES
@@ -97,16 +159,20 @@ def multimodal_rerank(query, docs, top_k=5):
         content = doc.page_content or ""
 
         try:
+
             ce_score = float(
                 get_ce_score(
                     query,
                     content,
                 )
             )
+
         except Exception as e:
+
             print(
                 f"Cross-Encoder reranking failed: {e}"
             )
+
             ce_score = float("-inf")
 
         ce_results.append(
@@ -136,6 +202,31 @@ def multimodal_rerank(query, docs, top_k=5):
         )
     }
 
+    # =================================================
+    # DIAGNOSTIC — CROSS-ENCODER RANKING
+    # =================================================
+
+    print("\n" + "-" * 80)
+    print("CROSS-ENCODER RANKING")
+    print("-" * 80)
+
+    for rank, item in enumerate(
+        ce_sorted,
+        start=1,
+    ):
+
+        doc = item["doc"]
+        metadata = doc.metadata or {}
+
+        print(
+            f"Rank={rank:02d} | "
+            f"OriginalIndex={item['index']:02d} | "
+            f"Source={metadata.get('source')} | "
+            f"Page={metadata.get('page')} | "
+            f"Type={metadata.get('chunk_type', 'text')} | "
+            f"CE={item['ce_score']:.4f}"
+        )
+
     # -------------------------------------------------
     # 3. CLIP SCORES FOR IMAGE CHUNKS
     # -------------------------------------------------
@@ -144,13 +235,16 @@ def multimodal_rerank(query, docs, top_k=5):
 
     try:
 
-        query_clip_embedding = encode_query_clip(query)
+        query_clip_embedding = encode_query_clip(
+            query
+        )
 
         query_norm = np.linalg.norm(
             query_clip_embedding
         )
 
         if query_norm > 0:
+
             query_clip_embedding = (
                 query_clip_embedding / query_norm
             )
@@ -257,6 +351,39 @@ def multimodal_rerank(query, docs, top_k=5):
         )
     }
 
+    # =================================================
+    # DIAGNOSTIC — CLIP IMAGE RANKING
+    # =================================================
+
+    print("\n" + "-" * 80)
+    print("CLIP IMAGE RANKING")
+    print("-" * 80)
+
+    if not clip_sorted:
+
+        print(
+            "No image candidates received a valid CLIP score."
+        )
+
+    else:
+
+        for rank, item in enumerate(
+            clip_sorted,
+            start=1,
+        ):
+
+            doc = item["doc"]
+            metadata = doc.metadata or {}
+
+            print(
+                f"Rank={rank:02d} | "
+                f"OriginalIndex={item['index']:02d} | "
+                f"Source={metadata.get('source')} | "
+                f"Page={metadata.get('page')} | "
+                f"Image={metadata.get('image_path', 'N/A')} | "
+                f"CLIP={item['clip_score']:.4f}"
+            )
+
     # -------------------------------------------------
     # 5. RECIPROCAL RANK FUSION
     # -------------------------------------------------
@@ -274,7 +401,9 @@ def multimodal_rerank(query, docs, top_k=5):
 
         # Every document receives semantic evidence.
         fusion_score = (
-            1.0 / (RRF_K + semantic_rank)
+            1.0 / (
+                RRF_K + semantic_rank
+            )
         )
 
         # Images may additionally receive visual evidence.
@@ -306,20 +435,25 @@ def multimodal_rerank(query, docs, top_k=5):
         reverse=True,
     )
 
-    # -------------------------------------------------
-    # 7. DEBUG
-    # -------------------------------------------------
+    # =================================================
+    # 7. COMPLETE RERANK DIAGNOSTIC
+    # =================================================
 
     print("\n" + "=" * 80)
-    print("MULTIMODAL RERANK DEBUG")
+    print("STEP 3A — COMPLETE MULTIMODAL RERANK RESULT")
     print("=" * 80)
 
-    for (
+    for rank, (
         fusion_score,
         ce_score,
         clip_score,
         doc,
-    ) in final_scores[:top_k]:
+    ) in enumerate(
+        final_scores,
+        start=1,
+    ):
+
+        metadata = doc.metadata or {}
 
         clip_display = (
             f"{clip_score:.4f}"
@@ -328,12 +462,23 @@ def multimodal_rerank(query, docs, top_k=5):
         )
 
         print(
-            f"Type={doc.metadata.get('chunk_type')} | "
-            f"Source={doc.metadata.get('source')} | "
-            f"Page={doc.metadata.get('page')} | "
+            f"Rank={rank:02d} | "
+            f"Type={metadata.get('chunk_type', 'text')} | "
+            f"Source={metadata.get('source')} | "
+            f"Page={metadata.get('page')} | "
             f"RRF={fusion_score:.6f} | "
             f"CE={ce_score:.4f} | "
             f"CLIP={clip_display}"
+        )
+
+        preview = (
+            (doc.page_content or "")
+            .replace("\n", " ")
+            .strip()
+        )
+
+        print(
+            f"    Content={preview[:180]}"
         )
 
     print("=" * 80)
@@ -360,9 +505,43 @@ def multimodal_rerank(query, docs, top_k=5):
             continue
 
         seen.add(key)
+
         results.append(doc)
 
         if len(results) >= top_k:
             break
+
+    # =================================================
+    # DIAGNOSTIC — FINAL TOP-K
+    # =================================================
+
+    print("\n" + "=" * 80)
+    print("STEP 3A — FINAL RERANK TOP-K")
+    print("=" * 80)
+
+    print(
+        f"Requested top_k: {top_k}"
+    )
+
+    print(
+        f"Returned documents: {len(results)}"
+    )
+
+    for rank, doc in enumerate(
+        results,
+        start=1,
+    ):
+
+        metadata = doc.metadata or {}
+
+        print(
+            f"{rank:02d}. "
+            f"Source={metadata.get('source')} | "
+            f"Page={metadata.get('page')} | "
+            f"Type={metadata.get('chunk_type', 'text')} | "
+            f"Image={metadata.get('image_path', 'N/A')}"
+        )
+
+    print("=" * 80)
 
     return results

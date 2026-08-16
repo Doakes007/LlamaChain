@@ -1,0 +1,1008 @@
+====================================================================================================
+QUESTION_ID   : SR-14
+DOCUMENT      : SELF-RAG
+QUESTION_TYPE : Deeper reasoning
+ELAPSED_SEC   : 59.9
+ERROR         : no
+====================================================================================================
+
+QUESTION:
+Why can SELF-RAG outperform conventional retrieval-augmented models on tasks where the answer cannot simply be copied from retrieved passages?
+
+GROUND TRUTH ANSWER:
+Conventional retrieval-augmented models can struggle on tasks where the answer cannot simply be copied or extracted from retrieved passages. SELF-RAG instead evaluates passage relevance and support, critiques its own candidate generations, and uses these reflection signals to select a generation that combines retrieved evidence with reasoning/generation rather than relying on direct copying.
+
+GROUND TRUTH SOURCE:
+Self-RAG.pdf — Pages 1, 8–9
+
+====================================================================================================
+FORENSIC TRANSCRIPT
+====================================================================================================
+
+####################################################################################################
+FORENSIC CASE START
+####################################################################################################
+Original Query   : Why can SELF-RAG outperform conventional retrieval-augmented models on tasks where the answer cannot simply be copied from retrieved passages?
+Expanded Query   : Why can SELF-RAG outperform conventional retrieval-augmented models on tasks where the answer cannot simply be copied from retrieved passages?
+Query Type       : analytical
+[DOCUMENT SCOPE] Normalized query: 'why can self rag outperform conventional retrieval augmented models on tasks where the answer cannot simply be copied from retrieved passages'
+[DOCUMENT SCOPE] Source='BERT.pdf' -> Normalized='bert'
+[DOCUMENT SCOPE] Token overlap for 'BERT.pdf': []
+[DOCUMENT SCOPE] Source='BLIP-2.pdf' -> Normalized='blip 2'
+[DOCUMENT SCOPE] Token overlap for 'BLIP-2.pdf': []
+[DOCUMENT SCOPE] Source='CLIP.pdf' -> Normalized='clip'
+[DOCUMENT SCOPE] Token overlap for 'CLIP.pdf': []
+[DOCUMENT SCOPE] Source='CNN Paper.pdf' -> Normalized='cnn paper'
+[DOCUMENT SCOPE] Token overlap for 'CNN Paper.pdf': []
+[DOCUMENT SCOPE] Source='Donut.pdf' -> Normalized='donut'
+[DOCUMENT SCOPE] Token overlap for 'Donut.pdf': []
+[DOCUMENT SCOPE] Source='LayoutLMv3.pdf' -> Normalized='layout l mv3'
+[DOCUMENT SCOPE] Token overlap for 'LayoutLMv3.pdf': []
+[DOCUMENT SCOPE] Source='NLP Paper.pdf' -> Normalized='nlp paper'
+[DOCUMENT SCOPE] Token overlap for 'NLP Paper.pdf': []
+[DOCUMENT SCOPE] Source='RAG.pdf' -> Normalized='rag'
+[DOCUMENT SCOPE] EXACT MATCH -> RAG.pdf
+[DOCUMENT SCOPE] Source='Self-RAG.pdf' -> Normalized='self rag'
+[DOCUMENT SCOPE] EXACT MATCH -> Self-RAG.pdf
+[DOCUMENT SCOPE] Source='Vision Transformer.pdf' -> Normalized='vision transformer'
+[DOCUMENT SCOPE] Token overlap for 'Vision Transformer.pdf': []
+[DOCUMENT SCOPE] Final matched sources: ['RAG.pdf', 'Self-RAG.pdf']
+
+================================================================================
+DOCUMENT SCOPE DEBUG
+================================================================================
+Query          : Why can SELF-RAG outperform conventional retrieval-augmented models on tasks where the answer cannot simply be copied from retrieved passages?
+Expanded Query : Why can SELF-RAG outperform conventional retrieval-augmented models on tasks where the answer cannot simply be copied from retrieved passages?
+Query Type     : analytical
+Document Scope : ['RAG.pdf', 'Self-RAG.pdf']
+================================================================================
+
+==========================================================================================
+STEP 3A — SCOPED HYBRID RETRIEVAL
+==========================================================================================
+Query              : Why can SELF-RAG outperform conventional retrieval-augmented models on tasks where the answer cannot simply be copied from retrieved passages?
+Sources            : ['RAG.pdf', 'Self-RAG.pdf']
+Dense candidate K  : 25
+Final hybrid K     : 8
+
+------------------------------------------------------------------------------------------
+[SCOPED DENSE / VECTOR RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=Self-RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=ric knowledge they encapsulate. Retrieval-Augmented Generation (RAG), an ad hoc approach that augments LMs with retrieval of relevant knowledge, decreases such issues. However, ind
+02. Source=Self-RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=y using the retrieval and critic models to create supervised data that precisely mimics the SELF - RAG inference-time process (Section 3.1). For each segment yt ∈ y, we run C to as
+03. Source=Self-RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=RAG (7B and 13B parameters) significantly outperforms state-of-the-art LLMs and retrieval-augmented models on a diverse set of tasks. Specifically, SELF -RAG outperforms ChatGPT an
+04. Source=Self-RAG.pdf | Page=6 | Type=text | Image=N/A
+    Content=Adaptive retrieval with threshold.SELF -RAG dynamically decides when to retrieve text passages by predicting Retrieve . Alternatively, our framework allows a threshold to be set. S
+05. Source=Self-RAG.pdf | Page=17 | Type=text | Image=N/A
+    Content=is unnecessary as the sequence does not require factual grounding or may not be enhanced by knowledge retrieval, Yes indicates retrieval is necessary. We additionally have continue
+06. Source=RAG.pdf | Page=17 | Type=text | Image=N/A
+    Content=Appendices for Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks A Implementation Details For Open-domain QA we report test numbers using 15 retrieved documents for 
+07. Source=RAG.pdf | Page=8 | Type=text | Image=N/A
+    Content=RAG-Tok R-L RAG-Tok B-1 RAG-Seq R-L RAG-Seq B-1 Figure 3: Left: NQ performance as more documents are retrieved. Center: Retrieval recall perfor- mance in NQ. Right: MS-MARCO Bleu-1
+08. Source=Self-RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=engineering to improve the factuality of LLM generations. Baselines with retrievals. We evaluate models augmented with retrieval at test time or during training. The first category
+09. Source=Self-RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=to enhance overall generation quality, factuality, and verifiability. consistently retrieves a fixed number of documents for generation regardless of the retrieval necessity (e.g.,
+10. Source=RAG.pdf | Page=19 | Type=text | Image=N/A
+    Content=and the RAG model would perform equivalently to BART. The collapse could be due to a less-explicit requirement for factual knowledge in some tasks, or the longer target sequences, 
+11. Source=Self-RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=calls a retriever model on demand (Step 1). Subsequently,SELF -RAG concurrently processes multiple retrieved passages, evaluating their relevance and thengenerating corresponding t
+12. Source=Self-RAG.pdf | Page=4 | Type=text | Image=N/A
+    Content=(Algorithm 1) over the generated task output. For instance, in Figure 1 (right), the retrieved passages d1 is selected at the first time step since d2 does not provide direct evide
+13. Source=RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=the generation ﬂexibility of the “closed-book” (parametric only) approaches and the performance of "open-book" retrieval-based approaches. Unlike REALM and T5+SSM, RAG enjoys stron
+14. Source=RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=explore a general-purpose ﬁne-tuning recipe for retrieval-augmented generation (RAG) — models which combine pre-trained parametric and non-parametric mem- ory for language generati
+15. Source=Self-RAG.pdf | Page=3 | Type=text | Image=N/A
+    Content=guided decoding framework, but they focus only on reasoning tasks with one evaluation dimension (reasoning path consistency) and without retrieval. Recent work on LLM refinement (D
+16. Source=RAG.pdf | Page=18 | Type=text | Image=N/A
+    Content=the interests of simplicity, we omit them. For Open MS-MARCO, where useful retrieved documents cannot always be retrieved, we observe that the model learns to always retrieve a par
+17. Source=Self-RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=vacation was a magical escape to the coastal town of  Santorini.                     The azure waters, charming white- washed building are unforgettable experience. No Retrieval No
+18. Source=RAG.pdf | Page=19 | Type=text | Image=N/A
+    Content=728 dimensional vectors, consisting of 15.3B values. These can be easily be stored at 8-bit ﬂoating point precision to manage memory and disk footprints. H Retrieval Collapse In pr
+19. Source=Self-RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=us to (1) flexibly adjust retrieval frequency for different downstream applications and (2) customize models’ behaviors to user preferences by leveraging reflection tokens through 
+20. Source=Self-RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=eration (SELF -R AG) that enhances an LM’s quality and factuality through retrieval and self-reflection. Our framework trains a single arbitrary LM that adaptively retrieves passag
+21. Source=RAG.pdf | Page=8 | Type=text | Image=N/A
+    Content=fact checking [ 56], fact completion [ 48], long-form question answering [ 12], Wikipedia article generation [36], dialogue [ 41, 65, 9, 13], translation [ 17], and language modeli
+22. Source=RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=its effectiveness, and we illustrated how the retrieval index can be hot-swapped to update the model without requiring any retraining. In future work, it may be fruitful to investi
+23. Source=RAG.pdf | Page=4 | Type=text | Image=N/A
+    Content=Navigable Small World approximation for fast retrieval [37]. During training, we retrieve the top k documents for each query. We considerk∈{ 5, 10} for training and setk for test t
+24. Source=RAG.pdf | Page=4 | Type=text | Image=N/A
+    Content=3 Experiments We experiment with RAG in a wide range of knowledge-intensive tasks. For all experiments, we use a single Wikipedia dump for our non-parametric knowledge source. Foll
+25. Source=RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=stream NLP tasks. However, their ability to access and precisely manipulate knowl- edge is still limited, and hence on knowledge-intensive tasks, their performance lags behind task
+
+------------------------------------------------------------------------------------------
+[SCOPED BM25 RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=Self-RAG.pdf | Page=8 | Type=text | Image=N/A
+    Content=LM-based models on all tasks. While our method outperforms other baselines, on PopQA or Bio, powerful instruction-tuned LMs with retrieval (e.g., LLama2-chat, Alpaca) show large ga
+02. Source=RAG.pdf | Page=18 | Type=text | Image=N/A
+    Content=the interests of simplicity, we omit them. For Open MS-MARCO, where useful retrieved documents cannot always be retrieved, we observe that the model learns to always retrieve a par
+03. Source=RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=explore a general-purpose ﬁne-tuning recipe for retrieval-augmented generation (RAG) — models which combine pre-trained parametric and non-parametric mem- ory for language generati
+04. Source=RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=MSMARCO as an open-domain abstractive QA task. MSMARCO has some questions that cannot be answered in a way that matches the reference answer without access to the gold passages, su
+05. Source=Self-RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=engineering to improve the factuality of LLM generations. Baselines with retrievals. We evaluate models augmented with retrieval at test time or during training. The first category
+06. Source=Self-RAG.pdf | Page=1 | Type=image | Image=extracted_images\Self-RAG_page1_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with the title title of a research paper  OCR Text: 2310.11511v1 [cs.CL] 17 Oct 2023  arXiv  Preprint.  SELF-RAG: LEARNING TO R
+07. Source=RAG.pdf | Page=3 | Type=text | Image=N/A
+    Content=x with the retrieved contentz when generating from BART, we simply concatenate them. BART was pre-trained using a denoising objective and a variety of different noising functions. 
+08. Source=RAG.pdf | Page=4 | Type=text | Image=N/A
+    Content=2.5 Decoding At test time, RAG-Sequence and RAG-Token require different ways to approximatearg maxyp(y|x). RAG-Token The RAG-Token model can be seen as a standard, autoregressive s
+09. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=through retrieval on demand and self-reflection.SELF -R AG trains an LM to learn to retrieve, generate, and critique text passages and its own generation by predicting the next tok
+10. Source=RAG.pdf | Page=6 | Type=text | Image=N/A
+    Content=even when the correct answer is not in any retrieved document, achieving 11.8% accuracy in such cases for NQ, where an extractive model would score 0%. 4.2 Abstractive Question Ans
+11. Source=Self-RAG.pdf | Page=20 | Type=text | Image=N/A
+    Content=C R ESULTS C.1 A NALYSIS Reliance on parametric- and non-parametric memories. We conduct analysis on how frequently model answers come from retrieved passages (non-parametric memor
+12. Source=Self-RAG.pdf | Page=10 | Type=image | Image=extracted_images\Self-RAG_page10_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+13. Source=RAG.pdf | Page=3 | Type=text | Image=N/A
+    Content=target token and marginalize accordingly. This allows the generator to choose content from several documents when producing an answer. Concretely, the top K documents are retrieved
+14. Source=Self-RAG.pdf | Page=9 | Type=image | Image=extracted_images\Self-RAG_page9_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the textbook on the characterization and characterization of semiconductors in semiconductors and semiconductors  OCR Text:
+15. Source=RAG.pdf | Page=3 | Type=text | Image=N/A
+    Content=a pre-trained bi-encoder from DPR to initialize our retriever and to build the document index. This retriever was trained to retrieve documents which contain answers to TriviaQA [2
+16. Source=Self-RAG.pdf | Page=26 | Type=text | Image=N/A
+    Content=evidence to verify. Instruction What is the capital of France? Need retrieval? [Yes] Explanation While the instruction simply asks us to answer the capital of France, which is a wi
+17. Source=Self-RAG.pdf | Page=3 | Type=image | Image=extracted_images\Self-RAG_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+18. Source=RAG.pdf | Page=4 | Type=text | Image=N/A
+    Content=text generation. To test RAG’s natural language generation (NLG) in a knowledge-intensive setting, we use the MSMARCO NLG task v2.1 [ 43]. The task consists of questions, ten gold 
+19. Source=Self-RAG.pdf | Page=23 | Type=text | Image=N/A
+    Content=the documents. ASQA (ours) Answer the following question. The question may be ambiguous and have multiple correct answers, and in that case, you have to provide a long-form answer 
+20. Source=RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=sides: They cannot easily expand or revise their memory, can’t straightforwardly provide insight into their predictions, and may produce “hallucinations” [ 38]. Hybrid models that 
+21. Source=Self-RAG.pdf | Page=22 | Type=text | Image=N/A
+    Content=that is fast but energy-consuming, offering lower memory<p>[ ISREL =Relevant]Primary memory can be accessed quickly, but it is volatile, meaning that the data is lost if the power 
+22. Source=Self-RAG.pdf | Page=4 | Type=image | Image=extracted_images\Self-RAG_page4_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Preprint.  Typ
+23. Source=Self-RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=reflection tokens or retrieved passages. We also report the result of retrieval-augmented baselines with LMs trained with private data: Ret-ChatGPT and Ret-Llama2-chat, which deplo
+24. Source=Self-RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=Preprint. Challenge; Clark et al. 2018). We use accuracy as an evaluation metric and report on the test set. We aggregate the answer probabilities of target classes for both of the
+25. Source=RAG.pdf | Page=18 | Type=text | Image=N/A
+    Content=to model cases where no useful information could be retrieved for a given input. Here, ifk documents were retrieved, we would additionally "retrieve" an empty document and predict 
+
+------------------------------------------------------------------------------------------
+[RRF FUSION RANKING]
+------------------------------------------------------------------------------------------
+01. RRF=0.030090 | DenseRank=8 | BM25Rank=5 | Source=Self-RAG.pdf | Page=7 | Type=text
+02. RRF=0.029387 | DenseRank=14 | BM25Rank=3 | Source=RAG.pdf | Page=1 | Type=text
+03. RRF=0.029287 | DenseRank=16 | BM25Rank=2 | Source=RAG.pdf | Page=18 | Type=text
+04. RRF=0.016393 | DenseRank=1 | BM25Rank=- | Source=Self-RAG.pdf | Page=1 | Type=text
+05. RRF=0.016393 | DenseRank=- | BM25Rank=1 | Source=Self-RAG.pdf | Page=8 | Type=text
+06. RRF=0.016129 | DenseRank=2 | BM25Rank=- | Source=Self-RAG.pdf | Page=5 | Type=text
+07. RRF=0.015873 | DenseRank=3 | BM25Rank=- | Source=Self-RAG.pdf | Page=1 | Type=text
+08. RRF=0.015625 | DenseRank=4 | BM25Rank=- | Source=Self-RAG.pdf | Page=6 | Type=text
+09. RRF=0.015625 | DenseRank=- | BM25Rank=4 | Source=RAG.pdf | Page=5 | Type=text
+10. RRF=0.015385 | DenseRank=5 | BM25Rank=- | Source=Self-RAG.pdf | Page=17 | Type=text
+11. RRF=0.015152 | DenseRank=6 | BM25Rank=- | Source=RAG.pdf | Page=17 | Type=text
+12. RRF=0.015152 | DenseRank=- | BM25Rank=6 | Source=Self-RAG.pdf | Page=1 | Type=image
+13. RRF=0.014925 | DenseRank=7 | BM25Rank=- | Source=RAG.pdf | Page=8 | Type=text
+14. RRF=0.014925 | DenseRank=- | BM25Rank=7 | Source=RAG.pdf | Page=3 | Type=text
+15. RRF=0.014706 | DenseRank=- | BM25Rank=8 | Source=RAG.pdf | Page=4 | Type=text
+16. RRF=0.014493 | DenseRank=9 | BM25Rank=- | Source=Self-RAG.pdf | Page=2 | Type=text
+17. RRF=0.014493 | DenseRank=- | BM25Rank=9 | Source=Self-RAG.pdf | Page=10 | Type=text
+18. RRF=0.014286 | DenseRank=10 | BM25Rank=- | Source=RAG.pdf | Page=19 | Type=text
+19. RRF=0.014286 | DenseRank=- | BM25Rank=10 | Source=RAG.pdf | Page=6 | Type=text
+20. RRF=0.014085 | DenseRank=11 | BM25Rank=- | Source=Self-RAG.pdf | Page=1 | Type=text
+21. RRF=0.014085 | DenseRank=- | BM25Rank=11 | Source=Self-RAG.pdf | Page=20 | Type=text
+22. RRF=0.013889 | DenseRank=12 | BM25Rank=- | Source=Self-RAG.pdf | Page=4 | Type=text
+23. RRF=0.013889 | DenseRank=- | BM25Rank=12 | Source=Self-RAG.pdf | Page=10 | Type=image
+24. RRF=0.013699 | DenseRank=13 | BM25Rank=- | Source=RAG.pdf | Page=5 | Type=text
+25. RRF=0.013699 | DenseRank=- | BM25Rank=13 | Source=RAG.pdf | Page=3 | Type=text
+26. RRF=0.013514 | DenseRank=- | BM25Rank=14 | Source=Self-RAG.pdf | Page=9 | Type=image
+27. RRF=0.013333 | DenseRank=15 | BM25Rank=- | Source=Self-RAG.pdf | Page=3 | Type=text
+28. RRF=0.013333 | DenseRank=- | BM25Rank=15 | Source=RAG.pdf | Page=3 | Type=text
+29. RRF=0.013158 | DenseRank=- | BM25Rank=16 | Source=Self-RAG.pdf | Page=26 | Type=text
+30. RRF=0.012987 | DenseRank=17 | BM25Rank=- | Source=Self-RAG.pdf | Page=5 | Type=text
+31. RRF=0.012987 | DenseRank=- | BM25Rank=17 | Source=Self-RAG.pdf | Page=3 | Type=image
+32. RRF=0.012821 | DenseRank=18 | BM25Rank=- | Source=RAG.pdf | Page=19 | Type=text
+33. RRF=0.012821 | DenseRank=- | BM25Rank=18 | Source=RAG.pdf | Page=4 | Type=text
+34. RRF=0.012658 | DenseRank=19 | BM25Rank=- | Source=Self-RAG.pdf | Page=2 | Type=text
+35. RRF=0.012658 | DenseRank=- | BM25Rank=19 | Source=Self-RAG.pdf | Page=23 | Type=text
+36. RRF=0.012500 | DenseRank=20 | BM25Rank=- | Source=Self-RAG.pdf | Page=1 | Type=text
+37. RRF=0.012500 | DenseRank=- | BM25Rank=20 | Source=RAG.pdf | Page=1 | Type=text
+38. RRF=0.012346 | DenseRank=21 | BM25Rank=- | Source=RAG.pdf | Page=8 | Type=text
+39. RRF=0.012346 | DenseRank=- | BM25Rank=21 | Source=Self-RAG.pdf | Page=22 | Type=text
+40. RRF=0.012195 | DenseRank=22 | BM25Rank=- | Source=RAG.pdf | Page=9 | Type=text
+41. RRF=0.012195 | DenseRank=- | BM25Rank=22 | Source=Self-RAG.pdf | Page=4 | Type=image
+42. RRF=0.012048 | DenseRank=23 | BM25Rank=- | Source=RAG.pdf | Page=4 | Type=text
+43. RRF=0.012048 | DenseRank=- | BM25Rank=23 | Source=Self-RAG.pdf | Page=7 | Type=text
+44. RRF=0.011905 | DenseRank=24 | BM25Rank=- | Source=RAG.pdf | Page=4 | Type=text
+45. RRF=0.011905 | DenseRank=- | BM25Rank=24 | Source=Self-RAG.pdf | Page=7 | Type=text
+46. RRF=0.011765 | DenseRank=25 | BM25Rank=- | Source=RAG.pdf | Page=1 | Type=text
+47. RRF=0.011765 | DenseRank=- | BM25Rank=25 | Source=RAG.pdf | Page=18 | Type=text
+------------------------------------------------------------------------------------------
+
+==========================================================================================
+STEP 3A — RETRIEVAL STAGE SUMMARY
+==========================================================================================
+Dense candidates       : 25
+BM25 candidates        : 25
+Dense ∩ BM25           : 3
+Dense-only candidates  : 22
+BM25-only candidates   : 22
+Unique candidate pool  : 47
+RRF candidates         : 47
+Returned to pipeline   : 8
+==========================================================================================
+
+------------------------------------------------------------------------------------------
+[SCOPED FINAL HYBRID RESULT] 8 candidates
+------------------------------------------------------------------------------------------
+01. Source=Self-RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=engineering to improve the factuality of LLM generations. Baselines with retrievals. We evaluate models augmented with retrieval at test time or during training. The first category
+02. Source=RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=explore a general-purpose ﬁne-tuning recipe for retrieval-augmented generation (RAG) — models which combine pre-trained parametric and non-parametric mem- ory for language generati
+03. Source=RAG.pdf | Page=18 | Type=text | Image=N/A
+    Content=the interests of simplicity, we omit them. For Open MS-MARCO, where useful retrieved documents cannot always be retrieved, we observe that the model learns to always retrieve a par
+04. Source=Self-RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=ric knowledge they encapsulate. Retrieval-Augmented Generation (RAG), an ad hoc approach that augments LMs with retrieval of relevant knowledge, decreases such issues. However, ind
+05. Source=Self-RAG.pdf | Page=8 | Type=text | Image=N/A
+    Content=LM-based models on all tasks. While our method outperforms other baselines, on PopQA or Bio, powerful instruction-tuned LMs with retrieval (e.g., LLama2-chat, Alpaca) show large ga
+06. Source=Self-RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=y using the retrieval and critic models to create supervised data that precisely mimics the SELF - RAG inference-time process (Section 3.1). For each segment yt ∈ y, we run C to as
+07. Source=Self-RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=RAG (7B and 13B parameters) significantly outperforms state-of-the-art LLMs and retrieval-augmented models on a diverse set of tasks. Specifically, SELF -RAG outperforms ChatGPT an
+08. Source=Self-RAG.pdf | Page=6 | Type=text | Image=N/A
+    Content=Adaptive retrieval with threshold.SELF -RAG dynamically decides when to retrieve text passages by predicting Retrieve . Alternatively, our framework allows a threshold to be set. S
+==========================================================================================
+
+================================================================================
+STAGE 1 — HYBRID RETRIEVAL
+================================================================================
+Retrieved Count : 8
+
+[HYBRID #1] Source=Self-RAG.pdf | Page=7 | Type=text
+Content: engineering to improve the factuality of LLM generations. Baselines with retrievals. We evaluate models augmented with retrieval at test time or during training. The first category includes standard RAG baselines, where an LM (Llama2, Alpaca) generates output given the query prepended with the top retrieved documents using the same retriever as in our system. It also includes Llama2-FT, where Llama2 is fine-tuned on all training data we use without the reflection tokens or retrieved passages. We
+
+[HYBRID #2] Source=RAG.pdf | Page=1 | Type=text
+Content: explore a general-purpose ﬁne-tuning recipe for retrieval-augmented generation (RAG) — models which combine pre-trained parametric and non-parametric mem- ory for language generation. We introduce RAG models where the parametric memory is a pre-trained seq2seq model and the non-parametric memory is a dense vector index of Wikipedia, accessed with a pre-trained neural retriever. We com- pare two RAG formulations, one which conditions on the same retrieved passages across the whole generated seque
+
+[HYBRID #3] Source=RAG.pdf | Page=18 | Type=text
+Content: the interests of simplicity, we omit them. For Open MS-MARCO, where useful retrieved documents cannot always be retrieved, we observe that the model learns to always retrieve a particular set of documents for questions that are less likely to beneﬁt from retrieval, suggesting that null document mechanisms may not be necessary for RAG. G Parameters Our RAG models contain the trainable parameters for the BERT-base query and document encoder of DPR, with 110M parameters each (although we do not tra
+
+[HYBRID #4] Source=Self-RAG.pdf | Page=1 | Type=text
+Content: ric knowledge they encapsulate. Retrieval-Augmented Generation (RAG), an ad hoc approach that augments LMs with retrieval of relevant knowledge, decreases such issues. However, indiscriminately retrieving and incorporating a fixed number of retrieved passages, regardless of whether retrieval is necessary, or passages are relevant, diminishes LM versatility or can lead to unhelpful response generation. We introduce a new framework called Self-Reflective Retrieval-Augmented Gen- eration (SELF -R A
+
+[HYBRID #5] Source=Self-RAG.pdf | Page=8 | Type=text
+Content: LM-based models on all tasks. While our method outperforms other baselines, on PopQA or Bio, powerful instruction-tuned LMs with retrieval (e.g., LLama2-chat, Alpaca) show large gains from their non-retrieval baselines. However, we found that these baselines provide limited solutions for tasks where we cannot simply copy or extract sub-strings of retrieved passages. On PubHealth and ARC-Challenge, baselines with retrieval do not improve performance notably from their no- retrieval counterparts. 
+
+[HYBRID #6] Source=Self-RAG.pdf | Page=5 | Type=text
+Content: y using the retrieval and critic models to create supervised data that precisely mimics the SELF - RAG inference-time process (Section 3.1). For each segment yt ∈ y, we run C to assess whether additional passages could help to enhance generation. If retrieval is required, the retrieval special token Retrieve =Yes is added, and R retrieves the top K passages, D. For each passage, C further evaluates whether the passage is relevant and predicts ISREL . If a passage is relevant, C further evaluates
+
+[HYBRID #7] Source=Self-RAG.pdf | Page=1 | Type=text
+Content: RAG (7B and 13B parameters) significantly outperforms state-of-the-art LLMs and retrieval-augmented models on a diverse set of tasks. Specifically, SELF -RAG outperforms ChatGPT and retrieval-augmented Llama2-chat on Open-domain QA, reasoning and fact verification tasks, and it shows significant gains in improving factuality and citation accuracy for long-form generations relative to these models.1 1 I NTRODUCTION State-of-the-art LLMs continue to struggle with factual errors (Mallen et al., 202
+
+[HYBRID #8] Source=Self-RAG.pdf | Page=6 | Type=text
+Content: Adaptive retrieval with threshold.SELF -RAG dynamically decides when to retrieve text passages by predicting Retrieve . Alternatively, our framework allows a threshold to be set. Specifically, if the prob- ability of generating the Retrieve =Yes token normalized over all output tokens in Retrieve surpasses a designated threshold, we trigger retrieval (details in Appendix Section A.3). Tree-decoding with critique tokens. At each segment step t, when retrieval is required, based either on hard or 
+================================================================================
+[DOCUMENT SCOPE] Text chunks: 8 -> 8
+
+================================================================================
+IMAGE RETRIEVAL DIAGNOSTIC
+================================================================================
+Query                 : Why can SELF-RAG outperform conventional retrieval-augmented models on tasks where the answer cannot simply be copied from retrieved passages?
+Allowed Sources       : ['RAG.pdf', 'Self-RAG.pdf']
+Image Candidates      : 554 -> 12 (scoped before ranking)
+
+ALL IMAGE CANDIDATES
+--------------------------------------------------------------------------------
+Rank=01 | Source=Self-RAG.pdf | Page=1 | Image=Self-RAG_page1_render.png | Hybrid=0.3633 | CE=0.4277 | CLIP=0.2666
+Rank=02 | Source=Self-RAG.pdf | Page=2 | Image=Self-RAG_page2_render.png | Hybrid=-1.0936 | CE=-1.9882 | CLIP=0.2482
+Rank=03 | Source=Self-RAG.pdf | Page=3 | Image=Self-RAG_page3_render.png | Hybrid=-1.8324 | CE=-3.2168 | CLIP=0.2441
+Rank=04 | Source=Self-RAG.pdf | Page=4 | Image=Self-RAG_page4_render.png | Hybrid=-2.8554 | CE=-4.9199 | CLIP=0.2414
+Rank=05 | Source=RAG.pdf | Page=7 | Image=RAG_page7_render.png | Hybrid=-3.6040 | CE=-6.1655 | CLIP=0.2384
+Rank=06 | Source=Self-RAG.pdf | Page=9 | Image=Self-RAG_page9_render.png | Hybrid=-5.1357 | CE=-8.7247 | CLIP=0.2476
+Rank=07 | Source=RAG.pdf | Page=17 | Image=RAG_page17_img0.png | Hybrid=-5.6338 | CE=-9.5494 | CLIP=0.2397
+Rank=08 | Source=RAG.pdf | Page=8 | Image=RAG_page8_render.png | Hybrid=-5.6811 | CE=-9.6303 | CLIP=0.2427
+Rank=09 | Source=RAG.pdf | Page=2 | Image=RAG_page2_render.png | Hybrid=-6.1802 | CE=-10.4682 | CLIP=0.2519
+Rank=10 | Source=RAG.pdf | Page=6 | Image=RAG_page6_render.png | Hybrid=-6.2164 | CE=-10.5217 | CLIP=0.2414
+Rank=11 | Source=Self-RAG.pdf | Page=5 | Image=Self-RAG_page5_render.png | Hybrid=-6.6355 | CE=-11.2222 | CLIP=0.2447
+Rank=12 | Source=Self-RAG.pdf | Page=10 | Image=Self-RAG_page10_render.png | Hybrid=-6.7104 | CE=-11.3494 | CLIP=0.2481
+
+TOP IMAGE RESULTS
+--------------------------------------------------------------------------------
+TOP-1 | Source=Self-RAG.pdf | Page=1 | Image=Self-RAG_page1_render.png | Hybrid=0.3633 | CE=0.4277 | CLIP=0.2666
+TOP-2 | Source=Self-RAG.pdf | Page=2 | Image=Self-RAG_page2_render.png | Hybrid=-1.0936 | CE=-1.9882 | CLIP=0.2482
+TOP-3 | Source=Self-RAG.pdf | Page=3 | Image=Self-RAG_page3_render.png | Hybrid=-1.8324 | CE=-3.2168 | CLIP=0.2441
+================================================================================
+[DOCUMENT SCOPE] Images: 3 -> 3
+
+================================================================================
+STAGE 2 — IMAGE RETRIEVAL RESULT
+================================================================================
+Image Results       : 3
+Exact Figure Match  : False
+
+[IMAGE #1] Source=Self-RAG.pdf | Page=1 | Image=Self-RAG_page1_render.png
+Image Path: extracted_images\Self-RAG_page1_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with the title title of a research paper  OCR Text: 2310.11511v1 [cs.CL] 17 Oct 2023  arXiv  Preprint.  SELF-RAG: LEARNING TO RETRIEVE, GENERATE, AND CRITIQUE THROUGH SELF-REFLECTION  Akari Asai! , Zeqiu Wul, Yizhong Wang’, Avirup Sil?, Hannaneh Hajishirzi'® tUniversity of Washington Allen Institute for AI +IBM Research AI {akari, zeqiuwu, yizhongw, hannaneh}@cs.washington.edu, avi@us.ibm.com  ABSTRACT  Despite their remarkable capabilities, l
+
+[IMAGE #2] Source=Self-RAG.pdf | Page=2 | Image=Self-RAG_page2_render.png
+Image Path: extracted_images\Self-RAG_page2_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Preprint.  Retrieval-Augmented Generation (RAG) Ours: Self-reflective Retrieval-Augmented Generation (Self-RAG) , [Prompt How did US states gat thelr names? Prompt How did US states get thelr names? Stop 4: Retrieve on demand ? t : ¢ : Step 1: Retrleve K documents Be US state
+
+[IMAGE #3] Source=Self-RAG.pdf | Page=3 | Image=Self-RAG_page3_render.png
+Image Path: extracted_images\Self-RAG_page3_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Preprint.  of retrieved passages prepended to input, or pre-train a retriever and LM jointly, followed by few- shot fine-tuning on task datasets (zacard et al., 2022b). While prior work often retrieves only once at the beginning, Jiang et al. (2023) propose to adaptively retr
+================================================================================
+
+================================================================================
+COMBINED RETRIEVAL CANDIDATES
+================================================================================
+Text Candidates  : 8
+Image Candidates : 3
+Total Candidates : 11
+================================================================================
+
+================================================================================
+STEP 3A — RERANKER INPUT
+================================================================================
+Query: Why can SELF-RAG outperform conventional retrieval-augmented models on tasks where the answer cannot simply be copied from retrieved passages?
+Input candidates: 11
+01. Source=Self-RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=engineering to improve the factuality of LLM generations. Baselines with retrievals. We evaluate models augmented with retrieval at test time or during training. The first category
+02. Source=RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=explore a general-purpose ﬁne-tuning recipe for retrieval-augmented generation (RAG) — models which combine pre-trained parametric and non-parametric mem- ory for language generati
+03. Source=RAG.pdf | Page=18 | Type=text | Image=N/A
+    Content=the interests of simplicity, we omit them. For Open MS-MARCO, where useful retrieved documents cannot always be retrieved, we observe that the model learns to always retrieve a par
+04. Source=Self-RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=ric knowledge they encapsulate. Retrieval-Augmented Generation (RAG), an ad hoc approach that augments LMs with retrieval of relevant knowledge, decreases such issues. However, ind
+05. Source=Self-RAG.pdf | Page=8 | Type=text | Image=N/A
+    Content=LM-based models on all tasks. While our method outperforms other baselines, on PopQA or Bio, powerful instruction-tuned LMs with retrieval (e.g., LLama2-chat, Alpaca) show large ga
+06. Source=Self-RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=y using the retrieval and critic models to create supervised data that precisely mimics the SELF - RAG inference-time process (Section 3.1). For each segment yt ∈ y, we run C to as
+07. Source=Self-RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=RAG (7B and 13B parameters) significantly outperforms state-of-the-art LLMs and retrieval-augmented models on a diverse set of tasks. Specifically, SELF -RAG outperforms ChatGPT an
+08. Source=Self-RAG.pdf | Page=6 | Type=text | Image=N/A
+    Content=Adaptive retrieval with threshold.SELF -RAG dynamically decides when to retrieve text passages by predicting Retrieve . Alternatively, our framework allows a threshold to be set. S
+09. Source=Self-RAG.pdf | Page=1 | Type=image | Image=extracted_images\Self-RAG_page1_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with the title title of a research paper  OCR Text: 2310.11511v1 [cs.CL] 17 Oct 2023  arXiv  Preprint.  SELF-RAG: LEARNING TO R
+10. Source=Self-RAG.pdf | Page=2 | Type=image | Image=extracted_images\Self-RAG_page2_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+11. Source=Self-RAG.pdf | Page=3 | Type=image | Image=extracted_images\Self-RAG_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+================================================================================
+
+--------------------------------------------------------------------------------
+CROSS-ENCODER RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=04 | Source=Self-RAG.pdf | Page=8 | Type=text | CE=4.3245
+Rank=02 | OriginalIndex=06 | Source=Self-RAG.pdf | Page=1 | Type=text | CE=4.0734
+Rank=03 | OriginalIndex=02 | Source=RAG.pdf | Page=18 | Type=text | CE=2.8416
+Rank=04 | OriginalIndex=03 | Source=Self-RAG.pdf | Page=1 | Type=text | CE=2.8254
+Rank=05 | OriginalIndex=01 | Source=RAG.pdf | Page=1 | Type=text | CE=2.2337
+Rank=06 | OriginalIndex=05 | Source=Self-RAG.pdf | Page=5 | Type=text | CE=1.9901
+Rank=07 | OriginalIndex=07 | Source=Self-RAG.pdf | Page=6 | Type=text | CE=1.8326
+Rank=08 | OriginalIndex=00 | Source=Self-RAG.pdf | Page=7 | Type=text | CE=0.4633
+Rank=09 | OriginalIndex=08 | Source=Self-RAG.pdf | Page=1 | Type=image | CE=0.4277
+Rank=10 | OriginalIndex=09 | Source=Self-RAG.pdf | Page=2 | Type=image | CE=-1.9882
+Rank=11 | OriginalIndex=10 | Source=Self-RAG.pdf | Page=3 | Type=image | CE=-3.2168
+
+--------------------------------------------------------------------------------
+CLIP IMAGE RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=08 | Source=Self-RAG.pdf | Page=1 | Image=extracted_images\Self-RAG_page1_render.png | CLIP=0.2666
+Rank=02 | OriginalIndex=09 | Source=Self-RAG.pdf | Page=2 | Image=extracted_images\Self-RAG_page2_render.png | CLIP=0.2482
+Rank=03 | OriginalIndex=10 | Source=Self-RAG.pdf | Page=3 | Image=extracted_images\Self-RAG_page3_render.png | CLIP=0.2441
+
+================================================================================
+STEP 3A — COMPLETE MULTIMODAL RERANK RESULT
+================================================================================
+Rank=01 | Type=image | Source=Self-RAG.pdf | Page=1 | RRF=0.030886 | CE=0.4277 | CLIP=0.2666
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with the title title of a research paper  OCR Text: 2310.11511v1 [cs.CL] 17 Oct 2023  arXiv  Preprint.  SELF-RAG: LEARNING TO R
+Rank=02 | Type=image | Source=Self-RAG.pdf | Page=2 | RRF=0.030415 | CE=-1.9882 | CLIP=0.2482
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+Rank=03 | Type=image | Source=Self-RAG.pdf | Page=3 | RRF=0.029958 | CE=-3.2168 | CLIP=0.2441
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+Rank=04 | Type=text | Source=Self-RAG.pdf | Page=8 | RRF=0.016393 | CE=4.3245 | CLIP=N/A
+    Content=LM-based models on all tasks. While our method outperforms other baselines, on PopQA or Bio, powerful instruction-tuned LMs with retrieval (e.g., LLama2-chat, Alpaca) show large ga
+Rank=05 | Type=text | Source=Self-RAG.pdf | Page=1 | RRF=0.016129 | CE=4.0734 | CLIP=N/A
+    Content=RAG (7B and 13B parameters) significantly outperforms state-of-the-art LLMs and retrieval-augmented models on a diverse set of tasks. Specifically, SELF -RAG outperforms ChatGPT an
+Rank=06 | Type=text | Source=RAG.pdf | Page=18 | RRF=0.015873 | CE=2.8416 | CLIP=N/A
+    Content=the interests of simplicity, we omit them. For Open MS-MARCO, where useful retrieved documents cannot always be retrieved, we observe that the model learns to always retrieve a par
+Rank=07 | Type=text | Source=Self-RAG.pdf | Page=1 | RRF=0.015625 | CE=2.8254 | CLIP=N/A
+    Content=ric knowledge they encapsulate. Retrieval-Augmented Generation (RAG), an ad hoc approach that augments LMs with retrieval of relevant knowledge, decreases such issues. However, ind
+Rank=08 | Type=text | Source=RAG.pdf | Page=1 | RRF=0.015385 | CE=2.2337 | CLIP=N/A
+    Content=explore a general-purpose ﬁne-tuning recipe for retrieval-augmented generation (RAG) — models which combine pre-trained parametric and non-parametric mem- ory for language generati
+Rank=09 | Type=text | Source=Self-RAG.pdf | Page=5 | RRF=0.015152 | CE=1.9901 | CLIP=N/A
+    Content=y using the retrieval and critic models to create supervised data that precisely mimics the SELF - RAG inference-time process (Section 3.1). For each segment yt ∈ y, we run C to as
+Rank=10 | Type=text | Source=Self-RAG.pdf | Page=6 | RRF=0.014925 | CE=1.8326 | CLIP=N/A
+    Content=Adaptive retrieval with threshold.SELF -RAG dynamically decides when to retrieve text passages by predicting Retrieve . Alternatively, our framework allows a threshold to be set. S
+Rank=11 | Type=text | Source=Self-RAG.pdf | Page=7 | RRF=0.014706 | CE=0.4633 | CLIP=N/A
+    Content=engineering to improve the factuality of LLM generations. Baselines with retrievals. We evaluate models augmented with retrieval at test time or during training. The first category
+================================================================================
+
+================================================================================
+STEP 3A — FINAL RERANK TOP-K
+================================================================================
+Requested top_k: 12
+Returned documents: 11
+01. Source=Self-RAG.pdf | Page=1 | Type=image | Image=extracted_images\Self-RAG_page1_render.png
+02. Source=Self-RAG.pdf | Page=2 | Type=image | Image=extracted_images\Self-RAG_page2_render.png
+03. Source=Self-RAG.pdf | Page=3 | Type=image | Image=extracted_images\Self-RAG_page3_render.png
+04. Source=Self-RAG.pdf | Page=8 | Type=text | Image=N/A
+05. Source=Self-RAG.pdf | Page=1 | Type=text | Image=N/A
+06. Source=RAG.pdf | Page=18 | Type=text | Image=N/A
+07. Source=Self-RAG.pdf | Page=1 | Type=text | Image=N/A
+08. Source=RAG.pdf | Page=1 | Type=text | Image=N/A
+09. Source=Self-RAG.pdf | Page=5 | Type=text | Image=N/A
+10. Source=Self-RAG.pdf | Page=6 | Type=text | Image=N/A
+11. Source=Self-RAG.pdf | Page=7 | Type=text | Image=N/A
+================================================================================
+
+================================================================================
+STAGE 3 — MULTIMODAL RERANKING
+================================================================================
+Input Candidates : 11
+Reranked Output   : 11
+
+[RERANK #1] Source=Self-RAG.pdf | Page=1 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with the title title of a research paper  OCR Text: 2310.11511v1 [cs.CL] 17 Oct 2023  arXiv  Preprint.  SELF-RAG: LEARNING TO RETRIEVE, GENERATE, AND CRITIQUE THROUGH SELF-REFLECTION  Akari Asai! , Zeqiu Wul, Yizhong Wang’, Avirup Sil?, Hannaneh H
+
+[RERANK #2] Source=Self-RAG.pdf | Page=2 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Preprint.  Retrieval-Augmented Generation (RAG) Ours: Self-reflective Retrie
+
+[RERANK #3] Source=Self-RAG.pdf | Page=3 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Preprint.  of retrieved passages prepended to input, or pre-train a retrieve
+
+[RERANK #4] Source=Self-RAG.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: LM-based models on all tasks. While our method outperforms other baselines, on PopQA or Bio, powerful instruction-tuned LMs with retrieval (e.g., LLama2-chat, Alpaca) show large gains from their non-retrieval baselines. However, we found that these baselines provide limited solutions for tasks where
+
+[RERANK #5] Source=Self-RAG.pdf | Page=1 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: RAG (7B and 13B parameters) significantly outperforms state-of-the-art LLMs and retrieval-augmented models on a diverse set of tasks. Specifically, SELF -RAG outperforms ChatGPT and retrieval-augmented Llama2-chat on Open-domain QA, reasoning and fact verification tasks, and it shows significant gai
+
+[RERANK #6] Source=RAG.pdf | Page=18 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: the interests of simplicity, we omit them. For Open MS-MARCO, where useful retrieved documents cannot always be retrieved, we observe that the model learns to always retrieve a particular set of documents for questions that are less likely to beneﬁt from retrieval, suggesting that null document mech
+
+[RERANK #7] Source=Self-RAG.pdf | Page=1 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: ric knowledge they encapsulate. Retrieval-Augmented Generation (RAG), an ad hoc approach that augments LMs with retrieval of relevant knowledge, decreases such issues. However, indiscriminately retrieving and incorporating a fixed number of retrieved passages, regardless of whether retrieval is nece
+
+[RERANK #8] Source=RAG.pdf | Page=1 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: explore a general-purpose ﬁne-tuning recipe for retrieval-augmented generation (RAG) — models which combine pre-trained parametric and non-parametric mem- ory for language generation. We introduce RAG models where the parametric memory is a pre-trained seq2seq model and the non-parametric memory is 
+
+[RERANK #9] Source=Self-RAG.pdf | Page=5 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: y using the retrieval and critic models to create supervised data that precisely mimics the SELF - RAG inference-time process (Section 3.1). For each segment yt ∈ y, we run C to assess whether additional passages could help to enhance generation. If retrieval is required, the retrieval special token
+
+[RERANK #10] Source=Self-RAG.pdf | Page=6 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Adaptive retrieval with threshold.SELF -RAG dynamically decides when to retrieve text passages by predicting Retrieve . Alternatively, our framework allows a threshold to be set. Specifically, if the prob- ability of generating the Retrieve =Yes token normalized over all output tokens in Retrieve su
+
+[RERANK #11] Source=Self-RAG.pdf | Page=7 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: engineering to improve the factuality of LLM generations. Baselines with retrievals. We evaluate models augmented with retrieval at test time or during training. The first category includes standard RAG baselines, where an LM (Llama2, Alpaca) generates output given the query prepended with the top r
+================================================================================
+
+================================================================================
+FINAL CONTEXT DOCUMENTS
+================================================================================
+Final context candidates: 11
+
+[FINAL #1] Source=Self-RAG.pdf | Page=1 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with the title title of a research paper  OCR Text: 2310.11511v1 [cs.CL] 17 Oct 2023  arXiv  Preprint.  SELF-RAG: LEARNING TO RETRIEVE, GENERATE, AND CRITIQUE THROUGH SELF-REFLECTION  Akari Asai! , Zeqiu Wul, Yizhong Wang’, Avirup Sil?, Hannaneh H
+
+[FINAL #2] Source=Self-RAG.pdf | Page=2 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Preprint.  Retrieval-Augmented Generation (RAG) Ours: Self-reflective Retrie
+
+[FINAL #3] Source=Self-RAG.pdf | Page=3 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Preprint.  of retrieved passages prepended to input, or pre-train a retrieve
+
+[FINAL #4] Source=Self-RAG.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: LM-based models on all tasks. While our method outperforms other baselines, on PopQA or Bio, powerful instruction-tuned LMs with retrieval (e.g., LLama2-chat, Alpaca) show large gains from their non-retrieval baselines. However, we found that these baselines provide limited solutions for tasks where
+
+[FINAL #5] Source=Self-RAG.pdf | Page=1 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: RAG (7B and 13B parameters) significantly outperforms state-of-the-art LLMs and retrieval-augmented models on a diverse set of tasks. Specifically, SELF -RAG outperforms ChatGPT and retrieval-augmented Llama2-chat on Open-domain QA, reasoning and fact verification tasks, and it shows significant gai
+
+[FINAL #6] Source=RAG.pdf | Page=18 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: the interests of simplicity, we omit them. For Open MS-MARCO, where useful retrieved documents cannot always be retrieved, we observe that the model learns to always retrieve a particular set of documents for questions that are less likely to beneﬁt from retrieval, suggesting that null document mech
+
+[FINAL #7] Source=Self-RAG.pdf | Page=1 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: ric knowledge they encapsulate. Retrieval-Augmented Generation (RAG), an ad hoc approach that augments LMs with retrieval of relevant knowledge, decreases such issues. However, indiscriminately retrieving and incorporating a fixed number of retrieved passages, regardless of whether retrieval is nece
+
+[FINAL #8] Source=RAG.pdf | Page=1 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: explore a general-purpose ﬁne-tuning recipe for retrieval-augmented generation (RAG) — models which combine pre-trained parametric and non-parametric mem- ory for language generation. We introduce RAG models where the parametric memory is a pre-trained seq2seq model and the non-parametric memory is 
+
+[FINAL #9] Source=Self-RAG.pdf | Page=5 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: y using the retrieval and critic models to create supervised data that precisely mimics the SELF - RAG inference-time process (Section 3.1). For each segment yt ∈ y, we run C to assess whether additional passages could help to enhance generation. If retrieval is required, the retrieval special token
+
+[FINAL #10] Source=Self-RAG.pdf | Page=6 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Adaptive retrieval with threshold.SELF -RAG dynamically decides when to retrieve text passages by predicting Retrieve . Alternatively, our framework allows a threshold to be set. Specifically, if the prob- ability of generating the Retrieve =Yes token normalized over all output tokens in Retrieve su
+
+[FINAL #11] Source=Self-RAG.pdf | Page=7 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: engineering to improve the factuality of LLM generations. Baselines with retrievals. We evaluate models augmented with retrieval at test time or during training. The first category includes standard RAG baselines, where an LM (Llama2, Alpaca) generates output given the query prepended with the top r
+================================================================================
+
+================================================================================
+FINAL CONTEXT SENT TO LLM
+================================================================================
+
+================================================================================
+DOCUMENT : Self-RAG.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 1
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+RAG (7B and 13B parameters) significantly outperforms state-of-the-art LLMs
+and retrieval-augmented models on a diverse set of tasks. Specifically, SELF -RAG
+outperforms ChatGPT and retrieval-augmented Llama2-chat on Open-domain QA,
+reasoning and fact verification tasks, and it shows significant gains in improving
+factuality and citation accuracy for long-form generations relative to these models.1
+1 I NTRODUCTION
+State-of-the-art LLMs continue to struggle with factual errors (Mallen et al., 2023; Min et al., 2023)
+
+
+[TEXT]
+
+ric knowledge they encapsulate. Retrieval-Augmented Generation (RAG), an ad
+hoc approach that augments LMs with retrieval of relevant knowledge, decreases
+such issues. However, indiscriminately retrieving and incorporating a fixed number
+of retrieved passages, regardless of whether retrieval is necessary, or passages are
+relevant, diminishes LM versatility or can lead to unhelpful response generation.
+We introduce a new framework called Self-Reflective Retrieval-Augmented Gen-
+eration (SELF -R AG) that enhances an LM’s quality and factuality through retrieval
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a paper with the title title of a research paper
+
+OCR Text:
+2310.11511v1 [cs.CL] 17 Oct 2023
+
+arXiv
+
+Preprint.
+
+SELF-RAG: LEARNING TO RETRIEVE, GENERATE, AND
+CRITIQUE THROUGH SELF-REFLECTION
+
+Akari Asai! , Zeqiu Wul, Yizhong Wang’, Avirup Sil?, Hannaneh Hajishirzi'®
+tUniversity of Washington Allen Institute for AI +IBM Research AI
+{akari, zeqiuwu, yizhongw, hannaneh}@cs.washington.edu, avi@us.ibm.com
+
+ABSTRACT
+
+Despite their remarkable capabilities, large language models (LLMs) often produce
+responses containing factual inaccuracies due to their sole reliance on the paramet-
+ric knowledge they encapsulate. Retrieval-Augmented Generation (RAG), an ad
+hoc approach that augments LMs with retrieval of relevant knowledge, decreases
+such issues. However, indiscriminately retrieving and incorporating a fixed number
+of retrieved passages, regardless of whether retrieval is necessary, or passages are
+relevant, diminishes LM versatility or can lead to unhelpful response generation.
+We introduce a new framework called Self-Reflective Retrieval-Augmented Gen-
+eration (SELF-RAG) that enhances an LM’s quality and factuality through retrieval
+and self-reflection. Our framework trains a single arbitrary LM that adaptively
+retrieves passages on-demand, and generates and reflects on retrieved passages
+and its own generations using special tokens, called reflection tokens. Generating
+reflection tokens makes the LM controllable during the inference phase, enabling it
+to tailor its behavior to diverse task requirements. Experiments show that SELF-
+RAG (7B and 13B parameters) significantly outperforms state-of-the-art LLMs
+and retrieval-augmented models on a diverse set of tasks. Specifically, SELF-RAG
+outperforms ChatGPT and retrieval-augmented Llama2-chat on Open-domain QA,
+reasoning and fact verification tasks, and it shows significant gains in improving
+factuality and citation accuracy for long-form generations relative to these models.'
+
+1 INTRODUCTION
+
+State-of-the-art LLMs continue to struggle with factual errors (Mallen et al., 2023; Min et al., 2023)
+despite their increased model and data scale (Ouyang et al., 2022). Retrieval-Augmented Generation
+(RAG) methods (Figure 1 left; Lewis et al. 2020; Guu et al. 2020) augment the input of LLMs
+with relevant retrieved passages, reducing factual errors in knowledge-intensive tasks (Ram et al.,
+2023; Asai et al., 2023a). However, these methods may hinder the versatility of LLMs or introduce
+unnecessary or off-topic passages that lead to low-quality generations (Shi et al., 2023) since they
+retrieve passages indiscriminately regardless of whether the factual grounding is helpful. Moreover,
+the output is not guaranteed to be consistent with retrieved relevant passages (Gao et al., 2023) since
+the models are not explicitly trained to leverage and follow facts from provided passages. This
+work introduces Self-Reflective Retrieval-augmented Generation (SELF-RAG) to improve an
+LLM’s generation quality, including its factual accuracy without hurting its versatility, via on-demand
+retrieval and self-reflection. We train an arbitrary LM in an end-to-end manner to learn to reflect on
+its own generation process given a task input by generating both task output and intermittent special
+tokens (.e., reflection tokens). Reflection tokens are categorized into retrieval and critique tokens to
+indicate the need for retrieval and its generation quality respectively (Figure 1 right). In particular,
+given an input prompt and preceding generations, SELF-RAG first determines if augmenting the
+continued generation with retrieved passages would be helpful. If so, it outputs a retrieval token that
+calls a retriever model on demand (Step 1). Subsequently, SELF-RAG concurrently processes multiple
+retrieved passages, evaluating their relevance and then generating corresponding task outputs (Step
+2). It then generates critique tokens to criticize its own output and choose best one (Step 3) in terms
+of factuality and overall quality. This process differs from conventional RAG (Figure 1 left), which
+
+‘Our code and trained models are available at https: //selfrag.github.io/.
+
+Nearby Document Text:
+Preprint.
+SELF-RAG: LEARNING TO RETRIEVE, GENERATE, AND
+CRITIQUE THROUGH SELF-REFLECTION
+Akari Asai†, Zeqiu Wu†, Yizhong Wang†§, Avirup Sil‡, Hannaneh Hajishirzi†§
+†University of Washington
+§Allen Institute for AI
+‡IBM Research AI
+{akari,zeqiuwu,yizhongw,hannaneh}@cs.washington.edu, avi@us.ibm.com
+ABSTRACT
+Despite their remarkable capabilities, large language models (LLMs) often produce
+responses containing factual inaccuracies due to their sole reliance on the paramet-
+ric knowledge they encapsulate. Retrieval-Augmented Generation (RAG), an ad
+hoc approach that augments LMs with retrieval of
+
+
+[RELATED PAGE TEXT]
+
+RAG (7B and 13B parameters) significantly outperforms state-of-the-art LLMs
+and retrieval-augmented models on a diverse set of tasks. Specifically, SELF -RAG
+outperforms ChatGPT and retrieval-augmented Llama2-chat on Open-domain QA,
+reasoning and fact verification tasks, and it shows significant gains in improving
+factuality and citation accuracy f
+
+
+--------------------------------------------------------------------------------
+PAGE : 2
+--------------------------------------------------------------------------------
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the
+
+OCR Text:
+Preprint.
+
+Retrieval-Augmented Generation (RAG) Ours: Self-reflective Retrieval-Augmented Generation (Self-RAG)
+, [Prompt How did US states gat thelr names? Prompt How did US states get thelr names? Stop 4: Retrieve on demand
+?
+t
+:
+¢
+: Step 1: Retrleve K documents Be US states got thelr names from a varlety of sources.
+t A) Ofthe fifty states, eleven are named
+‘ after an individual person, Step 2: Generate segmentin parallel nee ee
+
+“af -> Popularnamesbystates.InTexes, )| $= _ geec""7” &
+Emma is a popular baby name. Prompt + ® Prompt + 0)
+Rotri Caltfornia was named after a fictional
+otriever island in a, Spanish book. (rae BS v BS +
+
+Relavant 144 of 50 state names Relevant
+Tras is came Californla's name has Its
+Step 2: Prompt LM with K docs and generate come from persons. [crore ] Goel a 16th-century novel
+1 ; Step 3: Critique outputs and select bestsegment ¢T}
+US states got their names from a varlety of
+Be sources. Elven states are named after an Occ > Cs i | > 2
+
+Individual ‘person {a.g, Califomla_was_named
+ef olumbus}. Some states US states got thelr names from a varlety of sources. 11 of 50
+“ sf [rawr] —> Repeat. 8 pe
+
+incf\ng Taxes Uiah, are named after states namas are come from persons, ()26 states are named
+Contradictory atican tribe) No information In passages
+
+Prompt: Write an essay of your best summer vacation Prompt: Write an essay of your best summer vacation
+: v
+t
+. Q ft) 2) 3) > ee —> My best... ee — [Troncua | My best summer vacation Is when my family and | embarked on a road trip along ...
+se
+
+Figure 1: Overview of SELF-RAG. SELF-RAG learns to retrieve, critique, and generate text passages
+to enhance overall generation quality, factuality, and verifiability.
+
+consistently retrieves a fixed number of documents for generation regardless of the retrieval necessity
+(e.g., the bottom figure example does not require factual knowledge) and never second visits the
+generation quality. Moreover, SELF-RAG provides citations for each segment with its self-assessment
+of whether the output is supported by the passage, leading to easier fact verification.
+
+SELF-RAG trains an arbitrary LM to generate text with reflection tokens by unifying them as the
+next token prediction from the expanded model vocabulary. We train our generator LM on a diverse
+collection of text interleaved with reflection tokens and retrieved passages. Reflection tokens, inspired
+by reward models used in reinforcement learning (Ziegler et al., 2019; Ouyang et al., 2022), are
+inserted offline into the original corpus by a trained critic model. This eliminates the need to host a
+critic model during training, reducing overhead. The critic model, in part, is supervised on a dataset
+of input, output, and corresponding reflection tokens collected by prompting a propriety LM (Le.,
+GPT-4; OpenAI 2023). While we draw inspiration from studies that use control tokens to start and
+guide text generation (Lu et al., 2022; Keskar et al., 2019), our trained LM uses critique tokens to
+assess its own predictions after each generated segment as an integral part of the generation output.
+
+SELF-RAG further enables a customizable decoding algorithm to satisfy hard or soft constraints,
+which are defined by reflection token predictions. In particular, our inference-time algorithm enables
+us to (1) flexibly adjust retrieval frequency for different downstream applications and (2) customize
+models’ behaviors to user preferences by leveraging reflection tokens through segment-level beam
+search using the weighted linear sum of the reflection token probabilities as segment score.
+
+Empirical results on six tasks, including reasoning and long-form generation, demonstrate that SELF-
+RAG significantly outperforms pre-trained and instruction-tuned LLMs that have more parameters and
+widely adopted RAG approaches with higher citation accuracy. In particular, SELF-RAG outperforms
+retrieval-augmented ChatGPT on four tasks, Llama2-chat (Touvron et al., 2023) and Alpaca (Dubois
+et al., 2023) on all tasks. Our analysis demonstrates the effectiveness of training and inference with
+reflection tokens for overall performance improvements as well as test-time model customizations
+(e.g., balancing the trade-off between citation previsions and completeness).
+
+2 RELATED WORK
+
+Retrieval-Augmented Generation. Retrieval-Augmented Generation (RAG) augments the input
+space of LMs with retrieved text passages (Guu et al., 2020; Lewis et al., 2020), leading to large
+improvements in knowledge-intensive tasks after fine-tuning or used with off-the-shelf LMs (Ram
+et al., 2023). A more recent work (Luo et al., 2023) instruction-tunes an LM with a fixed number
+
+Nearby Document Text:
+Preprint.
+Step 1: Retrieve K documents
+California was named after a fictional 
+island in a Spanish book. 
+Prompt How did US states get their names? 
+US states got their names from a variety of 
+sources. Eleven states are named after an 
+individual person (e.g, California was named 
+after Christopher Columbus). Some states 
+including Texas and Utah, are named after 
+Native American tribe.
+Retrieval-Augmented Generation (RAG)
+Ours: Self-reflective Retrieval-Augmented Generation (Self-RAG) 
+Popular names by states. In Texas, 
+Emma is a popular baby name. 
+Of the fifty states, eleven are named 
+af
+
+
+--------------------------------------------------------------------------------
+PAGE : 3
+--------------------------------------------------------------------------------
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the
+
+OCR Text:
+Preprint.
+
+of retrieved passages prepended to input, or pre-train a retriever and LM jointly, followed by few-
+shot fine-tuning on task datasets (zacard et al., 2022b). While prior work often retrieves only
+once at the beginning, Jiang et al. (2023) propose to adaptively retrieve passages for generation
+on top of a proprietary LLM or Schick et al. (2023) train an LM to generate API calls for named
+entities. Yet, the improved task performance of such approaches often comes at the expense of
+runtime efficiency (Mallen et al., 2023), robustness to irrelevant context (Shi et al., 2023), and lack of
+attributions (Liu et al., 2023a; Gao et al., 2023). We introduce a method to train an arbitrary LM to
+learn to use retrieval on-demand for diverse instruction-following queries and introduce controlled
+generation guided by reflections tokens to further improve generation quality and attributions.
+
+Concurrent RAG work. A few concurrent works? on RAG propose new training or prompting
+strategies to improve widely-adopted RAG approaches. Lin et al. (2023) fine-tune both the retriever
+and LM on instruction-tuning datasets in two steps. While we also train our model on diverse
+instruction-following datasets, SELF-RAG enables retrieval on demand and selection of the best
+possible model output via fine-grained self-reflection, making it widely applicable and more robust
+and controllable. Yoran et al. (2023) use a natural language inference model and Xu et al. (2023) use
+a summarization model to filter out or compress retrieved passages before using them to prompt the
+LM to generate the output. SELF-RAG processes passages in parallel and filters out irrelevant ones
+through self-reflection, without relying on external models at inference. Moreover, our self-reflection
+mechanism also evaluates other aspects of the model output quality including factuality. LATS (Zhou
+et al., 2023) prompt off-the-shelf LMs to search for relevant information for question answering tasks
+and to generate with tree search, guided by LM-generated value scores. While their value function
+simply indicates an overall score of each generation, SELF-RAG trains to an arbitrary LM to learn to
+generate fine-grained self-reflection and customizable inference.
+
+Training and generating with critics. Training LLMs with reinforcement learning (e.g., Proximal
+Policy Optimization or PPO; Schulman et al. 2017) from human feedback (RLHF) has proven
+effective in aligning LLMs with human preferences (Ouyang et al., 2022). Wu et al. (2023) introduce
+fine-grained RLHF with multiple reward models. Though our work also studies fine-grained critique
+on retrieval and generation, we train our target LM on task examples augmented with reflection
+tokens from a critic model offline, with a far lower training cost compared to RLHF. In addition,
+reflection tokens in SELF-RAG enable controllable generation at inference, while RLHF focuses on
+human preference alignment during training. Other works use general control tokens to guide LM
+generation (Lu et al., 2022; Korbak et al., 2023), while SELF-RAG uses reflection tokens to decide the
+need for retrieval and to self-evaluate generation quality. Xie et al. (2023) propose a self-evaluation-
+guided decoding framework, but they focus only on reasoning tasks with one evaluation dimension
+(reasoning path consistency) and without retrieval. Recent work on LLM refinement (Dhuliawala
+et al., 2023; Madaan et al., 2023; Paul et al., 2023) prompts a model to generate task output, natural
+language feedback and refined task output iteratively, but at the cost of inference efficiency.
+
+3. SELF-RAG: LEARNING TO RETRIEVE, GENERATE AND CRITIQUE
+
+We introduce Self-Reflective Retrieval-Augmented Generation (SELF-RAG), shown in Figure 1.
+SELF-RAG is a framework that enhances the quality and factuality of an LLM through retrieval and
+self-reflection, without sacrificing LLM’s original creativity and versatility. Our end-to-end training
+lets an LM M generate text informed by retrieved passages, if needed, and criticize the output by
+learning to generate special tokens. These reflection tokens (Table 1) signal the need for retrieval
+or confirm the output’s relevance, support, or completeness. In contrast, common RAG approaches
+retrieve passages indiscriminately, without ensuring complete support from cited sources.
+
+3.1 PROBLEM FORMALIZATION AND OVERVIEW
+
+Formally, given input x, we train M to sequentially generate textual outputs y consisting of multiple
+segments y = [yi,..., yr], where y; indicates a sequence of tokens for the ¢-th segment.* Generated
+tokens in y, include text from the original vocabulary as well as the reflection tokens (Table 1).
+
+2All work is arXived within a week of this preprint.
+3In this paper, we treat one sentence as a segment in our experiments, but our framework is applicable to any
+segment unit (i.e., sub-sentence).
+
+Nearby Document Text:
+Preprint.
+of retrieved passages prepended to input, or pre-train a retriever and LM jointly, followed by few-
+shot fine-tuning on task datasets (Izacard et al., 2022b).
+While prior work often retrieves only
+once at the beginning, Jiang et al. (2023) propose to adaptively retrieve passages for generation
+on top of a proprietary LLM or Schick et al. (2023) train an LM to generate API calls for named
+entities. Yet, the improved task performance of such approaches often comes at the expense of
+runtime efficiency (Mallen et al., 2023), robustness to irrelevant context (Shi et al., 2023), and lack o
+
+
+--------------------------------------------------------------------------------
+PAGE : 5
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+y using the retrieval and critic models to create supervised data that precisely mimics the SELF -
+RAG inference-time process (Section 3.1). For each segment yt ∈ y, we run C to assess whether
+additional passages could help to enhance generation. If retrieval is required, the retrieval special
+token Retrieve =Yes is added, and R retrieves the top K passages, D. For each passage, C further
+evaluates whether the passage is relevant and predicts ISREL . If a passage is relevant, C further
+evaluates whether the passage supports the model generation and predicts ISSUP . Critique tokens
+
+
+--------------------------------------------------------------------------------
+PAGE : 6
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+Adaptive retrieval with threshold.SELF -RAG dynamically decides when to retrieve text passages by
+predicting Retrieve . Alternatively, our framework allows a threshold to be set. Specifically, if the prob-
+ability of generating the Retrieve =Yes token normalized over all output tokens in Retrieve surpasses a
+designated threshold, we trigger retrieval (details in Appendix Section A.3).
+Tree-decoding with critique tokens. At each segment step t, when retrieval is required, based either
+on hard or soft conditions, R retrieves K passages, and the generator M processes each passage in
+
+
+--------------------------------------------------------------------------------
+PAGE : 7
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+engineering to improve the factuality of LLM generations.
+Baselines with retrievals. We evaluate models augmented with retrieval at test time or during training.
+The first category includes standard RAG baselines, where an LM (Llama2, Alpaca) generates output
+given the query prepended with the top retrieved documents using the same retriever as in our system.
+It also includes Llama2-FT, where Llama2 is fine-tuned on all training data we use without the
+reflection tokens or retrieved passages. We also report the result of retrieval-augmented baselines
+
+
+--------------------------------------------------------------------------------
+PAGE : 8
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+LM-based models on all tasks. While our method outperforms other baselines, on PopQA or Bio,
+powerful instruction-tuned LMs with retrieval (e.g., LLama2-chat, Alpaca) show large gains from
+their non-retrieval baselines. However, we found that these baselines provide limited solutions for
+tasks where we cannot simply copy or extract sub-strings of retrieved passages. On PubHealth
+and ARC-Challenge, baselines with retrieval do not improve performance notably from their no-
+retrieval counterparts. We also observe that most baselines with retrieval struggle to improve citation
+
+
+================================================================================
+DOCUMENT : RAG.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 1
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+explore a general-purpose ﬁne-tuning recipe for retrieval-augmented generation
+(RAG) — models which combine pre-trained parametric and non-parametric mem-
+ory for language generation. We introduce RAG models where the parametric
+memory is a pre-trained seq2seq model and the non-parametric memory is a dense
+vector index of Wikipedia, accessed with a pre-trained neural retriever. We com-
+pare two RAG formulations, one which conditions on the same retrieved passages
+across the whole generated sequence, and another which can use different passages
+
+
+--------------------------------------------------------------------------------
+PAGE : 18
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+the interests of simplicity, we omit them. For Open MS-MARCO, where useful retrieved documents
+cannot always be retrieved, we observe that the model learns to always retrieve a particular set of
+documents for questions that are less likely to beneﬁt from retrieval, suggesting that null document
+mechanisms may not be necessary for RAG.
+G Parameters
+Our RAG models contain the trainable parameters for the BERT-base query and document encoder of
+DPR, with 110M parameters each (although we do not train the document encoder ourselves) and
+
+================================================================================
+
+================================================================================
+RAG PIPELINE DEBUG
+================================================================================
+Query Type        : analytical
+Retrieved Chunks  : 8
+Retrieved Images  : 3
+Reranked Chunks   : 11
+Reranked Text     : 8
+Reranked Images   : 3
+Final Context Docs: 11
+Exact Figure Query: False
+Exact Figure Match: False
+Exact Figure Final: False
+================================================================================
+
+====================================================================================================
+RAG ANSWER
+====================================================================================================
+ SELF-RAG can outperform conventional retrieval-augmented models on tasks where the answer cannot simply be copied from retrieved passages because it uses a self-reflection mechanism that allows the model to evaluate the relevance, support, and completeness of the generated output and the retrieved passages. This mechanism enables the model to generate more accurate and contextually appropriate responses, even when the answer cannot be directly extracted from the retrieved passages. Additionally, SELF-RAG uses a tree-decoding approach that allows it to process each retrieved passage and generate more coherent and factual responses.
+
+IMAGE PATHS:
+D:/Projects/Major-Project-2-main/extracted_images/Self-RAG_page1_render.png
+D:/Projects/Major-Project-2-main/extracted_images/Self-RAG_page2_render.png
+D:/Projects/Major-Project-2-main/extracted_images/Self-RAG_page3_render.png

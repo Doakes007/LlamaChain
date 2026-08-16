@@ -1,0 +1,1494 @@
+====================================================================================================
+QUESTION_ID   : B12
+DOCUMENT      : BLIP-2
+QUESTION_TYPE : Results / figure / reasoning
+ELAPSED_SEC   : 60.3
+ERROR         : no
+====================================================================================================
+
+QUESTION:
+According to the paper, how does BLIP-2 compare with Flamingo on zero-shot VQAv2, both in performance improvement and number of trainable parameters?
+
+GROUND TRUTH ANSWER:
+BLIP-2 outperforms Flamingo by 8.7% on zero-shot VQAv2 while using 54× fewer trainable parameters.
+
+GROUND TRUTH SOURCE:
+BLIP-2.pdf, p. 2
+
+====================================================================================================
+FORENSIC TRANSCRIPT
+====================================================================================================
+
+####################################################################################################
+FORENSIC CASE START
+####################################################################################################
+Original Query   : According to the paper, how does BLIP-2 compare with Flamingo on zero-shot VQAv2, both in performance improvement and number of trainable parameters?
+Expanded Query   : According to the paper, how does BLIP-2 compare with Flamingo on zero-shot VQAv2, both in performance improvement and number of trainable parameters?
+Query Type       : comparison
+
+================================================================================
+DOCUMENT SCOPE DEBUG
+================================================================================
+Query          : According to the paper, how does BLIP-2 compare with Flamingo on zero-shot VQAv2, both in performance improvement and number of trainable parameters?
+Expanded Query : According to the paper, how does BLIP-2 compare with Flamingo on zero-shot VQAv2, both in performance improvement and number of trainable parameters?
+Query Type     : comparison
+Document Scope : None
+================================================================================
+
+==========================================================================================
+STEP 3A — GLOBAL HYBRID RETRIEVAL
+==========================================================================================
+Query              : According to the paper, how does BLIP-2 compare with Flamingo on zero-shot VQAv2, both in performance improvement and number of trainable parameters?
+Dense candidate K  : 25
+Final hybrid K     : 8
+RRF constant       : 60
+
+------------------------------------------------------------------------------------------
+[DENSE / VECTOR RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=BLIP-2.pdf | Page=2 | Type=text | Image=N/A
+    Content=• Due to the use of frozen unimodal models and a lightweight Q-Former, BLIP-2 is more compute-efficient than exisiting state-of-the-arts. For example, BLIP-2 out- performs Flamingo
+02. Source=BLIP-2.pdf | Page=1 | Type=text | Image=N/A
+    Content=from a frozen language model. BLIP-2 achieves state-of-the-art performance on various vision- language tasks, despite having significantly fewer trainable parameters than existing 
+03. Source=BLIP-2.pdf | Page=6 | Type=text | Image=N/A
+    Content=BEIT-3 (Wang et al., 2022b) 1.9B ✗ - - - 94.9 81.5 Flamingo (Alayrac et al., 2022) 10.2B ✗ 56.3 - - - - BLIP-2 188M ✓ 65.0 121.6 15.8 97.6 89.7 Table 1. Overview of BLIP-2 results 
+04. Source=BLIP-2.pdf | Page=7 | Type=text | Image=N/A
+    Content=learning to bridge the modality gap, which is similar to the Perceiver Resampler in Flamingo. Figure 5 shows the effect of representation learning on generative learning. Without r
+05. Source=CLIP.pdf | Page=9 | Type=text | Image=N/A
+    Content=comparing to few-shot methods is a more direct compari- son, since zero-shot is its limit. In Figure 6, we visualize how zero-shot CLIP compares to few-shot logistic regres- sion o
+06. Source=BLIP-2.pdf | Page=6 | Type=text | Image=N/A
+    Content=ters. On the OK-VQA (Marino et al., 2019) dataset, BLIP-2 comes secondary to Flamingo80B. We hypothesis that this is because OK-VQA focuses more on open-world knowledge than visual
+07. Source=BLIP-2.pdf | Page=6 | Type=text | Image=N/A
+    Content=#Total Params VQAv2 OK-VQA GQA val test-dev test test-dev VL-T5no-vqa 224M 269M 13.5 - 5.8 6.3 FewVLM (Jin et al., 2022) 740M 785M 47.7 - 16.5 29.3 Frozen (Tsimpoukelli et al., 202
+08. Source=BLIP-2.pdf | Page=8 | Type=text | Image=N/A
+    Content=pair per sample. The LLMs cannot learn from it the correla- tion among multiple image-text pairs in a single sequence. The same observation is also reported in the Flamingo pa- per
+09. Source=BLIP-2.pdf | Page=2 | Type=text | Image=N/A
+    Content=BLIP-2 achieves state-of-the-art performance on various vision-language tasks including visual question answer- ing, image captioning, and image-text retrieval. • Powered by LLMs (
+10. Source=BLIP-2.pdf | Page=6 | Type=text | Image=N/A
+    Content=models, we use the prompt “Question: {} Short answer:”. During generation, we use beam search with a beam width of 5. We also set the length-penalty to -1 which encourages shorter 
+11. Source=BLIP-2.pdf | Page=7 | Type=text | Image=N/A
+    Content=COCO, and evaluate on both COCO test set and zero-shot transfer to NoCaps (Agrawal et al., 2019) validation set. The results are shown in Table 3. BLIP-2 achieves state- Models #Tr
+12. Source=Self-RAG.pdf | Page=23 | Type=text | Image=N/A
+    Content=the documents. ASQA (ours) Answer the following question. The question may be ambiguous and have multiple correct answers, and in that case, you have to provide a long-form answer 
+13. Source=BLIP-2.pdf | Page=7 | Type=text | Image=N/A
+    Content=BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models Models #Trainable Params NoCaps Zero-shot (validation set) COCO Fine-tuned in
+14. Source=CLIP.pdf | Page=44 | Type=text | Image=N/A
+    Content=lar average performance and number of wins on zero shot and linear classiﬁer evals. However, large differences in dataset speciﬁc performance occur. We include performance on the 3
+15. Source=CLIP.pdf | Page=24 | Type=text | Image=N/A
+    Content=The accuracy dropped signiﬁcantly to 51.1% for the second evaluation, with the model incorrectly choosing the ‘close’ answer 40.7% of the time. For ﬁne-grained detection, the zero-
+16. Source=BLIP-2.pdf | Page=6 | Type=text | Image=N/A
+    Content=BLIP-2 ViT-g OPT2.7B 107M 3.8B 53.5 52.3 31.7 34.6 BLIP-2 ViT-g OPT6.7B 108M 7.8B 54.3 52.6 36.4 36.4 BLIP-2 ViT-L FlanT5XL 103M 3.4B 62.6 62.3 39.4 44.4 BLIP-2 ViT-g FlanT5XL 107M
+17. Source=Vision Transformer.pdf | Page=16 | Type=text | Image=N/A
+    Content=This justiﬁes the choice of Adam as the optimizer used to pre-train ResNets on JFT. Note that the absolute numbers are lower than those reported by Kolesnikov et al. (2020), since 
+18. Source=CNN Paper.pdf | Page=5 | Type=text | Image=N/A
+    Content=such as ResNet or VGG which could significantly boost performance. 7.3 Comparison with Baselines Model Parameters Val Accuracy Inference Time Our CNN (2-layer) 1.2M 94.2% 11.8 ms V
+19. Source=CLIP.pdf | Page=10 | Type=text | Image=N/A
+    Content=tent improvements in zero-shot performance across a 1000x increase in training compute. In Figure 9, we check whether the zero-shot performance of CLIP follows a similar scaling pa
+20. Source=CLIP.pdf | Page=8 | Type=text | Image=N/A
+    Content=setup. Zero-shot CLIP outperforms this baseline slightly more of- 40  30  20  10  0 10 20 30 40  Score (%) Zero-Shot CLIP vs. Linear Probe on ResNet50 EuroSAT-37.1 KITTI Distance-3
+21. Source=BLIP-2.pdf | Page=2 | Type=text | Image=N/A
+    Content=encoder whose outputs are directly used as soft prompts for the LLM. Flamingo (Alayrac et al., 2022) inserts new cross-attention layers into the LLM to inject visual features, and 
+22. Source=Vision Transformer.pdf | Page=5 | Type=text | Image=N/A
+    Content=Fine-tuning accuracies capture the performance of each model after ﬁne-tuning it on the respective dataset. Few-shot accuracies are obtained by solving a regularized least-squares 
+23. Source=CLIP.pdf | Page=11 | Type=text | Image=N/A
+    Content=classiﬁers has the added beneﬁt of being very similar to the approach used for its zero-shot classiﬁers which enables extensive comparisons and analysis in Section 3.1. Finally, we
+24. Source=BLIP-2.pdf | Page=7 | Type=text | Image=N/A
+    Content=question. Specifically, the question tokens are given as input to the Q-Former and interact with the queries via the self-attention layers, which can guide the Q-Former’s cross- at
+25. Source=Donut.pdf | Page=9 | Type=text | Image=N/A
+    Content=3.3 Experimental Results Document Classification. The results are shown in Table 1. Without re- lying on any other resource (e.g., off-the-shelf OCR engine), Donut shows a state-of
+
+------------------------------------------------------------------------------------------
+[BM25 RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=BLIP-2.pdf | Page=2 | Type=text | Image=N/A
+    Content=• Due to the use of frozen unimodal models and a lightweight Q-Former, BLIP-2 is more compute-efficient than exisiting state-of-the-arts. For example, BLIP-2 out- performs Flamingo
+02. Source=BLIP-2.pdf | Page=6 | Type=text | Image=N/A
+    Content=BEIT-3 (Wang et al., 2022b) 1.9B ✗ - - - 94.9 81.5 Flamingo (Alayrac et al., 2022) 10.2B ✗ 56.3 - - - - BLIP-2 188M ✓ 65.0 121.6 15.8 97.6 89.7 Table 1. Overview of BLIP-2 results 
+03. Source=BLIP-2.pdf | Page=6 | Type=text | Image=N/A
+    Content=previous state-of-the-art models, BLIP-2 achieves improved performance while requiring substantially fewer number of trainable parameters during vision-language pre-training. 4.1. 
+04. Source=BLIP-2.pdf | Page=6 | Type=text | Image=N/A
+    Content=models, we use the prompt “Question: {} Short answer:”. During generation, we use beam search with a beam width of 5. We also set the length-penalty to -1 which encourages shorter 
+05. Source=CLIP.pdf | Page=16 | Type=text | Image=N/A
+    Content=ural distribution shift ﬁnds, similar to Taori et al. (2020), little evidence of effective robustness improvements to date. 4. Comparison to Human Performance How does CLIP compare
+06. Source=BLIP-2.pdf | Page=8 | Type=text | Image=N/A
+    Content=datasets. During inference, we follow Li et al. (2021; 2022) which first select k = 128 candidates based on the image- text feature similarity, followed by a re-ranking based on pa
+07. Source=BLIP-2.pdf | Page=8 | Type=text | Image=N/A
+    Content=6. Conclusion We propose BLIP-2, a generic and compute-efficient method for vision-language pre-training that leverages frozen pre- trained image encoders and LLMs. BLIP-2 achieves
+08. Source=CLIP.pdf | Page=10 | Type=text | Image=N/A
+    Content=datasets, both zero-shot accuracy and fully supervised accu- racy are over 90%. This suggests that CLIP may be more effective at zero-shot transfer for tasks where its underly- ing
+09. Source=BLIP-2.pdf | Page=2 | Type=image | Image=extracted_images\BLIP-2_page2_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the journal of the journal of the journal of the journal of the journal of the journal of the journal of the
+10. Source=CLIP.pdf | Page=44 | Type=text | Image=N/A
+    Content=lar average performance and number of wins on zero shot and linear classiﬁer evals. However, large differences in dataset speciﬁc performance occur. We include performance on the 3
+11. Source=BLIP-2.pdf | Page=2 | Type=text | Image=N/A
+    Content=encoder whose outputs are directly used as soft prompts for the LLM. Flamingo (Alayrac et al., 2022) inserts new cross-attention layers into the LLM to inject visual features, and 
+12. Source=CLIP.pdf | Page=14 | Type=text | Image=N/A
+    Content=accuracy under distribution shift slightly decreases. It is surprising to see a 9.2% increase in accuracy, which cor- responds to roughly 3 years of improvement in SOTA, fail to tr
+13. Source=BLIP-2.pdf | Page=6 | Type=text | Image=N/A
+    Content=BLIP-2 ViT-g OPT2.7B 107M 3.8B 53.5 52.3 31.7 34.6 BLIP-2 ViT-g OPT6.7B 108M 7.8B 54.3 52.6 36.4 36.4 BLIP-2 ViT-L FlanT5XL 103M 3.4B 62.6 62.3 39.4 44.4 BLIP-2 ViT-g FlanT5XL 107M
+14. Source=CLIP.pdf | Page=22 | Type=text | Image=N/A
+    Content=are distributed by age. We found that this drastically reduced the number of images of people under 20 classiﬁed in either crime-related categories or non-human animal categories (
+15. Source=CLIP.pdf | Page=16 | Type=text | Image=N/A
+    Content=and how much human performance is improved if they are shown one or two image samples. This can help us to compare task difﬁculty for humans and CLIP, and identify correlations and
+16. Source=BLIP-2.pdf | Page=1 | Type=text | Image=N/A
+    Content=from a frozen language model. BLIP-2 achieves state-of-the-art performance on various vision- language tasks, despite having significantly fewer trainable parameters than existing 
+17. Source=CLIP.pdf | Page=14 | Type=image | Image=extracted_images\CLIP_page14_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: the correlation of the correlation of the correlation of the correlation of the correlation of the correlation of the correlation of  O
+18. Source=RAG.pdf | Page=19 | Type=text | Image=N/A
+    Content=with 11 Billion trainable parameters. The T5 model with the closest number of parameters to our models is T5-large (770M parameters), which achieves a score of 28.9 EM on Natural Q
+19. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=Efficiency and accuracy trade-off. Using our framework, practitioners can adjust how often retrieval occurs using the token probability of reward tokens. We evaluate how this adapt
+20. Source=BLIP-2.pdf | Page=2 | Type=text | Image=N/A
+    Content=frozen LLM, and trains the Q-Former such that its output visual representation can be interpreted by the LLM. We name our VLP framework as BLIP-2: Bootstrapping Language-Image Pre-
+21. Source=CLIP.pdf | Page=17 | Type=text | Image=N/A
+    Content=are most uncertain in based on a single example. Given this, it seems that while CLIP is a promising training strategy for zero-shot performance (Figure 5) and does well on tests o
+22. Source=CLIP.pdf | Page=22 | Type=text | Image=N/A
+    Content=captured in Table 6. Given that we observed that people under 20 were the most likely to be classiﬁed in both the crime-related and non- human animal categories, we carried out cla
+23. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=performance deterioration by retrieving less is smaller on PubHealth but larger in PopQA. Effects of training data size. We conduct an analysis of how the data scale affects the mo
+24. Source=CLIP.pdf | Page=16 | Type=image | Image=extracted_images\CLIP_page16_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Learning Trans
+25. Source=CLIP.pdf | Page=8 | Type=text | Image=N/A
+    Content=In this section, we conduct a study of various properties of CLIP’s zero-shot classiﬁers. As a ﬁrst question, we look simply at how well zero-shot classiﬁers perform. To con- textu
+
+------------------------------------------------------------------------------------------
+[RRF FUSION RANKING]
+------------------------------------------------------------------------------------------
+01. RRF=0.032787 | DenseRank=1 | BM25Rank=1 | Source=BLIP-2.pdf | Page=2 | Type=text
+02. RRF=0.032002 | DenseRank=3 | BM25Rank=2 | Source=BLIP-2.pdf | Page=6 | Type=text
+03. RRF=0.029911 | DenseRank=10 | BM25Rank=4 | Source=BLIP-2.pdf | Page=6 | Type=text
+04. RRF=0.029287 | DenseRank=2 | BM25Rank=16 | Source=BLIP-2.pdf | Page=1 | Type=text
+05. RRF=0.027799 | DenseRank=14 | BM25Rank=10 | Source=CLIP.pdf | Page=44 | Type=text
+06. RRF=0.026857 | DenseRank=16 | BM25Rank=13 | Source=BLIP-2.pdf | Page=6 | Type=text
+07. RRF=0.026430 | DenseRank=21 | BM25Rank=11 | Source=BLIP-2.pdf | Page=2 | Type=text
+08. RRF=0.015873 | DenseRank=- | BM25Rank=3 | Source=BLIP-2.pdf | Page=6 | Type=text
+09. RRF=0.015625 | DenseRank=4 | BM25Rank=- | Source=BLIP-2.pdf | Page=7 | Type=text
+10. RRF=0.015385 | DenseRank=5 | BM25Rank=- | Source=CLIP.pdf | Page=9 | Type=text
+11. RRF=0.015385 | DenseRank=- | BM25Rank=5 | Source=CLIP.pdf | Page=16 | Type=text
+12. RRF=0.015152 | DenseRank=6 | BM25Rank=- | Source=BLIP-2.pdf | Page=6 | Type=text
+13. RRF=0.015152 | DenseRank=- | BM25Rank=6 | Source=BLIP-2.pdf | Page=8 | Type=text
+14. RRF=0.014925 | DenseRank=7 | BM25Rank=- | Source=BLIP-2.pdf | Page=6 | Type=text
+15. RRF=0.014925 | DenseRank=- | BM25Rank=7 | Source=BLIP-2.pdf | Page=8 | Type=text
+16. RRF=0.014706 | DenseRank=8 | BM25Rank=- | Source=BLIP-2.pdf | Page=8 | Type=text
+17. RRF=0.014706 | DenseRank=- | BM25Rank=8 | Source=CLIP.pdf | Page=10 | Type=text
+18. RRF=0.014493 | DenseRank=9 | BM25Rank=- | Source=BLIP-2.pdf | Page=2 | Type=text
+19. RRF=0.014493 | DenseRank=- | BM25Rank=9 | Source=BLIP-2.pdf | Page=2 | Type=image
+20. RRF=0.014085 | DenseRank=11 | BM25Rank=- | Source=BLIP-2.pdf | Page=7 | Type=text
+21. RRF=0.013889 | DenseRank=12 | BM25Rank=- | Source=Self-RAG.pdf | Page=23 | Type=text
+22. RRF=0.013889 | DenseRank=- | BM25Rank=12 | Source=CLIP.pdf | Page=14 | Type=text
+23. RRF=0.013699 | DenseRank=13 | BM25Rank=- | Source=BLIP-2.pdf | Page=7 | Type=text
+24. RRF=0.013514 | DenseRank=- | BM25Rank=14 | Source=CLIP.pdf | Page=22 | Type=text
+25. RRF=0.013333 | DenseRank=15 | BM25Rank=- | Source=CLIP.pdf | Page=24 | Type=text
+26. RRF=0.013333 | DenseRank=- | BM25Rank=15 | Source=CLIP.pdf | Page=16 | Type=text
+27. RRF=0.012987 | DenseRank=17 | BM25Rank=- | Source=Vision Transformer.pdf | Page=16 | Type=text
+28. RRF=0.012987 | DenseRank=- | BM25Rank=17 | Source=CLIP.pdf | Page=14 | Type=image
+29. RRF=0.012821 | DenseRank=18 | BM25Rank=- | Source=CNN Paper.pdf | Page=5 | Type=text
+30. RRF=0.012821 | DenseRank=- | BM25Rank=18 | Source=RAG.pdf | Page=19 | Type=text
+31. RRF=0.012658 | DenseRank=19 | BM25Rank=- | Source=CLIP.pdf | Page=10 | Type=text
+32. RRF=0.012658 | DenseRank=- | BM25Rank=19 | Source=Self-RAG.pdf | Page=10 | Type=text
+33. RRF=0.012500 | DenseRank=20 | BM25Rank=- | Source=CLIP.pdf | Page=8 | Type=text
+34. RRF=0.012500 | DenseRank=- | BM25Rank=20 | Source=BLIP-2.pdf | Page=2 | Type=text
+35. RRF=0.012346 | DenseRank=- | BM25Rank=21 | Source=CLIP.pdf | Page=17 | Type=text
+36. RRF=0.012195 | DenseRank=22 | BM25Rank=- | Source=Vision Transformer.pdf | Page=5 | Type=text
+37. RRF=0.012195 | DenseRank=- | BM25Rank=22 | Source=CLIP.pdf | Page=22 | Type=text
+38. RRF=0.012048 | DenseRank=23 | BM25Rank=- | Source=CLIP.pdf | Page=11 | Type=text
+39. RRF=0.012048 | DenseRank=- | BM25Rank=23 | Source=Self-RAG.pdf | Page=10 | Type=text
+40. RRF=0.011905 | DenseRank=24 | BM25Rank=- | Source=BLIP-2.pdf | Page=7 | Type=text
+41. RRF=0.011905 | DenseRank=- | BM25Rank=24 | Source=CLIP.pdf | Page=16 | Type=image
+42. RRF=0.011765 | DenseRank=25 | BM25Rank=- | Source=Donut.pdf | Page=9 | Type=text
+43. RRF=0.011765 | DenseRank=- | BM25Rank=25 | Source=CLIP.pdf | Page=8 | Type=text
+------------------------------------------------------------------------------------------
+
+==========================================================================================
+STEP 3A — RETRIEVAL STAGE SUMMARY
+==========================================================================================
+Dense candidates       : 25
+BM25 candidates        : 25
+Dense ∩ BM25           : 7
+Dense-only candidates  : 18
+BM25-only candidates   : 18
+Unique candidate pool  : 43
+RRF candidates         : 43
+Returned to pipeline   : 8
+==========================================================================================
+
+------------------------------------------------------------------------------------------
+[FINAL HYBRID RESULT] 8 candidates
+------------------------------------------------------------------------------------------
+01. Source=BLIP-2.pdf | Page=2 | Type=text | Image=N/A
+    Content=• Due to the use of frozen unimodal models and a lightweight Q-Former, BLIP-2 is more compute-efficient than exisiting state-of-the-arts. For example, BLIP-2 out- performs Flamingo
+02. Source=BLIP-2.pdf | Page=6 | Type=text | Image=N/A
+    Content=BEIT-3 (Wang et al., 2022b) 1.9B ✗ - - - 94.9 81.5 Flamingo (Alayrac et al., 2022) 10.2B ✗ 56.3 - - - - BLIP-2 188M ✓ 65.0 121.6 15.8 97.6 89.7 Table 1. Overview of BLIP-2 results 
+03. Source=BLIP-2.pdf | Page=6 | Type=text | Image=N/A
+    Content=models, we use the prompt “Question: {} Short answer:”. During generation, we use beam search with a beam width of 5. We also set the length-penalty to -1 which encourages shorter 
+04. Source=BLIP-2.pdf | Page=1 | Type=text | Image=N/A
+    Content=from a frozen language model. BLIP-2 achieves state-of-the-art performance on various vision- language tasks, despite having significantly fewer trainable parameters than existing 
+05. Source=CLIP.pdf | Page=44 | Type=text | Image=N/A
+    Content=lar average performance and number of wins on zero shot and linear classiﬁer evals. However, large differences in dataset speciﬁc performance occur. We include performance on the 3
+06. Source=BLIP-2.pdf | Page=6 | Type=text | Image=N/A
+    Content=BLIP-2 ViT-g OPT2.7B 107M 3.8B 53.5 52.3 31.7 34.6 BLIP-2 ViT-g OPT6.7B 108M 7.8B 54.3 52.6 36.4 36.4 BLIP-2 ViT-L FlanT5XL 103M 3.4B 62.6 62.3 39.4 44.4 BLIP-2 ViT-g FlanT5XL 107M
+07. Source=BLIP-2.pdf | Page=2 | Type=text | Image=N/A
+    Content=encoder whose outputs are directly used as soft prompts for the LLM. Flamingo (Alayrac et al., 2022) inserts new cross-attention layers into the LLM to inject visual features, and 
+08. Source=BLIP-2.pdf | Page=6 | Type=text | Image=N/A
+    Content=previous state-of-the-art models, BLIP-2 achieves improved performance while requiring substantially fewer number of trainable parameters during vision-language pre-training. 4.1. 
+==========================================================================================
+
+================================================================================
+STAGE 1 — HYBRID RETRIEVAL
+================================================================================
+Retrieved Count : 8
+
+[HYBRID #1] Source=BLIP-2.pdf | Page=2 | Type=text
+Content: • Due to the use of frozen unimodal models and a lightweight Q-Former, BLIP-2 is more compute-efficient than exisiting state-of-the-arts. For example, BLIP-2 out- performs Flamingo (Alayrac et al., 2022) by 8.7% on zero-shot VQAv2, while using 54 × fewer trainable pa- rameters. Furthermore, our results show that BLIP-2 is a generic method that can harvest more advanced unimodal models for better VLP performance. 2. Related Work 2.1. End-to-end Vision-Language Pre-training Vision-language pre-tra
+
+[HYBRID #2] Source=BLIP-2.pdf | Page=6 | Type=text
+Content: BEIT-3 (Wang et al., 2022b) 1.9B ✗ - - - 94.9 81.5 Flamingo (Alayrac et al., 2022) 10.2B ✗ 56.3 - - - - BLIP-2 188M ✓ 65.0 121.6 15.8 97.6 89.7 Table 1. Overview of BLIP-2 results on various zero-shot vision-language tasks. Compared with previous state-of-the-art models. BLIP-2 achieves the highest zero-shot performance while requiring the least number of trainable parameters during vision-language pre-training. Models #Trainable Params #Total Params VQAv2 OK-VQA GQA val test-dev test test-dev V
+
+[HYBRID #3] Source=BLIP-2.pdf | Page=6 | Type=text
+Content: models, we use the prompt “Question: {} Short answer:”. During generation, we use beam search with a beam width of 5. We also set the length-penalty to -1 which encourages shorter answers that align better with human annotation. As shown in Table 2. BLIP-2 achieves state-of-the-art result on the VQAv2 (Goyal et al., 2017) and GQA (Hudson & Manning, 2019) datasets. It outperforms Flamingo80B by 8.7% on VQAv2, despite having 54x fewer trainable parame- ters. On the OK-VQA (Marino et al., 2019) dat
+
+[HYBRID #4] Source=BLIP-2.pdf | Page=1 | Type=text
+Content: from a frozen language model. BLIP-2 achieves state-of-the-art performance on various vision- language tasks, despite having significantly fewer trainable parameters than existing methods. For example, our model outperforms Flamingo80B by 8.7% on zero-shot VQAv2 with 54x fewer train- able parameters. We also demonstrate the model’s emerging capabilities of zero-shot image-to-text generation that can follow natural language in- structions. 1. Introduction Vision-language pre-training (VLP) resear
+
+[HYBRID #5] Source=CLIP.pdf | Page=44 | Type=text
+Content: lar average performance and number of wins on zero shot and linear classiﬁer evals. However, large differences in dataset speciﬁc performance occur. We include performance on the 3 datasets where YFCC does best and worst compared to WIT according to a linear probe in order to highlight this as well as aggregate performance across all linear and zero-shot evals and the canonical ImageNet dataset. D. Dataset Ablation on YFCC100M To study whether our custom dataset is critical to the perfor- mance 
+
+[HYBRID #6] Source=BLIP-2.pdf | Page=6 | Type=text
+Content: BLIP-2 ViT-g OPT2.7B 107M 3.8B 53.5 52.3 31.7 34.6 BLIP-2 ViT-g OPT6.7B 108M 7.8B 54.3 52.6 36.4 36.4 BLIP-2 ViT-L FlanT5XL 103M 3.4B 62.6 62.3 39.4 44.4 BLIP-2 ViT-g FlanT5XL 107M 4.1B 63.1 63.0 40.7 44.2 BLIP-2 ViT-g FlanT5XXL 108M 12.1B 65.2 65.0 45.9 44.7 Table 2. Comparison with state-of-the-art methods on zero-shot visual question answering. 4. Experiment Table 1 provides an overview of the performance of BLIP-2 on various zero-shot vision-language tasks. Compared to previous state-of-the-
+
+[HYBRID #7] Source=BLIP-2.pdf | Page=2 | Type=text
+Content: encoder whose outputs are directly used as soft prompts for the LLM. Flamingo (Alayrac et al., 2022) inserts new cross-attention layers into the LLM to inject visual features, and pre-trains the new layers on billions of image-text pairs. Both methods adopt the language modeling loss, where the language model generates texts conditioned on the image. Different from existing methods, BLIP-2 can effectively and efficiently leverage both frozen image encoders and frozen LLMs for various vision-lang
+
+[HYBRID #8] Source=BLIP-2.pdf | Page=6 | Type=text
+Content: previous state-of-the-art models, BLIP-2 achieves improved performance while requiring substantially fewer number of trainable parameters during vision-language pre-training. 4.1. Instructed Zero-shot Image-to-Text Generation BLIP-2 effectively enables a LLM to understand images while preserving its capability in following text prompts, which allows us to control image-to-text generation with instructions. We simply append the text prompt after the visual prompt as input to the LLM. Figure 4 sho
+================================================================================
+
+================================================================================
+IMAGE RETRIEVAL DIAGNOSTIC
+================================================================================
+Query                 : According to the paper, how does BLIP-2 compare with Flamingo on zero-shot VQAv2, both in performance improvement and number of trainable parameters?
+Image Candidates      : 554
+
+ALL IMAGE CANDIDATES
+--------------------------------------------------------------------------------
+Rank=01 | Source=BLIP-2.pdf | Page=1 | Image=BLIP-2_page1_img1.png | Hybrid=-1.8380 | CE=-3.1840 | CLIP=0.1809
+Rank=02 | Source=CLIP.pdf | Page=11 | Image=CLIP_page11_render.png | Hybrid=-2.1167 | CE=-3.6972 | CLIP=0.2542
+Rank=03 | Source=BLIP-2.pdf | Page=1 | Image=BLIP-2_page1_render.png | Hybrid=-2.2581 | CE=-3.9181 | CLIP=0.2319
+Rank=04 | Source=BLIP-2.pdf | Page=12 | Image=BLIP-2_page12_img2.png | Hybrid=-2.7129 | CE=-4.6521 | CLIP=0.1958
+Rank=05 | Source=BLIP-2.pdf | Page=12 | Image=BLIP-2_page12_img1.png | Hybrid=-3.0002 | CE=-5.1232 | CLIP=0.1841
+Rank=06 | Source=CLIP.pdf | Page=44 | Image=CLIP_page44_render.png | Hybrid=-3.1410 | CE=-5.4045 | CLIP=0.2543
+Rank=07 | Source=BLIP-2.pdf | Page=13 | Image=BLIP-2_page13_img1.png | Hybrid=-3.3548 | CE=-5.7429 | CLIP=0.2272
+Rank=08 | Source=BLIP-2.pdf | Page=12 | Image=BLIP-2_page12_img3.png | Hybrid=-3.4677 | CE=-5.9153 | CLIP=0.2038
+Rank=09 | Source=BLIP-2.pdf | Page=3 | Image=BLIP-2_page3_img1.png | Hybrid=-3.6128 | CE=-6.1728 | CLIP=0.2272
+Rank=10 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img4.png | Hybrid=-3.6390 | CE=-6.1777 | CLIP=0.1690
+Rank=11 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img0.png | Hybrid=-3.6562 | CE=-6.2101 | CLIP=0.1746
+Rank=12 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img7.png | Hybrid=-3.6987 | CE=-6.2834 | CLIP=0.1783
+Rank=13 | Source=CLIP.pdf | Page=3 | Image=CLIP_page3_render.png | Hybrid=-3.7024 | CE=-6.3325 | CLIP=0.2428
+Rank=14 | Source=BLIP-2.pdf | Page=4 | Image=BLIP-2_page4_render.png | Hybrid=-3.7405 | CE=-6.3868 | CLIP=0.2288
+Rank=15 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img1.png | Hybrid=-3.8379 | CE=-6.5295 | CLIP=0.1996
+Rank=16 | Source=BLIP-2.pdf | Page=4 | Image=BLIP-2_page4_img1.png | Hybrid=-3.8541 | CE=-6.5750 | CLIP=0.2272
+Rank=17 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img10.png | Hybrid=-3.9313 | CE=-6.6770 | CLIP=0.1872
+Rank=18 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img2.png | Hybrid=-3.9441 | CE=-6.6634 | CLIP=0.1347
+Rank=19 | Source=BLIP-2.pdf | Page=3 | Image=BLIP-2_page3_render.png | Hybrid=-3.9571 | CE=-6.7596 | CLIP=0.2467
+Rank=20 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img12.png | Hybrid=-3.9760 | CE=-6.7305 | CLIP=0.1558
+Rank=21 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img9.png | Hybrid=-4.0494 | CE=-6.8636 | CLIP=0.1719
+Rank=22 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img8.png | Hybrid=-4.0607 | CE=-6.8706 | CLIP=0.1542
+Rank=23 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img11.png | Hybrid=-4.0653 | CE=-6.8865 | CLIP=0.1664
+Rank=24 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img6.png | Hybrid=-4.2220 | CE=-7.1484 | CLIP=0.1676
+Rank=25 | Source=CLIP.pdf | Page=18 | Image=CLIP_page18_render.png | Hybrid=-4.2676 | CE=-7.2846 | CLIP=0.2578
+Rank=26 | Source=BLIP-2.pdf | Page=2 | Image=BLIP-2_page2_render.png | Hybrid=-4.3095 | CE=-7.3311 | CLIP=0.2229
+Rank=27 | Source=CLIP.pdf | Page=16 | Image=CLIP_page16_render.png | Hybrid=-4.3252 | CE=-7.3735 | CLIP=0.2474
+Rank=28 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img3.png | Hybrid=-4.4136 | CE=-7.4776 | CLIP=0.1824
+Rank=29 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_render.png | Hybrid=-4.6853 | CE=-7.9729 | CLIP=0.2461
+Rank=30 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img5.png | Hybrid=-4.6958 | CE=-7.9659 | CLIP=0.2095
+Rank=31 | Source=Vision Transformer.pdf | Page=20 | Image=Vision Transformer_page20_render.png | Hybrid=-4.7236 | CE=-8.0487 | CLIP=0.2641
+Rank=32 | Source=CLIP.pdf | Page=17 | Image=CLIP_page17_render.png | Hybrid=-4.8321 | CE=-8.2151 | CLIP=0.2424
+Rank=33 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img12.png | Hybrid=-4.9268 | CE=-8.3395 | CLIP=0.1922
+Rank=34 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img25.png | Hybrid=-5.0398 | CE=-8.5434 | CLIP=0.2157
+Rank=35 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img24.png | Hybrid=-5.1132 | CE=-8.6583 | CLIP=0.2044
+Rank=36 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img6.png | Hybrid=-5.1497 | CE=-8.6992 | CLIP=0.1746
+Rank=37 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img14.png | Hybrid=-5.1497 | CE=-8.7162 | CLIP=0.1999
+Rank=38 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img4.png | Hybrid=-5.1529 | CE=-8.7174 | CLIP=0.1938
+Rank=39 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img13.png | Hybrid=-5.1603 | CE=-8.7216 | CLIP=0.1815
+Rank=40 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img21.png | Hybrid=-5.1643 | CE=-8.7311 | CLIP=0.1859
+Rank=41 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img10.png | Hybrid=-5.1674 | CE=-8.7396 | CLIP=0.1909
+Rank=42 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img31.png | Hybrid=-5.1721 | CE=-8.7396 | CLIP=0.1790
+Rank=43 | Source=CLIP.pdf | Page=19 | Image=CLIP_page19_render.png | Hybrid=-5.1754 | CE=-8.8008 | CLIP=0.2628
+Rank=44 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img11.png | Hybrid=-5.1938 | CE=-8.7852 | CLIP=0.1933
+Rank=45 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img9.png | Hybrid=-5.2040 | CE=-8.8131 | CLIP=0.2095
+Rank=46 | Source=Vision Transformer.pdf | Page=6 | Image=Vision Transformer_page6_render.png | Hybrid=-5.2083 | CE=-8.8418 | CLIP=0.2419
+Rank=47 | Source=BLIP-2.pdf | Page=12 | Image=BLIP-2_page12_img0.png | Hybrid=-5.2092 | CE=-8.8216 | CLIP=0.2095
+Rank=48 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img35.png | Hybrid=-5.2195 | CE=-8.8188 | CLIP=0.1794
+Rank=49 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img29.png | Hybrid=-5.2349 | CE=-8.8703 | CLIP=0.2181
+Rank=50 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img26.png | Hybrid=-5.2361 | CE=-8.8703 | CLIP=0.2151
+Rank=51 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img17.png | Hybrid=-5.2389 | CE=-8.8654 | CLIP=0.2008
+Rank=52 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img28.png | Hybrid=-5.2617 | CE=-8.9135 | CLIP=0.2160
+Rank=53 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img33.png | Hybrid=-5.2686 | CE=-8.9051 | CLIP=0.1861
+Rank=54 | Source=CNN Paper.pdf | Page=5 | Image=CNN Paper_page5_render.png | Hybrid=-5.2790 | CE=-8.9591 | CLIP=0.2410
+Rank=55 | Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img5.png | Hybrid=-5.2855 | CE=-8.9336 | CLIP=0.1867
+Rank=56 | Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img3.png | Hybrid=-5.2930 | CE=-8.9447 | CLIP=0.1845
+Rank=57 | Source=NLP Paper.pdf | Page=3 | Image=NLP Paper_page3_render.png | Hybrid=-5.2979 | CE=-8.9800 | CLIP=0.2253
+Rank=58 | Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img2.png | Hybrid=-5.3009 | CE=-8.9447 | CLIP=0.1649
+Rank=59 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img20.png | Hybrid=-5.3055 | CE=-8.9812 | CLIP=0.2081
+Rank=60 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img5.png | Hybrid=-5.3307 | CE=-9.0058 | CLIP=0.1821
+Rank=61 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img30.png | Hybrid=-5.3327 | CE=-9.0168 | CLIP=0.1933
+Rank=62 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img34.png | Hybrid=-5.3407 | CE=-9.0333 | CLIP=0.1982
+Rank=63 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img18.png | Hybrid=-5.3503 | CE=-9.0317 | CLIP=0.1717
+Rank=64 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img7.png | Hybrid=-5.3520 | CE=-9.0502 | CLIP=0.1953
+Rank=65 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img3.png | Hybrid=-5.3560 | CE=-9.0518 | CLIP=0.1877
+Rank=66 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img2.png | Hybrid=-5.3578 | CE=-9.0565 | CLIP=0.1904
+Rank=67 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img23.png | Hybrid=-5.3706 | CE=-9.0892 | CLIP=0.2075
+Rank=68 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img22.png | Hybrid=-5.3716 | CE=-9.1032 | CLIP=0.2257
+Rank=69 | Source=NLP Paper.pdf | Page=3 | Image=NLP Paper_page3_img0.png | Hybrid=-5.3776 | CE=-9.1435 | CLIP=0.2712
+Rank=70 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img8.png | Hybrid=-5.3776 | CE=-9.0987 | CLIP=0.2039
+Rank=71 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img27.png | Hybrid=-5.3927 | CE=-9.1275 | CLIP=0.2095
+Rank=72 | Source=Vision Transformer.pdf | Page=7 | Image=Vision Transformer_page7_render.png | Hybrid=-5.4064 | CE=-9.1923 | CLIP=0.2724
+Rank=73 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img0.png | Hybrid=-5.4104 | CE=-9.1512 | CLIP=0.2009
+Rank=74 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img1.png | Hybrid=-5.4111 | CE=-9.1512 | CLIP=0.1990
+Rank=75 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img16.png | Hybrid=-5.4169 | CE=-9.1415 | CLIP=0.1699
+Rank=76 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img19.png | Hybrid=-5.4194 | CE=-9.1506 | CLIP=0.1774
+Rank=77 | Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img1.png | Hybrid=-5.4308 | CE=-9.1858 | CLIP=0.2017
+Rank=78 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img32.png | Hybrid=-5.4366 | CE=-9.2078 | CLIP=0.2202
+Rank=79 | Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img4.png | Hybrid=-5.4692 | CE=-9.2356 | CLIP=0.1804
+Rank=80 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img15.png | Hybrid=-5.4750 | CE=-9.2575 | CLIP=0.1987
+Rank=81 | Source=Donut.pdf | Page=11 | Image=Donut_page11_img2.png | Hybrid=-5.6045 | CE=-9.4844 | CLIP=0.2153
+Rank=82 | Source=Donut.pdf | Page=11 | Image=Donut_page11_img3.png | Hybrid=-5.6045 | CE=-9.4844 | CLIP=0.2153
+Rank=83 | Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img0.png | Hybrid=-5.6174 | CE=-9.4814 | CLIP=0.1786
+Rank=84 | Source=BERT.pdf | Page=14 | Image=BERT_page14_render.png | Hybrid=-5.7084 | CE=-9.6756 | CLIP=0.2423
+Rank=85 | Source=Donut.pdf | Page=11 | Image=Donut_page11_img0.png | Hybrid=-5.7717 | CE=-9.7634 | CLIP=0.2159
+Rank=86 | Source=BERT.pdf | Page=6 | Image=BERT_page6_render.png | Hybrid=-5.7736 | CE=-9.7926 | CLIP=0.2549
+Rank=87 | Source=CLIP.pdf | Page=38 | Image=CLIP_page38_img1.png | Hybrid=-5.7855 | CE=-9.7965 | CLIP=0.2309
+Rank=88 | Source=Vision Transformer.pdf | Page=18 | Image=Vision Transformer_page18_render.png | Hybrid=-5.8636 | CE=-9.9593 | CLIP=0.2800
+Rank=89 | Source=Vision Transformer.pdf | Page=18 | Image=Vision Transformer_page18_img0.png | Hybrid=-5.8655 | CE=-9.9397 | CLIP=0.2458
+Rank=90 | Source=Donut.pdf | Page=11 | Image=Donut_page11_img4.png | Hybrid=-5.8946 | CE=-9.9504 | CLIP=0.1890
+Rank=91 | Source=CLIP.pdf | Page=13 | Image=CLIP_page13_render.png | Hybrid=-5.9243 | CE=-10.0283 | CLIP=0.2316
+Rank=92 | Source=Vision Transformer.pdf | Page=19 | Image=Vision Transformer_page19_render.png | Hybrid=-5.9589 | CE=-10.1110 | CLIP=0.2693
+Rank=93 | Source=CLIP.pdf | Page=12 | Image=CLIP_page12_render.png | Hybrid=-5.9883 | CE=-10.1549 | CLIP=0.2615
+Rank=94 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img219.png | Hybrid=-6.0460 | CE=-10.2105 | CLIP=0.2008
+Rank=95 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img2.png | Hybrid=-6.0562 | CE=-10.2512 | CLIP=0.2363
+Rank=96 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img153.png | Hybrid=-6.0611 | CE=-10.2414 | CLIP=0.2094
+Rank=97 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img60.png | Hybrid=-6.0738 | CE=-10.2520 | CLIP=0.1937
+Rank=98 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img0.png | Hybrid=-6.0771 | CE=-10.2765 | CLIP=0.2220
+Rank=99 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img221.png | Hybrid=-6.0886 | CE=-10.2664 | CLIP=0.1781
+Rank=100 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img211.png | Hybrid=-6.0893 | CE=-10.2847 | CLIP=0.2039
+Rank=101 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img35.png | Hybrid=-6.0969 | CE=-10.2957 | CLIP=0.2013
+Rank=102 | Source=Vision Transformer.pdf | Page=18 | Image=Vision Transformer_page18_img4.png | Hybrid=-6.0978 | CE=-10.3102 | CLIP=0.2208
+Rank=103 | Source=Vision Transformer.pdf | Page=18 | Image=Vision Transformer_page18_img2.png | Hybrid=-6.0990 | CE=-10.3102 | CLIP=0.2178
+Rank=104 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img13.png | Hybrid=-6.0993 | CE=-10.2884 | CLIP=0.1844
+Rank=105 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img101.png | Hybrid=-6.1002 | CE=-10.2936 | CLIP=0.1897
+Rank=106 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img34.png | Hybrid=-6.1031 | CE=-10.2932 | CLIP=0.1821
+Rank=107 | Source=CLIP.pdf | Page=38 | Image=CLIP_page38_img0.png | Hybrid=-6.1109 | CE=-10.2935 | CLIP=0.1630
+Rank=108 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img59.png | Hybrid=-6.1236 | CE=-10.3203 | CLIP=0.1715
+Rank=109 | Source=Donut.pdf | Page=27 | Image=Donut_page27_img4.png | Hybrid=-6.1261 | CE=-10.3514 | CLIP=0.2118
+Rank=110 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img48.png | Hybrid=-6.1268 | CE=-10.3196 | CLIP=0.1622
+Rank=111 | Source=Donut.pdf | Page=4 | Image=Donut_page4_render.png | Hybrid=-6.1339 | CE=-10.3931 | CLIP=0.2550
+Rank=112 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img128.png | Hybrid=-6.1375 | CE=-10.3754 | CLIP=0.2193
+Rank=113 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img218.png | Hybrid=-6.1396 | CE=-10.3506 | CLIP=0.1769
+Rank=114 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img123.png | Hybrid=-6.1416 | CE=-10.3594 | CLIP=0.1850
+Rank=115 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img12.png | Hybrid=-6.1469 | CE=-10.3497 | CLIP=0.1571
+Rank=116 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img113.png | Hybrid=-6.1511 | CE=-10.3783 | CLIP=0.1897
+Rank=117 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img10.png | Hybrid=-6.1528 | CE=-10.3910 | CLIP=0.2046
+Rank=118 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img181.png | Hybrid=-6.1540 | CE=-10.3741 | CLIP=0.1762
+Rank=119 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img255.png | Hybrid=-6.1604 | CE=-10.3971 | CLIP=0.1946
+Rank=120 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img235.png | Hybrid=-6.1617 | CE=-10.3971 | CLIP=0.1914
+Rank=121 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img243.png | Hybrid=-6.1637 | CE=-10.3873 | CLIP=0.1716
+Rank=122 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img92.png | Hybrid=-6.1651 | CE=-10.4098 | CLIP=0.2019
+Rank=123 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img67.png | Hybrid=-6.1694 | CE=-10.4000 | CLIP=0.1764
+Rank=124 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img204.png | Hybrid=-6.1710 | CE=-10.3956 | CLIP=0.1659
+Rank=125 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img213.png | Hybrid=-6.1767 | CE=-10.4253 | CLIP=0.1962
+Rank=126 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img244.png | Hybrid=-6.1784 | CE=-10.4343 | CLIP=0.2055
+Rank=127 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img26.png | Hybrid=-6.1790 | CE=-10.4238 | CLIP=0.1884
+Rank=128 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img62.png | Hybrid=-6.1794 | CE=-10.4266 | CLIP=0.1913
+Rank=129 | Source=LayoutLMv3.pdf | Page=1 | Image=LayoutLMv3_page1_img1.png | Hybrid=-6.1808 | CE=-10.4724 | CLIP=0.2567
+Rank=130 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img122.png | Hybrid=-6.1840 | CE=-10.4281 | CLIP=0.1822
+Rank=131 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img137.png | Hybrid=-6.1847 | CE=-10.4173 | CLIP=0.1641
+Rank=132 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img180.png | Hybrid=-6.1860 | CE=-10.4206 | CLIP=0.1660
+Rank=133 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img157.png | Hybrid=-6.1866 | CE=-10.4418 | CLIP=0.1962
+Rank=134 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img154.png | Hybrid=-6.1871 | CE=-10.4576 | CLIP=0.2185
+Rank=135 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img40.png | Hybrid=-6.1888 | CE=-10.4231 | CLIP=0.1627
+Rank=136 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img49.png | Hybrid=-6.1890 | CE=-10.4451 | CLIP=0.1952
+Rank=137 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img115.png | Hybrid=-6.1918 | CE=-10.4451 | CLIP=0.1883
+Rank=138 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img11.png | Hybrid=-6.1918 | CE=-10.4611 | CLIP=0.2121
+Rank=139 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img41.png | Hybrid=-6.1924 | CE=-10.4586 | CLIP=0.2069
+Rank=140 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img167.png | Hybrid=-6.1940 | CE=-10.4485 | CLIP=0.1877
+Rank=141 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img250.png | Hybrid=-6.1960 | CE=-10.4569 | CLIP=0.1952
+Rank=142 | Source=Donut.pdf | Page=27 | Image=Donut_page27_img3.png | Hybrid=-6.2011 | CE=-10.4668 | CLIP=0.1976
+Rank=143 | Source=CLIP.pdf | Page=14 | Image=CLIP_page14_render.png | Hybrid=-6.2021 | CE=-10.5168 | CLIP=0.2699
+Rank=144 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img85.png | Hybrid=-6.2034 | CE=-10.4657 | CLIP=0.1902
+Rank=145 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img127.png | Hybrid=-6.2049 | CE=-10.4534 | CLIP=0.1677
+Rank=146 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img129.png | Hybrid=-6.2112 | CE=-10.4486 | CLIP=0.1449
+Rank=147 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img52.png | Hybrid=-6.2121 | CE=-10.4965 | CLIP=0.2144
+Rank=148 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img84.png | Hybrid=-6.2167 | CE=-10.4657 | CLIP=0.1568
+Rank=149 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img28.png | Hybrid=-6.2178 | CE=-10.4922 | CLIP=0.1938
+Rank=150 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img226.png | Hybrid=-6.2179 | CE=-10.4556 | CLIP=0.1385
+Rank=151 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img47.png | Hybrid=-6.2183 | CE=-10.4984 | CLIP=0.2019
+Rank=152 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img242.png | Hybrid=-6.2186 | CE=-10.4670 | CLIP=0.1541
+Rank=153 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img161.png | Hybrid=-6.2187 | CE=-10.4904 | CLIP=0.1889
+Rank=154 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img32.png | Hybrid=-6.2198 | CE=-10.4848 | CLIP=0.1775
+Rank=155 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img31.png | Hybrid=-6.2201 | CE=-10.5074 | CLIP=0.2109
+Rank=156 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img132.png | Hybrid=-6.2212 | CE=-10.4982 | CLIP=0.1943
+Rank=157 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img14.png | Hybrid=-6.2238 | CE=-10.4832 | CLIP=0.1654
+Rank=158 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img224.png | Hybrid=-6.2242 | CE=-10.4889 | CLIP=0.1729
+Rank=159 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img26.png | Hybrid=-6.2249 | CE=-10.5075 | CLIP=0.1990
+Rank=160 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img70.png | Hybrid=-6.2269 | CE=-10.5009 | CLIP=0.1842
+Rank=161 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img205.png | Hybrid=-6.2297 | CE=-10.5174 | CLIP=0.2017
+Rank=162 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img176.png | Hybrid=-6.2299 | CE=-10.4982 | CLIP=0.1726
+Rank=163 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img144.png | Hybrid=-6.2304 | CE=-10.5102 | CLIP=0.1894
+Rank=164 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img188.png | Hybrid=-6.2318 | CE=-10.4938 | CLIP=0.1613
+Rank=165 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img135.png | Hybrid=-6.2327 | CE=-10.5229 | CLIP=0.2026
+Rank=166 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img108.png | Hybrid=-6.2332 | CE=-10.5342 | CLIP=0.2183
+Rank=167 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img80.png | Hybrid=-6.2360 | CE=-10.5232 | CLIP=0.1948
+Rank=168 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img131.png | Hybrid=-6.2393 | CE=-10.4989 | CLIP=0.1501
+Rank=169 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img77.png | Hybrid=-6.2396 | CE=-10.5265 | CLIP=0.1906
+Rank=170 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img33.png | Hybrid=-6.2413 | CE=-10.5464 | CLIP=0.2163
+Rank=171 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img79.png | Hybrid=-6.2430 | CE=-10.5232 | CLIP=0.1773
+Rank=172 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img78.png | Hybrid=-6.2437 | CE=-10.5467 | CLIP=0.2110
+Rank=173 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img150.png | Hybrid=-6.2437 | CE=-10.5270 | CLIP=0.1812
+Rank=174 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img112.png | Hybrid=-6.2438 | CE=-10.5425 | CLIP=0.2042
+Rank=175 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img254.png | Hybrid=-6.2478 | CE=-10.5222 | CLIP=0.1637
+Rank=176 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img81.png | Hybrid=-6.2489 | CE=-10.5467 | CLIP=0.1978
+Rank=177 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img246.png | Hybrid=-6.2497 | CE=-10.5389 | CLIP=0.1842
+Rank=178 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img236.png | Hybrid=-6.2502 | CE=-10.5310 | CLIP=0.1709
+Rank=179 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img30.png | Hybrid=-6.2513 | CE=-10.5504 | CLIP=0.1973
+Rank=180 | Source=Self-RAG.pdf | Page=10 | Image=Self-RAG_page10_render.png | Hybrid=-6.2515 | CE=-10.5821 | CLIP=0.2443
+Rank=181 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img27.png | Hybrid=-6.2533 | CE=-10.5520 | CLIP=0.1948
+Rank=182 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img69.png | Hybrid=-6.2536 | CE=-10.5354 | CLIP=0.1690
+Rank=183 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img5.png | Hybrid=-6.2560 | CE=-10.5738 | CLIP=0.2206
+Rank=184 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img216.png | Hybrid=-6.2570 | CE=-10.5360 | CLIP=0.1615
+Rank=185 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img253.png | Hybrid=-6.2570 | CE=-10.5373 | CLIP=0.1634
+Rank=186 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img55.png | Hybrid=-6.2590 | CE=-10.5454 | CLIP=0.1705
+Rank=187 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img239.png | Hybrid=-6.2628 | CE=-10.5705 | CLIP=0.1988
+Rank=188 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img166.png | Hybrid=-6.2645 | CE=-10.5667 | CLIP=0.1888
+Rank=189 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img24.png | Hybrid=-6.2649 | CE=-10.5516 | CLIP=0.1652
+Rank=190 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img43.png | Hybrid=-6.2655 | CE=-10.5737 | CLIP=0.1968
+Rank=191 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img126.png | Hybrid=-6.2657 | CE=-10.5696 | CLIP=0.1901
+Rank=192 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img100.png | Hybrid=-6.2669 | CE=-10.5730 | CLIP=0.1923
+Rank=193 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img252.png | Hybrid=-6.2682 | CE=-10.5593 | CLIP=0.1686
+Rank=194 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img245.png | Hybrid=-6.2705 | CE=-10.5880 | CLIP=0.2058
+Rank=195 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img24.png | Hybrid=-6.2724 | CE=-10.5992 | CLIP=0.2179
+Rank=196 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img217.png | Hybrid=-6.2734 | CE=-10.5811 | CLIP=0.1882
+Rank=197 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img104.png | Hybrid=-6.2742 | CE=-10.5807 | CLIP=0.1857
+Rank=198 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img193.png | Hybrid=-6.2745 | CE=-10.5749 | CLIP=0.1761
+Rank=199 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img172.png | Hybrid=-6.2759 | CE=-10.6016 | CLIP=0.2127
+Rank=200 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img125.png | Hybrid=-6.2774 | CE=-10.5829 | CLIP=0.1808
+Rank=201 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img196.png | Hybrid=-6.2780 | CE=-10.5868 | CLIP=0.1853
+Rank=202 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img195.png | Hybrid=-6.2804 | CE=-10.6109 | CLIP=0.2152
+Rank=203 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img36.png | Hybrid=-6.2809 | CE=-10.5886 | CLIP=0.1807
+Rank=204 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img23.png | Hybrid=-6.2818 | CE=-10.5951 | CLIP=0.1881
+Rank=205 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img27.png | Hybrid=-6.2818 | CE=-10.6182 | CLIP=0.2229
+Rank=206 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img0.png | Hybrid=-6.2830 | CE=-10.5844 | CLIP=0.1691
+Rank=207 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img192.png | Hybrid=-6.2831 | CE=-10.5749 | CLIP=0.1545
+Rank=208 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img168.png | Hybrid=-6.2835 | CE=-10.5981 | CLIP=0.1883
+Rank=209 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img191.png | Hybrid=-6.2841 | CE=-10.5813 | CLIP=0.1617
+Rank=210 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img9.png | Hybrid=-6.2871 | CE=-10.6127 | CLIP=0.2012
+Rank=211 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img151.png | Hybrid=-6.2871 | CE=-10.5969 | CLIP=0.1775
+Rank=212 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img2.png | Hybrid=-6.2872 | CE=-10.6096 | CLIP=0.1965
+Rank=213 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img1.png | Hybrid=-6.2873 | CE=-10.6170 | CLIP=0.2074
+Rank=214 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img2.png | Hybrid=-6.2881 | CE=-10.5962 | CLIP=0.1742
+Rank=215 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img37.png | Hybrid=-6.2890 | CE=-10.6239 | CLIP=0.2135
+Rank=216 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img140.png | Hybrid=-6.2895 | CE=-10.6109 | CLIP=0.1926
+Rank=217 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img8.png | Hybrid=-6.2899 | CE=-10.6568 | CLIP=0.2605
+Rank=218 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img198.png | Hybrid=-6.2901 | CE=-10.6225 | CLIP=0.2084
+Rank=219 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img149.png | Hybrid=-6.2902 | CE=-10.6163 | CLIP=0.1990
+Rank=220 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img22.png | Hybrid=-6.2910 | CE=-10.6011 | CLIP=0.1742
+Rank=221 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img121.png | Hybrid=-6.2929 | CE=-10.6083 | CLIP=0.1801
+Rank=222 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img152.png | Hybrid=-6.2933 | CE=-10.6195 | CLIP=0.1960
+Rank=223 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img148.png | Hybrid=-6.2935 | CE=-10.6163 | CLIP=0.1907
+Rank=224 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img61.png | Hybrid=-6.2936 | CE=-10.6017 | CLIP=0.1685
+Rank=225 | Source=Vision Transformer.pdf | Page=15 | Image=Vision Transformer_page15_render.png | Hybrid=-6.2939 | CE=-10.6535 | CLIP=0.2455
+Rank=226 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img251.png | Hybrid=-6.2953 | CE=-10.6387 | CLIP=0.2199
+Rank=227 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img225.png | Hybrid=-6.2954 | CE=-10.6355 | CLIP=0.2147
+Rank=228 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img119.png | Hybrid=-6.2955 | CE=-10.6141 | CLIP=0.1823
+Rank=229 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img23.png | Hybrid=-6.2956 | CE=-10.6317 | CLIP=0.2084
+Rank=230 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img130.png | Hybrid=-6.2958 | CE=-10.6170 | CLIP=0.1860
+Rank=231 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img175.png | Hybrid=-6.2958 | CE=-10.6011 | CLIP=0.1621
+Rank=232 | Source=Donut.pdf | Page=11 | Image=Donut_page11_img1.png | Hybrid=-6.2962 | CE=-10.6243 | CLIP=0.1960
+Rank=233 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img185.png | Hybrid=-6.2973 | CE=-10.6316 | CLIP=0.2041
+Rank=234 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img0.png | Hybrid=-6.2980 | CE=-10.6403 | CLIP=0.2153
+Rank=235 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img136.png | Hybrid=-6.2983 | CE=-10.6302 | CLIP=0.1994
+Rank=236 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img155.png | Hybrid=-6.2984 | CE=-10.6485 | CLIP=0.2269
+Rank=237 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img237.png | Hybrid=-6.2984 | CE=-10.6334 | CLIP=0.2039
+Rank=238 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img145.png | Hybrid=-6.2986 | CE=-10.6376 | CLIP=0.2097
+Rank=239 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img189.png | Hybrid=-6.2986 | CE=-10.6116 | CLIP=0.1708
+Rank=240 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img94.png | Hybrid=-6.2988 | CE=-10.6351 | CLIP=0.2056
+Rank=241 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img17.png | Hybrid=-6.2993 | CE=-10.6378 | CLIP=0.2085
+Rank=242 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img169.png | Hybrid=-6.2993 | CE=-10.6444 | CLIP=0.2182
+Rank=243 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img208.png | Hybrid=-6.3027 | CE=-10.6116 | CLIP=0.1608
+Rank=244 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img171.png | Hybrid=-6.3029 | CE=-10.6390 | CLIP=0.2013
+Rank=245 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img29.png | Hybrid=-6.3031 | CE=-10.6317 | CLIP=0.1897
+Rank=246 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img19.png | Hybrid=-6.3034 | CE=-10.6356 | CLIP=0.1949
+Rank=247 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img38.png | Hybrid=-6.3041 | CE=-10.6118 | CLIP=0.1574
+Rank=248 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img4.png | Hybrid=-6.3054 | CE=-10.6472 | CLIP=0.2073
+Rank=249 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img109.png | Hybrid=-6.3062 | CE=-10.6236 | CLIP=0.1699
+Rank=250 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img184.png | Hybrid=-6.3063 | CE=-10.6316 | CLIP=0.1816
+Rank=251 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img64.png | Hybrid=-6.3074 | CE=-10.6523 | CLIP=0.2099
+Rank=252 | Source=Vision Transformer.pdf | Page=14 | Image=Vision Transformer_page14_render.png | Hybrid=-6.3076 | CE=-10.6656 | CLIP=0.2296
+Rank=253 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img4.png | Hybrid=-6.3081 | CE=-10.6474 | CLIP=0.2009
+Rank=254 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img210.png | Hybrid=-6.3083 | CE=-10.6386 | CLIP=0.1873
+Rank=255 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img87.png | Hybrid=-6.3092 | CE=-10.6375 | CLIP=0.1832
+Rank=256 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img90.png | Hybrid=-6.3096 | CE=-10.6419 | CLIP=0.1888
+Rank=257 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img25.png | Hybrid=-6.3098 | CE=-10.6455 | CLIP=0.1938
+Rank=258 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img56.png | Hybrid=-6.3100 | CE=-10.6274 | CLIP=0.1660
+Rank=259 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img143.png | Hybrid=-6.3109 | CE=-10.6302 | CLIP=0.1680
+Rank=260 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img5.png | Hybrid=-6.3118 | CE=-10.6384 | CLIP=0.1782
+Rank=261 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img199.png | Hybrid=-6.3127 | CE=-10.6589 | CLIP=0.2065
+Rank=262 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img9.png | Hybrid=-6.3132 | CE=-10.6339 | CLIP=0.1679
+Rank=263 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_render.png | Hybrid=-6.3134 | CE=-10.6832 | CLIP=0.2414
+Rank=264 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img170.png | Hybrid=-6.3151 | CE=-10.6855 | CLIP=0.2405
+Rank=265 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img228.png | Hybrid=-6.3156 | CE=-10.6357 | CLIP=0.1645
+Rank=266 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img111.png | Hybrid=-6.3160 | CE=-10.6420 | CLIP=0.1730
+Rank=267 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img15.png | Hybrid=-6.3163 | CE=-10.6533 | CLIP=0.1893
+Rank=268 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img2.png | Hybrid=-6.3176 | CE=-10.6702 | CLIP=0.2113
+Rank=269 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img202.png | Hybrid=-6.3179 | CE=-10.6508 | CLIP=0.1814
+Rank=270 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img174.png | Hybrid=-6.3181 | CE=-10.6526 | CLIP=0.1837
+Rank=271 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img3.png | Hybrid=-6.3191 | CE=-10.6479 | CLIP=0.1742
+Rank=272 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img63.png | Hybrid=-6.3195 | CE=-10.6523 | CLIP=0.1798
+Rank=273 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img98.png | Hybrid=-6.3200 | CE=-10.6661 | CLIP=0.1993
+Rank=274 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img83.png | Hybrid=-6.3200 | CE=-10.6643 | CLIP=0.1965
+Rank=275 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img203.png | Hybrid=-6.3208 | CE=-10.6762 | CLIP=0.2123
+Rank=276 | Source=Donut.pdf | Page=27 | Image=Donut_page27_img2.png | Hybrid=-6.3226 | CE=-10.6683 | CLIP=0.1960
+Rank=277 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img39.png | Hybrid=-6.3246 | CE=-10.6665 | CLIP=0.1883
+Rank=278 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img164.png | Hybrid=-6.3257 | CE=-10.6511 | CLIP=0.1624
+Rank=279 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img6.png | Hybrid=-6.3257 | CE=-10.6855 | CLIP=0.2139
+Rank=280 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img76.png | Hybrid=-6.3260 | CE=-10.6773 | CLIP=0.2008
+Rank=281 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img3.png | Hybrid=-6.3280 | CE=-10.6986 | CLIP=0.2277
+Rank=282 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img110.png | Hybrid=-6.3290 | CE=-10.6646 | CLIP=0.1743
+Rank=283 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img238.png | Hybrid=-6.3303 | CE=-10.6722 | CLIP=0.1826
+Rank=284 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img53.png | Hybrid=-6.3314 | CE=-10.6437 | CLIP=0.1372
+Rank=285 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img86.png | Hybrid=-6.3331 | CE=-10.6718 | CLIP=0.1749
+Rank=286 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img183.png | Hybrid=-6.3341 | CE=-10.6787 | CLIP=0.1828
+Rank=287 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img99.png | Hybrid=-6.3350 | CE=-10.6546 | CLIP=0.1445
+Rank=288 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img107.png | Hybrid=-6.3369 | CE=-10.6831 | CLIP=0.1824
+Rank=289 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img117.png | Hybrid=-6.3372 | CE=-10.6909 | CLIP=0.1933
+Rank=290 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img7.png | Hybrid=-6.3375 | CE=-10.7033 | CLIP=0.2113
+Rank=291 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img138.png | Hybrid=-6.3378 | CE=-10.6852 | CLIP=0.1833
+Rank=292 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img182.png | Hybrid=-6.3380 | CE=-10.6598 | CLIP=0.1448
+Rank=293 | Source=CNN Paper.pdf | Page=3 | Image=CNN Paper_page3_render.png | Hybrid=-6.3382 | CE=-10.7128 | CLIP=0.2236
+Rank=294 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img227.png | Hybrid=-6.3383 | CE=-10.6668 | CLIP=0.1545
+Rank=295 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img16.png | Hybrid=-6.3395 | CE=-10.6808 | CLIP=0.1725
+Rank=296 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img231.png | Hybrid=-6.3395 | CE=-10.6907 | CLIP=0.1873
+Rank=297 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img14.png | Hybrid=-6.3404 | CE=-10.7043 | CLIP=0.2054
+Rank=298 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img201.png | Hybrid=-6.3407 | CE=-10.7001 | CLIP=0.1984
+Rank=299 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img142.png | Hybrid=-6.3414 | CE=-10.7104 | CLIP=0.2121
+Rank=300 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img141.png | Hybrid=-6.3414 | CE=-10.6808 | CLIP=0.1676
+Rank=301 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img233.png | Hybrid=-6.3417 | CE=-10.6857 | CLIP=0.1744
+Rank=302 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img215.png | Hybrid=-6.3430 | CE=-10.6682 | CLIP=0.1447
+Rank=303 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img88.png | Hybrid=-6.3431 | CE=-10.6712 | CLIP=0.1490
+Rank=304 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img156.png | Hybrid=-6.3439 | CE=-10.6893 | CLIP=0.1742
+Rank=305 | Source=Donut.pdf | Page=28 | Image=Donut_page28_img0.png | Hybrid=-6.3440 | CE=-10.6790 | CLIP=0.1585
+Rank=306 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img20.png | Hybrid=-6.3448 | CE=-10.7103 | CLIP=0.2036
+Rank=307 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img209.png | Hybrid=-6.3457 | CE=-10.6943 | CLIP=0.1771
+Rank=308 | Source=CNN Paper.pdf | Page=4 | Image=CNN Paper_page4_img0.png | Hybrid=-6.3463 | CE=-10.7149 | CLIP=0.2067
+Rank=309 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img97.png | Hybrid=-6.3463 | CE=-10.6880 | CLIP=0.1661
+Rank=310 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img165.png | Hybrid=-6.3471 | CE=-10.6876 | CLIP=0.1637
+Rank=311 | Source=CLIP.pdf | Page=43 | Image=CLIP_page43_render.png | Hybrid=-6.3487 | CE=-10.7384 | CLIP=0.2359
+Rank=312 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img241.png | Hybrid=-6.3496 | CE=-10.7122 | CLIP=0.1942
+Rank=313 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img120.png | Hybrid=-6.3517 | CE=-10.6782 | CLIP=0.1382
+Rank=314 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img116.png | Hybrid=-6.3517 | CE=-10.6909 | CLIP=0.1571
+Rank=315 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img163.png | Hybrid=-6.3539 | CE=-10.6807 | CLIP=0.1364
+Rank=316 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img66.png | Hybrid=-6.3544 | CE=-10.7236 | CLIP=0.1993
+Rank=317 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img25.png | Hybrid=-6.3554 | CE=-10.7138 | CLIP=0.1823
+Rank=318 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img7.png | Hybrid=-6.3557 | CE=-10.7285 | CLIP=0.2036
+Rank=319 | Source=BERT.pdf | Page=13 | Image=BERT_page13_render.png | Hybrid=-6.3560 | CE=-10.7656 | CLIP=0.2584
+Rank=320 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img247.png | Hybrid=-6.3566 | CE=-10.7090 | CLIP=0.1721
+Rank=321 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img240.png | Hybrid=-6.3582 | CE=-10.7155 | CLIP=0.1777
+Rank=322 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img9.png | Hybrid=-6.3584 | CE=-10.7417 | CLIP=0.2165
+Rank=323 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img91.png | Hybrid=-6.3587 | CE=-10.7388 | CLIP=0.2115
+Rank=324 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img194.png | Hybrid=-6.3600 | CE=-10.7043 | CLIP=0.1564
+Rank=325 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img18.png | Hybrid=-6.3602 | CE=-10.7321 | CLIP=0.1976
+Rank=326 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img89.png | Hybrid=-6.3603 | CE=-10.7334 | CLIP=0.1993
+Rank=327 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img206.png | Hybrid=-6.3619 | CE=-10.7128 | CLIP=0.1644
+Rank=328 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img162.png | Hybrid=-6.3624 | CE=-10.7289 | CLIP=0.1873
+Rank=329 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img22.png | Hybrid=-6.3638 | CE=-10.7479 | CLIP=0.2124
+Rank=330 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img249.png | Hybrid=-6.3641 | CE=-10.7371 | CLIP=0.1953
+Rank=331 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img147.png | Hybrid=-6.3649 | CE=-10.7361 | CLIP=0.1920
+Rank=332 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img197.png | Hybrid=-6.3654 | CE=-10.7305 | CLIP=0.1823
+Rank=333 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img146.png | Hybrid=-6.3658 | CE=-10.7361 | CLIP=0.1896
+Rank=334 | Source=NLP Paper.pdf | Page=4 | Image=NLP Paper_page4_img0.png | Hybrid=-6.3670 | CE=-10.7775 | CLIP=0.2487
+Rank=335 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img44.png | Hybrid=-6.3679 | CE=-10.7421 | CLIP=0.1934
+Rank=336 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img103.png | Hybrid=-6.3690 | CE=-10.7135 | CLIP=0.1478
+Rank=337 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img68.png | Hybrid=-6.3700 | CE=-10.7506 | CLIP=0.2009
+Rank=338 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img6.png | Hybrid=-6.3704 | CE=-10.7524 | CLIP=0.2027
+Rank=339 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img134.png | Hybrid=-6.3711 | CE=-10.7393 | CLIP=0.1811
+Rank=340 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img229.png | Hybrid=-6.3713 | CE=-10.7417 | CLIP=0.1843
+Rank=341 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img190.png | Hybrid=-6.3717 | CE=-10.7426 | CLIP=0.1847
+Rank=342 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img75.png | Hybrid=-6.3729 | CE=-10.7302 | CLIP=0.1630
+Rank=343 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img214.png | Hybrid=-6.3736 | CE=-10.7002 | CLIP=0.1163
+Rank=344 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img93.png | Hybrid=-6.3749 | CE=-10.7502 | CLIP=0.1881
+Rank=345 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img46.png | Hybrid=-6.3755 | CE=-10.7380 | CLIP=0.1681
+Rank=346 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img17.png | Hybrid=-6.3767 | CE=-10.7640 | CLIP=0.2043
+Rank=347 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img82.png | Hybrid=-6.3771 | CE=-10.7478 | CLIP=0.1788
+Rank=348 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img179.png | Hybrid=-6.3772 | CE=-10.7410 | CLIP=0.1685
+Rank=349 | Source=Self-RAG.pdf | Page=1 | Image=Self-RAG_page1_render.png | Hybrid=-6.3792 | CE=-10.7855 | CLIP=0.2302
+Rank=350 | Source=RAG.pdf | Page=6 | Image=RAG_page6_render.png | Hybrid=-6.3794 | CE=-10.7997 | CLIP=0.2510
+Rank=351 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img42.png | Hybrid=-6.3804 | CE=-10.7421 | CLIP=0.1622
+Rank=352 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img102.png | Hybrid=-6.3804 | CE=-10.7694 | CLIP=0.2031
+Rank=353 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img72.png | Hybrid=-6.3829 | CE=-10.7455 | CLIP=0.1610
+Rank=354 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img11.png | Hybrid=-6.3848 | CE=-10.7729 | CLIP=0.1973
+Rank=355 | Source=CNN Paper.pdf | Page=2 | Image=CNN Paper_page2_img0.png | Hybrid=-6.3875 | CE=-10.8368 | CLIP=0.2866
+Rank=356 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img54.png | Hybrid=-6.3889 | CE=-10.7665 | CLIP=0.1774
+Rank=357 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img207.png | Hybrid=-6.3898 | CE=-10.7902 | CLIP=0.2107
+Rank=358 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img65.png | Hybrid=-6.3900 | CE=-10.7537 | CLIP=0.1555
+Rank=359 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img8.png | Hybrid=-6.3904 | CE=-10.7722 | CLIP=0.1823
+Rank=360 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img73.png | Hybrid=-6.3904 | CE=-10.7497 | CLIP=0.1484
+Rank=361 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img160.png | Hybrid=-6.3912 | CE=-10.7809 | CLIP=0.1934
+Rank=362 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img10.png | Hybrid=-6.3927 | CE=-10.7898 | CLIP=0.2030
+Rank=363 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img20.png | Hybrid=-6.3938 | CE=-10.7643 | CLIP=0.1619
+Rank=364 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img96.png | Hybrid=-6.3943 | CE=-10.8049 | CLIP=0.2216
+Rank=365 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img139.png | Hybrid=-6.3953 | CE=-10.7827 | CLIP=0.1859
+Rank=366 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img234.png | Hybrid=-6.3974 | CE=-10.7878 | CLIP=0.1883
+Rank=367 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img5.png | Hybrid=-6.3988 | CE=-10.8102 | CLIP=0.2183
+Rank=368 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img58.png | Hybrid=-6.3996 | CE=-10.8124 | CLIP=0.2196
+Rank=369 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img21.png | Hybrid=-6.4008 | CE=-10.8064 | CLIP=0.2076
+Rank=370 | Source=RAG.pdf | Page=8 | Image=RAG_page8_render.png | Hybrid=-6.4021 | CE=-10.8419 | CLIP=0.2577
+Rank=371 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img19.png | Hybrid=-6.4041 | CE=-10.8099 | CLIP=0.2046
+Rank=372 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img45.png | Hybrid=-6.4045 | CE=-10.8027 | CLIP=0.1928
+Rank=373 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img21.png | Hybrid=-6.4050 | CE=-10.8099 | CLIP=0.2023
+Rank=374 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img13.png | Hybrid=-6.4059 | CE=-10.8102 | CLIP=0.2006
+Rank=375 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img159.png | Hybrid=-6.4066 | CE=-10.7809 | CLIP=0.1548
+Rank=376 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img16.png | Hybrid=-6.4073 | CE=-10.8099 | CLIP=0.1967
+Rank=377 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img7.png | Hybrid=-6.4092 | CE=-10.8390 | CLIP=0.2356
+Rank=378 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img6.png | Hybrid=-6.4097 | CE=-10.8387 | CLIP=0.2338
+Rank=379 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img95.png | Hybrid=-6.4129 | CE=-10.8096 | CLIP=0.1822
+Rank=380 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img230.png | Hybrid=-6.4146 | CE=-10.7987 | CLIP=0.1617
+Rank=381 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img51.png | Hybrid=-6.4155 | CE=-10.8264 | CLIP=0.2009
+Rank=382 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img74.png | Hybrid=-6.4193 | CE=-10.8128 | CLIP=0.1711
+Rank=383 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img10.png | Hybrid=-6.4196 | CE=-10.7888 | CLIP=0.1342
+Rank=384 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img114.png | Hybrid=-6.4213 | CE=-10.8249 | CLIP=0.1841
+Rank=385 | Source=CLIP.pdf | Page=41 | Image=CLIP_page41_render.png | Hybrid=-6.4219 | CE=-10.8488 | CLIP=0.2184
+Rank=386 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img106.png | Hybrid=-6.4237 | CE=-10.8506 | CLIP=0.2167
+Rank=387 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img223.png | Hybrid=-6.4237 | CE=-10.8286 | CLIP=0.1836
+Rank=388 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img3.png | Hybrid=-6.4249 | CE=-10.8431 | CLIP=0.2025
+Rank=389 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img124.png | Hybrid=-6.4291 | CE=-10.8336 | CLIP=0.1777
+Rank=390 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img118.png | Hybrid=-6.4292 | CE=-10.8227 | CLIP=0.1609
+Rank=391 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img173.png | Hybrid=-6.4346 | CE=-10.8368 | CLIP=0.1686
+Rank=392 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img1.png | Hybrid=-6.4356 | CE=-10.8605 | CLIP=0.2017
+Rank=393 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img6.png | Hybrid=-6.4357 | CE=-10.8875 | CLIP=0.2419
+Rank=394 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img57.png | Hybrid=-6.4358 | CE=-10.8322 | CLIP=0.1587
+Rank=395 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img232.png | Hybrid=-6.4371 | CE=-10.8134 | CLIP=0.1273
+Rank=396 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img222.png | Hybrid=-6.4406 | CE=-10.8596 | CLIP=0.1880
+Rank=397 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_render.png | Hybrid=-6.4408 | CE=-10.8646 | CLIP=0.1949
+Rank=398 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img8.png | Hybrid=-6.4417 | CE=-10.8717 | CLIP=0.2033
+Rank=399 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img15.png | Hybrid=-6.4424 | CE=-10.8736 | CLIP=0.2043
+Rank=400 | Source=Donut.pdf | Page=4 | Image=Donut_page4_img0.png | Hybrid=-6.4426 | CE=-10.8434 | CLIP=0.1585
+Rank=401 | Source=CLIP.pdf | Page=37 | Image=CLIP_page37_render.png | Hybrid=-6.4443 | CE=-10.8853 | CLIP=0.2171
+Rank=402 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img133.png | Hybrid=-6.4464 | CE=-10.8514 | CLIP=0.1610
+Rank=403 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img50.png | Hybrid=-6.4480 | CE=-10.8515 | CLIP=0.1571
+Rank=404 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img0.png | Hybrid=-6.4520 | CE=-10.8887 | CLIP=0.2031
+Rank=405 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img1.png | Hybrid=-6.4553 | CE=-10.8749 | CLIP=0.1741
+Rank=406 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img12.png | Hybrid=-6.4564 | CE=-10.8983 | CLIP=0.2063
+Rank=407 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img200.png | Hybrid=-6.4578 | CE=-10.8741 | CLIP=0.1666
+Rank=408 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img248.png | Hybrid=-6.4589 | CE=-10.8771 | CLIP=0.1684
+Rank=409 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img220.png | Hybrid=-6.4602 | CE=-10.8737 | CLIP=0.1601
+Rank=410 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img212.png | Hybrid=-6.4622 | CE=-10.8664 | CLIP=0.1442
+Rank=411 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img71.png | Hybrid=-6.4625 | CE=-10.8832 | CLIP=0.1686
+Rank=412 | Source=BERT.pdf | Page=3 | Image=BERT_page3_render.png | Hybrid=-6.4643 | CE=-10.9527 | CLIP=0.2684
+Rank=413 | Source=LayoutLMv3.pdf | Page=7 | Image=LayoutLMv3_page7_img0.png | Hybrid=-6.4648 | CE=-10.9432 | CLIP=0.2527
+Rank=414 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img2.png | Hybrid=-6.4652 | CE=-10.9265 | CLIP=0.2268
+Rank=415 | Source=NLP Paper.pdf | Page=4 | Image=NLP Paper_page4_img1.png | Hybrid=-6.4687 | CE=-10.9376 | CLIP=0.2347
+Rank=416 | Source=NLP Paper.pdf | Page=4 | Image=NLP Paper_page4_render.png | Hybrid=-6.4694 | CE=-10.9430 | CLIP=0.2410
+Rank=417 | Source=Donut.pdf | Page=27 | Image=Donut_page27_img1.png | Hybrid=-6.4707 | CE=-10.9019 | CLIP=0.1763
+Rank=418 | Source=Donut.pdf | Page=27 | Image=Donut_page27_img5.png | Hybrid=-6.4750 | CE=-10.9222 | CLIP=0.1958
+Rank=419 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img177.png | Hybrid=-6.4755 | CE=-10.9230 | CLIP=0.1958
+Rank=420 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img187.png | Hybrid=-6.4758 | CE=-10.9177 | CLIP=0.1872
+Rank=421 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img158.png | Hybrid=-6.4759 | CE=-10.9191 | CLIP=0.1889
+Rank=422 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img105.png | Hybrid=-6.4766 | CE=-10.9173 | CLIP=0.1844
+Rank=423 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img5.png | Hybrid=-6.4806 | CE=-10.9557 | CLIP=0.2319
+Rank=424 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img0.png | Hybrid=-6.4810 | CE=-10.9377 | CLIP=0.2042
+Rank=425 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img186.png | Hybrid=-6.4819 | CE=-10.9177 | CLIP=0.1719
+Rank=426 | Source=Self-RAG.pdf | Page=3 | Image=Self-RAG_page3_render.png | Hybrid=-6.4821 | CE=-10.9615 | CLIP=0.2371
+Rank=427 | Source=Donut.pdf | Page=27 | Image=Donut_page27_img0.png | Hybrid=-6.4919 | CE=-10.9599 | CLIP=0.2102
+Rank=428 | Source=Donut.pdf | Page=7 | Image=Donut_page7_img0.png | Hybrid=-6.4979 | CE=-10.9602 | CLIP=0.1956
+Rank=429 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img1.png | Hybrid=-6.5003 | CE=-10.9842 | CLIP=0.2256
+Rank=430 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img8.png | Hybrid=-6.5093 | CE=-11.0101 | CLIP=0.2419
+Rank=431 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img18.png | Hybrid=-6.5115 | CE=-10.9844 | CLIP=0.1979
+Rank=432 | Source=Self-RAG.pdf | Page=9 | Image=Self-RAG_page9_render.png | Hybrid=-6.5128 | CE=-11.0129 | CLIP=0.2373
+Rank=433 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img4.png | Hybrid=-6.5196 | CE=-11.0219 | CLIP=0.2338
+Rank=434 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img178.png | Hybrid=-6.5210 | CE=-10.9688 | CLIP=0.1507
+Rank=435 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img4.png | Hybrid=-6.5220 | CE=-11.0350 | CLIP=0.2474
+Rank=436 | Source=CNN Paper.pdf | Page=3 | Image=CNN Paper_page3_img0.png | Hybrid=-6.5264 | CE=-11.0218 | CLIP=0.2167
+Rank=437 | Source=Vision Transformer.pdf | Page=3 | Image=Vision Transformer_page3_render.png | Hybrid=-6.5282 | CE=-11.0410 | CLIP=0.2409
+Rank=438 | Source=Donut.pdf | Page=7 | Image=Donut_page7_img1.png | Hybrid=-6.5382 | CE=-11.0533 | CLIP=0.2345
+Rank=439 | Source=Vision Transformer.pdf | Page=3 | Image=Vision Transformer_page3_img1.png | Hybrid=-6.5418 | CE=-11.0351 | CLIP=0.1982
+Rank=440 | Source=CNN Paper.pdf | Page=1 | Image=CNN Paper_page1_render.png | Hybrid=-6.5455 | CE=-11.0497 | CLIP=0.2109
+Rank=441 | Source=Donut.pdf | Page=4 | Image=Donut_page4_img1.png | Hybrid=-6.5465 | CE=-11.0449 | CLIP=0.2010
+Rank=442 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_render.png | Hybrid=-6.5487 | CE=-11.0782 | CLIP=0.2455
+Rank=443 | Source=Vision Transformer.pdf | Page=3 | Image=Vision Transformer_page3_img0.png | Hybrid=-6.5525 | CE=-11.0407 | CLIP=0.1798
+Rank=444 | Source=CLIP.pdf | Page=38 | Image=CLIP_page38_render.png | Hybrid=-6.5589 | CE=-11.0982 | CLIP=0.2500
+Rank=445 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img7.png | Hybrid=-6.5616 | CE=-11.0968 | CLIP=0.2413
+Rank=446 | Source=Donut.pdf | Page=13 | Image=Donut_page13_img1.png | Hybrid=-6.5624 | CE=-11.0778 | CLIP=0.2106
+Rank=447 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img4.png | Hybrid=-6.5626 | CE=-11.0780 | CLIP=0.2106
+Rank=448 | Source=CLIP.pdf | Page=4 | Image=CLIP_page4_render.png | Hybrid=-6.5680 | CE=-11.1024 | CLIP=0.2337
+Rank=449 | Source=NLP Paper.pdf | Page=1 | Image=NLP Paper_page1_render.png | Hybrid=-6.5741 | CE=-11.0981 | CLIP=0.2120
+Rank=450 | Source=CNN Paper.pdf | Page=3 | Image=CNN Paper_page3_img1.png | Hybrid=-6.5851 | CE=-11.1147 | CLIP=0.2094
+Rank=451 | Source=CLIP.pdf | Page=23 | Image=CLIP_page23_render.png | Hybrid=-6.5855 | CE=-11.1235 | CLIP=0.2215
+Rank=452 | Source=Donut.pdf | Page=13 | Image=Donut_page13_img7.png | Hybrid=-6.5892 | CE=-11.1216 | CLIP=0.2093
+Rank=453 | Source=Donut.pdf | Page=13 | Image=Donut_page13_img2.png | Hybrid=-6.5924 | CE=-11.1216 | CLIP=0.2015
+Rank=454 | Source=Donut.pdf | Page=13 | Image=Donut_page13_img3.png | Hybrid=-6.5925 | CE=-11.1216 | CLIP=0.2011
+Rank=455 | Source=Donut.pdf | Page=13 | Image=Donut_page13_img6.png | Hybrid=-6.5929 | CE=-11.1216 | CLIP=0.2000
+Rank=456 | Source=Donut.pdf | Page=7 | Image=Donut_page7_img4.png | Hybrid=-6.6018 | CE=-11.1347 | CLIP=0.1976
+Rank=457 | Source=CLIP.pdf | Page=24 | Image=CLIP_page24_render.png | Hybrid=-6.6029 | CE=-11.1741 | CLIP=0.2540
+Rank=458 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img5.png | Hybrid=-6.6030 | CE=-11.1654 | CLIP=0.2406
+Rank=459 | Source=RAG.pdf | Page=2 | Image=RAG_page2_render.png | Hybrid=-6.6084 | CE=-11.1727 | CLIP=0.2382
+Rank=460 | Source=Donut.pdf | Page=2 | Image=Donut_page2_render.png | Hybrid=-6.6095 | CE=-11.1993 | CLIP=0.2753
+Rank=461 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img3.png | Hybrid=-6.6152 | CE=-11.1741 | CLIP=0.2232
+Rank=462 | Source=Donut.pdf | Page=13 | Image=Donut_page13_img4.png | Hybrid=-6.6163 | CE=-11.1605 | CLIP=0.2001
+Rank=463 | Source=Donut.pdf | Page=13 | Image=Donut_page13_img5.png | Hybrid=-6.6163 | CE=-11.1605 | CLIP=0.2001
+Rank=464 | Source=BERT.pdf | Page=15 | Image=BERT_page15_img13.png | Hybrid=-6.6182 | CE=-11.1937 | CLIP=0.2451
+Rank=465 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img9.png | Hybrid=-6.6223 | CE=-11.1662 | CLIP=0.1935
+Rank=466 | Source=CLIP.pdf | Page=2 | Image=CLIP_page2_render.png | Hybrid=-6.6264 | CE=-11.2154 | CLIP=0.2570
+Rank=467 | Source=Donut.pdf | Page=13 | Image=Donut_page13_img8.png | Hybrid=-6.6274 | CE=-11.1874 | CLIP=0.2126
+Rank=468 | Source=Donut.pdf | Page=7 | Image=Donut_page7_img2.png | Hybrid=-6.6317 | CE=-11.1842 | CLIP=0.1972
+Rank=469 | Source=Donut.pdf | Page=25 | Image=Donut_page25_img0.png | Hybrid=-6.6335 | CE=-11.1960 | CLIP=0.2103
+Rank=470 | Source=Donut.pdf | Page=13 | Image=Donut_page13_img0.png | Hybrid=-6.6340 | CE=-11.1941 | CLIP=0.2060
+Rank=471 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img9.png | Hybrid=-6.6363 | CE=-11.2179 | CLIP=0.2361
+Rank=472 | Source=LayoutLMv3.pdf | Page=1 | Image=LayoutLMv3_page1_render.png | Hybrid=-6.6396 | CE=-11.2332 | CLIP=0.2508
+Rank=473 | Source=CLIP.pdf | Page=5 | Image=CLIP_page5_render.png | Hybrid=-6.6408 | CE=-11.2338 | CLIP=0.2488
+Rank=474 | Source=CNN Paper.pdf | Page=2 | Image=CNN Paper_page2_render.png | Hybrid=-6.6426 | CE=-11.2535 | CLIP=0.2737
+Rank=475 | Source=RAG.pdf | Page=7 | Image=RAG_page7_render.png | Hybrid=-6.6437 | CE=-11.2281 | CLIP=0.2329
+Rank=476 | Source=Donut.pdf | Page=2 | Image=Donut_page2_img3.png | Hybrid=-6.6438 | CE=-11.2071 | CLIP=0.2010
+Rank=477 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img31.png | Hybrid=-6.6490 | CE=-11.2127 | CLIP=0.1965
+Rank=478 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img4.png | Hybrid=-6.6531 | CE=-11.2185 | CLIP=0.1949
+Rank=479 | Source=Donut.pdf | Page=2 | Image=Donut_page2_img2.png | Hybrid=-6.6551 | CE=-11.2011 | CLIP=0.1640
+Rank=480 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img1.png | Hybrid=-6.6559 | CE=-11.2383 | CLIP=0.2175
+Rank=481 | Source=Donut.pdf | Page=26 | Image=Donut_page26_img2.png | Hybrid=-6.6603 | CE=-11.2282 | CLIP=0.1914
+Rank=482 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img8.png | Hybrid=-6.6608 | CE=-11.2396 | CLIP=0.2074
+Rank=483 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img11.png | Hybrid=-6.6645 | CE=-11.2383 | CLIP=0.1960
+Rank=484 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img6.png | Hybrid=-6.6653 | CE=-11.2396 | CLIP=0.1961
+Rank=485 | Source=CLIP.pdf | Page=2 | Image=CLIP_page2_img1.png | Hybrid=-6.6677 | CE=-11.2247 | CLIP=0.1679
+Rank=486 | Source=CLIP.pdf | Page=2 | Image=CLIP_page2_img0.png | Hybrid=-6.6689 | CE=-11.2301 | CLIP=0.1730
+Rank=487 | Source=Donut.pdf | Page=5 | Image=Donut_page5_render.png | Hybrid=-6.6690 | CE=-11.2737 | CLIP=0.2380
+Rank=488 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img7.png | Hybrid=-6.6693 | CE=-11.2396 | CLIP=0.1862
+Rank=489 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img32.png | Hybrid=-6.6697 | CE=-11.2482 | CLIP=0.1981
+Rank=490 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img34.png | Hybrid=-6.6706 | CE=-11.2438 | CLIP=0.1891
+Rank=491 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img28.png | Hybrid=-6.6723 | CE=-11.2651 | CLIP=0.2170
+Rank=492 | Source=Donut.pdf | Page=3 | Image=Donut_page3_render.png | Hybrid=-6.6741 | CE=-11.2939 | CLIP=0.2555
+Rank=493 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img20.png | Hybrid=-6.6744 | CE=-11.2457 | CLIP=0.1824
+Rank=494 | Source=CLIP.pdf | Page=2 | Image=CLIP_page2_img2.png | Hybrid=-6.6745 | CE=-11.2498 | CLIP=0.1884
+Rank=495 | Source=CNN Paper.pdf | Page=1 | Image=CNN Paper_page1_img0.png | Hybrid=-6.6758 | CE=-11.2787 | CLIP=0.2286
+Rank=496 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img7.png | Hybrid=-6.6758 | CE=-11.2524 | CLIP=0.1892
+Rank=497 | Source=Donut.pdf | Page=25 | Image=Donut_page25_img2.png | Hybrid=-6.6787 | CE=-11.2764 | CLIP=0.2179
+Rank=498 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img1.png | Hybrid=-6.6788 | CE=-11.2587 | CLIP=0.1911
+Rank=499 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img5.png | Hybrid=-6.6806 | CE=-11.2304 | CLIP=0.1440
+Rank=500 | Source=Donut.pdf | Page=6 | Image=Donut_page6_img2.png | Hybrid=-6.6817 | CE=-11.2789 | CLIP=0.2142
+Rank=501 | Source=BERT.pdf | Page=3 | Image=BERT_page3_img12.png | Hybrid=-6.6821 | CE=-11.3002 | CLIP=0.2451
+Rank=502 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img6.png | Hybrid=-6.6837 | CE=-11.2796 | CLIP=0.2102
+Rank=503 | Source=Donut.pdf | Page=8 | Image=Donut_page8_render.png | Hybrid=-6.6875 | CE=-11.3154 | CLIP=0.2543
+Rank=504 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img8.png | Hybrid=-6.6876 | CE=-11.2715 | CLIP=0.1881
+Rank=505 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img21.png | Hybrid=-6.6884 | CE=-11.2404 | CLIP=0.1396
+Rank=506 | Source=Donut.pdf | Page=7 | Image=Donut_page7_render.png | Hybrid=-6.6886 | CE=-11.2971 | CLIP=0.2241
+Rank=507 | Source=CLIP.pdf | Page=2 | Image=CLIP_page2_img3.png | Hybrid=-6.6887 | CE=-11.2716 | CLIP=0.1856
+Rank=508 | Source=Donut.pdf | Page=6 | Image=Donut_page6_img3.png | Hybrid=-6.6893 | CE=-11.2631 | CLIP=0.1715
+Rank=509 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img27.png | Hybrid=-6.6896 | CE=-11.2897 | CLIP=0.2104
+Rank=510 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img14.png | Hybrid=-6.6905 | CE=-11.2639 | CLIP=0.1696
+Rank=511 | Source=Donut.pdf | Page=2 | Image=Donut_page2_img0.png | Hybrid=-6.6917 | CE=-11.2824 | CLIP=0.1944
+Rank=512 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img22.png | Hybrid=-6.6925 | CE=-11.2832 | CLIP=0.1934
+Rank=513 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img29.png | Hybrid=-6.6928 | CE=-11.2922 | CLIP=0.2063
+Rank=514 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img25.png | Hybrid=-6.6937 | CE=-11.2804 | CLIP=0.1864
+Rank=515 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img12.png | Hybrid=-6.6941 | CE=-11.2884 | CLIP=0.1973
+Rank=516 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img15.png | Hybrid=-6.6945 | CE=-11.2870 | CLIP=0.1943
+Rank=517 | Source=BERT.pdf | Page=5 | Image=BERT_page5_render.png | Hybrid=-6.6959 | CE=-11.3335 | CLIP=0.2604
+Rank=518 | Source=CLIP.pdf | Page=2 | Image=CLIP_page2_img4.png | Hybrid=-6.6965 | CE=-11.2886 | CLIP=0.1917
+Rank=519 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img10.png | Hybrid=-6.6981 | CE=-11.2760 | CLIP=0.1689
+Rank=520 | Source=NLP Paper.pdf | Page=1 | Image=NLP Paper_page1_img0.png | Hybrid=-6.6997 | CE=-11.3113 | CLIP=0.2177
+Rank=521 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img13.png | Hybrid=-6.7054 | CE=-11.2978 | CLIP=0.1832
+Rank=522 | Source=Donut.pdf | Page=2 | Image=Donut_page2_img1.png | Hybrid=-6.7060 | CE=-11.2824 | CLIP=0.1585
+Rank=523 | Source=Donut.pdf | Page=25 | Image=Donut_page25_img1.png | Hybrid=-6.7075 | CE=-11.3016 | CLIP=0.1836
+Rank=524 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img3.png | Hybrid=-6.7076 | CE=-11.2863 | CLIP=0.1603
+Rank=525 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img35.png | Hybrid=-6.7084 | CE=-11.2803 | CLIP=0.1496
+Rank=526 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img3.png | Hybrid=-6.7101 | CE=-11.3147 | CLIP=0.1967
+Rank=527 | Source=Donut.pdf | Page=6 | Image=Donut_page6_img1.png | Hybrid=-6.7114 | CE=-11.3051 | CLIP=0.1792
+Rank=528 | Source=Donut.pdf | Page=7 | Image=Donut_page7_img6.png | Hybrid=-6.7134 | CE=-11.3001 | CLIP=0.1666
+Rank=529 | Source=Donut.pdf | Page=6 | Image=Donut_page6_render.png | Hybrid=-6.7138 | CE=-11.3641 | CLIP=0.2616
+Rank=530 | Source=RAG.pdf | Page=17 | Image=RAG_page17_img0.png | Hybrid=-6.7148 | CE=-11.3074 | CLIP=0.1740
+Rank=531 | Source=Donut.pdf | Page=26 | Image=Donut_page26_img0.png | Hybrid=-6.7159 | CE=-11.3035 | CLIP=0.1653
+Rank=532 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img33.png | Hybrid=-6.7162 | CE=-11.3120 | CLIP=0.1775
+Rank=533 | Source=Self-RAG.pdf | Page=2 | Image=Self-RAG_page2_render.png | Hybrid=-6.7166 | CE=-11.3532 | CLIP=0.2384
+Rank=534 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img26.png | Hybrid=-6.7172 | CE=-11.3228 | CLIP=0.1912
+Rank=535 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img2.png | Hybrid=-6.7174 | CE=-11.3084 | CLIP=0.1692
+Rank=536 | Source=Self-RAG.pdf | Page=4 | Image=Self-RAG_page4_render.png | Hybrid=-6.7211 | CE=-11.3661 | CLIP=0.2465
+Rank=537 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img30.png | Hybrid=-6.7217 | CE=-11.3219 | CLIP=0.1786
+Rank=538 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img24.png | Hybrid=-6.7221 | CE=-11.3224 | CLIP=0.1785
+Rank=539 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img0.png | Hybrid=-6.7224 | CE=-11.3146 | CLIP=0.1658
+Rank=540 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img19.png | Hybrid=-6.7244 | CE=-11.3139 | CLIP=0.1599
+Rank=541 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img17.png | Hybrid=-6.7265 | CE=-11.2984 | CLIP=0.1315
+Rank=542 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img9.png | Hybrid=-6.7270 | CE=-11.3376 | CLIP=0.1889
+Rank=543 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img18.png | Hybrid=-6.7272 | CE=-11.3175 | CLIP=0.1582
+Rank=544 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img23.png | Hybrid=-6.7306 | CE=-11.3255 | CLIP=0.1617
+Rank=545 | Source=NLP Paper.pdf | Page=2 | Image=NLP Paper_page2_img0.png | Hybrid=-6.7307 | CE=-11.3537 | CLIP=0.2038
+Rank=546 | Source=Donut.pdf | Page=7 | Image=Donut_page7_img5.png | Hybrid=-6.7328 | CE=-11.3571 | CLIP=0.2035
+Rank=547 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img16.png | Hybrid=-6.7377 | CE=-11.3343 | CLIP=0.1571
+Rank=548 | Source=Donut.pdf | Page=26 | Image=Donut_page26_img1.png | Hybrid=-6.7382 | CE=-11.3443 | CLIP=0.1710
+Rank=549 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img11.png | Hybrid=-6.7395 | CE=-11.3411 | CLIP=0.1629
+Rank=550 | Source=Donut.pdf | Page=7 | Image=Donut_page7_img3.png | Hybrid=-6.7396 | CE=-11.3556 | CLIP=0.1844
+Rank=551 | Source=Donut.pdf | Page=6 | Image=Donut_page6_img0.png | Hybrid=-6.7457 | CE=-11.3758 | CLIP=0.1995
+Rank=552 | Source=BERT.pdf | Page=4 | Image=BERT_page4_render.png | Hybrid=-6.7572 | CE=-11.4254 | CLIP=0.2451
+Rank=553 | Source=Self-RAG.pdf | Page=5 | Image=Self-RAG_page5_render.png | Hybrid=-6.7616 | CE=-11.4233 | CLIP=0.2310
+Rank=554 | Source=LayoutLMv3.pdf | Page=1 | Image=LayoutLMv3_page1_img0.png | Hybrid=-6.7637 | CE=-11.4154 | CLIP=0.2138
+
+TOP IMAGE RESULTS
+--------------------------------------------------------------------------------
+TOP-1 | Source=BLIP-2.pdf | Page=1 | Image=BLIP-2_page1_img1.png | Hybrid=-1.8380 | CE=-3.1840 | CLIP=0.1809
+TOP-2 | Source=CLIP.pdf | Page=11 | Image=CLIP_page11_render.png | Hybrid=-2.1167 | CE=-3.6972 | CLIP=0.2542
+TOP-3 | Source=BLIP-2.pdf | Page=1 | Image=BLIP-2_page1_render.png | Hybrid=-2.2581 | CE=-3.9181 | CLIP=0.2319
+================================================================================
+
+================================================================================
+STAGE 2 — IMAGE RETRIEVAL RESULT
+================================================================================
+Image Results       : 3
+Exact Figure Match  : False
+
+[IMAGE #1] Source=BLIP-2.pdf | Page=1 | Image=BLIP-2_page1_img1.png
+Image Path: extracted_images\BLIP-2_page1_img1.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT  Caption: the sun is setting over the ocean  OCR Text: No readable text found in this image.  Nearby Document Text: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models Junnan Li Dongxu Li Silvio Savarese Steven Hoi Salesforce Research https://github.com/salesforce/LAVIS/tree/main/projects/blip2 Abstract The cost of vision-and-language pre-training has become increasingly prohibitive due to end-to- end training of large-scale
+
+[IMAGE #2] Source=CLIP.pdf | Page=11 | Image=CLIP_page11_render.png
+Image Path: extracted_images\CLIP_page11_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with a graph and a line graph on it  OCR Text: Learning Transferable Visual Models From Natural Language Supervision 11  Error (%)  61 9.9 21.5 75.3 Model GFLOPs  Figure 9. Zero-shot CLIP performance scales smoothly as a function of model compute. Across 39 evals on 36 different datasets, average zero-shot error is well modeled by a log-log lin- ear trend across a 44x range of compute spanning 5 different CLIP models. Lightly shaded lines are 
+
+[IMAGE #3] Source=BLIP-2.pdf | Page=1 | Image=BLIP-2_page1_render.png
+Image Path: extracted_images\BLIP-2_page1_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: the cover of a book with an image of an image and text  OCR Text: 2301.12597v3 [cs.CV] 15 Jun 2023  arXiv  BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models  Junnan Li Dongxu Li Silvio Savarese Steven Hoi Salesforce Research https://github.com/salesforce/LAVIS/tree/main/projects/blip2  Abstract  The cost of vision-and-language pre-training has become increasingly prohibitive due to end-to- end train
+================================================================================
+
+================================================================================
+COMBINED RETRIEVAL CANDIDATES
+================================================================================
+Text Candidates  : 8
+Image Candidates : 3
+Total Candidates : 11
+================================================================================
+
+================================================================================
+STEP 3A — RERANKER INPUT
+================================================================================
+Query: According to the paper, how does BLIP-2 compare with Flamingo on zero-shot VQAv2, both in performance improvement and number of trainable parameters?
+Input candidates: 11
+01. Source=BLIP-2.pdf | Page=2 | Type=text | Image=N/A
+    Content=• Due to the use of frozen unimodal models and a lightweight Q-Former, BLIP-2 is more compute-efficient than exisiting state-of-the-arts. For example, BLIP-2 out- performs Flamingo
+02. Source=BLIP-2.pdf | Page=6 | Type=text | Image=N/A
+    Content=BEIT-3 (Wang et al., 2022b) 1.9B ✗ - - - 94.9 81.5 Flamingo (Alayrac et al., 2022) 10.2B ✗ 56.3 - - - - BLIP-2 188M ✓ 65.0 121.6 15.8 97.6 89.7 Table 1. Overview of BLIP-2 results 
+03. Source=BLIP-2.pdf | Page=6 | Type=text | Image=N/A
+    Content=models, we use the prompt “Question: {} Short answer:”. During generation, we use beam search with a beam width of 5. We also set the length-penalty to -1 which encourages shorter 
+04. Source=BLIP-2.pdf | Page=1 | Type=text | Image=N/A
+    Content=from a frozen language model. BLIP-2 achieves state-of-the-art performance on various vision- language tasks, despite having significantly fewer trainable parameters than existing 
+05. Source=CLIP.pdf | Page=44 | Type=text | Image=N/A
+    Content=lar average performance and number of wins on zero shot and linear classiﬁer evals. However, large differences in dataset speciﬁc performance occur. We include performance on the 3
+06. Source=BLIP-2.pdf | Page=6 | Type=text | Image=N/A
+    Content=BLIP-2 ViT-g OPT2.7B 107M 3.8B 53.5 52.3 31.7 34.6 BLIP-2 ViT-g OPT6.7B 108M 7.8B 54.3 52.6 36.4 36.4 BLIP-2 ViT-L FlanT5XL 103M 3.4B 62.6 62.3 39.4 44.4 BLIP-2 ViT-g FlanT5XL 107M
+07. Source=BLIP-2.pdf | Page=2 | Type=text | Image=N/A
+    Content=encoder whose outputs are directly used as soft prompts for the LLM. Flamingo (Alayrac et al., 2022) inserts new cross-attention layers into the LLM to inject visual features, and 
+08. Source=BLIP-2.pdf | Page=6 | Type=text | Image=N/A
+    Content=previous state-of-the-art models, BLIP-2 achieves improved performance while requiring substantially fewer number of trainable parameters during vision-language pre-training. 4.1. 
+09. Source=BLIP-2.pdf | Page=1 | Type=image | Image=extracted_images\BLIP-2_page1_img1.png
+    Content=FIGURE FROM DOCUMENT  Caption: the sun is setting over the ocean  OCR Text: No readable text found in this image.  Nearby Document Text: BLIP-2: Bootstrapping Language-Image Pre-tr
+10. Source=CLIP.pdf | Page=11 | Type=image | Image=extracted_images\CLIP_page11_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with a graph and a line graph on it  OCR Text: Learning Transferable Visual Models From Natural Language Supervision 11  Error 
+11. Source=BLIP-2.pdf | Page=1 | Type=image | Image=extracted_images\BLIP-2_page1_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: the cover of a book with an image of an image and text  OCR Text: 2301.12597v3 [cs.CV] 15 Jun 2023  arXiv  BLIP-2: Bootstrapping Langua
+================================================================================
+
+--------------------------------------------------------------------------------
+CROSS-ENCODER RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=01 | Source=BLIP-2.pdf | Page=6 | Type=text | CE=5.9332
+Rank=02 | OriginalIndex=00 | Source=BLIP-2.pdf | Page=2 | Type=text | CE=5.4783
+Rank=03 | OriginalIndex=03 | Source=BLIP-2.pdf | Page=1 | Type=text | CE=4.4088
+Rank=04 | OriginalIndex=02 | Source=BLIP-2.pdf | Page=6 | Type=text | CE=3.6314
+Rank=05 | OriginalIndex=05 | Source=BLIP-2.pdf | Page=6 | Type=text | CE=1.5517
+Rank=06 | OriginalIndex=07 | Source=BLIP-2.pdf | Page=6 | Type=text | CE=0.9947
+Rank=07 | OriginalIndex=06 | Source=BLIP-2.pdf | Page=2 | Type=text | CE=0.3739
+Rank=08 | OriginalIndex=08 | Source=BLIP-2.pdf | Page=1 | Type=image | CE=-3.1840
+Rank=09 | OriginalIndex=04 | Source=CLIP.pdf | Page=44 | Type=text | CE=-3.5459
+Rank=10 | OriginalIndex=09 | Source=CLIP.pdf | Page=11 | Type=image | CE=-3.6972
+Rank=11 | OriginalIndex=10 | Source=BLIP-2.pdf | Page=1 | Type=image | CE=-3.9181
+
+--------------------------------------------------------------------------------
+CLIP IMAGE RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=09 | Source=CLIP.pdf | Page=11 | Image=extracted_images\CLIP_page11_render.png | CLIP=0.2542
+Rank=02 | OriginalIndex=10 | Source=BLIP-2.pdf | Page=1 | Image=extracted_images\BLIP-2_page1_render.png | CLIP=0.2319
+Rank=03 | OriginalIndex=08 | Source=BLIP-2.pdf | Page=1 | Image=extracted_images\BLIP-2_page1_img1.png | CLIP=0.1809
+
+================================================================================
+STEP 3A — COMPLETE MULTIMODAL RERANK RESULT
+================================================================================
+Rank=01 | Type=image | Source=CLIP.pdf | Page=11 | RRF=0.030679 | CE=-3.6972 | CLIP=0.2542
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with a graph and a line graph on it  OCR Text: Learning Transferable Visual Models From Natural Language Supervision 11  Error 
+Rank=02 | Type=image | Source=BLIP-2.pdf | Page=1 | RRF=0.030579 | CE=-3.1840 | CLIP=0.1809
+    Content=FIGURE FROM DOCUMENT  Caption: the sun is setting over the ocean  OCR Text: No readable text found in this image.  Nearby Document Text: BLIP-2: Bootstrapping Language-Image Pre-tr
+Rank=03 | Type=image | Source=BLIP-2.pdf | Page=1 | RRF=0.030214 | CE=-3.9181 | CLIP=0.2319
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: the cover of a book with an image of an image and text  OCR Text: 2301.12597v3 [cs.CV] 15 Jun 2023  arXiv  BLIP-2: Bootstrapping Langua
+Rank=04 | Type=text | Source=BLIP-2.pdf | Page=6 | RRF=0.016393 | CE=5.9332 | CLIP=N/A
+    Content=BEIT-3 (Wang et al., 2022b) 1.9B ✗ - - - 94.9 81.5 Flamingo (Alayrac et al., 2022) 10.2B ✗ 56.3 - - - - BLIP-2 188M ✓ 65.0 121.6 15.8 97.6 89.7 Table 1. Overview of BLIP-2 results 
+Rank=05 | Type=text | Source=BLIP-2.pdf | Page=2 | RRF=0.016129 | CE=5.4783 | CLIP=N/A
+    Content=• Due to the use of frozen unimodal models and a lightweight Q-Former, BLIP-2 is more compute-efficient than exisiting state-of-the-arts. For example, BLIP-2 out- performs Flamingo
+Rank=06 | Type=text | Source=BLIP-2.pdf | Page=1 | RRF=0.015873 | CE=4.4088 | CLIP=N/A
+    Content=from a frozen language model. BLIP-2 achieves state-of-the-art performance on various vision- language tasks, despite having significantly fewer trainable parameters than existing 
+Rank=07 | Type=text | Source=BLIP-2.pdf | Page=6 | RRF=0.015625 | CE=3.6314 | CLIP=N/A
+    Content=models, we use the prompt “Question: {} Short answer:”. During generation, we use beam search with a beam width of 5. We also set the length-penalty to -1 which encourages shorter 
+Rank=08 | Type=text | Source=BLIP-2.pdf | Page=6 | RRF=0.015385 | CE=1.5517 | CLIP=N/A
+    Content=BLIP-2 ViT-g OPT2.7B 107M 3.8B 53.5 52.3 31.7 34.6 BLIP-2 ViT-g OPT6.7B 108M 7.8B 54.3 52.6 36.4 36.4 BLIP-2 ViT-L FlanT5XL 103M 3.4B 62.6 62.3 39.4 44.4 BLIP-2 ViT-g FlanT5XL 107M
+Rank=09 | Type=text | Source=BLIP-2.pdf | Page=6 | RRF=0.015152 | CE=0.9947 | CLIP=N/A
+    Content=previous state-of-the-art models, BLIP-2 achieves improved performance while requiring substantially fewer number of trainable parameters during vision-language pre-training. 4.1. 
+Rank=10 | Type=text | Source=BLIP-2.pdf | Page=2 | RRF=0.014925 | CE=0.3739 | CLIP=N/A
+    Content=encoder whose outputs are directly used as soft prompts for the LLM. Flamingo (Alayrac et al., 2022) inserts new cross-attention layers into the LLM to inject visual features, and 
+Rank=11 | Type=text | Source=CLIP.pdf | Page=44 | RRF=0.014493 | CE=-3.5459 | CLIP=N/A
+    Content=lar average performance and number of wins on zero shot and linear classiﬁer evals. However, large differences in dataset speciﬁc performance occur. We include performance on the 3
+================================================================================
+
+================================================================================
+STEP 3A — FINAL RERANK TOP-K
+================================================================================
+Requested top_k: 12
+Returned documents: 11
+01. Source=CLIP.pdf | Page=11 | Type=image | Image=extracted_images\CLIP_page11_render.png
+02. Source=BLIP-2.pdf | Page=1 | Type=image | Image=extracted_images\BLIP-2_page1_img1.png
+03. Source=BLIP-2.pdf | Page=1 | Type=image | Image=extracted_images\BLIP-2_page1_render.png
+04. Source=BLIP-2.pdf | Page=6 | Type=text | Image=N/A
+05. Source=BLIP-2.pdf | Page=2 | Type=text | Image=N/A
+06. Source=BLIP-2.pdf | Page=1 | Type=text | Image=N/A
+07. Source=BLIP-2.pdf | Page=6 | Type=text | Image=N/A
+08. Source=BLIP-2.pdf | Page=6 | Type=text | Image=N/A
+09. Source=BLIP-2.pdf | Page=6 | Type=text | Image=N/A
+10. Source=BLIP-2.pdf | Page=2 | Type=text | Image=N/A
+11. Source=CLIP.pdf | Page=44 | Type=text | Image=N/A
+================================================================================
+
+================================================================================
+STAGE 3 — MULTIMODAL RERANKING
+================================================================================
+Input Candidates : 11
+Reranked Output   : 11
+
+[RERANK #1] Source=CLIP.pdf | Page=11 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with a graph and a line graph on it  OCR Text: Learning Transferable Visual Models From Natural Language Supervision 11  Error (%)  61 9.9 21.5 75.3 Model GFLOPs  Figure 9. Zero-shot CLIP performance scales smoothly as a function of model compute.
+
+[RERANK #2] Source=BLIP-2.pdf | Page=1 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT  Caption: the sun is setting over the ocean  OCR Text: No readable text found in this image.  Nearby Document Text: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models Junnan Li Dongxu Li Silvio Savarese Steven Hoi Salesforce Re
+
+[RERANK #3] Source=BLIP-2.pdf | Page=1 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: the cover of a book with an image of an image and text  OCR Text: 2301.12597v3 [cs.CV] 15 Jun 2023  arXiv  BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models  Junnan Li Dongxu Li Silvio Savarese Steven H
+
+[RERANK #4] Source=BLIP-2.pdf | Page=6 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: BEIT-3 (Wang et al., 2022b) 1.9B ✗ - - - 94.9 81.5 Flamingo (Alayrac et al., 2022) 10.2B ✗ 56.3 - - - - BLIP-2 188M ✓ 65.0 121.6 15.8 97.6 89.7 Table 1. Overview of BLIP-2 results on various zero-shot vision-language tasks. Compared with previous state-of-the-art models. BLIP-2 achieves the highest 
+
+[RERANK #5] Source=BLIP-2.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: • Due to the use of frozen unimodal models and a lightweight Q-Former, BLIP-2 is more compute-efficient than exisiting state-of-the-arts. For example, BLIP-2 out- performs Flamingo (Alayrac et al., 2022) by 8.7% on zero-shot VQAv2, while using 54 × fewer trainable pa- rameters. Furthermore, our resu
+
+[RERANK #6] Source=BLIP-2.pdf | Page=1 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: from a frozen language model. BLIP-2 achieves state-of-the-art performance on various vision- language tasks, despite having significantly fewer trainable parameters than existing methods. For example, our model outperforms Flamingo80B by 8.7% on zero-shot VQAv2 with 54x fewer train- able parameters
+
+[RERANK #7] Source=BLIP-2.pdf | Page=6 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: models, we use the prompt “Question: {} Short answer:”. During generation, we use beam search with a beam width of 5. We also set the length-penalty to -1 which encourages shorter answers that align better with human annotation. As shown in Table 2. BLIP-2 achieves state-of-the-art result on the VQA
+
+[RERANK #8] Source=BLIP-2.pdf | Page=6 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: BLIP-2 ViT-g OPT2.7B 107M 3.8B 53.5 52.3 31.7 34.6 BLIP-2 ViT-g OPT6.7B 108M 7.8B 54.3 52.6 36.4 36.4 BLIP-2 ViT-L FlanT5XL 103M 3.4B 62.6 62.3 39.4 44.4 BLIP-2 ViT-g FlanT5XL 107M 4.1B 63.1 63.0 40.7 44.2 BLIP-2 ViT-g FlanT5XXL 108M 12.1B 65.2 65.0 45.9 44.7 Table 2. Comparison with state-of-the-ar
+
+[RERANK #9] Source=BLIP-2.pdf | Page=6 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: previous state-of-the-art models, BLIP-2 achieves improved performance while requiring substantially fewer number of trainable parameters during vision-language pre-training. 4.1. Instructed Zero-shot Image-to-Text Generation BLIP-2 effectively enables a LLM to understand images while preserving its
+
+[RERANK #10] Source=BLIP-2.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: encoder whose outputs are directly used as soft prompts for the LLM. Flamingo (Alayrac et al., 2022) inserts new cross-attention layers into the LLM to inject visual features, and pre-trains the new layers on billions of image-text pairs. Both methods adopt the language modeling loss, where the lang
+
+[RERANK #11] Source=CLIP.pdf | Page=44 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: lar average performance and number of wins on zero shot and linear classiﬁer evals. However, large differences in dataset speciﬁc performance occur. We include performance on the 3 datasets where YFCC does best and worst compared to WIT according to a linear probe in order to highlight this as well 
+================================================================================
+
+================================================================================
+FINAL CONTEXT DOCUMENTS
+================================================================================
+Final context candidates: 6
+
+[FINAL #1] Source=CLIP.pdf | Page=11 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with a graph and a line graph on it  OCR Text: Learning Transferable Visual Models From Natural Language Supervision 11  Error (%)  61 9.9 21.5 75.3 Model GFLOPs  Figure 9. Zero-shot CLIP performance scales smoothly as a function of model compute.
+
+[FINAL #2] Source=CLIP.pdf | Page=44 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: lar average performance and number of wins on zero shot and linear classiﬁer evals. However, large differences in dataset speciﬁc performance occur. We include performance on the 3 datasets where YFCC does best and worst compared to WIT according to a linear probe in order to highlight this as well 
+
+[FINAL #3] Source=BLIP-2.pdf | Page=1 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT  Caption: the sun is setting over the ocean  OCR Text: No readable text found in this image.  Nearby Document Text: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models Junnan Li Dongxu Li Silvio Savarese Steven Hoi Salesforce Re
+
+[FINAL #4] Source=BLIP-2.pdf | Page=1 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: the cover of a book with an image of an image and text  OCR Text: 2301.12597v3 [cs.CV] 15 Jun 2023  arXiv  BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models  Junnan Li Dongxu Li Silvio Savarese Steven H
+
+[FINAL #5] Source=BLIP-2.pdf | Page=6 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: BEIT-3 (Wang et al., 2022b) 1.9B ✗ - - - 94.9 81.5 Flamingo (Alayrac et al., 2022) 10.2B ✗ 56.3 - - - - BLIP-2 188M ✓ 65.0 121.6 15.8 97.6 89.7 Table 1. Overview of BLIP-2 results on various zero-shot vision-language tasks. Compared with previous state-of-the-art models. BLIP-2 achieves the highest 
+
+[FINAL #6] Source=BLIP-2.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: • Due to the use of frozen unimodal models and a lightweight Q-Former, BLIP-2 is more compute-efficient than exisiting state-of-the-arts. For example, BLIP-2 out- performs Flamingo (Alayrac et al., 2022) by 8.7% on zero-shot VQAv2, while using 54 × fewer trainable pa- rameters. Furthermore, our resu
+================================================================================
+
+================================================================================
+FINAL CONTEXT SENT TO LLM
+================================================================================
+
+================================================================================
+DOCUMENT : CLIP.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 11
+--------------------------------------------------------------------------------
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a paper with a graph and a line graph on it
+
+OCR Text:
+Learning Transferable Visual Models From Natural Language Supervision 11
+
+Error (%)
+
+61 9.9 21.5 75.3
+Model GFLOPs
+
+Figure 9. Zero-shot CLIP performance scales smoothly as a
+function of model compute. Across 39 evals on 36 different
+datasets, average zero-shot error is well modeled by a log-log lin-
+ear trend across a 44x range of compute spanning 5 different CLIP
+models. Lightly shaded lines are performance on individual evals,
+showing that performance is much more varied despite the smooth
+overall trend.
+
+this is caused by high variance between individual training
+runs on sub-tasks (as documented in D’ Amour et al. (2020))
+masking a steadily improving trend or whether performance
+is actually non-monotonic as a function of compute on some
+tasks.
+
+3.2. Representation Learning
+
+While we have extensively analyzed the task-learning ca-
+pabilities of CLIP through zero-shot transfer in the previ-
+ous section, it is more common to study the representation
+learning capabilities of a model. There exist many ways to
+evaluate the quality of representations as well as disagree-
+ments over what properties an “ideal” representation should
+have (Locatello et al., 2020). Fitting a linear classifier on
+a representation extracted from the model and measuring
+its performance on various datasets is a common approach.
+An alternative is measuring the performance of end-to-end
+fine-tuning of the model. This increases flexibility, and
+prior work has convincingly demonstrated that fine-tuning
+outperforms linear classification on most image classifi-
+cation datasets (Kornblith et al., 2019; Zhai et al., 2019).
+While the high performance of fine-tuning motivates its
+study for practical reasons, we still opt for linear classifier
+based evaluation for several reasons. Our work is focused
+on developing a high-performing task and dataset-agnostic
+pre-training approach. Fine-tuning, because it adapts rep-
+resentations to each dataset during the fine-tuning phase,
+can compensate for and potentially mask failures to learn
+general and robust representations during the pre-training
+phase. Linear classifiers, because of their limited flexibility,
+instead highlight these failures and provide clear feedback
+during development. For CLIP, training supervised linear
+
+classifiers has the added benefit of being very similar to the
+approach used for its zero-shot classifiers which enables
+extensive comparisons and analysis in Section 3.1. Finally,
+we aim to compare CLIP to a comprehensive set of existing
+models across many tasks. Studying 66 different models on
+27 different datasets requires tuning 1782 different evalua-
+tions. Fine-tuning opens up a much larger design and hyper-
+parameter space, which makes it difficult to fairly evaluate
+and computationally expensive to compare a diverse set of
+techniques as discussed in other large scale empirical studies
+(Lucic et al., 2018; Choi et al., 2019). By comparison, linear
+classifiers require minimal hyper-parameter tuning and have
+standardized implementations and evaluation procedures.
+Please see Appendix A for further details on evaluation.
+
+Figure 10 summarizes our findings. To minimize selection
+effects that could raise concerns of confirmation or reporting
+bias, we first study performance on the 12 dataset evaluation
+suite from Kornblith et al. (2019). While small CLIP mod-
+els such as a ResNet-50 and ResNet-101 outperform other
+ResNets trained on ImageNet-1K (BiT-S and the originals),
+they underperform ResNets trained on ImageNet-21K (BiT-
+M). These small CLIP models also underperform models
+in the EfficientNet family with similar compute require-
+ments. However, models trained with CLIP scale very well
+and the largest model we trained (ResNet-50x64) slightly
+outperforms the best performing existing model (a Noisy
+Student EfficientNet-L2) on both overall score and compute
+efficiency. We also find that CLIP vision transformers are
+about 3x more compute efficient than CLIP ResNets, which
+allows us to reach higher overall performance within our
+compute budget. These results qualitatively replicate the
+findings of Dosovitskiy et al. (2020) which reported that
+vision transformers are more compute efficient than con-
+vnets when trained on sufficiently large datasets. Our best
+overall model is a ViT-L/14 that is fine-tuned at a higher res-
+olution of 336 pixels on our dataset for 1 additional epoch.
+This model outperforms the best existing model across this
+evaluation suite by an average of 2.6%.
+
+As Figure 21 qualitatively shows, CLIP models learn a wider
+set of tasks than has previously been demonstrated in a sin-
+gle computer vision model trained end-to-end from random
+initialization. These tasks include geo-localization, optical
+character recognition, facial emotion recognition, and action
+recognition. None of these tasks are measured in the evalua-
+tion suite of Kornblith et al. (2019). This could be argued
+to be a form of selection bias in Kornblith et al. (2019)’s
+study towards tasks that overlap with ImageNet. To address
+this, we also measure performance on a broader 27 dataset
+evaluation suite. This evaluation suite, detailed in Appendix
+A includes datasets representing the aforementioned tasks,
+German Traffic Signs Recognition Benchmark (Stallkamp
+et al., 2011), as well as several other datasets adapted from
+VTAB (Zhai et al., 2019).
+
+Nearby Document Text:
+Learning Transferable Visual Models From Natural Language Supervision
+11
+6.1
+9.9
+21.5
+75.3
+265.9
+Model GFLOPs
+30
+35
+40
+45
+Error (%)
+RN50
+RN101
+RN50x4
+RN50x16
+RN50x64
+Figure 9. Zero-shot CLIP performance scales smoothly as a
+function of model compute. Across 39 evals on 36 different
+datasets, average zero-shot error is well modeled by a log-log lin-
+ear trend across a 44x range of compute spanning 5 different CLIP
+models. Lightly shaded lines are performance on individual evals,
+showing that performance is much more varied despite the smooth
+overall trend.
+this is caused by high variance betwee
+
+
+--------------------------------------------------------------------------------
+PAGE : 44
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+lar average performance and number of wins on zero shot and
+linear classiﬁer evals. However, large differences in dataset
+speciﬁc performance occur. We include performance on the 3
+datasets where YFCC does best and worst compared to WIT
+according to a linear probe in order to highlight this as well as
+aggregate performance across all linear and zero-shot evals and
+the canonical ImageNet dataset.
+D. Dataset Ablation on YFCC100M
+To study whether our custom dataset is critical to the perfor-
+mance of CLIP, we trained a model on a ﬁltered subset of
+
+
+================================================================================
+DOCUMENT : BLIP-2.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 1
+--------------------------------------------------------------------------------
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT
+
+Caption:
+the sun is setting over the ocean
+
+OCR Text:
+No readable text found in this image.
+
+Nearby Document Text:
+BLIP-2: Bootstrapping Language-Image Pre-training
+with Frozen Image Encoders and Large Language Models
+Junnan Li Dongxu Li Silvio Savarese Steven Hoi
+Salesforce Research
+https://github.com/salesforce/LAVIS/tree/main/projects/blip2
+Abstract
+The cost of vision-and-language pre-training has
+become increasingly prohibitive due to end-to-
+end training of large-scale models. This paper
+proposes BLIP-2, a generic and efficient pre-
+training strategy that bootstraps vision-language
+pre-training from off-the-shelf frozen pre-trained
+image encoders and frozen large language mod-
+els.
+BLIP-2 bridges the
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+the cover of a book with an image of an image and text
+
+OCR Text:
+2301.12597v3 [cs.CV] 15 Jun 2023
+
+arXiv
+
+BLIP-2: Bootstrapping Language-Image Pre-training
+with Frozen Image Encoders and Large Language Models
+
+Junnan Li Dongxu Li Silvio Savarese Steven Hoi
+Salesforce Research
+https://github.com/salesforce/LAVIS/tree/main/projects/blip2
+
+Abstract
+
+The cost of vision-and-language pre-training has
+become increasingly prohibitive due to end-to-
+end training of large-scale models. This paper
+proposes BLIP-2, a generic and efficient pre-
+training strategy that bootstraps vision-language
+pre-training from off-the-shelf frozen pre-trained
+image encoders and frozen large language mod-
+els. BLIP-2 bridges the modality gap with a
+lightweight Querying Transformer, which is pre-
+trained in two stages. The first stage boot-
+straps vision-language representation learning
+from a frozen image encoder. The second stage
+bootstraps vision-to-language generative learning
+from a frozen language model. BLIP-2 achieves
+state-of-the-art performance on various Vision-
+language tasks, despite having significantly fewer
+trainable parameters than existing methods. For
+example, our model outperforms Flamingo80B by
+8.7% on zero-shot VQAv2 with 54x fewer train-
+able parameters. We also demonstrate the model’s
+emerging capabilities of zero-shot image-to-text
+generation that can follow natural language in-
+structions.
+
+1. Introduction
+
+Vision-language pre-training (VLP) research has witnessed
+arapid advancement in the past few years, where pre-trained
+models with increasingly larger scale have been developed
+to continuously push the state-of-the-art on various down-
+stream tasks (Radford et al., 2021; Li et al., 2021; 2022;
+Wang et al., 2022a; Alayrac et al., 2022; Wang et al., 2022b).
+However, most state-of-the-art vision-language models in-
+cur a high computation cost during pre-training, due to
+end-to-end training using large-scale models and datasets.
+
+Vision-language research sits at the intersection between
+vision and language, therefore it is naturally expected
+that vision-language models can harvest from the readily-
+available unimodal models from the vision and natural lan-
+guage communities. In this paper, we propose a generic and
+
+Vision-and-Language
+Representation Learning
+
+Vision-to-Language
+Generative Learning
+
+"
+"
+"
+UT
++
+Q-Former iH
+Querying Transformer] 3! n
+i! that goes along this photo.
+H
+"
+m
+M
+"
+url
+i
+
+Love is like a sunset, it's
+hard to see it coming but
+
+O0-o0 Text
+
+Queries when it does it’s so beautiful}
+Bootstrapping Pre-trained Bootstrapping Pre-trained
+Image Models Large Language Models (LLMs)
+
+Figure I. Overview of BLIP-2’s framework. We pre-train a
+lightweight Querying Transformer following a two-stage strat-
+egy to bridge the modality gap. The first stage bootstraps vision-
+language representation learning from a frozen image encoder. The
+second stage bootstraps vision-to-language generative learning
+from a frozen LLM, which enables zero-shot instructed image-to-
+text generation (see Figure 4 for more examples).
+
+compute-efficient VLP method by bootstrapping from off-
+the-shelf pre-trained vision models and language models.
+Pre-trained vision models offer high-quality visual represen-
+tation. Pre-trained language models, in particular large lan-
+guage models (LLMs), offer strong language generation and
+zero-shot transfer abilities. To reduce computation cost and
+counteract the issue of catastrophic forgetting, the unimodal
+pre-trained models remain frozen during the pre-training.
+
+In order to leverage pre-trained unimodal models for VLP,
+it is key to facilitate cross-modal alignment. However, since
+LLMs have not seen images during their unimodal pre-
+training, freezing them makes vision-language alignment
+in particular challenging. In this regard, existing methods
+(e.g. Frozen (Tsimpoukelli et al., 2021), Flamingo (Alayrac
+et al., 2022)) resort to an image-to-text generation loss,
+which we show is insufficient to bridge the modality gap.
+
+To achieve effective vision-language alignment with frozen
+unimodal models, we propose a Querying Transformer (Q-
+Former) pre-trained with a new two-stage pre-training strat-
+egy. As shown in Figure 1, Q-Former is a lightweight trans-
+former which employs a set of learnable query vectors to
+extract visual features from the frozen image encoder. It
+acts as an information bottleneck between the frozen image
+encoder and the frozen LLM, where it feeds the most useful
+
+Nearby Document Text:
+BLIP-2: Bootstrapping Language-Image Pre-training
+with Frozen Image Encoders and Large Language Models
+Junnan Li Dongxu Li Silvio Savarese Steven Hoi
+Salesforce Research
+https://github.com/salesforce/LAVIS/tree/main/projects/blip2
+Abstract
+The cost of vision-and-language pre-training has
+become increasingly prohibitive due to end-to-
+end training of large-scale models. This paper
+proposes BLIP-2, a generic and efficient pre-
+training strategy that bootstraps vision-language
+pre-training from off-the-shelf frozen pre-trained
+image encoders and frozen large language mod-
+els.
+BLIP-2 bridges the
+
+
+--------------------------------------------------------------------------------
+PAGE : 2
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+• Due to the use of frozen unimodal models and a
+lightweight Q-Former, BLIP-2 is more compute-efficient
+than exisiting state-of-the-arts. For example, BLIP-2 out-
+performs Flamingo (Alayrac et al., 2022) by 8.7% on
+zero-shot VQAv2, while using 54 × fewer trainable pa-
+rameters. Furthermore, our results show that BLIP-2 is a
+generic method that can harvest more advanced unimodal
+models for better VLP performance.
+2. Related Work
+2.1. End-to-end Vision-Language Pre-training
+Vision-language pre-training aims to learn multimodal foun-
+dation models with improved performance on various vision-
+
+
+--------------------------------------------------------------------------------
+PAGE : 6
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+BEIT-3 (Wang et al., 2022b) 1.9B ✗ - - - 94.9 81.5
+Flamingo (Alayrac et al., 2022) 10.2B ✗ 56.3 - - - -
+BLIP-2 188M ✓ 65.0 121.6 15.8 97.6 89.7
+Table 1. Overview of BLIP-2 results on various zero-shot vision-language tasks. Compared with previous state-of-the-art models. BLIP-2
+achieves the highest zero-shot performance while requiring the least number of trainable parameters during vision-language pre-training.
+Models #Trainable
+Params
+#Total
+Params
+VQAv2 OK-VQA GQA
+val test-dev test test-dev
+VL-T5no-vqa 224M 269M 13.5 - 5.8 6.3
+FewVLM (Jin et al., 2022) 740M 785M 47.7 - 16.5 29.3
+
+================================================================================
+
+================================================================================
+RAG PIPELINE DEBUG
+================================================================================
+Query Type        : comparison
+Retrieved Chunks  : 8
+Retrieved Images  : 3
+Reranked Chunks   : 11
+Reranked Text     : 8
+Reranked Images   : 3
+Final Context Docs: 6
+Exact Figure Query: False
+Exact Figure Match: False
+Exact Figure Final: False
+================================================================================
+
+================================================================================
+STAGE 4 — EVIDENCE VERIFICATION
+================================================================================
+Verification Units : 1
+Supported          : 0
+Partially Supported: 1
+Unsupported        : 0
+Unknown            : 0
+Groundedness Ratio : 0.00
+
+[CLAIM #1] BLIP-2 outperforms Flamingo by 8.7% on zero-shot VQAv2, while using 54x fewer trainable parameters.
+  Status=PARTIALLY_SUPPORTED | NLI=NEUTRAL | Confidence=0.7017 | Citation=BLIP-2.pdf (Page 1)
+================================================================================
+
+====================================================================================================
+RAG ANSWER
+====================================================================================================
+ BLIP-2 outperforms Flamingo by 8.7% on zero-shot VQAv2, while using 54x fewer trainable parameters.
+
+IMAGE PATHS:
+D:/Projects/Major-Project-2-main/extracted_images/CLIP_page11_render.png
+D:/Projects/Major-Project-2-main/extracted_images/BLIP-2_page1_img1.png
+D:/Projects/Major-Project-2-main/extracted_images/BLIP-2_page1_render.png

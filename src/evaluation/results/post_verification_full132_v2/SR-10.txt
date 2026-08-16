@@ -1,0 +1,1269 @@
+====================================================================================================
+QUESTION_ID   : SR-10
+DOCUMENT      : SELF-RAG
+QUESTION_TYPE : Figure / table understanding
+ELAPSED_SEC   : 53.0
+ERROR         : no
+====================================================================================================
+
+QUESTION:
+According to Figure 3(a), how does SELF-RAG perform compared with the No Retriever and No Critic variants on the reported PQA, Med and ASQA metrics?
+
+GROUND TRUTH ANSWER:
+Figure 3(a) reports SELF-RAG (50k) at PQA 45.5, Med 73.5, and ASQA 32.1. No Retriever scores 43.6, 67.8, and 31.0, while No Critic scores 42.6, 72.0, and 18.1, respectively. Thus SELF-RAG is higher than both ablations on all three reported metrics.
+
+GROUND TRUTH SOURCE:
+Self-RAG.pdf — Page 9, Figure 3(a)
+
+====================================================================================================
+FORENSIC TRANSCRIPT
+====================================================================================================
+
+####################################################################################################
+FORENSIC CASE START
+####################################################################################################
+Original Query   : According to Figure 3(a), how does SELF-RAG perform compared with the No Retriever and No Critic variants on the reported PQA, Med and ASQA metrics?
+Expanded Query   : According to Figure 3(a), how does SELF-RAG perform compared with the No Retriever and No Critic variants on the reported PQA, Med and ASQA metrics?
+Query Type       : visual
+[DOCUMENT SCOPE] Normalized query: 'according to figure 3 a how does self rag perform compared with the no retriever and no critic variants on the reported pqa med and asqa metrics'
+[DOCUMENT SCOPE] Source='BERT.pdf' -> Normalized='bert'
+[DOCUMENT SCOPE] Token overlap for 'BERT.pdf': []
+[DOCUMENT SCOPE] Source='BLIP-2.pdf' -> Normalized='blip 2'
+[DOCUMENT SCOPE] Token overlap for 'BLIP-2.pdf': []
+[DOCUMENT SCOPE] Source='CLIP.pdf' -> Normalized='clip'
+[DOCUMENT SCOPE] Token overlap for 'CLIP.pdf': []
+[DOCUMENT SCOPE] Source='CNN Paper.pdf' -> Normalized='cnn paper'
+[DOCUMENT SCOPE] Token overlap for 'CNN Paper.pdf': []
+[DOCUMENT SCOPE] Source='Donut.pdf' -> Normalized='donut'
+[DOCUMENT SCOPE] Token overlap for 'Donut.pdf': []
+[DOCUMENT SCOPE] Source='LayoutLMv3.pdf' -> Normalized='layout l mv3'
+[DOCUMENT SCOPE] Token overlap for 'LayoutLMv3.pdf': []
+[DOCUMENT SCOPE] Source='NLP Paper.pdf' -> Normalized='nlp paper'
+[DOCUMENT SCOPE] Token overlap for 'NLP Paper.pdf': []
+[DOCUMENT SCOPE] Source='RAG.pdf' -> Normalized='rag'
+[DOCUMENT SCOPE] EXACT MATCH -> RAG.pdf
+[DOCUMENT SCOPE] Source='Self-RAG.pdf' -> Normalized='self rag'
+[DOCUMENT SCOPE] EXACT MATCH -> Self-RAG.pdf
+[DOCUMENT SCOPE] Source='Vision Transformer.pdf' -> Normalized='vision transformer'
+[DOCUMENT SCOPE] Token overlap for 'Vision Transformer.pdf': []
+[DOCUMENT SCOPE] Final matched sources: ['RAG.pdf', 'Self-RAG.pdf']
+
+================================================================================
+DOCUMENT SCOPE DEBUG
+================================================================================
+Query          : According to Figure 3(a), how does SELF-RAG perform compared with the No Retriever and No Critic variants on the reported PQA, Med and ASQA metrics?
+Expanded Query : According to Figure 3(a), how does SELF-RAG perform compared with the No Retriever and No Critic variants on the reported PQA, Med and ASQA metrics?
+Query Type     : visual
+Document Scope : ['RAG.pdf', 'Self-RAG.pdf']
+================================================================================
+
+==========================================================================================
+STEP 3A — SCOPED HYBRID RETRIEVAL
+==========================================================================================
+Query              : According to Figure 3(a), how does SELF-RAG perform compared with the No Retriever and No Critic variants on the reported PQA, Med and ASQA metrics?
+Sources            : ['RAG.pdf', 'Self-RAG.pdf']
+Dense candidate K  : 25
+Final hybrid K     : 8
+
+------------------------------------------------------------------------------------------
+[SCOPED DENSE / VECTOR RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=two variants: the standard 3-way classiﬁcation task (supports/refutes/not enough info) and the 2-way (supports/refutes) task studied in Thorne and Vlachos [57]. In both cases we re
+02. Source=Self-RAG.pdf | Page=8 | Type=text | Image=N/A
+    Content=fully supported by cited evidence. We also found that on the metrics for factual precision, SELF -R AG 7B occasionally outperforms our 13B due to the tendency of smaller SELF -RAG 
+03. Source=RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=the generation ﬂexibility of the “closed-book” (parametric only) approaches and the performance of "open-book" retrieval-based approaches. Unlike REALM and T5+SSM, RAG enjoys stron
+04. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=RAG approaches causes a large drop in PopQA and ASQA, and removing ISSUP during the beam search results hurts performance on ASQA. This demonstrates the effectiveness of SELF -RAG’
+05. Source=RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=We compare RAG’s dense retriever to a word overlap-based BM25 retriever [53]. Here, we replace RAG’s retriever with a ﬁxed BM25 system, and use BM25 retrieval scores as logits when
+06. Source=RAG.pdf | Page=4 | Type=text | Image=N/A
+    Content=and train RAG by directly minimizing the negative log-likelihood of answers. We compare RAG to the popular extractive QA paradigm [5, 7, 31, 26], where answers are extracted spans 
+07. Source=Self-RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=y using the retrieval and critic models to create supervised data that precisely mimics the SELF - RAG inference-time process (Section 3.1). For each segment yt ∈ y, we run C to as
+08. Source=Self-RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=to enhance overall generation quality, factuality, and verifiability. consistently retrieves a fixed number of documents for generation regardless of the retrieval necessity (e.g.,
+09. Source=RAG.pdf | Page=8 | Type=text | Image=N/A
+    Content=documents. Figure 3 (right) shows that retrieving more documents leads to higher Rouge-L for RAG-Token at the expense of Bleu-1, but the effect is less pronounced for RAG-Sequence.
+10. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=as if it were occurring in a conversation) and supported (i.e., the provided evidence is sufficient to verify the validity of the answer). For S&P, we do not consider the instances
+11. Source=Self-RAG.pdf | Page=6 | Type=text | Image=N/A
+    Content=4 E XPERIMENTS 4.1 T ASKS AND DATASETS We conduct evaluations of our SELF -RAG and diverse baselines on a range of downstream tasks, holistically evaluating outputs with metrics de
+12. Source=Self-RAG.pdf | Page=4 | Type=text | Image=N/A
+    Content=3.2.1 T RAINING THE CRITIC MODEL Data collection for critic model. Manual annotation of reflection tokens for each segment is expensive (Wu et al., 2023). A state-of-the-art LLM li
+13. Source=Self-RAG.pdf | Page=6 | Type=text | Image=N/A
+    Content=Critique token type. For each critique token group G (e.g., ISREL ), we denote its score at timestamp t as sG t , and we compute a segment score as follows: f (yt, d, Critique ) = 
+14. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=Human analysis on SELF -R AG outputs as well as reflection tokens. contrary, a larger weight results in lower MAUVE scores: when generation gets longer and more fluent, there are o
+15. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=Preprint. PQA Med AS (acc) (acc) (em) SELF -RAG (50k) 45.5 73.5 32.1 Training No Retriever R 43.6 67.8 31.0 No Critic C 42.6 72.0 18.1 Test No retrieval 24.7 73.0 – Hard constraint
+16. Source=RAG.pdf | Page=4 | Type=text | Image=N/A
+    Content=2.5 Decoding At test time, RAG-Sequence and RAG-Token require different ways to approximatearg maxyp(y|x). RAG-Token The RAG-Token model can be seen as a standard, autoregressive s
+17. Source=Self-RAG.pdf | Page=23 | Type=text | Image=N/A
+    Content=ASQA (baseline) Instruction: Write an accurate, engaging, and concise answer for the given question using only the provided search results (some of which might be irrelevant) and c
+18. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=performance deterioration by retrieving less is smaller on PubHealth but larger in PopQA. Effects of training data size. We conduct an analysis of how the data scale affects the mo
+19. Source=RAG.pdf | Page=8 | Type=text | Image=N/A
+    Content=Effect of Retrieving more documents Models are trained with either 5 or 10 retrieved latent documents, and we do not observe signiﬁcant differences in performance between them. We 
+20. Source=RAG.pdf | Page=6 | Type=text | Image=N/A
+    Content=even when the correct answer is not in any retrieved document, achieving 11.8% accuracy in such cases for NQ, where an extractive model would score 0%. 4.2 Abstractive Question Ans
+21. Source=Self-RAG.pdf | Page=3 | Type=text | Image=N/A
+    Content=tokens from a critic model offline, with a far lower training cost compared to RLHF. In addition, reflection tokens in SELF -R AG enable controllable generation at inference, while
+22. Source=RAG.pdf | Page=6 | Type=text | Image=N/A
+    Content=4.3 Jeopardy Question Generation Table 2 shows that RAG-Token performs better than RAG-Sequence on Jeopardy question generation, with both models outperforming BART on Q-BLEU-1. 4 
+23. Source=RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=sources, and speciﬁcity as high mutual dependence between the input and output [33]. We follow best practice and use pairwise comparative evaluation [34]. Evaluators are shown an a
+24. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=We show in Table 3a the ablation results. The top part of the table shows results for training ablations, and the bottom part is for inference ablations. We see that all components
+25. Source=Self-RAG.pdf | Page=20 | Type=text | Image=N/A
+    Content=evaluate SELF -R AG 7B, Alpaca 7B, Alpaca 13B, and Llama2-Chat-13B. We found that SELF -R AG significantly less frequently generates answers that are not included in the provided e
+
+------------------------------------------------------------------------------------------
+[SCOPED BM25 RETRIEVAL] 23 candidates
+------------------------------------------------------------------------------------------
+01. Source=Self-RAG.pdf | Page=9 | Type=image | Image=extracted_images\Self-RAG_page9_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the textbook on the characterization and characterization of semiconductors in semiconductors and semiconductors  OCR Text:
+02. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=key roles. We evaluate two model variants trained differently than our model: No Retriever trains an LM using the standard instruction-following method given instruction-output pai
+03. Source=Self-RAG.pdf | Page=10 | Type=image | Image=extracted_images\Self-RAG_page10_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+04. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=performance deterioration by retrieving less is smaller on PubHealth but larger in PopQA. Effects of training data size. We conduct an analysis of how the data scale affects the mo
+05. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=We show in Table 3a the ablation results. The top part of the table shows results for training ablations, and the bottom part is for inference ablations. We see that all components
+06. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=precisely grounded yet shorter outputs. Llama2-FT 7B, which is the baseline LM trained on the same instruction-output pairs as SELF -R AG without retrieval or self-reflection and i
+07. Source=Self-RAG.pdf | Page=17 | Type=text | Image=N/A
+    Content=intensive datasets, Natural Questions (Kwiatkowski et al., 2019), Wizard of Wikipedia (Dinan et al., 2019) and FEVER (Thorne et al., 2018) from the KILT benchmark (Petroni et al., 
+08. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=Preprint. PQA Med AS (acc) (acc) (em) SELF -RAG (50k) 45.5 73.5 32.1 Training No Retriever R 43.6 67.8 31.0 No Critic C 42.6 72.0 18.1 Test No retrieval 24.7 73.0 – Hard constraint
+09. Source=Self-RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=vacation was a magical escape to the coastal town of  Santorini.                     The azure waters, charming white- washed building are unforgettable experience. No Retrieval No
+10. Source=Self-RAG.pdf | Page=4 | Type=image | Image=extracted_images\Self-RAG_page4_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Preprint.  Typ
+11. Source=Self-RAG.pdf | Page=23 | Type=text | Image=N/A
+    Content=ASQA (baseline) Instruction: Write an accurate, engaging, and concise answer for the given question using only the provided search results (some of which might be irrelevant) and c
+12. Source=Self-RAG.pdf | Page=3 | Type=image | Image=extracted_images\Self-RAG_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+13. Source=RAG.pdf | Page=6 | Type=text | Image=N/A
+    Content=how parametric and non-parametric memories work together—the non-parametric component helps to guide the generation, drawing out speciﬁc knowledge stored in the parametric memory. 
+14. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=Preprint. 0 50 100 150 Num of training (k) 35 40 45 50 55Perfomance (a) PopQA 0 100 Num of training (k) 71 72 73  (b) PubHealth 0 100 Num of training (k) 40 60  (c) ASQA (prec) Pop
+15. Source=Self-RAG.pdf | Page=5 | Type=image | Image=extracted_images\Self-RAG_page5_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a book with the title title and title title  OCR Text: Preprint.  Input: Write an essay of your best summer vacation Input: H
+16. Source=Self-RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=training data for each type and combine them to form training data for C. Appendix Section D shows the full list of instructions, and A.1 contains more details and our analysis. Cr
+17. Source=Self-RAG.pdf | Page=2 | Type=image | Image=extracted_images\Self-RAG_page2_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+18. Source=RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=We build RAG models where the parametric memory is a pre-trained seq2seq transformer, and the non-parametric memory is a dense vector index of Wikipedia, accessed with a pre-traine
+19. Source=Self-RAG.pdf | Page=23 | Type=text | Image=N/A
+    Content=the documents. ASQA (ours) Answer the following question. The question may be ambiguous and have multiple correct answers, and in that case, you have to provide a long-form answer 
+20. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=Efficiency and accuracy trade-off. Using our framework, practitioners can adjust how often retrieval occurs using the token probability of reward tokens. We evaluate how this adapt
+21. Source=Self-RAG.pdf | Page=21 | Type=text | Image=N/A
+    Content=Preprint. C.2 H UMAN EVALUATION EXAMPLES Table 6 shows examples with human evaluations on S&P and correctness of ISREL and ISSUP reflection tokens. C.3 Q UALITATIVE EXAMPLES Table 
+22. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=PubHealth 0.0 0.2 0.4 0.6 Retrieval Threshold 0.6 0.8 1.0Accuracy PopQA 0.0 0.5 1.0 Frequency 0.25 0.50 0.75 1.00 Frequency  (c) Retrieval Figure 3: Analysis on SELF -R AG: (a) Abl
+23. Source=RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=its effectiveness, and we illustrated how the retrieval index can be hot-swapped to update the model without requiring any retraining. In future work, it may be fruitful to investi
+
+------------------------------------------------------------------------------------------
+[RRF FUSION RANKING]
+------------------------------------------------------------------------------------------
+01. RRF=0.028446 | DenseRank=18 | BM25Rank=4 | Source=Self-RAG.pdf | Page=10 | Type=text
+02. RRF=0.028039 | DenseRank=15 | BM25Rank=8 | Source=Self-RAG.pdf | Page=9 | Type=text
+03. RRF=0.027289 | DenseRank=24 | BM25Rank=5 | Source=Self-RAG.pdf | Page=9 | Type=text
+04. RRF=0.027072 | DenseRank=17 | BM25Rank=11 | Source=Self-RAG.pdf | Page=23 | Type=text
+05. RRF=0.016393 | DenseRank=1 | BM25Rank=- | Source=RAG.pdf | Page=5 | Type=text
+06. RRF=0.016393 | DenseRank=- | BM25Rank=1 | Source=Self-RAG.pdf | Page=9 | Type=image
+07. RRF=0.016129 | DenseRank=2 | BM25Rank=- | Source=Self-RAG.pdf | Page=8 | Type=text
+08. RRF=0.016129 | DenseRank=- | BM25Rank=2 | Source=Self-RAG.pdf | Page=9 | Type=text
+09. RRF=0.015873 | DenseRank=3 | BM25Rank=- | Source=RAG.pdf | Page=5 | Type=text
+10. RRF=0.015873 | DenseRank=- | BM25Rank=3 | Source=Self-RAG.pdf | Page=10 | Type=image
+11. RRF=0.015625 | DenseRank=4 | BM25Rank=- | Source=Self-RAG.pdf | Page=9 | Type=text
+12. RRF=0.015385 | DenseRank=5 | BM25Rank=- | Source=RAG.pdf | Page=7 | Type=text
+13. RRF=0.015152 | DenseRank=6 | BM25Rank=- | Source=RAG.pdf | Page=4 | Type=text
+14. RRF=0.015152 | DenseRank=- | BM25Rank=6 | Source=Self-RAG.pdf | Page=9 | Type=text
+15. RRF=0.014925 | DenseRank=7 | BM25Rank=- | Source=Self-RAG.pdf | Page=5 | Type=text
+16. RRF=0.014925 | DenseRank=- | BM25Rank=7 | Source=Self-RAG.pdf | Page=17 | Type=text
+17. RRF=0.014706 | DenseRank=8 | BM25Rank=- | Source=Self-RAG.pdf | Page=2 | Type=text
+18. RRF=0.014493 | DenseRank=9 | BM25Rank=- | Source=RAG.pdf | Page=8 | Type=text
+19. RRF=0.014493 | DenseRank=- | BM25Rank=9 | Source=Self-RAG.pdf | Page=5 | Type=text
+20. RRF=0.014286 | DenseRank=10 | BM25Rank=- | Source=Self-RAG.pdf | Page=10 | Type=text
+21. RRF=0.014286 | DenseRank=- | BM25Rank=10 | Source=Self-RAG.pdf | Page=4 | Type=image
+22. RRF=0.014085 | DenseRank=11 | BM25Rank=- | Source=Self-RAG.pdf | Page=6 | Type=text
+23. RRF=0.013889 | DenseRank=12 | BM25Rank=- | Source=Self-RAG.pdf | Page=4 | Type=text
+24. RRF=0.013889 | DenseRank=- | BM25Rank=12 | Source=Self-RAG.pdf | Page=3 | Type=image
+25. RRF=0.013699 | DenseRank=13 | BM25Rank=- | Source=Self-RAG.pdf | Page=6 | Type=text
+26. RRF=0.013699 | DenseRank=- | BM25Rank=13 | Source=RAG.pdf | Page=6 | Type=text
+27. RRF=0.013514 | DenseRank=14 | BM25Rank=- | Source=Self-RAG.pdf | Page=10 | Type=text
+28. RRF=0.013514 | DenseRank=- | BM25Rank=14 | Source=Self-RAG.pdf | Page=10 | Type=text
+29. RRF=0.013333 | DenseRank=- | BM25Rank=15 | Source=Self-RAG.pdf | Page=5 | Type=image
+30. RRF=0.013158 | DenseRank=16 | BM25Rank=- | Source=RAG.pdf | Page=4 | Type=text
+31. RRF=0.013158 | DenseRank=- | BM25Rank=16 | Source=Self-RAG.pdf | Page=5 | Type=text
+32. RRF=0.012987 | DenseRank=- | BM25Rank=17 | Source=Self-RAG.pdf | Page=2 | Type=image
+33. RRF=0.012821 | DenseRank=- | BM25Rank=18 | Source=RAG.pdf | Page=2 | Type=text
+34. RRF=0.012658 | DenseRank=19 | BM25Rank=- | Source=RAG.pdf | Page=8 | Type=text
+35. RRF=0.012658 | DenseRank=- | BM25Rank=19 | Source=Self-RAG.pdf | Page=23 | Type=text
+36. RRF=0.012500 | DenseRank=20 | BM25Rank=- | Source=RAG.pdf | Page=6 | Type=text
+37. RRF=0.012500 | DenseRank=- | BM25Rank=20 | Source=Self-RAG.pdf | Page=10 | Type=text
+38. RRF=0.012346 | DenseRank=21 | BM25Rank=- | Source=Self-RAG.pdf | Page=3 | Type=text
+39. RRF=0.012346 | DenseRank=- | BM25Rank=21 | Source=Self-RAG.pdf | Page=21 | Type=text
+40. RRF=0.012195 | DenseRank=22 | BM25Rank=- | Source=RAG.pdf | Page=6 | Type=text
+41. RRF=0.012195 | DenseRank=- | BM25Rank=22 | Source=Self-RAG.pdf | Page=9 | Type=text
+42. RRF=0.012048 | DenseRank=23 | BM25Rank=- | Source=RAG.pdf | Page=5 | Type=text
+43. RRF=0.012048 | DenseRank=- | BM25Rank=23 | Source=RAG.pdf | Page=9 | Type=text
+44. RRF=0.011765 | DenseRank=25 | BM25Rank=- | Source=Self-RAG.pdf | Page=20 | Type=text
+------------------------------------------------------------------------------------------
+
+==========================================================================================
+STEP 3A — RETRIEVAL STAGE SUMMARY
+==========================================================================================
+Dense candidates       : 25
+BM25 candidates        : 23
+Dense ∩ BM25           : 4
+Dense-only candidates  : 21
+BM25-only candidates   : 19
+Unique candidate pool  : 44
+RRF candidates         : 44
+Returned to pipeline   : 8
+==========================================================================================
+
+------------------------------------------------------------------------------------------
+[SCOPED FINAL HYBRID RESULT] 8 candidates
+------------------------------------------------------------------------------------------
+01. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=performance deterioration by retrieving less is smaller on PubHealth but larger in PopQA. Effects of training data size. We conduct an analysis of how the data scale affects the mo
+02. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=Preprint. PQA Med AS (acc) (acc) (em) SELF -RAG (50k) 45.5 73.5 32.1 Training No Retriever R 43.6 67.8 31.0 No Critic C 42.6 72.0 18.1 Test No retrieval 24.7 73.0 – Hard constraint
+03. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=We show in Table 3a the ablation results. The top part of the table shows results for training ablations, and the bottom part is for inference ablations. We see that all components
+04. Source=Self-RAG.pdf | Page=23 | Type=text | Image=N/A
+    Content=ASQA (baseline) Instruction: Write an accurate, engaging, and concise answer for the given question using only the provided search results (some of which might be irrelevant) and c
+05. Source=RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=two variants: the standard 3-way classiﬁcation task (supports/refutes/not enough info) and the 2-way (supports/refutes) task studied in Thorne and Vlachos [57]. In both cases we re
+06. Source=Self-RAG.pdf | Page=9 | Type=image | Image=extracted_images\Self-RAG_page9_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the textbook on the characterization and characterization of semiconductors in semiconductors and semiconductors  OCR Text:
+07. Source=Self-RAG.pdf | Page=8 | Type=text | Image=N/A
+    Content=fully supported by cited evidence. We also found that on the metrics for factual precision, SELF -R AG 7B occasionally outperforms our 13B due to the tendency of smaller SELF -RAG 
+08. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=key roles. We evaluate two model variants trained differently than our model: No Retriever trains an LM using the standard instruction-following method given instruction-output pai
+==========================================================================================
+
+================================================================================
+STAGE 1 — HYBRID RETRIEVAL
+================================================================================
+Retrieved Count : 8
+
+[HYBRID #1] Source=Self-RAG.pdf | Page=10 | Type=text
+Content: performance deterioration by retrieving less is smaller on PubHealth but larger in PopQA. Effects of training data size. We conduct an analysis of how the data scale affects the model’s performance. In particular, we randomly sample 5k, 10k, 20k, and 50k instances from our original 150k training instances, and fine-tune fourSELF -RAG 7B variants on those subsets. Then, we compare the model performance on PopQA, PubHealth, and ASQA (citation precision) with our final SELF - RAG trained on the ful
+
+[HYBRID #2] Source=Self-RAG.pdf | Page=9 | Type=text
+Content: Preprint. PQA Med AS (acc) (acc) (em) SELF -RAG (50k) 45.5 73.5 32.1 Training No Retriever R 43.6 67.8 31.0 No Critic C 42.6 72.0 18.1 Test No retrieval 24.7 73.0 – Hard constraints 28.3 72.6 – Retrieve top1 41.8 73.1 28.6 Remove ISSUP 44.1 73.2 30.6 (a) Ablation 1 2 70.0 70.5Precision 1 2 Weight for IsSupport 90 95Mauve  (b) Customization 0.0 0.2 0.4 0.6 0.98 0.99 0.99 1.00Accuracy PubHealth 0.0 0.2 0.4 0.6 Retrieval Threshold 0.6 0.8 1.0Accuracy PopQA 0.0 0.5 1.0 Frequency 0.25 0.50 0.75 1.00 
+
+[HYBRID #3] Source=Self-RAG.pdf | Page=9 | Type=text
+Content: We show in Table 3a the ablation results. The top part of the table shows results for training ablations, and the bottom part is for inference ablations. We see that all components play important roles. We also observe a large performance gap between SELF -R AG and No Retriever or Critic baselines across tasks, indicating that training an LM with those models largely contributes to the performance gain of SELF -RAG. Using the top passages regardless of their relevance (Retrieve top 1) as in conv
+
+[HYBRID #4] Source=Self-RAG.pdf | Page=23 | Type=text
+Content: ASQA (baseline) Instruction: Write an accurate, engaging, and concise answer for the given question using only the provided search results (some of which might be irrelevant) and cite them properly. Use an unbiased and journalistic tone. Always cite for any factual claim. When citing several search results, use [1][2][3]. Cite at least one document and at most three documents in each sentence. If multiple documents support the sentence, only cite a minimum sufficient subset of the documents. ASQ
+
+[HYBRID #5] Source=RAG.pdf | Page=5 | Type=text
+Content: two variants: the standard 3-way classiﬁcation task (supports/refutes/not enough info) and the 2-way (supports/refutes) task studied in Thorne and Vlachos [57]. In both cases we report label accuracy. 4 Results 4.1 Open-domain Question Answering Table 1 shows results for RAG along with state-of-the-art models. On all four open-domain QA tasks, RAG sets a new state of the art (only on the T5-comparable split for TQA). RAG combines the generation ﬂexibility of the “closed-book” (parametric only) a
+
+[HYBRID #6] Source=Self-RAG.pdf | Page=9 | Type=image
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the textbook on the characterization and characterization of semiconductors in semiconductors and semiconductors  OCR Text: Preprint.  PubHealth  POA Med AS : 70.5 aan 1.0 >  (acc) (acc) (em) § $0.99 ose Training 0.98 0.0 NoRetrieverR 43.6 67.8 31.0 1 2 O0 pOA No Critic C 42.6 72.0 18.1 95 1.0 1.00  “Test ee cy Tog 0.75 2 No retrieval 247 730 - 849 5 050 Hard constraints 28.3 72.6 - < 0.6 E Retrieve topl 41.8 73.1 28.6 i $ SCE REY a 0.25 R
+
+[HYBRID #7] Source=Self-RAG.pdf | Page=8 | Type=text
+Content: fully supported by cited evidence. We also found that on the metrics for factual precision, SELF -R AG 7B occasionally outperforms our 13B due to the tendency of smaller SELF -RAG to often generate 8
+
+[HYBRID #8] Source=Self-RAG.pdf | Page=9 | Type=text
+Content: key roles. We evaluate two model variants trained differently than our model: No Retriever trains an LM using the standard instruction-following method given instruction-output pairs, without retrieved passages; No Critic trains an LM trained with input-output pairs that are always augmented with the top one retrieved document without reflection tokens. This is similar to SAIL (Luo et al., 2023), and we use our instruction-output data instead of using the Alpaca dataset (Dubois et al., 2023), as
+================================================================================
+[DOCUMENT SCOPE] Text chunks: 8 -> 8
+
+================================================================================
+EXPLICIT FIGURE QUERY DETECTED
+================================================================================
+Requested Figure : 3
+================================================================================
+
+================================================================================
+FIGURE NUMBER RETRIEVAL
+================================================================================
+Requested Figure : 3
+Query            : According to Figure 3(a), how does SELF-RAG perform compared with the No Retriever and No Critic variants on the reported PQA, Med and ASQA metrics?
+Matched Images   : 35
+Rejected References : 6
+[MATCH 1] Source=BERT.pdf | Page=13 | Image=BERT_page13_render.png | Path=extracted_images\BERT_page13_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a textbook on the internet network  OCR Text: BERT (Ours)  OpenAl GPT  Figure 3: Differences in pre-training model architectures. BERT uses a bidirectional Transformer. OpenAI GPT uses a left-to-right Transformer. ELMo uses the concatenation o...
+[MATCH 2] Source=BERT.pdf | Page=14 | Image=BERT_page14_render.png | Path=extracted_images\BERT_page14_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a text book with an image of the text  OCR Text: * Learning rate (Adam): 5e-5, 3e-5, 2e-5 * Number of epochs: 2, 3, 4  We also observed that large data sets (e.g., 100k+ labeled training examples) were far less sensitive to hyperparameter choice...
+[MATCH 3] Source=BLIP-2.pdf | Page=4 | Image=BLIP-2_page4_img1.png | Path=extracted_images\BLIP-2_page4_img1.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a cat wearing sunglasses and looking up at the camera  OCR Text: No readable text found in this image.  Nearby Document Text: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models Image Encoder Input Image Learned Querie...
+[MATCH 4] Source=CLIP.pdf | Page=4 | Image=CLIP_page4_render.png | Path=extracted_images\CLIP_page4_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Learning Transferable Visual Models From Natural Language Supervision 4  bal...
+[MATCH 5] Source=CLIP.pdf | Page=5 | Image=CLIP_page5_render.png | Path=extracted_images\CLIP_page5_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: an example of the algorithm for the algorithm of the algorithm of the algorithm of the algorithm of the algorithm of  OCR Text: Learning Transferable Visual Models From Natural Language Supervision 5  # image_encoder - ResNet or Vision Transformer # text_...
+[MATCH 6] Source=CLIP.pdf | Page=38 | Image=CLIP_page38_render.png | Path=extracted_images\CLIP_page38_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: worksheet for algebra algebra algebra worksheet worksheet worksheet worksheet worksheet worksheet worksheet worksheet  OCR Text: Learning Transferable Visual Models From Natural Language Supervision 38  Montias ... pumps a lot of energy into his nicely nu...
+[MATCH 7] Source=CNN Paper.pdf | Page=2 | Image=CNN Paper_page2_img0.png | Path=extracted_images\CNN Paper_page2_img0.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: figure 2 training ratio curves  OCR Text: Accuracy  eo S FS SF FSF Ff oN BR DOD ®O OO  Figure 2: Training and Validation Curves over 20 Epochs  Model Accuracy  2.5 5.0 7.5 10.0 12.5 15.0 17.5 20.0 Epoch  Model Loss  2.5 5.0 7.5 10.0 12.5 15.0 17.5 20.0 Epoch  Nearby Do...
+[MATCH 8] Source=CNN Paper.pdf | Page=3 | Image=CNN Paper_page3_img0.png | Path=extracted_images\CNN Paper_page3_img0.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: figure 4 classification aneture flowchart  OCR Text: Figure 4: Image Classification System Architecture Flowchart  Input Image  Preprocessing (Resize, Normalize)  v  Valid Image?  y  Reject & CNN Feature Output Log Error Extraction Prediction  Nearby Document Text: 4. ...
+[MATCH 9] Source=CNN Paper.pdf | Page=3 | Image=CNN Paper_page3_img1.png | Path=extracted_images\CNN Paper_page3_img1.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a bar chart showing the number of different classes in each class  OCR Text: Number of Images  3500  3000  2500  2000  1500  1000  500  Figure 3: Dataset Class Distribution — Total 11,600 Images  Dog Bird Fish Rabbit Hamster Animal Class  Nearby Document Text: 4. Datas...
+[MATCH 10] Source=CNN Paper.pdf | Page=2 | Image=CNN Paper_page2_render.png | Path=extracted_images\CNN Paper_page2_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a chart showing the number of different types of water in the ocean  OCR Text: 2. Dataset Description  The dataset was compiled from three open-source repositories: ImageNet, Openlmages, and a custom web-scraped collection. Each image was manually verifie...
+[MATCH 11] Source=CNN Paper.pdf | Page=3 | Image=CNN Paper_page3_render.png | Path=extracted_images\CNN Paper_page3_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram showing the number of different types of aircrafts  OCR Text: 4. Dataset Class Distribution  The bar chart in Figure 3 provides a visual breakdown of image counts per class. The dataset is moderately imbalanced with a 4.77:1 ratio between the la...
+[MATCH 12] Source=Donut.pdf | Page=4 | Image=Donut_page4_img0.png | Path=extracted_images\Donut_page4_img0.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a person holding a receipt in their hand  OCR Text: No readable text found in this image.  Nearby Document Text: 4 G. Kim et al. <vqa><question>what is the price  of choco mochi?</question><answer> Converted JSON transformer  encoder Input Image and Prompt transformer ...
+[MATCH 13] Source=Donut.pdf | Page=4 | Image=Donut_page4_img1.png | Path=extracted_images\Donut_page4_img1.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont dont  OCR Text: No readable text found in this image.  Nearby Document Text: 4 G. Kim et al. <vqa><question>what is the pric...
+[MATCH 14] Source=Donut.pdf | Page=4 | Image=Donut_page4_render.png | Path=extracted_images\Donut_page4_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram showing the different types of the different types of the different types of the different types of the different  OCR Text: 4 G. Kim et al.  Input Image and Prompt Donut @ Output Sequence Converted JSON  {"class”s"recelpt* }  {°question": “what...
+[MATCH 15] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img0.png | Path=extracted_images\LayoutLMv3_page3_img0.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white document with a black and white image  OCR Text: Poros MEWSterten Bou ‘Monday, March 26; 1937.10:2840  {you fn fer con Yaga £7 eapnag Jee ban looting eo wath of stent J procats Mo pais'on this Sat:  ndlchoel doese’s want 19 raprix tho ofd FY! ord ta n...
+[MATCH 16] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img1.png | Path=extracted_images\LayoutLMv3_page3_img1.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white photo of a man in a suit and tie  OCR Text: “fuaneil, sey W.  ‘Michuat eisaant wart to rap Seine mona af 90 IF vind mistde.. Oudin Bid  battens” Coedieg Bieta  Nearby Document Text: Multimodal Transformer Seg1 [MASK] 1 + + Seg1 [MASK] 2 + + Seg2 T3 3 ...
+[MATCH 17] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img2.png | Path=extracted_images\LayoutLMv3_page3_img2.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a white paper with a black and white text on it  OCR Text: No readable text found in this image.  Nearby Document Text: Multimodal Transformer Seg1 [MASK] 1 + + Seg1 [MASK] 2 + + Seg2 T3 3 + + V1 [MASK] 1 + 2 + 3 + [MASK] [SPE] 0 + Seg3 T4 4 + + SegPAD [CLS] 0 + + 4 + ...
+[MATCH 18] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img3.png | Path=extracted_images\LayoutLMv3_page3_img3.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white poster with a quote on it  OCR Text: No readable text found in this image.  Nearby Document Text: Multimodal Transformer Seg1 [MASK] 1 + + Seg1 [MASK] 2 + + Seg2 T3 3 + + V1 [MASK] 1 + 2 + 3 + [MASK] [SPE] 0 + Seg3 T4 4 + + SegPAD [CLS] 0 + + 4 + V4 h...
+[MATCH 19] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img4.png | Path=extracted_images\LayoutLMv3_page3_img4.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a diagram showing the location of the location of the house and the location of the location of the house  OCR Text: No readable text found in this image.  Nearby Document Text: Multimodal Transformer Seg1 [MASK] 1 + + Seg1 [MASK] 2 + + Seg2 T3 3 + + V1 [MASK] 1 + 2 + ...
+[MATCH 20] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img5.png | Path=extracted_images\LayoutLMv3_page3_img5.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a letter from the department requesting that it is not available for sale  OCR Text: No readable text found in this image.  Nearby Document Text: Multimodal Transformer Seg1 [MASK] 1 + + Seg1 [MASK] 2 + + Seg2 T3 3 + + V1 [MASK] 1 + 2 + 3 + [MASK] [SPE] 0 + Seg3 T4 4 +...
+[MATCH 21] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img6.png | Path=extracted_images\LayoutLMv3_page3_img6.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a white sheet with a black and white image of a black and white image of a black and white image  OCR Text: No readable text found in this image.  Nearby Document Text: Multimodal Transformer Seg1 [MASK] 1 + + Seg1 [MASK] 2 + + Seg2 T3 3 + + V1 [MASK] 1 + 2 + 3 + [MASK...
+[MATCH 22] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img7.png | Path=extracted_images\LayoutLMv3_page3_img7.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white photo of a man in a suit and tie  OCR Text: Ciro: Matnoe’ ‘Suniect: (ICL VANTAGE HOWS Geter antuy, Mace 34), 127  Beni¥ ln haa abamey bane Sram foal Cre ea ea ves.  ar HE VANTAGE NEY. Bae Gunter, orth er  deccenoateld ei ee  Nearby Document Text: Mult...
+[MATCH 23] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img8.png | Path=extracted_images\LayoutLMv3_page3_img8.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white photo of a man in a suit and tie  OCR Text: No readable text found in this image.  Nearby Document Text: Multimodal Transformer Seg1 [MASK] 1 + + Seg1 [MASK] 2 + + Seg2 T3 3 + + V1 [MASK] 1 + 2 + 3 + [MASK] [SPE] 0 + Seg3 T4 4 + + SegPAD [CLS] 0 + + 4...
+[MATCH 24] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img9.png | Path=extracted_images\LayoutLMv3_page3_img9.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white photo of a man in a suit  OCR Text: (ebadk Lunlhias 116 ahghty hos Sree ierty we win wed We paid ase Bree  Nearby Document Text: Multimodal Transformer Seg1 [MASK] 1 + + Seg1 [MASK] 2 + + Seg2 T3 3 + + V1 [MASK] 1 + 2 + 3 + [MASK] [SPE] 0 + Seg3 T4 4 ...
+[MATCH 25] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_render.png | Path=extracted_images\LayoutLMv3_page3_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram of the structure of a computer system  OCR Text: Ty Tz  Pre-training  Objectives MLM Head  Unaligned Aligned  V2 V3  MIM Head  Multimodal Transformer  2D Position  Embedding Seba) (Sees ] Seaewo) (see) [sees] [sees] [sess] Seseso) [Ptcheno} Pate...
+[MATCH 26] Source=NLP Paper.pdf | Page=4 | Image=NLP Paper_page4_img0.png | Path=extracted_images\NLP Paper_page4_img0.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: figure 3 timing curves for dbtn, dbtn, and dbtn  OCR Text: Cross-Entropy Loss  Figure 3: Training Loss Curves for BiLSTM, BERT, and RoBERTa over 15 Epochs  BiLSTM i-BERT—— RoBERTa  Nearby Document Text: 4. Training Dynamics Figure 3 shows training loss curves for BiLST...
+[MATCH 27] Source=NLP Paper.pdf | Page=4 | Image=NLP Paper_page4_img1.png | Path=extracted_images\NLP Paper_page4_img1.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: figure 1 self - self - self - self - self - self - self - self - self - self - self - self - self - self self self - self self self self self self self self self self self self self self self self self self self self self self self self self self self self  OCR Text: F...
+[MATCH 28] Source=NLP Paper.pdf | Page=4 | Image=NLP Paper_page4_render.png | Path=extracted_images\NLP Paper_page4_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a graph graph with a line graph and a line graph with a line graph and a line graph with a  OCR Text: 4. Training Dynamics  Figure 3 shows training loss curves for BILSTM, BERT, and ROBERTa over 15 epochs. ROBERTa converges fastest, reaching a loss below ...
+[MATCH 29] Source=RAG.pdf | Page=8 | Image=RAG_page8_render.png | Path=extracted_images\RAG_page8_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Table 4: Human assessments for the Jeopardy Table 5: Ratio of distinct to total tri-grams for Question Generation Task. generation tas...
+[MATCH 30] Source=Self-RAG.pdf | Page=9 | Image=Self-RAG_page9_render.png | Path=extracted_images\Self-RAG_page9_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the textbook on the characterization and characterization of semiconductors in semiconductors and semiconductors  OCR Text: Preprint.  PubHealth  POA Med AS : 70.5 aan 1.0 >  (acc) (acc) (em) § $0.99 ose Training 0.98 0.0 NoRetrieverR 43.6 67....
+[MATCH 31] Source=Self-RAG.pdf | Page=10 | Image=Self-RAG_page10_render.png | Path=extracted_images\Self-RAG_page10_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Preprint.  in wu  g 50 23 Pop Bio. 5 60 &“ 7? S&P 92.5 70.0 & 40 n 95.0 90.0...
+[MATCH 32] Source=Vision Transformer.pdf | Page=6 | Image=Vision Transformer_page6_render.png | Path=extracted_images\Vision Transformer_page6_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with a bar chart and a bar chart on it  OCR Text: Published as a conference paper at ICLR 2021  Ours-JFT Ours-JFT Ours-I21k BiT-L Noisy Student  (ViT-H/14) = (ViT-L/16) —- (ViT-L/16) (ResNet152x4) (EfficientNet-L2) ImageNet 88.5540.04 87.764003 85...
+[MATCH 33] Source=Vision Transformer.pdf | Page=7 | Image=Vision Transformer_page7_render.png | Path=extracted_images\Vision Transformer_page7_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal on the characterization and characterization of a single - cell cell  OCR Text: Published as a conference paper at ICLR 2021  =J o  oe] wr  BiT- ViT-BB2- O...ViT-B/16. CO} iT-H/14 |  ImageNet Top! Accuracy (%]  Linear 5-shot ImageN...
+[MATCH 34] Source=Vision Transformer.pdf | Page=14 | Image=Vision Transformer_page14_render.png | Path=extracted_images\Vision Transformer_page14_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with the title of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Published as a conference paper at ICLR 2021  Dataset Steps Base LR ImageNet 2000...
+[MATCH 35] Source=Vision Transformer.pdf | Page=15 | Image=Vision Transformer_page15_render.png | Path=extracted_images\Vision Transformer_page15_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: the table shows the number of different types of the different types of the different types of the different types of  OCR Text: Published as a conference paper at ICLR 2021  ViT-B/16 ViT-B/32-ViT-L/16—ViT-L/32.—s: ViT-H/14  ImageNet CIFAR-10 98.13 97.77 ...
+[REJECTED 1] Source=BLIP-2.pdf | Page=4 | Image=BLIP-2_page4_render.png
+    Reason   : Cross-reference rather than actual Figure 3
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the journal of the journal of the journal of the journal of the journal of the journal of the journal of the  OCR Text: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models  Boot...
+[REJECTED 2] Source=CNN Paper.pdf | Page=5 | Image=CNN Paper_page5_render.png
+    Reason   : Cross-reference rather than actual Figure 3
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a table with a number of different items on it  OCR Text: 7. Discussion  The CNN model achieves strong overall performance with a weighted F1 score of 0.926. However, several limitations and areas for improvement were identified during evaluation.  7.1 St...
+[REJECTED 3] Source=Donut.pdf | Page=5 | Image=Donut_page5_render.png
+    Reason   : Cross-reference rather than actual Figure 3
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a text book with an image of a person in the background  OCR Text: OOCR-free Document Understanding Transformer 5  Decoder. Given the {z}, the textual decoder generates a token sequence (yi)*1, where y;€R” is an one-hot vector for the i-th token...
+[REJECTED 4] Source=Donut.pdf | Page=6 | Image=Donut_page6_render.png
+    Reason   : Cross-reference rather than actual Figure 3
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a book with a picture of a person in the background  OCR Text: 6 G. Kim et al.  Wak gaGHIe - —— ATP  Fig. 4. Generated English, Chinese, Japanese, and Korean samples with SynthDoG. Heuristic random patterns are applied to mimic the real document...
+[REJECTED 5] Source=Donut.pdf | Page=8 | Image=Donut_page8_render.png
+    Reason   : Cross-reference rather than actual Figure 3
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a book with the title of the text  OCR Text: 8 G. Kim et al.  nested groups and hierarchies such as items>item>{name, count, price}) in the information. See Figure 1 for more details.  Ticket. This is a public benchmark dataset [12] that consist...
+[REJECTED 6] Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_render.png
+    Reason   : Cross-reference rather than actual Figure 3
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a computer and a computer with a text that reads,  OCR Text: _(2) Pre-training Objectives of Image Modality  | — | ra  |  |  I idn, idya, idys, | idyyidys, ides, ». |  I kde dia Fao  ! teh  | fication  Masked Word...
+Matched Sources  : ['BERT.pdf', 'BLIP-2.pdf', 'CLIP.pdf', 'CNN Paper.pdf', 'Donut.pdf', 'LayoutLMv3.pdf', 'NLP Paper.pdf', 'RAG.pdf', 'Self-RAG.pdf', 'Vision Transformer.pdf']
+Matched Pages    : ['10', '13', '14', '15', '2', '3', '38', '4', '5', '6', '7', '8', '9']
+[FIGURE LOOKUP] High-confidence figure reference found. Generic CLIP fallback should not be used.
+================================================================================
+[FIGURE IMAGE DEDUPLICATION] 3 -> 3 authoritative image(s), one per source/page.
+
+================================================================================
+EXACT FIGURE RETRIEVAL RESULT
+================================================================================
+Requested Figure : 3
+Exact Match      : True
+Matched Images   : 3
+[EXACT FIGURE #1] Source=RAG.pdf | Page=8 | Image=RAG_page8_render.png | Path=extracted_images\RAG_page8_render.png
+[EXACT FIGURE #2] Source=Self-RAG.pdf | Page=9 | Image=Self-RAG_page9_render.png | Path=extracted_images\Self-RAG_page9_render.png
+[EXACT FIGURE #3] Source=Self-RAG.pdf | Page=10 | Image=Self-RAG_page10_render.png | Path=extracted_images\Self-RAG_page10_render.png
+================================================================================
+[FIGURE PIPELINE] Explicit figure/page image match found. CLIP fallback disabled.
+[DOCUMENT SCOPE] Images: 3 -> 3
+
+================================================================================
+STAGE 2 — IMAGE RETRIEVAL RESULT
+================================================================================
+Image Results       : 3
+Exact Figure Match  : True
+
+[IMAGE #1] Source=RAG.pdf | Page=8 | Image=RAG_page8_render.png
+Image Path: extracted_images\RAG_page8_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Table 4: Human assessments for the Jeopardy Table 5: Ratio of distinct to total tri-grams for Question Generation Task. generation tasks.  Factuality Specificity MSMARCO Jeopardy QGen  BART better 7.1% 16.8% Gold 39 6% 90.0% RAG better 42.7% 37.4% BART OA Both good 11.7% 11.8% A 70.7% 32.4% g : RAG-Token 77.8% 46.8% Both poor 17.7% 
+
+[IMAGE #2] Source=Self-RAG.pdf | Page=9 | Image=Self-RAG_page9_render.png
+Image Path: extracted_images\Self-RAG_page9_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the textbook on the characterization and characterization of semiconductors in semiconductors and semiconductors  OCR Text: Preprint.  PubHealth  POA Med AS : 70.5 aan 1.0 >  (acc) (acc) (em) § $0.99 ose Training 0.98 0.0 NoRetrieverR 43.6 67.8 31.0 1 2 O0 pOA No Critic C 42.6 72.0 18.1 95 1.0 1.00  “Test ee cy Tog 0.75 2 No retrieval 247 730 - 849 5 050 Hard constraints 28.3 72.6 - < 0.6 E Retrieve topl 41.8 73.1 28.6 i $ SCE REY a 0.25 R
+
+[IMAGE #3] Source=Self-RAG.pdf | Page=10 | Image=Self-RAG_page10_render.png
+Image Path: extracted_images\Self-RAG_page10_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Preprint.  in wu  g 50 23 Pop Bio. 5 60 &“ 7? S&P 92.5 70.0 & 40 n 95.0 90.0 35 0 50 100 150 0 100 “ 0 100 _Dsssur] 90.0 85.0 90.0 85.0 Num of training (k) Num of training (k) Num of training (k) . (d) Human evaluation on PopQA (a) PopQA (b) PubHealth (c) ASQA (prec) —_ and B
+================================================================================
+
+================================================================================
+COMBINED RETRIEVAL CANDIDATES
+================================================================================
+Text Candidates  : 8
+Image Candidates : 3
+Total Candidates : 11
+================================================================================
+
+================================================================================
+STEP 3A — RERANKER INPUT
+================================================================================
+Query: According to Figure 3(a), how does SELF-RAG perform compared with the No Retriever and No Critic variants on the reported PQA, Med and ASQA metrics?
+Input candidates: 11
+01. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=performance deterioration by retrieving less is smaller on PubHealth but larger in PopQA. Effects of training data size. We conduct an analysis of how the data scale affects the mo
+02. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=Preprint. PQA Med AS (acc) (acc) (em) SELF -RAG (50k) 45.5 73.5 32.1 Training No Retriever R 43.6 67.8 31.0 No Critic C 42.6 72.0 18.1 Test No retrieval 24.7 73.0 – Hard constraint
+03. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=We show in Table 3a the ablation results. The top part of the table shows results for training ablations, and the bottom part is for inference ablations. We see that all components
+04. Source=Self-RAG.pdf | Page=23 | Type=text | Image=N/A
+    Content=ASQA (baseline) Instruction: Write an accurate, engaging, and concise answer for the given question using only the provided search results (some of which might be irrelevant) and c
+05. Source=RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=two variants: the standard 3-way classiﬁcation task (supports/refutes/not enough info) and the 2-way (supports/refutes) task studied in Thorne and Vlachos [57]. In both cases we re
+06. Source=Self-RAG.pdf | Page=9 | Type=image | Image=extracted_images\Self-RAG_page9_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the textbook on the characterization and characterization of semiconductors in semiconductors and semiconductors  OCR Text:
+07. Source=Self-RAG.pdf | Page=8 | Type=text | Image=N/A
+    Content=fully supported by cited evidence. We also found that on the metrics for factual precision, SELF -R AG 7B occasionally outperforms our 13B due to the tendency of smaller SELF -RAG 
+08. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=key roles. We evaluate two model variants trained differently than our model: No Retriever trains an LM using the standard instruction-following method given instruction-output pai
+09. Source=RAG.pdf | Page=8 | Type=image | Image=extracted_images\RAG_page8_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Table 4: Human
+10. Source=Self-RAG.pdf | Page=9 | Type=image | Image=extracted_images\Self-RAG_page9_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the textbook on the characterization and characterization of semiconductors in semiconductors and semiconductors  OCR Text:
+11. Source=Self-RAG.pdf | Page=10 | Type=image | Image=extracted_images\Self-RAG_page10_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+================================================================================
+
+--------------------------------------------------------------------------------
+CROSS-ENCODER RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=02 | Source=Self-RAG.pdf | Page=9 | Type=text | CE=2.9184
+Rank=02 | OriginalIndex=01 | Source=Self-RAG.pdf | Page=9 | Type=text | CE=1.5337
+Rank=03 | OriginalIndex=07 | Source=Self-RAG.pdf | Page=9 | Type=text | CE=0.6764
+Rank=04 | OriginalIndex=00 | Source=Self-RAG.pdf | Page=10 | Type=text | CE=-1.2154
+Rank=05 | OriginalIndex=06 | Source=Self-RAG.pdf | Page=8 | Type=text | CE=-4.1949
+Rank=06 | OriginalIndex=04 | Source=RAG.pdf | Page=5 | Type=text | CE=-4.2212
+Rank=07 | OriginalIndex=05 | Source=Self-RAG.pdf | Page=9 | Type=image | CE=-5.5455
+Rank=08 | OriginalIndex=09 | Source=Self-RAG.pdf | Page=9 | Type=image | CE=-5.5455
+Rank=09 | OriginalIndex=10 | Source=Self-RAG.pdf | Page=10 | Type=image | CE=-7.5709
+Rank=10 | OriginalIndex=08 | Source=RAG.pdf | Page=8 | Type=image | CE=-8.9359
+Rank=11 | OriginalIndex=03 | Source=Self-RAG.pdf | Page=23 | Type=text | CE=-10.6555
+
+--------------------------------------------------------------------------------
+CLIP IMAGE RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=08 | Source=RAG.pdf | Page=8 | Image=extracted_images\RAG_page8_render.png | CLIP=0.2438
+Rank=02 | OriginalIndex=10 | Source=Self-RAG.pdf | Page=10 | Image=extracted_images\Self-RAG_page10_render.png | CLIP=0.2337
+Rank=03 | OriginalIndex=05 | Source=Self-RAG.pdf | Page=9 | Image=extracted_images\Self-RAG_page9_render.png | CLIP=0.2296
+Rank=04 | OriginalIndex=09 | Source=Self-RAG.pdf | Page=9 | Image=extracted_images\Self-RAG_page9_render.png | CLIP=0.2296
+
+================================================================================
+STEP 3A — COMPLETE MULTIMODAL RERANK RESULT
+================================================================================
+Rank=01 | Type=image | Source=Self-RAG.pdf | Page=9 | RRF=0.030798 | CE=-5.5455 | CLIP=0.2296
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the textbook on the characterization and characterization of semiconductors in semiconductors and semiconductors  OCR Text:
+Rank=02 | Type=image | Source=RAG.pdf | Page=8 | RRF=0.030679 | CE=-8.9359 | CLIP=0.2438
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Table 4: Human
+Rank=03 | Type=image | Source=Self-RAG.pdf | Page=10 | RRF=0.030622 | CE=-7.5709 | CLIP=0.2337
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+Rank=04 | Type=image | Source=Self-RAG.pdf | Page=9 | RRF=0.030331 | CE=-5.5455 | CLIP=0.2296
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the textbook on the characterization and characterization of semiconductors in semiconductors and semiconductors  OCR Text:
+Rank=05 | Type=text | Source=Self-RAG.pdf | Page=9 | RRF=0.016393 | CE=2.9184 | CLIP=N/A
+    Content=We show in Table 3a the ablation results. The top part of the table shows results for training ablations, and the bottom part is for inference ablations. We see that all components
+Rank=06 | Type=text | Source=Self-RAG.pdf | Page=9 | RRF=0.016129 | CE=1.5337 | CLIP=N/A
+    Content=Preprint. PQA Med AS (acc) (acc) (em) SELF -RAG (50k) 45.5 73.5 32.1 Training No Retriever R 43.6 67.8 31.0 No Critic C 42.6 72.0 18.1 Test No retrieval 24.7 73.0 – Hard constraint
+Rank=07 | Type=text | Source=Self-RAG.pdf | Page=9 | RRF=0.015873 | CE=0.6764 | CLIP=N/A
+    Content=key roles. We evaluate two model variants trained differently than our model: No Retriever trains an LM using the standard instruction-following method given instruction-output pai
+Rank=08 | Type=text | Source=Self-RAG.pdf | Page=10 | RRF=0.015625 | CE=-1.2154 | CLIP=N/A
+    Content=performance deterioration by retrieving less is smaller on PubHealth but larger in PopQA. Effects of training data size. We conduct an analysis of how the data scale affects the mo
+Rank=09 | Type=text | Source=Self-RAG.pdf | Page=8 | RRF=0.015385 | CE=-4.1949 | CLIP=N/A
+    Content=fully supported by cited evidence. We also found that on the metrics for factual precision, SELF -R AG 7B occasionally outperforms our 13B due to the tendency of smaller SELF -RAG 
+Rank=10 | Type=text | Source=RAG.pdf | Page=5 | RRF=0.015152 | CE=-4.2212 | CLIP=N/A
+    Content=two variants: the standard 3-way classiﬁcation task (supports/refutes/not enough info) and the 2-way (supports/refutes) task studied in Thorne and Vlachos [57]. In both cases we re
+Rank=11 | Type=text | Source=Self-RAG.pdf | Page=23 | RRF=0.014085 | CE=-10.6555 | CLIP=N/A
+    Content=ASQA (baseline) Instruction: Write an accurate, engaging, and concise answer for the given question using only the provided search results (some of which might be irrelevant) and c
+================================================================================
+
+================================================================================
+STEP 3A — FINAL RERANK TOP-K
+================================================================================
+Requested top_k: 12
+Returned documents: 10
+01. Source=Self-RAG.pdf | Page=9 | Type=image | Image=extracted_images\Self-RAG_page9_render.png
+02. Source=RAG.pdf | Page=8 | Type=image | Image=extracted_images\RAG_page8_render.png
+03. Source=Self-RAG.pdf | Page=10 | Type=image | Image=extracted_images\Self-RAG_page10_render.png
+04. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+05. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+06. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+07. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+08. Source=Self-RAG.pdf | Page=8 | Type=text | Image=N/A
+09. Source=RAG.pdf | Page=5 | Type=text | Image=N/A
+10. Source=Self-RAG.pdf | Page=23 | Type=text | Image=N/A
+================================================================================
+
+================================================================================
+STAGE 3 — MULTIMODAL RERANKING
+================================================================================
+Input Candidates : 11
+Reranked Output   : 10
+
+[RERANK #1] Source=Self-RAG.pdf | Page=9 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the textbook on the characterization and characterization of semiconductors in semiconductors and semiconductors  OCR Text: Preprint.  PubHealth  POA Med AS : 70.5 aan 1.0 >  (acc) (acc) (em) § $0.99 ose Training 0.98 0.0 NoRetrieverR 43.6 67.
+
+[RERANK #2] Source=RAG.pdf | Page=8 | Type=image
+Exact Figure : True
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Table 4: Human assessments for the Jeopardy Table 5: Ratio of distinct to total tri-grams for Question Generation Task. generation tas
+
+[RERANK #3] Source=Self-RAG.pdf | Page=10 | Type=image
+Exact Figure : True
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Preprint.  in wu  g 50 23 Pop Bio. 5 60 &“ 7? S&P 92.5 70.0 & 40 n 95.0 90.0
+
+[RERANK #4] Source=Self-RAG.pdf | Page=9 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: We show in Table 3a the ablation results. The top part of the table shows results for training ablations, and the bottom part is for inference ablations. We see that all components play important roles. We also observe a large performance gap between SELF -R AG and No Retriever or Critic baselines a
+
+[RERANK #5] Source=Self-RAG.pdf | Page=9 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Preprint. PQA Med AS (acc) (acc) (em) SELF -RAG (50k) 45.5 73.5 32.1 Training No Retriever R 43.6 67.8 31.0 No Critic C 42.6 72.0 18.1 Test No retrieval 24.7 73.0 – Hard constraints 28.3 72.6 – Retrieve top1 41.8 73.1 28.6 Remove ISSUP 44.1 73.2 30.6 (a) Ablation 1 2 70.0 70.5Precision 1 2 Weight fo
+
+[RERANK #6] Source=Self-RAG.pdf | Page=9 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: key roles. We evaluate two model variants trained differently than our model: No Retriever trains an LM using the standard instruction-following method given instruction-output pairs, without retrieved passages; No Critic trains an LM trained with input-output pairs that are always augmented with th
+
+[RERANK #7] Source=Self-RAG.pdf | Page=10 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: performance deterioration by retrieving less is smaller on PubHealth but larger in PopQA. Effects of training data size. We conduct an analysis of how the data scale affects the model’s performance. In particular, we randomly sample 5k, 10k, 20k, and 50k instances from our original 150k training ins
+
+[RERANK #8] Source=Self-RAG.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: fully supported by cited evidence. We also found that on the metrics for factual precision, SELF -R AG 7B occasionally outperforms our 13B due to the tendency of smaller SELF -RAG to often generate 8
+
+[RERANK #9] Source=RAG.pdf | Page=5 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: two variants: the standard 3-way classiﬁcation task (supports/refutes/not enough info) and the 2-way (supports/refutes) task studied in Thorne and Vlachos [57]. In both cases we report label accuracy. 4 Results 4.1 Open-domain Question Answering Table 1 shows results for RAG along with state-of-the-
+
+[RERANK #10] Source=Self-RAG.pdf | Page=23 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: ASQA (baseline) Instruction: Write an accurate, engaging, and concise answer for the given question using only the provided search results (some of which might be irrelevant) and cite them properly. Use an unbiased and journalistic tone. Always cite for any factual claim. When citing several search 
+================================================================================
+
+================================================================================
+FINAL CONTEXT DOCUMENTS
+================================================================================
+Final context candidates: 10
+
+[FINAL #1] Source=Self-RAG.pdf | Page=9 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the textbook on the characterization and characterization of semiconductors in semiconductors and semiconductors  OCR Text: Preprint.  PubHealth  POA Med AS : 70.5 aan 1.0 >  (acc) (acc) (em) § $0.99 ose Training 0.98 0.0 NoRetrieverR 43.6 67.
+
+[FINAL #2] Source=RAG.pdf | Page=8 | Type=image
+Exact Figure : True
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Table 4: Human assessments for the Jeopardy Table 5: Ratio of distinct to total tri-grams for Question Generation Task. generation tas
+
+[FINAL #3] Source=Self-RAG.pdf | Page=10 | Type=image
+Exact Figure : True
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Preprint.  in wu  g 50 23 Pop Bio. 5 60 &“ 7? S&P 92.5 70.0 & 40 n 95.0 90.0
+
+[FINAL #4] Source=Self-RAG.pdf | Page=9 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: We show in Table 3a the ablation results. The top part of the table shows results for training ablations, and the bottom part is for inference ablations. We see that all components play important roles. We also observe a large performance gap between SELF -R AG and No Retriever or Critic baselines a
+
+[FINAL #5] Source=Self-RAG.pdf | Page=9 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Preprint. PQA Med AS (acc) (acc) (em) SELF -RAG (50k) 45.5 73.5 32.1 Training No Retriever R 43.6 67.8 31.0 No Critic C 42.6 72.0 18.1 Test No retrieval 24.7 73.0 – Hard constraints 28.3 72.6 – Retrieve top1 41.8 73.1 28.6 Remove ISSUP 44.1 73.2 30.6 (a) Ablation 1 2 70.0 70.5Precision 1 2 Weight fo
+
+[FINAL #6] Source=Self-RAG.pdf | Page=9 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: key roles. We evaluate two model variants trained differently than our model: No Retriever trains an LM using the standard instruction-following method given instruction-output pairs, without retrieved passages; No Critic trains an LM trained with input-output pairs that are always augmented with th
+
+[FINAL #7] Source=Self-RAG.pdf | Page=10 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: performance deterioration by retrieving less is smaller on PubHealth but larger in PopQA. Effects of training data size. We conduct an analysis of how the data scale affects the model’s performance. In particular, we randomly sample 5k, 10k, 20k, and 50k instances from our original 150k training ins
+
+[FINAL #8] Source=Self-RAG.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: fully supported by cited evidence. We also found that on the metrics for factual precision, SELF -R AG 7B occasionally outperforms our 13B due to the tendency of smaller SELF -RAG to often generate 8
+
+[FINAL #9] Source=RAG.pdf | Page=5 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: two variants: the standard 3-way classiﬁcation task (supports/refutes/not enough info) and the 2-way (supports/refutes) task studied in Thorne and Vlachos [57]. In both cases we report label accuracy. 4 Results 4.1 Open-domain Question Answering Table 1 shows results for RAG along with state-of-the-
+
+[FINAL #10] Source=Self-RAG.pdf | Page=23 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: ASQA (baseline) Instruction: Write an accurate, engaging, and concise answer for the given question using only the provided search results (some of which might be irrelevant) and cite them properly. Use an unbiased and journalistic tone. Always cite for any factual claim. When citing several search 
+================================================================================
+
+================================================================================
+FIGURE FINAL-CONTEXT DIAGNOSTIC
+================================================================================
+Requested Figure     : 3
+Exact Figure Match   : True
+Present In Final     : True
+[FIGURE DIAGNOSTIC] PASS — exact figure/page image evidence survived into final context.
+================================================================================
+
+================================================================================
+FINAL CONTEXT SENT TO LLM
+================================================================================
+
+================================================================================
+DOCUMENT : Self-RAG.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 8
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+fully supported by cited evidence. We also found that on the metrics for factual precision, SELF -R AG
+7B occasionally outperforms our 13B due to the tendency of smaller SELF -RAG to often generate
+8
+
+
+--------------------------------------------------------------------------------
+PAGE : 9
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+We show in Table 3a the ablation results. The top part of the table shows results for training ablations,
+and the bottom part is for inference ablations. We see that all components play important roles. We
+also observe a large performance gap between SELF -R AG and No Retriever or Critic baselines across
+tasks, indicating that training an LM with those models largely contributes to the performance gain of
+SELF -RAG. Using the top passages regardless of their relevance (Retrieve top 1) as in conventional
+RAG approaches causes a large drop in PopQA and ASQA, and removing ISSUP during the beam
+
+
+[TEXT]
+
+Preprint.
+PQA Med AS
+(acc) (acc) (em)
+SELF -RAG (50k) 45.5 73.5 32.1
+Training
+No Retriever R 43.6 67.8 31.0
+No Critic C 42.6 72.0 18.1
+Test
+No retrieval 24.7 73.0 –
+Hard constraints 28.3 72.6 –
+Retrieve top1 41.8 73.1 28.6
+Remove ISSUP 44.1 73.2 30.6
+(a) Ablation
+1 2
+70.0
+70.5Precision
+1 2
+Weight for IsSupport
+90
+95Mauve
+ (b) Customization
+0.0 0.2 0.4 0.6
+0.98
+0.99
+0.99
+1.00Accuracy
+PubHealth
+0.0 0.2 0.4 0.6
+Retrieval Threshold
+0.6
+0.8
+1.0Accuracy
+PopQA
+0.0
+0.5
+1.0
+Frequency
+0.25
+0.50
+0.75
+1.00
+Frequency
+ (c) Retrieval
+
+
+[TEXT]
+
+key roles. We evaluate two model variants trained differently than our model: No Retriever trains an
+LM using the standard instruction-following method given instruction-output pairs, without retrieved
+passages; No Critic trains an LM trained with input-output pairs that are always augmented with the
+top one retrieved document without reflection tokens. This is similar to SAIL (Luo et al., 2023), and
+we use our instruction-output data instead of using the Alpaca dataset (Dubois et al., 2023), as in
+SAIL. We also conduct ablation on our inference-time algorithm, including No retrieval disables
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a page from the textbook on the characterization and characterization of semiconductors in semiconductors and semiconductors
+
+OCR Text:
+Preprint.
+
+PubHealth
+
+POA Med AS : 70.5 aan 1.0 >
+
+(acc) (acc) (em) § $0.99 ose
+Training 0.98 0.0
+NoRetrieverR 43.6 67.8 31.0 1 2 O0 pOA
+No Critic C 42.6 72.0 18.1 95 1.0 1.00
+
+“Test ee cy Tog 0.75 2
+No retrieval 247 730 - 849 5 050
+Hard constraints 28.3 72.6 - < 0.6 E
+Retrieve topl 41.8 73.1 28.6 i $ SCE REY a 0.25
+Remove 44.1 73.2 30.6 Weight for IsSupport Retrieval Threshold
+(a) Ablation (b) Customization (c) Retrieval
+
+Figure 3: Analysis on SELF-RAG: (a) Ablation studies for key components of SELF-RAG training
+and inference based on our 7B model. (b) Effects of soft weights on ASQA citation precision and
+Mauve (fluency). (c) Retrieval frequency and normalized accuracy on PubHealth and PopQA.
+
+precisely grounded yet shorter outputs. Llama2-FT7,, which is the baseline LM trained on the same
+instruction-output pairs as SELF-RAG without retrieval or self-reflection and is retrieval-augmented
+at test time only, lags behind SELF-RAG. This result indicates SELF-RAG gains are not solely from
+training data and demonstrate the effectiveness of SELF-RAG framework.
+
+5.2 ANALYSIS
+
+Ablation studies. We conduct a set of ablations of our framework to identify which factors play
+key roles. We evaluate two model variants trained differently than our model: No Retriever trains an
+LM using the standard instruction-following method given instruction-output pairs, without retrieved
+passages; No Critic trains an LM trained with input-output pairs that are always augmented with the
+top one retrieved document without reflection tokens. This is similar to SAIL (Luo et al., 2023), and
+we use our instruction-output data instead of using the Alpaca dataset (Dubois et al., 2023), as in
+SAIL. We also conduct ablation on our inference-time algorithm, including No retrieval disables
+retrieval during inference; Hard constraints indicates the model performance that retrieves when
+[Retrieve Yes instead of using the adaptive threshold; Retrieve top I always retrieves and uses the
+top one document only, similar to standard RAG approaches; Remove indicates the model
+performance that removes score only during critique-guided beam search in Eq. 4. In this
+ablation experiment, we use a training instance size of 50k for a more efficient exploration of training
+variations. Later in this section, we conduct an analysis of the effect of training data size. We conduct
+the ablation studies on three datasets, PopQA, PubHealth, and ASQA. On ASQA, we evaluate models
+on sampled 150 instances and exclude ablations involving adaptive or no retrieval processes.
+
+We show in Table 3a the ablation results. The top part of the table shows results for training ablations,
+and the bottom part is for inference ablations. We see that all components play important roles. We
+also observe a large performance gap between SELF-RAG and No Retriever or Critic baselines across
+tasks, indicating that training an LM with those models largely contributes to the performance gain of
+SELF-RAG. Using the top passages regardless of their relevance (Retrieve top 1) as in conventional
+RAG approaches causes a large drop in PopQA and ASQA, and removing during the beam
+search results hurts performance on ASQA. This demonstrates the effectiveness of SELF-RAG’s
+capabilities of carefully selecting generations based fine-grained multiple criterion, instead of naively
+using all of the top passages from the retrieval model or solely depending on relevance scores.
+
+Effects of inference-time customization. One key benefit of our proposed framework is that it
+enables us to control how much each critique type affects the final generation sampling. We analyze
+the effects of different parameter weights on the top of our 7B model during inference time on
+ASQA, where multiple evaluation aspects are considered. Figure 3b shows the effects of changing
+the weighting term for , which criticizes how supported the output is by the text passage. As
+the figure shows, increasing the weight leads to positive effects on the models’ citation precision
+since this puts more emphasis on whether model generation is supported by the evidence. On the
+
+Nearby Document Text:
+Preprint.
+PQA
+Med
+AS
+(acc)
+(acc)
+(em)
+SELF-RAG (50k)
+45.5
+73.5
+32.1
+Training
+No Retriever R
+43.6
+67.8
+31.0
+No Critic C
+42.6
+72.0
+18.1
+Test
+No retrieval
+24.7
+73.0
+–
+Hard constraints
+28.3
+72.6
+–
+Retrieve top1
+41.8
+73.1
+28.6
+Remove
+ISSUP
+44.1
+73.2
+30.6
+(a) Ablation
+1
+2
+70.0
+70.5
+Precision
+1
+2
+Weight for IsSupport
+90
+95
+Mauve
+(b) Customization
+0.0
+0.2
+0.4
+0.6
+0.98
+0.99
+0.99
+1.00
+Accuracy
+PubHealth
+0.0
+0.2
+0.4
+0.6
+Retrieval Threshold
+0.6
+0.8
+1.0
+Accuracy
+PopQA
+0.0
+0.5
+1.0
+Frequency
+0.25
+0.50
+0.75
+1.00
+Frequency
+(c) Retrieval
+Figure 3: Analysis on SELF-RAG: (a) Ablation studies for key components of
+
+
+[RELATED PAGE TEXT]
+
+We show in Table 3a the ablation results. The top part of the table shows results for training ablations,
+and the bottom part is for inference ablations. We see that all components play important roles. We
+also observe a large performance gap between SELF -R AG and No Retriever or Critic baselines across
+tasks, indicating that training an LM with t
+
+
+--------------------------------------------------------------------------------
+PAGE : 10
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+performance deterioration by retrieving less is smaller on PubHealth but larger in PopQA.
+Effects of training data size. We conduct an analysis of how the data scale affects the model’s
+performance. In particular, we randomly sample 5k, 10k, 20k, and 50k instances from our original
+150k training instances, and fine-tune fourSELF -RAG 7B variants on those subsets. Then, we compare
+the model performance on PopQA, PubHealth, and ASQA (citation precision) with our final SELF -
+RAG trained on the full 150k instances. We also evaluate Figures 4a, 4b and 4c shows the models’
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the
+
+OCR Text:
+Preprint.
+
+in
+wu
+
+g 50 23 Pop Bio.
+5 60
+&“ 7? S&P 92.5 70.0
+& 40 n 95.0 90.0
+35
+0 50 100 150 0 100 “ 0 100 _Dsssur] 90.0 85.0 90.0 85.0
+Num of training (k) Num of training (k) Num of training (k) .
+(d) Human evaluation on PopQA
+(a) PopQA (b) PubHealth (c) ASQA (prec) —_ and Bio generation.
+
+Figure 4: Training scale and Human analysis: (a) (b) (c) Training scale analysis shows the effect
+of the training data scale on PopQA, PubHealth and ASQA (citation precision), respectively. (d)
+Human analysis on SELF-RAG outputs as well as reflection tokens.
+
+contrary, a larger weight results in lower MAUVE scores: when generation gets longer and more
+fluent, there are often more claims that are not fully supported by citations, consistent with findings
+by Liu et al. (2023a). Our framework lets practitioners choose and customize models’ behaviors at
+test time by adjusting such parameters without requiring additional training.
+
+Efficiency and accuracy trade-off. Using our framework, practitioners can adjust how often retrieval
+occurs using the token probability of reward tokens. We evaluate how this adaptive threshold affects
+overall accuracy and frequency of retrieval, and we evaluate the performance with varying numbers
+of threshold 6 (larger 6 results in less retrieval) on PubHealth and PopQA. Figure 3c shows that
+the model’s retrieval frequencies dramatically change on both datasets. as 6 varies. On one hand,
+performance deterioration by retrieving less is smaller on PubHealth but larger in PopQA.
+
+Effects of training data size. We conduct an analysis of how the data scale affects the model’s
+performance. In particular, we randomly sample 5k, 10k, 20k, and 50k instances from our original
+150k training instances, and fine-tune four SELF-RAG 7, variants on those subsets. Then, we compare
+the model performance on PopQA, PubHealth, and ASQA (citation precision) with our final SELF-
+RAG trained on the full 150k instances. We also evaluate Figures 4a, 4b and 4c shows the models’
+performance trained on different amount of data. Across all datasets, increasing data size often shows
+upward trajectories and the improvements are significantly larger in PopQA and ASQA, while we do
+not observed such significant improvements on Llama2-FT;, when increasing the training data from
+50k to 150k. These results also indicate that further expanding the training data of SELF-RAG may
+lead to further improvements, although in this work we limit our training data size to 150k.
+
+Human evaluations. We conduct small human evaluations on SELF-RAG outputs, as well as the
+reliability of predicted reflection tokens. In particular, we sampled 50 samples from PopQA and Bio
+results. Following Menick et al. (2022), human annotators evaluate S&P, which indicates whether
+the model output is plausible (i.e., the output is a reasonable and on-topic response to the question
+as if it were occurring in a conversation) and supported (i.e., the provided evidence is sufficient to
+verify the validity of the answer). For S&P, we do not consider the instances where SELF-RAG
+predicts irrelevant orno support. We then ask our annotators whether the model-predicted
+reflection tokens about and match their inspections (e.g., whether the fully supported
+output is supported by the cited evidence). Human annotators find SELF-RAG answers are often
+plausible and supported by relevant passages with higher S&P scores on short-form PopQA, which is
+consistent with Menick et al. (2022). Human annotators also find and reflection token
+predictions are mostly aligned with their assessments. Appendix Table 6 shows several annotated
+examples and explanations on assessments.
+
+6 CONCLUSION
+
+This work introduces SELF-RAG, a new framework to enhance the quality and factuality of LLMs
+through retrieval on demand and self-reflection. SELF-RAG trains an LM to learn to retrieve, generate,
+and critique text passages and its own generation by predicting the next tokens from its original
+vocabulary as well as newly added special tokens, called reflection tokens. SELF-RAG further enables
+the tailoring of LM behaviors at test time by leveraging reflection tokens. Our holistic evaluations on
+six tasks using multiple metrics demonstrate that SELF-RAG significantly outperforms LLMs with
+more parameters or with conventional retrieval-augmented generation approaches.
+
+10
+
+Nearby Document Text:
+Preprint.
+0
+50
+100
+150
+Num of training (k)
+35
+40
+45
+50
+55
+Perfomance
+(a) PopQA
+0
+100
+Num of training (k)
+71
+72
+73
+(b) PubHealth
+0
+100
+Num of training (k)
+40
+60
+(c) ASQA (prec)
+Pop
+Bio.
+S & P
+92.5
+70.0
+ISREL
+95.0
+90.0
+ISSUP
+90.0
+85.0
+(d) Human evaluation on PopQA
+and Bio generation.
+Figure 4: Training scale and Human analysis: (a) (b) (c) Training scale analysis shows the effect
+of the training data scale on PopQA, PubHealth and ASQA (citation precision), respectively. (d)
+Human analysis on SELF-RAG outputs as well as reflection tokens.
+contrary, a larger weight results in lower MAUVE scores: w
+
+
+[RELATED PAGE TEXT]
+
+performance deterioration by retrieving less is smaller on PubHealth but larger in PopQA.
+Effects of training data size. We conduct an analysis of how the data scale affects the model’s
+performance. In particular, we randomly sample 5k, 10k, 20k, and 50k instances from our original
+150k training instances, and fine-tune fourSELF -RAG 7B variants on
+
+
+--------------------------------------------------------------------------------
+PAGE : 23
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+ASQA (baseline) Instruction: Write an accurate, engaging, and concise answer for the given question using only
+the provided search results (some of which might be irrelevant) and cite them properly. Use
+an unbiased and journalistic tone. Always cite for any factual claim. When citing several
+search results, use [1][2][3]. Cite at least one document and at most three documents in each
+sentence. If multiple documents support the sentence, only cite a minimum sufficient subset of
+the documents.
+ASQA (ours) Answer the following question. The question may be ambiguous and have multiple correct
+
+
+================================================================================
+DOCUMENT : RAG.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 5
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+two variants: the standard 3-way classiﬁcation task (supports/refutes/not enough info) and the 2-way
+(supports/refutes) task studied in Thorne and Vlachos [57]. In both cases we report label accuracy.
+4 Results
+4.1 Open-domain Question Answering
+Table 1 shows results for RAG along with state-of-the-art models. On all four open-domain QA
+tasks, RAG sets a new state of the art (only on the T5-comparable split for TQA). RAG combines
+the generation ﬂexibility of the “closed-book” (parametric only) approaches and the performance of
+
+
+--------------------------------------------------------------------------------
+PAGE : 8
+--------------------------------------------------------------------------------
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a
+
+OCR Text:
+Table 4: Human assessments for the Jeopardy Table 5: Ratio of distinct to total tri-grams for
+Question Generation Task. generation tasks.
+
+Factuality Specificity MSMARCO Jeopardy QGen
+
+BART better 7.1% 16.8% Gold 39 6% 90.0%
+RAG better 42.7% 37.4% BART OA
+Both good 11.7% 11.8% A 70.7% 32.4%
+g : RAG-Token 77.8% 46.8%
+Both poor 17.7% 6.9% RAGS 83.5% 53.8%
+No majority 20.8% 20.1% ~ed- ad oe
+
+Table 6: Ablations on the dev set. As FEVER is a classification task, both RAG models are equivalent.
+
+Model NQ TQA WQ_ CT | Jeopardy-QGen MSMarco FVR-3 FVR-2
+Exact Match B-1 QB-1 RL B-1 Label Accuracy
+RAG-Token-BM25 29.7 41.5 32.1 33.1 | 17.5 22.3 35.5 48.4 7541 91.6
+RAG-Sequence-BM25 31.8 44.1 366 33.8] 111 19.5 36.5 46.9 . ,
+RAG-Token-Frozen 37.8 50.1 37.1 51.1 | 16.7 21.7 35.9 49.4 72.9 39.4
+RAG-Sequence-Frozen 41.2 52.1 41.8 52.6] 11.8 19.6 56.7 47.3 , ,
+RAG-Token 43.5 548 465 51.9 117.9 22.6 56.2 49.4 74.5 90.6
+RAG-Sequence 44.0 55.8 449 53.4] 15.3 21.5 57.2 47.5 . ;
+
+between these dates and use a template “Who is {position}?” (e.g. “Who is the President of Peru?”)
+to query our NQ RAG model with each index. RAG answers 70% correctly using the 2016 index for
+2016 world leaders and 68% using the 2018 index for 2018 world leaders. Accuracy with mismatched
+indices is low (12% with the 2018 index and 2016 leaders, 4% with the 2016 index and 2018 leaders).
+This shows we can update RAG’s world knowledge by simply replacing its non-parametric memory.
+
+Effect of Retrieving more documents Models are trained with either 5 or 10 retrieved latent
+documents, and we do not observe significant differences in performance between them. We have the
+flexibility to adjust the number of retrieved documents at test time, which can affect performance and
+runtime. Figure 3 (left) shows that retrieving more documents at test time monotonically improves
+Open-domain QA results for RAG-Sequence, but performance peaks for RAG-Token at 10 retrieved
+documents. Figure 3 (right) shows that retrieving more documents leads to higher Rouge-L for
+RAG-Token at the expense of Blen-1, but the effect is less pronounced for RAG-Sequence.
+
+&
+
+i
+
+i}
+
+NQ Exact Match
+6 $ 2 8
+= ~
+
+a
+
+— RAG Tok
+=-- RAGSeq
+
+NQ Answer Recall @K
+
+f=}
+E-}
+
+10 20 30 40 50 40
+K Retrieved Dacs K Retrieved Docs K Retrieved Dacs
+Figure 3: Left: NQ performance as more documents are retrieved. Center: Retrieval recall perfor-
+
+mance in NQ. Right: MS-MARCO Bleu-1 and Rouge-L as more documents are retrieved.
+
+5 Related Work
+
+Single-Task Retrieval Prior work has shown that retrieval improves performance across a variety of
+NLP tasks when considered in isolation. Such tasks include open-domain question answering [5, 29],
+fact checking [56], fact completion [48], long-form question answering [12], Wikipedia article
+generation [36], dialogue [41, 65, 9, 13], translation [17], and language modeling [19, 27]. Our
+work unifies previous successes in incorporating retrieval into individual tasks, showing that a single
+retrieval-based architecture is capable of achieving strong performance across several tasks.
+
+Nearby Document Text:
+Table 4: Human assessments for the Jeopardy
+Question Generation Task.
+Factuality
+Speciﬁcity
+BART better
+7.1%
+16.8%
+RAG better
+42.7%
+37.4%
+Both good
+11.7%
+11.8%
+Both poor
+17.7%
+6.9%
+No majority
+20.8%
+20.1%
+Table 5: Ratio of distinct to total tri-grams for
+generation tasks.
+MSMARCO
+Jeopardy QGen
+Gold
+89.6%
+90.0%
+BART
+70.7%
+32.4%
+RAG-Token
+77.8%
+46.8%
+RAG-Seq.
+83.5%
+53.8%
+Table 6: Ablations on the dev set. As FEVER is a classiﬁcation task, both RAG models are equivalent.
+Model
+NQ
+TQA
+WQ
+CT
+Jeopardy-QGen
+MSMarco
+FVR-3
+FVR-2
+Exact Match
+B-1
+QB-1
+R-L
+B-1
+Label Accuracy
+RAG-Token-BM25
+29.7
+41.5
+32.1
+
+================================================================================
+
+================================================================================
+RAG PIPELINE DEBUG
+================================================================================
+Query Type        : visual
+Retrieved Chunks  : 8
+Retrieved Images  : 3
+Reranked Chunks   : 10
+Reranked Text     : 7
+Reranked Images   : 3
+Final Context Docs: 10
+Exact Figure Query: True
+Exact Figure Match: True
+Exact Figure Final: True
+================================================================================
+
+================================================================================
+STAGE 4 — EVIDENCE VERIFICATION
+================================================================================
+Verification Units : 2
+Supported          : 1
+Partially Supported: 0
+Unsupported        : 1
+Unknown            : 0
+Groundedness Ratio : 0.50
+
+[CLAIM #1] According to the document RAG.pdf [1], SELF-RAG's performance on the PQA, Med, and ASQA metrics is not directly compared with the No Retriever and No Critic variants in Figure 3(a).
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.7979 | Citation=Self-RAG.pdf (Page 9)
+
+[CLAIM #2] Instead, Figure 3(a) shows the performance of RAG-Token and RAG-Sequence models as more documents are retrieved, with no specific comparison to other variants.
+  Status=UNSUPPORTED | NLI=CONTRADICTION | Confidence=0.6924 | Citation=Self-RAG.pdf (Page 10)
+================================================================================
+
+====================================================================================================
+RAG ANSWER
+====================================================================================================
+ According to the document RAG.pdf [1], SELF-RAG's performance on the PQA, Med, and ASQA metrics is not directly compared with the No Retriever and No Critic variants in Figure 3(a). Instead, Figure 3(a) shows the performance of RAG-Token and RAG-Sequence models as more documents are retrieved, with no specific comparison to other variants.
+
+IMAGE PATHS:
+D:/Projects/Major-Project-2-main/extracted_images/Self-RAG_page9_render.png
+D:/Projects/Major-Project-2-main/extracted_images/Self-RAG_page10_render.png
+D:/Projects/Major-Project-2-main/extracted_images/RAG_page8_render.png

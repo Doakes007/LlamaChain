@@ -1,0 +1,1676 @@
+====================================================================================================
+QUESTION_ID   : B3
+DOCUMENT      : BLIP-2
+QUESTION_TYPE : Core understanding
+ELAPSED_SEC   : 68.4
+ERROR         : no
+====================================================================================================
+
+QUESTION:
+What are the two Transformer submodules that make up the Q-Former, and what role does each one play?
+
+GROUND TRUTH ANSWER:
+The Q-Former contains two Transformer submodules that share self-attention layers: an image transformer, which interacts with the frozen image encoder through cross-attention and extracts visual features using the learnable queries; and a text transformer, which can function as both a text encoder and a text decoder.
+
+GROUND TRUTH SOURCE:
+BLIP-2.pdf, p. 3
+
+====================================================================================================
+FORENSIC TRANSCRIPT
+====================================================================================================
+
+####################################################################################################
+FORENSIC CASE START
+####################################################################################################
+Original Query   : What are the two Transformer submodules that make up the Q-Former, and what role does each one play?
+Expanded Query   : What are the two Transformer submodules that make up the Q-Former, and what role does each one play?
+Query Type       : factual
+[DOCUMENT SCOPE] Normalized query: 'what are the two transformer submodules that make up the q former and what role does each one play'
+[DOCUMENT SCOPE] Source='BERT.pdf' -> Normalized='bert'
+[DOCUMENT SCOPE] Token overlap for 'BERT.pdf': []
+[DOCUMENT SCOPE] Source='BLIP-2.pdf' -> Normalized='blip 2'
+[DOCUMENT SCOPE] Token overlap for 'BLIP-2.pdf': []
+[DOCUMENT SCOPE] Source='CLIP.pdf' -> Normalized='clip'
+[DOCUMENT SCOPE] Token overlap for 'CLIP.pdf': []
+[DOCUMENT SCOPE] Source='CNN Paper.pdf' -> Normalized='cnn paper'
+[DOCUMENT SCOPE] Token overlap for 'CNN Paper.pdf': []
+[DOCUMENT SCOPE] Source='Donut.pdf' -> Normalized='donut'
+[DOCUMENT SCOPE] Token overlap for 'Donut.pdf': []
+[DOCUMENT SCOPE] Source='LayoutLMv3.pdf' -> Normalized='layout l mv3'
+[DOCUMENT SCOPE] Token overlap for 'LayoutLMv3.pdf': []
+[DOCUMENT SCOPE] Source='NLP Paper.pdf' -> Normalized='nlp paper'
+[DOCUMENT SCOPE] Token overlap for 'NLP Paper.pdf': []
+[DOCUMENT SCOPE] Source='RAG.pdf' -> Normalized='rag'
+[DOCUMENT SCOPE] Token overlap for 'RAG.pdf': []
+[DOCUMENT SCOPE] Source='Self-RAG.pdf' -> Normalized='self rag'
+[DOCUMENT SCOPE] Token overlap for 'Self-RAG.pdf': []
+[DOCUMENT SCOPE] Source='Vision Transformer.pdf' -> Normalized='vision transformer'
+[DOCUMENT SCOPE] Token overlap for 'Vision Transformer.pdf': ['transformer']
+[DOCUMENT SCOPE] No reliable document scope detected. Retrieval remains global.
+
+================================================================================
+DOCUMENT SCOPE DEBUG
+================================================================================
+Query          : What are the two Transformer submodules that make up the Q-Former, and what role does each one play?
+Expanded Query : What are the two Transformer submodules that make up the Q-Former, and what role does each one play?
+Query Type     : factual
+Document Scope : None
+================================================================================
+
+==========================================================================================
+STEP 3A — GLOBAL HYBRID RETRIEVAL
+==========================================================================================
+Query              : What are the two Transformer submodules that make up the Q-Former, and what role does each one play?
+Dense candidate K  : 25
+Final hybrid K     : 8
+RRF constant       : 60
+
+------------------------------------------------------------------------------------------
+[DENSE / VECTOR RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=Vision Transformer.pdf | Page=3 | Type=text | Image=N/A
+    Content=their efﬁcient implementations – can be used almost out of the box. 3.1 V ISION TRANSFORMER (V IT) An overview of the model is depicted in Figure 1. The standard Transformer receiv
+02. Source=Vision Transformer.pdf | Page=3 | Type=text | Image=N/A
+    Content=is the resulting number of patches, which also serves as the effective input sequence length for the Transformer. The Transformer uses constant latent vector size D through all of 
+03. Source=Vision Transformer.pdf | Page=14 | Type=text | Image=N/A
+    Content=that Vision Transformer beneﬁts most from a high resolution (384× 384) for all tasks. B.1.2 S ELF -SUPERVISION We employ the masked patch prediction objective for preliminary self-
+04. Source=Vision Transformer.pdf | Page=1 | Type=text | Image=N/A
+    Content=and a pure transformer applied directly to sequences of image patches can perform very well on image classiﬁcation tasks. When pre-trained on large amounts of data and transferred 
+05. Source=BLIP-2.pdf | Page=2 | Type=text | Image=N/A
+    Content=tive learning stage with a frozen LLM. This section first introduces the model architecture of Q-Former, and then delineates the two-stage pre-training procedures. 3.1. Model Archi
+06. Source=Donut.pdf | Page=23 | Type=text | Image=N/A
+    Content=OCR-free Document Understanding Transformer 23 Fig. A. Examples of SynthDoG. English, Chinese, Japanese and Korean samples are shown (from top to bottom). Although the idea is simp
+07. Source=Vision Transformer.pdf | Page=18 | Type=text | Image=N/A
+    Content=beginning of each layer; (3) add a learned positional embeddings to the inputs at the beginning of each layer (shared between layers). Table 8 summarizes the results from this abla
+08. Source=Donut.pdf | Page=4 | Type=text | Image=N/A
+    Content=parsing. Swin Transformer first splits the input image x into non-overlapping patches. Swin Transformer blocks, consist of a shifted window-based multi-head self-attention module a
+09. Source=Donut.pdf | Page=2 | Type=text | Image=N/A
+    Content=on various VDU tasks are available at Section 3 showing the same trend Current VDU methods [22,24,65,64,18] solve the task in a two-stage manner: 1) reading the texts in the docume
+10. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+    Content=of the Transformer (Vaswani et al., 2017). Such re- strictions are sub-optimal for sentence-level tasks, and could be very harmful when applying ﬁne- tuning based approaches to tok
+11. Source=CLIP.pdf | Page=11 | Type=text | Image=N/A
+    Content=and the largest model we trained (ResNet-50x64) slightly outperforms the best performing existing model (a Noisy Student EfﬁcientNet-L2) on both overall score and compute efﬁciency
+12. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=tasks in Document AI. The code and models are publicly available at https://aka.ms/layoutlmv3. 2 LAYOUTLMV3 Figure 3 gives an overview of the LayoutLMv3. 2.1 Model Architecture Lay
+13. Source=Vision Transformer.pdf | Page=2 | Type=text | Image=N/A
+    Content=pixel. With quadratic cost in the number of pixels, this does not scale to realistic input sizes. Thus, to apply Transformers in the context of image processing, several approximat
+14. Source=LayoutLMv3.pdf | Page=3 | Type=text | Image=N/A
+    Content=Multimodal Transformer Seg1 [MASK] 1 + + Seg1 [MASK] 2 + + Seg2 T3 3 + + V1 [MASK] 1 + 2 + 3 + [MASK][SPE] 0 + Seg3 T4 4 + + SegPAD [CLS] 0 + + 4 + V4 h MLM Head MIM Head T2 h V2 h
+15. Source=Donut.pdf | Page=4 | Type=text | Image=N/A
+    Content=effort is required to ensure the performance of an entire VDU model by using the off-the-shelf OCR engine. 2.2 Document Understanding Transformer Donut is an end-to-end (i.e., self
+16. Source=LayoutLMv3.pdf | Page=9 | Type=text | Image=N/A
+    Content=Pre-training of Deep Bidirectional Transformers for Language Understanding. In NAACL. [10] Ming Ding, Zhuoyi Yang, Wenyi Hong, Wendi Zheng, Chang Zhou, Da Yin, Junyang Lin, Xu Zou,
+17. Source=CLIP.pdf | Page=11 | Type=text | Image=N/A
+    Content=classiﬁers has the added beneﬁt of being very similar to the approach used for its zero-shot classiﬁers which enables extensive comparisons and analysis in Section 3.1. Finally, we
+18. Source=BERT.pdf | Page=8 | Type=text | Image=N/A
+    Content=trained bidirectional models. The BiLSTM hurts performance on the GLUE tasks. We recognize that it would also be possible to train separate LTR and RTL models and represent each to
+19. Source=Vision Transformer.pdf | Page=5 | Type=text | Image=N/A
+    Content=convolutions (Qiao et al., 2019). These modiﬁcations improve transfer (Kolesnikov et al., 2020), and we denote the modiﬁed model “ResNet (BiT)”. For the hybrids, we feed the interm
+20. Source=Vision Transformer.pdf | Page=1 | Type=text | Image=N/A
+    Content={adosovitskiy, neilhoulsby}@google.com ABSTRACT While the Transformer architecture has become the de-facto standard for natural language processing tasks, its applications to compu
+21. Source=RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=two variants: the standard 3-way classiﬁcation task (supports/refutes/not enough info) and the 2-way (supports/refutes) task studied in Thorne and Vlachos [57]. In both cases we re
+22. Source=Donut.pdf | Page=14 | Type=text | Image=N/A
+    Content=as their input. The OCR results are then converted to the final parse through several processes, which are often complex. Despite the needs in the industry, only a few works have b
+23. Source=CLIP.pdf | Page=34 | Type=text | Image=N/A
+    Content=encoder representations from transformers.arXiv preprint arXiv:1908.07490, 2019. Tan, M. and Le, Q. V . Efﬁcientnet: Rethinking model scaling for convolutional neural networks. arX
+24. Source=BLIP-2.pdf | Page=3 | Type=text | Image=N/A
+    Content=Q-Former to generate texts, given input images as the con- dition. Since the architecture of Q-Former does not allow direct interactions between the frozen image encoder and the te
+25. Source=BERT.pdf | Page=3 | Type=text | Image=N/A
+    Content=SQuAD Question Answer Pair NERMNLI Figure 1: Overall pre-training and ﬁne-tuning procedures for BERT. Apart from output layers, the same architec- tures are used in both pre-traini
+
+------------------------------------------------------------------------------------------
+[BM25 RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=BLIP-2.pdf | Page=5 | Type=text | Image=N/A
+    Content=A man and a chicken. What are shown in the photo? What does the man feel and why?  He is scared ofthe chicken because it is flying at him. Pepperoni, mozzarella cheese, pizza sauce
+02. Source=BLIP-2.pdf | Page=13 | Type=image | Image=extracted_images\BLIP-2_page13_img1.png
+    Content=FIGURE FROM DOCUMENT  Caption: a cat wearing sunglasses and looking up at the camera  OCR Text: No readable text found in this image.  Nearby Document Text: BLIP-2: Bootstrapping L
+03. Source=BLIP-2.pdf | Page=13 | Type=text | Image=N/A
+    Content=BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models Image Encoder Input Image Queries … Q-Former … What is the cat wearing? Answe
+04. Source=Self-RAG.pdf | Page=26 | Type=text | Image=N/A
+    Content=documents is helpful to improve the response to this query. Instruction Describe a time when you had to make a difficult decision. Need retrieval? [No] Explanation This instruction
+05. Source=BLIP-2.pdf | Page=5 | Type=text | Image=N/A
+    Content=Tell me something about the history of this place. It is a genus of flowering plants in the orchid family, orchidaceae. It is native to eastern asiaand south eastasia. It is a pere
+06. Source=BERT.pdf | Page=14 | Type=text | Image=N/A
+    Content=left-to-right Transformer LM on a large text cor- pus. In fact, many of the design decisions in BERT were intentionally made to make it as close to GPT as possible so that the two 
+07. Source=Vision Transformer.pdf | Page=20 | Type=text | Image=N/A
+    Content=AxialViT-B/32 ViT-B/16 ViT-B/32 ResNet50 AxialResNet50 Figure 13: Performance of Axial-Attention based models, in terms of top-1 accuracy on ImageNet 5-shot linear, versus their sp
+08. Source=Donut.pdf | Page=7 | Type=image | Image=extracted_images\Donut_page7_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+09. Source=Vision Transformer.pdf | Page=17 | Type=text | Image=N/A
+    Content=dimensions. In this case, two sets of embeddings are learned, each for one of the axes, X-embedding, and Y -embedding, each with size D/2. Then, based on the coordinate on the path
+10. Source=BLIP-2.pdf | Page=2 | Type=text | Image=N/A
+    Content=LLMs for various vision-language tasks, achieving stronger performance at a lower computation cost. 3. Method We propose BLIP-2, a new vision-language pre-training method that boot
+11. Source=RAG.pdf | Page=3 | Type=text | Image=N/A
+    Content=byθ that generates a current token based on a context of the previousi− 1 tokensy1:i−1, the original inputx and a retrieved passagez. To train the retriever and generator end-to-en
+12. Source=CLIP.pdf | Page=17 | Type=text | Image=N/A
+    Content=images increased our trust in the human workers. Interestingly, humans went from a performance average of 54% to 76% with just one training example per class, and the marginal gain
+13. Source=Donut.pdf | Page=11 | Type=table | Image=N/A
+    Content=Rows: Column_2: Q: What Answer: Donut: LayoutL, Column_3: is the name of the passenger? DR. William J. Darby DR. William J. Darby Mv2-Large-QG: DR. William J. Jarry, Column_5: Q: W
+14. Source=BLIP-2.pdf | Page=3 | Type=text | Image=N/A
+    Content=pairwise similarity between each query output and t, and then select the highest one as the image-text similarity. To avoid information leak, we employ a unimodal self-attention ma
+15. Source=CLIP.pdf | Page=16 | Type=text | Image=N/A
+    Content=pletely uncertain). In the zero-shot case the humans were given no examples of the breeds and asked to label them to the best of their ability without an internet search. In the on
+16. Source=BLIP-2.pdf | Page=2 | Type=text | Image=N/A
+    Content=tive learning stage with a frozen LLM. This section first introduces the model architecture of Q-Former, and then delineates the two-stage pre-training procedures. 3.1. Model Archi
+17. Source=Donut.pdf | Page=27 | Type=text | Image=N/A
+    Content=OCR-free Document Understanding Transformer 27 Fig. D. Examples of Business Card (top) and Receipt (bottom). Due to strict industrial policies on the private industrial datasets fr
+18. Source=Donut.pdf | Page=23 | Type=image | Image=extracted_images\Donut_page23_img11.png
+    Content=FIGURE FROM DOCUMENT  Caption: a person holding up a piece of paper  OCR Text: No readable text found in this image.  Nearby Document Text: OCR-free Document Understanding Transfor
+19. Source=Donut.pdf | Page=23 | Type=image | Image=extracted_images\Donut_page23_img1.png
+    Content=FIGURE FROM DOCUMENT  Caption: a man holding up a piece of paper with the words on it  OCR Text: No readable text found in this image.  Nearby Document Text: OCR-free Document Unde
+20. Source=CLIP.pdf | Page=16 | Type=text | Image=N/A
+    Content=and how much human performance is improved if they are shown one or two image samples. This can help us to compare task difﬁculty for humans and CLIP, and identify correlations and
+21. Source=BLIP-2.pdf | Page=3 | Type=text | Image=N/A
+    Content=Q-Former to generate texts, given input images as the con- dition. Since the architecture of Q-Former does not allow direct interactions between the frozen image encoder and the te
+22. Source=BERT.pdf | Page=8 | Type=text | Image=N/A
+    Content=tasks, with large drops on MRPC and SQuAD. For SQuAD it is intuitively clear that a LTR model will perform poorly at token predictions, since the token-level hidden states have no 
+23. Source=Donut.pdf | Page=11 | Type=text | Image=N/A
+    Content=Answer: 540 Donut: 943  (another number in the image is extracted) LayoutLMv2-Large-QG: 540 Q: What is the phone number given? Answer: 336-723-6100 Donut: 336-723-6100 LayoutLMv2-L
+24. Source=BLIP-2.pdf | Page=4 | Type=text | Image=N/A
+    Content=and randomly sample one at each pre-training step. Pre-trained image encoder and LLM. For the frozen im- age encoder, we explore two state-of-the-art pre-trained vision transformer
+25. Source=CLIP.pdf | Page=45 | Type=text | Image=N/A
+    Content=tion, where CLIP is only 0.7 points behind the current single model SOTA and several points above the best baseline from the original paper. Similar to SST-2, these other results o
+
+------------------------------------------------------------------------------------------
+[RRF FUSION RANKING]
+------------------------------------------------------------------------------------------
+01. RRF=0.028543 | DenseRank=5 | BM25Rank=16 | Source=BLIP-2.pdf | Page=2 | Type=text
+02. RRF=0.024250 | DenseRank=24 | BM25Rank=21 | Source=BLIP-2.pdf | Page=3 | Type=text
+03. RRF=0.016393 | DenseRank=1 | BM25Rank=- | Source=Vision Transformer.pdf | Page=3 | Type=text
+04. RRF=0.016393 | DenseRank=- | BM25Rank=1 | Source=BLIP-2.pdf | Page=5 | Type=text
+05. RRF=0.016129 | DenseRank=2 | BM25Rank=- | Source=Vision Transformer.pdf | Page=3 | Type=text
+06. RRF=0.016129 | DenseRank=- | BM25Rank=2 | Source=BLIP-2.pdf | Page=13 | Type=image
+07. RRF=0.015873 | DenseRank=3 | BM25Rank=- | Source=Vision Transformer.pdf | Page=14 | Type=text
+08. RRF=0.015873 | DenseRank=- | BM25Rank=3 | Source=BLIP-2.pdf | Page=13 | Type=text
+09. RRF=0.015625 | DenseRank=4 | BM25Rank=- | Source=Vision Transformer.pdf | Page=1 | Type=text
+10. RRF=0.015625 | DenseRank=- | BM25Rank=4 | Source=Self-RAG.pdf | Page=26 | Type=text
+11. RRF=0.015385 | DenseRank=- | BM25Rank=5 | Source=BLIP-2.pdf | Page=5 | Type=text
+12. RRF=0.015152 | DenseRank=6 | BM25Rank=- | Source=Donut.pdf | Page=23 | Type=text
+13. RRF=0.015152 | DenseRank=- | BM25Rank=6 | Source=BERT.pdf | Page=14 | Type=text
+14. RRF=0.014925 | DenseRank=7 | BM25Rank=- | Source=Vision Transformer.pdf | Page=18 | Type=text
+15. RRF=0.014925 | DenseRank=- | BM25Rank=7 | Source=Vision Transformer.pdf | Page=20 | Type=text
+16. RRF=0.014706 | DenseRank=8 | BM25Rank=- | Source=Donut.pdf | Page=4 | Type=text
+17. RRF=0.014706 | DenseRank=- | BM25Rank=8 | Source=Donut.pdf | Page=7 | Type=image
+18. RRF=0.014493 | DenseRank=9 | BM25Rank=- | Source=Donut.pdf | Page=2 | Type=text
+19. RRF=0.014493 | DenseRank=- | BM25Rank=9 | Source=Vision Transformer.pdf | Page=17 | Type=text
+20. RRF=0.014286 | DenseRank=10 | BM25Rank=- | Source=BERT.pdf | Page=1 | Type=text
+21. RRF=0.014286 | DenseRank=- | BM25Rank=10 | Source=BLIP-2.pdf | Page=2 | Type=text
+22. RRF=0.014085 | DenseRank=11 | BM25Rank=- | Source=CLIP.pdf | Page=11 | Type=text
+23. RRF=0.014085 | DenseRank=- | BM25Rank=11 | Source=RAG.pdf | Page=3 | Type=text
+24. RRF=0.013889 | DenseRank=12 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=2 | Type=text
+25. RRF=0.013889 | DenseRank=- | BM25Rank=12 | Source=CLIP.pdf | Page=17 | Type=text
+26. RRF=0.013699 | DenseRank=13 | BM25Rank=- | Source=Vision Transformer.pdf | Page=2 | Type=text
+27. RRF=0.013699 | DenseRank=- | BM25Rank=13 | Source=Donut.pdf | Page=11 | Type=table
+28. RRF=0.013514 | DenseRank=14 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=3 | Type=text
+29. RRF=0.013514 | DenseRank=- | BM25Rank=14 | Source=BLIP-2.pdf | Page=3 | Type=text
+30. RRF=0.013333 | DenseRank=15 | BM25Rank=- | Source=Donut.pdf | Page=4 | Type=text
+31. RRF=0.013333 | DenseRank=- | BM25Rank=15 | Source=CLIP.pdf | Page=16 | Type=text
+32. RRF=0.013158 | DenseRank=16 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=9 | Type=text
+33. RRF=0.012987 | DenseRank=17 | BM25Rank=- | Source=CLIP.pdf | Page=11 | Type=text
+34. RRF=0.012987 | DenseRank=- | BM25Rank=17 | Source=Donut.pdf | Page=27 | Type=text
+35. RRF=0.012821 | DenseRank=18 | BM25Rank=- | Source=BERT.pdf | Page=8 | Type=text
+36. RRF=0.012821 | DenseRank=- | BM25Rank=18 | Source=Donut.pdf | Page=23 | Type=image
+37. RRF=0.012658 | DenseRank=19 | BM25Rank=- | Source=Vision Transformer.pdf | Page=5 | Type=text
+38. RRF=0.012658 | DenseRank=- | BM25Rank=19 | Source=Donut.pdf | Page=23 | Type=image
+39. RRF=0.012500 | DenseRank=20 | BM25Rank=- | Source=Vision Transformer.pdf | Page=1 | Type=text
+40. RRF=0.012500 | DenseRank=- | BM25Rank=20 | Source=CLIP.pdf | Page=16 | Type=text
+41. RRF=0.012346 | DenseRank=21 | BM25Rank=- | Source=RAG.pdf | Page=5 | Type=text
+42. RRF=0.012195 | DenseRank=22 | BM25Rank=- | Source=Donut.pdf | Page=14 | Type=text
+43. RRF=0.012195 | DenseRank=- | BM25Rank=22 | Source=BERT.pdf | Page=8 | Type=text
+44. RRF=0.012048 | DenseRank=23 | BM25Rank=- | Source=CLIP.pdf | Page=34 | Type=text
+45. RRF=0.012048 | DenseRank=- | BM25Rank=23 | Source=Donut.pdf | Page=11 | Type=text
+46. RRF=0.011905 | DenseRank=- | BM25Rank=24 | Source=BLIP-2.pdf | Page=4 | Type=text
+47. RRF=0.011765 | DenseRank=25 | BM25Rank=- | Source=BERT.pdf | Page=3 | Type=text
+48. RRF=0.011765 | DenseRank=- | BM25Rank=25 | Source=CLIP.pdf | Page=45 | Type=text
+------------------------------------------------------------------------------------------
+
+==========================================================================================
+STEP 3A — RETRIEVAL STAGE SUMMARY
+==========================================================================================
+Dense candidates       : 25
+BM25 candidates        : 25
+Dense ∩ BM25           : 2
+Dense-only candidates  : 23
+BM25-only candidates   : 23
+Unique candidate pool  : 48
+RRF candidates         : 48
+Returned to pipeline   : 8
+==========================================================================================
+
+------------------------------------------------------------------------------------------
+[FINAL HYBRID RESULT] 8 candidates
+------------------------------------------------------------------------------------------
+01. Source=BLIP-2.pdf | Page=2 | Type=text | Image=N/A
+    Content=tive learning stage with a frozen LLM. This section first introduces the model architecture of Q-Former, and then delineates the two-stage pre-training procedures. 3.1. Model Archi
+02. Source=BLIP-2.pdf | Page=3 | Type=text | Image=N/A
+    Content=Q-Former to generate texts, given input images as the con- dition. Since the architecture of Q-Former does not allow direct interactions between the frozen image encoder and the te
+03. Source=Vision Transformer.pdf | Page=3 | Type=text | Image=N/A
+    Content=their efﬁcient implementations – can be used almost out of the box. 3.1 V ISION TRANSFORMER (V IT) An overview of the model is depicted in Figure 1. The standard Transformer receiv
+04. Source=BLIP-2.pdf | Page=5 | Type=text | Image=N/A
+    Content=A man and a chicken. What are shown in the photo? What does the man feel and why?  He is scared ofthe chicken because it is flying at him. Pepperoni, mozzarella cheese, pizza sauce
+05. Source=Vision Transformer.pdf | Page=3 | Type=text | Image=N/A
+    Content=is the resulting number of patches, which also serves as the effective input sequence length for the Transformer. The Transformer uses constant latent vector size D through all of 
+06. Source=BLIP-2.pdf | Page=13 | Type=image | Image=extracted_images\BLIP-2_page13_img1.png
+    Content=FIGURE FROM DOCUMENT  Caption: a cat wearing sunglasses and looking up at the camera  OCR Text: No readable text found in this image.  Nearby Document Text: BLIP-2: Bootstrapping L
+07. Source=Vision Transformer.pdf | Page=14 | Type=text | Image=N/A
+    Content=that Vision Transformer beneﬁts most from a high resolution (384× 384) for all tasks. B.1.2 S ELF -SUPERVISION We employ the masked patch prediction objective for preliminary self-
+08. Source=BLIP-2.pdf | Page=13 | Type=text | Image=N/A
+    Content=BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models Image Encoder Input Image Queries … Q-Former … What is the cat wearing? Answe
+==========================================================================================
+
+================================================================================
+STAGE 1 — HYBRID RETRIEVAL
+================================================================================
+Retrieved Count : 8
+
+[HYBRID #1] Source=BLIP-2.pdf | Page=2 | Type=text
+Content: tive learning stage with a frozen LLM. This section first introduces the model architecture of Q-Former, and then delineates the two-stage pre-training procedures. 3.1. Model Architecture We propose Q-Former as the trainable module to bridge the gap between a frozen image encoder and a frozen LLM. It extracts a fixed number of output features from the image encoder, independent of input image resolution. As shown in Figure 2, Q-Former consists of two transformer submod- ules that share the same 
+
+[HYBRID #2] Source=BLIP-2.pdf | Page=3 | Type=text
+Content: Q-Former to generate texts, given input images as the con- dition. Since the architecture of Q-Former does not allow direct interactions between the frozen image encoder and the text tokens, the information required for generating the text must be first extracted by the queries, and then passed to the text tokens via self-attention layers. Therefore, the queries are forced to extract visual features that capture all the information about the text. We employ a multimodal causal self-attention mas
+
+[HYBRID #3] Source=Vision Transformer.pdf | Page=3 | Type=text
+Content: their efﬁcient implementations – can be used almost out of the box. 3.1 V ISION TRANSFORMER (V IT) An overview of the model is depicted in Figure 1. The standard Transformer receives as input a 1D sequence of token embeddings. To handle 2D images, we reshape the image x∈ RH×W×C into a sequence of ﬂattened 2D patches xp∈ RN×(P 2·C), where (H,W ) is the resolution of the original image,C is the number of channels,(P,P ) is the resolution of each image patch, andN =HW/P 2 is the resulting number of
+
+[HYBRID #4] Source=BLIP-2.pdf | Page=5 | Type=text
+Content: A man and a chicken. What are shown in the photo? What does the man feel and why?  He is scared ofthe chicken because it is flying at him. Pepperoni, mozzarella cheese, pizza sauce, olive oil, salt, pepper, basil. What are the ingredients I need to make this? What is the first step? Place the pizza dough on a baking sheet, brush with olive oil, sprinkle with salt, pepper, and basil. Love is like a sunset, it's hard to see it coming but when it does it's so beautiful. Write a romantic message tha
+
+[HYBRID #5] Source=Vision Transformer.pdf | Page=3 | Type=text
+Content: is the resulting number of patches, which also serves as the effective input sequence length for the Transformer. The Transformer uses constant latent vector size D through all of its layers, so we ﬂatten the patches and map to D dimensions with a trainable linear projection (Eq. 1). We refer to the output of this projection as the patch embeddings. Similar to BERT’s [class] token, we prepend a learnable embedding to the sequence of embed- ded patches (z0 0 = xclass), whose state at the output o
+
+[HYBRID #6] Source=BLIP-2.pdf | Page=13 | Type=image
+Content: FIGURE FROM DOCUMENT  Caption: a cat wearing sunglasses and looking up at the camera  OCR Text: No readable text found in this image.  Nearby Document Text: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models Image Encoder Input Image Queries … Q-Former … What is the cat wearing? Answer Fully Connected … LLM sunglasses Question What is the cat wearing? Question Figure 7. Model architecture for VQA finetuning, where the LLM receives Q-Former’s ou
+
+[HYBRID #7] Source=Vision Transformer.pdf | Page=14 | Type=text
+Content: that Vision Transformer beneﬁts most from a high resolution (384× 384) for all tasks. B.1.2 S ELF -SUPERVISION We employ the masked patch prediction objective for preliminary self-supervision experiments. To do so we corrupt 50% of patch embeddings by either replacing their embeddings with a learnable [mask] embedding (80%), a random other patch embedding (10%) or just keeping them as is (10%). This setup is very similar to the one used for language by Devlin et al. (2019). Finally, we predict t
+
+[HYBRID #8] Source=BLIP-2.pdf | Page=13 | Type=text
+Content: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models Image Encoder Input Image Queries … Q-Former … What is the cat wearing? Answer Fully Connected … LLM sunglasses Question What is the cat wearing? Question Figure 7. Model architecture for VQA finetuning, where the LLM receives Q-Former’s output and the question as input, then predicts answers. We also provide the question as a condition to Q-Former, such that the extracted image features are mo
+================================================================================
+
+================================================================================
+IMAGE RETRIEVAL DIAGNOSTIC
+================================================================================
+Query                 : What are the two Transformer submodules that make up the Q-Former, and what role does each one play?
+Image Candidates      : 554
+
+ALL IMAGE CANDIDATES
+--------------------------------------------------------------------------------
+Rank=01 | Source=BLIP-2.pdf | Page=2 | Image=BLIP-2_page2_render.png | Hybrid=-3.0211 | CE=-5.1958 | CLIP=0.2408
+Rank=02 | Source=BLIP-2.pdf | Page=13 | Image=BLIP-2_page13_img1.png | Hybrid=-3.6754 | CE=-6.2718 | CLIP=0.2193
+Rank=03 | Source=BLIP-2.pdf | Page=3 | Image=BLIP-2_page3_render.png | Hybrid=-3.9838 | CE=-6.8000 | CLIP=0.2405
+Rank=04 | Source=BLIP-2.pdf | Page=4 | Image=BLIP-2_page4_img1.png | Hybrid=-4.3471 | CE=-7.3915 | CLIP=0.2193
+Rank=05 | Source=BLIP-2.pdf | Page=4 | Image=BLIP-2_page4_render.png | Hybrid=-4.8245 | CE=-8.1929 | CLIP=0.2281
+Rank=06 | Source=Vision Transformer.pdf | Page=20 | Image=Vision Transformer_page20_render.png | Hybrid=-5.0878 | CE=-8.6312 | CLIP=0.2272
+Rank=07 | Source=BERT.pdf | Page=13 | Image=BERT_page13_render.png | Hybrid=-5.0981 | CE=-8.6620 | CLIP=0.2479
+Rank=08 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img1.png | Hybrid=-5.2244 | CE=-8.8429 | CLIP=0.2032
+Rank=09 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img11.png | Hybrid=-5.2483 | CE=-8.8900 | CLIP=0.2142
+Rank=10 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img8.png | Hybrid=-5.4032 | CE=-9.1571 | CLIP=0.2278
+Rank=11 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img9.png | Hybrid=-5.4069 | CE=-9.1541 | CLIP=0.2140
+Rank=12 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img6.png | Hybrid=-5.4071 | CE=-9.1571 | CLIP=0.2181
+Rank=13 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img7.png | Hybrid=-5.4122 | CE=-9.1571 | CLIP=0.2053
+Rank=14 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img2.png | Hybrid=-5.4257 | CE=-9.1861 | CLIP=0.2150
+Rank=15 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img4.png | Hybrid=-5.5308 | CE=-9.3656 | CLIP=0.2214
+Rank=16 | Source=Donut.pdf | Page=5 | Image=Donut_page5_render.png | Hybrid=-5.5538 | CE=-9.4338 | CLIP=0.2662
+Rank=17 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img3.png | Hybrid=-5.5725 | CE=-9.4142 | CLIP=0.1901
+Rank=18 | Source=Donut.pdf | Page=7 | Image=Donut_page7_img6.png | Hybrid=-5.6121 | CE=-9.4679 | CLIP=0.1716
+Rank=19 | Source=Donut.pdf | Page=7 | Image=Donut_page7_img4.png | Hybrid=-5.6297 | CE=-9.5311 | CLIP=0.2225
+Rank=20 | Source=Donut.pdf | Page=7 | Image=Donut_page7_img5.png | Hybrid=-5.6599 | CE=-9.5426 | CLIP=0.1642
+Rank=21 | Source=Donut.pdf | Page=7 | Image=Donut_page7_img2.png | Hybrid=-5.6638 | CE=-9.5844 | CLIP=0.2172
+Rank=22 | Source=Donut.pdf | Page=7 | Image=Donut_page7_img3.png | Hybrid=-5.6873 | CE=-9.6043 | CLIP=0.1882
+Rank=23 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img5.png | Hybrid=-5.7316 | CE=-9.6907 | CLIP=0.2071
+Rank=24 | Source=Donut.pdf | Page=3 | Image=Donut_page3_render.png | Hybrid=-5.7751 | CE=-9.7759 | CLIP=0.2261
+Rank=25 | Source=Vision Transformer.pdf | Page=3 | Image=Vision Transformer_page3_render.png | Hybrid=-5.9113 | CE=-10.0191 | CLIP=0.2503
+Rank=26 | Source=Donut.pdf | Page=25 | Image=Donut_page25_img1.png | Hybrid=-5.9137 | CE=-9.9847 | CLIP=0.1928
+Rank=27 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img10.png | Hybrid=-5.9540 | CE=-10.0678 | CLIP=0.2166
+Rank=28 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img8.png | Hybrid=-5.9694 | CE=-10.0917 | CLIP=0.2140
+Rank=29 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img6.png | Hybrid=-5.9961 | CE=-10.1362 | CLIP=0.2141
+Rank=30 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img3.png | Hybrid=-6.0110 | CE=-10.1642 | CLIP=0.2189
+Rank=31 | Source=Vision Transformer.pdf | Page=3 | Image=Vision Transformer_page3_img0.png | Hybrid=-6.0433 | CE=-10.2128 | CLIP=0.2108
+Rank=32 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img2.png | Hybrid=-6.0535 | CE=-10.2343 | CLIP=0.2176
+Rank=33 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img9.png | Hybrid=-6.0553 | CE=-10.2274 | CLIP=0.2028
+Rank=34 | Source=Vision Transformer.pdf | Page=3 | Image=Vision Transformer_page3_img1.png | Hybrid=-6.0585 | CE=-10.2452 | CLIP=0.2214
+Rank=35 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img5.png | Hybrid=-6.0595 | CE=-10.2431 | CLIP=0.2159
+Rank=36 | Source=RAG.pdf | Page=2 | Image=RAG_page2_render.png | Hybrid=-6.0838 | CE=-10.2946 | CLIP=0.2324
+Rank=37 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img0.png | Hybrid=-6.0920 | CE=-10.2990 | CLIP=0.2184
+Rank=38 | Source=Donut.pdf | Page=4 | Image=Donut_page4_render.png | Hybrid=-6.1189 | CE=-10.3541 | CLIP=0.2339
+Rank=39 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img6.png | Hybrid=-6.1328 | CE=-10.3719 | CLIP=0.2258
+Rank=40 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img1.png | Hybrid=-6.1485 | CE=-10.3969 | CLIP=0.2240
+Rank=41 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img5.png | Hybrid=-6.1531 | CE=-10.4129 | CLIP=0.2366
+Rank=42 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img3.png | Hybrid=-6.1561 | CE=-10.4171 | CLIP=0.2354
+Rank=43 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img4.png | Hybrid=-6.1579 | CE=-10.3996 | CLIP=0.2045
+Rank=44 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img1.png | Hybrid=-6.1598 | CE=-10.3924 | CLIP=0.1890
+Rank=45 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img2.png | Hybrid=-6.1797 | CE=-10.4514 | CLIP=0.2279
+Rank=46 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_render.png | Hybrid=-6.2015 | CE=-10.4994 | CLIP=0.2454
+Rank=47 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img4.png | Hybrid=-6.2204 | CE=-10.5230 | CLIP=0.2335
+Rank=48 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img0.png | Hybrid=-6.2569 | CE=-10.5717 | CLIP=0.2154
+Rank=49 | Source=Donut.pdf | Page=27 | Image=Donut_page27_img4.png | Hybrid=-6.2659 | CE=-10.5710 | CLIP=0.1918
+Rank=50 | Source=Donut.pdf | Page=27 | Image=Donut_page27_img0.png | Hybrid=-6.2793 | CE=-10.5862 | CLIP=0.1812
+Rank=51 | Source=Donut.pdf | Page=27 | Image=Donut_page27_img3.png | Hybrid=-6.2797 | CE=-10.6145 | CLIP=0.2225
+Rank=52 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img8.png | Hybrid=-6.2799 | CE=-10.6195 | CLIP=0.2294
+Rank=53 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_render.png | Hybrid=-6.2921 | CE=-10.6364 | CLIP=0.2242
+Rank=54 | Source=Donut.pdf | Page=27 | Image=Donut_page27_img1.png | Hybrid=-6.2970 | CE=-10.6315 | CLIP=0.2047
+Rank=55 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img7.png | Hybrid=-6.3036 | CE=-10.6563 | CLIP=0.2255
+Rank=56 | Source=CLIP.pdf | Page=3 | Image=CLIP_page3_render.png | Hybrid=-6.3188 | CE=-10.6914 | CLIP=0.2402
+Rank=57 | Source=Donut.pdf | Page=27 | Image=Donut_page27_img2.png | Hybrid=-6.3208 | CE=-10.6782 | CLIP=0.2153
+Rank=58 | Source=BERT.pdf | Page=6 | Image=BERT_page6_render.png | Hybrid=-6.3452 | CE=-10.7227 | CLIP=0.2212
+Rank=59 | Source=Donut.pdf | Page=27 | Image=Donut_page27_img5.png | Hybrid=-6.3575 | CE=-10.7345 | CLIP=0.2079
+Rank=60 | Source=Donut.pdf | Page=7 | Image=Donut_page7_render.png | Hybrid=-6.3627 | CE=-10.7540 | CLIP=0.2243
+Rank=61 | Source=Donut.pdf | Page=13 | Image=Donut_page13_img7.png | Hybrid=-6.3639 | CE=-10.7502 | CLIP=0.2154
+Rank=62 | Source=Donut.pdf | Page=11 | Image=Donut_page11_img4.png | Hybrid=-6.3641 | CE=-10.7574 | CLIP=0.2258
+Rank=63 | Source=Donut.pdf | Page=13 | Image=Donut_page13_img6.png | Hybrid=-6.3660 | CE=-10.7502 | CLIP=0.2103
+Rank=64 | Source=Donut.pdf | Page=13 | Image=Donut_page13_img2.png | Hybrid=-6.3667 | CE=-10.7502 | CLIP=0.2085
+Rank=65 | Source=Donut.pdf | Page=13 | Image=Donut_page13_img3.png | Hybrid=-6.3668 | CE=-10.7502 | CLIP=0.2084
+Rank=66 | Source=Donut.pdf | Page=13 | Image=Donut_page13_img8.png | Hybrid=-6.3887 | CE=-10.7951 | CLIP=0.2211
+Rank=67 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img9.png | Hybrid=-6.3947 | CE=-10.7796 | CLIP=0.1827
+Rank=68 | Source=Donut.pdf | Page=13 | Image=Donut_page13_img4.png | Hybrid=-6.4006 | CE=-10.8078 | CLIP=0.2102
+Rank=69 | Source=Donut.pdf | Page=13 | Image=Donut_page13_img5.png | Hybrid=-6.4006 | CE=-10.8078 | CLIP=0.2102
+Rank=70 | Source=Donut.pdf | Page=13 | Image=Donut_page13_img0.png | Hybrid=-6.4019 | CE=-10.8091 | CLIP=0.2088
+Rank=71 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img7.png | Hybrid=-6.4062 | CE=-10.8122 | CLIP=0.2029
+Rank=72 | Source=Donut.pdf | Page=13 | Image=Donut_page13_img1.png | Hybrid=-6.4091 | CE=-10.8209 | CLIP=0.2087
+Rank=73 | Source=NLP Paper.pdf | Page=3 | Image=NLP Paper_page3_render.png | Hybrid=-6.4241 | CE=-10.8345 | CLIP=0.1915
+Rank=74 | Source=Vision Transformer.pdf | Page=6 | Image=Vision Transformer_page6_render.png | Hybrid=-6.4487 | CE=-10.8851 | CLIP=0.2059
+Rank=75 | Source=CLIP.pdf | Page=5 | Image=CLIP_page5_render.png | Hybrid=-6.4496 | CE=-10.9189 | CLIP=0.2542
+Rank=76 | Source=NLP Paper.pdf | Page=3 | Image=NLP Paper_page3_img0.png | Hybrid=-6.4839 | CE=-10.9537 | CLIP=0.2210
+Rank=77 | Source=Vision Transformer.pdf | Page=18 | Image=Vision Transformer_page18_render.png | Hybrid=-6.4871 | CE=-10.9682 | CLIP=0.2346
+Rank=78 | Source=Donut.pdf | Page=25 | Image=Donut_page25_img0.png | Hybrid=-6.4892 | CE=-10.9436 | CLIP=0.1923
+Rank=79 | Source=NLP Paper.pdf | Page=1 | Image=NLP Paper_page1_render.png | Hybrid=-6.4929 | CE=-10.9669 | CLIP=0.2181
+Rank=80 | Source=Donut.pdf | Page=11 | Image=Donut_page11_img0.png | Hybrid=-6.5153 | CE=-10.9891 | CLIP=0.1955
+Rank=81 | Source=Donut.pdf | Page=25 | Image=Donut_page25_img2.png | Hybrid=-6.5157 | CE=-10.9782 | CLIP=0.1781
+Rank=82 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img153.png | Hybrid=-6.5179 | CE=-11.0036 | CLIP=0.2105
+Rank=83 | Source=Donut.pdf | Page=11 | Image=Donut_page11_img1.png | Hybrid=-6.5261 | CE=-11.0043 | CLIP=0.1913
+Rank=84 | Source=BLIP-2.pdf | Page=3 | Image=BLIP-2_page3_img1.png | Hybrid=-6.5368 | CE=-11.0409 | CLIP=0.2193
+Rank=85 | Source=Donut.pdf | Page=11 | Image=Donut_page11_img2.png | Hybrid=-6.5584 | CE=-11.0596 | CLIP=0.1935
+Rank=86 | Source=Donut.pdf | Page=11 | Image=Donut_page11_img3.png | Hybrid=-6.5584 | CE=-11.0596 | CLIP=0.1935
+Rank=87 | Source=RAG.pdf | Page=6 | Image=RAG_page6_render.png | Hybrid=-6.5677 | CE=-11.0855 | CLIP=0.2090
+Rank=88 | Source=Donut.pdf | Page=4 | Image=Donut_page4_img0.png | Hybrid=-6.5750 | CE=-11.0569 | CLIP=0.1479
+Rank=89 | Source=Donut.pdf | Page=28 | Image=Donut_page28_img0.png | Hybrid=-6.5817 | CE=-11.0681 | CLIP=0.1479
+Rank=90 | Source=Donut.pdf | Page=4 | Image=Donut_page4_img1.png | Hybrid=-6.6038 | CE=-11.1391 | CLIP=0.1992
+Rank=91 | Source=CNN Paper.pdf | Page=5 | Image=CNN Paper_page5_render.png | Hybrid=-6.6158 | CE=-11.1723 | CLIP=0.2189
+Rank=92 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_render.png | Hybrid=-6.6450 | CE=-11.2189 | CLIP=0.2160
+Rank=93 | Source=CNN Paper.pdf | Page=1 | Image=CNN Paper_page1_img0.png | Hybrid=-6.6573 | CE=-11.2448 | CLIP=0.2238
+Rank=94 | Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img4.png | Hybrid=-6.6636 | CE=-11.2167 | CLIP=0.1659
+Rank=95 | Source=Vision Transformer.pdf | Page=19 | Image=Vision Transformer_page19_render.png | Hybrid=-6.6680 | CE=-11.2615 | CLIP=0.2222
+Rank=96 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img87.png | Hybrid=-6.6702 | CE=-11.2506 | CLIP=0.2002
+Rank=97 | Source=BERT.pdf | Page=3 | Image=BERT_page3_render.png | Hybrid=-6.6720 | CE=-11.2887 | CLIP=0.2531
+Rank=98 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img157.png | Hybrid=-6.6750 | CE=-11.2683 | CLIP=0.2151
+Rank=99 | Source=Donut.pdf | Page=7 | Image=Donut_page7_img0.png | Hybrid=-6.6777 | CE=-11.2543 | CLIP=0.1870
+Rank=100 | Source=Vision Transformer.pdf | Page=7 | Image=Vision Transformer_page7_render.png | Hybrid=-6.6796 | CE=-11.2760 | CLIP=0.2149
+Rank=101 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img86.png | Hybrid=-6.6905 | CE=-11.2910 | CLIP=0.2103
+Rank=102 | Source=BERT.pdf | Page=15 | Image=BERT_page15_img13.png | Hybrid=-6.6909 | CE=-11.3164 | CLIP=0.2474
+Rank=103 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img29.png | Hybrid=-6.6909 | CE=-11.3065 | CLIP=0.2325
+Rank=104 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img62.png | Hybrid=-6.6913 | CE=-11.3082 | CLIP=0.2340
+Rank=105 | Source=CNN Paper.pdf | Page=1 | Image=CNN Paper_page1_render.png | Hybrid=-6.6962 | CE=-11.3164 | CLIP=0.2340
+Rank=106 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img49.png | Hybrid=-6.6964 | CE=-11.3093 | CLIP=0.2231
+Rank=107 | Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img3.png | Hybrid=-6.6974 | CE=-11.2925 | CLIP=0.1952
+Rank=108 | Source=CLIP.pdf | Page=18 | Image=CLIP_page18_render.png | Hybrid=-6.6984 | CE=-11.3072 | CLIP=0.2147
+Rank=109 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img189.png | Hybrid=-6.6990 | CE=-11.3007 | CLIP=0.2035
+Rank=110 | Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img2.png | Hybrid=-6.6995 | CE=-11.2925 | CLIP=0.1901
+Rank=111 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img28.png | Hybrid=-6.6996 | CE=-11.3179 | CLIP=0.2279
+Rank=112 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img36.png | Hybrid=-6.7001 | CE=-11.2943 | CLIP=0.1910
+Rank=113 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img137.png | Hybrid=-6.7007 | CE=-11.3067 | CLIP=0.2082
+Rank=114 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img128.png | Hybrid=-6.7007 | CE=-11.3205 | CLIP=0.2290
+Rank=115 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img251.png | Hybrid=-6.7008 | CE=-11.3336 | CLIP=0.2484
+Rank=116 | Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img5.png | Hybrid=-6.7008 | CE=-11.2952 | CLIP=0.1907
+Rank=117 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img26.png | Hybrid=-6.7022 | CE=-11.3286 | CLIP=0.2374
+Rank=118 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img129.png | Hybrid=-6.7026 | CE=-11.3175 | CLIP=0.2197
+Rank=119 | Source=RAG.pdf | Page=8 | Image=RAG_page8_render.png | Hybrid=-6.7028 | CE=-11.3066 | CLIP=0.2028
+Rank=120 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img211.png | Hybrid=-6.7041 | CE=-11.3260 | CLIP=0.2287
+Rank=121 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img167.png | Hybrid=-6.7049 | CE=-11.3323 | CLIP=0.2361
+Rank=122 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img60.png | Hybrid=-6.7050 | CE=-11.3349 | CLIP=0.2399
+Rank=123 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img212.png | Hybrid=-6.7050 | CE=-11.3023 | CLIP=0.1909
+Rank=124 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img155.png | Hybrid=-6.7053 | CE=-11.3360 | CLIP=0.2407
+Rank=125 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img168.png | Hybrid=-6.7060 | CE=-11.3346 | CLIP=0.2370
+Rank=126 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img85.png | Hybrid=-6.7060 | CE=-11.3223 | CLIP=0.2184
+Rank=127 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img84.png | Hybrid=-6.7062 | CE=-11.3223 | CLIP=0.2179
+Rank=128 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img144.png | Hybrid=-6.7069 | CE=-11.3220 | CLIP=0.2156
+Rank=129 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img225.png | Hybrid=-6.7072 | CE=-11.3299 | CLIP=0.2268
+Rank=130 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img35.png | Hybrid=-6.7075 | CE=-11.3293 | CLIP=0.2253
+Rank=131 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img154.png | Hybrid=-6.7086 | CE=-11.3480 | CLIP=0.2505
+Rank=132 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img250.png | Hybrid=-6.7089 | CE=-11.3496 | CLIP=0.2522
+Rank=133 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img23.png | Hybrid=-6.7089 | CE=-11.3020 | CLIP=0.1807
+Rank=134 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img151.png | Hybrid=-6.7090 | CE=-11.3232 | CLIP=0.2123
+Rank=135 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img32.png | Hybrid=-6.7091 | CE=-11.3281 | CLIP=0.2195
+Rank=136 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img220.png | Hybrid=-6.7091 | CE=-11.3068 | CLIP=0.1875
+Rank=137 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img11.png | Hybrid=-6.7093 | CE=-11.3462 | CLIP=0.2461
+Rank=138 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img150.png | Hybrid=-6.7094 | CE=-11.3297 | CLIP=0.2211
+Rank=139 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img115.png | Hybrid=-6.7094 | CE=-11.3123 | CLIP=0.1949
+Rank=140 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img125.png | Hybrid=-6.7096 | CE=-11.3336 | CLIP=0.2264
+Rank=141 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img59.png | Hybrid=-6.7101 | CE=-11.3431 | CLIP=0.2393
+Rank=142 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img226.png | Hybrid=-6.7107 | CE=-11.3250 | CLIP=0.2108
+Rank=143 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img213.png | Hybrid=-6.7110 | CE=-11.3250 | CLIP=0.2101
+Rank=144 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img255.png | Hybrid=-6.7110 | CE=-11.3281 | CLIP=0.2147
+Rank=145 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img26.png | Hybrid=-6.7111 | CE=-11.3462 | CLIP=0.2417
+Rank=146 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img110.png | Hybrid=-6.7113 | CE=-11.3243 | CLIP=0.2082
+Rank=147 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img122.png | Hybrid=-6.7114 | CE=-11.3332 | CLIP=0.2212
+Rank=148 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img2.png | Hybrid=-6.7115 | CE=-11.3540 | CLIP=0.2522
+Rank=149 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img109.png | Hybrid=-6.7119 | CE=-11.3330 | CLIP=0.2197
+Rank=150 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img196.png | Hybrid=-6.7121 | CE=-11.3277 | CLIP=0.2112
+Rank=151 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img41.png | Hybrid=-6.7122 | CE=-11.3420 | CLIP=0.2325
+Rank=152 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img20.png | Hybrid=-6.7123 | CE=-11.3384 | CLIP=0.2268
+Rank=153 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img4.png | Hybrid=-6.7131 | CE=-11.3385 | CLIP=0.2248
+Rank=154 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img24.png | Hybrid=-6.7135 | CE=-11.3185 | CLIP=0.1941
+Rank=155 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img83.png | Hybrid=-6.7136 | CE=-11.3393 | CLIP=0.2250
+Rank=156 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img61.png | Hybrid=-6.7136 | CE=-11.3387 | CLIP=0.2241
+Rank=157 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img98.png | Hybrid=-6.7137 | CE=-11.3439 | CLIP=0.2315
+Rank=158 | Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img1.png | Hybrid=-6.7138 | CE=-11.3135 | CLIP=0.1857
+Rank=159 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img34.png | Hybrid=-6.7139 | CE=-11.3302 | CLIP=0.2105
+Rank=160 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img99.png | Hybrid=-6.7144 | CE=-11.3307 | CLIP=0.2100
+Rank=161 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img100.png | Hybrid=-6.7144 | CE=-11.3335 | CLIP=0.2142
+Rank=162 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img113.png | Hybrid=-6.7144 | CE=-11.3294 | CLIP=0.2080
+Rank=163 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img103.png | Hybrid=-6.7146 | CE=-11.3330 | CLIP=0.2130
+Rank=164 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img5.png | Hybrid=-6.7147 | CE=-11.3516 | CLIP=0.2407
+Rank=165 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img22.png | Hybrid=-6.7151 | CE=-11.3362 | CLIP=0.2165
+Rank=166 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img17.png | Hybrid=-6.7151 | CE=-11.3476 | CLIP=0.2336
+Rank=167 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img63.png | Hybrid=-6.7152 | CE=-11.3498 | CLIP=0.2367
+Rank=168 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img14.png | Hybrid=-6.7152 | CE=-11.3379 | CLIP=0.2187
+Rank=169 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img27.png | Hybrid=-6.7156 | CE=-11.3446 | CLIP=0.2278
+Rank=170 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img97.png | Hybrid=-6.7157 | CE=-11.3338 | CLIP=0.2115
+Rank=171 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img138.png | Hybrid=-6.7160 | CE=-11.3380 | CLIP=0.2171
+Rank=172 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img17.png | Hybrid=-6.7161 | CE=-11.3562 | CLIP=0.2440
+Rank=173 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img217.png | Hybrid=-6.7163 | CE=-11.3443 | CLIP=0.2257
+Rank=174 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img82.png | Hybrid=-6.7163 | CE=-11.3419 | CLIP=0.2220
+Rank=175 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img123.png | Hybrid=-6.7164 | CE=-11.3433 | CLIP=0.2238
+Rank=176 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img206.png | Hybrid=-6.7167 | CE=-11.3376 | CLIP=0.2146
+Rank=177 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img32.png | Hybrid=-6.7167 | CE=-11.3497 | CLIP=0.2327
+Rank=178 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img37.png | Hybrid=-6.7168 | CE=-11.3319 | CLIP=0.2058
+Rank=179 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img231.png | Hybrid=-6.7169 | CE=-11.3400 | CLIP=0.2177
+Rank=180 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img47.png | Hybrid=-6.7170 | CE=-11.3447 | CLIP=0.2246
+Rank=181 | Source=BERT.pdf | Page=4 | Image=BERT_page4_render.png | Hybrid=-6.7172 | CE=-11.3423 | CLIP=0.2206
+Rank=182 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img230.png | Hybrid=-6.7172 | CE=-11.3326 | CLIP=0.2058
+Rank=183 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img64.png | Hybrid=-6.7172 | CE=-11.3498 | CLIP=0.2315
+Rank=184 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img80.png | Hybrid=-6.7172 | CE=-11.3467 | CLIP=0.2270
+Rank=185 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img6.png | Hybrid=-6.7173 | CE=-11.3651 | CLIP=0.2544
+Rank=186 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img243.png | Hybrid=-6.7174 | CE=-11.3378 | CLIP=0.2132
+Rank=187 | Source=Vision Transformer.pdf | Page=18 | Image=Vision Transformer_page18_img4.png | Hybrid=-6.7175 | CE=-11.3442 | CLIP=0.2227
+Rank=188 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img244.png | Hybrid=-6.7175 | CE=-11.3372 | CLIP=0.2120
+Rank=189 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img24.png | Hybrid=-6.7176 | CE=-11.3172 | CLIP=0.1818
+Rank=190 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img25.png | Hybrid=-6.7176 | CE=-11.3585 | CLIP=0.2438
+Rank=191 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img31.png | Hybrid=-6.7176 | CE=-11.3433 | CLIP=0.2209
+Rank=192 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img48.png | Hybrid=-6.7177 | CE=-11.3240 | CLIP=0.1917
+Rank=193 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img145.png | Hybrid=-6.7179 | CE=-11.3367 | CLIP=0.2104
+Rank=194 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img1.png | Hybrid=-6.7179 | CE=-11.3629 | CLIP=0.2497
+Rank=195 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img14.png | Hybrid=-6.7179 | CE=-11.3628 | CLIP=0.2494
+Rank=196 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img40.png | Hybrid=-6.7179 | CE=-11.3353 | CLIP=0.2082
+Rank=197 | Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img0.png | Hybrid=-6.7181 | CE=-11.3164 | CLIP=0.1793
+Rank=198 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img91.png | Hybrid=-6.7182 | CE=-11.3363 | CLIP=0.2090
+Rank=199 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img141.png | Hybrid=-6.7182 | CE=-11.3407 | CLIP=0.2156
+Rank=200 | Source=NLP Paper.pdf | Page=4 | Image=NLP Paper_page4_img0.png | Hybrid=-6.7182 | CE=-11.3277 | CLIP=0.1960
+Rank=201 | Source=LayoutLMv3.pdf | Page=7 | Image=LayoutLMv3_page7_img0.png | Hybrid=-6.7183 | CE=-11.3623 | CLIP=0.2478
+Rank=202 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img124.png | Hybrid=-6.7183 | CE=-11.3388 | CLIP=0.2124
+Rank=203 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img248.png | Hybrid=-6.7183 | CE=-11.3541 | CLIP=0.2353
+Rank=204 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img30.png | Hybrid=-6.7184 | CE=-11.3373 | CLIP=0.2099
+Rank=205 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img146.png | Hybrid=-6.7185 | CE=-11.3335 | CLIP=0.2039
+Rank=206 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img1.png | Hybrid=-6.7186 | CE=-11.3485 | CLIP=0.2262
+Rank=207 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img223.png | Hybrid=-6.7186 | CE=-11.3440 | CLIP=0.2194
+Rank=208 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img207.png | Hybrid=-6.7190 | CE=-11.3398 | CLIP=0.2122
+Rank=209 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img94.png | Hybrid=-6.7190 | CE=-11.3432 | CLIP=0.2173
+Rank=210 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img135.png | Hybrid=-6.7191 | CE=-11.3338 | CLIP=0.2028
+Rank=211 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img5.png | Hybrid=-6.7194 | CE=-11.3475 | CLIP=0.2227
+Rank=212 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img5.png | Hybrid=-6.7195 | CE=-11.3673 | CLIP=0.2522
+Rank=213 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img0.png | Hybrid=-6.7196 | CE=-11.3339 | CLIP=0.2018
+Rank=214 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img70.png | Hybrid=-6.7197 | CE=-11.3253 | CLIP=0.1886
+Rank=215 | Source=Donut.pdf | Page=2 | Image=Donut_page2_img3.png | Hybrid=-6.7198 | CE=-11.3324 | CLIP=0.1992
+Rank=216 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img190.png | Hybrid=-6.7199 | CE=-11.3423 | CLIP=0.2136
+Rank=217 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img166.png | Hybrid=-6.7199 | CE=-11.3309 | CLIP=0.1966
+Rank=218 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img22.png | Hybrid=-6.7199 | CE=-11.3633 | CLIP=0.2452
+Rank=219 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img75.png | Hybrid=-6.7200 | CE=-11.3437 | CLIP=0.2156
+Rank=220 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img79.png | Hybrid=-6.7200 | CE=-11.3467 | CLIP=0.2200
+Rank=221 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img208.png | Hybrid=-6.7201 | CE=-11.3478 | CLIP=0.2215
+Rank=222 | Source=Vision Transformer.pdf | Page=18 | Image=Vision Transformer_page18_img2.png | Hybrid=-6.7202 | CE=-11.3442 | CLIP=0.2159
+Rank=223 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img249.png | Hybrid=-6.7203 | CE=-11.3568 | CLIP=0.2344
+Rank=224 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img173.png | Hybrid=-6.7204 | CE=-11.3472 | CLIP=0.2198
+Rank=225 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img219.png | Hybrid=-6.7205 | CE=-11.3425 | CLIP=0.2124
+Rank=226 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img7.png | Hybrid=-6.7207 | CE=-11.3635 | CLIP=0.2436
+Rank=227 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img201.png | Hybrid=-6.7207 | CE=-11.3438 | CLIP=0.2141
+Rank=228 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img149.png | Hybrid=-6.7207 | CE=-11.3441 | CLIP=0.2143
+Rank=229 | Source=CLIP.pdf | Page=16 | Image=CLIP_page16_render.png | Hybrid=-6.7211 | CE=-11.3396 | CLIP=0.2066
+Rank=230 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img7.png | Hybrid=-6.7212 | CE=-11.3454 | CLIP=0.2151
+Rank=231 | Source=CLIP.pdf | Page=11 | Image=CLIP_page11_render.png | Hybrid=-6.7212 | CE=-11.3496 | CLIP=0.2213
+Rank=232 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img19.png | Hybrid=-6.7212 | CE=-11.3674 | CLIP=0.2480
+Rank=233 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img0.png | Hybrid=-6.7213 | CE=-11.3589 | CLIP=0.2352
+Rank=234 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img242.png | Hybrid=-6.7215 | CE=-11.3475 | CLIP=0.2175
+Rank=235 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img210.png | Hybrid=-6.7215 | CE=-11.3531 | CLIP=0.2258
+Rank=236 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img33.png | Hybrid=-6.7215 | CE=-11.3594 | CLIP=0.2352
+Rank=237 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img127.png | Hybrid=-6.7215 | CE=-11.3461 | CLIP=0.2152
+Rank=238 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img229.png | Hybrid=-6.7216 | CE=-11.3532 | CLIP=0.2258
+Rank=239 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img24.png | Hybrid=-6.7217 | CE=-11.3668 | CLIP=0.2459
+Rank=240 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img235.png | Hybrid=-6.7219 | CE=-11.3281 | CLIP=0.1875
+Rank=241 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img16.png | Hybrid=-6.7219 | CE=-11.3674 | CLIP=0.2463
+Rank=242 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img193.png | Hybrid=-6.7220 | CE=-11.3414 | CLIP=0.2071
+Rank=243 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img147.png | Hybrid=-6.7221 | CE=-11.3335 | CLIP=0.1951
+Rank=244 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img10.png | Hybrid=-6.7221 | CE=-11.3459 | CLIP=0.2136
+Rank=245 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img117.png | Hybrid=-6.7222 | CE=-11.3486 | CLIP=0.2174
+Rank=246 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img13.png | Hybrid=-6.7222 | CE=-11.3673 | CLIP=0.2454
+Rank=247 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img78.png | Hybrid=-6.7223 | CE=-11.3531 | CLIP=0.2238
+Rank=248 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img158.png | Hybrid=-6.7223 | CE=-11.3495 | CLIP=0.2184
+Rank=249 | Source=Self-RAG.pdf | Page=9 | Image=Self-RAG_page9_render.png | Hybrid=-6.7224 | CE=-11.3560 | CLIP=0.2279
+Rank=250 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img27.png | Hybrid=-6.7227 | CE=-11.3673 | CLIP=0.2443
+Rank=251 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img162.png | Hybrid=-6.7227 | CE=-11.3440 | CLIP=0.2092
+Rank=252 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img132.png | Hybrid=-6.7228 | CE=-11.3404 | CLIP=0.2037
+Rank=253 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img191.png | Hybrid=-6.7229 | CE=-11.3447 | CLIP=0.2097
+Rank=254 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img228.png | Hybrid=-6.7231 | CE=-11.3558 | CLIP=0.2258
+Rank=255 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img66.png | Hybrid=-6.7231 | CE=-11.3621 | CLIP=0.2353
+Rank=256 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img148.png | Hybrid=-6.7231 | CE=-11.3441 | CLIP=0.2082
+Rank=257 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img45.png | Hybrid=-6.7232 | CE=-11.3414 | CLIP=0.2040
+Rank=258 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img67.png | Hybrid=-6.7233 | CE=-11.3314 | CLIP=0.1889
+Rank=259 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img216.png | Hybrid=-6.7233 | CE=-11.3477 | CLIP=0.2133
+Rank=260 | Source=CLIP.pdf | Page=43 | Image=CLIP_page43_render.png | Hybrid=-6.7234 | CE=-11.3433 | CLIP=0.2064
+Rank=261 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img23.png | Hybrid=-6.7235 | CE=-11.3517 | CLIP=0.2189
+Rank=262 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img7.png | Hybrid=-6.7235 | CE=-11.3379 | CLIP=0.1979
+Rank=263 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img10.png | Hybrid=-6.7236 | CE=-11.3456 | CLIP=0.2095
+Rank=264 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img143.png | Hybrid=-6.7237 | CE=-11.3455 | CLIP=0.2091
+Rank=265 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img9.png | Hybrid=-6.7237 | CE=-11.3646 | CLIP=0.2377
+Rank=266 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img8.png | Hybrid=-6.7238 | CE=-11.3543 | CLIP=0.2220
+Rank=267 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img126.png | Hybrid=-6.7238 | CE=-11.3588 | CLIP=0.2285
+Rank=268 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img92.png | Hybrid=-6.7239 | CE=-11.3482 | CLIP=0.2125
+Rank=269 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img52.png | Hybrid=-6.7239 | CE=-11.3510 | CLIP=0.2166
+Rank=270 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img6.png | Hybrid=-6.7239 | CE=-11.3408 | CLIP=0.2014
+Rank=271 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img3.png | Hybrid=-6.7240 | CE=-11.3711 | CLIP=0.2466
+Rank=272 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img130.png | Hybrid=-6.7240 | CE=-11.3542 | CLIP=0.2213
+Rank=273 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img3.png | Hybrid=-6.7241 | CE=-11.3520 | CLIP=0.2178
+Rank=274 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img3.png | Hybrid=-6.7242 | CE=-11.3411 | CLIP=0.2011
+Rank=275 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img12.png | Hybrid=-6.7242 | CE=-11.3752 | CLIP=0.2522
+Rank=276 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img188.png | Hybrid=-6.7243 | CE=-11.3421 | CLIP=0.2025
+Rank=277 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img77.png | Hybrid=-6.7243 | CE=-11.3477 | CLIP=0.2108
+Rank=278 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img177.png | Hybrid=-6.7244 | CE=-11.3502 | CLIP=0.2143
+Rank=279 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img101.png | Hybrid=-6.7244 | CE=-11.3325 | CLIP=0.1878
+Rank=280 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img31.png | Hybrid=-6.7245 | CE=-11.3456 | CLIP=0.2072
+Rank=281 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img161.png | Hybrid=-6.7245 | CE=-11.3439 | CLIP=0.2046
+Rank=282 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img81.png | Hybrid=-6.7246 | CE=-11.3531 | CLIP=0.2182
+Rank=283 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img239.png | Hybrid=-6.7247 | CE=-11.3412 | CLIP=0.2000
+Rank=284 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img174.png | Hybrid=-6.7248 | CE=-11.3525 | CLIP=0.2167
+Rank=285 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img254.png | Hybrid=-6.7250 | CE=-11.3435 | CLIP=0.2029
+Rank=286 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img192.png | Hybrid=-6.7250 | CE=-11.3414 | CLIP=0.1996
+Rank=287 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img203.png | Hybrid=-6.7250 | CE=-11.3445 | CLIP=0.2042
+Rank=288 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img16.png | Hybrid=-6.7250 | CE=-11.3407 | CLIP=0.1985
+Rank=289 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img21.png | Hybrid=-6.7252 | CE=-11.3577 | CLIP=0.2235
+Rank=290 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img136.png | Hybrid=-6.7252 | CE=-11.3453 | CLIP=0.2049
+Rank=291 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img43.png | Hybrid=-6.7253 | CE=-11.3492 | CLIP=0.2106
+Rank=292 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img16.png | Hybrid=-6.7253 | CE=-11.3425 | CLIP=0.2004
+Rank=293 | Source=Vision Transformer.pdf | Page=18 | Image=Vision Transformer_page18_img0.png | Hybrid=-6.7253 | CE=-11.3639 | CLIP=0.2325
+Rank=294 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img13.png | Hybrid=-6.7254 | CE=-11.3529 | CLIP=0.2159
+Rank=295 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img233.png | Hybrid=-6.7254 | CE=-11.3429 | CLIP=0.2010
+Rank=296 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img90.png | Hybrid=-6.7254 | CE=-11.3462 | CLIP=0.2057
+Rank=297 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img164.png | Hybrid=-6.7255 | CE=-11.3475 | CLIP=0.2076
+Rank=298 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img197.png | Hybrid=-6.7255 | CE=-11.3507 | CLIP=0.2123
+Rank=299 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img76.png | Hybrid=-6.7255 | CE=-11.3474 | CLIP=0.2074
+Rank=300 | Source=CLIP.pdf | Page=44 | Image=CLIP_page44_render.png | Hybrid=-6.7255 | CE=-11.3609 | CLIP=0.2275
+Rank=301 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img180.png | Hybrid=-6.7256 | CE=-11.3468 | CLIP=0.2061
+Rank=302 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img107.png | Hybrid=-6.7256 | CE=-11.3472 | CLIP=0.2067
+Rank=303 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img218.png | Hybrid=-6.7258 | CE=-11.3379 | CLIP=0.1925
+Rank=304 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img108.png | Hybrid=-6.7259 | CE=-11.3551 | CLIP=0.2178
+Rank=305 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img18.png | Hybrid=-6.7261 | CE=-11.3569 | CLIP=0.2202
+Rank=306 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img20.png | Hybrid=-6.7262 | CE=-11.3740 | CLIP=0.2457
+Rank=307 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img252.png | Hybrid=-6.7263 | CE=-11.3440 | CLIP=0.2003
+Rank=308 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img245.png | Hybrid=-6.7263 | CE=-11.3494 | CLIP=0.2084
+Rank=309 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img8.png | Hybrid=-6.7264 | CE=-11.3537 | CLIP=0.2146
+Rank=310 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img89.png | Hybrid=-6.7265 | CE=-11.3421 | CLIP=0.1969
+Rank=311 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img72.png | Hybrid=-6.7266 | CE=-11.3409 | CLIP=0.1949
+Rank=312 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img46.png | Hybrid=-6.7267 | CE=-11.3461 | CLIP=0.2025
+Rank=313 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img4.png | Hybrid=-6.7267 | CE=-11.3525 | CLIP=0.2120
+Rank=314 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img12.png | Hybrid=-6.7267 | CE=-11.3511 | CLIP=0.2100
+Rank=315 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img152.png | Hybrid=-6.7267 | CE=-11.3425 | CLIP=0.1970
+Rank=316 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img69.png | Hybrid=-6.7267 | CE=-11.3462 | CLIP=0.2024
+Rank=317 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img131.png | Hybrid=-6.7268 | CE=-11.3377 | CLIP=0.1896
+Rank=318 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img222.png | Hybrid=-6.7268 | CE=-11.3495 | CLIP=0.2073
+Rank=319 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img175.png | Hybrid=-6.7268 | CE=-11.3362 | CLIP=0.1871
+Rank=320 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img12.png | Hybrid=-6.7269 | CE=-11.3531 | CLIP=0.2124
+Rank=321 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img181.png | Hybrid=-6.7270 | CE=-11.3515 | CLIP=0.2099
+Rank=322 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img19.png | Hybrid=-6.7270 | CE=-11.3594 | CLIP=0.2214
+Rank=323 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img65.png | Hybrid=-6.7271 | CE=-11.3666 | CLIP=0.2322
+Rank=324 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img21.png | Hybrid=-6.7272 | CE=-11.3391 | CLIP=0.1906
+Rank=325 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img253.png | Hybrid=-6.7272 | CE=-11.3420 | CLIP=0.1950
+Rank=326 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img93.png | Hybrid=-6.7273 | CE=-11.3487 | CLIP=0.2049
+Rank=327 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img169.png | Hybrid=-6.7273 | CE=-11.3411 | CLIP=0.1935
+Rank=328 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img112.png | Hybrid=-6.7274 | CE=-11.3490 | CLIP=0.2050
+Rank=329 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img21.png | Hybrid=-6.7275 | CE=-11.3674 | CLIP=0.2323
+Rank=330 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img88.png | Hybrid=-6.7278 | CE=-11.3345 | CLIP=0.1821
+Rank=331 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img142.png | Hybrid=-6.7278 | CE=-11.3614 | CLIP=0.2225
+Rank=332 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img22.png | Hybrid=-6.7279 | CE=-11.3447 | CLIP=0.1972
+Rank=333 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img39.png | Hybrid=-6.7279 | CE=-11.3588 | CLIP=0.2183
+Rank=334 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img17.png | Hybrid=-6.7279 | CE=-11.3508 | CLIP=0.2063
+Rank=335 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img224.png | Hybrid=-6.7280 | CE=-11.3424 | CLIP=0.1937
+Rank=336 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img182.png | Hybrid=-6.7280 | CE=-11.3433 | CLIP=0.1950
+Rank=337 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img238.png | Hybrid=-6.7282 | CE=-11.3372 | CLIP=0.1853
+Rank=338 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img121.png | Hybrid=-6.7282 | CE=-11.3560 | CLIP=0.2135
+Rank=339 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img74.png | Hybrid=-6.7282 | CE=-11.3403 | CLIP=0.1899
+Rank=340 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img15.png | Hybrid=-6.7283 | CE=-11.3618 | CLIP=0.2220
+Rank=341 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img215.png | Hybrid=-6.7283 | CE=-11.3481 | CLIP=0.2013
+Rank=342 | Source=BLIP-2.pdf | Page=12 | Image=BLIP-2_page12_img0.png | Hybrid=-6.7285 | CE=-11.3747 | CLIP=0.2407
+Rank=343 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img247.png | Hybrid=-6.7286 | CE=-11.3466 | CLIP=0.1984
+Rank=344 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img5.png | Hybrid=-6.7289 | CE=-11.3493 | CLIP=0.2018
+Rank=345 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img0.png | Hybrid=-6.7290 | CE=-11.3550 | CLIP=0.2100
+Rank=346 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img54.png | Hybrid=-6.7291 | CE=-11.3550 | CLIP=0.2099
+Rank=347 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img171.png | Hybrid=-6.7294 | CE=-11.3677 | CLIP=0.2282
+Rank=348 | Source=Vision Transformer.pdf | Page=15 | Image=Vision Transformer_page15_render.png | Hybrid=-6.7295 | CE=-11.3507 | CLIP=0.2025
+Rank=349 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img38.png | Hybrid=-6.7295 | CE=-11.3577 | CLIP=0.2130
+Rank=350 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img9.png | Hybrid=-6.7295 | CE=-11.3649 | CLIP=0.2236
+Rank=351 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img68.png | Hybrid=-6.7295 | CE=-11.3620 | CLIP=0.2193
+Rank=352 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img51.png | Hybrid=-6.7296 | CE=-11.3624 | CLIP=0.2198
+Rank=353 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img179.png | Hybrid=-6.7296 | CE=-11.3468 | CLIP=0.1961
+Rank=354 | Source=CLIP.pdf | Page=17 | Image=CLIP_page17_render.png | Hybrid=-6.7296 | CE=-11.3638 | CLIP=0.2216
+Rank=355 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img120.png | Hybrid=-6.7297 | CE=-11.3424 | CLIP=0.1894
+Rank=356 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img57.png | Hybrid=-6.7298 | CE=-11.3519 | CLIP=0.2033
+Rank=357 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img165.png | Hybrid=-6.7299 | CE=-11.3455 | CLIP=0.1936
+Rank=358 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img8.png | Hybrid=-6.7299 | CE=-11.3817 | CLIP=0.2479
+Rank=359 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img204.png | Hybrid=-6.7299 | CE=-11.3494 | CLIP=0.1993
+Rank=360 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img200.png | Hybrid=-6.7301 | CE=-11.3441 | CLIP=0.1910
+Rank=361 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img23.png | Hybrid=-6.7302 | CE=-11.3737 | CLIP=0.2351
+Rank=362 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img118.png | Hybrid=-6.7302 | CE=-11.3534 | CLIP=0.2047
+Rank=363 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img176.png | Hybrid=-6.7302 | CE=-11.3404 | CLIP=0.1850
+Rank=364 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img104.png | Hybrid=-6.7303 | CE=-11.3615 | CLIP=0.2165
+Rank=365 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img71.png | Hybrid=-6.7307 | CE=-11.3468 | CLIP=0.1934
+Rank=366 | Source=Donut.pdf | Page=26 | Image=Donut_page26_img1.png | Hybrid=-6.7307 | CE=-11.3242 | CLIP=0.1595
+Rank=367 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img221.png | Hybrid=-6.7308 | CE=-11.3444 | CLIP=0.1896
+Rank=368 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img106.png | Hybrid=-6.7309 | CE=-11.3599 | CLIP=0.2126
+Rank=369 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img237.png | Hybrid=-6.7309 | CE=-11.3561 | CLIP=0.2068
+Rank=370 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img6.png | Hybrid=-6.7310 | CE=-11.3588 | CLIP=0.2107
+Rank=371 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img11.png | Hybrid=-6.7312 | CE=-11.3550 | CLIP=0.2045
+Rank=372 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img116.png | Hybrid=-6.7312 | CE=-11.3486 | CLIP=0.1948
+Rank=373 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img186.png | Hybrid=-6.7313 | CE=-11.3580 | CLIP=0.2088
+Rank=374 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img178.png | Hybrid=-6.7315 | CE=-11.3497 | CLIP=0.1957
+Rank=375 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img246.png | Hybrid=-6.7316 | CE=-11.3497 | CLIP=0.1955
+Rank=376 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img140.png | Hybrid=-6.7318 | CE=-11.3575 | CLIP=0.2069
+Rank=377 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img163.png | Hybrid=-6.7319 | CE=-11.3516 | CLIP=0.1975
+Rank=378 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img56.png | Hybrid=-6.7320 | CE=-11.3591 | CLIP=0.2087
+Rank=379 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img241.png | Hybrid=-6.7321 | CE=-11.3587 | CLIP=0.2077
+Rank=380 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img42.png | Hybrid=-6.7321 | CE=-11.3475 | CLIP=0.1909
+Rank=381 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img50.png | Hybrid=-6.7322 | CE=-11.3524 | CLIP=0.1981
+Rank=382 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img2.png | Hybrid=-6.7323 | CE=-11.3653 | CLIP=0.2172
+Rank=383 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img209.png | Hybrid=-6.7325 | CE=-11.3687 | CLIP=0.2218
+Rank=384 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img202.png | Hybrid=-6.7325 | CE=-11.3475 | CLIP=0.1900
+Rank=385 | Source=CLIP.pdf | Page=23 | Image=CLIP_page23_render.png | Hybrid=-6.7327 | CE=-11.3757 | CLIP=0.2319
+Rank=386 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img227.png | Hybrid=-6.7327 | CE=-11.3617 | CLIP=0.2108
+Rank=387 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img134.png | Hybrid=-6.7328 | CE=-11.3518 | CLIP=0.1958
+Rank=388 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img205.png | Hybrid=-6.7331 | CE=-11.3564 | CLIP=0.2018
+Rank=389 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img28.png | Hybrid=-6.7332 | CE=-11.3607 | CLIP=0.2079
+Rank=390 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img139.png | Hybrid=-6.7334 | CE=-11.3623 | CLIP=0.2100
+Rank=391 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img25.png | Hybrid=-6.7337 | CE=-11.3553 | CLIP=0.1988
+Rank=392 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img198.png | Hybrid=-6.7339 | CE=-11.3574 | CLIP=0.2013
+Rank=393 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img187.png | Hybrid=-6.7340 | CE=-11.3580 | CLIP=0.2020
+Rank=394 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img119.png | Hybrid=-6.7340 | CE=-11.3619 | CLIP=0.2078
+Rank=395 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img2.png | Hybrid=-6.7342 | CE=-11.3519 | CLIP=0.1923
+Rank=396 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img195.png | Hybrid=-6.7343 | CE=-11.3561 | CLIP=0.1985
+Rank=397 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img73.png | Hybrid=-6.7343 | CE=-11.3491 | CLIP=0.1879
+Rank=398 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img172.png | Hybrid=-6.7344 | CE=-11.3718 | CLIP=0.2216
+Rank=399 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img15.png | Hybrid=-6.7344 | CE=-11.3832 | CLIP=0.2388
+Rank=400 | Source=Self-RAG.pdf | Page=4 | Image=Self-RAG_page4_render.png | Hybrid=-6.7346 | CE=-11.3810 | CLIP=0.2351
+Rank=401 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img105.png | Hybrid=-6.7347 | CE=-11.3655 | CLIP=0.2115
+Rank=402 | Source=BLIP-2.pdf | Page=1 | Image=BLIP-2_page1_render.png | Hybrid=-6.7349 | CE=-11.3655 | CLIP=0.2111
+Rank=403 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img13.png | Hybrid=-6.7349 | CE=-11.3671 | CLIP=0.2135
+Rank=404 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img240.png | Hybrid=-6.7349 | CE=-11.3568 | CLIP=0.1979
+Rank=405 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img4.png | Hybrid=-6.7352 | CE=-11.3566 | CLIP=0.1968
+Rank=406 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img55.png | Hybrid=-6.7353 | CE=-11.3606 | CLIP=0.2027
+Rank=407 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img199.png | Hybrid=-6.7354 | CE=-11.3592 | CLIP=0.2003
+Rank=408 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img1.png | Hybrid=-6.7359 | CE=-11.3443 | CLIP=0.1766
+Rank=409 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img2.png | Hybrid=-6.7359 | CE=-11.3620 | CLIP=0.2031
+Rank=410 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img111.png | Hybrid=-6.7360 | CE=-11.3585 | CLIP=0.1977
+Rank=411 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img7.png | Hybrid=-6.7361 | CE=-11.3610 | CLIP=0.2012
+Rank=412 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img58.png | Hybrid=-6.7362 | CE=-11.3671 | CLIP=0.2102
+Rank=413 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img11.png | Hybrid=-6.7362 | CE=-11.3469 | CLIP=0.1798
+Rank=414 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img232.png | Hybrid=-6.7362 | CE=-11.3491 | CLIP=0.1832
+Rank=415 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img9.png | Hybrid=-6.7364 | CE=-11.3565 | CLIP=0.1938
+Rank=416 | Source=CLIP.pdf | Page=38 | Image=CLIP_page38_img0.png | Hybrid=-6.7365 | CE=-11.3757 | CLIP=0.2224
+Rank=417 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img12.png | Hybrid=-6.7368 | CE=-11.3597 | CLIP=0.1977
+Rank=418 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img15.png | Hybrid=-6.7369 | CE=-11.3545 | CLIP=0.1896
+Rank=419 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img29.png | Hybrid=-6.7369 | CE=-11.3630 | CLIP=0.2022
+Rank=420 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img4.png | Hybrid=-6.7370 | CE=-11.3920 | CLIP=0.2454
+Rank=421 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img8.png | Hybrid=-6.7372 | CE=-11.3519 | CLIP=0.1847
+Rank=422 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img96.png | Hybrid=-6.7373 | CE=-11.3541 | CLIP=0.1879
+Rank=423 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img214.png | Hybrid=-6.7373 | CE=-11.3521 | CLIP=0.1848
+Rank=424 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img9.png | Hybrid=-6.7374 | CE=-11.3446 | CLIP=0.1735
+Rank=425 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img156.png | Hybrid=-6.7377 | CE=-11.3647 | CLIP=0.2028
+Rank=426 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img18.png | Hybrid=-6.7382 | CE=-11.3565 | CLIP=0.1893
+Rank=427 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img170.png | Hybrid=-6.7387 | CE=-11.3624 | CLIP=0.1968
+Rank=428 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img194.png | Hybrid=-6.7389 | CE=-11.3566 | CLIP=0.1877
+Rank=429 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img95.png | Hybrid=-6.7389 | CE=-11.3559 | CLIP=0.1865
+Rank=430 | Source=CLIP.pdf | Page=37 | Image=CLIP_page37_render.png | Hybrid=-6.7395 | CE=-11.3924 | CLIP=0.2397
+Rank=431 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img185.png | Hybrid=-6.7398 | CE=-11.3654 | CLIP=0.1987
+Rank=432 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img102.png | Hybrid=-6.7399 | CE=-11.3704 | CLIP=0.2058
+Rank=433 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img53.png | Hybrid=-6.7400 | CE=-11.3537 | CLIP=0.1806
+Rank=434 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img20.png | Hybrid=-6.7400 | CE=-11.3602 | CLIP=0.1903
+Rank=435 | Source=CNN Paper.pdf | Page=4 | Image=CNN Paper_page4_img0.png | Hybrid=-6.7401 | CE=-11.3686 | CLIP=0.2026
+Rank=436 | Source=CLIP.pdf | Page=38 | Image=CLIP_page38_render.png | Hybrid=-6.7402 | CE=-11.3904 | CLIP=0.2350
+Rank=437 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img27.png | Hybrid=-6.7402 | CE=-11.3598 | CLIP=0.1891
+Rank=438 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img35.png | Hybrid=-6.7403 | CE=-11.3555 | CLIP=0.1824
+Rank=439 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img133.png | Hybrid=-6.7403 | CE=-11.3572 | CLIP=0.1849
+Rank=440 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img23.png | Hybrid=-6.7407 | CE=-11.3725 | CLIP=0.2069
+Rank=441 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img18.png | Hybrid=-6.7409 | CE=-11.3994 | CLIP=0.2469
+Rank=442 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img3.png | Hybrid=-6.7410 | CE=-11.3690 | CLIP=0.2009
+Rank=443 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img19.png | Hybrid=-6.7411 | CE=-11.3591 | CLIP=0.1860
+Rank=444 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img114.png | Hybrid=-6.7415 | CE=-11.3608 | CLIP=0.1875
+Rank=445 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img236.png | Hybrid=-6.7417 | CE=-11.3675 | CLIP=0.1969
+Rank=446 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img30.png | Hybrid=-6.7421 | CE=-11.3692 | CLIP=0.1986
+Rank=447 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img44.png | Hybrid=-6.7421 | CE=-11.3697 | CLIP=0.1993
+Rank=448 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img34.png | Hybrid=-6.7423 | CE=-11.3664 | CLIP=0.1939
+Rank=449 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img26.png | Hybrid=-6.7424 | CE=-11.3630 | CLIP=0.1886
+Rank=450 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img6.png | Hybrid=-6.7426 | CE=-11.3692 | CLIP=0.1973
+Rank=451 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img1.png | Hybrid=-6.7428 | CE=-11.3651 | CLIP=0.1905
+Rank=452 | Source=RAG.pdf | Page=7 | Image=RAG_page7_render.png | Hybrid=-6.7430 | CE=-11.3828 | CLIP=0.2168
+Rank=453 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img25.png | Hybrid=-6.7430 | CE=-11.3653 | CLIP=0.1904
+Rank=454 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img14.png | Hybrid=-6.7431 | CE=-11.3560 | CLIP=0.1761
+Rank=455 | Source=CLIP.pdf | Page=2 | Image=CLIP_page2_render.png | Hybrid=-6.7431 | CE=-11.4084 | CLIP=0.2548
+Rank=456 | Source=CLIP.pdf | Page=14 | Image=CLIP_page14_render.png | Hybrid=-6.7437 | CE=-11.3769 | CLIP=0.2060
+Rank=457 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img159.png | Hybrid=-6.7439 | CE=-11.3695 | CLIP=0.1945
+Rank=458 | Source=Self-RAG.pdf | Page=3 | Image=Self-RAG_page3_render.png | Hybrid=-6.7445 | CE=-11.3871 | CLIP=0.2193
+Rank=459 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img184.png | Hybrid=-6.7445 | CE=-11.3654 | CLIP=0.1868
+Rank=460 | Source=CLIP.pdf | Page=19 | Image=CLIP_page19_render.png | Hybrid=-6.7447 | CE=-11.3732 | CLIP=0.1979
+Rank=461 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img33.png | Hybrid=-6.7448 | CE=-11.3685 | CLIP=0.1908
+Rank=462 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img183.png | Hybrid=-6.7449 | CE=-11.3724 | CLIP=0.1964
+Rank=463 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img160.png | Hybrid=-6.7453 | CE=-11.3695 | CLIP=0.1911
+Rank=464 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img10.png | Hybrid=-6.7454 | CE=-11.3613 | CLIP=0.1786
+Rank=465 | Source=BERT.pdf | Page=3 | Image=BERT_page3_img12.png | Hybrid=-6.7457 | CE=-11.4078 | CLIP=0.2474
+Rank=466 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img11.png | Hybrid=-6.7459 | CE=-11.3657 | CLIP=0.1837
+Rank=467 | Source=LayoutLMv3.pdf | Page=1 | Image=LayoutLMv3_page1_img1.png | Hybrid=-6.7467 | CE=-11.3784 | CLIP=0.2009
+Rank=468 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img234.png | Hybrid=-6.7467 | CE=-11.3601 | CLIP=0.1734
+Rank=469 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_render.png | Hybrid=-6.7468 | CE=-11.3883 | CLIP=0.2156
+Rank=470 | Source=CLIP.pdf | Page=38 | Image=CLIP_page38_img1.png | Hybrid=-6.7477 | CE=-11.3880 | CLIP=0.2127
+Rank=471 | Source=NLP Paper.pdf | Page=4 | Image=NLP Paper_page4_render.png | Hybrid=-6.7485 | CE=-11.3890 | CLIP=0.2123
+Rank=472 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img0.png | Hybrid=-6.7486 | CE=-11.3651 | CLIP=0.1762
+Rank=473 | Source=CNN Paper.pdf | Page=2 | Image=CNN Paper_page2_render.png | Hybrid=-6.7486 | CE=-11.3922 | CLIP=0.2167
+Rank=474 | Source=BLIP-2.pdf | Page=12 | Image=BLIP-2_page12_img1.png | Hybrid=-6.7489 | CE=-11.3904 | CLIP=0.2133
+Rank=475 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img10.png | Hybrid=-6.7493 | CE=-11.4127 | CLIP=0.2458
+Rank=476 | Source=Self-RAG.pdf | Page=1 | Image=Self-RAG_page1_render.png | Hybrid=-6.7502 | CE=-11.4027 | CLIP=0.2286
+Rank=477 | Source=BLIP-2.pdf | Page=12 | Image=BLIP-2_page12_img2.png | Hybrid=-6.7503 | CE=-11.3830 | CLIP=0.1986
+Rank=478 | Source=BLIP-2.pdf | Page=1 | Image=BLIP-2_page1_img1.png | Hybrid=-6.7505 | CE=-11.3867 | CLIP=0.2039
+Rank=479 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img22.png | Hybrid=-6.7511 | CE=-11.4202 | CLIP=0.2526
+Rank=480 | Source=Donut.pdf | Page=6 | Image=Donut_page6_render.png | Hybrid=-6.7511 | CE=-11.4021 | CLIP=0.2254
+Rank=481 | Source=Donut.pdf | Page=6 | Image=Donut_page6_img1.png | Hybrid=-6.7513 | CE=-11.3961 | CLIP=0.2158
+Rank=482 | Source=BLIP-2.pdf | Page=12 | Image=BLIP-2_page12_img3.png | Hybrid=-6.7536 | CE=-11.3982 | CLIP=0.2134
+Rank=483 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img31.png | Hybrid=-6.7539 | CE=-11.4092 | CLIP=0.2292
+Rank=484 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img29.png | Hybrid=-6.7544 | CE=-11.4265 | CLIP=0.2537
+Rank=485 | Source=CNN Paper.pdf | Page=3 | Image=CNN Paper_page3_render.png | Hybrid=-6.7546 | CE=-11.4040 | CLIP=0.2194
+Rank=486 | Source=BERT.pdf | Page=14 | Image=BERT_page14_render.png | Hybrid=-6.7550 | CE=-11.4137 | CLIP=0.2330
+Rank=487 | Source=CNN Paper.pdf | Page=3 | Image=CNN Paper_page3_img0.png | Hybrid=-6.7552 | CE=-11.4100 | CLIP=0.2270
+Rank=488 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img6.png | Hybrid=-6.7562 | CE=-11.4162 | CLIP=0.2337
+Rank=489 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img1.png | Hybrid=-6.7570 | CE=-11.4196 | CLIP=0.2369
+Rank=490 | Source=CLIP.pdf | Page=4 | Image=CLIP_page4_render.png | Hybrid=-6.7571 | CE=-11.4100 | CLIP=0.2223
+Rank=491 | Source=Vision Transformer.pdf | Page=14 | Image=Vision Transformer_page14_render.png | Hybrid=-6.7571 | CE=-11.4111 | CLIP=0.2239
+Rank=492 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img4.png | Hybrid=-6.7579 | CE=-11.3715 | CLIP=0.1625
+Rank=493 | Source=LayoutLMv3.pdf | Page=1 | Image=LayoutLMv3_page1_render.png | Hybrid=-6.7581 | CE=-11.4016 | CLIP=0.2070
+Rank=494 | Source=Donut.pdf | Page=2 | Image=Donut_page2_img0.png | Hybrid=-6.7585 | CE=-11.3768 | CLIP=0.1690
+Rank=495 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img32.png | Hybrid=-6.7587 | CE=-11.4182 | CLIP=0.2306
+Rank=496 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img0.png | Hybrid=-6.7590 | CE=-11.4063 | CLIP=0.2120
+Rank=497 | Source=Donut.pdf | Page=26 | Image=Donut_page26_img2.png | Hybrid=-6.7593 | CE=-11.3767 | CLIP=0.1667
+Rank=498 | Source=Donut.pdf | Page=2 | Image=Donut_page2_img2.png | Hybrid=-6.7594 | CE=-11.3837 | CLIP=0.1771
+Rank=499 | Source=CNN Paper.pdf | Page=3 | Image=CNN Paper_page3_img1.png | Hybrid=-6.7595 | CE=-11.4038 | CLIP=0.2069
+Rank=500 | Source=Donut.pdf | Page=6 | Image=Donut_page6_img2.png | Hybrid=-6.7598 | CE=-11.4099 | CLIP=0.2154
+Rank=501 | Source=NLP Paper.pdf | Page=1 | Image=NLP Paper_page1_img0.png | Hybrid=-6.7605 | CE=-11.4099 | CLIP=0.2136
+Rank=502 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img0.png | Hybrid=-6.7623 | CE=-11.4163 | CLIP=0.2188
+Rank=503 | Source=Donut.pdf | Page=2 | Image=Donut_page2_render.png | Hybrid=-6.7625 | CE=-11.4212 | CLIP=0.2254
+Rank=504 | Source=CNN Paper.pdf | Page=2 | Image=CNN Paper_page2_img0.png | Hybrid=-6.7633 | CE=-11.3946 | CLIP=0.1837
+Rank=505 | Source=CLIP.pdf | Page=13 | Image=CLIP_page13_render.png | Hybrid=-6.7636 | CE=-11.4210 | CLIP=0.2225
+Rank=506 | Source=Donut.pdf | Page=7 | Image=Donut_page7_img1.png | Hybrid=-6.7638 | CE=-11.4120 | CLIP=0.2085
+Rank=507 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img28.png | Hybrid=-6.7638 | CE=-11.4274 | CLIP=0.2314
+Rank=508 | Source=NLP Paper.pdf | Page=4 | Image=NLP Paper_page4_img1.png | Hybrid=-6.7642 | CE=-11.3883 | CLIP=0.1720
+Rank=509 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img8.png | Hybrid=-6.7644 | CE=-11.4127 | CLIP=0.2079
+Rank=510 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img27.png | Hybrid=-6.7646 | CE=-11.4210 | CLIP=0.2200
+Rank=511 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img5.png | Hybrid=-6.7648 | CE=-11.4126 | CLIP=0.2068
+Rank=512 | Source=BERT.pdf | Page=5 | Image=BERT_page5_render.png | Hybrid=-6.7657 | CE=-11.4336 | CLIP=0.2362
+Rank=513 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img14.png | Hybrid=-6.7660 | CE=-11.4182 | CLIP=0.2123
+Rank=514 | Source=Donut.pdf | Page=2 | Image=Donut_page2_img1.png | Hybrid=-6.7669 | CE=-11.3768 | CLIP=0.1479
+Rank=515 | Source=RAG.pdf | Page=17 | Image=RAG_page17_img0.png | Hybrid=-6.7672 | CE=-11.4210 | CLIP=0.2133
+Rank=516 | Source=Self-RAG.pdf | Page=5 | Image=Self-RAG_page5_render.png | Hybrid=-6.7682 | CE=-11.4382 | CLIP=0.2368
+Rank=517 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img35.png | Hybrid=-6.7688 | CE=-11.4238 | CLIP=0.2137
+Rank=518 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img18.png | Hybrid=-6.7688 | CE=-11.4231 | CLIP=0.2126
+Rank=519 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img34.png | Hybrid=-6.7702 | CE=-11.4313 | CLIP=0.2215
+Rank=520 | Source=Donut.pdf | Page=6 | Image=Donut_page6_img0.png | Hybrid=-6.7705 | CE=-11.4202 | CLIP=0.2041
+Rank=521 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img11.png | Hybrid=-6.7706 | CE=-11.4300 | CLIP=0.2184
+Rank=522 | Source=CLIP.pdf | Page=41 | Image=CLIP_page41_render.png | Hybrid=-6.7710 | CE=-11.4135 | CLIP=0.1928
+Rank=523 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img13.png | Hybrid=-6.7714 | CE=-11.4133 | CLIP=0.1914
+Rank=524 | Source=CLIP.pdf | Page=2 | Image=CLIP_page2_img1.png | Hybrid=-6.7716 | CE=-11.4224 | CLIP=0.2046
+Rank=525 | Source=Donut.pdf | Page=26 | Image=Donut_page26_img0.png | Hybrid=-6.7718 | CE=-11.3959 | CLIP=0.1644
+Rank=526 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img30.png | Hybrid=-6.7730 | CE=-11.4188 | CLIP=0.1958
+Rank=527 | Source=CLIP.pdf | Page=2 | Image=CLIP_page2_img2.png | Hybrid=-6.7732 | CE=-11.4338 | CLIP=0.2176
+Rank=528 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img3.png | Hybrid=-6.7735 | CE=-11.4226 | CLIP=0.2002
+Rank=529 | Source=Donut.pdf | Page=8 | Image=Donut_page8_render.png | Hybrid=-6.7737 | CE=-11.4380 | CLIP=0.2228
+Rank=530 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img12.png | Hybrid=-6.7745 | CE=-11.4231 | CLIP=0.1985
+Rank=531 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img9.png | Hybrid=-6.7746 | CE=-11.4257 | CLIP=0.2021
+Rank=532 | Source=Donut.pdf | Page=6 | Image=Donut_page6_img3.png | Hybrid=-6.7752 | CE=-11.4079 | CLIP=0.1738
+Rank=533 | Source=Self-RAG.pdf | Page=2 | Image=Self-RAG_page2_render.png | Hybrid=-6.7763 | CE=-11.4471 | CLIP=0.2300
+Rank=534 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img19.png | Hybrid=-6.7774 | CE=-11.4231 | CLIP=0.1911
+Rank=535 | Source=Self-RAG.pdf | Page=10 | Image=Self-RAG_page10_render.png | Hybrid=-6.7776 | CE=-11.4449 | CLIP=0.2232
+Rank=536 | Source=CLIP.pdf | Page=12 | Image=CLIP_page12_render.png | Hybrid=-6.7787 | CE=-11.4353 | CLIP=0.2063
+Rank=537 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img7.png | Hybrid=-6.7787 | CE=-11.4329 | CLIP=0.2026
+Rank=538 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img2.png | Hybrid=-6.7797 | CE=-11.4353 | CLIP=0.2037
+Rank=539 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img33.png | Hybrid=-6.7803 | CE=-11.4346 | CLIP=0.2013
+Rank=540 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img17.png | Hybrid=-6.7821 | CE=-11.4353 | CLIP=0.1976
+Rank=541 | Source=CLIP.pdf | Page=2 | Image=CLIP_page2_img4.png | Hybrid=-6.7824 | CE=-11.4368 | CLIP=0.1992
+Rank=542 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img16.png | Hybrid=-6.7824 | CE=-11.4330 | CLIP=0.1935
+Rank=543 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img25.png | Hybrid=-6.7825 | CE=-11.4244 | CLIP=0.1804
+Rank=544 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img24.png | Hybrid=-6.7826 | CE=-11.4306 | CLIP=0.1894
+Rank=545 | Source=CLIP.pdf | Page=2 | Image=CLIP_page2_img0.png | Hybrid=-6.7832 | CE=-11.4378 | CLIP=0.1987
+Rank=546 | Source=LayoutLMv3.pdf | Page=1 | Image=LayoutLMv3_page1_img0.png | Hybrid=-6.7835 | CE=-11.4396 | CLIP=0.2008
+Rank=547 | Source=CLIP.pdf | Page=2 | Image=CLIP_page2_img3.png | Hybrid=-6.7849 | CE=-11.4366 | CLIP=0.1927
+Rank=548 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img15.png | Hybrid=-6.7852 | CE=-11.4296 | CLIP=0.1814
+Rank=549 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img21.png | Hybrid=-6.7853 | CE=-11.4289 | CLIP=0.1800
+Rank=550 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img10.png | Hybrid=-6.7866 | CE=-11.4296 | CLIP=0.1779
+Rank=551 | Source=NLP Paper.pdf | Page=2 | Image=NLP Paper_page2_img0.png | Hybrid=-6.7915 | CE=-11.4450 | CLIP=0.1887
+Rank=552 | Source=CLIP.pdf | Page=24 | Image=CLIP_page24_render.png | Hybrid=-6.7916 | CE=-11.4545 | CLIP=0.2027
+Rank=553 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img20.png | Hybrid=-6.7939 | CE=-11.4365 | CLIP=0.1701
+Rank=554 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img26.png | Hybrid=-6.7957 | CE=-11.4503 | CLIP=0.1863
+
+TOP IMAGE RESULTS
+--------------------------------------------------------------------------------
+TOP-1 | Source=BLIP-2.pdf | Page=2 | Image=BLIP-2_page2_render.png | Hybrid=-3.0211 | CE=-5.1958 | CLIP=0.2408
+TOP-2 | Source=BLIP-2.pdf | Page=13 | Image=BLIP-2_page13_img1.png | Hybrid=-3.6754 | CE=-6.2718 | CLIP=0.2193
+TOP-3 | Source=BLIP-2.pdf | Page=3 | Image=BLIP-2_page3_render.png | Hybrid=-3.9838 | CE=-6.8000 | CLIP=0.2405
+================================================================================
+
+================================================================================
+STAGE 2 — IMAGE RETRIEVAL RESULT
+================================================================================
+Image Results       : 3
+Exact Figure Match  : False
+
+[IMAGE #1] Source=BLIP-2.pdf | Page=2 | Image=BLIP-2_page2_render.png
+Image Path: extracted_images\BLIP-2_page2_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the journal of the journal of the journal of the journal of the journal of the journal of the journal of the  OCR Text: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models  visual feature for the LLM to output the desired text. In the first pre-training stage, we perform vision-language rep- resentation learning which enforces the Q-Former to learn visual representation most
+
+[IMAGE #2] Source=BLIP-2.pdf | Page=13 | Image=BLIP-2_page13_img1.png
+Image Path: extracted_images\BLIP-2_page13_img1.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT  Caption: a cat wearing sunglasses and looking up at the camera  OCR Text: No readable text found in this image.  Nearby Document Text: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models Image Encoder Input Image Queries … Q-Former … What is the cat wearing? Answer Fully Connected … LLM sunglasses Question What is the cat wearing? Question Figure 7. Model architecture for VQA finetuning, where the LLM receives Q-Former’s ou
+
+[IMAGE #3] Source=BLIP-2.pdf | Page=3 | Image=BLIP-2_page3_render.png
+Image Path: extracted_images\BLIP-2_page3_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models  Q-Former Q: query token positions; T: text token positions. Image-Text Image-Grounded O masked 0 unmasked Matching Image-Text Text Generation . Q T Q T Q T Input Image Cont
+================================================================================
+
+================================================================================
+COMBINED RETRIEVAL CANDIDATES
+================================================================================
+Text Candidates  : 8
+Image Candidates : 3
+Total Candidates : 11
+================================================================================
+
+================================================================================
+STEP 3A — RERANKER INPUT
+================================================================================
+Query: What are the two Transformer submodules that make up the Q-Former, and what role does each one play?
+Input candidates: 11
+01. Source=BLIP-2.pdf | Page=2 | Type=text | Image=N/A
+    Content=tive learning stage with a frozen LLM. This section first introduces the model architecture of Q-Former, and then delineates the two-stage pre-training procedures. 3.1. Model Archi
+02. Source=BLIP-2.pdf | Page=3 | Type=text | Image=N/A
+    Content=Q-Former to generate texts, given input images as the con- dition. Since the architecture of Q-Former does not allow direct interactions between the frozen image encoder and the te
+03. Source=Vision Transformer.pdf | Page=3 | Type=text | Image=N/A
+    Content=their efﬁcient implementations – can be used almost out of the box. 3.1 V ISION TRANSFORMER (V IT) An overview of the model is depicted in Figure 1. The standard Transformer receiv
+04. Source=BLIP-2.pdf | Page=5 | Type=text | Image=N/A
+    Content=A man and a chicken. What are shown in the photo? What does the man feel and why?  He is scared ofthe chicken because it is flying at him. Pepperoni, mozzarella cheese, pizza sauce
+05. Source=Vision Transformer.pdf | Page=3 | Type=text | Image=N/A
+    Content=is the resulting number of patches, which also serves as the effective input sequence length for the Transformer. The Transformer uses constant latent vector size D through all of 
+06. Source=BLIP-2.pdf | Page=13 | Type=image | Image=extracted_images\BLIP-2_page13_img1.png
+    Content=FIGURE FROM DOCUMENT  Caption: a cat wearing sunglasses and looking up at the camera  OCR Text: No readable text found in this image.  Nearby Document Text: BLIP-2: Bootstrapping L
+07. Source=Vision Transformer.pdf | Page=14 | Type=text | Image=N/A
+    Content=that Vision Transformer beneﬁts most from a high resolution (384× 384) for all tasks. B.1.2 S ELF -SUPERVISION We employ the masked patch prediction objective for preliminary self-
+08. Source=BLIP-2.pdf | Page=13 | Type=text | Image=N/A
+    Content=BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models Image Encoder Input Image Queries … Q-Former … What is the cat wearing? Answe
+09. Source=BLIP-2.pdf | Page=2 | Type=image | Image=extracted_images\BLIP-2_page2_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the journal of the journal of the journal of the journal of the journal of the journal of the journal of the
+10. Source=BLIP-2.pdf | Page=13 | Type=image | Image=extracted_images\BLIP-2_page13_img1.png
+    Content=FIGURE FROM DOCUMENT  Caption: a cat wearing sunglasses and looking up at the camera  OCR Text: No readable text found in this image.  Nearby Document Text: BLIP-2: Bootstrapping L
+11. Source=BLIP-2.pdf | Page=3 | Type=image | Image=extracted_images\BLIP-2_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+================================================================================
+
+--------------------------------------------------------------------------------
+CROSS-ENCODER RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=00 | Source=BLIP-2.pdf | Page=2 | Type=text | CE=4.4491
+Rank=02 | OriginalIndex=01 | Source=BLIP-2.pdf | Page=3 | Type=text | CE=-0.9735
+Rank=03 | OriginalIndex=07 | Source=BLIP-2.pdf | Page=13 | Type=text | CE=-4.6992
+Rank=04 | OriginalIndex=08 | Source=BLIP-2.pdf | Page=2 | Type=image | CE=-5.1958
+Rank=05 | OriginalIndex=05 | Source=BLIP-2.pdf | Page=13 | Type=image | CE=-6.2718
+Rank=06 | OriginalIndex=09 | Source=BLIP-2.pdf | Page=13 | Type=image | CE=-6.2718
+Rank=07 | OriginalIndex=10 | Source=BLIP-2.pdf | Page=3 | Type=image | CE=-6.8000
+Rank=08 | OriginalIndex=02 | Source=Vision Transformer.pdf | Page=3 | Type=text | CE=-7.4660
+Rank=09 | OriginalIndex=04 | Source=Vision Transformer.pdf | Page=3 | Type=text | CE=-8.2725
+Rank=10 | OriginalIndex=06 | Source=Vision Transformer.pdf | Page=14 | Type=text | CE=-9.1304
+Rank=11 | OriginalIndex=03 | Source=BLIP-2.pdf | Page=5 | Type=text | CE=-11.3546
+
+--------------------------------------------------------------------------------
+CLIP IMAGE RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=08 | Source=BLIP-2.pdf | Page=2 | Image=extracted_images\BLIP-2_page2_render.png | CLIP=0.2408
+Rank=02 | OriginalIndex=10 | Source=BLIP-2.pdf | Page=3 | Image=extracted_images\BLIP-2_page3_render.png | CLIP=0.2405
+Rank=03 | OriginalIndex=05 | Source=BLIP-2.pdf | Page=13 | Image=extracted_images\BLIP-2_page13_img1.png | CLIP=0.2193
+Rank=04 | OriginalIndex=09 | Source=BLIP-2.pdf | Page=13 | Image=extracted_images\BLIP-2_page13_img1.png | CLIP=0.2193
+
+================================================================================
+STEP 3A — COMPLETE MULTIMODAL RERANK RESULT
+================================================================================
+Rank=01 | Type=image | Source=BLIP-2.pdf | Page=2 | RRF=0.032018 | CE=-5.1958 | CLIP=0.2408
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the journal of the journal of the journal of the journal of the journal of the journal of the journal of the
+Rank=02 | Type=image | Source=BLIP-2.pdf | Page=13 | RRF=0.031258 | CE=-6.2718 | CLIP=0.2193
+    Content=FIGURE FROM DOCUMENT  Caption: a cat wearing sunglasses and looking up at the camera  OCR Text: No readable text found in this image.  Nearby Document Text: BLIP-2: Bootstrapping L
+Rank=03 | Type=image | Source=BLIP-2.pdf | Page=3 | RRF=0.031054 | CE=-6.8000 | CLIP=0.2405
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+Rank=04 | Type=image | Source=BLIP-2.pdf | Page=13 | RRF=0.030777 | CE=-6.2718 | CLIP=0.2193
+    Content=FIGURE FROM DOCUMENT  Caption: a cat wearing sunglasses and looking up at the camera  OCR Text: No readable text found in this image.  Nearby Document Text: BLIP-2: Bootstrapping L
+Rank=05 | Type=text | Source=BLIP-2.pdf | Page=2 | RRF=0.016393 | CE=4.4491 | CLIP=N/A
+    Content=tive learning stage with a frozen LLM. This section first introduces the model architecture of Q-Former, and then delineates the two-stage pre-training procedures. 3.1. Model Archi
+Rank=06 | Type=text | Source=BLIP-2.pdf | Page=3 | RRF=0.016129 | CE=-0.9735 | CLIP=N/A
+    Content=Q-Former to generate texts, given input images as the con- dition. Since the architecture of Q-Former does not allow direct interactions between the frozen image encoder and the te
+Rank=07 | Type=text | Source=BLIP-2.pdf | Page=13 | RRF=0.015873 | CE=-4.6992 | CLIP=N/A
+    Content=BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models Image Encoder Input Image Queries … Q-Former … What is the cat wearing? Answe
+Rank=08 | Type=text | Source=Vision Transformer.pdf | Page=3 | RRF=0.014706 | CE=-7.4660 | CLIP=N/A
+    Content=their efﬁcient implementations – can be used almost out of the box. 3.1 V ISION TRANSFORMER (V IT) An overview of the model is depicted in Figure 1. The standard Transformer receiv
+Rank=09 | Type=text | Source=Vision Transformer.pdf | Page=3 | RRF=0.014493 | CE=-8.2725 | CLIP=N/A
+    Content=is the resulting number of patches, which also serves as the effective input sequence length for the Transformer. The Transformer uses constant latent vector size D through all of 
+Rank=10 | Type=text | Source=Vision Transformer.pdf | Page=14 | RRF=0.014286 | CE=-9.1304 | CLIP=N/A
+    Content=that Vision Transformer beneﬁts most from a high resolution (384× 384) for all tasks. B.1.2 S ELF -SUPERVISION We employ the masked patch prediction objective for preliminary self-
+Rank=11 | Type=text | Source=BLIP-2.pdf | Page=5 | RRF=0.014085 | CE=-11.3546 | CLIP=N/A
+    Content=A man and a chicken. What are shown in the photo? What does the man feel and why?  He is scared ofthe chicken because it is flying at him. Pepperoni, mozzarella cheese, pizza sauce
+================================================================================
+
+================================================================================
+STEP 3A — FINAL RERANK TOP-K
+================================================================================
+Requested top_k: 12
+Returned documents: 10
+01. Source=BLIP-2.pdf | Page=2 | Type=image | Image=extracted_images\BLIP-2_page2_render.png
+02. Source=BLIP-2.pdf | Page=13 | Type=image | Image=extracted_images\BLIP-2_page13_img1.png
+03. Source=BLIP-2.pdf | Page=3 | Type=image | Image=extracted_images\BLIP-2_page3_render.png
+04. Source=BLIP-2.pdf | Page=2 | Type=text | Image=N/A
+05. Source=BLIP-2.pdf | Page=3 | Type=text | Image=N/A
+06. Source=BLIP-2.pdf | Page=13 | Type=text | Image=N/A
+07. Source=Vision Transformer.pdf | Page=3 | Type=text | Image=N/A
+08. Source=Vision Transformer.pdf | Page=3 | Type=text | Image=N/A
+09. Source=Vision Transformer.pdf | Page=14 | Type=text | Image=N/A
+10. Source=BLIP-2.pdf | Page=5 | Type=text | Image=N/A
+================================================================================
+
+================================================================================
+STAGE 3 — MULTIMODAL RERANKING
+================================================================================
+Input Candidates : 11
+Reranked Output   : 10
+
+[RERANK #1] Source=BLIP-2.pdf | Page=2 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the journal of the journal of the journal of the journal of the journal of the journal of the journal of the  OCR Text: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models  visu
+
+[RERANK #2] Source=BLIP-2.pdf | Page=13 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT  Caption: a cat wearing sunglasses and looking up at the camera  OCR Text: No readable text found in this image.  Nearby Document Text: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models Image Encoder Input Image Queries … Q-Fo
+
+[RERANK #3] Source=BLIP-2.pdf | Page=3 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders
+
+[RERANK #4] Source=BLIP-2.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: tive learning stage with a frozen LLM. This section first introduces the model architecture of Q-Former, and then delineates the two-stage pre-training procedures. 3.1. Model Architecture We propose Q-Former as the trainable module to bridge the gap between a frozen image encoder and a frozen LLM. I
+
+[RERANK #5] Source=BLIP-2.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Q-Former to generate texts, given input images as the con- dition. Since the architecture of Q-Former does not allow direct interactions between the frozen image encoder and the text tokens, the information required for generating the text must be first extracted by the queries, and then passed to t
+
+[RERANK #6] Source=BLIP-2.pdf | Page=13 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models Image Encoder Input Image Queries … Q-Former … What is the cat wearing? Answer Fully Connected … LLM sunglasses Question What is the cat wearing? Question Figure 7. Model architecture for VQA finet
+
+[RERANK #7] Source=Vision Transformer.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: their efﬁcient implementations – can be used almost out of the box. 3.1 V ISION TRANSFORMER (V IT) An overview of the model is depicted in Figure 1. The standard Transformer receives as input a 1D sequence of token embeddings. To handle 2D images, we reshape the image x∈ RH×W×C into a sequence of ﬂa
+
+[RERANK #8] Source=Vision Transformer.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: is the resulting number of patches, which also serves as the effective input sequence length for the Transformer. The Transformer uses constant latent vector size D through all of its layers, so we ﬂatten the patches and map to D dimensions with a trainable linear projection (Eq. 1). We refer to the
+
+[RERANK #9] Source=Vision Transformer.pdf | Page=14 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: that Vision Transformer beneﬁts most from a high resolution (384× 384) for all tasks. B.1.2 S ELF -SUPERVISION We employ the masked patch prediction objective for preliminary self-supervision experiments. To do so we corrupt 50% of patch embeddings by either replacing their embeddings with a learnab
+
+[RERANK #10] Source=BLIP-2.pdf | Page=5 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: A man and a chicken. What are shown in the photo? What does the man feel and why?  He is scared ofthe chicken because it is flying at him. Pepperoni, mozzarella cheese, pizza sauce, olive oil, salt, pepper, basil. What are the ingredients I need to make this? What is the first step? Place the pizza 
+================================================================================
+
+================================================================================
+FINAL CONTEXT DOCUMENTS
+================================================================================
+Final context candidates: 10
+
+[FINAL #1] Source=BLIP-2.pdf | Page=2 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the journal of the journal of the journal of the journal of the journal of the journal of the journal of the  OCR Text: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models  visu
+
+[FINAL #2] Source=BLIP-2.pdf | Page=13 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT  Caption: a cat wearing sunglasses and looking up at the camera  OCR Text: No readable text found in this image.  Nearby Document Text: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models Image Encoder Input Image Queries … Q-Fo
+
+[FINAL #3] Source=BLIP-2.pdf | Page=3 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders
+
+[FINAL #4] Source=BLIP-2.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: tive learning stage with a frozen LLM. This section first introduces the model architecture of Q-Former, and then delineates the two-stage pre-training procedures. 3.1. Model Architecture We propose Q-Former as the trainable module to bridge the gap between a frozen image encoder and a frozen LLM. I
+
+[FINAL #5] Source=BLIP-2.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Q-Former to generate texts, given input images as the con- dition. Since the architecture of Q-Former does not allow direct interactions between the frozen image encoder and the text tokens, the information required for generating the text must be first extracted by the queries, and then passed to t
+
+[FINAL #6] Source=BLIP-2.pdf | Page=13 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models Image Encoder Input Image Queries … Q-Former … What is the cat wearing? Answer Fully Connected … LLM sunglasses Question What is the cat wearing? Question Figure 7. Model architecture for VQA finet
+
+[FINAL #7] Source=Vision Transformer.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: their efﬁcient implementations – can be used almost out of the box. 3.1 V ISION TRANSFORMER (V IT) An overview of the model is depicted in Figure 1. The standard Transformer receives as input a 1D sequence of token embeddings. To handle 2D images, we reshape the image x∈ RH×W×C into a sequence of ﬂa
+
+[FINAL #8] Source=Vision Transformer.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: is the resulting number of patches, which also serves as the effective input sequence length for the Transformer. The Transformer uses constant latent vector size D through all of its layers, so we ﬂatten the patches and map to D dimensions with a trainable linear projection (Eq. 1). We refer to the
+
+[FINAL #9] Source=Vision Transformer.pdf | Page=14 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: that Vision Transformer beneﬁts most from a high resolution (384× 384) for all tasks. B.1.2 S ELF -SUPERVISION We employ the masked patch prediction objective for preliminary self-supervision experiments. To do so we corrupt 50% of patch embeddings by either replacing their embeddings with a learnab
+
+[FINAL #10] Source=BLIP-2.pdf | Page=5 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: A man and a chicken. What are shown in the photo? What does the man feel and why?  He is scared ofthe chicken because it is flying at him. Pepperoni, mozzarella cheese, pizza sauce, olive oil, salt, pepper, basil. What are the ingredients I need to make this? What is the first step? Place the pizza 
+================================================================================
+
+================================================================================
+FINAL CONTEXT SENT TO LLM
+================================================================================
+
+================================================================================
+DOCUMENT : BLIP-2.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 2
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+tive learning stage with a frozen LLM. This section first
+introduces the model architecture of Q-Former, and then
+delineates the two-stage pre-training procedures.
+3.1. Model Architecture
+We propose Q-Former as the trainable module to bridge the
+gap between a frozen image encoder and a frozen LLM. It
+extracts a fixed number of output features from the image
+encoder, independent of input image resolution. As shown
+in Figure 2, Q-Former consists of two transformer submod-
+ules that share the same self-attention layers: (1) an image
+transformer that interacts with the frozen image encoder
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a page from the journal of the journal of the journal of the journal of the journal of the journal of the journal of the journal of the
+
+OCR Text:
+BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models
+
+visual feature for the LLM to output the desired text. In
+the first pre-training stage, we perform vision-language rep-
+resentation learning which enforces the Q-Former to learn
+visual representation most relevant to the text. In the second
+pre-training stage, we perform vision-to-language genera-
+tive learning by connecting the output of the Q-Former to a
+frozen LLM, and trains the Q-Former such that its output
+visual representation can be interpreted by the LLM.
+
+We name our VLP framework as BLIP-2: Bootstrapping
+Language-Image Pre-training with frozen unimodal models.
+The key advantages of BLIP-2 include:
+
+BLIP-2 effectively leverages both frozen pre-trained im-
+age models and language models. We bridge the modality
+gap using a Q-Former pre-trained in two-stages: repre-
+sentation learning stage and generative learning stage.
+BLIP-2 achieves state-of-the-art performance on various
+vision-language tasks including visual question answer-
+ing, image captioning, and image-text retrieval.
+
+Powered by LLMs (e.g. OPT (Zhang et al., 2022),
+FlanT5 (Chung et al., 2022)), BLIP-2 can be prompted to
+perform zero-shot image-to-text generation that follows
+natural language instructions, which enables emerging
+capabilities such as visual knowledge reasoning, visual
+conversation, etc. (see Figure 4 for examples).
+
+Due to the use of frozen unimodal models and a
+lightweight Q-Former, BLIP-2 is more compute-efficient
+than exisiting state-of-the-arts. For example, BLIP-2 out-
+performs Flamingo (Alayrac et al., 2022) by 8.7% on
+zero-shot VQAv2, while using 54x fewer trainable pa-
+rameters. Furthermore, our results show that BLIP-2 is a
+generic method that can harvest more advanced unimodal
+models for better VLP performance.
+
+2. Related Work
+
+2.1. End-to-end Vision-Language Pre-training
+
+Vision-language pre-training aims to learn multimodal foun-
+dation models with improved performance on various vision-
+and-language tasks. Depending on the downstream task,
+different model architectures have been proposed, including
+the dual-encoder architecture (Radford et al., 2021; Jia et al.,
+2021), the fusion-encoder architecture (Tan & Bansal, 2019;
+Li et al., 2021), the encoder-decoder architecture (Cho et al.,
+2021; Wang et al., 2021b; Chen et al., 2022b), and more
+recently, the unified transformer architecture (Li et al., 2022;
+Wang et al., 2022b). Various pre-training objectives have
+also been proposed over the years, and have progressively
+converged to a few time-tested ones: image-text contrastive
+learning (Radford et al., 2021; Yao et al., 2022; Li et al.,
+2021; 2022), image-text matching (Li et al., 2021; 2022;
+Wang et al., 2021a), and (masked) language modeling (Li
+et al., 2021; 2022; Yu et al., 2022; Wang et al., 2022b).
+
+Most VLP methods perform end-to-end pre-training using
+large-scale image-text pair datasets. As the model size keeps
+increasing, the pre-training can incur an extremely high
+computation cost. Moreover, it is inflexible for end-to-end
+pre-trained models to leverage readily-available unimodal
+pre-trained models, such as LLMs (Brown et al., 2020;
+Zhang et al., 2022; Chung et al., 2022).
+
+2.2. Modular Vision-Language Pre-training
+
+More similar to us are methods that leverage off-the-shelf
+pre-trained models and keep them frozen during VLP. Some
+methods freeze the image encoder, including the early work
+which adopts a frozen object detector to extract visual fea-
+tures (Chen et al., 2020; Li et al., 2020; Zhang et al., 2021),
+and the recent LiT (Zhai et al., 2022) which uses a frozen
+pre-trained image encoder for CLIP (Radford et al., 2021)
+pre-training. Some methods freeze the language model
+to use the knowledge from LLMs for vision-to-language
+generation tasks (Tsimpoukelli et al., 2021; Alayrac et al.,
+2022; Chen et al., 2022a; Maiias et al., 2023; Tiong et al.,
+2022; Guo et al., 2022). The key challenge in using a frozen
+LLM is to align visual features to the text space. To achieve
+this, Frozen (Tsimpoukelli et al., 2021) finetunes an image
+encoder whose outputs are directly used as soft prompts
+for the LLM. Flamingo (Alayrac et al., 2022) inserts new
+cross-attention layers into the LLM to inject visual features,
+and pre-trains the new layers on billions of image-text pairs.
+Both methods adopt the language modeling loss, where the
+language model generates texts conditioned on the image.
+
+Different from existing methods, BLIP-2 can effectively and
+efficiently leverage both frozen image encoders and frozen
+LLMs for various vision-language tasks, achieving stronger
+performance at a lower computation cost.
+
+3. Method
+
+We propose BLIP-2, a new vision-language pre-training
+method that bootstraps from frozen pre-trained unimodal
+models. In order to bridge the modality gap, we propose a
+Querying Transformer (Q-Former) pre-trained in two stages:
+(1) vision-language representation learning stage with a
+frozen image encoder and (2) vision-to-language genera-
+tive learning stage with a frozen LLM. This section first
+introduces the model architecture of Q-Former, and then
+delineates the two-stage pre-training procedures.
+
+3.1. Model Architecture
+
+We propose Q-Former as the trainable module to bridge the
+gap between a frozen image encoder and a frozen LLM. It
+extracts a fixed number of output features from the image
+encoder, independent of input image resolution. As shown
+in Figure 2, Q-Former consists of two transformer submod-
+ules that share the same self-attention layers: (1) an image
+transformer that interacts with the frozen image encoder
+
+Nearby Document Text:
+BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models
+visual feature for the LLM to output the desired text. In
+the first pre-training stage, we perform vision-language rep-
+resentation learning which enforces the Q-Former to learn
+visual representation most relevant to the text. In the second
+pre-training stage, we perform vision-to-language genera-
+tive learning by connecting the output of the Q-Former to a
+frozen LLM, and trains the Q-Former such that its output
+visual representation can be interpreted by the LLM.
+We name our VLP framework as
+
+
+[RELATED PAGE TEXT]
+
+tive learning stage with a frozen LLM. This section first
+introduces the model architecture of Q-Former, and then
+delineates the two-stage pre-training procedures.
+3.1. Model Architecture
+We propose Q-Former as the trainable module to bridge the
+gap between a frozen image encoder and a frozen LLM. It
+extracts a fixed number of output features from 
+
+
+--------------------------------------------------------------------------------
+PAGE : 3
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+Q-Former to generate texts, given input images as the con-
+dition. Since the architecture of Q-Former does not allow
+direct interactions between the frozen image encoder and
+the text tokens, the information required for generating the
+text must be first extracted by the queries, and then passed
+to the text tokens via self-attention layers. Therefore, the
+queries are forced to extract visual features that capture all
+the information about the text. We employ a multimodal
+causal self-attention mask to control query-text interaction,
+similar to the one used in UniLM (Dong et al., 2019). The
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the
+
+OCR Text:
+BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models
+
+Q-Former Q: query token positions; T: text token positions.
+Image-Text Image-Grounded O masked 0 unmasked
+Matching Image-Text Text Generation
+. Q T Q T Q T
+Input Image Contrastive
+for every 7 OU DO | OOOO
+other block
+
+mE EGross'Attention) Attention Masking T OO OO T OO i O T O00 OO
+
+i bidirectional OO OO 00 00 O00 00
+
+xn | Sstatente ~ {hullimodal causal ~F xN Bi-directional Multi-modal Causal Uni-modal
+4 Self-Attention Mask — Self-Attentlon Mask Self-Attention Mask
+
+Learned - Image-Text Image-Grounded Image-Text
+Queries Input Text | 4 cat wearing sunglasses Matching Text Generation Contrastive Learning
+
+Figure 2. (Left) Model architecture of Q-Former and BLIP-2’s first-stage vision-language representation learning objectives. We jointly
+optimize three objectives which enforce the queries (a set of learnable embeddings) to extract visual representation most relevant to the
+text. (Right) The self-attention masking strategy for each objective to control query-text interaction.
+
+for visual feature extraction, (2) a text transformer that can
+function as both a text encoder and a text decoder. We create
+a set number of learnable query embeddings as input to the
+image transformer. The queries interact with each other
+through self-attention layers, and interact with frozen image
+features through cross-attention layers (inserted every other
+transformer block). The queries can additionally interact
+with the text through the same self-attention layers. Depend-
+ing on the pre-training task, we apply different self-attention
+masks to control query-text interaction. We initialize Q-
+Former with the pre-trained weights of BERThase (Devlin
+et al., 2019), whereas the cross-attention layers are randomly
+initialized. In total, Q-Former contains 188M parameters.
+Note that the queries are considered as model parameters.
+
+In our experiments, we use 32 queries where each query
+has a dimension of 768 (same as the hidden dimension
+of the Q-Former). We use Z to denote the output query
+representation. The size of Z (32 x 768) is much smaller
+than the size of frozen image features (¢.g. 257 x 1024 for
+ViT-L/14). This bottleneck architecture works together with
+our pre-training objectives into forcing the queries to extract
+visual information that is most relevant to the text.
+
+3.2. Bootstrap Vision-Language Representation
+Learning from a Frozen Image Encoder
+
+In the representation learning stage, we connect Q-Former to
+a frozen image encoder and perform pre-training using
+image-text pairs. We aim to train the Q-Former such that the
+queries can learn to extract visual representation that is most
+informative of the text. Inspired by BLIP (Li et al., 2022),
+we jointly optimize three pre-training objectives that share
+the same input format and model parameters. Each objec-
+tive employs a different attention masking strategy between
+queries and text to control their interaction (see Figure 2).
+
+Image-Text Contrastive Learning (ITC) learns to align
+image representation and text representation such that their
+mutual information is maximized. It achieves so by contrast-
+ing the image-text similarity of a positive pair against those
+of negative pairs. We align the output query representation
+Z from the image transformer with the text representation
+
+¢ from the text transformer, where ¢ is the output embed-
+ding of the [CLS] token. Since Z contains multiple output
+embeddings (one from each query), we first compute the
+pairwise similarity between each query output and z, and
+then select the highest one as the image-text similarity. To
+avoid information leak, we employ a unimodal self-attention
+mask, where the queries and text are not allowed to see each
+other. Due to the use of a frozen image encoder, we can
+fit more samples per GPU compared to end-to-end meth-
+ods. Therefore, we use in-batch negatives instead of the
+momentum queue in BLIP.
+
+Image-grounded Text Generation (ITG) loss trains the
+Q-Former to generate texts, given input images as the con-
+dition. Since the architecture of Q-Former does not allow
+direct interactions between the frozen image encoder and
+the text tokens, the information required for generating the
+text must be first extracted by the queries, and then passed
+to the text tokens via self-attention layers. Therefore, the
+queries are forced to extract visual features that capture all
+the information about the text. We employ a multimodal
+causal self-attention mask to control query-text interaction,
+similar to the one used in UniLM (Dong et al., 2019). The
+queries can attend to each other but not the text tokens. Each
+text token can attend to all queries and its previous text to-
+kens. We also replace the [CLS] token with anew [DEC]
+token as the first text token to signal the decoding task.
+
+Image-Text Matching (ITM) aims to learn fine-grained
+alignment between image and text representation. It is a
+binary classification task where the model is asked to pre-
+dict whether an image-text pair is positive (matched) or
+negative (unmatched). We use a bi-directional self-attention
+mask where all queries and texts can attend to each other.
+The output query embeddings Z thus capture multimodal
+information. We feed each output query embedding into a
+two-class linear classifier to obtain a logit, and average the
+logits across all queries as the output matching score. We
+adopt the hard negative mining strategy from Li et al. (2021;
+2022) to create informative negative pairs.
+
+Nearby Document Text:
+BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models
+Image
+Encoder
+Input Image
+Learned
+Queries
+Feed Forward
+Cross Attention
+Self Attention
+x N
+x N
+Image-Text 
+Contrastive 
+Learning
+Feed Forward
+Self Attention
+a cat wearing sunglasses
+Input Text
+Image-Grounded 
+Text Generation
+Image-Text
+Matching
+for every 
+other block
+Attention Masking
+Uni-modal
+Self-Attention Mask
+Q
+T
+Q
+T
+Multi-modal Causal
+Self-Attention Mask
+Q
+T
+Q
+T
+Bi-directional
+Self-Attention Mask
+Q
+T
+Q
+T
+Image-Text 
+Matching
+Image-Text 
+Contrastive Learning
+Image-Grounded 
+Text Generatio
+
+
+[RELATED PAGE TEXT]
+
+Q-Former to generate texts, given input images as the con-
+dition. Since the architecture of Q-Former does not allow
+direct interactions between the frozen image encoder and
+the text tokens, the information required for generating the
+text must be first extracted by the queries, and then passed
+to the text tokens via self-attention layers. Therefor
+
+
+--------------------------------------------------------------------------------
+PAGE : 5
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+A man and a chicken.
+What are shown in the photo?
+What does the man feel and why? 
+He is scared ofthe chicken because it is flying at him.
+Pepperoni, mozzarella cheese, pizza sauce, olive oil, salt, pepper, basil.
+What are the ingredients I need to make this?
+What is the first step?
+Place the pizza dough on a baking sheet, brush with olive oil, sprinkle with salt, pepper, and basil.
+Love is like a sunset, it's hard to see it coming but when it does it's so beautiful.
+Write a romantic message that goes along this photo.
+
+
+--------------------------------------------------------------------------------
+PAGE : 13
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models
+Image
+Encoder
+Input Image Queries
+…
+Q-Former
+…
+What is the cat wearing?
+Answer
+Fully
+Connected
+…
+LLM
+sunglasses
+Question
+What is the cat wearing?
+Question
+Figure 7. Model architecture for VQA finetuning, where the LLM
+receives Q-Former’s output and the question as input, then predicts
+answers. We also provide the question as a condition to Q-Former,
+such that the extracted image features are more relevant to the
+question.
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT
+
+Caption:
+a cat wearing sunglasses and looking up at the camera
+
+OCR Text:
+No readable text found in this image.
+
+Nearby Document Text:
+BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models
+Image
+Encoder
+Input Image
+Queries
+…
+Q-Former
+…
+What is the cat wearing?
+Answer
+Fully
+Connected
+…
+LLM
+sunglasses
+Question
+What is the cat wearing?
+Question
+Figure 7. Model architecture for VQA finetuning, where the LLM
+receives Q-Former’s output and the question as input, then predicts
+answers. We also provide the question as a condition to Q-Former,
+such that the extracted image features are more relevant to the
+question.
+
+
+[RELATED PAGE TEXT]
+
+BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models
+Image
+Encoder
+Input Image Queries
+…
+Q-Former
+…
+What is the cat wearing?
+Answer
+Fully
+Connected
+…
+LLM
+sunglasses
+Question
+What is the cat wearing?
+Question
+Figure 7. Model architecture for VQA finetuning, where the LLM
+receives Q-Former’s output an
+
+
+================================================================================
+DOCUMENT : Vision Transformer.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 3
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+their efﬁcient implementations – can be used almost out of the box.
+3.1 V ISION TRANSFORMER (V IT)
+An overview of the model is depicted in Figure 1. The standard Transformer receives as input a 1D
+sequence of token embeddings. To handle 2D images, we reshape the image x∈ RH×W×C into a
+sequence of ﬂattened 2D patches xp∈ RN×(P 2·C), where (H,W ) is the resolution of the original
+image,C is the number of channels,(P,P ) is the resolution of each image patch, andN =HW/P 2
+is the resulting number of patches, which also serves as the effective input sequence length for the
+
+
+[TEXT]
+
+is the resulting number of patches, which also serves as the effective input sequence length for the
+Transformer. The Transformer uses constant latent vector size D through all of its layers, so we
+ﬂatten the patches and map to D dimensions with a trainable linear projection (Eq. 1). We refer to
+the output of this projection as the patch embeddings.
+Similar to BERT’s [class] token, we prepend a learnable embedding to the sequence of embed-
+ded patches (z0
+0 = xclass), whose state at the output of the Transformer encoder ( z0
+L) serves as the
+
+
+--------------------------------------------------------------------------------
+PAGE : 14
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+that Vision Transformer beneﬁts most from a high resolution (384× 384) for all tasks.
+B.1.2 S ELF -SUPERVISION
+We employ the masked patch prediction objective for preliminary self-supervision experiments. To
+do so we corrupt 50% of patch embeddings by either replacing their embeddings with a learnable
+[mask] embedding (80%), a random other patch embedding (10%) or just keeping them as is
+(10%). This setup is very similar to the one used for language by Devlin et al. (2019). Finally, we
+predict the 3-bit, mean color (i.e., 512 colors in total) of every corrupted patch using their respective
+
+================================================================================
+
+================================================================================
+RAG PIPELINE DEBUG
+================================================================================
+Query Type        : factual
+Retrieved Chunks  : 8
+Retrieved Images  : 3
+Reranked Chunks   : 10
+Reranked Text     : 7
+Reranked Images   : 3
+Final Context Docs: 10
+Exact Figure Query: False
+Exact Figure Match: False
+Exact Figure Final: False
+================================================================================
+
+================================================================================
+STAGE 4 — EVIDENCE VERIFICATION
+================================================================================
+Verification Units : 4
+Supported          : 2
+Partially Supported: 2
+Unsupported        : 0
+Unknown            : 0
+Groundedness Ratio : 0.50
+
+[CLAIM #1] The two Transformer submodules that make up the Q-Former are the Image Encoder and the Language Model (LLM).
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.582 | Citation=BLIP-2.pdf (Page 2)
+
+[CLAIM #2] The Image Encoder extracts visual features from the input image and converts it into a sequence of patch embeddings.
+  Status=PARTIALLY_SUPPORTED | NLI=NEUTRAL | Confidence=0.501 | Citation=BLIP-2.pdf (Page 2)
+
+[CLAIM #3] The LLM receives these output patch embeddings and the question as input, then predicts answers.
+  Status=PARTIALLY_SUPPORTED | NLI=NEUTRAL | Confidence=0.9463 | Citation=BLIP-2.pdf (Page 13)
+
+[CLAIM #4] The question is also provided as a condition to the Image Encoder, such that the extracted image features are more relevant to the question.
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.4548 | Citation=BLIP-2.pdf (Page 13)
+================================================================================
+
+====================================================================================================
+RAG ANSWER
+====================================================================================================
+ The two Transformer submodules that make up the Q-Former are the Image Encoder and the Language Model (LLM). The Image Encoder extracts visual features from the input image and converts it into a sequence of patch embeddings. The LLM receives these output patch embeddings and the question as input, then predicts answers. The question is also provided as a condition to the Image Encoder, such that the extracted image features are more relevant to the question.
+
+IMAGE PATHS:
+D:/Projects/Major-Project-2-main/extracted_images/BLIP-2_page2_render.png
+D:/Projects/Major-Project-2-main/extracted_images/BLIP-2_page3_render.png
+D:/Projects/Major-Project-2-main/extracted_images/BLIP-2_page13_img1.png

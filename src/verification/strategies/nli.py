@@ -124,16 +124,38 @@ def verify_with_nli(
     Verify a VerificationUnit using Natural Language
     Inference (NLI).
 
-    Evidence policy:
+    Evidence policy (updated 2026-08-16):
 
-    1. The matcher ranks candidate evidence by relevance.
-    2. The highest-ranked matched document is used as the
-       primary verification evidence.
-    3. NLI determines whether that evidence entails,
-       contradicts, or is neutral toward the claim.
+    1. The matcher ranks up to top_k candidate evidence chunks by
+       lexical relevance.
+    2. NLI is run against EVERY candidate, not just the single
+       best lexical match. Restricting NLI to only the top-1
+       lexical match produced systematic false negatives: the
+       chunk that scores highest on lexical overlap is often not
+       the chunk that most directly states the fact (e.g. a
+       claim's canonical definition may live in the abstract while
+       the top lexical match is an unrelated body-text mention
+       that happens to reuse similar words). Verified true claims
+       like "Donut uses a Swin Transformer as its visual encoder"
+       were scoring NEUTRAL purely because the one chunk checked
+       didn't happen to state it, even though a different retrieved
+       chunk did.
+    3. Selection across candidates, in priority order:
+         a. If ANY candidate is ENTAILMENT -> SUPPORTED, using the
+            highest-confidence entailing candidate as evidence.
+         b. Else if ANY candidate is CONTRADICTION -> UNSUPPORTED,
+            using the highest-confidence contradicting candidate.
+         c. Else -> PARTIALLY_SUPPORTED, using the highest-confidence
+            neutral candidate.
 
-    This avoids selecting evidence merely because it
-    produces a preferred NLI label.
+    This still avoids selecting evidence merely because it produces
+    a preferred label for a single arbitrary candidate, while giving
+    a true claim credit if *any* retrieved evidence directly
+    supports it -- not just whichever chunk happened to rank first
+    on lexical overlap. A genuine contradiction from any candidate
+    still overrides a merely-neutral top match, so this does not
+    paper over real errors -- it only stops correct claims from
+    being penalized for evidence-selection noise.
     """
 
     # -----------------------------------------
@@ -153,33 +175,32 @@ def verify_with_nli(
         return unit
 
     # -----------------------------------------
-    # Select strongest matched evidence
-    # -----------------------------------------
-    #
-    # match_documents() already sorts documents
-    # from highest to lowest lexical relevance.
-    # Therefore index 0 is the strongest candidate.
+    # Run NLI against every candidate
     # -----------------------------------------
 
-    best_document = unit.matched_documents[0]
+    predictions = []
 
-    # -----------------------------------------
-    # Run NLI
-    # -----------------------------------------
+    for document in unit.matched_documents:
 
-    try:
+        try:
 
-        label, confidence = predict_nli(
-            claim=unit.text,
-            evidence=best_document.page_content,
-        )
+            label, confidence = predict_nli(
+                claim=unit.text,
+                evidence=document.page_content,
+            )
 
-    except Exception as e:
+        except Exception as e:
 
-        print(
-            f"NLI verification failed "
-            f"for unit {unit.id}: {e}"
-        )
+            print(
+                f"NLI verification failed for unit {unit.id} "
+                f"against one candidate: {e}"
+            )
+
+            continue
+
+        predictions.append((label, confidence, document))
+
+    if not predictions:
 
         unit.nli_label = NLILabel.UNKNOWN
 
@@ -193,12 +214,33 @@ def verify_with_nli(
         return unit
 
     # -----------------------------------------
+    # Select evidence by priority policy
+    # -----------------------------------------
+
+    def best_of(label_filter):
+        candidates = [
+            p for p in predictions if p[0] == label_filter
+        ]
+        if not candidates:
+            return None
+        return max(candidates, key=lambda p: p[1])
+
+    chosen = (
+        best_of(NLILabel.ENTAILMENT)
+        or best_of(NLILabel.CONTRADICTION)
+        or best_of(NLILabel.NEUTRAL)
+        or predictions[0]
+    )
+
+    label, confidence, evidence = chosen
+
+    # -----------------------------------------
     # Store prediction
     # -----------------------------------------
 
     unit.nli_label = label
     unit.confidence = round(confidence, 4)
-    unit.selected_evidence = best_document
+    unit.selected_evidence = evidence
 
     # -----------------------------------------
     # Convert NLI label to verification status

@@ -1,0 +1,1063 @@
+====================================================================================================
+QUESTION_ID   : SR-06
+DOCUMENT      : SELF-RAG
+QUESTION_TYPE : Architecture / reasoning
+ELAPSED_SEC   : 62.5
+ERROR         : no
+====================================================================================================
+
+QUESTION:
+How does SELF-RAG differ from conventional RAG systems in deciding when to retrieve documents?
+
+GROUND TRUTH ANSWER:
+Conventional RAG generally retrieves a fixed number of passages regardless of whether retrieval is necessary. SELF-RAG instead decides on demand, using its Retrieve reflection token to determine whether retrieved evidence would help before calling the retriever.
+
+GROUND TRUTH SOURCE:
+Self-RAG.pdf — Pages 1–2, 6
+
+====================================================================================================
+FORENSIC TRANSCRIPT
+====================================================================================================
+
+####################################################################################################
+FORENSIC CASE START
+####################################################################################################
+Original Query   : How does SELF-RAG differ from conventional RAG systems in deciding when to retrieve documents?
+Expanded Query   : How does SELF-RAG differ from conventional RAG systems in deciding when to retrieve documents?
+Query Type       : analytical
+[DOCUMENT SCOPE] Normalized query: 'how does self rag differ from conventional rag systems in deciding when to retrieve documents'
+[DOCUMENT SCOPE] Source='BERT.pdf' -> Normalized='bert'
+[DOCUMENT SCOPE] Token overlap for 'BERT.pdf': []
+[DOCUMENT SCOPE] Source='BLIP-2.pdf' -> Normalized='blip 2'
+[DOCUMENT SCOPE] Token overlap for 'BLIP-2.pdf': []
+[DOCUMENT SCOPE] Source='CLIP.pdf' -> Normalized='clip'
+[DOCUMENT SCOPE] Token overlap for 'CLIP.pdf': []
+[DOCUMENT SCOPE] Source='CNN Paper.pdf' -> Normalized='cnn paper'
+[DOCUMENT SCOPE] Token overlap for 'CNN Paper.pdf': []
+[DOCUMENT SCOPE] Source='Donut.pdf' -> Normalized='donut'
+[DOCUMENT SCOPE] Token overlap for 'Donut.pdf': []
+[DOCUMENT SCOPE] Source='LayoutLMv3.pdf' -> Normalized='layout l mv3'
+[DOCUMENT SCOPE] Token overlap for 'LayoutLMv3.pdf': []
+[DOCUMENT SCOPE] Source='NLP Paper.pdf' -> Normalized='nlp paper'
+[DOCUMENT SCOPE] Token overlap for 'NLP Paper.pdf': []
+[DOCUMENT SCOPE] Source='RAG.pdf' -> Normalized='rag'
+[DOCUMENT SCOPE] EXACT MATCH -> RAG.pdf
+[DOCUMENT SCOPE] Source='Self-RAG.pdf' -> Normalized='self rag'
+[DOCUMENT SCOPE] EXACT MATCH -> Self-RAG.pdf
+[DOCUMENT SCOPE] Source='Vision Transformer.pdf' -> Normalized='vision transformer'
+[DOCUMENT SCOPE] Token overlap for 'Vision Transformer.pdf': []
+[DOCUMENT SCOPE] Final matched sources: ['RAG.pdf', 'Self-RAG.pdf']
+
+================================================================================
+DOCUMENT SCOPE DEBUG
+================================================================================
+Query          : How does SELF-RAG differ from conventional RAG systems in deciding when to retrieve documents?
+Expanded Query : How does SELF-RAG differ from conventional RAG systems in deciding when to retrieve documents?
+Query Type     : analytical
+Document Scope : ['RAG.pdf', 'Self-RAG.pdf']
+================================================================================
+
+==========================================================================================
+STEP 3A — SCOPED HYBRID RETRIEVAL
+==========================================================================================
+Query              : How does SELF-RAG differ from conventional RAG systems in deciding when to retrieve documents?
+Sources            : ['RAG.pdf', 'Self-RAG.pdf']
+Dense candidate K  : 25
+Final hybrid K     : 8
+
+------------------------------------------------------------------------------------------
+[SCOPED DENSE / VECTOR RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=RAG.pdf | Page=8 | Type=text | Image=N/A
+    Content=RAG-Tok R-L RAG-Tok B-1 RAG-Seq R-L RAG-Seq B-1 Figure 3: Left: NQ performance as more documents are retrieved. Center: Retrieval recall perfor- mance in NQ. Right: MS-MARCO Bleu-1
+02. Source=Self-RAG.pdf | Page=3 | Type=text | Image=N/A
+    Content=Concurrent RAG work. A few concurrent works2 on RAG propose new training or prompting strategies to improve widely-adopted RAG approaches. Lin et al. (2023) fine-tune both the retr
+03. Source=RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=more diverse than RAG-Token’s, and both are signiﬁcantly more diverse than BART without needing any diversity-promoting decoding. Retrieval Ablations A key feature of RAG is learni
+04. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=RAG approaches causes a large drop in PopQA and ASQA, and removing ISSUP during the beam search results hurts performance on ASQA. This demonstrates the effectiveness of SELF -RAG’
+05. Source=Self-RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=RAG (7B and 13B parameters) significantly outperforms state-of-the-art LLMs and retrieval-augmented models on a diverse set of tasks. Specifically, SELF -RAG outperforms ChatGPT an
+06. Source=RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=We compare RAG’s dense retriever to a word overlap-based BM25 retriever [53]. Here, we replace RAG’s retriever with a ﬁxed BM25 system, and use BM25 retrieval scores as logits when
+07. Source=RAG.pdf | Page=8 | Type=table | Image=N/A
+    Content=TABLE FROM DOCUMENT  Columns: RAG-Tok RAG-Seq | Column_1  Rows: Column_1: RAG-Tok RAG-Seq
+08. Source=Self-RAG.pdf | Page=3 | Type=text | Image=N/A
+    Content=or confirm the output’s relevance, support, or completeness. In contrast, common RAG approaches retrieve passages indiscriminately, without ensuring complete support from cited sou
+09. Source=RAG.pdf | Page=8 | Type=text | Image=N/A
+    Content=documents. Figure 3 (right) shows that retrieving more documents leads to higher Rouge-L for RAG-Token at the expense of Bleu-1, but the effect is less pronounced for RAG-Sequence.
+10. Source=RAG.pdf | Page=3 | Type=text | Image=N/A
+    Content=i ∑ z∈top-k(p(·|x)) pη(z|x)pθ(yi|x,z,y 1:i−1) Finally, we note that RAG can be used for sequence classiﬁcation tasks by considering the target class as a target sequence of length 
+11. Source=RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=the generation ﬂexibility of the “closed-book” (parametric only) approaches and the performance of "open-book" retrieval-based approaches. Unlike REALM and T5+SSM, RAG enjoys stron
+12. Source=Self-RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=to enhance overall generation quality, factuality, and verifiability. consistently retrieves a fixed number of documents for generation regardless of the retrieval necessity (e.g.,
+13. Source=RAG.pdf | Page=17 | Type=text | Image=N/A
+    Content=we report test numbers using ten retrieved documents for both RAG-Token and RAG-Sequence, and we also train a BART-large model as a baseline. We use a beam size of four, and use th
+14. Source=RAG.pdf | Page=17 | Type=text | Image=N/A
+    Content=blob/master/examples/rag/README.md and an interactive demo of a RAG model can be found at https://huggingface.co/rag/ 2https://github.com/pytorch/fairseq 3https://github.com/huggin
+15. Source=Self-RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=SELF -RAG trains an arbitrary LM to generate text with reflection tokens by unifying them as the next token prediction from the expanded model vocabulary. We train our generator LM
+16. Source=RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=two variants: the standard 3-way classiﬁcation task (supports/refutes/not enough info) and the 2-way (supports/refutes) task studied in Thorne and Vlachos [57]. In both cases we re
+17. Source=RAG.pdf | Page=18 | Type=text | Image=N/A
+    Content=the interests of simplicity, we omit them. For Open MS-MARCO, where useful retrieved documents cannot always be retrieved, we observe that the model learns to always retrieve a par
+18. Source=RAG.pdf | Page=4 | Type=text | Image=N/A
+    Content=and train RAG by directly minimizing the negative log-likelihood of answers. We compare RAG to the popular extractive QA paradigm [5, 7, 31, 26], where answers are extracted spans 
+19. Source=Self-RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=calls a retriever model on demand (Step 1). Subsequently,SELF -RAG concurrently processes multiple retrieved passages, evaluating their relevance and thengenerating corresponding t
+20. Source=RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=to classify the claim as true or false given the gold evidence sentence. RAG achieves an accuracy within 2.7% of this model, despite being supplied with only the claim and retrievi
+21. Source=RAG.pdf | Page=6 | Type=text | Image=N/A
+    Content=BART were factual in a further 17% of cases, clearly demonstrating the effectiveness of RAG on the task over a state-of-the-art generation model. Evaluators also ﬁnd RAG generation
+22. Source=RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=RAG-T The middle ear is the portion of the ear internal to the eardrum. RAG-S The middle ear includes the tympanic cavity and the three ossicles. what currency needed in scotland B
+23. Source=RAG.pdf | Page=4 | Type=text | Image=N/A
+    Content=3 Experiments We experiment with RAG in a wide range of knowledge-intensive tasks. For all experiments, we use a single Wikipedia dump for our non-parametric knowledge source. Foll
+24. Source=RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=We build RAG models where the parametric memory is a pre-trained seq2seq transformer, and the non-parametric memory is a dense vector index of Wikipedia, accessed with a pre-traine
+25. Source=RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=Machine Translation [ 18, 22] and Semantic Parsing [21]. Our approach does have several differences, including less of emphasis on lightly editing a retrieved item, but on aggregat
+
+------------------------------------------------------------------------------------------
+[SCOPED BM25 RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=RAG.pdf | Page=6 | Type=text | Image=N/A
+    Content=how parametric and non-parametric memories work together—the non-parametric component helps to guide the generation, drawing out speciﬁc knowledge stored in the parametric memory. 
+02. Source=Self-RAG.pdf | Page=4 | Type=image | Image=extracted_images\Self-RAG_page4_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Preprint.  Typ
+03. Source=Self-RAG.pdf | Page=2 | Type=image | Image=extracted_images\Self-RAG_page2_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+04. Source=Self-RAG.pdf | Page=10 | Type=image | Image=extracted_images\Self-RAG_page10_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+05. Source=Self-RAG.pdf | Page=3 | Type=image | Image=extracted_images\Self-RAG_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+06. Source=RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=state-of-the-art pipeline models which use strong retrieval supervision. Finally, we demonstrate that the non-parametric memory can be replaced to update the models’ knowledge as t
+07. Source=Self-RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=calls a retriever model on demand (Step 1). Subsequently,SELF -RAG concurrently processes multiple retrieved passages, evaluating their relevance and thengenerating corresponding t
+08. Source=Self-RAG.pdf | Page=9 | Type=image | Image=extracted_images\Self-RAG_page9_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the textbook on the characterization and characterization of semiconductors in semiconductors and semiconductors  OCR Text:
+09. Source=Self-RAG.pdf | Page=6 | Type=text | Image=N/A
+    Content=Adaptive retrieval with threshold.SELF -RAG dynamically decides when to retrieve text passages by predicting Retrieve . Alternatively, our framework allows a threshold to be set. S
+10. Source=Self-RAG.pdf | Page=3 | Type=text | Image=N/A
+    Content=or confirm the output’s relevance, support, or completeness. In contrast, common RAG approaches retrieve passages indiscriminately, without ensuring complete support from cited sou
+11. Source=Self-RAG.pdf | Page=6 | Type=text | Image=N/A
+    Content=factual accuracy (Min et al., 2023), we aim for the model to retrieve passages more frequently to ensure that the output aligns closely with the available evidence. Conversely, in 
+12. Source=RAG.pdf | Page=6 | Type=image | Image=extracted_images\RAG_page6_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: the table shows the number of protons and protons of protons in a, b, and c  OCR Text: Table 1: Open-Domain QA Test Scores. For TQA, Ta
+13. Source=Self-RAG.pdf | Page=1 | Type=image | Image=extracted_images\Self-RAG_page1_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with the title title of a research paper  OCR Text: 2310.11511v1 [cs.CL] 17 Oct 2023  arXiv  Preprint.  SELF-RAG: LEARNING TO R
+14. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=We show in Table 3a the ablation results. The top part of the table shows results for training ablations, and the bottom part is for inference ablations. We see that all components
+15. Source=RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=more diverse than RAG-Token’s, and both are signiﬁcantly more diverse than BART without needing any diversity-promoting decoding. Retrieval Ablations A key feature of RAG is learni
+16. Source=RAG.pdf | Page=7 | Type=image | Image=extracted_images\RAG_page7_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with the title of a research paper  OCR Text: Dacument 1: his works are considered classics of American literature ... His wart
+17. Source=RAG.pdf | Page=6 | Type=text | Image=N/A
+    Content=4.3 Jeopardy Question Generation Table 2 shows that RAG-Token performs better than RAG-Sequence on Jeopardy question generation, with both models outperforming BART on Q-BLEU-1. 4 
+18. Source=RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=Machine Translation [ 18, 22] and Semantic Parsing [21]. Our approach does have several differences, including less of emphasis on lightly editing a retrieved item, but on aggregat
+19. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=RAG trained on the full 150k instances. We also evaluate Figures 4a, 4b and 4c shows the models’ performance trained on different amount of data. Across all datasets, increasing da
+20. Source=RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=to classify the claim as true or false given the gold evidence sentence. RAG achieves an accuracy within 2.7% of this model, despite being supplied with only the claim and retrievi
+21. Source=RAG.pdf | Page=19 | Type=text | Image=N/A
+    Content=and the RAG model would perform equivalently to BART. The collapse could be due to a less-explicit requirement for factual knowledge in some tasks, or the longer target sequences, 
+22. Source=Self-RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=Popular names by states. In Texas,  Emma is a popular baby name.  Of the ﬁfty states, eleven are named  after an individual person.  Prompt How did US states get their names? +  St
+23. Source=RAG.pdf | Page=18 | Type=text | Image=N/A
+    Content=the interests of simplicity, we omit them. For Open MS-MARCO, where useful retrieved documents cannot always be retrieved, we observe that the model learns to always retrieve a par
+24. Source=RAG.pdf | Page=3 | Type=text | Image=N/A
+    Content=a pre-trained bi-encoder from DPR to initialize our retriever and to build the document index. This retriever was trained to retrieve documents which contain answers to TriviaQA [2
+25. Source=RAG.pdf | Page=4 | Type=text | Image=N/A
+    Content=Navigable Small World approximation for fast retrieval [37]. During training, we retrieve the top k documents for each query. We considerk∈{ 5, 10} for training and setk for test t
+
+------------------------------------------------------------------------------------------
+[RRF FUSION RANKING]
+------------------------------------------------------------------------------------------
+01. RRF=0.029206 | DenseRank=3 | BM25Rank=15 | Source=RAG.pdf | Page=7 | Type=text
+02. RRF=0.028992 | DenseRank=8 | BM25Rank=10 | Source=Self-RAG.pdf | Page=3 | Type=text
+03. RRF=0.027584 | DenseRank=19 | BM25Rank=7 | Source=Self-RAG.pdf | Page=1 | Type=text
+04. RRF=0.025035 | DenseRank=17 | BM25Rank=23 | Source=RAG.pdf | Page=18 | Type=text
+05. RRF=0.025000 | DenseRank=20 | BM25Rank=20 | Source=RAG.pdf | Page=7 | Type=text
+06. RRF=0.024585 | DenseRank=25 | BM25Rank=18 | Source=RAG.pdf | Page=9 | Type=text
+07. RRF=0.016393 | DenseRank=1 | BM25Rank=- | Source=RAG.pdf | Page=8 | Type=text
+08. RRF=0.016393 | DenseRank=- | BM25Rank=1 | Source=RAG.pdf | Page=6 | Type=text
+09. RRF=0.016129 | DenseRank=2 | BM25Rank=- | Source=Self-RAG.pdf | Page=3 | Type=text
+10. RRF=0.016129 | DenseRank=- | BM25Rank=2 | Source=Self-RAG.pdf | Page=4 | Type=image
+11. RRF=0.015873 | DenseRank=- | BM25Rank=3 | Source=Self-RAG.pdf | Page=2 | Type=image
+12. RRF=0.015625 | DenseRank=4 | BM25Rank=- | Source=Self-RAG.pdf | Page=9 | Type=text
+13. RRF=0.015625 | DenseRank=- | BM25Rank=4 | Source=Self-RAG.pdf | Page=10 | Type=image
+14. RRF=0.015385 | DenseRank=5 | BM25Rank=- | Source=Self-RAG.pdf | Page=1 | Type=text
+15. RRF=0.015385 | DenseRank=- | BM25Rank=5 | Source=Self-RAG.pdf | Page=3 | Type=image
+16. RRF=0.015152 | DenseRank=6 | BM25Rank=- | Source=RAG.pdf | Page=7 | Type=text
+17. RRF=0.015152 | DenseRank=- | BM25Rank=6 | Source=RAG.pdf | Page=2 | Type=text
+18. RRF=0.014925 | DenseRank=7 | BM25Rank=- | Source=RAG.pdf | Page=8 | Type=table
+19. RRF=0.014706 | DenseRank=- | BM25Rank=8 | Source=Self-RAG.pdf | Page=9 | Type=image
+20. RRF=0.014493 | DenseRank=9 | BM25Rank=- | Source=RAG.pdf | Page=8 | Type=text
+21. RRF=0.014493 | DenseRank=- | BM25Rank=9 | Source=Self-RAG.pdf | Page=6 | Type=text
+22. RRF=0.014286 | DenseRank=10 | BM25Rank=- | Source=RAG.pdf | Page=3 | Type=text
+23. RRF=0.014085 | DenseRank=11 | BM25Rank=- | Source=RAG.pdf | Page=5 | Type=text
+24. RRF=0.014085 | DenseRank=- | BM25Rank=11 | Source=Self-RAG.pdf | Page=6 | Type=text
+25. RRF=0.013889 | DenseRank=12 | BM25Rank=- | Source=Self-RAG.pdf | Page=2 | Type=text
+26. RRF=0.013889 | DenseRank=- | BM25Rank=12 | Source=RAG.pdf | Page=6 | Type=image
+27. RRF=0.013699 | DenseRank=13 | BM25Rank=- | Source=RAG.pdf | Page=17 | Type=text
+28. RRF=0.013699 | DenseRank=- | BM25Rank=13 | Source=Self-RAG.pdf | Page=1 | Type=image
+29. RRF=0.013514 | DenseRank=14 | BM25Rank=- | Source=RAG.pdf | Page=17 | Type=text
+30. RRF=0.013514 | DenseRank=- | BM25Rank=14 | Source=Self-RAG.pdf | Page=9 | Type=text
+31. RRF=0.013333 | DenseRank=15 | BM25Rank=- | Source=Self-RAG.pdf | Page=2 | Type=text
+32. RRF=0.013158 | DenseRank=16 | BM25Rank=- | Source=RAG.pdf | Page=5 | Type=text
+33. RRF=0.013158 | DenseRank=- | BM25Rank=16 | Source=RAG.pdf | Page=7 | Type=image
+34. RRF=0.012987 | DenseRank=- | BM25Rank=17 | Source=RAG.pdf | Page=6 | Type=text
+35. RRF=0.012821 | DenseRank=18 | BM25Rank=- | Source=RAG.pdf | Page=4 | Type=text
+36. RRF=0.012658 | DenseRank=- | BM25Rank=19 | Source=Self-RAG.pdf | Page=10 | Type=text
+37. RRF=0.012346 | DenseRank=21 | BM25Rank=- | Source=RAG.pdf | Page=6 | Type=text
+38. RRF=0.012346 | DenseRank=- | BM25Rank=21 | Source=RAG.pdf | Page=19 | Type=text
+39. RRF=0.012195 | DenseRank=22 | BM25Rank=- | Source=RAG.pdf | Page=7 | Type=text
+40. RRF=0.012195 | DenseRank=- | BM25Rank=22 | Source=Self-RAG.pdf | Page=2 | Type=text
+41. RRF=0.012048 | DenseRank=23 | BM25Rank=- | Source=RAG.pdf | Page=4 | Type=text
+42. RRF=0.011905 | DenseRank=24 | BM25Rank=- | Source=RAG.pdf | Page=2 | Type=text
+43. RRF=0.011905 | DenseRank=- | BM25Rank=24 | Source=RAG.pdf | Page=3 | Type=text
+44. RRF=0.011765 | DenseRank=- | BM25Rank=25 | Source=RAG.pdf | Page=4 | Type=text
+------------------------------------------------------------------------------------------
+
+==========================================================================================
+STEP 3A — RETRIEVAL STAGE SUMMARY
+==========================================================================================
+Dense candidates       : 25
+BM25 candidates        : 25
+Dense ∩ BM25           : 6
+Dense-only candidates  : 19
+BM25-only candidates   : 19
+Unique candidate pool  : 44
+RRF candidates         : 44
+Returned to pipeline   : 8
+==========================================================================================
+
+------------------------------------------------------------------------------------------
+[SCOPED FINAL HYBRID RESULT] 8 candidates
+------------------------------------------------------------------------------------------
+01. Source=RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=more diverse than RAG-Token’s, and both are signiﬁcantly more diverse than BART without needing any diversity-promoting decoding. Retrieval Ablations A key feature of RAG is learni
+02. Source=Self-RAG.pdf | Page=3 | Type=text | Image=N/A
+    Content=or confirm the output’s relevance, support, or completeness. In contrast, common RAG approaches retrieve passages indiscriminately, without ensuring complete support from cited sou
+03. Source=Self-RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=calls a retriever model on demand (Step 1). Subsequently,SELF -RAG concurrently processes multiple retrieved passages, evaluating their relevance and thengenerating corresponding t
+04. Source=RAG.pdf | Page=18 | Type=text | Image=N/A
+    Content=the interests of simplicity, we omit them. For Open MS-MARCO, where useful retrieved documents cannot always be retrieved, we observe that the model learns to always retrieve a par
+05. Source=RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=to classify the claim as true or false given the gold evidence sentence. RAG achieves an accuracy within 2.7% of this model, despite being supplied with only the claim and retrievi
+06. Source=RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=Machine Translation [ 18, 22] and Semantic Parsing [21]. Our approach does have several differences, including less of emphasis on lightly editing a retrieved item, but on aggregat
+07. Source=RAG.pdf | Page=8 | Type=text | Image=N/A
+    Content=RAG-Tok R-L RAG-Tok B-1 RAG-Seq R-L RAG-Seq B-1 Figure 3: Left: NQ performance as more documents are retrieved. Center: Retrieval recall perfor- mance in NQ. Right: MS-MARCO Bleu-1
+08. Source=RAG.pdf | Page=6 | Type=text | Image=N/A
+    Content=how parametric and non-parametric memories work together—the non-parametric component helps to guide the generation, drawing out speciﬁc knowledge stored in the parametric memory. 
+==========================================================================================
+
+================================================================================
+STAGE 1 — HYBRID RETRIEVAL
+================================================================================
+Retrieved Count : 8
+
+[HYBRID #1] Source=RAG.pdf | Page=7 | Type=text
+Content: more diverse than RAG-Token’s, and both are signiﬁcantly more diverse than BART without needing any diversity-promoting decoding. Retrieval Ablations A key feature of RAG is learning to retrieve relevant information for the task. To assess the effectiveness of the retrieval mechanism, we run ablations where we freeze the retriever during training. As shown in Table 6, learned retrieval improves results for all tasks. We compare RAG’s dense retriever to a word overlap-based BM25 retriever [53]. H
+
+[HYBRID #2] Source=Self-RAG.pdf | Page=3 | Type=text
+Content: or confirm the output’s relevance, support, or completeness. In contrast, common RAG approaches retrieve passages indiscriminately, without ensuring complete support from cited sources. 3.1 P ROBLEM FORMALIZATION AND OVERVIEW Formally, given input x, we train M to sequentially generate textual outputs y consisting of multiple segments y = [y1, . . . , yT ], where yt indicates a sequence of tokens for the t-th segment.3 Generated tokens in yt include text from the original vocabulary as well as t
+
+[HYBRID #3] Source=Self-RAG.pdf | Page=1 | Type=text
+Content: calls a retriever model on demand (Step 1). Subsequently,SELF -RAG concurrently processes multiple retrieved passages, evaluating their relevance and thengenerating corresponding task outputs (Step 2). It then generates critique tokens to criticize its own output and choose best one (Step 3) in terms of factuality and overall quality. This process differs from conventional RAG (Figure 1 left), which 1Our code and trained models are available at https://selfrag.github.io/. 1 arXiv:2310.11511v1  [
+
+[HYBRID #4] Source=RAG.pdf | Page=18 | Type=text
+Content: the interests of simplicity, we omit them. For Open MS-MARCO, where useful retrieved documents cannot always be retrieved, we observe that the model learns to always retrieve a particular set of documents for questions that are less likely to beneﬁt from retrieval, suggesting that null document mechanisms may not be necessary for RAG. G Parameters Our RAG models contain the trainable parameters for the BERT-base query and document encoder of DPR, with 110M parameters each (although we do not tra
+
+[HYBRID #5] Source=RAG.pdf | Page=7 | Type=text
+Content: to classify the claim as true or false given the gold evidence sentence. RAG achieves an accuracy within 2.7% of this model, despite being supplied with only the claim and retrieving its own evidence. We also analyze whether documents retrieved by RAG correspond to documents annotated as gold evidence in FEVER. We calculate the overlap in article titles between the topk documents retrieved by RAG and gold evidence annotations. We ﬁnd that the top retrieved document is from a gold article in 71% 
+
+[HYBRID #6] Source=RAG.pdf | Page=9 | Type=text
+Content: Machine Translation [ 18, 22] and Semantic Parsing [21]. Our approach does have several differences, including less of emphasis on lightly editing a retrieved item, but on aggregating content from several pieces of retrieved content, as well as learning latent retrieval, and retrieving evidence documents rather than related training pairs. This said, RAG techniques may work well in these settings, and could represent promising future work. 6 Discussion In this work, we presented hybrid generatio
+
+[HYBRID #7] Source=RAG.pdf | Page=8 | Type=text
+Content: RAG-Tok R-L RAG-Tok B-1 RAG-Seq R-L RAG-Seq B-1 Figure 3: Left: NQ performance as more documents are retrieved. Center: Retrieval recall perfor- mance in NQ. Right: MS-MARCO Bleu-1 and Rouge-L as more documents are retrieved. 5 Related Work Single-Task Retrieval Prior work has shown that retrieval improves performance across a variety of NLP tasks when considered in isolation. Such tasks include open-domain question answering [5, 29], fact checking [ 56], fact completion [ 48], long-form questio
+
+[HYBRID #8] Source=RAG.pdf | Page=6 | Type=text
+Content: how parametric and non-parametric memories work together—the non-parametric component helps to guide the generation, drawing out speciﬁc knowledge stored in the parametric memory. 4.4 Fact Veriﬁcation Table 2 shows our results on FEVER. For 3-way classiﬁcation, RAG scores are within 4.3% of state-of-the-art models, which are complex pipeline systems with domain-speciﬁc architectures and substantial engineering, trained using intermediate retrieval supervision, which RAG does not require. 6
+================================================================================
+[DOCUMENT SCOPE] Text chunks: 8 -> 8
+
+================================================================================
+IMAGE RETRIEVAL DIAGNOSTIC
+================================================================================
+Query                 : How does SELF-RAG differ from conventional RAG systems in deciding when to retrieve documents?
+Allowed Sources       : ['RAG.pdf', 'Self-RAG.pdf']
+Image Candidates      : 554 -> 12 (scoped before ranking)
+
+ALL IMAGE CANDIDATES
+--------------------------------------------------------------------------------
+Rank=01 | Source=Self-RAG.pdf | Page=1 | Image=Self-RAG_page1_render.png | Hybrid=0.6404 | CE=0.8998 | CLIP=0.2512
+Rank=02 | Source=Self-RAG.pdf | Page=4 | Image=Self-RAG_page4_render.png | Hybrid=0.1578 | CE=0.1072 | CLIP=0.2338
+Rank=03 | Source=Self-RAG.pdf | Page=2 | Image=Self-RAG_page2_render.png | Hybrid=-0.3017 | CE=-0.6601 | CLIP=0.2360
+Rank=04 | Source=RAG.pdf | Page=7 | Image=RAG_page7_render.png | Hybrid=-3.7317 | CE=-6.3837 | CLIP=0.2462
+Rank=05 | Source=Self-RAG.pdf | Page=3 | Image=Self-RAG_page3_render.png | Hybrid=-5.0194 | CE=-8.5278 | CLIP=0.2433
+Rank=06 | Source=RAG.pdf | Page=8 | Image=RAG_page8_render.png | Hybrid=-5.1313 | CE=-8.7043 | CLIP=0.2281
+Rank=07 | Source=RAG.pdf | Page=6 | Image=RAG_page6_render.png | Hybrid=-5.9120 | CE=-10.0121 | CLIP=0.2381
+Rank=08 | Source=Self-RAG.pdf | Page=9 | Image=Self-RAG_page9_render.png | Hybrid=-6.1510 | CE=-10.4046 | CLIP=0.2294
+Rank=09 | Source=RAG.pdf | Page=2 | Image=RAG_page2_render.png | Hybrid=-6.3836 | CE=-10.8037 | CLIP=0.2464
+Rank=10 | Source=RAG.pdf | Page=17 | Image=RAG_page17_img0.png | Hybrid=-6.6640 | CE=-11.2668 | CLIP=0.2401
+Rank=11 | Source=Self-RAG.pdf | Page=10 | Image=Self-RAG_page10_render.png | Hybrid=-6.6678 | CE=-11.2694 | CLIP=0.2345
+Rank=12 | Source=Self-RAG.pdf | Page=5 | Image=Self-RAG_page5_render.png | Hybrid=-6.7695 | CE=-11.4459 | CLIP=0.2452
+
+TOP IMAGE RESULTS
+--------------------------------------------------------------------------------
+TOP-1 | Source=Self-RAG.pdf | Page=1 | Image=Self-RAG_page1_render.png | Hybrid=0.6404 | CE=0.8998 | CLIP=0.2512
+TOP-2 | Source=Self-RAG.pdf | Page=4 | Image=Self-RAG_page4_render.png | Hybrid=0.1578 | CE=0.1072 | CLIP=0.2338
+TOP-3 | Source=Self-RAG.pdf | Page=2 | Image=Self-RAG_page2_render.png | Hybrid=-0.3017 | CE=-0.6601 | CLIP=0.2360
+================================================================================
+[DOCUMENT SCOPE] Images: 3 -> 3
+
+================================================================================
+STAGE 2 — IMAGE RETRIEVAL RESULT
+================================================================================
+Image Results       : 3
+Exact Figure Match  : False
+
+[IMAGE #1] Source=Self-RAG.pdf | Page=1 | Image=Self-RAG_page1_render.png
+Image Path: extracted_images\Self-RAG_page1_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with the title title of a research paper  OCR Text: 2310.11511v1 [cs.CL] 17 Oct 2023  arXiv  Preprint.  SELF-RAG: LEARNING TO RETRIEVE, GENERATE, AND CRITIQUE THROUGH SELF-REFLECTION  Akari Asai! , Zeqiu Wul, Yizhong Wang’, Avirup Sil?, Hannaneh Hajishirzi'® tUniversity of Washington Allen Institute for AI +IBM Research AI {akari, zeqiuwu, yizhongw, hannaneh}@cs.washington.edu, avi@us.ibm.com  ABSTRACT  Despite their remarkable capabilities, l
+
+[IMAGE #2] Source=Self-RAG.pdf | Page=4 | Image=Self-RAG_page4_render.png
+Image Path: extracted_images\Self-RAG_page4_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Preprint.  Type Input Output Definitions  eln,y {yes, no, continue} Decides when to retrieve with R.  x,d {relevant, irrelevant} d provides useful information to solve x.  x,d,y {fully supported, partially All of the verification-worthy statement in y supported, no support} is supported by d.  x,y {5, 4, 3, 2, 1} y is a useful respo
+
+[IMAGE #3] Source=Self-RAG.pdf | Page=2 | Image=Self-RAG_page2_render.png
+Image Path: extracted_images\Self-RAG_page2_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Preprint.  Retrieval-Augmented Generation (RAG) Ours: Self-reflective Retrieval-Augmented Generation (Self-RAG) , [Prompt How did US states gat thelr names? Prompt How did US states get thelr names? Stop 4: Retrieve on demand ? t : ¢ : Step 1: Retrleve K documents Be US state
+================================================================================
+
+================================================================================
+COMBINED RETRIEVAL CANDIDATES
+================================================================================
+Text Candidates  : 8
+Image Candidates : 3
+Total Candidates : 11
+================================================================================
+
+================================================================================
+STEP 3A — RERANKER INPUT
+================================================================================
+Query: How does SELF-RAG differ from conventional RAG systems in deciding when to retrieve documents?
+Input candidates: 11
+01. Source=RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=more diverse than RAG-Token’s, and both are signiﬁcantly more diverse than BART without needing any diversity-promoting decoding. Retrieval Ablations A key feature of RAG is learni
+02. Source=Self-RAG.pdf | Page=3 | Type=text | Image=N/A
+    Content=or confirm the output’s relevance, support, or completeness. In contrast, common RAG approaches retrieve passages indiscriminately, without ensuring complete support from cited sou
+03. Source=Self-RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=calls a retriever model on demand (Step 1). Subsequently,SELF -RAG concurrently processes multiple retrieved passages, evaluating their relevance and thengenerating corresponding t
+04. Source=RAG.pdf | Page=18 | Type=text | Image=N/A
+    Content=the interests of simplicity, we omit them. For Open MS-MARCO, where useful retrieved documents cannot always be retrieved, we observe that the model learns to always retrieve a par
+05. Source=RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=to classify the claim as true or false given the gold evidence sentence. RAG achieves an accuracy within 2.7% of this model, despite being supplied with only the claim and retrievi
+06. Source=RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=Machine Translation [ 18, 22] and Semantic Parsing [21]. Our approach does have several differences, including less of emphasis on lightly editing a retrieved item, but on aggregat
+07. Source=RAG.pdf | Page=8 | Type=text | Image=N/A
+    Content=RAG-Tok R-L RAG-Tok B-1 RAG-Seq R-L RAG-Seq B-1 Figure 3: Left: NQ performance as more documents are retrieved. Center: Retrieval recall perfor- mance in NQ. Right: MS-MARCO Bleu-1
+08. Source=RAG.pdf | Page=6 | Type=text | Image=N/A
+    Content=how parametric and non-parametric memories work together—the non-parametric component helps to guide the generation, drawing out speciﬁc knowledge stored in the parametric memory. 
+09. Source=Self-RAG.pdf | Page=1 | Type=image | Image=extracted_images\Self-RAG_page1_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with the title title of a research paper  OCR Text: 2310.11511v1 [cs.CL] 17 Oct 2023  arXiv  Preprint.  SELF-RAG: LEARNING TO R
+10. Source=Self-RAG.pdf | Page=4 | Type=image | Image=extracted_images\Self-RAG_page4_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Preprint.  Typ
+11. Source=Self-RAG.pdf | Page=2 | Type=image | Image=extracted_images\Self-RAG_page2_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+================================================================================
+
+--------------------------------------------------------------------------------
+CROSS-ENCODER RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=02 | Source=Self-RAG.pdf | Page=1 | Type=text | CE=5.8567
+Rank=02 | OriginalIndex=03 | Source=RAG.pdf | Page=18 | Type=text | CE=2.1938
+Rank=03 | OriginalIndex=05 | Source=RAG.pdf | Page=9 | Type=text | CE=1.7091
+Rank=04 | OriginalIndex=04 | Source=RAG.pdf | Page=7 | Type=text | CE=0.9917
+Rank=05 | OriginalIndex=08 | Source=Self-RAG.pdf | Page=1 | Type=image | CE=0.8998
+Rank=06 | OriginalIndex=09 | Source=Self-RAG.pdf | Page=4 | Type=image | CE=0.1072
+Rank=07 | OriginalIndex=00 | Source=RAG.pdf | Page=7 | Type=text | CE=0.0190
+Rank=08 | OriginalIndex=06 | Source=RAG.pdf | Page=8 | Type=text | CE=-0.5603
+Rank=09 | OriginalIndex=01 | Source=Self-RAG.pdf | Page=3 | Type=text | CE=-0.6079
+Rank=10 | OriginalIndex=10 | Source=Self-RAG.pdf | Page=2 | Type=image | CE=-0.6601
+Rank=11 | OriginalIndex=07 | Source=RAG.pdf | Page=6 | Type=text | CE=-5.5897
+
+--------------------------------------------------------------------------------
+CLIP IMAGE RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=08 | Source=Self-RAG.pdf | Page=1 | Image=extracted_images\Self-RAG_page1_render.png | CLIP=0.2512
+Rank=02 | OriginalIndex=10 | Source=Self-RAG.pdf | Page=2 | Image=extracted_images\Self-RAG_page2_render.png | CLIP=0.2360
+Rank=03 | OriginalIndex=09 | Source=Self-RAG.pdf | Page=4 | Image=extracted_images\Self-RAG_page4_render.png | CLIP=0.2338
+
+================================================================================
+STEP 3A — COMPLETE MULTIMODAL RERANK RESULT
+================================================================================
+Rank=01 | Type=image | Source=Self-RAG.pdf | Page=1 | RRF=0.031778 | CE=0.8998 | CLIP=0.2512
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with the title title of a research paper  OCR Text: 2310.11511v1 [cs.CL] 17 Oct 2023  arXiv  Preprint.  SELF-RAG: LEARNING TO R
+Rank=02 | Type=image | Source=Self-RAG.pdf | Page=4 | RRF=0.031025 | CE=0.1072 | CLIP=0.2338
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Preprint.  Typ
+Rank=03 | Type=image | Source=Self-RAG.pdf | Page=2 | RRF=0.030415 | CE=-0.6601 | CLIP=0.2360
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+Rank=04 | Type=text | Source=Self-RAG.pdf | Page=1 | RRF=0.016393 | CE=5.8567 | CLIP=N/A
+    Content=calls a retriever model on demand (Step 1). Subsequently,SELF -RAG concurrently processes multiple retrieved passages, evaluating their relevance and thengenerating corresponding t
+Rank=05 | Type=text | Source=RAG.pdf | Page=18 | RRF=0.016129 | CE=2.1938 | CLIP=N/A
+    Content=the interests of simplicity, we omit them. For Open MS-MARCO, where useful retrieved documents cannot always be retrieved, we observe that the model learns to always retrieve a par
+Rank=06 | Type=text | Source=RAG.pdf | Page=9 | RRF=0.015873 | CE=1.7091 | CLIP=N/A
+    Content=Machine Translation [ 18, 22] and Semantic Parsing [21]. Our approach does have several differences, including less of emphasis on lightly editing a retrieved item, but on aggregat
+Rank=07 | Type=text | Source=RAG.pdf | Page=7 | RRF=0.015625 | CE=0.9917 | CLIP=N/A
+    Content=to classify the claim as true or false given the gold evidence sentence. RAG achieves an accuracy within 2.7% of this model, despite being supplied with only the claim and retrievi
+Rank=08 | Type=text | Source=RAG.pdf | Page=7 | RRF=0.014925 | CE=0.0190 | CLIP=N/A
+    Content=more diverse than RAG-Token’s, and both are signiﬁcantly more diverse than BART without needing any diversity-promoting decoding. Retrieval Ablations A key feature of RAG is learni
+Rank=09 | Type=text | Source=RAG.pdf | Page=8 | RRF=0.014706 | CE=-0.5603 | CLIP=N/A
+    Content=RAG-Tok R-L RAG-Tok B-1 RAG-Seq R-L RAG-Seq B-1 Figure 3: Left: NQ performance as more documents are retrieved. Center: Retrieval recall perfor- mance in NQ. Right: MS-MARCO Bleu-1
+Rank=10 | Type=text | Source=Self-RAG.pdf | Page=3 | RRF=0.014493 | CE=-0.6079 | CLIP=N/A
+    Content=or confirm the output’s relevance, support, or completeness. In contrast, common RAG approaches retrieve passages indiscriminately, without ensuring complete support from cited sou
+Rank=11 | Type=text | Source=RAG.pdf | Page=6 | RRF=0.014085 | CE=-5.5897 | CLIP=N/A
+    Content=how parametric and non-parametric memories work together—the non-parametric component helps to guide the generation, drawing out speciﬁc knowledge stored in the parametric memory. 
+================================================================================
+
+================================================================================
+STEP 3A — FINAL RERANK TOP-K
+================================================================================
+Requested top_k: 12
+Returned documents: 11
+01. Source=Self-RAG.pdf | Page=1 | Type=image | Image=extracted_images\Self-RAG_page1_render.png
+02. Source=Self-RAG.pdf | Page=4 | Type=image | Image=extracted_images\Self-RAG_page4_render.png
+03. Source=Self-RAG.pdf | Page=2 | Type=image | Image=extracted_images\Self-RAG_page2_render.png
+04. Source=Self-RAG.pdf | Page=1 | Type=text | Image=N/A
+05. Source=RAG.pdf | Page=18 | Type=text | Image=N/A
+06. Source=RAG.pdf | Page=9 | Type=text | Image=N/A
+07. Source=RAG.pdf | Page=7 | Type=text | Image=N/A
+08. Source=RAG.pdf | Page=7 | Type=text | Image=N/A
+09. Source=RAG.pdf | Page=8 | Type=text | Image=N/A
+10. Source=Self-RAG.pdf | Page=3 | Type=text | Image=N/A
+11. Source=RAG.pdf | Page=6 | Type=text | Image=N/A
+================================================================================
+
+================================================================================
+STAGE 3 — MULTIMODAL RERANKING
+================================================================================
+Input Candidates : 11
+Reranked Output   : 11
+
+[RERANK #1] Source=Self-RAG.pdf | Page=1 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with the title title of a research paper  OCR Text: 2310.11511v1 [cs.CL] 17 Oct 2023  arXiv  Preprint.  SELF-RAG: LEARNING TO RETRIEVE, GENERATE, AND CRITIQUE THROUGH SELF-REFLECTION  Akari Asai! , Zeqiu Wul, Yizhong Wang’, Avirup Sil?, Hannaneh H
+
+[RERANK #2] Source=Self-RAG.pdf | Page=4 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Preprint.  Type Input Output Definitions  eln,y {yes, no, continue} Decides when to retrieve with R.  x,d {relevant, irrelevant} d pro
+
+[RERANK #3] Source=Self-RAG.pdf | Page=2 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Preprint.  Retrieval-Augmented Generation (RAG) Ours: Self-reflective Retrie
+
+[RERANK #4] Source=Self-RAG.pdf | Page=1 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: calls a retriever model on demand (Step 1). Subsequently,SELF -RAG concurrently processes multiple retrieved passages, evaluating their relevance and thengenerating corresponding task outputs (Step 2). It then generates critique tokens to criticize its own output and choose best one (Step 3) in term
+
+[RERANK #5] Source=RAG.pdf | Page=18 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: the interests of simplicity, we omit them. For Open MS-MARCO, where useful retrieved documents cannot always be retrieved, we observe that the model learns to always retrieve a particular set of documents for questions that are less likely to beneﬁt from retrieval, suggesting that null document mech
+
+[RERANK #6] Source=RAG.pdf | Page=9 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Machine Translation [ 18, 22] and Semantic Parsing [21]. Our approach does have several differences, including less of emphasis on lightly editing a retrieved item, but on aggregating content from several pieces of retrieved content, as well as learning latent retrieval, and retrieving evidence docu
+
+[RERANK #7] Source=RAG.pdf | Page=7 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: to classify the claim as true or false given the gold evidence sentence. RAG achieves an accuracy within 2.7% of this model, despite being supplied with only the claim and retrieving its own evidence. We also analyze whether documents retrieved by RAG correspond to documents annotated as gold eviden
+
+[RERANK #8] Source=RAG.pdf | Page=7 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: more diverse than RAG-Token’s, and both are signiﬁcantly more diverse than BART without needing any diversity-promoting decoding. Retrieval Ablations A key feature of RAG is learning to retrieve relevant information for the task. To assess the effectiveness of the retrieval mechanism, we run ablatio
+
+[RERANK #9] Source=RAG.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: RAG-Tok R-L RAG-Tok B-1 RAG-Seq R-L RAG-Seq B-1 Figure 3: Left: NQ performance as more documents are retrieved. Center: Retrieval recall perfor- mance in NQ. Right: MS-MARCO Bleu-1 and Rouge-L as more documents are retrieved. 5 Related Work Single-Task Retrieval Prior work has shown that retrieval i
+
+[RERANK #10] Source=Self-RAG.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: or confirm the output’s relevance, support, or completeness. In contrast, common RAG approaches retrieve passages indiscriminately, without ensuring complete support from cited sources. 3.1 P ROBLEM FORMALIZATION AND OVERVIEW Formally, given input x, we train M to sequentially generate textual outpu
+
+[RERANK #11] Source=RAG.pdf | Page=6 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: how parametric and non-parametric memories work together—the non-parametric component helps to guide the generation, drawing out speciﬁc knowledge stored in the parametric memory. 4.4 Fact Veriﬁcation Table 2 shows our results on FEVER. For 3-way classiﬁcation, RAG scores are within 4.3% of state-of
+================================================================================
+
+================================================================================
+FINAL CONTEXT DOCUMENTS
+================================================================================
+Final context candidates: 11
+
+[FINAL #1] Source=Self-RAG.pdf | Page=1 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with the title title of a research paper  OCR Text: 2310.11511v1 [cs.CL] 17 Oct 2023  arXiv  Preprint.  SELF-RAG: LEARNING TO RETRIEVE, GENERATE, AND CRITIQUE THROUGH SELF-REFLECTION  Akari Asai! , Zeqiu Wul, Yizhong Wang’, Avirup Sil?, Hannaneh H
+
+[FINAL #2] Source=Self-RAG.pdf | Page=4 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Preprint.  Type Input Output Definitions  eln,y {yes, no, continue} Decides when to retrieve with R.  x,d {relevant, irrelevant} d pro
+
+[FINAL #3] Source=Self-RAG.pdf | Page=2 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Preprint.  Retrieval-Augmented Generation (RAG) Ours: Self-reflective Retrie
+
+[FINAL #4] Source=Self-RAG.pdf | Page=1 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: calls a retriever model on demand (Step 1). Subsequently,SELF -RAG concurrently processes multiple retrieved passages, evaluating their relevance and thengenerating corresponding task outputs (Step 2). It then generates critique tokens to criticize its own output and choose best one (Step 3) in term
+
+[FINAL #5] Source=RAG.pdf | Page=18 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: the interests of simplicity, we omit them. For Open MS-MARCO, where useful retrieved documents cannot always be retrieved, we observe that the model learns to always retrieve a particular set of documents for questions that are less likely to beneﬁt from retrieval, suggesting that null document mech
+
+[FINAL #6] Source=RAG.pdf | Page=9 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Machine Translation [ 18, 22] and Semantic Parsing [21]. Our approach does have several differences, including less of emphasis on lightly editing a retrieved item, but on aggregating content from several pieces of retrieved content, as well as learning latent retrieval, and retrieving evidence docu
+
+[FINAL #7] Source=RAG.pdf | Page=7 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: to classify the claim as true or false given the gold evidence sentence. RAG achieves an accuracy within 2.7% of this model, despite being supplied with only the claim and retrieving its own evidence. We also analyze whether documents retrieved by RAG correspond to documents annotated as gold eviden
+
+[FINAL #8] Source=RAG.pdf | Page=7 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: more diverse than RAG-Token’s, and both are signiﬁcantly more diverse than BART without needing any diversity-promoting decoding. Retrieval Ablations A key feature of RAG is learning to retrieve relevant information for the task. To assess the effectiveness of the retrieval mechanism, we run ablatio
+
+[FINAL #9] Source=RAG.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: RAG-Tok R-L RAG-Tok B-1 RAG-Seq R-L RAG-Seq B-1 Figure 3: Left: NQ performance as more documents are retrieved. Center: Retrieval recall perfor- mance in NQ. Right: MS-MARCO Bleu-1 and Rouge-L as more documents are retrieved. 5 Related Work Single-Task Retrieval Prior work has shown that retrieval i
+
+[FINAL #10] Source=Self-RAG.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: or confirm the output’s relevance, support, or completeness. In contrast, common RAG approaches retrieve passages indiscriminately, without ensuring complete support from cited sources. 3.1 P ROBLEM FORMALIZATION AND OVERVIEW Formally, given input x, we train M to sequentially generate textual outpu
+
+[FINAL #11] Source=RAG.pdf | Page=6 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: how parametric and non-parametric memories work together—the non-parametric component helps to guide the generation, drawing out speciﬁc knowledge stored in the parametric memory. 4.4 Fact Veriﬁcation Table 2 shows our results on FEVER. For 3-way classiﬁcation, RAG scores are within 4.3% of state-of
+================================================================================
+
+================================================================================
+FINAL CONTEXT SENT TO LLM
+================================================================================
+
+================================================================================
+DOCUMENT : Self-RAG.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 1
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+calls a retriever model on demand (Step 1). Subsequently,SELF -RAG concurrently processes multiple
+retrieved passages, evaluating their relevance and thengenerating corresponding task outputs (Step
+2). It then generates critique tokens to criticize its own output and choose best one (Step 3) in terms
+of factuality and overall quality. This process differs from conventional RAG (Figure 1 left), which
+1Our code and trained models are available at https://selfrag.github.io/.
+1
+arXiv:2310.11511v1  [cs.CL]  17 Oct 2023
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a paper with the title title of a research paper
+
+OCR Text:
+2310.11511v1 [cs.CL] 17 Oct 2023
+
+arXiv
+
+Preprint.
+
+SELF-RAG: LEARNING TO RETRIEVE, GENERATE, AND
+CRITIQUE THROUGH SELF-REFLECTION
+
+Akari Asai! , Zeqiu Wul, Yizhong Wang’, Avirup Sil?, Hannaneh Hajishirzi'®
+tUniversity of Washington Allen Institute for AI +IBM Research AI
+{akari, zeqiuwu, yizhongw, hannaneh}@cs.washington.edu, avi@us.ibm.com
+
+ABSTRACT
+
+Despite their remarkable capabilities, large language models (LLMs) often produce
+responses containing factual inaccuracies due to their sole reliance on the paramet-
+ric knowledge they encapsulate. Retrieval-Augmented Generation (RAG), an ad
+hoc approach that augments LMs with retrieval of relevant knowledge, decreases
+such issues. However, indiscriminately retrieving and incorporating a fixed number
+of retrieved passages, regardless of whether retrieval is necessary, or passages are
+relevant, diminishes LM versatility or can lead to unhelpful response generation.
+We introduce a new framework called Self-Reflective Retrieval-Augmented Gen-
+eration (SELF-RAG) that enhances an LM’s quality and factuality through retrieval
+and self-reflection. Our framework trains a single arbitrary LM that adaptively
+retrieves passages on-demand, and generates and reflects on retrieved passages
+and its own generations using special tokens, called reflection tokens. Generating
+reflection tokens makes the LM controllable during the inference phase, enabling it
+to tailor its behavior to diverse task requirements. Experiments show that SELF-
+RAG (7B and 13B parameters) significantly outperforms state-of-the-art LLMs
+and retrieval-augmented models on a diverse set of tasks. Specifically, SELF-RAG
+outperforms ChatGPT and retrieval-augmented Llama2-chat on Open-domain QA,
+reasoning and fact verification tasks, and it shows significant gains in improving
+factuality and citation accuracy for long-form generations relative to these models.'
+
+1 INTRODUCTION
+
+State-of-the-art LLMs continue to struggle with factual errors (Mallen et al., 2023; Min et al., 2023)
+despite their increased model and data scale (Ouyang et al., 2022). Retrieval-Augmented Generation
+(RAG) methods (Figure 1 left; Lewis et al. 2020; Guu et al. 2020) augment the input of LLMs
+with relevant retrieved passages, reducing factual errors in knowledge-intensive tasks (Ram et al.,
+2023; Asai et al., 2023a). However, these methods may hinder the versatility of LLMs or introduce
+unnecessary or off-topic passages that lead to low-quality generations (Shi et al., 2023) since they
+retrieve passages indiscriminately regardless of whether the factual grounding is helpful. Moreover,
+the output is not guaranteed to be consistent with retrieved relevant passages (Gao et al., 2023) since
+the models are not explicitly trained to leverage and follow facts from provided passages. This
+work introduces Self-Reflective Retrieval-augmented Generation (SELF-RAG) to improve an
+LLM’s generation quality, including its factual accuracy without hurting its versatility, via on-demand
+retrieval and self-reflection. We train an arbitrary LM in an end-to-end manner to learn to reflect on
+its own generation process given a task input by generating both task output and intermittent special
+tokens (.e., reflection tokens). Reflection tokens are categorized into retrieval and critique tokens to
+indicate the need for retrieval and its generation quality respectively (Figure 1 right). In particular,
+given an input prompt and preceding generations, SELF-RAG first determines if augmenting the
+continued generation with retrieved passages would be helpful. If so, it outputs a retrieval token that
+calls a retriever model on demand (Step 1). Subsequently, SELF-RAG concurrently processes multiple
+retrieved passages, evaluating their relevance and then generating corresponding task outputs (Step
+2). It then generates critique tokens to criticize its own output and choose best one (Step 3) in terms
+of factuality and overall quality. This process differs from conventional RAG (Figure 1 left), which
+
+‘Our code and trained models are available at https: //selfrag.github.io/.
+
+Nearby Document Text:
+Preprint.
+SELF-RAG: LEARNING TO RETRIEVE, GENERATE, AND
+CRITIQUE THROUGH SELF-REFLECTION
+Akari Asai†, Zeqiu Wu†, Yizhong Wang†§, Avirup Sil‡, Hannaneh Hajishirzi†§
+†University of Washington
+§Allen Institute for AI
+‡IBM Research AI
+{akari,zeqiuwu,yizhongw,hannaneh}@cs.washington.edu, avi@us.ibm.com
+ABSTRACT
+Despite their remarkable capabilities, large language models (LLMs) often produce
+responses containing factual inaccuracies due to their sole reliance on the paramet-
+ric knowledge they encapsulate. Retrieval-Augmented Generation (RAG), an ad
+hoc approach that augments LMs with retrieval of
+
+
+[RELATED PAGE TEXT]
+
+calls a retriever model on demand (Step 1). Subsequently,SELF -RAG concurrently processes multiple
+retrieved passages, evaluating their relevance and thengenerating corresponding task outputs (Step
+2). It then generates critique tokens to criticize its own output and choose best one (Step 3) in terms
+of factuality and overall quality. This process 
+
+
+--------------------------------------------------------------------------------
+PAGE : 2
+--------------------------------------------------------------------------------
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the
+
+OCR Text:
+Preprint.
+
+Retrieval-Augmented Generation (RAG) Ours: Self-reflective Retrieval-Augmented Generation (Self-RAG)
+, [Prompt How did US states gat thelr names? Prompt How did US states get thelr names? Stop 4: Retrieve on demand
+?
+t
+:
+¢
+: Step 1: Retrleve K documents Be US states got thelr names from a varlety of sources.
+t A) Ofthe fifty states, eleven are named
+‘ after an individual person, Step 2: Generate segmentin parallel nee ee
+
+“af -> Popularnamesbystates.InTexes, )| $= _ geec""7” &
+Emma is a popular baby name. Prompt + ® Prompt + 0)
+Rotri Caltfornia was named after a fictional
+otriever island in a, Spanish book. (rae BS v BS +
+
+Relavant 144 of 50 state names Relevant
+Tras is came Californla's name has Its
+Step 2: Prompt LM with K docs and generate come from persons. [crore ] Goel a 16th-century novel
+1 ; Step 3: Critique outputs and select bestsegment ¢T}
+US states got their names from a varlety of
+Be sources. Elven states are named after an Occ > Cs i | > 2
+
+Individual ‘person {a.g, Califomla_was_named
+ef olumbus}. Some states US states got thelr names from a varlety of sources. 11 of 50
+“ sf [rawr] —> Repeat. 8 pe
+
+incf\ng Taxes Uiah, are named after states namas are come from persons, ()26 states are named
+Contradictory atican tribe) No information In passages
+
+Prompt: Write an essay of your best summer vacation Prompt: Write an essay of your best summer vacation
+: v
+t
+. Q ft) 2) 3) > ee —> My best... ee — [Troncua | My best summer vacation Is when my family and | embarked on a road trip along ...
+se
+
+Figure 1: Overview of SELF-RAG. SELF-RAG learns to retrieve, critique, and generate text passages
+to enhance overall generation quality, factuality, and verifiability.
+
+consistently retrieves a fixed number of documents for generation regardless of the retrieval necessity
+(e.g., the bottom figure example does not require factual knowledge) and never second visits the
+generation quality. Moreover, SELF-RAG provides citations for each segment with its self-assessment
+of whether the output is supported by the passage, leading to easier fact verification.
+
+SELF-RAG trains an arbitrary LM to generate text with reflection tokens by unifying them as the
+next token prediction from the expanded model vocabulary. We train our generator LM on a diverse
+collection of text interleaved with reflection tokens and retrieved passages. Reflection tokens, inspired
+by reward models used in reinforcement learning (Ziegler et al., 2019; Ouyang et al., 2022), are
+inserted offline into the original corpus by a trained critic model. This eliminates the need to host a
+critic model during training, reducing overhead. The critic model, in part, is supervised on a dataset
+of input, output, and corresponding reflection tokens collected by prompting a propriety LM (Le.,
+GPT-4; OpenAI 2023). While we draw inspiration from studies that use control tokens to start and
+guide text generation (Lu et al., 2022; Keskar et al., 2019), our trained LM uses critique tokens to
+assess its own predictions after each generated segment as an integral part of the generation output.
+
+SELF-RAG further enables a customizable decoding algorithm to satisfy hard or soft constraints,
+which are defined by reflection token predictions. In particular, our inference-time algorithm enables
+us to (1) flexibly adjust retrieval frequency for different downstream applications and (2) customize
+models’ behaviors to user preferences by leveraging reflection tokens through segment-level beam
+search using the weighted linear sum of the reflection token probabilities as segment score.
+
+Empirical results on six tasks, including reasoning and long-form generation, demonstrate that SELF-
+RAG significantly outperforms pre-trained and instruction-tuned LLMs that have more parameters and
+widely adopted RAG approaches with higher citation accuracy. In particular, SELF-RAG outperforms
+retrieval-augmented ChatGPT on four tasks, Llama2-chat (Touvron et al., 2023) and Alpaca (Dubois
+et al., 2023) on all tasks. Our analysis demonstrates the effectiveness of training and inference with
+reflection tokens for overall performance improvements as well as test-time model customizations
+(e.g., balancing the trade-off between citation previsions and completeness).
+
+2 RELATED WORK
+
+Retrieval-Augmented Generation. Retrieval-Augmented Generation (RAG) augments the input
+space of LMs with retrieved text passages (Guu et al., 2020; Lewis et al., 2020), leading to large
+improvements in knowledge-intensive tasks after fine-tuning or used with off-the-shelf LMs (Ram
+et al., 2023). A more recent work (Luo et al., 2023) instruction-tunes an LM with a fixed number
+
+Nearby Document Text:
+Preprint.
+Step 1: Retrieve K documents
+California was named after a fictional 
+island in a Spanish book. 
+Prompt How did US states get their names? 
+US states got their names from a variety of 
+sources. Eleven states are named after an 
+individual person (e.g, California was named 
+after Christopher Columbus). Some states 
+including Texas and Utah, are named after 
+Native American tribe.
+Retrieval-Augmented Generation (RAG)
+Ours: Self-reflective Retrieval-Augmented Generation (Self-RAG) 
+Popular names by states. In Texas, 
+Emma is a popular baby name. 
+Of the fifty states, eleven are named 
+af
+
+
+--------------------------------------------------------------------------------
+PAGE : 3
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+or confirm the output’s relevance, support, or completeness. In contrast, common RAG approaches
+retrieve passages indiscriminately, without ensuring complete support from cited sources.
+3.1 P ROBLEM FORMALIZATION AND OVERVIEW
+Formally, given input x, we train M to sequentially generate textual outputs y consisting of multiple
+segments y = [y1, . . . , yT ], where yt indicates a sequence of tokens for the t-th segment.3 Generated
+tokens in yt include text from the original vocabulary as well as the reflection tokens (Table 1).
+2All work is arXived within a week of this preprint.
+
+
+--------------------------------------------------------------------------------
+PAGE : 4
+--------------------------------------------------------------------------------
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a
+
+OCR Text:
+Preprint.
+
+Type Input Output Definitions
+
+eln,y {yes, no, continue} Decides when to retrieve with R.
+
+x,d {relevant, irrelevant} d provides useful information to solve x.
+
+x,d,y {fully supported, partially All of the verification-worthy statement in y
+supported, no support} is supported by d.
+
+x,y {5, 4, 3, 2, 1} y is a useful response to x.
+
+Table 1: Four types of reflection tokens used in SELF-RAG. Each type uses several tokens to represent
+its output values. The bottom three rows are three types of tokens, and the bold text indicates
+the most desirable critique tokens. z, y, d indicate input, output, and a relevant passage, respectively.
+
+Algorithm 1 SELF-RAG Inference
+
+Require: Generator LM M, Retriever R, Large-scale passage collections {d1,...,da}
+1: Input: input prompt x and preceding generation y<;, Output: next output segment y,
+2: M predicts given (x, y<t)
+
+3: if [Retrieve| == Yes then
+
+4: Retrieve relevant text passages D using R given (x, yz_1) > Retrieve
+
+5: M predicts given x, d and y, given z,d, y<, for each d € D > Generate
+
+6: M predicts and given z, yz, d for each d € D > Critique
+
+7: Rank y, based on ; , > Detailed in Section 3.3
+
+8: else if == No then
+
+9: Megen predicts y; given x > Generate
+10: Megen predicts given x, yt > Critique
+
+Inference overview. Figure 1 and Algorithm 1 present an overview of SELF-RAG at inference. For
+every x and preceding generation y<;, the model decodes a retrieval token to evaluate the utility
+of retrieval. If retrieval is not required, the model predicts the next output segment, as it does in a
+standard LM. If retrieval is needed, the model generates: a critique token to evaluate the retrieved
+passage’s relevance, the next response segment, and a critique token to evaluate if the information in
+the response segment is supported by the passage. Finally, a new critique token evaluates the overall
+utility of the response.* To generate each segment, SELF-RAG processes multiple passages in parallel
+and uses its own generated reflection tokens to enforce soft constraints (Section 3.3) or hard control
+(Algorithm 1) over the generated task output. For instance, in Figure 1 (right), the retrieved passages
+dy is selected at the first time step since dz does not provide direct evidence ( [IsRet] is Irrelevant)
+and dz output is only partially supported while d; are fully supported.
+
+Training overview. SELF-RAG enables an arbitrary LM to generate text with reflection tokens
+by unifying them as next token predictions from the expanded model vocabulary (i.e., the original
+vocabulary plus reflection tokens). Specifically, we train the generator model M on a curated corpus
+with interleaving passages retrieved by a retriever FR and reflection tokens predicted by a critic model
+€ (summarized in Appendix Algorithm 2). We train C to generate reflection tokens for evaluating
+retrieved passages and the quality of a given task output (Section 3.2.1). Using the critic model, we
+update the training corpus by inserting reflection tokens into task outputs offline. Subsequently, we
+train the final generator model (M) using the conventional LM objective (Section 3.2.2) to enable
+M to generate reflection tokens by itself without relying on the critic at inference time.
+
+3.2 SELF-RAG TRAINING
+
+Here, we describe the supervised data collection and training of two models, the critic C (Section 3.2.1)
+and the generator M (Section 3.2.2).
+
+3.2.1 TRAINING THE CRITIC MODEL
+
+Data collection for critic model. Manual annotation of reflection tokens for each segment is
+expensive (Wu et al., 2023). A state-of-the-art LLM like GPT-4 (OpenAI, 2023) can be effectively
+
+“We follow Liu et al. (2023a) in using a “perceived” utility value that is independent of retrieved passages.
+
+Nearby Document Text:
+Preprint.
+Type
+Input
+Output
+Definitions
+Retrieve
+x / x, y
+{yes, no, continue}
+Decides when to retrieve with R
+ISREL
+x, d
+{relevant, irrelevant}
+d provides useful information to solve x.
+ISSUP
+x, d, y
+{fully supported, partially
+supported, no support}
+All of the verification-worthy statement in y
+is supported by d.
+ISUSE
+x, y
+{5, 4, 3, 2, 1}
+y is a useful response to x.
+Table 1: Four types of reflection tokens used in SELF-RAG. Each type uses several tokens to represent
+its output values. The bottom three rows are three types of Critique tokens, and the bold text indicates
+the most desirable cr
+
+
+================================================================================
+DOCUMENT : RAG.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 6
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+how parametric and non-parametric memories work together—the non-parametric component helps
+to guide the generation, drawing out speciﬁc knowledge stored in the parametric memory.
+4.4 Fact Veriﬁcation
+Table 2 shows our results on FEVER. For 3-way classiﬁcation, RAG scores are within 4.3% of
+state-of-the-art models, which are complex pipeline systems with domain-speciﬁc architectures and
+substantial engineering, trained using intermediate retrieval supervision, which RAG does not require.
+6
+
+
+--------------------------------------------------------------------------------
+PAGE : 7
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+to classify the claim as true or false given the gold evidence sentence. RAG achieves an accuracy
+within 2.7% of this model, despite being supplied with only the claim and retrieving its own evidence.
+We also analyze whether documents retrieved by RAG correspond to documents annotated as gold
+evidence in FEVER. We calculate the overlap in article titles between the topk documents retrieved
+by RAG and gold evidence annotations. We ﬁnd that the top retrieved document is from a gold article
+in 71% of cases, and a gold article is present in the top 10 retrieved articles in 90% of cases.
+
+
+[TEXT]
+
+more diverse than RAG-Token’s, and both are signiﬁcantly more diverse than BART without needing
+any diversity-promoting decoding.
+Retrieval Ablations A key feature of RAG is learning to retrieve relevant information for the task.
+To assess the effectiveness of the retrieval mechanism, we run ablations where we freeze the retriever
+during training. As shown in Table 6, learned retrieval improves results for all tasks.
+We compare RAG’s dense retriever to a word overlap-based BM25 retriever [53]. Here, we replace
+
+
+--------------------------------------------------------------------------------
+PAGE : 8
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+RAG-Tok R-L
+RAG-Tok B-1
+RAG-Seq R-L
+RAG-Seq B-1
+Figure 3: Left: NQ performance as more documents are retrieved. Center: Retrieval recall perfor-
+mance in NQ. Right: MS-MARCO Bleu-1 and Rouge-L as more documents are retrieved.
+5 Related Work
+Single-Task Retrieval Prior work has shown that retrieval improves performance across a variety of
+NLP tasks when considered in isolation. Such tasks include open-domain question answering [5, 29],
+fact checking [ 56], fact completion [ 48], long-form question answering [ 12], Wikipedia article
+
+
+--------------------------------------------------------------------------------
+PAGE : 9
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+Machine Translation [ 18, 22] and Semantic Parsing [21]. Our approach does have several differences,
+including less of emphasis on lightly editing a retrieved item, but on aggregating content from several
+pieces of retrieved content, as well as learning latent retrieval, and retrieving evidence documents
+rather than related training pairs. This said, RAG techniques may work well in these settings, and
+could represent promising future work.
+6 Discussion
+In this work, we presented hybrid generation models with access to parametric and non-parametric
+
+
+--------------------------------------------------------------------------------
+PAGE : 18
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+the interests of simplicity, we omit them. For Open MS-MARCO, where useful retrieved documents
+cannot always be retrieved, we observe that the model learns to always retrieve a particular set of
+documents for questions that are less likely to beneﬁt from retrieval, suggesting that null document
+mechanisms may not be necessary for RAG.
+G Parameters
+Our RAG models contain the trainable parameters for the BERT-base query and document encoder of
+DPR, with 110M parameters each (although we do not train the document encoder ourselves) and
+
+================================================================================
+
+================================================================================
+RAG PIPELINE DEBUG
+================================================================================
+Query Type        : analytical
+Retrieved Chunks  : 8
+Retrieved Images  : 3
+Reranked Chunks   : 11
+Reranked Text     : 8
+Reranked Images   : 3
+Final Context Docs: 11
+Exact Figure Query: False
+Exact Figure Match: False
+Exact Figure Final: False
+================================================================================
+
+================================================================================
+STAGE 4 — EVIDENCE VERIFICATION
+================================================================================
+Verification Units : 5
+Supported          : 4
+Partially Supported: 1
+Unsupported        : 0
+Unknown            : 0
+Groundedness Ratio : 0.80
+
+[CLAIM #1] SELF-RAG differs from conventional RAG systems in deciding when to retrieve documents by incorporating a model (M) that decodes a retrieval token to evaluate the utility of retrieval.
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.8799 | Citation=Self-RAG.pdf (Page 4)
+
+[CLAIM #2] If retrieval is not required, the model predicts the next output segment as it does in a standard Language Model (LM).
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.563 | Citation=Self-RAG.pdf (Page 4)
+
+[CLAIM #3] If retrieval is needed, the model generates a critique token to evaluate the retrieved passage's relevance, the next response segment, and another critique token to evaluate if the information in the response segment is supported by the passage.
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.5859 | Citation=Self-RAG.pdf (Page 4)
+
+[CLAIM #4] Finally, a new critique token evaluates the overall utility of the response.
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.5293 | Citation=Self-RAG.pdf (Page 4)
+
+[CLAIM #5] This approach allows SELF-RAG to process multiple passages in parallel and use reflection tokens to enforce soft constraints or hard control over the generated task output.
+  Status=PARTIALLY_SUPPORTED | NLI=NEUTRAL | Confidence=0.5068 | Citation=Self-RAG.pdf (Page 4)
+================================================================================
+
+====================================================================================================
+RAG ANSWER
+====================================================================================================
+ SELF-RAG differs from conventional RAG systems in deciding when to retrieve documents by incorporating a model (M) that decodes a retrieval token to evaluate the utility of retrieval. If retrieval is not required, the model predicts the next output segment as it does in a standard Language Model (LM). If retrieval is needed, the model generates a critique token to evaluate the retrieved passage's relevance, the next response segment, and another critique token to evaluate if the information in the response segment is supported by the passage. Finally, a new critique token evaluates the overall utility of the response. This approach allows SELF-RAG to process multiple passages in parallel and use reflection tokens to enforce soft constraints or hard control over the generated task output.
+
+IMAGE PATHS:
+D:/Projects/Major-Project-2-main/extracted_images/Self-RAG_page1_render.png
+D:/Projects/Major-Project-2-main/extracted_images/Self-RAG_page2_render.png
+D:/Projects/Major-Project-2-main/extracted_images/Self-RAG_page4_render.png

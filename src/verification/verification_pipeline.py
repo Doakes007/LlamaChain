@@ -221,6 +221,7 @@ def process_answer(
     answer: str,
     retrieved_docs: List[Document],
     top_k: int = 3,
+    method: str = "nli",
 ) -> VerificationResult:
 
     units = split_answer(answer)
@@ -263,7 +264,7 @@ def process_answer(
         # 3. Normal verification
         # -------------------------------------------------
 
-        verify_unit(unit)
+        verify_unit(unit, method=method)
 
         # -------------------------------------------------
         # 4. Citation

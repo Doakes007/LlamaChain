@@ -1,0 +1,133 @@
+question_id,document,question,question_type,retrieval_correct,answer_correctness,failure_type
+SR-01,SELF-RAG,What is the main goal of the SELF-RAG framework?,Basic factual / retrieval,YES,PARTIAL,Generation
+SR-02,SELF-RAG,"What are the special tokens introduced by SELF-RAG called, and what is their purpose?",Basic factual / retrieval,YES,CORRECT,No recorded failure
+SR-03,SELF-RAG,How does SELF-RAG decide whether retrieval is necessary during generation?,Basic factual / retrieval,YES,CORRECT,No recorded failure
+SR-04,SELF-RAG,What are the three aspects of retrieved passages that the critic evaluates in the SELF-RAG framework?,Basic factual / retrieval,YES,PARTIAL,Generation
+SR-05,SELF-RAG,What language model was used to initialize the critic model during SELF-RAG training?,Basic factual / retrieval,NO,INCORRECT,Retrieval
+SR-06,SELF-RAG,How does SELF-RAG differ from conventional RAG systems in deciding when to retrieve documents?,Architecture / reasoning,YES,CORRECT,No recorded failure
+SR-07,SELF-RAG,Explain the role of the critic model in constructing the training data for the SELF-RAG generator.,Architecture / reasoning,YES,PARTIAL,Generation
+SR-08,SELF-RAG,How does the SELF-RAG generator learn to produce both normal text and reflection tokens?,Architecture / reasoning,YES,CORRECT,No recorded failure
+SR-09,SELF-RAG,What happens after the critic determines that a retrieved passage is relevant to the generated response?,Architecture / reasoning,YES,PARTIAL,Generation
+SR-10,SELF-RAG,"According to Figure 3(a), how does SELF-RAG perform compared with the No Retriever and No Critic variants on the reported PQA, Med and ASQA metrics?",Figure / table understanding,YES,INCORRECT,Generation
+SR-11,SELF-RAG,"According to Figure 3(c), what happens to retrieval frequency when the retrieval threshold is increased?",Figure / table understanding,NO,INCORRECT,Retrieval
+SR-12,SELF-RAG,"According to Figure 4, how does increasing the amount of training data affect SELF-RAG performance on PopQA, PubHealth, and ASQA?",Figure / table understanding,YES,CORRECT,No recorded failure
+SR-13,SELF-RAG,Why does increasing the retrieval threshold create a trade-off between retrieval frequency and model performance?,Deeper reasoning,YES,CORRECT,No recorded failure
+SR-14,SELF-RAG,Why can SELF-RAG outperform conventional retrieval-augmented models on tasks where the answer cannot simply be copied from retrieved passages?,Deeper reasoning,YES,CORRECT,No recorded failure
+SR-15,SELF-RAG,"According to the paper's human evaluation, what do the S&P, ISREL, and ISSUP evaluations tell us about the quality and grounding of SELF-RAG outputs?",Deeper reasoning,YES,PARTIAL,Generation
+D-01,Donut,"What does the name Donut stand for, and what problem is the model designed to solve?",Basic factual / retrieval,YES,PARTIAL,Generation
+D-02,Donut,What are the main problems associated with OCR-dependent Visual Document Understanding methods?,Basic factual / retrieval,YES,PARTIAL,Generation
+D-03,Donut,What is the main architectural difference between Donut and conventional OCR-based document understanding systems?,Basic factual / retrieval,YES,CORRECT,No recorded failure
+D-04,Donut,What type of visual encoder does Donut use in the experiments?,Basic factual / retrieval,YES,CORRECT,No recorded failure
+D-05,Donut,What type of decoder does Donut use to convert visual features into structured information?,Basic factual / retrieval,YES,CORRECT,No recorded failure
+D-06,Donut,How does information flow through Donut from the input document image to the final structured output?,Architecture / reasoning,YES,CORRECT,No recorded failure
+D-07,Donut,Why does Donut not require an OCR module?,Architecture / reasoning,YES,CORRECT,No recorded failure
+D-08,Donut,How does Donut's pre-training process teach the model to read text from document images?,Architecture / reasoning,NO,INCORRECT,Retrieval
+D-09,Donut,What is the purpose of the SynthDoG synthetic document generator?,Architecture / reasoning,PARTIAL,PARTIAL,Retrieval
+D-10,Donut,"According to Figure 2, how does Donut compare with OCR-dependent VDU models in terms of inference time, memory usage, and accuracy?",Figure / visual understanding,YES,INCORRECT,Generation
+D-11,Donut,"Using Figure 3, explain how Donut converts a document image into a structured JSON-like output.",Figure / visual understanding,YES,CORRECT,No recorded failure
+D-12,Donut,"In Figure 6, what examples demonstrate the strengths and limitations of Donut compared with LayoutLMv2 on DocVQA?",Figure / visual understanding,YES,CORRECT,No recorded failure
+D-13,Donut,"According to Table 3, what are the ANLS scores of Donut on the DocVQA test set and the handwritten subset, and how do they compare with LayoutLMv2?",Table / numerical reasoning,NO,INCORRECT,Retrieval
+D-14,Donut,"According to Figure 7, how does increasing the input image resolution affect Donut's performance, particularly on DocVQA?",Table / numerical reasoning,NO,INCORRECT,Retrieval
+D-15,Donut,Why does the paper argue that Donut's OCR-free approach can be advantageous for multilingual document understanding and real-world deployment?,Deeper reasoning,YES,CORRECT,No recorded failure
+L1,LayoutLMv3,"What is the main purpose of LayoutLMv3, and what problem in Document AI pre-training does it aim to address?",Core understanding,YES,PARTIAL,Generation
+L2,LayoutLMv3,"What are the three pre-training objectives used by LayoutLMv3, and what does each objective learn?",Core understanding,PARTIAL,INCORRECT,Retrieval
+L3,LayoutLMv3,Why does LayoutLMv3 avoid using a pre-trained CNN or Faster R-CNN backbone for extracting visual features?,Core understanding,YES,CORRECT,No recorded failure
+L4,LayoutLMv3,How does LayoutLMv3 represent document images before feeding them into the multimodal Transformer?,Core understanding,YES,CORRECT,No recorded failure
+L5,LayoutLMv3,What are the two types of embeddings that make up the text representation in LayoutLMv3?,Architecture / layout understanding,YES,CORRECT,No recorded failure
+L6,LayoutLMv3,How does LayoutLMv3's use of segment-level 2D positions differ from the word-level layout positions used by LayoutLM and LayoutLMv2?,Architecture / layout understanding,YES,CORRECT,No recorded failure
+L7,LayoutLMv3,"According to Figure 3, how are the text tokens and image patches combined before being processed by the multimodal Transformer?",Architecture / layout understanding,NO,INCORRECT,Retrieval
+L8,LayoutLMv3,What is the purpose of the Word-Patch Alignment (WPA) objective in LayoutLMv3?,Image / multimodal reasoning,YES,CORRECT,No recorded failure
+L9,LayoutLMv3,How does Masked Image Modeling (MIM) in LayoutLMv3 differ from reconstructing raw image pixels?,Image / multimodal reasoning,YES,CORRECT,No recorded failure
+L10,LayoutLMv3,"According to Figure 2, how does LayoutLMv3's image embedding approach differ from the CNN/grid and region-feature approaches used by models such as DocFormer and SelfDoc?",Image / multimodal reasoning,YES,INCORRECT,Generation
+L11,LayoutLMv3,"In the LayoutLMv3 ablation study, how does adding MIM and WPA affect the PubLayNet performance compared with the MLM-only models?",Experimental / table reasoning,YES,PARTIAL,Generation
+L12,LayoutLMv3,"According to the experimental results, which five benchmark datasets are used to evaluate LayoutLMv3, and what type of Document AI task does each dataset represent?",Experimental / table reasoning,PARTIAL,PARTIAL,Retrieval
+B1,BLIP-2,"What problem does BLIP-2 aim to solve in vision-language pre-training, and how does the Q-Former address this problem?",Core understanding,YES,CORRECT,No recorded failure
+B2,BLIP-2,What are the two stages of BLIP-2's pre-training procedure?,Core understanding,PARTIAL,INCORRECT,Retrieval
+B3,BLIP-2,"What are the two Transformer submodules that make up the Q-Former, and what role does each one play?",Core understanding,NO,INCORRECT,Retrieval
+B4,BLIP-2,How does the Q-Former interact with the frozen image encoder and the text?,Core understanding,YES,PARTIAL,Generation
+B5,BLIP-2,"How many learnable query embeddings are used by the Q-Former, and what is the dimensionality of each query?",Architecture / numerical reasoning,NO,INCORRECT,Retrieval
+B6,BLIP-2,"How many parameters does the Q-Former contain, and why is this relatively lightweight compared with the large language models used by BLIP-2?",Architecture / numerical reasoning,YES,CORRECT,No recorded failure
+B7,BLIP-2,"What is the size of the output query representation Z, and how does it compare with the frozen ViT-L/14 image features?",Architecture / numerical reasoning,NO,INCORRECT,Retrieval
+B8,BLIP-2,What are the three objectives used during the first-stage vision-language representation learning of BLIP-2?,Pre-training / multimodal reasoning,PARTIAL,INCORRECT,Retrieval
+B9,BLIP-2,How does Image-Text Contrastive Learning (ITC) determine the similarity between an image and its corresponding text?,Pre-training / multimodal reasoning,NO,INCORRECT,Retrieval
+B10,BLIP-2,How does the Image-Text Matching (ITM) objective control the interaction between query tokens and text tokens?,Pre-training / multimodal reasoning,NO,INCORRECT,Retrieval
+B11,BLIP-2,Why is vision-language representation learning important for BLIP-2's second-stage vision-to-language generative learning?,Results / figure / reasoning,YES,CORRECT,No recorded failure
+B12,BLIP-2,"According to the paper, how does BLIP-2 compare with Flamingo on zero-shot VQAv2, both in performance improvement and number of trainable parameters?",Results / figure / reasoning,YES,PARTIAL,Generation
+VIT-01,Vision Transformer,How does Vision Transformer (ViT) represent an image as an input sequence for a standard Transformer encoder?,Architecture / Core Method,YES,CORRECT,No recorded failure
+VIT-02,Vision Transformer,How are the image patches converted into the input embeddings used by the Transformer encoder in ViT?,Architecture / Core Method,YES,CORRECT,No recorded failure
+VIT-03,Vision Transformer,What is the purpose of the learnable class token in the Vision Transformer architecture?,Architecture / Core Method,YES,CORRECT,No recorded failure
+VIT-04,Vision Transformer,Why does ViT add positional embeddings to the sequence of image patch embeddings?,Architecture / Core Method,YES,CORRECT,No recorded failure
+VIT-05,Vision Transformer,"After an image is divided into patches and embedded, how does the Transformer encoder process these patch representations?",Architecture / Core Method,YES,CORRECT,No recorded failure
+VIT-06,Vision Transformer,What image-specific inductive biases does the standard Vision Transformer architecture introduce compared with convolutional neural networks?,Architecture vs CNN,YES,INCORRECT,Generation
+VIT-07,Vision Transformer,Why does ViT require large-scale pre-training to perform well compared with traditional convolutional architectures?,Architecture vs CNN,PARTIAL,INCORRECT,Retrieval
+VIT-08,Vision Transformer,How does the hybrid ResNet-ViT model differ from the standard ViT model in how it produces the input representations for the Transformer?,Architecture vs CNN,PARTIAL,PARTIAL,Generation
+VIT-09,Vision Transformer,What did the experiments demonstrate about the performance of ViT compared with state-of-the-art convolutional models on image classification benchmarks?,Experiments / Results,YES,CORRECT,No recorded failure
+VIT-10,Vision Transformer,How does the amount of pre-training data affect the performance of Vision Transformer models?,Experiments / Results,YES,PARTIAL,Generation
+VIT-11,Vision Transformer,How does ViT perform when transferred from large-scale pre-training datasets to smaller downstream datasets?,Experiments / Results,YES,CORRECT,No recorded failure
+VIT-12,Vision Transformer,How does the average attention distance change as the depth of the Vision Transformer network increases?,Attention / Interpretability,YES,CORRECT,No recorded failure
+VIT-13,Vision Transformer,What do the attention maps in the Vision Transformer reveal about the image regions that the model uses for classification?,Attention / Interpretability,NO,INCORRECT,Retrieval
+VIT-14,Vision Transformer,What effect does removing positional embeddings have on ViT performance compared with using positional embeddings?,Ablation / Self-Supervision,YES,CORRECT,No recorded failure
+VIT-15,Vision Transformer,"What was the masked patch prediction objective used for in the preliminary self-supervised learning experiments, and how did the resulting ViT-B/16 performance compare with training from scratch?",Ablation / Self-Supervision,YES,CORRECT,No recorded failure
+CLIP-01,CLIP,"What is CLIP, and what does the acronym “CLIP” stand for?",Core Concept,YES,CORRECT,No recorded failure
+CLIP-02,CLIP,What limitation of traditional supervised image classification does CLIP attempt to address by learning from natural language supervision?,Core Concept,YES,CORRECT,No recorded failure
+CLIP-03,CLIP,"What type of training data does CLIP use, and how large is the dataset introduced in the paper?",Core Concept,PARTIAL,INCORRECT,Retrieval
+CLIP-04,CLIP,How does CLIP learn to associate images with their corresponding textual descriptions during pre-training?,Contrastive Learning,NO,CORRECT,Retrieval
+CLIP-05,CLIP,What are the roles of the image encoder and text encoder in CLIP?,Contrastive Learning,YES,PARTIAL,Generation
+CLIP-06,CLIP,How are image and text representations compared during CLIP's training and zero-shot prediction?,Contrastive Learning,YES,PARTIAL,Generation
+CLIP-07,CLIP,How does CLIP perform zero-shot image classification without being explicitly trained on the target classification dataset?,Zero-Shot Classification,PARTIAL,PARTIAL,Retrieval
+CLIP-08,CLIP,How are the class names of a target dataset used to construct a zero-shot classifier with CLIP?,Zero-Shot Classification,PARTIAL,INCORRECT,Retrieval
+CLIP-09,CLIP,How does CLIP determine which class is most likely for an input image during zero-shot classification?,Zero-Shot Classification,PARTIAL,PARTIAL,Retrieval
+CLIP-10,CLIP,What role does the temperature parameter play when CLIP converts image-text similarities into a probability distribution?,Zero-Shot Classification,NO,PARTIAL,Retrieval
+CLIP-11,CLIP,How can the CLIP text encoder be interpreted as generating the weights of a zero-shot linear classifier?,Zero-Shot Classification,YES,CORRECT,No recorded failure
+CLIP-12,CLIP,What top-1 ImageNet accuracy did the best CLIP model achieve in the zero-shot evaluation reported in the paper?,Results,NO,INCORRECT,Retrieval
+CLIP-13,CLIP,"What top-5 ImageNet accuracy did the reported CLIP model achieve, and how does it compare with its top-1 accuracy?",Results,YES,PARTIAL,Generation
+CLIP-14,CLIP,"How did CLIP's zero-shot classification performance compare with Visual N-Grams on the Yahoo, ImageNet, and SUN datasets?",Results,YES,PARTIAL,Retrieval
+CLIP-15,CLIP,Why does the paper argue that CLIP represents a significant step toward flexible and practical zero-shot computer vision classifiers?,Interpretation / Limitation,YES,CORRECT,No recorded failure
+RAG-01,RAG,"What is Retrieval-Augmented Generation (RAG), and what problem is it designed to address?",Core / Architecture,YES,PARTIAL,Generation
+RAG-02,RAG,"What are the two types of memory used in the RAG architecture, and what role does each one play?",Core / Architecture,NO,INCORRECT,Retrieval
+RAG-03,RAG,What type of index is used as the non-parametric memory in the RAG model?,Core / Architecture,YES,PARTIAL,Generation
+RAG-04,RAG,"What model is used as the parametric memory in the RAG architecture, and what component retrieves documents from the external memory?",Core / Architecture,NO,INCORRECT,Retrieval
+RAG-05,RAG,What is the main difference between RAG-Sequence and RAG-Token?,Architecture / Reasoning,PARTIAL,INCORRECT,Retrieval + Generation
+RAG-06,RAG,Why does using an external non-parametric memory make RAG easier to update with new knowledge than a purely parametric language model?,Architecture / Reasoning,YES,CORRECT,No recorded failure
+RAG-07,RAG,What advantages does the RAG paper claim for storing raw text in its external memory instead of storing only distributed representations?,Architecture / Reasoning,YES,CORRECT,No recorded failure
+RAG-08,RAG,How does the neural retriever interact with the Wikipedia document index in the RAG architecture?,Architecture / Reasoning,NO,INCORRECT,Retrieval
+RAG-09,RAG,On what types of knowledge-intensive NLP tasks was RAG evaluated?,Evaluation / Performance,YES,PARTIAL,Generation
+RAG-10,RAG,What advantages did the authors report for RAG-generated text compared with purely parametric BART generation?,Evaluation / Performance,YES,PARTIAL,Generation
+RAG-11,RAG,Why can RAG be considered a combination of parametric and non-parametric memory?,System-level Reasoning,YES,CORRECT,No recorded failure
+RAG-12,RAG,How does the ability to hot-swap the retrieval index affect the maintainability of a RAG system?,System-level Reasoning,YES,INCORRECT,Generation
+BERT-01,BERT,"What does BERT stand for, and what is the main idea behind the model?",Core / Architecture,YES,CORRECT,No recorded failure
+BERT-02,BERT,How does BERT differ from OpenAI GPT in terms of the direction of context used by the Transformer?,Core / Architecture,YES,CORRECT,No recorded failure
+BERT-03,BERT,What is the masked language model (MLM) objective used during BERT pre-training?,Core / Architecture,YES,CORRECT,No recorded failure
+BERT-04,BERT,Why does the masked language model allow BERT to learn bidirectional representations while a traditional left-to-right language model cannot?,Core / Architecture,YES,CORRECT,Verification
+BERT-05,BERT,What is the purpose of the Next Sentence Prediction (NSP) task in BERT?,Core / Architecture,YES,PARTIAL,Generation
+BERT-06,BERT,"During BERT pre-training, what percentage of the time is the second sampled text span the actual next sentence, and what percentage of the time is it a randomly selected sentence?",Training / Comparison,YES,CORRECT,No recorded failure
+BERT-07,BERT,"How do BERT, OpenAI GPT, and ELMo differ in their approaches to obtaining contextual representations?",Training / Comparison,YES,PARTIAL,Generation
+BERT-08,BERT,What masking rate is used for the language-model masking during BERT pre-training?,Training / Comparison,YES,INCORRECT,Generation
+BERT-09,BERT,What optimizer and learning rate are used for BERT pre-training?,Training / Comparison,NO,INCORRECT,Retrieval
+BERT-10,BERT,What are the main differences between BERTBASE and BERTLARGE in terms of their architecture and training resources?,Training / Comparison,NO,INCORRECT,Retrieval
+BERT-11,BERT,Why does BERT's bidirectional pre-training reduce the need for heavily engineered task-specific architectures?,Reasoning / Results,NO,INCORRECT,Retrieval
+BERT-12,BERT,"What improvements did BERT achieve on GLUE, MultiNLI, SQuAD v1.1, and SQuAD v2.0 according to the paper's abstract?",Reasoning / Results,YES,PARTIAL,Retrieval + Generation
+NLP-Q1,NLP,"What are the six sequential stages of the NLP pipeline described in Figure 1, from raw news text to the final classification output?",Architecture / Figure,YES,PARTIAL,Generation
+NLP-Q2,NLP,"According to Figure 1, how does the BiLSTM branch process the tokenized news text before the final classification head?",Architecture / Multimodal,YES,PARTIAL,Generation
+NLP-Q3,NLP,"What embedding or tokenization method is used for BiLSTM, and what method is used for BERT and RoBERTa?",Embedding Comparison,NO,INCORRECT,Retrieval
+NLP-Q4,NLP,"How many total news articles are contained in the dataset, and into how many categories are they classified?",Dataset / Numerical,YES,CORRECT,No recorded failure
+NLP-Q5,NLP,"Which news category contains the largest number of articles in the dataset, and how many articles does it contain?",Table Lookup,YES,CORRECT,No recorded failure
+NLP-Q6,NLP,What is the ratio of the number of Politics articles to Finance articles in the dataset?,Table Reasoning,YES,CORRECT,No recorded failure
+NLP-Q7,NLP,"Which model achieves the highest overall accuracy among Naive Bayes, SVM, BiLSTM, BERT fine-tuned, and RoBERTa, and what is its accuracy?",Performance Table,NO,INCORRECT,Retrieval
+NLP-Q8,NLP,"What are the accuracy and F1 score of BERT fine-tuned and RoBERTa, and how much higher is RoBERTa's accuracy than BERT fine-tuned?",Performance Comparison,NO,INCORRECT,Retrieval
+NLP-Q9,NLP,"Which news category has the highest F1 score for RoBERTa, and what is that F1 score?",Per-Class Table,NO,INCORRECT,Retrieval
+NLP-Q10,NLP,"According to the BERT self-attention heatmap for the Health category article in Figure 5, which medically significant word receives the highest attention weights?",Figure Interpretation,NO,INCORRECT,Retrieval
+NLP-Q11,NLP,"Which model converges fastest during training according to Figure 3, and what does the paper identify as a major reason for the computational advantage or disadvantage of the compared models?",Figure + Text Reasoning,YES,CORRECT,No recorded failure
+NLP-Q12,NLP,"RoBERTa achieves the highest accuracy but requires substantially more training time than BiLSTM and SVM. Based on Table 3 and the discussion, which model provides the best accuracy-speed trade-off for real-time deployment, and why?",Table + Discussion Reasoning,NO,INCORRECT,Retrieval
+CNN-Q1,CNN,"What are the major components of the CNN architecture, and how many convolutional layers does the model contain?",Architecture / Text,YES,CORRECT,No recorded failure
+CNN-Q2,CNN,"According to Figure 1, what is the sequence of processing stages an input image passes through before producing the final animal-class prediction?",Architecture / Figure,YES,INCORRECT,Generation
+CNN-Q3,CNN,"What input image resolution is used by the CNN, and how many filters are used in the first and second convolutional layers?",Numerical Architecture,YES,PARTIAL,Generation
+CNN-Q4,CNN,"How many labeled images are contained in the complete animal-image dataset, and what are the seven animal categories?",Dataset / Numerical,YES,CORRECT,No recorded failure
+CNN-Q5,CNN,"Which animal category has the largest number of images, and which category has the smallest number of images?",Table Lookup,YES,CORRECT,No recorded failure
+CNN-Q6,CNN,What is the ratio between the number of Dog images and Turtle images in the complete dataset?,Numerical Reasoning,YES,INCORRECT,Generation
+CNN-Q7,CNN,"After how many epochs does the validation accuracy plateau at approximately 94.2%, and what is the final training accuracy reported?",Training Results,YES,PARTIAL,Generation
+CNN-Q8,CNN,What does Figure 2 show about the relationship between training and validation accuracy during the 20 training epochs?,Figure Interpretation,YES,INCORRECT,Generation
+CNN-Q9,CNN,"Which animal category achieves the highest F1 score in the test-set evaluation, and what are its precision, recall, and F1 score?",Evaluation Table,YES,CORRECT,No recorded failure
+CNN-Q10,CNN,"According to the confusion matrix in Figure 5, which pair of animal classes has the most prominent confusion, and how many Dogs are classified as Cats?",Confusion Matrix,YES,INCORRECT,Generation
+CNN-Q11,CNN,"According to Figure 4, what happens when the input image fails the validation check, and what processing stages are applied to a valid image before the final prediction?",Flowchart / Multimodal,YES,PARTIAL,Generation
+CNN-Q12,CNN,"Compared with VGG-16, ResNet-50, and MobileNetV2, how does the proposed CNN compare in terms of parameter count, validation accuracy, and inference time?",Comparison Table / Reasoning,YES,CORRECT,No recorded failure

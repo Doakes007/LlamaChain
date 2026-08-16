@@ -1,0 +1,1236 @@
+====================================================================================================
+QUESTION_ID   : BERT-04
+DOCUMENT      : BERT
+QUESTION_TYPE : Core / Architecture
+ELAPSED_SEC   : 52.9
+ERROR         : no
+====================================================================================================
+
+QUESTION:
+Why does the masked language model allow BERT to learn bidirectional representations while a traditional left-to-right language model cannot?
+
+GROUND TRUTH ANSWER:
+MLM enables bidirectional pre-training because the model predicts selected masked tokens while conditioning on both left and right context. A conventional left-to-right language model cannot use both directions simultaneously because bidirectional conditioning would allow the target word to see itself and make prediction trivial.
+
+GROUND TRUTH SOURCE:
+BERT.pdf, pp. 1–8, 13–16
+
+====================================================================================================
+FORENSIC TRANSCRIPT
+====================================================================================================
+
+####################################################################################################
+FORENSIC CASE START
+####################################################################################################
+Original Query   : Why does the masked language model allow BERT to learn bidirectional representations while a traditional left-to-right language model cannot?
+Expanded Query   : Why does the masked language model allow BERT to learn bidirectional representations while a traditional left-to-right language model cannot?
+Query Type       : analytical
+[DOCUMENT SCOPE] Normalized query: 'why does the masked language model allow bert to learn bidirectional representations while a traditional left to right language model cannot'
+[DOCUMENT SCOPE] Source='BERT.pdf' -> Normalized='bert'
+[DOCUMENT SCOPE] EXACT MATCH -> BERT.pdf
+[DOCUMENT SCOPE] Source='BLIP-2.pdf' -> Normalized='blip 2'
+[DOCUMENT SCOPE] Token overlap for 'BLIP-2.pdf': []
+[DOCUMENT SCOPE] Source='CLIP.pdf' -> Normalized='clip'
+[DOCUMENT SCOPE] Token overlap for 'CLIP.pdf': []
+[DOCUMENT SCOPE] Source='CNN Paper.pdf' -> Normalized='cnn paper'
+[DOCUMENT SCOPE] Token overlap for 'CNN Paper.pdf': []
+[DOCUMENT SCOPE] Source='Donut.pdf' -> Normalized='donut'
+[DOCUMENT SCOPE] Token overlap for 'Donut.pdf': []
+[DOCUMENT SCOPE] Source='LayoutLMv3.pdf' -> Normalized='layout l mv3'
+[DOCUMENT SCOPE] Token overlap for 'LayoutLMv3.pdf': []
+[DOCUMENT SCOPE] Source='NLP Paper.pdf' -> Normalized='nlp paper'
+[DOCUMENT SCOPE] Token overlap for 'NLP Paper.pdf': []
+[DOCUMENT SCOPE] Source='RAG.pdf' -> Normalized='rag'
+[DOCUMENT SCOPE] Token overlap for 'RAG.pdf': []
+[DOCUMENT SCOPE] Source='Self-RAG.pdf' -> Normalized='self rag'
+[DOCUMENT SCOPE] Token overlap for 'Self-RAG.pdf': []
+[DOCUMENT SCOPE] Source='Vision Transformer.pdf' -> Normalized='vision transformer'
+[DOCUMENT SCOPE] Token overlap for 'Vision Transformer.pdf': []
+[DOCUMENT SCOPE] Final matched sources: ['BERT.pdf']
+
+================================================================================
+DOCUMENT SCOPE DEBUG
+================================================================================
+Query          : Why does the masked language model allow BERT to learn bidirectional representations while a traditional left-to-right language model cannot?
+Expanded Query : Why does the masked language model allow BERT to learn bidirectional representations while a traditional left-to-right language model cannot?
+Query Type     : analytical
+Document Scope : ['BERT.pdf']
+================================================================================
+
+==========================================================================================
+STEP 3A — SCOPED HYBRID RETRIEVAL
+==========================================================================================
+Query              : Why does the masked language model allow BERT to learn bidirectional representations while a traditional left-to-right language model cannot?
+Sources            : ['BERT.pdf']
+Dense candidate K  : 25
+Final hybrid K     : 8
+
+------------------------------------------------------------------------------------------
+[SCOPED DENSE / VECTOR RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=BERT.pdf | Page=2 | Type=text | Image=N/A
+    Content=• We demonstrate the importance of bidirectional pre-training for language representations. Un- like Radford et al. (2018), which uses unidirec- tional language models for pre-trai
+02. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+    Content=BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding Jacob Devlin Ming-Wei Chang Kenton Lee Kristina Toutanova Google AI Language {jacobdevlin,mingweich
+03. Source=BERT.pdf | Page=2 | Type=text | Image=N/A
+    Content=word based only on its context. Unlike left-to- right language model pre-training, the MLM ob- jective enables the representation to fuse the left and the right context, which allo
+04. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+    Content=ford et al., 2018), BERT is designed to pre- train deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers. As a
+05. Source=BERT.pdf | Page=4 | Type=text | Image=N/A
+    Content=Task #1: Masked LM Intuitively, it is reason- able to believe that a deep bidirectional model is strictly more powerful than either a left-to-right model or the shallow concatenati
+06. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+    Content=BERT alleviates the previously mentioned unidi- rectionality constraint by using a “masked lan- guage model” (MLM) pre-training objective, in- spired by the Cloze task (Taylor, 195
+07. Source=BERT.pdf | Page=2 | Type=text | Image=N/A
+    Content=• We show that pre-trained representations reduce the need for many heavily-engineered task- speciﬁc architectures. BERT is the ﬁrst ﬁne- tuning based representation model that ach
+08. Source=BERT.pdf | Page=11 | Type=text | Image=N/A
+    Content=Inc. Andriy Mnih and Geoffrey E Hinton. 2009. A scal- able hierarchical distributed language model. In D. Koller, D. Schuurmans, Y . Bengio, and L. Bot- tou, editors, Advances in N
+09. Source=BERT.pdf | Page=16 | Type=text | Image=N/A
+    Content=Procedures In Section 3.1, we mention that BERT uses a mixed strategy for masking the target tokens when pre-training with the masked language model (MLM) objective. The following 
+10. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+    Content=general language representations. We argue that current techniques restrict the power of the pre-trained representations, espe- cially for the ﬁne-tuning approaches. The ma- jor li
+11. Source=BERT.pdf | Page=14 | Type=text | Image=N/A
+    Content=and the bidirectionality they enable. A.5 Illustrations of Fine-tuning on Different Tasks The illustration of ﬁne-tuning BERT on different tasks can be seen in Figure 4. Our task-s
+12. Source=BERT.pdf | Page=9 | Type=text | Image=N/A
+    Content=ized two-layer 768-dimensional BiLSTM before the classiﬁcation layer. Results are presented in Table 7. BERT LARGE performs competitively with state-of-the-art meth- ods. The best 
+13. Source=BERT.pdf | Page=4 | Type=text | Image=N/A
+    Content=segment, and position embeddings. A visualiza- tion of this construction can be seen in Figure 2. 3.1 Pre-training BERT Unlike Peters et al. (2018a) and Radford et al. (2018), we d
+14. Source=BERT.pdf | Page=10 | Type=text | Image=N/A
+    Content=ence on empirical methods in natural language pro- cessing, pages 120–128. Association for Computa- tional Linguistics. Samuel R. Bowman, Gabor Angeli, Christopher Potts, and Chris
+15. Source=BERT.pdf | Page=10 | Type=text | Image=N/A
+    Content=Language Technologies. Association for Computa- tional Linguistics. Jeremy Howard and Sebastian Ruder. 2018. Universal language model ﬁne-tuning for text classiﬁcation. In ACL. Ass
+16. Source=BERT.pdf | Page=12 | Type=text | Image=N/A
+    Content=the model’s language understanding capability. In Section C.2, we evaluate the impact this proce- dure. Compared to standard langauge model training, the masked LM only make predic
+17. Source=BERT.pdf | Page=3 | Type=text | Image=N/A
+    Content=BERT BERT E[CLS] E1  E[SEP]... EN E1’ ... EM’ C  T1  T[SEP]...  TN  T1’ ...  TM’ [CLS] Tok 1  [SEP]... Tok N Tok 1 ... TokM Question Paragraph Start/End Span BERT E[CLS] E1  E[SEP]
+18. Source=BERT.pdf | Page=4 | Type=text | Image=N/A
+    Content=Input/Output Representations To make BERT handle a variety of down-stream tasks, our input representation is able to unambiguously represent both a single sentence and a pair of se
+19. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+    Content=of the Transformer (Vaswani et al., 2017). Such re- strictions are sub-optimal for sentence-level tasks, and could be very harmful when applying ﬁne- tuning based approaches to tok
+20. Source=BERT.pdf | Page=2 | Type=text | Image=N/A
+    Content=the left-to-right and right-to-left representations. When integrating contextual word embeddings with existing task-speciﬁc architectures, ELMo advances the state of the art for se
+21. Source=BERT.pdf | Page=9 | Type=text | Image=N/A
+    Content=training data once and then run many experiments with cheaper models on top of this representation. In this section, we compare the two approaches by applying BERT to the CoNLL-200
+22. Source=BERT.pdf | Page=14 | Type=text | Image=N/A
+    Content=left-to-right Transformer LM on a large text cor- pus. In fact, many of the design decisions in BERT were intentionally made to make it as close to GPT as possible so that the two 
+23. Source=BERT.pdf | Page=4 | Type=text | Image=N/A
+    Content=Although this allows us to obtain a bidirec- tional pre-trained model, a downside is that we are creating a mismatch between pre-training and ﬁne-tuning, since the [MASK] token doe
+24. Source=BERT.pdf | Page=5 | Type=text | Image=N/A
+    Content=2015) and English Wikipedia (2,500M words). For Wikipedia we extract only the text passages and ignore lists, tables, and headers. It is criti- cal to use a document-level corpus r
+25. Source=BERT.pdf | Page=8 | Type=text | Image=N/A
+    Content=trained bidirectional models. The BiLSTM hurts performance on the GLUE tasks. We recognize that it would also be possible to train separate LTR and RTL models and represent each to
+
+------------------------------------------------------------------------------------------
+[SCOPED BM25 RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=BERT.pdf | Page=4 | Type=text | Image=N/A
+    Content=Task #1: Masked LM Intuitively, it is reason- able to believe that a deep bidirectional model is strictly more powerful than either a left-to-right model or the shallow concatenati
+02. Source=BERT.pdf | Page=2 | Type=text | Image=N/A
+    Content=• We demonstrate the importance of bidirectional pre-training for language representations. Un- like Radford et al. (2018), which uses unidirec- tional language models for pre-trai
+03. Source=BERT.pdf | Page=4 | Type=text | Image=N/A
+    Content=segment, and position embeddings. A visualiza- tion of this construction can be seen in Figure 2. 3.1 Pre-training BERT Unlike Peters et al. (2018a) and Radford et al. (2018), we d
+04. Source=BERT.pdf | Page=13 | Type=text | Image=N/A
+    Content=BERT (Ours) Trm Trm Trm Trm Trm Trm ... ... Trm Trm Trm Trm Trm Trm ... ... OpenAI GPT Lstm ELMo Lstm Lstm Lstm Lstm Lstm Lstm Lstm Lstm Lstm Lstm Lstm  T1 T2  TN... ... ... ... ..
+05. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+    Content=ford et al., 2018), BERT is designed to pre- train deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers. As a
+06. Source=BERT.pdf | Page=2 | Type=text | Image=N/A
+    Content=word based only on its context. Unlike left-to- right language model pre-training, the MLM ob- jective enables the representation to fuse the left and the right context, which allo
+07. Source=BERT.pdf | Page=13 | Type=image | Image=extracted_images\BERT_page13_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a textbook on the internet network  OCR Text: BERT (Ours)  OpenAl GPT  Figure 3: Differences in pre-training model architec
+08. Source=BERT.pdf | Page=16 | Type=text | Image=N/A
+    Content=trained on 1M steps compared to 500k steps. 2. Question: Does MLM pre-training converge slower than LTR pre-training, since only 15% of words are predicted in each batch rather tha
+09. Source=BERT.pdf | Page=2 | Type=text | Image=N/A
+    Content=tence words given a representation of the previous sentence (Kiros et al., 2015), or denoising auto- encoder derived objectives (Hill et al., 2016). ELMo and its predecessor (Peter
+10. Source=BERT.pdf | Page=13 | Type=text | Image=N/A
+    Content=left LSTMs to generate features for downstream tasks. Among the three, only BERT representations are jointly conditioned on both left and right context in all layers. In addition t
+11. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+    Content=BERT alleviates the previously mentioned unidi- rectionality constraint by using a “masked lan- guage model” (MLM) pre-training objective, in- spired by the Cloze task (Taylor, 195
+12. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+    Content=BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding Jacob Devlin Ming-Wei Chang Kenton Lee Kristina Toutanova Google AI Language {jacobdevlin,mingweich
+13. Source=BERT.pdf | Page=4 | Type=image | Image=extracted_images\BERT_page4_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+14. Source=BERT.pdf | Page=14 | Type=text | Image=N/A
+    Content=OpenAI GPT Here we studies the differences in recent popular representation learning models including ELMo, OpenAI GPT and BERT. The comparisons be- tween the model architectures a
+15. Source=BERT.pdf | Page=16 | Type=text | Image=N/A
+    Content=Procedures In Section 3.1, we mention that BERT uses a mixed strategy for masking the target tokens when pre-training with the masked language model (MLM) objective. The following 
+16. Source=BERT.pdf | Page=8 | Type=text | Image=N/A
+    Content=than a deep bidirectional model, since it can use both left and right context at every layer. 5.2 Effect of Model Size In this section, we explore the effect of model size on ﬁne-t
+17. Source=BERT.pdf | Page=4 | Type=text | Image=N/A
+    Content=predict the target word in a multi-layered context. former is often referred to as a “Transformer encoder” while the left-context-only version is referred to as a “Transformer deco
+18. Source=BERT.pdf | Page=12 | Type=text | Image=N/A
+    Content=the model’s language understanding capability. In Section C.2, we evaluate the impact this proce- dure. Compared to standard langauge model training, the masked LM only make predic
+19. Source=BERT.pdf | Page=3 | Type=image | Image=extracted_images\BERT_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a circuit and a circuit  OCR Text: Mask LM  Masked Sentence A Masked Sentence B  Unlabeled Se
+20. Source=BERT.pdf | Page=9 | Type=text | Image=N/A
+    Content=tuning and feature-based approaches. 6 Conclusion Recent empirical improvements due to transfer learning with language models have demonstrated that rich, unsupervised pre-training
+21. Source=BERT.pdf | Page=3 | Type=text | Image=N/A
+    Content=eters=110M) and BERTLARGE (L=24, H=1024, A=16, Total Parameters=340M). BERTBASE was chosen to have the same model size as OpenAI GPT for comparison purposes. Critically, however, t
+22. Source=BERT.pdf | Page=2 | Type=text | Image=N/A
+    Content=the left-to-right and right-to-left representations. When integrating contextual word embeddings with existing task-speciﬁc architectures, ELMo advances the state of the art for se
+23. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+    Content=include the pre-trained representations as addi- tional features. The ﬁne-tuning approach, such as the Generative Pre-trained Transformer (OpenAI GPT) (Radford et al., 2018), intro
+24. Source=BERT.pdf | Page=5 | Type=text | Image=N/A
+    Content=lows BERT to model many downstream tasks— whether they involve single text or text pairs—by swapping out the appropriate inputs and outputs. For applications involving text pairs, 
+25. Source=BERT.pdf | Page=2 | Type=text | Image=N/A
+    Content=• We show that pre-trained representations reduce the need for many heavily-engineered task- speciﬁc architectures. BERT is the ﬁrst ﬁne- tuning based representation model that ach
+
+------------------------------------------------------------------------------------------
+[RRF FUSION RANKING]
+------------------------------------------------------------------------------------------
+01. RRF=0.032522 | DenseRank=1 | BM25Rank=2 | Source=BERT.pdf | Page=2 | Type=text
+02. RRF=0.031778 | DenseRank=5 | BM25Rank=1 | Source=BERT.pdf | Page=4 | Type=text
+03. RRF=0.031025 | DenseRank=3 | BM25Rank=6 | Source=BERT.pdf | Page=2 | Type=text
+04. RRF=0.031010 | DenseRank=4 | BM25Rank=5 | Source=BERT.pdf | Page=1 | Type=text
+05. RRF=0.030018 | DenseRank=2 | BM25Rank=12 | Source=BERT.pdf | Page=1 | Type=text
+06. RRF=0.029572 | DenseRank=13 | BM25Rank=3 | Source=BERT.pdf | Page=4 | Type=text
+07. RRF=0.029236 | DenseRank=6 | BM25Rank=11 | Source=BERT.pdf | Page=1 | Type=text
+08. RRF=0.027826 | DenseRank=9 | BM25Rank=15 | Source=BERT.pdf | Page=16 | Type=text
+09. RRF=0.026690 | DenseRank=7 | BM25Rank=25 | Source=BERT.pdf | Page=2 | Type=text
+10. RRF=0.025978 | DenseRank=16 | BM25Rank=18 | Source=BERT.pdf | Page=12 | Type=text
+11. RRF=0.024695 | DenseRank=20 | BM25Rank=22 | Source=BERT.pdf | Page=2 | Type=text
+12. RRF=0.015625 | DenseRank=- | BM25Rank=4 | Source=BERT.pdf | Page=13 | Type=text
+13. RRF=0.014925 | DenseRank=- | BM25Rank=7 | Source=BERT.pdf | Page=13 | Type=image
+14. RRF=0.014706 | DenseRank=8 | BM25Rank=- | Source=BERT.pdf | Page=11 | Type=text
+15. RRF=0.014706 | DenseRank=- | BM25Rank=8 | Source=BERT.pdf | Page=16 | Type=text
+16. RRF=0.014493 | DenseRank=- | BM25Rank=9 | Source=BERT.pdf | Page=2 | Type=text
+17. RRF=0.014286 | DenseRank=10 | BM25Rank=- | Source=BERT.pdf | Page=1 | Type=text
+18. RRF=0.014286 | DenseRank=- | BM25Rank=10 | Source=BERT.pdf | Page=13 | Type=text
+19. RRF=0.014085 | DenseRank=11 | BM25Rank=- | Source=BERT.pdf | Page=14 | Type=text
+20. RRF=0.013889 | DenseRank=12 | BM25Rank=- | Source=BERT.pdf | Page=9 | Type=text
+21. RRF=0.013699 | DenseRank=- | BM25Rank=13 | Source=BERT.pdf | Page=4 | Type=image
+22. RRF=0.013514 | DenseRank=14 | BM25Rank=- | Source=BERT.pdf | Page=10 | Type=text
+23. RRF=0.013514 | DenseRank=- | BM25Rank=14 | Source=BERT.pdf | Page=14 | Type=text
+24. RRF=0.013333 | DenseRank=15 | BM25Rank=- | Source=BERT.pdf | Page=10 | Type=text
+25. RRF=0.013158 | DenseRank=- | BM25Rank=16 | Source=BERT.pdf | Page=8 | Type=text
+26. RRF=0.012987 | DenseRank=17 | BM25Rank=- | Source=BERT.pdf | Page=3 | Type=text
+27. RRF=0.012987 | DenseRank=- | BM25Rank=17 | Source=BERT.pdf | Page=4 | Type=text
+28. RRF=0.012821 | DenseRank=18 | BM25Rank=- | Source=BERT.pdf | Page=4 | Type=text
+29. RRF=0.012658 | DenseRank=19 | BM25Rank=- | Source=BERT.pdf | Page=1 | Type=text
+30. RRF=0.012658 | DenseRank=- | BM25Rank=19 | Source=BERT.pdf | Page=3 | Type=image
+31. RRF=0.012500 | DenseRank=- | BM25Rank=20 | Source=BERT.pdf | Page=9 | Type=text
+32. RRF=0.012346 | DenseRank=21 | BM25Rank=- | Source=BERT.pdf | Page=9 | Type=text
+33. RRF=0.012346 | DenseRank=- | BM25Rank=21 | Source=BERT.pdf | Page=3 | Type=text
+34. RRF=0.012195 | DenseRank=22 | BM25Rank=- | Source=BERT.pdf | Page=14 | Type=text
+35. RRF=0.012048 | DenseRank=23 | BM25Rank=- | Source=BERT.pdf | Page=4 | Type=text
+36. RRF=0.012048 | DenseRank=- | BM25Rank=23 | Source=BERT.pdf | Page=1 | Type=text
+37. RRF=0.011905 | DenseRank=24 | BM25Rank=- | Source=BERT.pdf | Page=5 | Type=text
+38. RRF=0.011905 | DenseRank=- | BM25Rank=24 | Source=BERT.pdf | Page=5 | Type=text
+39. RRF=0.011765 | DenseRank=25 | BM25Rank=- | Source=BERT.pdf | Page=8 | Type=text
+------------------------------------------------------------------------------------------
+
+==========================================================================================
+STEP 3A — RETRIEVAL STAGE SUMMARY
+==========================================================================================
+Dense candidates       : 25
+BM25 candidates        : 25
+Dense ∩ BM25           : 11
+Dense-only candidates  : 14
+BM25-only candidates   : 14
+Unique candidate pool  : 39
+RRF candidates         : 39
+Returned to pipeline   : 8
+==========================================================================================
+
+------------------------------------------------------------------------------------------
+[SCOPED FINAL HYBRID RESULT] 8 candidates
+------------------------------------------------------------------------------------------
+01. Source=BERT.pdf | Page=2 | Type=text | Image=N/A
+    Content=• We demonstrate the importance of bidirectional pre-training for language representations. Un- like Radford et al. (2018), which uses unidirec- tional language models for pre-trai
+02. Source=BERT.pdf | Page=4 | Type=text | Image=N/A
+    Content=Task #1: Masked LM Intuitively, it is reason- able to believe that a deep bidirectional model is strictly more powerful than either a left-to-right model or the shallow concatenati
+03. Source=BERT.pdf | Page=2 | Type=text | Image=N/A
+    Content=word based only on its context. Unlike left-to- right language model pre-training, the MLM ob- jective enables the representation to fuse the left and the right context, which allo
+04. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+    Content=ford et al., 2018), BERT is designed to pre- train deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers. As a
+05. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+    Content=BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding Jacob Devlin Ming-Wei Chang Kenton Lee Kristina Toutanova Google AI Language {jacobdevlin,mingweich
+06. Source=BERT.pdf | Page=4 | Type=text | Image=N/A
+    Content=segment, and position embeddings. A visualiza- tion of this construction can be seen in Figure 2. 3.1 Pre-training BERT Unlike Peters et al. (2018a) and Radford et al. (2018), we d
+07. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+    Content=BERT alleviates the previously mentioned unidi- rectionality constraint by using a “masked lan- guage model” (MLM) pre-training objective, in- spired by the Cloze task (Taylor, 195
+08. Source=BERT.pdf | Page=16 | Type=text | Image=N/A
+    Content=Procedures In Section 3.1, we mention that BERT uses a mixed strategy for masking the target tokens when pre-training with the masked language model (MLM) objective. The following 
+==========================================================================================
+
+================================================================================
+STAGE 1 — HYBRID RETRIEVAL
+================================================================================
+Retrieved Count : 8
+
+[HYBRID #1] Source=BERT.pdf | Page=2 | Type=text
+Content: • We demonstrate the importance of bidirectional pre-training for language representations. Un- like Radford et al. (2018), which uses unidirec- tional language models for pre-training, BERT uses masked language models to enable pre- trained deep bidirectional representations. This is also in contrast to Peters et al. (2018a), which uses a shallow concatenation of independently trained left-to-right and right-to-left LMs. • We show that pre-trained representations reduce the need for many heavil
+
+[HYBRID #2] Source=BERT.pdf | Page=4 | Type=text
+Content: Task #1: Masked LM Intuitively, it is reason- able to believe that a deep bidirectional model is strictly more powerful than either a left-to-right model or the shallow concatenation of a left-to- right and a right-to-left model. Unfortunately, standard conditional language models can only be trained left-to-right or right-to-left, since bidirec- tional conditioning would allow each word to in- directly “see itself”, and the model could trivially predict the target word in a multi-layered contex
+
+[HYBRID #3] Source=BERT.pdf | Page=2 | Type=text
+Content: word based only on its context. Unlike left-to- right language model pre-training, the MLM ob- jective enables the representation to fuse the left and the right context, which allows us to pre- train a deep bidirectional Transformer. In addi- tion to the masked language model, we also use a “next sentence prediction” task that jointly pre- trains text-pair representations. The contributions of our paper are as follows: • We demonstrate the importance of bidirectional pre-training for language re
+
+[HYBRID #4] Source=BERT.pdf | Page=1 | Type=text
+Content: ford et al., 2018), BERT is designed to pre- train deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers. As a re- sult, the pre-trained BERT model can be ﬁne- tuned with just one additional output layer to create state-of-the-art models for a wide range of tasks, such as question answering and language inference, without substantial task- speciﬁc architecture modiﬁcations. BERT is conceptually simple and empirically powerful.
+
+[HYBRID #5] Source=BERT.pdf | Page=1 | Type=text
+Content: BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding Jacob Devlin Ming-Wei Chang Kenton Lee Kristina Toutanova Google AI Language {jacobdevlin,mingweichang,kentonl,kristout}@google.com Abstract We introduce a new language representa- tion model called BERT, which stands for Bidirectional Encoder Representations from Transformers. Unlike recent language repre- sentation models (Peters et al., 2018a; Rad- ford et al., 2018), BERT is designed to pre- train deep bidirecti
+
+[HYBRID #6] Source=BERT.pdf | Page=4 | Type=text
+Content: segment, and position embeddings. A visualiza- tion of this construction can be seen in Figure 2. 3.1 Pre-training BERT Unlike Peters et al. (2018a) and Radford et al. (2018), we do not use traditional left-to-right or right-to-left language models to pre-train BERT. Instead, we pre-train BERT using two unsuper- vised tasks, described in this section. This step is presented in the left part of Figure 1. Task #1: Masked LM Intuitively, it is reason- able to believe that a deep bidirectional model
+
+[HYBRID #7] Source=BERT.pdf | Page=1 | Type=text
+Content: BERT alleviates the previously mentioned unidi- rectionality constraint by using a “masked lan- guage model” (MLM) pre-training objective, in- spired by the Cloze task (Taylor, 1953). The masked language model randomly masks some of the tokens from the input, and the objective is to predict the original vocabulary id of the masked arXiv:1810.04805v2  [cs.CL]  24 May 2019
+
+[HYBRID #8] Source=BERT.pdf | Page=16 | Type=text
+Content: Procedures In Section 3.1, we mention that BERT uses a mixed strategy for masking the target tokens when pre-training with the masked language model (MLM) objective. The following is an ablation study to evaluate the effect of different masking strategies. 200 400 600 800 1,000 76 78 80 82 84 Pre-training Steps (Thousands) MNLI Dev Accuracy BERTBASE (Masked LM) BERTBASE (Left-to-Right) Figure 5: Ablation over number of training steps. This shows the MNLI accuracy after ﬁne-tuning, starting from 
+================================================================================
+[DOCUMENT SCOPE] Text chunks: 8 -> 8
+
+================================================================================
+IMAGE RETRIEVAL DIAGNOSTIC
+================================================================================
+Query                 : Why does the masked language model allow BERT to learn bidirectional representations while a traditional left-to-right language model cannot?
+Allowed Sources       : ['BERT.pdf']
+Image Candidates      : 554 -> 8 (scoped before ranking)
+
+ALL IMAGE CANDIDATES
+--------------------------------------------------------------------------------
+Rank=01 | Source=BERT.pdf | Page=13 | Image=BERT_page13_render.png | Hybrid=1.7392 | CE=2.7378 | CLIP=0.2415
+Rank=02 | Source=BERT.pdf | Page=14 | Image=BERT_page14_render.png | Hybrid=-1.1506 | CE=-2.0625 | CLIP=0.2172
+Rank=03 | Source=BERT.pdf | Page=3 | Image=BERT_page3_render.png | Hybrid=-1.4006 | CE=-2.5035 | CLIP=0.2539
+Rank=04 | Source=BERT.pdf | Page=4 | Image=BERT_page4_render.png | Hybrid=-2.9269 | CE=-5.0267 | CLIP=0.2230
+Rank=05 | Source=BERT.pdf | Page=5 | Image=BERT_page5_render.png | Hybrid=-3.1654 | CE=-5.4290 | CLIP=0.2300
+Rank=06 | Source=BERT.pdf | Page=6 | Image=BERT_page6_render.png | Hybrid=-5.0261 | CE=-8.5253 | CLIP=0.2227
+Rank=07 | Source=BERT.pdf | Page=3 | Image=BERT_page3_img12.png | Hybrid=-5.1290 | CE=-8.7158 | CLIP=0.2512
+Rank=08 | Source=BERT.pdf | Page=15 | Image=BERT_page15_img13.png | Hybrid=-6.2161 | CE=-10.5276 | CLIP=0.2512
+
+TOP IMAGE RESULTS
+--------------------------------------------------------------------------------
+TOP-1 | Source=BERT.pdf | Page=13 | Image=BERT_page13_render.png | Hybrid=1.7392 | CE=2.7378 | CLIP=0.2415
+TOP-2 | Source=BERT.pdf | Page=14 | Image=BERT_page14_render.png | Hybrid=-1.1506 | CE=-2.0625 | CLIP=0.2172
+TOP-3 | Source=BERT.pdf | Page=3 | Image=BERT_page3_render.png | Hybrid=-1.4006 | CE=-2.5035 | CLIP=0.2539
+================================================================================
+[DOCUMENT SCOPE] Images: 3 -> 3
+
+================================================================================
+STAGE 2 — IMAGE RETRIEVAL RESULT
+================================================================================
+Image Results       : 3
+Exact Figure Match  : False
+
+[IMAGE #1] Source=BERT.pdf | Page=13 | Image=BERT_page13_render.png
+Image Path: extracted_images\BERT_page13_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a textbook on the internet network  OCR Text: BERT (Ours)  OpenAl GPT  Figure 3: Differences in pre-training model architectures. BERT uses a bidirectional Transformer. OpenAI GPT uses a left-to-right Transformer. ELMo uses the concatenation of independently trained left-to-right and right-to- left LSTMs to generate features for downstream tasks. Among the three, only BERT representations are jointly conditioned on both left and right cont
+
+[IMAGE #2] Source=BERT.pdf | Page=14 | Image=BERT_page14_render.png
+Image Path: extracted_images\BERT_page14_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a text book with an image of the text  OCR Text: * Learning rate (Adam): 5e-5, 3e-5, 2e-5 * Number of epochs: 2, 3, 4  We also observed that large data sets (e.g., 100k+ labeled training examples) were far less sensitive to hyperparameter choice than small data sets. Fine-tuning is typically very fast, so it is rea- sonable to simply run an exhaustive search over the above parameters and choose the model that performs best on the development
+
+[IMAGE #3] Source=BERT.pdf | Page=3 | Image=BERT_page3_render.png
+Image Path: extracted_images\BERT_page3_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a circuit and a circuit  OCR Text: Mask LM  Masked Sentence A Masked Sentence B  Unlabeled Sentence A and B Pair  Pre-training  Question Paragraph Question er Pair /  Fine-Tuning  Figure 1: Overall pre-training and fine-tuning procedures for BERT. Apart from output layers, the same architec- tures are used in both pre-training and fine-tuning. The same pre-trained model parameters are used to initialize  model
+================================================================================
+
+================================================================================
+COMBINED RETRIEVAL CANDIDATES
+================================================================================
+Text Candidates  : 8
+Image Candidates : 3
+Total Candidates : 11
+================================================================================
+
+================================================================================
+STEP 3A — RERANKER INPUT
+================================================================================
+Query: Why does the masked language model allow BERT to learn bidirectional representations while a traditional left-to-right language model cannot?
+Input candidates: 11
+01. Source=BERT.pdf | Page=2 | Type=text | Image=N/A
+    Content=• We demonstrate the importance of bidirectional pre-training for language representations. Un- like Radford et al. (2018), which uses unidirec- tional language models for pre-trai
+02. Source=BERT.pdf | Page=4 | Type=text | Image=N/A
+    Content=Task #1: Masked LM Intuitively, it is reason- able to believe that a deep bidirectional model is strictly more powerful than either a left-to-right model or the shallow concatenati
+03. Source=BERT.pdf | Page=2 | Type=text | Image=N/A
+    Content=word based only on its context. Unlike left-to- right language model pre-training, the MLM ob- jective enables the representation to fuse the left and the right context, which allo
+04. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+    Content=ford et al., 2018), BERT is designed to pre- train deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers. As a
+05. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+    Content=BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding Jacob Devlin Ming-Wei Chang Kenton Lee Kristina Toutanova Google AI Language {jacobdevlin,mingweich
+06. Source=BERT.pdf | Page=4 | Type=text | Image=N/A
+    Content=segment, and position embeddings. A visualiza- tion of this construction can be seen in Figure 2. 3.1 Pre-training BERT Unlike Peters et al. (2018a) and Radford et al. (2018), we d
+07. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+    Content=BERT alleviates the previously mentioned unidi- rectionality constraint by using a “masked lan- guage model” (MLM) pre-training objective, in- spired by the Cloze task (Taylor, 195
+08. Source=BERT.pdf | Page=16 | Type=text | Image=N/A
+    Content=Procedures In Section 3.1, we mention that BERT uses a mixed strategy for masking the target tokens when pre-training with the masked language model (MLM) objective. The following 
+09. Source=BERT.pdf | Page=13 | Type=image | Image=extracted_images\BERT_page13_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a textbook on the internet network  OCR Text: BERT (Ours)  OpenAl GPT  Figure 3: Differences in pre-training model architec
+10. Source=BERT.pdf | Page=14 | Type=image | Image=extracted_images\BERT_page14_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a text book with an image of the text  OCR Text: * Learning rate (Adam): 5e-5, 3e-5, 2e-5 * Number of epochs: 2, 3, 4  We als
+11. Source=BERT.pdf | Page=3 | Type=image | Image=extracted_images\BERT_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a circuit and a circuit  OCR Text: Mask LM  Masked Sentence A Masked Sentence B  Unlabeled Se
+================================================================================
+
+--------------------------------------------------------------------------------
+CROSS-ENCODER RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=00 | Source=BERT.pdf | Page=2 | Type=text | CE=6.3925
+Rank=02 | OriginalIndex=05 | Source=BERT.pdf | Page=4 | Type=text | CE=5.1251
+Rank=03 | OriginalIndex=01 | Source=BERT.pdf | Page=4 | Type=text | CE=4.9499
+Rank=04 | OriginalIndex=02 | Source=BERT.pdf | Page=2 | Type=text | CE=4.8727
+Rank=05 | OriginalIndex=03 | Source=BERT.pdf | Page=1 | Type=text | CE=3.7254
+Rank=06 | OriginalIndex=06 | Source=BERT.pdf | Page=1 | Type=text | CE=2.9243
+Rank=07 | OriginalIndex=08 | Source=BERT.pdf | Page=13 | Type=image | CE=2.7378
+Rank=08 | OriginalIndex=04 | Source=BERT.pdf | Page=1 | Type=text | CE=2.6478
+Rank=09 | OriginalIndex=07 | Source=BERT.pdf | Page=16 | Type=text | CE=1.8184
+Rank=10 | OriginalIndex=09 | Source=BERT.pdf | Page=14 | Type=image | CE=-2.0625
+Rank=11 | OriginalIndex=10 | Source=BERT.pdf | Page=3 | Type=image | CE=-2.5035
+
+--------------------------------------------------------------------------------
+CLIP IMAGE RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=10 | Source=BERT.pdf | Page=3 | Image=extracted_images\BERT_page3_render.png | CLIP=0.2539
+Rank=02 | OriginalIndex=08 | Source=BERT.pdf | Page=13 | Image=extracted_images\BERT_page13_render.png | CLIP=0.2415
+Rank=03 | OriginalIndex=09 | Source=BERT.pdf | Page=14 | Image=extracted_images\BERT_page14_render.png | CLIP=0.2172
+
+================================================================================
+STEP 3A — COMPLETE MULTIMODAL RERANK RESULT
+================================================================================
+Rank=01 | Type=image | Source=BERT.pdf | Page=13 | RRF=0.031054 | CE=2.7378 | CLIP=0.2415
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a textbook on the internet network  OCR Text: BERT (Ours)  OpenAl GPT  Figure 3: Differences in pre-training model architec
+Rank=02 | Type=image | Source=BERT.pdf | Page=3 | RRF=0.030478 | CE=-2.5035 | CLIP=0.2539
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a circuit and a circuit  OCR Text: Mask LM  Masked Sentence A Masked Sentence B  Unlabeled Se
+Rank=03 | Type=image | Source=BERT.pdf | Page=14 | RRF=0.030159 | CE=-2.0625 | CLIP=0.2172
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a text book with an image of the text  OCR Text: * Learning rate (Adam): 5e-5, 3e-5, 2e-5 * Number of epochs: 2, 3, 4  We als
+Rank=04 | Type=text | Source=BERT.pdf | Page=2 | RRF=0.016393 | CE=6.3925 | CLIP=N/A
+    Content=• We demonstrate the importance of bidirectional pre-training for language representations. Un- like Radford et al. (2018), which uses unidirec- tional language models for pre-trai
+Rank=05 | Type=text | Source=BERT.pdf | Page=4 | RRF=0.016129 | CE=5.1251 | CLIP=N/A
+    Content=segment, and position embeddings. A visualiza- tion of this construction can be seen in Figure 2. 3.1 Pre-training BERT Unlike Peters et al. (2018a) and Radford et al. (2018), we d
+Rank=06 | Type=text | Source=BERT.pdf | Page=4 | RRF=0.015873 | CE=4.9499 | CLIP=N/A
+    Content=Task #1: Masked LM Intuitively, it is reason- able to believe that a deep bidirectional model is strictly more powerful than either a left-to-right model or the shallow concatenati
+Rank=07 | Type=text | Source=BERT.pdf | Page=2 | RRF=0.015625 | CE=4.8727 | CLIP=N/A
+    Content=word based only on its context. Unlike left-to- right language model pre-training, the MLM ob- jective enables the representation to fuse the left and the right context, which allo
+Rank=08 | Type=text | Source=BERT.pdf | Page=1 | RRF=0.015385 | CE=3.7254 | CLIP=N/A
+    Content=ford et al., 2018), BERT is designed to pre- train deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers. As a
+Rank=09 | Type=text | Source=BERT.pdf | Page=1 | RRF=0.015152 | CE=2.9243 | CLIP=N/A
+    Content=BERT alleviates the previously mentioned unidi- rectionality constraint by using a “masked lan- guage model” (MLM) pre-training objective, in- spired by the Cloze task (Taylor, 195
+Rank=10 | Type=text | Source=BERT.pdf | Page=1 | RRF=0.014706 | CE=2.6478 | CLIP=N/A
+    Content=BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding Jacob Devlin Ming-Wei Chang Kenton Lee Kristina Toutanova Google AI Language {jacobdevlin,mingweich
+Rank=11 | Type=text | Source=BERT.pdf | Page=16 | RRF=0.014493 | CE=1.8184 | CLIP=N/A
+    Content=Procedures In Section 3.1, we mention that BERT uses a mixed strategy for masking the target tokens when pre-training with the masked language model (MLM) objective. The following 
+================================================================================
+
+================================================================================
+STEP 3A — FINAL RERANK TOP-K
+================================================================================
+Requested top_k: 12
+Returned documents: 11
+01. Source=BERT.pdf | Page=13 | Type=image | Image=extracted_images\BERT_page13_render.png
+02. Source=BERT.pdf | Page=3 | Type=image | Image=extracted_images\BERT_page3_render.png
+03. Source=BERT.pdf | Page=14 | Type=image | Image=extracted_images\BERT_page14_render.png
+04. Source=BERT.pdf | Page=2 | Type=text | Image=N/A
+05. Source=BERT.pdf | Page=4 | Type=text | Image=N/A
+06. Source=BERT.pdf | Page=4 | Type=text | Image=N/A
+07. Source=BERT.pdf | Page=2 | Type=text | Image=N/A
+08. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+09. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+10. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+11. Source=BERT.pdf | Page=16 | Type=text | Image=N/A
+================================================================================
+
+================================================================================
+STAGE 3 — MULTIMODAL RERANKING
+================================================================================
+Input Candidates : 11
+Reranked Output   : 11
+
+[RERANK #1] Source=BERT.pdf | Page=13 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a textbook on the internet network  OCR Text: BERT (Ours)  OpenAl GPT  Figure 3: Differences in pre-training model architectures. BERT uses a bidirectional Transformer. OpenAI GPT uses a left-to-right Transformer. ELMo uses the concatenation o
+
+[RERANK #2] Source=BERT.pdf | Page=3 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a circuit and a circuit  OCR Text: Mask LM  Masked Sentence A Masked Sentence B  Unlabeled Sentence A and B Pair  Pre-training  Question Paragraph Question er Pair /  Fine-Tuning  Figure 1: Overall pre-training an
+
+[RERANK #3] Source=BERT.pdf | Page=14 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a text book with an image of the text  OCR Text: * Learning rate (Adam): 5e-5, 3e-5, 2e-5 * Number of epochs: 2, 3, 4  We also observed that large data sets (e.g., 100k+ labeled training examples) were far less sensitive to hyperparameter choice
+
+[RERANK #4] Source=BERT.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: • We demonstrate the importance of bidirectional pre-training for language representations. Un- like Radford et al. (2018), which uses unidirec- tional language models for pre-training, BERT uses masked language models to enable pre- trained deep bidirectional representations. This is also in contra
+
+[RERANK #5] Source=BERT.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: segment, and position embeddings. A visualiza- tion of this construction can be seen in Figure 2. 3.1 Pre-training BERT Unlike Peters et al. (2018a) and Radford et al. (2018), we do not use traditional left-to-right or right-to-left language models to pre-train BERT. Instead, we pre-train BERT using
+
+[RERANK #6] Source=BERT.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Task #1: Masked LM Intuitively, it is reason- able to believe that a deep bidirectional model is strictly more powerful than either a left-to-right model or the shallow concatenation of a left-to- right and a right-to-left model. Unfortunately, standard conditional language models can only be traine
+
+[RERANK #7] Source=BERT.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: word based only on its context. Unlike left-to- right language model pre-training, the MLM ob- jective enables the representation to fuse the left and the right context, which allows us to pre- train a deep bidirectional Transformer. In addi- tion to the masked language model, we also use a “next se
+
+[RERANK #8] Source=BERT.pdf | Page=1 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: ford et al., 2018), BERT is designed to pre- train deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers. As a re- sult, the pre-trained BERT model can be ﬁne- tuned with just one additional output layer to create state-of-the-art
+
+[RERANK #9] Source=BERT.pdf | Page=1 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: BERT alleviates the previously mentioned unidi- rectionality constraint by using a “masked lan- guage model” (MLM) pre-training objective, in- spired by the Cloze task (Taylor, 1953). The masked language model randomly masks some of the tokens from the input, and the objective is to predict the orig
+
+[RERANK #10] Source=BERT.pdf | Page=1 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding Jacob Devlin Ming-Wei Chang Kenton Lee Kristina Toutanova Google AI Language {jacobdevlin,mingweichang,kentonl,kristout}@google.com Abstract We introduce a new language representa- tion model called BERT, which stands f
+
+[RERANK #11] Source=BERT.pdf | Page=16 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Procedures In Section 3.1, we mention that BERT uses a mixed strategy for masking the target tokens when pre-training with the masked language model (MLM) objective. The following is an ablation study to evaluate the effect of different masking strategies. 200 400 600 800 1,000 76 78 80 82 84 Pre-tr
+================================================================================
+
+================================================================================
+FINAL CONTEXT DOCUMENTS
+================================================================================
+Final context candidates: 11
+
+[FINAL #1] Source=BERT.pdf | Page=13 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a textbook on the internet network  OCR Text: BERT (Ours)  OpenAl GPT  Figure 3: Differences in pre-training model architectures. BERT uses a bidirectional Transformer. OpenAI GPT uses a left-to-right Transformer. ELMo uses the concatenation o
+
+[FINAL #2] Source=BERT.pdf | Page=3 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a circuit and a circuit  OCR Text: Mask LM  Masked Sentence A Masked Sentence B  Unlabeled Sentence A and B Pair  Pre-training  Question Paragraph Question er Pair /  Fine-Tuning  Figure 1: Overall pre-training an
+
+[FINAL #3] Source=BERT.pdf | Page=14 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a text book with an image of the text  OCR Text: * Learning rate (Adam): 5e-5, 3e-5, 2e-5 * Number of epochs: 2, 3, 4  We also observed that large data sets (e.g., 100k+ labeled training examples) were far less sensitive to hyperparameter choice
+
+[FINAL #4] Source=BERT.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: • We demonstrate the importance of bidirectional pre-training for language representations. Un- like Radford et al. (2018), which uses unidirec- tional language models for pre-training, BERT uses masked language models to enable pre- trained deep bidirectional representations. This is also in contra
+
+[FINAL #5] Source=BERT.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: segment, and position embeddings. A visualiza- tion of this construction can be seen in Figure 2. 3.1 Pre-training BERT Unlike Peters et al. (2018a) and Radford et al. (2018), we do not use traditional left-to-right or right-to-left language models to pre-train BERT. Instead, we pre-train BERT using
+
+[FINAL #6] Source=BERT.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Task #1: Masked LM Intuitively, it is reason- able to believe that a deep bidirectional model is strictly more powerful than either a left-to-right model or the shallow concatenation of a left-to- right and a right-to-left model. Unfortunately, standard conditional language models can only be traine
+
+[FINAL #7] Source=BERT.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: word based only on its context. Unlike left-to- right language model pre-training, the MLM ob- jective enables the representation to fuse the left and the right context, which allows us to pre- train a deep bidirectional Transformer. In addi- tion to the masked language model, we also use a “next se
+
+[FINAL #8] Source=BERT.pdf | Page=1 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: ford et al., 2018), BERT is designed to pre- train deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers. As a re- sult, the pre-trained BERT model can be ﬁne- tuned with just one additional output layer to create state-of-the-art
+
+[FINAL #9] Source=BERT.pdf | Page=1 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: BERT alleviates the previously mentioned unidi- rectionality constraint by using a “masked lan- guage model” (MLM) pre-training objective, in- spired by the Cloze task (Taylor, 1953). The masked language model randomly masks some of the tokens from the input, and the objective is to predict the orig
+
+[FINAL #10] Source=BERT.pdf | Page=1 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding Jacob Devlin Ming-Wei Chang Kenton Lee Kristina Toutanova Google AI Language {jacobdevlin,mingweichang,kentonl,kristout}@google.com Abstract We introduce a new language representa- tion model called BERT, which stands f
+
+[FINAL #11] Source=BERT.pdf | Page=16 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Procedures In Section 3.1, we mention that BERT uses a mixed strategy for masking the target tokens when pre-training with the masked language model (MLM) objective. The following is an ablation study to evaluate the effect of different masking strategies. 200 400 600 800 1,000 76 78 80 82 84 Pre-tr
+================================================================================
+
+================================================================================
+FINAL CONTEXT SENT TO LLM
+================================================================================
+
+================================================================================
+DOCUMENT : BERT.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 1
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+ford et al., 2018), BERT is designed to pre-
+train deep bidirectional representations from
+unlabeled text by jointly conditioning on both
+left and right context in all layers. As a re-
+sult, the pre-trained BERT model can be ﬁne-
+tuned with just one additional output layer
+to create state-of-the-art models for a wide
+range of tasks, such as question answering and
+language inference, without substantial task-
+speciﬁc architecture modiﬁcations.
+BERT is conceptually simple and empirically
+powerful. It obtains new state-of-the-art re-
+sults on eleven natural language processing
+
+
+[TEXT]
+
+BERT alleviates the previously mentioned unidi-
+rectionality constraint by using a “masked lan-
+guage model” (MLM) pre-training objective, in-
+spired by the Cloze task (Taylor, 1953). The
+masked language model randomly masks some of
+the tokens from the input, and the objective is to
+predict the original vocabulary id of the masked
+arXiv:1810.04805v2  [cs.CL]  24 May 2019
+
+
+[TEXT]
+
+BERT: Pre-training of Deep Bidirectional Transformers for
+Language Understanding
+Jacob Devlin Ming-Wei Chang Kenton Lee Kristina Toutanova
+Google AI Language
+{jacobdevlin,mingweichang,kentonl,kristout}@google.com
+Abstract
+We introduce a new language representa-
+tion model called BERT, which stands for
+Bidirectional Encoder Representations from
+Transformers. Unlike recent language repre-
+sentation models (Peters et al., 2018a; Rad-
+ford et al., 2018), BERT is designed to pre-
+train deep bidirectional representations from
+unlabeled text by jointly conditioning on both
+
+
+--------------------------------------------------------------------------------
+PAGE : 2
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+• We demonstrate the importance of bidirectional
+pre-training for language representations. Un-
+like Radford et al. (2018), which uses unidirec-
+tional language models for pre-training, BERT
+uses masked language models to enable pre-
+trained deep bidirectional representations. This
+is also in contrast to Peters et al. (2018a), which
+uses a shallow concatenation of independently
+trained left-to-right and right-to-left LMs.
+• We show that pre-trained representations reduce
+the need for many heavily-engineered task-
+speciﬁc architectures. BERT is the ﬁrst ﬁne-
+
+
+[TEXT]
+
+word based only on its context. Unlike left-to-
+right language model pre-training, the MLM ob-
+jective enables the representation to fuse the left
+and the right context, which allows us to pre-
+train a deep bidirectional Transformer. In addi-
+tion to the masked language model, we also use
+a “next sentence prediction” task that jointly pre-
+trains text-pair representations. The contributions
+of our paper are as follows:
+• We demonstrate the importance of bidirectional
+pre-training for language representations. Un-
+like Radford et al. (2018), which uses unidirec-
+
+
+--------------------------------------------------------------------------------
+PAGE : 3
+--------------------------------------------------------------------------------
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a page from the book, showing an image of a circuit and a circuit
+
+OCR Text:
+Mask LM
+
+Masked Sentence A Masked Sentence B
+
+Unlabeled Sentence A and B Pair
+
+Pre-training
+
+Question Paragraph
+Question er Pair /
+
+Fine-Tuning
+
+Figure 1: Overall pre-training and fine-tuning procedures for BERT. Apart from output layers, the same architec-
+tures are used in both pre-training and fine-tuning. The same pre-trained model parameters are used to initialize
+
+models for different down-stream tasks. During fine-tuning, all parameters are fine-tuned.
+symbol added in front of every input example, and [SEP] is a special separator token (e.g.
+
+tions/answers).
+
+ing and auto-encoder objectives have been used
+for pre-training such models (Howard and Ruder,
+2018; Radford et al., 2018; Dai and Le, 2015).
+
+2.3 Transfer Learning from Supervised Data
+
+There has also been work showing effective trans-
+fer from supervised tasks with large datasets, such
+as natural language inference (Conneau et al.,
+2017) and machine translation (McCann et al.,
+2017). Computer vision research has also demon-
+strated the importance of transfer learning from
+large pre-trained models, where an effective recipe
+is to fine-tune models pre-trained with Ima-
+geNet (Deng et al., 2009; Yosinski et al., 2014).
+
+3 BERT
+
+We introduce BERT and its detailed implementa-
+tion in this section. There are two steps in our
+framework: pre-training and fine-tuning. Dur-
+ing pre-training, the model is trained on unlabeled
+data over different pre-training tasks. For fine-
+tuning, the BERT model is first initialized with
+the pre-trained parameters, and all of the param-
+eters are fine-tuned using labeled data from the
+downstream tasks. Each downstream task has sep-
+arate fine-tuned models, even though they are ini-
+tialized with the same pre-trained parameters. The
+question-answering example in Figure 1 will serve
+as a running example for this section.
+
+A distinctive feature of BERT is its unified ar-
+chitecture across different tasks. There is mini-
+
+[CLS] is a special
+separating ques-
+
+mal difference between the pre-trained architec-
+ture and the final downstream architecture.
+
+Model Architecture BERT’s model architec-
+ture is a multi-layer bidirectional Transformer en-
+coder based on the original implementation de-
+scribed in Vaswani et al. (2017) and released in
+the tensor2tensor library.! Because the use
+of Transformers has become common and our im-
+plementation is almost identical to the original,
+we will omit an exhaustive background descrip-
+tion of the model architecture and refer readers to
+Vaswani et al. (2017) as well as excellent guides
+such as “The Annotated Transformer.”
+
+In this work, we denote the number of layers
+(i.e., Transformer blocks) as LZ, the hidden size as
+H, and the number of self-attention heads as A3
+We primarily report results on two model sizes:
+BERT gasr (L=12, H=768, A=12, Total Param-
+eters=110M) and BERT arcer (L=24, H=1024,
+A=16, Total Parameters=340M).
+
+BERT gasg was chosen to have the same model
+size as OpenAI GPT for comparison purposes.
+Critically, however, the BERT Transformer uses
+bidirectional self-attention, while the GPT Trans-
+former uses constrained self-attention where every
+token can only attend to context to its left.*
+
+‘https://github.com/tensorflow/tensor2tensor
+*http://nlp.seas.harvard.edu/2018/04/03/attention. html
+3Yn all cases we set the feed-forward/filter size to be 4H,
+i.e., 3072 for the H = 768 and 4096 for the H = 1024,
+4We note that in the literature the bidirectional Trans-
+
+Nearby Document Text:
+BERT
+BERT
+E[CLS]
+E1
+ E[SEP]
+...
+EN
+E1’
+...
+EM’
+C
+T1
+T[SEP]
+...
+TN
+T1’
+...
+TM’
+[CLS]
+Tok 1
+ [SEP]
+...
+Tok N
+Tok 1
+...
+TokM
+Question
+Paragraph
+Start/End Span
+BERT
+E[CLS]
+E1
+ E[SEP]
+...
+EN
+E1’
+...
+EM’
+C
+T1
+T[SEP]
+...
+TN
+T1’
+...
+TM’
+[CLS]
+Tok 1
+ [SEP]
+...
+Tok N
+Tok 1
+...
+TokM
+Masked Sentence A
+Masked Sentence B
+Pre-training
+Fine-Tuning
+NSP
+Mask LM
+Mask LM
+Unlabeled Sentence A and B Pair 
+SQuAD
+Question Answer Pair
+NER
+MNLI
+Figure 1: Overall pre-training and ﬁne-tuning procedures for BERT. Apart from output layers, the same architec-
+tures are used in both pre-training and ﬁne-tuning. The same pre-
+
+
+--------------------------------------------------------------------------------
+PAGE : 4
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+segment, and position embeddings. A visualiza-
+tion of this construction can be seen in Figure 2.
+3.1 Pre-training BERT
+Unlike Peters et al. (2018a) and Radford et al.
+(2018), we do not use traditional left-to-right or
+right-to-left language models to pre-train BERT.
+Instead, we pre-train BERT using two unsuper-
+vised tasks, described in this section. This step
+is presented in the left part of Figure 1.
+Task #1: Masked LM Intuitively, it is reason-
+able to believe that a deep bidirectional model is
+strictly more powerful than either a left-to-right
+
+
+[TEXT]
+
+Task #1: Masked LM Intuitively, it is reason-
+able to believe that a deep bidirectional model is
+strictly more powerful than either a left-to-right
+model or the shallow concatenation of a left-to-
+right and a right-to-left model. Unfortunately,
+standard conditional language models can only be
+trained left-to-right or right-to-left, since bidirec-
+tional conditioning would allow each word to in-
+directly “see itself”, and the model could trivially
+predict the target word in a multi-layered context.
+former is often referred to as a “Transformer encoder” while
+
+
+--------------------------------------------------------------------------------
+PAGE : 13
+--------------------------------------------------------------------------------
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a page from a textbook on the internet network
+
+OCR Text:
+BERT (Ours)
+
+OpenAl GPT
+
+Figure 3: Differences in pre-training model architectures. BERT uses a bidirectional Transformer. OpenAI GPT
+uses a left-to-right Transformer. ELMo uses the concatenation of independently trained left-to-right and right-to-
+left LSTMs to generate features for downstream tasks. Among the three, only BERT representations are jointly
+conditioned on both left and right context in all layers. In addition to the architecture differences, BERT and
+OpenAlI GPT are fine-tuning approaches, while ELMo is a feature-based approach.
+
+to converge. In Section C.1 we demonstrate that
+MLM does converge marginally slower than a left-
+to-right model (which predicts every token), but
+the empirical improvements of the MLM model
+far outweigh the increased training cost.
+
+Next Sentence Prediction The next sentence
+prediction task can be illustrated in the following
+examples.
+
+Input = [CLS] the man went to [MASK] store [SEP]
+he bought a gallon [MASK] milk [SEP]
+
+Label = tsnext
+
+Input = [CLS] the man [MASK] to the store [SEP]
+penguin [MASK] are flight f#less birds [SEP]
+
+Label = notnext
+
+A.2 Pre-training Procedure
+
+To generate each training input sequence, we sam-
+ple two spans of text from the corpus, which we
+refer to as “sentences” even though they are typ-
+ically much longer than single sentences (but can
+be shorter also). The first sentence receives the A
+embedding and the second receives the B embed-
+ding. 50% of the time B is the actual next sentence
+that follows A and 50% of the time it is a random
+sentence, which is done for the “next sentence pre-
+diction” task. They are sampled such that the com-
+bined length is < 512 tokens. The LM masking is
+applied after WordPiece tokenization with a uni-
+form masking rate of 15%, and no special consid-
+eration given to partial word pieces.
+
+We train with batch size of 256 sequences (256
+sequences * 512 tokens = 128,000 tokens/batch)
+for 1,000,000 steps, which is approximately 40
+
+epochs over the 3.3 billion word corpus. We
+use Adam with learning rate of le-4, 6: = 0.9,
+B2 = 0.999, L2 weight decay of 0.01, learning
+rate warmup over the first 10,000 steps, and linear
+decay of the learning rate. We use a dropout prob-
+ability of 0.1 on all layers. We use a gelu acti-
+vation (Hendrycks and Gimpel, 2016) rather than
+the standard relu, following OpenAI GPT. The
+training loss is the sum of the mean masked LM
+likelihood and the mean next sentence prediction
+likelihood.
+
+Training of BERTpase was performed on 4
+Cloud TPUs in Pod configuration (16 TPU chips
+total).!3 Training of BERT, arGr was performed
+on 16 Cloud TPUs (64 TPU chips total). Each pre-
+training took 4 days to complete.
+
+Longer sequences are disproportionately expen-
+sive because attention is quadratic to the sequence
+length. To speed up pretraing in our experiments,
+we pre-train the model with sequence length of
+128 for 90% of the steps. Then, we train the rest
+10% of the steps of sequence of 512 to learn the
+positional embeddings.
+
+A3  Fine-tuning Procedure
+
+For fine-tuning, most model hyperparameters are
+the same as in pre-training, with the exception of
+the batch size, learning rate, and number of train-
+ing epochs. The dropout probability was always
+kept at 0.1. The optimal hyperparameter values
+are task-specific, but we found the following range
+of possible values to work well across all tasks:
+
+¢ Batch size: 16, 32
+
+Shittps://cloudplatform.googleblog.com/2018/06/Cloud-
+TPU-now-offers-preemptible-pricing-and-global-
+availability.htm]
+
+Nearby Document Text:
+BERT (Ours)
+Trm
+Trm
+Trm
+Trm
+Trm
+Trm
+...
+...
+Trm
+Trm
+Trm
+Trm
+Trm
+Trm
+...
+...
+OpenAI GPT
+Lstm
+ELMo
+Lstm
+Lstm
+Lstm
+Lstm
+Lstm
+Lstm
+Lstm
+Lstm
+Lstm
+Lstm
+Lstm
+ T1
+T2
+ TN
+...
+...
+...
+...
+...
+ E1
+E2
+ EN
+...
+ T1
+T2
+TN
+...
+ E1
+E2
+ EN
+...
+ T1
+T2
+ TN
+...
+ E1
+E2
+ EN
+...
+Figure 3: Differences in pre-training model architectures. BERT uses a bidirectional Transformer. OpenAI GPT
+uses a left-to-right Transformer. ELMo uses the concatenation of independently trained left-to-right and right-to-
+left LSTMs to generate features for downstream tasks. Among the three, only BERT representations are jointly
+conditione
+
+
+--------------------------------------------------------------------------------
+PAGE : 14
+--------------------------------------------------------------------------------
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a page of a text book with an image of the text
+
+OCR Text:
+* Learning rate (Adam): 5e-5, 3e-5, 2e-5
+* Number of epochs: 2, 3, 4
+
+We also observed that large data sets (e.g.,
+100k+ labeled training examples) were far less
+sensitive to hyperparameter choice than small data
+sets. Fine-tuning is typically very fast, so it is rea-
+sonable to simply run an exhaustive search over
+the above parameters and choose the model that
+performs best on the development set.
+
+A.4 Comparison of BERT, ELMo ,and
+OpenAI GPT
+
+Here we studies the differences in recent popular
+representation learning models including ELMo,
+OpenAI GPT and BERT. The comparisons be-
+tween the model architectures are shown visually
+in Figure 3. Note that in addition to the architec-
+ture differences, BERT and OpenAI GPT are fine-
+tuning approaches, while ELMo is a feature-based
+approach.
+
+The most comparable existing pre-training
+method to BERT is OpenAI GPT, which trains a
+left-to-right Transformer LM on a large text cor-
+pus. In fact, many of the design decisions in BERT
+were intentionally made to make it as close to
+GPT as possible so that the two methods could be
+minimally compared. The core argument of this
+work is that the bi-directionality and the two pre-
+training tasks presented in Section 3.1 account for
+the majority of the empirical improvements, but
+we do note that there are several other differences
+between how BERT and GPT were trained:
+
+* GPT is trained on the BooksCorpus (800M
+words); BERT is trained on the BooksCor-
+pus (800M words) and Wikipedia (2,500M
+words).
+
+GPT uses a sentence separator ([ SEP ]) and
+classifier token ({CLS]) which are only in-
+troduced at fine-tuning time; BERT learns
+[SEP], [CLS] and sentence A/B embed-
+dings during pre-training.
+
+GPT was trained for 1M steps with a batch
+size of 32,000 words; BERT was trained for
+1M steps with a batch size of 128,000 words.
+
+GPT used the same learning rate of 5e-5 for
+all fine-tuning experiments; BERT chooses a
+task-specific fine-tuning learning rate which
+performs the best on the development set.
+
+To isolate the effect of these differences, we per-
+form ablation experiments in Section 5.1 which
+demonstrate that the majority of the improvements
+are in fact coming from the two pre-training tasks
+and the bidirectionality they enable.
+
+A.5 Illustrations of Fine-tuning on Different
+Tasks
+
+The illustration of fine-tuning BERT on different
+tasks can be seen in Figure 4. Our task-specific
+models are formed by incorporating BERT with
+one additional output layer, so a minimal num-
+ber of parameters need to be learned from scratch.
+Among the tasks, (a) and (b) are sequence-level
+tasks while (c) and (d) are token-level tasks. In
+the figure, / represents the input embedding, T;
+represents the contextual representation of token 2,
+[CLS] is the special symbol for classification out-
+put, and [SEP] is the special symbol to separate
+non-consecutive token sequences.
+
+B_ Detailed Experimental Setup
+
+B.1 Detailed Descriptions for the GLUE
+Benchmark Experiments.
+
+Our GLUE results in Tablel are obtained
+from https://gluebenchmark.com/
+leaderboard and https: //blog.
+openai.com/language-unsupervised.
+The GLUE benchmark includes the following
+datasets, the descriptions of which were originally
+summarized in Wang et al. (2018a):
+
+MNLI Miulti-Genre Natural Language Inference
+is a large-scale, crowdsourced entailment classifi-
+cation task (Williams et al., 2018). Given a pair of
+sentences, the goal is to predict whether the sec-
+ond sentence is an entailment, contradiction, or
+neutral with respect to the first one.
+
+QQP Quora Question Pairs is a binary classifi-
+cation task where the goal is to determine if two
+questions asked on Quora are semantically equiv-
+alent (Chen et al., 2018).
+
+QNLI Question Natural Language Inference is
+a version of the Stanford Question Answering
+Dataset (Rajpurkar et al., 2016) which has been
+converted to a binary classification task (Wang
+et al., 2018a). The positive examples are (ques-
+tion, sentence) pairs which do contain the correct
+answer, and the negative examples are (question,
+sentence) from the same paragraph which do not
+contain the answer.
+
+Nearby Document Text:
+• Learning rate (Adam): 5e-5, 3e-5, 2e-5
+• Number of epochs: 2, 3, 4
+We also observed that large data sets (e.g.,
+100k+ labeled training examples) were far less
+sensitive to hyperparameter choice than small data
+sets. Fine-tuning is typically very fast, so it is rea-
+sonable to simply run an exhaustive search over
+the above parameters and choose the model that
+performs best on the development set.
+A.4
+Comparison of BERT, ELMo ,and
+OpenAI GPT
+Here we studies the differences in recent popular
+representation learning models including ELMo,
+OpenAI GPT and BERT. The comparisons be-
+tween the model
+
+
+--------------------------------------------------------------------------------
+PAGE : 16
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+Procedures
+In Section 3.1, we mention that BERT uses a
+mixed strategy for masking the target tokens when
+pre-training with the masked language model
+(MLM) objective. The following is an ablation
+study to evaluate the effect of different masking
+strategies.
+200 400 600 800 1,000
+76
+78
+80
+82
+84
+Pre-training Steps (Thousands)
+MNLI Dev Accuracy
+BERTBASE (Masked LM)
+BERTBASE (Left-to-Right)
+Figure 5: Ablation over number of training steps. This
+shows the MNLI accuracy after ﬁne-tuning, starting
+from model parameters that have been pre-trained for
+k steps. The x-axis is the value ofk.
+
+================================================================================
+
+================================================================================
+RAG PIPELINE DEBUG
+================================================================================
+Query Type        : analytical
+Retrieved Chunks  : 8
+Retrieved Images  : 3
+Reranked Chunks   : 11
+Reranked Text     : 8
+Reranked Images   : 3
+Final Context Docs: 11
+Exact Figure Query: False
+Exact Figure Match: False
+Exact Figure Final: False
+================================================================================
+
+====================================================================================================
+RAG ANSWER
+====================================================================================================
+ The masked language model (MLM) allows BERT to learn bidirectional representations because it randomly masks some of the words in the input text and requires the model to predict the masked words based on the context. This forces the model to understand the relationships between words in both directions (left-to-right and right-to-left), unlike a traditional left-to-right language model that only considers the order of words from left to right.
+
+IMAGE PATHS:
+D:/Projects/Major-Project-2-main/extracted_images/BERT_page3_render.png
+D:/Projects/Major-Project-2-main/extracted_images/BERT_page13_render.png
+D:/Projects/Major-Project-2-main/extracted_images/BERT_page14_render.png

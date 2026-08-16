@@ -1,0 +1,1265 @@
+====================================================================================================
+QUESTION_ID   : BERT-02
+DOCUMENT      : BERT
+QUESTION_TYPE : Core / Architecture
+ELAPSED_SEC   : 51.6
+ERROR         : no
+====================================================================================================
+
+QUESTION:
+How does BERT differ from OpenAI GPT in terms of the direction of context used by the Transformer?
+
+GROUND TRUTH ANSWER:
+BERT uses bidirectional self-attention, so each token can attend to both left and right context. OpenAI GPT uses a left-to-right Transformer with constrained self-attention, so each token can attend only to context on its left.
+
+GROUND TRUTH SOURCE:
+BERT.pdf, pp. 1–8, 13–16
+
+====================================================================================================
+FORENSIC TRANSCRIPT
+====================================================================================================
+
+####################################################################################################
+FORENSIC CASE START
+####################################################################################################
+Original Query   : How does BERT differ from OpenAI GPT in terms of the direction of context used by the Transformer?
+Expanded Query   : How does BERT differ from OpenAI GPT in terms of the direction of context used by the Transformer?
+Query Type       : analytical
+[DOCUMENT SCOPE] Normalized query: 'how does bert differ from open ai gpt in terms of the direction of context used by the transformer'
+[DOCUMENT SCOPE] Source='BERT.pdf' -> Normalized='bert'
+[DOCUMENT SCOPE] EXACT MATCH -> BERT.pdf
+[DOCUMENT SCOPE] Source='BLIP-2.pdf' -> Normalized='blip 2'
+[DOCUMENT SCOPE] Token overlap for 'BLIP-2.pdf': []
+[DOCUMENT SCOPE] Source='CLIP.pdf' -> Normalized='clip'
+[DOCUMENT SCOPE] Token overlap for 'CLIP.pdf': []
+[DOCUMENT SCOPE] Source='CNN Paper.pdf' -> Normalized='cnn paper'
+[DOCUMENT SCOPE] Token overlap for 'CNN Paper.pdf': []
+[DOCUMENT SCOPE] Source='Donut.pdf' -> Normalized='donut'
+[DOCUMENT SCOPE] Token overlap for 'Donut.pdf': []
+[DOCUMENT SCOPE] Source='LayoutLMv3.pdf' -> Normalized='layout l mv3'
+[DOCUMENT SCOPE] Token overlap for 'LayoutLMv3.pdf': []
+[DOCUMENT SCOPE] Source='NLP Paper.pdf' -> Normalized='nlp paper'
+[DOCUMENT SCOPE] Token overlap for 'NLP Paper.pdf': []
+[DOCUMENT SCOPE] Source='RAG.pdf' -> Normalized='rag'
+[DOCUMENT SCOPE] Token overlap for 'RAG.pdf': []
+[DOCUMENT SCOPE] Source='Self-RAG.pdf' -> Normalized='self rag'
+[DOCUMENT SCOPE] Token overlap for 'Self-RAG.pdf': []
+[DOCUMENT SCOPE] Source='Vision Transformer.pdf' -> Normalized='vision transformer'
+[DOCUMENT SCOPE] Token overlap for 'Vision Transformer.pdf': ['transformer']
+[DOCUMENT SCOPE] Final matched sources: ['BERT.pdf']
+
+================================================================================
+DOCUMENT SCOPE DEBUG
+================================================================================
+Query          : How does BERT differ from OpenAI GPT in terms of the direction of context used by the Transformer?
+Expanded Query : How does BERT differ from OpenAI GPT in terms of the direction of context used by the Transformer?
+Query Type     : analytical
+Document Scope : ['BERT.pdf']
+================================================================================
+
+==========================================================================================
+STEP 3A — SCOPED HYBRID RETRIEVAL
+==========================================================================================
+Query              : How does BERT differ from OpenAI GPT in terms of the direction of context used by the Transformer?
+Sources            : ['BERT.pdf']
+Dense candidate K  : 25
+Final hybrid K     : 8
+
+------------------------------------------------------------------------------------------
+[SCOPED DENSE / VECTOR RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=BERT.pdf | Page=14 | Type=text | Image=N/A
+    Content=OpenAI GPT Here we studies the differences in recent popular representation learning models including ELMo, OpenAI GPT and BERT. The comparisons be- tween the model architectures a
+02. Source=BERT.pdf | Page=3 | Type=text | Image=N/A
+    Content=eters=110M) and BERTLARGE (L=24, H=1024, A=16, Total Parameters=340M). BERTBASE was chosen to have the same model size as OpenAI GPT for comparison purposes. Critically, however, t
+03. Source=BERT.pdf | Page=13 | Type=image | Image=extracted_images\BERT_page13_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a textbook on the internet network  OCR Text: BERT (Ours)  OpenAl GPT  Figure 3: Differences in pre-training model architec
+04. Source=BERT.pdf | Page=14 | Type=text | Image=N/A
+    Content=left-to-right Transformer LM on a large text cor- pus. In fact, many of the design decisions in BERT were intentionally made to make it as close to GPT as possible so that the two 
+05. Source=BERT.pdf | Page=14 | Type=text | Image=N/A
+    Content=between how BERT and GPT were trained: • GPT is trained on the BooksCorpus (800M words); BERT is trained on the BooksCor- pus (800M words) and Wikipedia (2,500M words). • GPT uses 
+06. Source=BERT.pdf | Page=14 | Type=text | Image=N/A
+    Content=1M steps with a batch size of 128,000 words. • GPT used the same learning rate of 5e-5 for all ﬁne-tuning experiments; BERT chooses a task-speciﬁc ﬁne-tuning learning rate which pe
+07. Source=BERT.pdf | Page=3 | Type=text | Image=N/A
+    Content=tuning, the BERT model is ﬁrst initialized with the pre-trained parameters, and all of the param- eters are ﬁne-tuned using labeled data from the downstream tasks. Each downstream 
+08. Source=BERT.pdf | Page=6 | Type=text | Image=N/A
+    Content=form different ﬁne-tuning data shufﬂing and clas- siﬁer layer initialization.9 Results are presented in Table 1. Both BERTBASE and BERTLARGE outperform all sys- tems on all tasks b
+09. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+    Content=ford et al., 2018), BERT is designed to pre- train deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers. As a
+10. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+    Content=of the Transformer (Vaswani et al., 2017). Such re- strictions are sub-optimal for sentence-level tasks, and could be very harmful when applying ﬁne- tuning based approaches to tok
+11. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+    Content=general language representations. We argue that current techniques restrict the power of the pre-trained representations, espe- cially for the ﬁne-tuning approaches. The ma- jor li
+12. Source=BERT.pdf | Page=13 | Type=text | Image=N/A
+    Content=left LSTMs to generate features for downstream tasks. Among the three, only BERT representations are jointly conditioned on both left and right context in all layers. In addition t
+13. Source=BERT.pdf | Page=8 | Type=text | Image=N/A
+    Content=This is directly comparable to OpenAI GPT, but using our larger training dataset, our input repre- sentation, and our ﬁne-tuning scheme. We ﬁrst examine the impact brought by the N
+14. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+    Content=BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding Jacob Devlin Ming-Wei Chang Kenton Lee Kristina Toutanova Google AI Language {jacobdevlin,mingweich
+15. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+    Content=BERT is conceptually simple and empirically powerful. It obtains new state-of-the-art re- sults on eleven natural language processing tasks, including pushing the GLUE score to 80.
+16. Source=BERT.pdf | Page=8 | Type=text | Image=N/A
+    Content=prediction, like OpenAI GPT. “+ BiLSTM” adds a ran- domly initialized BiLSTM on top of the “LTR + No NSP” model during ﬁne-tuning. ablation studies can be found in Appendix C. 5.1 
+17. Source=BERT.pdf | Page=14 | Type=text | Image=N/A
+    Content=• Learning rate (Adam): 5e-5, 3e-5, 2e-5 • Number of epochs: 2, 3, 4 We also observed that large data sets (e.g., 100k+ labeled training examples) were far less sensitive to hyperp
+18. Source=BERT.pdf | Page=2 | Type=text | Image=N/A
+    Content=OpenAI GPT (Radford et al., 2018) achieved pre- viously state-of-the-art results on many sentence- level tasks from the GLUE benchmark (Wang et al., 2018a). Left-to-right language 
+19. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+    Content=BERT alleviates the previously mentioned unidi- rectionality constraint by using a “masked lan- guage model” (MLM) pre-training objective, in- spired by the Cloze task (Taylor, 195
+20. Source=BERT.pdf | Page=2 | Type=text | Image=N/A
+    Content=google-research/bert. 2 Related Work There is a long history of pre-training general lan- guage representations, and we brieﬂy review the most widely-used approaches in this sectio
+21. Source=BERT.pdf | Page=12 | Type=text | Image=N/A
+    Content=chine translation system: Bridging the gap between human and machine translation. arXiv preprint arXiv:1609.08144. Jason Yosinski, Jeff Clune, Yoshua Bengio, and Hod Lipson. 2014. 
+22. Source=BERT.pdf | Page=15 | Type=text | Image=N/A
+    Content=BERT E[CLS] E1  E[SEP]... EN E1’ ... EM’ C  T1  T[SEP]...  TN  T1’ ...  TM’ [CLS] Tok  1  [SEP]... Tok  N Tok  1 ... Tok M Question Paragraph BERT E[CLS] E1  E2  EN C  T1   T2   TN
+23. Source=BERT.pdf | Page=10 | Type=text | Image=N/A
+    Content=ence on empirical methods in natural language pro- cessing, pages 120–128. Association for Computa- tional Linguistics. Samuel R. Bowman, Gabor Angeli, Christopher Potts, and Chris
+24. Source=BERT.pdf | Page=5 | Type=text | Image=N/A
+    Content=2015) and English Wikipedia (2,500M words). For Wikipedia we extract only the text passages and ignore lists, tables, and headers. It is criti- cal to use a document-level corpus r
+25. Source=BERT.pdf | Page=10 | Type=text | Image=N/A
+    Content=References Alan Akbik, Duncan Blythe, and Roland V ollgraf. 2018. Contextual string embeddings for sequence labeling. In Proceedings of the 27th International Conference on Computa
+
+------------------------------------------------------------------------------------------
+[SCOPED BM25 RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=BERT.pdf | Page=13 | Type=text | Image=N/A
+    Content=left LSTMs to generate features for downstream tasks. Among the three, only BERT representations are jointly conditioned on both left and right context in all layers. In addition t
+02. Source=BERT.pdf | Page=6 | Type=text | Image=N/A
+    Content=form different ﬁne-tuning data shufﬂing and clas- siﬁer layer initialization.9 Results are presented in Table 1. Both BERTBASE and BERTLARGE outperform all sys- tems on all tasks b
+03. Source=BERT.pdf | Page=14 | Type=text | Image=N/A
+    Content=OpenAI GPT Here we studies the differences in recent popular representation learning models including ELMo, OpenAI GPT and BERT. The comparisons be- tween the model architectures a
+04. Source=BERT.pdf | Page=14 | Type=image | Image=extracted_images\BERT_page14_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a text book with an image of the text  OCR Text: * Learning rate (Adam): 5e-5, 3e-5, 2e-5 * Number of epochs: 2, 3, 4  We als
+05. Source=BERT.pdf | Page=6 | Type=image | Image=extracted_images\BERT_page6_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the university of california, showing the results of the experiment  OCR Text: System MNLI-(m/mm) QQP = QNLI
+06. Source=BERT.pdf | Page=14 | Type=text | Image=N/A
+    Content=1M steps with a batch size of 128,000 words. • GPT used the same learning rate of 5e-5 for all ﬁne-tuning experiments; BERT chooses a task-speciﬁc ﬁne-tuning learning rate which pe
+07. Source=BERT.pdf | Page=13 | Type=image | Image=extracted_images\BERT_page13_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a textbook on the internet network  OCR Text: BERT (Ours)  OpenAl GPT  Figure 3: Differences in pre-training model architec
+08. Source=BERT.pdf | Page=7 | Type=text | Image=N/A
+    Content=only task-speciﬁc parameters introduced is a vec- tor whose dot product with the [CLS] token rep- resentation C denotes a score for each choice which is normalized with a softmax l
+09. Source=BERT.pdf | Page=7 | Type=text | Image=N/A
+    Content=swer span with start and end at the [CLS] to- ken. The probability space for the start and end answer span positions is extended to include the position of the [CLS] token. For pre
+10. Source=BERT.pdf | Page=13 | Type=text | Image=N/A
+    Content=BERT (Ours) Trm Trm Trm Trm Trm Trm ... ... Trm Trm Trm Trm Trm Trm ... ... OpenAI GPT Lstm ELMo Lstm Lstm Lstm Lstm Lstm Lstm Lstm Lstm Lstm Lstm Lstm  T1 T2  TN... ... ... ... ..
+11. Source=BERT.pdf | Page=14 | Type=text | Image=N/A
+    Content=between how BERT and GPT were trained: • GPT is trained on the BooksCorpus (800M words); BERT is trained on the BooksCor- pus (800M words) and Wikipedia (2,500M words). • GPT uses 
+12. Source=BERT.pdf | Page=2 | Type=text | Image=N/A
+    Content=contextual representations through a task to pre- dict a single word from both left and right context using LSTMs. Similar to ELMo, their model is feature-based and not deeply bidi
+13. Source=BERT.pdf | Page=14 | Type=text | Image=N/A
+    Content=left-to-right Transformer LM on a large text cor- pus. In fact, many of the design decisions in BERT were intentionally made to make it as close to GPT as possible so that the two 
+14. Source=BERT.pdf | Page=6 | Type=text | Image=N/A
+    Content=Table 1: GLUE Test results, scored by the evaluation server ( https://gluebenchmark.com/leaderboard). The number below each task denotes the number of training examples. The “Avera
+15. Source=BERT.pdf | Page=3 | Type=text | Image=N/A
+    Content=eters=110M) and BERTLARGE (L=24, H=1024, A=16, Total Parameters=340M). BERTBASE was chosen to have the same model size as OpenAI GPT for comparison purposes. Critically, however, t
+16. Source=BERT.pdf | Page=3 | Type=image | Image=extracted_images\BERT_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a circuit and a circuit  OCR Text: Mask LM  Masked Sentence A Masked Sentence B  Unlabeled Se
+17. Source=BERT.pdf | Page=14 | Type=text | Image=N/A
+    Content=• Learning rate (Adam): 5e-5, 3e-5, 2e-5 • Number of epochs: 2, 3, 4 We also observed that large data sets (e.g., 100k+ labeled training examples) were far less sensitive to hyperp
+18. Source=BERT.pdf | Page=16 | Type=text | Image=N/A
+    Content=trained on 1M steps compared to 500k steps. 2. Question: Does MLM pre-training converge slower than LTR pre-training, since only 15% of words are predicted in each batch rather tha
+19. Source=BERT.pdf | Page=6 | Type=text | Image=N/A
+    Content=et al., 2017) befor ﬁne-tuning on SQuAD. Our best performing system outperforms the top leaderboard system by +1.5 F1 in ensembling and +1.3 F1 as a single system. In fact, our sin
+20. Source=BERT.pdf | Page=8 | Type=text | Image=N/A
+    Content=prediction, like OpenAI GPT. “+ BiLSTM” adds a ran- domly initialized BiLSTM on top of the “LTR + No NSP” model during ﬁne-tuning. ablation studies can be found in Appendix C. 5.1 
+21. Source=BERT.pdf | Page=9 | Type=text | Image=N/A
+    Content=set. The reported Dev and Test scores are averaged over 5 random restarts using those hyperparameters. layer in the output. We use the representation of the ﬁrst sub-token as the i
+22. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+    Content=general language representations. We argue that current techniques restrict the power of the pre-trained representations, espe- cially for the ﬁne-tuning approaches. The ma- jor li
+23. Source=BERT.pdf | Page=13 | Type=text | Image=N/A
+    Content=use Adam with learning rate of 1e-4, β1 = 0.9, β2 = 0.999, L2 weight decay of 0.01, learning rate warmup over the ﬁrst 10,000 steps, and linear decay of the learning rate. We use a
+24. Source=BERT.pdf | Page=6 | Type=text | Image=N/A
+    Content=reported GLUE task, MNLI, BERT obtains a 4.6% absolute accuracy improvement. On the ofﬁcial GLUE leaderboard10, BERTLARGE obtains a score of 80.5, compared to OpenAI GPT, which obt
+25. Source=BERT.pdf | Page=8 | Type=text | Image=N/A
+    Content=than a deep bidirectional model, since it can use both left and right context at every layer. 5.2 Effect of Model Size In this section, we explore the effect of model size on ﬁne-t
+
+------------------------------------------------------------------------------------------
+[RRF FUSION RANKING]
+------------------------------------------------------------------------------------------
+01. RRF=0.032266 | DenseRank=1 | BM25Rank=3 | Source=BERT.pdf | Page=14 | Type=text
+02. RRF=0.030835 | DenseRank=8 | BM25Rank=2 | Source=BERT.pdf | Page=6 | Type=text
+03. RRF=0.030798 | DenseRank=3 | BM25Rank=7 | Source=BERT.pdf | Page=13 | Type=image
+04. RRF=0.030303 | DenseRank=6 | BM25Rank=6 | Source=BERT.pdf | Page=14 | Type=text
+05. RRF=0.030282 | DenseRank=12 | BM25Rank=1 | Source=BERT.pdf | Page=13 | Type=text
+06. RRF=0.029469 | DenseRank=5 | BM25Rank=11 | Source=BERT.pdf | Page=14 | Type=text
+07. RRF=0.029462 | DenseRank=2 | BM25Rank=15 | Source=BERT.pdf | Page=3 | Type=text
+08. RRF=0.029324 | DenseRank=4 | BM25Rank=13 | Source=BERT.pdf | Page=14 | Type=text
+09. RRF=0.026280 | DenseRank=11 | BM25Rank=22 | Source=BERT.pdf | Page=1 | Type=text
+10. RRF=0.025974 | DenseRank=17 | BM25Rank=17 | Source=BERT.pdf | Page=14 | Type=text
+11. RRF=0.025658 | DenseRank=16 | BM25Rank=20 | Source=BERT.pdf | Page=8 | Type=text
+12. RRF=0.015625 | DenseRank=- | BM25Rank=4 | Source=BERT.pdf | Page=14 | Type=image
+13. RRF=0.015385 | DenseRank=- | BM25Rank=5 | Source=BERT.pdf | Page=6 | Type=image
+14. RRF=0.014925 | DenseRank=7 | BM25Rank=- | Source=BERT.pdf | Page=3 | Type=text
+15. RRF=0.014706 | DenseRank=- | BM25Rank=8 | Source=BERT.pdf | Page=7 | Type=text
+16. RRF=0.014493 | DenseRank=9 | BM25Rank=- | Source=BERT.pdf | Page=1 | Type=text
+17. RRF=0.014493 | DenseRank=- | BM25Rank=9 | Source=BERT.pdf | Page=7 | Type=text
+18. RRF=0.014286 | DenseRank=10 | BM25Rank=- | Source=BERT.pdf | Page=1 | Type=text
+19. RRF=0.014286 | DenseRank=- | BM25Rank=10 | Source=BERT.pdf | Page=13 | Type=text
+20. RRF=0.013889 | DenseRank=- | BM25Rank=12 | Source=BERT.pdf | Page=2 | Type=text
+21. RRF=0.013699 | DenseRank=13 | BM25Rank=- | Source=BERT.pdf | Page=8 | Type=text
+22. RRF=0.013514 | DenseRank=14 | BM25Rank=- | Source=BERT.pdf | Page=1 | Type=text
+23. RRF=0.013514 | DenseRank=- | BM25Rank=14 | Source=BERT.pdf | Page=6 | Type=text
+24. RRF=0.013333 | DenseRank=15 | BM25Rank=- | Source=BERT.pdf | Page=1 | Type=text
+25. RRF=0.013158 | DenseRank=- | BM25Rank=16 | Source=BERT.pdf | Page=3 | Type=image
+26. RRF=0.012821 | DenseRank=18 | BM25Rank=- | Source=BERT.pdf | Page=2 | Type=text
+27. RRF=0.012821 | DenseRank=- | BM25Rank=18 | Source=BERT.pdf | Page=16 | Type=text
+28. RRF=0.012658 | DenseRank=19 | BM25Rank=- | Source=BERT.pdf | Page=1 | Type=text
+29. RRF=0.012658 | DenseRank=- | BM25Rank=19 | Source=BERT.pdf | Page=6 | Type=text
+30. RRF=0.012500 | DenseRank=20 | BM25Rank=- | Source=BERT.pdf | Page=2 | Type=text
+31. RRF=0.012346 | DenseRank=21 | BM25Rank=- | Source=BERT.pdf | Page=12 | Type=text
+32. RRF=0.012346 | DenseRank=- | BM25Rank=21 | Source=BERT.pdf | Page=9 | Type=text
+33. RRF=0.012195 | DenseRank=22 | BM25Rank=- | Source=BERT.pdf | Page=15 | Type=text
+34. RRF=0.012048 | DenseRank=23 | BM25Rank=- | Source=BERT.pdf | Page=10 | Type=text
+35. RRF=0.012048 | DenseRank=- | BM25Rank=23 | Source=BERT.pdf | Page=13 | Type=text
+36. RRF=0.011905 | DenseRank=24 | BM25Rank=- | Source=BERT.pdf | Page=5 | Type=text
+37. RRF=0.011905 | DenseRank=- | BM25Rank=24 | Source=BERT.pdf | Page=6 | Type=text
+38. RRF=0.011765 | DenseRank=25 | BM25Rank=- | Source=BERT.pdf | Page=10 | Type=text
+39. RRF=0.011765 | DenseRank=- | BM25Rank=25 | Source=BERT.pdf | Page=8 | Type=text
+------------------------------------------------------------------------------------------
+
+==========================================================================================
+STEP 3A — RETRIEVAL STAGE SUMMARY
+==========================================================================================
+Dense candidates       : 25
+BM25 candidates        : 25
+Dense ∩ BM25           : 11
+Dense-only candidates  : 14
+BM25-only candidates   : 14
+Unique candidate pool  : 39
+RRF candidates         : 39
+Returned to pipeline   : 8
+==========================================================================================
+
+------------------------------------------------------------------------------------------
+[SCOPED FINAL HYBRID RESULT] 8 candidates
+------------------------------------------------------------------------------------------
+01. Source=BERT.pdf | Page=14 | Type=text | Image=N/A
+    Content=OpenAI GPT Here we studies the differences in recent popular representation learning models including ELMo, OpenAI GPT and BERT. The comparisons be- tween the model architectures a
+02. Source=BERT.pdf | Page=6 | Type=text | Image=N/A
+    Content=form different ﬁne-tuning data shufﬂing and clas- siﬁer layer initialization.9 Results are presented in Table 1. Both BERTBASE and BERTLARGE outperform all sys- tems on all tasks b
+03. Source=BERT.pdf | Page=13 | Type=image | Image=extracted_images\BERT_page13_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a textbook on the internet network  OCR Text: BERT (Ours)  OpenAl GPT  Figure 3: Differences in pre-training model architec
+04. Source=BERT.pdf | Page=14 | Type=text | Image=N/A
+    Content=1M steps with a batch size of 128,000 words. • GPT used the same learning rate of 5e-5 for all ﬁne-tuning experiments; BERT chooses a task-speciﬁc ﬁne-tuning learning rate which pe
+05. Source=BERT.pdf | Page=13 | Type=text | Image=N/A
+    Content=left LSTMs to generate features for downstream tasks. Among the three, only BERT representations are jointly conditioned on both left and right context in all layers. In addition t
+06. Source=BERT.pdf | Page=14 | Type=text | Image=N/A
+    Content=between how BERT and GPT were trained: • GPT is trained on the BooksCorpus (800M words); BERT is trained on the BooksCor- pus (800M words) and Wikipedia (2,500M words). • GPT uses 
+07. Source=BERT.pdf | Page=3 | Type=text | Image=N/A
+    Content=eters=110M) and BERTLARGE (L=24, H=1024, A=16, Total Parameters=340M). BERTBASE was chosen to have the same model size as OpenAI GPT for comparison purposes. Critically, however, t
+08. Source=BERT.pdf | Page=14 | Type=text | Image=N/A
+    Content=left-to-right Transformer LM on a large text cor- pus. In fact, many of the design decisions in BERT were intentionally made to make it as close to GPT as possible so that the two 
+==========================================================================================
+
+================================================================================
+STAGE 1 — HYBRID RETRIEVAL
+================================================================================
+Retrieved Count : 8
+
+[HYBRID #1] Source=BERT.pdf | Page=14 | Type=text
+Content: OpenAI GPT Here we studies the differences in recent popular representation learning models including ELMo, OpenAI GPT and BERT. The comparisons be- tween the model architectures are shown visually in Figure 3. Note that in addition to the architec- ture differences, BERT and OpenAI GPT are ﬁne- tuning approaches, while ELMo is a feature-based approach. The most comparable existing pre-training method to BERT is OpenAI GPT, which trains a left-to-right Transformer LM on a large text cor- pus. In
+
+[HYBRID #2] Source=BERT.pdf | Page=6 | Type=text
+Content: form different ﬁne-tuning data shufﬂing and clas- siﬁer layer initialization.9 Results are presented in Table 1. Both BERTBASE and BERTLARGE outperform all sys- tems on all tasks by a substantial margin, obtaining 4.5% and 7.0% respective average accuracy im- provement over the prior state of the art. Note that BERTBASE and OpenAI GPT are nearly identical in terms of model architecture apart from the at- tention masking. For the largest and most widely reported GLUE task, MNLI, BERT obtains a 4.
+
+[HYBRID #3] Source=BERT.pdf | Page=13 | Type=image
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a textbook on the internet network  OCR Text: BERT (Ours)  OpenAl GPT  Figure 3: Differences in pre-training model architectures. BERT uses a bidirectional Transformer. OpenAI GPT uses a left-to-right Transformer. ELMo uses the concatenation of independently trained left-to-right and right-to- left LSTMs to generate features for downstream tasks. Among the three, only BERT representations are jointly conditioned on both left and right cont
+
+[HYBRID #4] Source=BERT.pdf | Page=14 | Type=text
+Content: 1M steps with a batch size of 128,000 words. • GPT used the same learning rate of 5e-5 for all ﬁne-tuning experiments; BERT chooses a task-speciﬁc ﬁne-tuning learning rate which performs the best on the development set. To isolate the effect of these differences, we per- form ablation experiments in Section 5.1 which demonstrate that the majority of the improvements are in fact coming from the two pre-training tasks and the bidirectionality they enable. A.5 Illustrations of Fine-tuning on Differ
+
+[HYBRID #5] Source=BERT.pdf | Page=13 | Type=text
+Content: left LSTMs to generate features for downstream tasks. Among the three, only BERT representations are jointly conditioned on both left and right context in all layers. In addition to the architecture differences, BERT and OpenAI GPT are ﬁne-tuning approaches, while ELMo is a feature-based approach. to converge. In Section C.1 we demonstrate that MLM does converge marginally slower than a left- to-right model (which predicts every token), but the empirical improvements of the MLM model far outweig
+
+[HYBRID #6] Source=BERT.pdf | Page=14 | Type=text
+Content: between how BERT and GPT were trained: • GPT is trained on the BooksCorpus (800M words); BERT is trained on the BooksCor- pus (800M words) and Wikipedia (2,500M words). • GPT uses a sentence separator ( [SEP]) and classiﬁer token ( [CLS]) which are only in- troduced at ﬁne-tuning time; BERT learns [SEP], [CLS] and sentence A/B embed- dings during pre-training. • GPT was trained for 1M steps with a batch size of 32,000 words; BERT was trained for 1M steps with a batch size of 128,000 words. • GPT
+
+[HYBRID #7] Source=BERT.pdf | Page=3 | Type=text
+Content: eters=110M) and BERTLARGE (L=24, H=1024, A=16, Total Parameters=340M). BERTBASE was chosen to have the same model size as OpenAI GPT for comparison purposes. Critically, however, the BERT Transformer uses bidirectional self-attention, while the GPT Trans- former uses constrained self-attention where every token can only attend to context to its left.4 1https://github.com/tensorﬂow/tensor2tensor 2http://nlp.seas.harvard.edu/2018/04/03/attention.html 3In all cases we set the feed-forward/ﬁlter siz
+
+[HYBRID #8] Source=BERT.pdf | Page=14 | Type=text
+Content: left-to-right Transformer LM on a large text cor- pus. In fact, many of the design decisions in BERT were intentionally made to make it as close to GPT as possible so that the two methods could be minimally compared. The core argument of this work is that the bi-directionality and the two pre- training tasks presented in Section 3.1 account for the majority of the empirical improvements, but we do note that there are several other differences between how BERT and GPT were trained: • GPT is train
+================================================================================
+[DOCUMENT SCOPE] Text chunks: 8 -> 8
+
+================================================================================
+IMAGE RETRIEVAL DIAGNOSTIC
+================================================================================
+Query                 : How does BERT differ from OpenAI GPT in terms of the direction of context used by the Transformer?
+Allowed Sources       : ['BERT.pdf']
+Image Candidates      : 554 -> 8 (scoped before ranking)
+
+ALL IMAGE CANDIDATES
+--------------------------------------------------------------------------------
+Rank=01 | Source=BERT.pdf | Page=13 | Image=BERT_page13_render.png | Hybrid=4.2403 | CE=6.8971 | CLIP=0.2551
+Rank=02 | Source=BERT.pdf | Page=14 | Image=BERT_page14_render.png | Hybrid=0.2547 | CE=0.2721 | CLIP=0.2287
+Rank=03 | Source=BERT.pdf | Page=6 | Image=BERT_page6_render.png | Hybrid=-0.2497 | CE=-0.5642 | CLIP=0.2221
+Rank=04 | Source=BERT.pdf | Page=3 | Image=BERT_page3_render.png | Hybrid=-4.6236 | CE=-7.8767 | CLIP=0.2561
+Rank=05 | Source=BERT.pdf | Page=4 | Image=BERT_page4_render.png | Hybrid=-4.6547 | CE=-7.9033 | CLIP=0.2180
+Rank=06 | Source=BERT.pdf | Page=15 | Image=BERT_page15_img13.png | Hybrid=-5.8625 | CE=-9.9276 | CLIP=0.2351
+Rank=07 | Source=BERT.pdf | Page=3 | Image=BERT_page3_img12.png | Hybrid=-6.0258 | CE=-10.1996 | CLIP=0.2351
+Rank=08 | Source=BERT.pdf | Page=5 | Image=BERT_page5_render.png | Hybrid=-6.0387 | CE=-10.2167 | CLIP=0.2284
+
+TOP IMAGE RESULTS
+--------------------------------------------------------------------------------
+TOP-1 | Source=BERT.pdf | Page=13 | Image=BERT_page13_render.png | Hybrid=4.2403 | CE=6.8971 | CLIP=0.2551
+TOP-2 | Source=BERT.pdf | Page=14 | Image=BERT_page14_render.png | Hybrid=0.2547 | CE=0.2721 | CLIP=0.2287
+TOP-3 | Source=BERT.pdf | Page=6 | Image=BERT_page6_render.png | Hybrid=-0.2497 | CE=-0.5642 | CLIP=0.2221
+================================================================================
+[DOCUMENT SCOPE] Images: 3 -> 3
+
+================================================================================
+STAGE 2 — IMAGE RETRIEVAL RESULT
+================================================================================
+Image Results       : 3
+Exact Figure Match  : False
+
+[IMAGE #1] Source=BERT.pdf | Page=13 | Image=BERT_page13_render.png
+Image Path: extracted_images\BERT_page13_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a textbook on the internet network  OCR Text: BERT (Ours)  OpenAl GPT  Figure 3: Differences in pre-training model architectures. BERT uses a bidirectional Transformer. OpenAI GPT uses a left-to-right Transformer. ELMo uses the concatenation of independently trained left-to-right and right-to- left LSTMs to generate features for downstream tasks. Among the three, only BERT representations are jointly conditioned on both left and right cont
+
+[IMAGE #2] Source=BERT.pdf | Page=14 | Image=BERT_page14_render.png
+Image Path: extracted_images\BERT_page14_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a text book with an image of the text  OCR Text: * Learning rate (Adam): 5e-5, 3e-5, 2e-5 * Number of epochs: 2, 3, 4  We also observed that large data sets (e.g., 100k+ labeled training examples) were far less sensitive to hyperparameter choice than small data sets. Fine-tuning is typically very fast, so it is rea- sonable to simply run an exhaustive search over the above parameters and choose the model that performs best on the development
+
+[IMAGE #3] Source=BERT.pdf | Page=6 | Image=BERT_page6_render.png
+Image Path: extracted_images\BERT_page6_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the university of california, showing the results of the experiment  OCR Text: System MNLI-(m/mm) QQP = QNLI 392k 363k =—s-: 108k Pre-OpenAI SOTA 80.6/80. 1 66.1 82.3 BiLSTM+ELMo+Attn 76.4/76.1 64.8 79.8 OpenAI GPT 82.1/81.4 70.3 87.4 BERTsase 84.6/83.4 712 90.5 BERT arce 86.7/85.9 721 92.7  SST-2. CoLA STS-B MRPC RTE _ Average 67k 8.5k 5.7k 3.5k 2.5k - 93.2 35.0 81.0 86.0 61.7 74.0 90.4 36.0 73.3 84.9 56.8 71.0 913 45.4 80.
+================================================================================
+
+================================================================================
+COMBINED RETRIEVAL CANDIDATES
+================================================================================
+Text Candidates  : 8
+Image Candidates : 3
+Total Candidates : 11
+================================================================================
+
+================================================================================
+STEP 3A — RERANKER INPUT
+================================================================================
+Query: How does BERT differ from OpenAI GPT in terms of the direction of context used by the Transformer?
+Input candidates: 11
+01. Source=BERT.pdf | Page=14 | Type=text | Image=N/A
+    Content=OpenAI GPT Here we studies the differences in recent popular representation learning models including ELMo, OpenAI GPT and BERT. The comparisons be- tween the model architectures a
+02. Source=BERT.pdf | Page=6 | Type=text | Image=N/A
+    Content=form different ﬁne-tuning data shufﬂing and clas- siﬁer layer initialization.9 Results are presented in Table 1. Both BERTBASE and BERTLARGE outperform all sys- tems on all tasks b
+03. Source=BERT.pdf | Page=13 | Type=image | Image=extracted_images\BERT_page13_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a textbook on the internet network  OCR Text: BERT (Ours)  OpenAl GPT  Figure 3: Differences in pre-training model architec
+04. Source=BERT.pdf | Page=14 | Type=text | Image=N/A
+    Content=1M steps with a batch size of 128,000 words. • GPT used the same learning rate of 5e-5 for all ﬁne-tuning experiments; BERT chooses a task-speciﬁc ﬁne-tuning learning rate which pe
+05. Source=BERT.pdf | Page=13 | Type=text | Image=N/A
+    Content=left LSTMs to generate features for downstream tasks. Among the three, only BERT representations are jointly conditioned on both left and right context in all layers. In addition t
+06. Source=BERT.pdf | Page=14 | Type=text | Image=N/A
+    Content=between how BERT and GPT were trained: • GPT is trained on the BooksCorpus (800M words); BERT is trained on the BooksCor- pus (800M words) and Wikipedia (2,500M words). • GPT uses 
+07. Source=BERT.pdf | Page=3 | Type=text | Image=N/A
+    Content=eters=110M) and BERTLARGE (L=24, H=1024, A=16, Total Parameters=340M). BERTBASE was chosen to have the same model size as OpenAI GPT for comparison purposes. Critically, however, t
+08. Source=BERT.pdf | Page=14 | Type=text | Image=N/A
+    Content=left-to-right Transformer LM on a large text cor- pus. In fact, many of the design decisions in BERT were intentionally made to make it as close to GPT as possible so that the two 
+09. Source=BERT.pdf | Page=13 | Type=image | Image=extracted_images\BERT_page13_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a textbook on the internet network  OCR Text: BERT (Ours)  OpenAl GPT  Figure 3: Differences in pre-training model architec
+10. Source=BERT.pdf | Page=14 | Type=image | Image=extracted_images\BERT_page14_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a text book with an image of the text  OCR Text: * Learning rate (Adam): 5e-5, 3e-5, 2e-5 * Number of epochs: 2, 3, 4  We als
+11. Source=BERT.pdf | Page=6 | Type=image | Image=extracted_images\BERT_page6_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the university of california, showing the results of the experiment  OCR Text: System MNLI-(m/mm) QQP = QNLI
+================================================================================
+
+--------------------------------------------------------------------------------
+CROSS-ENCODER RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=02 | Source=BERT.pdf | Page=13 | Type=image | CE=6.8971
+Rank=02 | OriginalIndex=08 | Source=BERT.pdf | Page=13 | Type=image | CE=6.8971
+Rank=03 | OriginalIndex=06 | Source=BERT.pdf | Page=3 | Type=text | CE=6.3815
+Rank=04 | OriginalIndex=00 | Source=BERT.pdf | Page=14 | Type=text | CE=5.2391
+Rank=05 | OriginalIndex=04 | Source=BERT.pdf | Page=13 | Type=text | CE=4.9229
+Rank=06 | OriginalIndex=07 | Source=BERT.pdf | Page=14 | Type=text | CE=3.5284
+Rank=07 | OriginalIndex=01 | Source=BERT.pdf | Page=6 | Type=text | CE=1.7827
+Rank=08 | OriginalIndex=09 | Source=BERT.pdf | Page=14 | Type=image | CE=0.2721
+Rank=09 | OriginalIndex=10 | Source=BERT.pdf | Page=6 | Type=image | CE=-0.5642
+Rank=10 | OriginalIndex=05 | Source=BERT.pdf | Page=14 | Type=text | CE=-1.0606
+Rank=11 | OriginalIndex=03 | Source=BERT.pdf | Page=14 | Type=text | CE=-2.2650
+
+--------------------------------------------------------------------------------
+CLIP IMAGE RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=02 | Source=BERT.pdf | Page=13 | Image=extracted_images\BERT_page13_render.png | CLIP=0.2551
+Rank=02 | OriginalIndex=08 | Source=BERT.pdf | Page=13 | Image=extracted_images\BERT_page13_render.png | CLIP=0.2551
+Rank=03 | OriginalIndex=09 | Source=BERT.pdf | Page=14 | Image=extracted_images\BERT_page14_render.png | CLIP=0.2287
+Rank=04 | OriginalIndex=10 | Source=BERT.pdf | Page=6 | Image=extracted_images\BERT_page6_render.png | CLIP=0.2221
+
+================================================================================
+STEP 3A — COMPLETE MULTIMODAL RERANK RESULT
+================================================================================
+Rank=01 | Type=image | Source=BERT.pdf | Page=13 | RRF=0.032787 | CE=6.8971 | CLIP=0.2551
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a textbook on the internet network  OCR Text: BERT (Ours)  OpenAl GPT  Figure 3: Differences in pre-training model architec
+Rank=02 | Type=image | Source=BERT.pdf | Page=13 | RRF=0.032258 | CE=6.8971 | CLIP=0.2551
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a textbook on the internet network  OCR Text: BERT (Ours)  OpenAl GPT  Figure 3: Differences in pre-training model architec
+Rank=03 | Type=image | Source=BERT.pdf | Page=14 | RRF=0.030579 | CE=0.2721 | CLIP=0.2287
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a text book with an image of the text  OCR Text: * Learning rate (Adam): 5e-5, 3e-5, 2e-5 * Number of epochs: 2, 3, 4  We als
+Rank=04 | Type=image | Source=BERT.pdf | Page=6 | RRF=0.030118 | CE=-0.5642 | CLIP=0.2221
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the university of california, showing the results of the experiment  OCR Text: System MNLI-(m/mm) QQP = QNLI
+Rank=05 | Type=text | Source=BERT.pdf | Page=3 | RRF=0.015873 | CE=6.3815 | CLIP=N/A
+    Content=eters=110M) and BERTLARGE (L=24, H=1024, A=16, Total Parameters=340M). BERTBASE was chosen to have the same model size as OpenAI GPT for comparison purposes. Critically, however, t
+Rank=06 | Type=text | Source=BERT.pdf | Page=14 | RRF=0.015625 | CE=5.2391 | CLIP=N/A
+    Content=OpenAI GPT Here we studies the differences in recent popular representation learning models including ELMo, OpenAI GPT and BERT. The comparisons be- tween the model architectures a
+Rank=07 | Type=text | Source=BERT.pdf | Page=13 | RRF=0.015385 | CE=4.9229 | CLIP=N/A
+    Content=left LSTMs to generate features for downstream tasks. Among the three, only BERT representations are jointly conditioned on both left and right context in all layers. In addition t
+Rank=08 | Type=text | Source=BERT.pdf | Page=14 | RRF=0.015152 | CE=3.5284 | CLIP=N/A
+    Content=left-to-right Transformer LM on a large text cor- pus. In fact, many of the design decisions in BERT were intentionally made to make it as close to GPT as possible so that the two 
+Rank=09 | Type=text | Source=BERT.pdf | Page=6 | RRF=0.014925 | CE=1.7827 | CLIP=N/A
+    Content=form different ﬁne-tuning data shufﬂing and clas- siﬁer layer initialization.9 Results are presented in Table 1. Both BERTBASE and BERTLARGE outperform all sys- tems on all tasks b
+Rank=10 | Type=text | Source=BERT.pdf | Page=14 | RRF=0.014286 | CE=-1.0606 | CLIP=N/A
+    Content=between how BERT and GPT were trained: • GPT is trained on the BooksCorpus (800M words); BERT is trained on the BooksCor- pus (800M words) and Wikipedia (2,500M words). • GPT uses 
+Rank=11 | Type=text | Source=BERT.pdf | Page=14 | RRF=0.014085 | CE=-2.2650 | CLIP=N/A
+    Content=1M steps with a batch size of 128,000 words. • GPT used the same learning rate of 5e-5 for all ﬁne-tuning experiments; BERT chooses a task-speciﬁc ﬁne-tuning learning rate which pe
+================================================================================
+
+================================================================================
+STEP 3A — FINAL RERANK TOP-K
+================================================================================
+Requested top_k: 12
+Returned documents: 10
+01. Source=BERT.pdf | Page=13 | Type=image | Image=extracted_images\BERT_page13_render.png
+02. Source=BERT.pdf | Page=14 | Type=image | Image=extracted_images\BERT_page14_render.png
+03. Source=BERT.pdf | Page=6 | Type=image | Image=extracted_images\BERT_page6_render.png
+04. Source=BERT.pdf | Page=3 | Type=text | Image=N/A
+05. Source=BERT.pdf | Page=14 | Type=text | Image=N/A
+06. Source=BERT.pdf | Page=13 | Type=text | Image=N/A
+07. Source=BERT.pdf | Page=14 | Type=text | Image=N/A
+08. Source=BERT.pdf | Page=6 | Type=text | Image=N/A
+09. Source=BERT.pdf | Page=14 | Type=text | Image=N/A
+10. Source=BERT.pdf | Page=14 | Type=text | Image=N/A
+================================================================================
+
+================================================================================
+STAGE 3 — MULTIMODAL RERANKING
+================================================================================
+Input Candidates : 11
+Reranked Output   : 10
+
+[RERANK #1] Source=BERT.pdf | Page=13 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a textbook on the internet network  OCR Text: BERT (Ours)  OpenAl GPT  Figure 3: Differences in pre-training model architectures. BERT uses a bidirectional Transformer. OpenAI GPT uses a left-to-right Transformer. ELMo uses the concatenation o
+
+[RERANK #2] Source=BERT.pdf | Page=14 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a text book with an image of the text  OCR Text: * Learning rate (Adam): 5e-5, 3e-5, 2e-5 * Number of epochs: 2, 3, 4  We also observed that large data sets (e.g., 100k+ labeled training examples) were far less sensitive to hyperparameter choice
+
+[RERANK #3] Source=BERT.pdf | Page=6 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the university of california, showing the results of the experiment  OCR Text: System MNLI-(m/mm) QQP = QNLI 392k 363k =—s-: 108k Pre-OpenAI SOTA 80.6/80. 1 66.1 82.3 BiLSTM+ELMo+Attn 76.4/76.1 64.8 79.8 OpenAI GPT 82.1/81.4 70.
+
+[RERANK #4] Source=BERT.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: eters=110M) and BERTLARGE (L=24, H=1024, A=16, Total Parameters=340M). BERTBASE was chosen to have the same model size as OpenAI GPT for comparison purposes. Critically, however, the BERT Transformer uses bidirectional self-attention, while the GPT Trans- former uses constrained self-attention where
+
+[RERANK #5] Source=BERT.pdf | Page=14 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: OpenAI GPT Here we studies the differences in recent popular representation learning models including ELMo, OpenAI GPT and BERT. The comparisons be- tween the model architectures are shown visually in Figure 3. Note that in addition to the architec- ture differences, BERT and OpenAI GPT are ﬁne- tun
+
+[RERANK #6] Source=BERT.pdf | Page=13 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: left LSTMs to generate features for downstream tasks. Among the three, only BERT representations are jointly conditioned on both left and right context in all layers. In addition to the architecture differences, BERT and OpenAI GPT are ﬁne-tuning approaches, while ELMo is a feature-based approach. t
+
+[RERANK #7] Source=BERT.pdf | Page=14 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: left-to-right Transformer LM on a large text cor- pus. In fact, many of the design decisions in BERT were intentionally made to make it as close to GPT as possible so that the two methods could be minimally compared. The core argument of this work is that the bi-directionality and the two pre- train
+
+[RERANK #8] Source=BERT.pdf | Page=6 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: form different ﬁne-tuning data shufﬂing and clas- siﬁer layer initialization.9 Results are presented in Table 1. Both BERTBASE and BERTLARGE outperform all sys- tems on all tasks by a substantial margin, obtaining 4.5% and 7.0% respective average accuracy im- provement over the prior state of the ar
+
+[RERANK #9] Source=BERT.pdf | Page=14 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: between how BERT and GPT were trained: • GPT is trained on the BooksCorpus (800M words); BERT is trained on the BooksCor- pus (800M words) and Wikipedia (2,500M words). • GPT uses a sentence separator ( [SEP]) and classiﬁer token ( [CLS]) which are only in- troduced at ﬁne-tuning time; BERT learns [
+
+[RERANK #10] Source=BERT.pdf | Page=14 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: 1M steps with a batch size of 128,000 words. • GPT used the same learning rate of 5e-5 for all ﬁne-tuning experiments; BERT chooses a task-speciﬁc ﬁne-tuning learning rate which performs the best on the development set. To isolate the effect of these differences, we per- form ablation experiments in
+================================================================================
+
+================================================================================
+FINAL CONTEXT DOCUMENTS
+================================================================================
+Final context candidates: 10
+
+[FINAL #1] Source=BERT.pdf | Page=13 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a textbook on the internet network  OCR Text: BERT (Ours)  OpenAl GPT  Figure 3: Differences in pre-training model architectures. BERT uses a bidirectional Transformer. OpenAI GPT uses a left-to-right Transformer. ELMo uses the concatenation o
+
+[FINAL #2] Source=BERT.pdf | Page=14 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a text book with an image of the text  OCR Text: * Learning rate (Adam): 5e-5, 3e-5, 2e-5 * Number of epochs: 2, 3, 4  We also observed that large data sets (e.g., 100k+ labeled training examples) were far less sensitive to hyperparameter choice
+
+[FINAL #3] Source=BERT.pdf | Page=6 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the university of california, showing the results of the experiment  OCR Text: System MNLI-(m/mm) QQP = QNLI 392k 363k =—s-: 108k Pre-OpenAI SOTA 80.6/80. 1 66.1 82.3 BiLSTM+ELMo+Attn 76.4/76.1 64.8 79.8 OpenAI GPT 82.1/81.4 70.
+
+[FINAL #4] Source=BERT.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: eters=110M) and BERTLARGE (L=24, H=1024, A=16, Total Parameters=340M). BERTBASE was chosen to have the same model size as OpenAI GPT for comparison purposes. Critically, however, the BERT Transformer uses bidirectional self-attention, while the GPT Trans- former uses constrained self-attention where
+
+[FINAL #5] Source=BERT.pdf | Page=14 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: OpenAI GPT Here we studies the differences in recent popular representation learning models including ELMo, OpenAI GPT and BERT. The comparisons be- tween the model architectures are shown visually in Figure 3. Note that in addition to the architec- ture differences, BERT and OpenAI GPT are ﬁne- tun
+
+[FINAL #6] Source=BERT.pdf | Page=13 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: left LSTMs to generate features for downstream tasks. Among the three, only BERT representations are jointly conditioned on both left and right context in all layers. In addition to the architecture differences, BERT and OpenAI GPT are ﬁne-tuning approaches, while ELMo is a feature-based approach. t
+
+[FINAL #7] Source=BERT.pdf | Page=14 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: left-to-right Transformer LM on a large text cor- pus. In fact, many of the design decisions in BERT were intentionally made to make it as close to GPT as possible so that the two methods could be minimally compared. The core argument of this work is that the bi-directionality and the two pre- train
+
+[FINAL #8] Source=BERT.pdf | Page=6 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: form different ﬁne-tuning data shufﬂing and clas- siﬁer layer initialization.9 Results are presented in Table 1. Both BERTBASE and BERTLARGE outperform all sys- tems on all tasks by a substantial margin, obtaining 4.5% and 7.0% respective average accuracy im- provement over the prior state of the ar
+
+[FINAL #9] Source=BERT.pdf | Page=14 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: between how BERT and GPT were trained: • GPT is trained on the BooksCorpus (800M words); BERT is trained on the BooksCor- pus (800M words) and Wikipedia (2,500M words). • GPT uses a sentence separator ( [SEP]) and classiﬁer token ( [CLS]) which are only in- troduced at ﬁne-tuning time; BERT learns [
+
+[FINAL #10] Source=BERT.pdf | Page=14 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: 1M steps with a batch size of 128,000 words. • GPT used the same learning rate of 5e-5 for all ﬁne-tuning experiments; BERT chooses a task-speciﬁc ﬁne-tuning learning rate which performs the best on the development set. To isolate the effect of these differences, we per- form ablation experiments in
+================================================================================
+
+================================================================================
+FINAL CONTEXT SENT TO LLM
+================================================================================
+
+================================================================================
+DOCUMENT : BERT.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 3
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+eters=110M) and BERTLARGE (L=24, H=1024,
+A=16, Total Parameters=340M).
+BERTBASE was chosen to have the same model
+size as OpenAI GPT for comparison purposes.
+Critically, however, the BERT Transformer uses
+bidirectional self-attention, while the GPT Trans-
+former uses constrained self-attention where every
+token can only attend to context to its left.4
+1https://github.com/tensorﬂow/tensor2tensor
+2http://nlp.seas.harvard.edu/2018/04/03/attention.html
+3In all cases we set the feed-forward/ﬁlter size to be 4H,
+i.e., 3072 for the H = 768 and 4096 for the H = 1024.
+
+
+--------------------------------------------------------------------------------
+PAGE : 6
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+form different ﬁne-tuning data shufﬂing and clas-
+siﬁer layer initialization.9
+Results are presented in Table 1. Both
+BERTBASE and BERTLARGE outperform all sys-
+tems on all tasks by a substantial margin, obtaining
+4.5% and 7.0% respective average accuracy im-
+provement over the prior state of the art. Note that
+BERTBASE and OpenAI GPT are nearly identical
+in terms of model architecture apart from the at-
+tention masking. For the largest and most widely
+reported GLUE task, MNLI, BERT obtains a 4.6%
+absolute accuracy improvement. On the ofﬁcial
+GLUE leaderboard10, BERTLARGE obtains a score
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a page from the journal of the university of california, showing the results of the experiment
+
+OCR Text:
+System MNLI-(m/mm) QQP = QNLI
+392k 363k =—s-: 108k
+Pre-OpenAI SOTA 80.6/80. 1 66.1 82.3
+BiLSTM+ELMo+Attn 76.4/76.1 64.8 79.8
+OpenAI GPT 82.1/81.4 70.3 87.4
+BERTsase 84.6/83.4 712 90.5
+BERT arce 86.7/85.9 721 92.7
+
+SST-2. CoLA STS-B MRPC RTE _ Average
+67k 8.5k 5.7k 3.5k 2.5k -
+93.2 35.0 81.0 86.0 61.7 74.0
+90.4 36.0 73.3 84.9 56.8 71.0
+913 45.4 80.0 82.3 56.0 75.1
+93.5 52.1 85.8 88.9 66.4 79.6
+94.9 60.5 86.5 89.3 70.1 82.1
+
+Table 1: GLUE Test results, scored by the evaluation server (https: //gluebenchmark .com/ leaderboard).
+The number below each task denotes the number of training examples. The “Average” column is slightly different
+than the official GLUE score, since we exclude the problematic WNLI set.2 BERT and OpenAI GPT are single-
+model, single task. F1 scores are reported for QQP and MRPC, Spearman correlations are reported for STS-B, and
+accuracy scores are reported for the other tasks. We exclude entries that use BERT as one of their components.
+
+We use a batch size of 32 and fine-tune for 3
+epochs over the data for all GLUE tasks. For each
+task, we selected the best fine-tuning learning rate
+(among 5e-5, 4e-5, 3e-5, and 2e-5) on the Dev set.
+Additionally, for BERTLarceE we found that fine-
+tuning was sometimes unstable on small datasets,
+so we ran several random restarts and selected the
+best model on the Dev set. With random restarts,
+we use the same pre-trained checkpoint but per-
+form different fine-tuning data shuffling and clas-
+sifier layer initialization.
+
+Results are presented in Table 1. Both
+BERTRBase and BERTLarGE outperform all sys-
+tems on all tasks by a substantial margin, obtaining
+4.5% and 7.0% respective average accuracy im-
+provement over the prior state of the art. Note that
+BERTgasg and OpenAI GPT are nearly identical
+in terms of model architecture apart from the at-
+tention masking. For the largest and most widely
+reported GLUE task, MNLI, BERT obtains a 4.6%
+absolute accuracy improvement. On the official
+GLUE leaderboard!°, BERT| arce obtains a score
+of 80.5, compared to OpenAI GPT, which obtains
+72.8 as of the date of writing.
+
+We find that BERTLArGE significantly outper-
+forms BERTgass across all tasks, especially those
+with very little training data. The effect of model
+size is explored more thoroughly in Section 5.2.
+
+4.2 SQuAD v1.1
+
+The Stanford Question Answering Dataset
+(SQuAD v1.1) is a collection of 100k crowd-
+sourced question/answer pairs (Rajpurkar et al.,
+2016). Given a question and a passage from
+
+°The GLUE data set distribution does not include the Test
+labels, and we only made a single GLUE evaluation server
+submission for each of BERTgase and BERT. arcs.
+
+Chitps://gluebenchmark.com/leaderboard
+
+Wikipedia containing the answer, the task is to
+predict the answer text span in the passage.
+
+As shown in Figure 1, in the question answer-
+ing task, we represent the input question and pas-
+sage as a single packed sequence, with the ques-
+tion using the A embedding and the passage using
+the B embedding. We only introduce a start vec-
+tor S € R” and an end vector E € R” during
+fine-tuning. The probability of word ¢ being the
+start of the answer span is computed as a dot prod-
+uct between T; and S followed by a softmax over
+all of the words in the paragraph: P; = SST
+The analogous formula is used for the end of the
+answer span. The score of a candidate span from
+position 2 to position 7 is defined as S-T; -+ E-T;,
+and the maximum scoring span where 7 > 7 is
+used as a prediction. The training objective is the
+sum of the log-likelihoods of the correct start and
+end positions. We fine-tune for 3 epochs with a
+learning rate of Se-5 and a batch size of 32.
+
+Table 2 shows top leaderboard entries as well
+as results from top published systems (Seo et al.,
+2017; Clark and Gardner, 2018; Peters et al.,
+2018a; Hu et al., 2018). The top results from the
+SQuAD leaderboard do not have up-to-date public
+system descriptions available,!! and are allowed to
+use any public data when training their systems.
+We therefore use modest data augmentation in
+our system by first fine-tuning on TriviaQA (Joshi
+et al., 2017) befor fine-tuning on SQUAD.
+
+Our best performing system outperforms the top
+leaderboard system by +1.5 Fl in ensembling and
++1,3 Fi as a single system. In fact, our single
+BERT model outperforms the top ensemble sys-
+tem in terms of F1 score. Without TriviaQA fine-
+
+1QANet is described in Yu et al. (2018), but the system
+has improved substantially after publication.
+
+Nearby Document Text:
+System
+MNLI-(m/mm)
+QQP
+QNLI
+SST-2
+CoLA
+STS-B
+MRPC
+RTE
+Average
+392k
+363k
+108k
+67k
+8.5k
+5.7k
+3.5k
+2.5k
+-
+Pre-OpenAI SOTA
+80.6/80.1
+66.1
+82.3
+93.2
+35.0
+81.0
+86.0
+61.7
+74.0
+BiLSTM+ELMo+Attn
+76.4/76.1
+64.8
+79.8
+90.4
+36.0
+73.3
+84.9
+56.8
+71.0
+OpenAI GPT
+82.1/81.4
+70.3
+87.4
+91.3
+45.4
+80.0
+82.3
+56.0
+75.1
+BERTBASE
+84.6/83.4
+71.2
+90.5
+93.5
+52.1
+85.8
+88.9
+66.4
+79.6
+BERTLARGE
+86.7/85.9
+72.1
+92.7
+94.9
+60.5
+86.5
+89.3
+70.1
+82.1
+Table 1: GLUE Test results, scored by the evaluation server (https://gluebenchmark.com/leaderboard).
+The number below each task denotes the number of training examples. The “Average” c
+
+
+[RELATED PAGE TEXT]
+
+form different ﬁne-tuning data shufﬂing and clas-
+siﬁer layer initialization.9
+Results are presented in Table 1. Both
+BERTBASE and BERTLARGE outperform all sys-
+tems on all tasks by a substantial margin, obtaining
+4.5% and 7.0% respective average accuracy im-
+provement over the prior state of the art. Note that
+BERTBASE and OpenAI GPT are nearly id
+
+
+--------------------------------------------------------------------------------
+PAGE : 13
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+left LSTMs to generate features for downstream tasks. Among the three, only BERT representations are jointly
+conditioned on both left and right context in all layers. In addition to the architecture differences, BERT and
+OpenAI GPT are ﬁne-tuning approaches, while ELMo is a feature-based approach.
+to converge. In Section C.1 we demonstrate that
+MLM does converge marginally slower than a left-
+to-right model (which predicts every token), but
+the empirical improvements of the MLM model
+far outweigh the increased training cost.
+Next Sentence Prediction The next sentence
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a page from a textbook on the internet network
+
+OCR Text:
+BERT (Ours)
+
+OpenAl GPT
+
+Figure 3: Differences in pre-training model architectures. BERT uses a bidirectional Transformer. OpenAI GPT
+uses a left-to-right Transformer. ELMo uses the concatenation of independently trained left-to-right and right-to-
+left LSTMs to generate features for downstream tasks. Among the three, only BERT representations are jointly
+conditioned on both left and right context in all layers. In addition to the architecture differences, BERT and
+OpenAlI GPT are fine-tuning approaches, while ELMo is a feature-based approach.
+
+to converge. In Section C.1 we demonstrate that
+MLM does converge marginally slower than a left-
+to-right model (which predicts every token), but
+the empirical improvements of the MLM model
+far outweigh the increased training cost.
+
+Next Sentence Prediction The next sentence
+prediction task can be illustrated in the following
+examples.
+
+Input = [CLS] the man went to [MASK] store [SEP]
+he bought a gallon [MASK] milk [SEP]
+
+Label = tsnext
+
+Input = [CLS] the man [MASK] to the store [SEP]
+penguin [MASK] are flight f#less birds [SEP]
+
+Label = notnext
+
+A.2 Pre-training Procedure
+
+To generate each training input sequence, we sam-
+ple two spans of text from the corpus, which we
+refer to as “sentences” even though they are typ-
+ically much longer than single sentences (but can
+be shorter also). The first sentence receives the A
+embedding and the second receives the B embed-
+ding. 50% of the time B is the actual next sentence
+that follows A and 50% of the time it is a random
+sentence, which is done for the “next sentence pre-
+diction” task. They are sampled such that the com-
+bined length is < 512 tokens. The LM masking is
+applied after WordPiece tokenization with a uni-
+form masking rate of 15%, and no special consid-
+eration given to partial word pieces.
+
+We train with batch size of 256 sequences (256
+sequences * 512 tokens = 128,000 tokens/batch)
+for 1,000,000 steps, which is approximately 40
+
+epochs over the 3.3 billion word corpus. We
+use Adam with learning rate of le-4, 6: = 0.9,
+B2 = 0.999, L2 weight decay of 0.01, learning
+rate warmup over the first 10,000 steps, and linear
+decay of the learning rate. We use a dropout prob-
+ability of 0.1 on all layers. We use a gelu acti-
+vation (Hendrycks and Gimpel, 2016) rather than
+the standard relu, following OpenAI GPT. The
+training loss is the sum of the mean masked LM
+likelihood and the mean next sentence prediction
+likelihood.
+
+Training of BERTpase was performed on 4
+Cloud TPUs in Pod configuration (16 TPU chips
+total).!3 Training of BERT, arGr was performed
+on 16 Cloud TPUs (64 TPU chips total). Each pre-
+training took 4 days to complete.
+
+Longer sequences are disproportionately expen-
+sive because attention is quadratic to the sequence
+length. To speed up pretraing in our experiments,
+we pre-train the model with sequence length of
+128 for 90% of the steps. Then, we train the rest
+10% of the steps of sequence of 512 to learn the
+positional embeddings.
+
+A3  Fine-tuning Procedure
+
+For fine-tuning, most model hyperparameters are
+the same as in pre-training, with the exception of
+the batch size, learning rate, and number of train-
+ing epochs. The dropout probability was always
+kept at 0.1. The optimal hyperparameter values
+are task-specific, but we found the following range
+of possible values to work well across all tasks:
+
+¢ Batch size: 16, 32
+
+Shittps://cloudplatform.googleblog.com/2018/06/Cloud-
+TPU-now-offers-preemptible-pricing-and-global-
+availability.htm]
+
+Nearby Document Text:
+BERT (Ours)
+Trm
+Trm
+Trm
+Trm
+Trm
+Trm
+...
+...
+Trm
+Trm
+Trm
+Trm
+Trm
+Trm
+...
+...
+OpenAI GPT
+Lstm
+ELMo
+Lstm
+Lstm
+Lstm
+Lstm
+Lstm
+Lstm
+Lstm
+Lstm
+Lstm
+Lstm
+Lstm
+ T1
+T2
+ TN
+...
+...
+...
+...
+...
+ E1
+E2
+ EN
+...
+ T1
+T2
+TN
+...
+ E1
+E2
+ EN
+...
+ T1
+T2
+ TN
+...
+ E1
+E2
+ EN
+...
+Figure 3: Differences in pre-training model architectures. BERT uses a bidirectional Transformer. OpenAI GPT
+uses a left-to-right Transformer. ELMo uses the concatenation of independently trained left-to-right and right-to-
+left LSTMs to generate features for downstream tasks. Among the three, only BERT representations are jointly
+conditione
+
+
+[RELATED PAGE TEXT]
+
+left LSTMs to generate features for downstream tasks. Among the three, only BERT representations are jointly
+conditioned on both left and right context in all layers. In addition to the architecture differences, BERT and
+OpenAI GPT are ﬁne-tuning approaches, while ELMo is a feature-based approach.
+to converge. In Section C.1 we demonstrate that
+MLM
+
+
+--------------------------------------------------------------------------------
+PAGE : 14
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+OpenAI GPT
+Here we studies the differences in recent popular
+representation learning models including ELMo,
+OpenAI GPT and BERT. The comparisons be-
+tween the model architectures are shown visually
+in Figure 3. Note that in addition to the architec-
+ture differences, BERT and OpenAI GPT are ﬁne-
+tuning approaches, while ELMo is a feature-based
+approach.
+The most comparable existing pre-training
+method to BERT is OpenAI GPT, which trains a
+left-to-right Transformer LM on a large text cor-
+pus. In fact, many of the design decisions in BERT
+were intentionally made to make it as close to
+
+
+[TEXT]
+
+left-to-right Transformer LM on a large text cor-
+pus. In fact, many of the design decisions in BERT
+were intentionally made to make it as close to
+GPT as possible so that the two methods could be
+minimally compared. The core argument of this
+work is that the bi-directionality and the two pre-
+training tasks presented in Section 3.1 account for
+the majority of the empirical improvements, but
+we do note that there are several other differences
+between how BERT and GPT were trained:
+• GPT is trained on the BooksCorpus (800M
+words); BERT is trained on the BooksCor-
+
+
+[TEXT]
+
+between how BERT and GPT were trained:
+• GPT is trained on the BooksCorpus (800M
+words); BERT is trained on the BooksCor-
+pus (800M words) and Wikipedia (2,500M
+words).
+• GPT uses a sentence separator ( [SEP]) and
+classiﬁer token ( [CLS]) which are only in-
+troduced at ﬁne-tuning time; BERT learns
+[SEP], [CLS] and sentence A/B embed-
+dings during pre-training.
+• GPT was trained for 1M steps with a batch
+size of 32,000 words; BERT was trained for
+1M steps with a batch size of 128,000 words.
+• GPT used the same learning rate of 5e-5 for
+all ﬁne-tuning experiments; BERT chooses a
+
+
+[TEXT]
+
+1M steps with a batch size of 128,000 words.
+• GPT used the same learning rate of 5e-5 for
+all ﬁne-tuning experiments; BERT chooses a
+task-speciﬁc ﬁne-tuning learning rate which
+performs the best on the development set.
+To isolate the effect of these differences, we per-
+form ablation experiments in Section 5.1 which
+demonstrate that the majority of the improvements
+are in fact coming from the two pre-training tasks
+and the bidirectionality they enable.
+A.5 Illustrations of Fine-tuning on Different
+Tasks
+The illustration of ﬁne-tuning BERT on different
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a page of a text book with an image of the text
+
+OCR Text:
+* Learning rate (Adam): 5e-5, 3e-5, 2e-5
+* Number of epochs: 2, 3, 4
+
+We also observed that large data sets (e.g.,
+100k+ labeled training examples) were far less
+sensitive to hyperparameter choice than small data
+sets. Fine-tuning is typically very fast, so it is rea-
+sonable to simply run an exhaustive search over
+the above parameters and choose the model that
+performs best on the development set.
+
+A.4 Comparison of BERT, ELMo ,and
+OpenAI GPT
+
+Here we studies the differences in recent popular
+representation learning models including ELMo,
+OpenAI GPT and BERT. The comparisons be-
+tween the model architectures are shown visually
+in Figure 3. Note that in addition to the architec-
+ture differences, BERT and OpenAI GPT are fine-
+tuning approaches, while ELMo is a feature-based
+approach.
+
+The most comparable existing pre-training
+method to BERT is OpenAI GPT, which trains a
+left-to-right Transformer LM on a large text cor-
+pus. In fact, many of the design decisions in BERT
+were intentionally made to make it as close to
+GPT as possible so that the two methods could be
+minimally compared. The core argument of this
+work is that the bi-directionality and the two pre-
+training tasks presented in Section 3.1 account for
+the majority of the empirical improvements, but
+we do note that there are several other differences
+between how BERT and GPT were trained:
+
+* GPT is trained on the BooksCorpus (800M
+words); BERT is trained on the BooksCor-
+pus (800M words) and Wikipedia (2,500M
+words).
+
+GPT uses a sentence separator ([ SEP ]) and
+classifier token ({CLS]) which are only in-
+troduced at fine-tuning time; BERT learns
+[SEP], [CLS] and sentence A/B embed-
+dings during pre-training.
+
+GPT was trained for 1M steps with a batch
+size of 32,000 words; BERT was trained for
+1M steps with a batch size of 128,000 words.
+
+GPT used the same learning rate of 5e-5 for
+all fine-tuning experiments; BERT chooses a
+task-specific fine-tuning learning rate which
+performs the best on the development set.
+
+To isolate the effect of these differences, we per-
+form ablation experiments in Section 5.1 which
+demonstrate that the majority of the improvements
+are in fact coming from the two pre-training tasks
+and the bidirectionality they enable.
+
+A.5 Illustrations of Fine-tuning on Different
+Tasks
+
+The illustration of fine-tuning BERT on different
+tasks can be seen in Figure 4. Our task-specific
+models are formed by incorporating BERT with
+one additional output layer, so a minimal num-
+ber of parameters need to be learned from scratch.
+Among the tasks, (a) and (b) are sequence-level
+tasks while (c) and (d) are token-level tasks. In
+the figure, / represents the input embedding, T;
+represents the contextual representation of token 2,
+[CLS] is the special symbol for classification out-
+put, and [SEP] is the special symbol to separate
+non-consecutive token sequences.
+
+B_ Detailed Experimental Setup
+
+B.1 Detailed Descriptions for the GLUE
+Benchmark Experiments.
+
+Our GLUE results in Tablel are obtained
+from https://gluebenchmark.com/
+leaderboard and https: //blog.
+openai.com/language-unsupervised.
+The GLUE benchmark includes the following
+datasets, the descriptions of which were originally
+summarized in Wang et al. (2018a):
+
+MNLI Miulti-Genre Natural Language Inference
+is a large-scale, crowdsourced entailment classifi-
+cation task (Williams et al., 2018). Given a pair of
+sentences, the goal is to predict whether the sec-
+ond sentence is an entailment, contradiction, or
+neutral with respect to the first one.
+
+QQP Quora Question Pairs is a binary classifi-
+cation task where the goal is to determine if two
+questions asked on Quora are semantically equiv-
+alent (Chen et al., 2018).
+
+QNLI Question Natural Language Inference is
+a version of the Stanford Question Answering
+Dataset (Rajpurkar et al., 2016) which has been
+converted to a binary classification task (Wang
+et al., 2018a). The positive examples are (ques-
+tion, sentence) pairs which do contain the correct
+answer, and the negative examples are (question,
+sentence) from the same paragraph which do not
+contain the answer.
+
+Nearby Document Text:
+• Learning rate (Adam): 5e-5, 3e-5, 2e-5
+• Number of epochs: 2, 3, 4
+We also observed that large data sets (e.g.,
+100k+ labeled training examples) were far less
+sensitive to hyperparameter choice than small data
+sets. Fine-tuning is typically very fast, so it is rea-
+sonable to simply run an exhaustive search over
+the above parameters and choose the model that
+performs best on the development set.
+A.4
+Comparison of BERT, ELMo ,and
+OpenAI GPT
+Here we studies the differences in recent popular
+representation learning models including ELMo,
+OpenAI GPT and BERT. The comparisons be-
+tween the model
+
+
+[RELATED PAGE TEXT]
+
+OpenAI GPT
+Here we studies the differences in recent popular
+representation learning models including ELMo,
+OpenAI GPT and BERT. The comparisons be-
+tween the model architectures are shown visually
+in Figure 3. Note that in addition to the architec-
+ture differences, BERT and OpenAI GPT are ﬁne-
+tuning approaches, while ELMo is a feature-based
+appr
+
+================================================================================
+
+================================================================================
+RAG PIPELINE DEBUG
+================================================================================
+Query Type        : analytical
+Retrieved Chunks  : 8
+Retrieved Images  : 3
+Reranked Chunks   : 10
+Reranked Text     : 7
+Reranked Images   : 3
+Final Context Docs: 10
+Exact Figure Query: False
+Exact Figure Match: False
+Exact Figure Final: False
+================================================================================
+
+================================================================================
+STAGE 4 — EVIDENCE VERIFICATION
+================================================================================
+Verification Units : 3
+Supported          : 0
+Partially Supported: 3
+Unsupported        : 0
+Unknown            : 0
+Groundedness Ratio : 0.00
+
+[CLAIM #1] BERT uses a bidirectional Transformer, which means it considers both the left and right context when generating representations for a given input.
+  Status=PARTIALLY_SUPPORTED | NLI=NEUTRAL | Confidence=0.4517 | Citation=BERT.pdf (Page 13)
+
+[CLAIM #2] On the other hand, OpenAI GPT uses a left-to-right Transformer, which only considers the left context.
+  Status=PARTIALLY_SUPPORTED | NLI=NEUTRAL | Confidence=0.5127 | Citation=BERT.pdf (Page 13)
+
+[CLAIM #3] This bidirectionality in BERT allows it to capture more contextual information compared to OpenAI GPT.
+  Status=PARTIALLY_SUPPORTED | NLI=NEUTRAL | Confidence=0.8867 | Citation=BERT.pdf (Page 14)
+================================================================================
+
+====================================================================================================
+RAG ANSWER
+====================================================================================================
+ BERT uses a bidirectional Transformer, which means it considers both the left and right context when generating representations for a given input. On the other hand, OpenAI GPT uses a left-to-right Transformer, which only considers the left context. This bidirectionality in BERT allows it to capture more contextual information compared to OpenAI GPT.
+
+IMAGE PATHS:
+D:/Projects/Major-Project-2-main/extracted_images/BERT_page6_render.png
+D:/Projects/Major-Project-2-main/extracted_images/BERT_page13_render.png
+D:/Projects/Major-Project-2-main/extracted_images/BERT_page14_render.png

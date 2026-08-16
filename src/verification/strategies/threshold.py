@@ -50,6 +50,7 @@ def verify_with_threshold(unit: VerificationUnit,) -> VerificationUnit:
 
         unit.verification_status = VerificationStatus.UNSUPPORTED
         unit.confidence = 0.0
+        unit.selected_evidence = None
 
         return unit
 
@@ -57,9 +58,17 @@ def verify_with_threshold(unit: VerificationUnit,) -> VerificationUnit:
     # Highest similarity
     # ----------------------------------------
 
-    best_score = max(unit.matched_scores)
+    best_index = unit.matched_scores.index(max(unit.matched_scores))
+    best_score = unit.matched_scores[best_index]
 
     unit.confidence = round(best_score, 3)
+
+    # matched_documents / matched_scores are parallel lists produced by
+    # matcher.py (same index = same candidate). Recorded here purely so
+    # this strategy also produces a citation, on equal footing with the
+    # NLI strategy, for side-by-side comparison (Section 6.6 ablation).
+    # Does not affect the SUPPORTED/PARTIAL/UNSUPPORTED decision below.
+    unit.selected_evidence = unit.matched_documents[best_index]
 
     # ----------------------------------------
     # Decision

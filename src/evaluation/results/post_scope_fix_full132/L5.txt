@@ -1,0 +1,814 @@
+====================================================================================================
+QUESTION_ID   : L5
+DOCUMENT      : LayoutLMv3
+QUESTION_TYPE : Architecture / layout understanding
+ELAPSED_SEC   : 64.4
+ERROR         : no
+====================================================================================================
+
+QUESTION:
+What are the two types of embeddings that make up the text representation in LayoutLMv3?
+
+GROUND TRUTH ANSWER:
+The text representation consists of word embeddings and position embeddings. The position embeddings include 1D sequence-position embeddings and 2D layout-position embeddings based on the text bounding boxes.
+
+GROUND TRUTH SOURCE:
+LayoutLMv3.pdf, p. 3
+
+====================================================================================================
+FORENSIC TRANSCRIPT
+====================================================================================================
+
+####################################################################################################
+FORENSIC CASE START
+####################################################################################################
+Original Query   : What are the two types of embeddings that make up the text representation in LayoutLMv3?
+Expanded Query   : What are the two types of embeddings that make up the text representation in LayoutLMv3?
+Query Type       : factual
+[DOCUMENT SCOPE] Normalized query: 'what are the two types of embeddings that make up the text representation in layout l mv3'
+[DOCUMENT SCOPE] Source='BERT.pdf' -> Normalized='bert'
+[DOCUMENT SCOPE] Token overlap for 'BERT.pdf': []
+[DOCUMENT SCOPE] Source='BLIP-2.pdf' -> Normalized='blip 2'
+[DOCUMENT SCOPE] Token overlap for 'BLIP-2.pdf': []
+[DOCUMENT SCOPE] Source='CLIP.pdf' -> Normalized='clip'
+[DOCUMENT SCOPE] Token overlap for 'CLIP.pdf': []
+[DOCUMENT SCOPE] Source='CNN Paper.pdf' -> Normalized='cnn paper'
+[DOCUMENT SCOPE] Token overlap for 'CNN Paper.pdf': []
+[DOCUMENT SCOPE] Source='Donut.pdf' -> Normalized='donut'
+[DOCUMENT SCOPE] Token overlap for 'Donut.pdf': []
+[DOCUMENT SCOPE] Source='LayoutLMv3.pdf' -> Normalized='layout l mv3'
+[DOCUMENT SCOPE] EXACT MATCH -> LayoutLMv3.pdf
+[DOCUMENT SCOPE] Source='NLP Paper.pdf' -> Normalized='nlp paper'
+[DOCUMENT SCOPE] Token overlap for 'NLP Paper.pdf': []
+[DOCUMENT SCOPE] Source='RAG.pdf' -> Normalized='rag'
+[DOCUMENT SCOPE] Token overlap for 'RAG.pdf': []
+[DOCUMENT SCOPE] Source='Self-RAG.pdf' -> Normalized='self rag'
+[DOCUMENT SCOPE] Token overlap for 'Self-RAG.pdf': []
+[DOCUMENT SCOPE] Source='Vision Transformer.pdf' -> Normalized='vision transformer'
+[DOCUMENT SCOPE] Token overlap for 'Vision Transformer.pdf': []
+[DOCUMENT SCOPE] Final matched sources: ['LayoutLMv3.pdf']
+
+================================================================================
+DOCUMENT SCOPE DEBUG
+================================================================================
+Query          : What are the two types of embeddings that make up the text representation in LayoutLMv3?
+Expanded Query : What are the two types of embeddings that make up the text representation in LayoutLMv3?
+Query Type     : factual
+Document Scope : ['LayoutLMv3.pdf']
+================================================================================
+
+==========================================================================================
+STEP 3A — SCOPED HYBRID RETRIEVAL
+==========================================================================================
+Query              : What are the two types of embeddings that make up the text representation in LayoutLMv3?
+Sources            : ['LayoutLMv3.pdf']
+Dense candidate K  : 25
+Final hybrid K     : 8
+
+------------------------------------------------------------------------------------------
+[SCOPED DENSE / VECTOR RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=• [T+L] text and layout modalities: LayoutLM incorporates layout information by adding word-level spatial embeddings to embeddings of BERT [54]. StructuralLM leverages segment- lev
+02. Source=LayoutLMv3.pdf | Page=6 | Type=text | Image=N/A
+    Content=LayoutLMv3BASE improves the ANLS score of LayoutLMv2BASE from 78.08 to 78.76, with much simpler image embedding (i.e., from ResNeXt101-FPN to Linear embedding). The LayoutLMv3LARGE
+03. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=achieving an overall mAP score of 95.1. LayoutLMv3 achieves a high gain in the “Title” category. Since titles are typically much smaller than other categories and can be identified
+04. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=of them to train LayoutLMv3. We do not do image augmentation following LayoutLM models [ 54, 56]. For the multimodal Trans- former encoder along with the text embedding layer, Layo
+05. Source=LayoutLMv3.pdf | Page=6 | Type=text | Image=N/A
+    Content=which significantly outperforms the SOTA result of 85.14 provided by StructuralLM [28]. Note that LayoutLMv3 and StructuralLM use segment-level layout positions, while the other wo
+06. Source=LayoutLMv3.pdf | Page=5 | Type=text | Image=N/A
+    Content=outLMv2 and improves layout representation. • [T+L+I (P)] text, layout, and image modalities with lin- ear patch features: LayoutLMv3 replaces CNN backbones with simple linear embe
+07. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=ing, we propose LayoutLMv3 to pre-train multimodal Transform- ers for Document AI with unified text and image masking objectives MLM and MIM. As shown in Figure 3, LayoutLMv3 learn
+08. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=works [49]. The input of Transformer is a concatenation of text embedding Y = y1:𝐿 and image embedding X = x1:𝑀 sequences, where 𝐿 and 𝑀 are sequence lengths for text and image res
+09. Source=LayoutLMv3.pdf | Page=6 | Type=text | Image=N/A
+    Content=domain to the visual domain, we transfer LayoutLMv3 to a docu- ment layout analysis task. This task is about detecting the layouts of unstructured digital documents by providing bo
+10. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=tasks in Document AI. The code and models are publicly available at https://aka.ms/layoutlmv3. 2 LAYOUTLMV3 Figure 3 gives an overview of the LayoutLMv3. 2.1 Model Architecture Lay
+11. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=We compare LayoutLMv3 with typical self-supervised pre-training approaches and categorize them by their pre-training modalities. • [T] text modality: BERT [9] and RoBERTa [36] are 
+12. Source=LayoutLMv3.pdf | Page=6 | Type=text | Image=N/A
+    Content=tics to find given answers in the extracted text as in LayoutLMv2. We fine-tune LayoutLMv3BASE for 100,000 steps with a batch size of 128, a learning rate of 3𝑒 − 5, and a warmup r
+13. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=tent and corresponding 2D position information. We initialize the word embeddings with a word embedding matrix from a pre-trained model RoBERTa [36]. The position embeddings includ
+14. Source=LayoutLMv3.pdf | Page=3 | Type=text | Image=N/A
+    Content=a sequence of vectors, which length is 𝑀 = 𝐻𝑊 /𝑃 2. Then we add learnable 1D position embeddings to each patch since we have not observed improvements from using 2D position embedd
+15. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=former model with unified MLM, MIM and WPA objectives. This makes LayoutLMv3 the first multimodal pre-trained Document AI model without CNNs for image embeddings, which significant
+16. Source=LayoutLMv3.pdf | Page=5 | Type=text | Image=N/A
+    Content=OCR words’ bounding box to serve as region proposals and add the region features to corresponding text embeddings. SelfDoc [31] and UDoc [14] use document object proposals and conc
+17. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=(1) Image Embedding Image 𝑖𝑑𝑖1 𝑖𝑑𝑖2 𝑖𝑑𝑖3 𝑖𝑑𝑖4 𝑖𝑑𝑖5 𝑖𝑑𝑖6 𝑖𝑑𝑖7 𝑖𝑑𝑖8 𝑖𝑑𝑖9 Figure 2: Comparisons with existing works (e.g., DocFormer [2] and SelfDoc [31]) on (1) image embedding: our 
+18. Source=LayoutLMv3.pdf | Page=3 | Type=text | Image=N/A
+    Content=word is masked. “Seg” denotes segment-level positions. “[CLS]”, “[MASK]”, “[SEP]” and “[SPE]” are special tokens. sequence. Following the LayoutLM, we normalize all coordinates by 
+19. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=patches. We use a two-layer MLP head that inputs contextual text and image and outputs the binary aligned/unaligned labels with a binary cross-entropy loss: 𝐿𝑊 𝑃𝐴 (𝜃 ) = − 𝐿−𝐿′ ∑︁ 
+20. Source=LayoutLMv3.pdf | Page=2 | Type=image | Image=extracted_images\LayoutLMv3_page2_img6.png
+    Content=FIGURE FROM DOCUMENT  Caption: four different types of marble tiles  OCR Text: No readable text found in this image.  Nearby Document Text: Faster R-CNN Linear Embedding CNN Word E
+21. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=linear image embedding combined with appropriate pre-training objectives can consistently improve not only image-centric tasks, but also some text-centric tasks further. Effect of 
+22. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=we tokenize the text sequence with Byte-Pair Encoding (BPE) [46] with a maximum sequence length 𝐿 = 512. We add a [CLS] and a [SEP] token at the beginning and end of each text sequ
+23. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=lic benchmarks, including text-centric benchmarks: FUNSD [ 20] for form understanding, CORD [ 39] for receipt understanding, DocVQA [38] for document visual question answering, and
+24. Source=LayoutLMv3.pdf | Page=5 | Type=text | Image=N/A
+    Content=Table 1: Comparison with existing published models on the CORD [39], FUNSD [20], RVL-CDIP [16], and DocVQA [38] datasets. “T/L/I” denotes “text/layout/image” modality. “R/G/P” deno
+25. Source=LayoutLMv3.pdf | Page=1 | Type=image | Image=extracted_images\LayoutLMv3_page1_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: the layout of the layout and layout of the layout of the layout and layout of the layout of the layout  OCR Text: 2204.08387v3 [cs.CL] 
+
+------------------------------------------------------------------------------------------
+[SCOPED BM25 RETRIEVAL] 3 candidates
+------------------------------------------------------------------------------------------
+01. Source=LayoutLMv3.pdf | Page=6 | Type=text | Image=N/A
+    Content=which significantly outperforms the SOTA result of 85.14 provided by StructuralLM [28]. Note that LayoutLMv3 and StructuralLM use segment-level layout positions, while the other wo
+02. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=and #4 in Table 3, we observe that the WPA objective consistently improves all tasks. Moreover, the WPA objective decreases the loss of the vision task on PubLayNet in Figure 4. Th
+03. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=meaningful visual representation on the linear patch embeddings without any pre-training objective associated with image modality. The MIM objective mitigates this problem by prese
+
+------------------------------------------------------------------------------------------
+[RRF FUSION RANKING]
+------------------------------------------------------------------------------------------
+01. RRF=0.031778 | DenseRank=5 | BM25Rank=1 | Source=LayoutLMv3.pdf | Page=6 | Type=text
+02. RRF=0.016393 | DenseRank=1 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=4 | Type=text
+03. RRF=0.016129 | DenseRank=2 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=6 | Type=text
+04. RRF=0.016129 | DenseRank=- | BM25Rank=2 | Source=LayoutLMv3.pdf | Page=7 | Type=text
+05. RRF=0.015873 | DenseRank=3 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=7 | Type=text
+06. RRF=0.015873 | DenseRank=- | BM25Rank=3 | Source=LayoutLMv3.pdf | Page=7 | Type=text
+07. RRF=0.015625 | DenseRank=4 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=4 | Type=text
+08. RRF=0.015152 | DenseRank=6 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=5 | Type=text
+09. RRF=0.014925 | DenseRank=7 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=2 | Type=text
+10. RRF=0.014706 | DenseRank=8 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=2 | Type=text
+11. RRF=0.014493 | DenseRank=9 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=6 | Type=text
+12. RRF=0.014286 | DenseRank=10 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=2 | Type=text
+13. RRF=0.014085 | DenseRank=11 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=4 | Type=text
+14. RRF=0.013889 | DenseRank=12 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=6 | Type=text
+15. RRF=0.013699 | DenseRank=13 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=2 | Type=text
+16. RRF=0.013514 | DenseRank=14 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=3 | Type=text
+17. RRF=0.013333 | DenseRank=15 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=2 | Type=text
+18. RRF=0.013158 | DenseRank=16 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=5 | Type=text
+19. RRF=0.012987 | DenseRank=17 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=2 | Type=text
+20. RRF=0.012821 | DenseRank=18 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=3 | Type=text
+21. RRF=0.012658 | DenseRank=19 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=4 | Type=text
+22. RRF=0.012500 | DenseRank=20 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=2 | Type=image
+23. RRF=0.012346 | DenseRank=21 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=7 | Type=text
+24. RRF=0.012195 | DenseRank=22 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=4 | Type=text
+25. RRF=0.012048 | DenseRank=23 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=2 | Type=text
+26. RRF=0.011905 | DenseRank=24 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=5 | Type=text
+27. RRF=0.011765 | DenseRank=25 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=1 | Type=image
+------------------------------------------------------------------------------------------
+
+==========================================================================================
+STEP 3A — RETRIEVAL STAGE SUMMARY
+==========================================================================================
+Dense candidates       : 25
+BM25 candidates        : 3
+Dense ∩ BM25           : 1
+Dense-only candidates  : 24
+BM25-only candidates   : 2
+Unique candidate pool  : 27
+RRF candidates         : 27
+Returned to pipeline   : 8
+==========================================================================================
+
+------------------------------------------------------------------------------------------
+[SCOPED FINAL HYBRID RESULT] 8 candidates
+------------------------------------------------------------------------------------------
+01. Source=LayoutLMv3.pdf | Page=6 | Type=text | Image=N/A
+    Content=which significantly outperforms the SOTA result of 85.14 provided by StructuralLM [28]. Note that LayoutLMv3 and StructuralLM use segment-level layout positions, while the other wo
+02. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=• [T+L] text and layout modalities: LayoutLM incorporates layout information by adding word-level spatial embeddings to embeddings of BERT [54]. StructuralLM leverages segment- lev
+03. Source=LayoutLMv3.pdf | Page=6 | Type=text | Image=N/A
+    Content=LayoutLMv3BASE improves the ANLS score of LayoutLMv2BASE from 78.08 to 78.76, with much simpler image embedding (i.e., from ResNeXt101-FPN to Linear embedding). The LayoutLMv3LARGE
+04. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=and #4 in Table 3, we observe that the WPA objective consistently improves all tasks. Moreover, the WPA objective decreases the loss of the vision task on PubLayNet in Figure 4. Th
+05. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=achieving an overall mAP score of 95.1. LayoutLMv3 achieves a high gain in the “Title” category. Since titles are typically much smaller than other categories and can be identified
+06. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=meaningful visual representation on the linear patch embeddings without any pre-training objective associated with image modality. The MIM objective mitigates this problem by prese
+07. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=of them to train LayoutLMv3. We do not do image augmentation following LayoutLM models [ 54, 56]. For the multimodal Trans- former encoder along with the text embedding layer, Layo
+08. Source=LayoutLMv3.pdf | Page=5 | Type=text | Image=N/A
+    Content=outLMv2 and improves layout representation. • [T+L+I (P)] text, layout, and image modalities with lin- ear patch features: LayoutLMv3 replaces CNN backbones with simple linear embe
+==========================================================================================
+
+================================================================================
+STAGE 1 — HYBRID RETRIEVAL
+================================================================================
+Retrieved Count : 8
+
+[HYBRID #1] Source=LayoutLMv3.pdf | Page=6 | Type=text
+Content: which significantly outperforms the SOTA result of 85.14 provided by StructuralLM [28]. Note that LayoutLMv3 and StructuralLM use segment-level layout positions, while the other works use word- level layout positions. Using segment-level positions may benefit the semantic entity labeling task on FUNSD [28], so the two types of work are not directly comparable. The LayoutLMv3 also achieves SOTA F1 scores on the CORD dataset for both base and large model sizes. The results show that LayoutLMv3 can
+
+[HYBRID #2] Source=LayoutLMv3.pdf | Page=4 | Type=text
+Content: • [T+L] text and layout modalities: LayoutLM incorporates layout information by adding word-level spatial embeddings to embeddings of BERT [54]. StructuralLM leverages segment- level layout information [28]. BROS encodes relative layout
+
+[HYBRID #3] Source=LayoutLMv3.pdf | Page=6 | Type=text
+Content: LayoutLMv3BASE improves the ANLS score of LayoutLMv2BASE from 78.08 to 78.76, with much simpler image embedding (i.e., from ResNeXt101-FPN to Linear embedding). The LayoutLMv3LARGE further gains an absolute ANLS score of 4.61 overLayoutLMv3BASE. The results show that LayoutLMv3 is effective for the document visual question answering task. 3.4 Fine-tuning on a Vision Task To demonstrate the generality of LayoutLMv3 from the multimodal domain to the visual domain, we transfer LayoutLMv3 to a docu-
+
+[HYBRID #4] Source=LayoutLMv3.pdf | Page=7 | Type=text
+Content: and #4 in Table 3, we observe that the WPA objective consistently improves all tasks. Moreover, the WPA objective decreases the loss of the vision task on PubLayNet in Figure 4. These results confirm the effectiveness of WPA not only in cross-modal representation learning, but also in image representation learning.
+
+[HYBRID #5] Source=LayoutLMv3.pdf | Page=7 | Type=text
+Content: achieving an overall mAP score of 95.1. LayoutLMv3 achieves a high gain in the “Title” category. Since titles are typically much smaller than other categories and can be identified by their tex- tual content, we attribute this improvement to our incorporation of language modality in pre-training LayoutLMv3. These results demonstrate the generality and superiority of LayoutLMv3. 3.5 Ablation Study In Table 3 we study the effect of our image embeddings and pre- training objectives. We first build 
+
+[HYBRID #6] Source=LayoutLMv3.pdf | Page=7 | Type=text
+Content: meaningful visual representation on the linear patch embeddings without any pre-training objective associated with image modality. The MIM objective mitigates this problem by preserving the image information until the last layer of the model by randomly masking out a portion of input image patches and reconstructing them in the output [22]. Comparing the results of model #3 and model #2, the MIM objective benefits CORD and RVL-CDIP. As simply using linear image embedding has improved FUNSD, MIM 
+
+[HYBRID #7] Source=LayoutLMv3.pdf | Page=4 | Type=text
+Content: of them to train LayoutLMv3. We do not do image augmentation following LayoutLM models [ 54, 56]. For the multimodal Trans- former encoder along with the text embedding layer, LayoutLMv3 is initialized from the pre-trained weights of RoBERTa [36]. Our image tokenizer is initialized from a pre-trained image tokenizer in DiT, a self-supervised pre-trained document image Transformer model [30]. The vocabulary size of image tokens is 8,192. We ran- domly initialized the rest model parameters. We pre
+
+[HYBRID #8] Source=LayoutLMv3.pdf | Page=5 | Type=text
+Content: outLMv2 and improves layout representation. • [T+L+I (P)] text, layout, and image modalities with lin- ear patch features: LayoutLMv3 replaces CNN backbones with simple linear embedding to encode image patches. We fine-tune LayoutLMv3 on multimodal tasks on publicly avail- able benchmarks. Results are shown in Table 1. Task I: Form and Receipt Understanding. Form and receipt understanding tasks require extracting and structuring forms and receipts’ textual content. The tasks are a sequence label
+================================================================================
+[DOCUMENT SCOPE] Text chunks: 8 -> 8
+
+================================================================================
+IMAGE RETRIEVAL DIAGNOSTIC
+================================================================================
+Query                 : What are the two types of embeddings that make up the text representation in LayoutLMv3?
+Allowed Sources       : ['LayoutLMv3.pdf']
+Image Candidates      : 554 -> 26 (scoped before ranking)
+
+ALL IMAGE CANDIDATES
+--------------------------------------------------------------------------------
+Rank=01 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img6.png | Hybrid=2.0571 | CE=3.2644 | CLIP=0.2462
+Rank=02 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img0.png | Hybrid=1.4528 | CE=2.2717 | CLIP=0.2244
+Rank=03 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img2.png | Hybrid=1.4504 | CE=2.2683 | CLIP=0.2236
+Rank=04 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img1.png | Hybrid=1.4028 | CE=2.1789 | CLIP=0.2386
+Rank=05 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img3.png | Hybrid=1.3739 | CE=2.1177 | CLIP=0.2581
+Rank=06 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img4.png | Hybrid=1.2021 | CE=1.8561 | CLIP=0.2213
+Rank=07 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img5.png | Hybrid=0.7817 | CE=1.1368 | CLIP=0.2491
+Rank=08 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_render.png | Hybrid=0.6921 | CE=0.9924 | CLIP=0.2417
+Rank=09 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img7.png | Hybrid=0.6820 | CE=0.9885 | CLIP=0.2223
+Rank=10 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_render.png | Hybrid=0.6308 | CE=0.8745 | CLIP=0.2654
+Rank=11 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img9.png | Hybrid=0.4710 | CE=0.6361 | CLIP=0.2235
+Rank=12 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img1.png | Hybrid=-0.1145 | CE=-0.3341 | CLIP=0.2149
+Rank=13 | Source=LayoutLMv3.pdf | Page=1 | Image=LayoutLMv3_page1_render.png | Hybrid=-0.3381 | CE=-0.7312 | CLIP=0.2517
+Rank=14 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img2.png | Hybrid=-0.7232 | CE=-1.3543 | CLIP=0.2236
+Rank=15 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img6.png | Hybrid=-0.9604 | CE=-1.7543 | CLIP=0.2304
+Rank=16 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img4.png | Hybrid=-0.9787 | CE=-1.7807 | CLIP=0.2243
+Rank=17 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img3.png | Hybrid=-1.0224 | CE=-1.8636 | CLIP=0.2395
+Rank=18 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img7.png | Hybrid=-1.0437 | CE=-1.8967 | CLIP=0.2358
+Rank=19 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img9.png | Hybrid=-1.5196 | CE=-2.6686 | CLIP=0.2039
+Rank=20 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img8.png | Hybrid=-1.6493 | CE=-2.9085 | CLIP=0.2396
+Rank=21 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img5.png | Hybrid=-1.7975 | CE=-3.1528 | CLIP=0.2354
+Rank=22 | Source=LayoutLMv3.pdf | Page=7 | Image=LayoutLMv3_page7_img0.png | Hybrid=-1.8244 | CE=-3.2166 | CLIP=0.2640
+Rank=23 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img8.png | Hybrid=-3.4991 | CE=-6.0023 | CLIP=0.2557
+Rank=24 | Source=LayoutLMv3.pdf | Page=1 | Image=LayoutLMv3_page1_img1.png | Hybrid=-5.5189 | CE=-9.3558 | CLIP=0.2363
+Rank=25 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img0.png | Hybrid=-6.1523 | CE=-10.3934 | CLIP=0.2093
+Rank=26 | Source=LayoutLMv3.pdf | Page=1 | Image=LayoutLMv3_page1_img0.png | Hybrid=-6.3112 | CE=-10.6766 | CLIP=0.2370
+
+TOP IMAGE RESULTS
+--------------------------------------------------------------------------------
+TOP-1 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img6.png | Hybrid=2.0571 | CE=3.2644 | CLIP=0.2462
+TOP-2 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img0.png | Hybrid=1.4528 | CE=2.2717 | CLIP=0.2244
+TOP-3 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img2.png | Hybrid=1.4504 | CE=2.2683 | CLIP=0.2236
+================================================================================
+[DOCUMENT SCOPE] Images: 3 -> 3
+
+================================================================================
+STAGE 2 — IMAGE RETRIEVAL RESULT
+================================================================================
+Image Results       : 3
+Exact Figure Match  : False
+
+[IMAGE #1] Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img6.png
+Image Path: extracted_images\LayoutLMv3_page2_img6.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT  Caption: four different types of marble tiles  OCR Text: No readable text found in this image.  Nearby Document Text: Faster R-CNN Linear Embedding CNN Word Embedding Masked Word  Token Classification Visual Transformer (Optional) Origin Image  Reconstruction (a) Patch (LayoutLMv3) “A few  number of  tumor cell…” Masked Patch  Token Classification (c) Region (e.g., SelfDoc) (b) Grid (e.g., DocFormer) Masked Region  Feature Regression 𝑖𝑑𝑡1, 𝑖𝑑𝑡2, 𝑖𝑑𝑡3, 𝑖𝑑𝑡4, 𝑖𝑑𝑡5, 𝑖𝑑𝑡6, … Te
+
+[IMAGE #2] Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img0.png
+Image Path: extracted_images\LayoutLMv3_page2_img0.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT  Caption: a white paper with a black and white text on it  OCR Text: Esters yal hes  Nearby Document Text: Faster R-CNN Linear Embedding CNN Word Embedding Masked Word  Token Classification Visual Transformer (Optional) Origin Image  Reconstruction (a) Patch (LayoutLMv3) “A few  number of  tumor cell…” Masked Patch  Token Classification (c) Region (e.g., SelfDoc) (b) Grid (e.g., DocFormer) Masked Region  Feature Regression 𝑖𝑑𝑡1, 𝑖𝑑𝑡2, 𝑖𝑑𝑡3, 𝑖𝑑𝑡4, 𝑖𝑑𝑡5, 𝑖𝑑𝑡6, … Text Multimoda
+
+[IMAGE #3] Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img2.png
+Image Path: extracted_images\LayoutLMv3_page2_img2.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT  Caption: a picture of a painting with a white background  OCR Text: No readable text found in this image.  Nearby Document Text: Faster R-CNN Linear Embedding CNN Word Embedding Masked Word  Token Classification Visual Transformer (Optional) Origin Image  Reconstruction (a) Patch (LayoutLMv3) “A few  number of  tumor cell…” Masked Patch  Token Classification (c) Region (e.g., SelfDoc) (b) Grid (e.g., DocFormer) Masked Region  Feature Regression 𝑖𝑑𝑡1, 𝑖𝑑𝑡2, 𝑖𝑑𝑡3, 𝑖𝑑𝑡4, 𝑖𝑑𝑡5,
+================================================================================
+
+================================================================================
+COMBINED RETRIEVAL CANDIDATES
+================================================================================
+Text Candidates  : 8
+Image Candidates : 3
+Total Candidates : 11
+================================================================================
+
+================================================================================
+STEP 3A — RERANKER INPUT
+================================================================================
+Query: What are the two types of embeddings that make up the text representation in LayoutLMv3?
+Input candidates: 11
+01. Source=LayoutLMv3.pdf | Page=6 | Type=text | Image=N/A
+    Content=which significantly outperforms the SOTA result of 85.14 provided by StructuralLM [28]. Note that LayoutLMv3 and StructuralLM use segment-level layout positions, while the other wo
+02. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=• [T+L] text and layout modalities: LayoutLM incorporates layout information by adding word-level spatial embeddings to embeddings of BERT [54]. StructuralLM leverages segment- lev
+03. Source=LayoutLMv3.pdf | Page=6 | Type=text | Image=N/A
+    Content=LayoutLMv3BASE improves the ANLS score of LayoutLMv2BASE from 78.08 to 78.76, with much simpler image embedding (i.e., from ResNeXt101-FPN to Linear embedding). The LayoutLMv3LARGE
+04. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=and #4 in Table 3, we observe that the WPA objective consistently improves all tasks. Moreover, the WPA objective decreases the loss of the vision task on PubLayNet in Figure 4. Th
+05. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=achieving an overall mAP score of 95.1. LayoutLMv3 achieves a high gain in the “Title” category. Since titles are typically much smaller than other categories and can be identified
+06. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=meaningful visual representation on the linear patch embeddings without any pre-training objective associated with image modality. The MIM objective mitigates this problem by prese
+07. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=of them to train LayoutLMv3. We do not do image augmentation following LayoutLM models [ 54, 56]. For the multimodal Trans- former encoder along with the text embedding layer, Layo
+08. Source=LayoutLMv3.pdf | Page=5 | Type=text | Image=N/A
+    Content=outLMv2 and improves layout representation. • [T+L+I (P)] text, layout, and image modalities with lin- ear patch features: LayoutLMv3 replaces CNN backbones with simple linear embe
+09. Source=LayoutLMv3.pdf | Page=2 | Type=image | Image=extracted_images\LayoutLMv3_page2_img6.png
+    Content=FIGURE FROM DOCUMENT  Caption: four different types of marble tiles  OCR Text: No readable text found in this image.  Nearby Document Text: Faster R-CNN Linear Embedding CNN Word E
+10. Source=LayoutLMv3.pdf | Page=2 | Type=image | Image=extracted_images\LayoutLMv3_page2_img0.png
+    Content=FIGURE FROM DOCUMENT  Caption: a white paper with a black and white text on it  OCR Text: Esters yal hes  Nearby Document Text: Faster R-CNN Linear Embedding CNN Word Embedding Mas
+11. Source=LayoutLMv3.pdf | Page=2 | Type=image | Image=extracted_images\LayoutLMv3_page2_img2.png
+    Content=FIGURE FROM DOCUMENT  Caption: a picture of a painting with a white background  OCR Text: No readable text found in this image.  Nearby Document Text: Faster R-CNN Linear Embedding
+================================================================================
+
+--------------------------------------------------------------------------------
+CROSS-ENCODER RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=07 | Source=LayoutLMv3.pdf | Page=5 | Type=text | CE=4.0193
+Rank=02 | OriginalIndex=08 | Source=LayoutLMv3.pdf | Page=2 | Type=image | CE=3.2644
+Rank=03 | OriginalIndex=01 | Source=LayoutLMv3.pdf | Page=4 | Type=text | CE=2.9758
+Rank=04 | OriginalIndex=02 | Source=LayoutLMv3.pdf | Page=6 | Type=text | CE=2.6359
+Rank=05 | OriginalIndex=06 | Source=LayoutLMv3.pdf | Page=4 | Type=text | CE=2.6203
+Rank=06 | OriginalIndex=09 | Source=LayoutLMv3.pdf | Page=2 | Type=image | CE=2.2717
+Rank=07 | OriginalIndex=10 | Source=LayoutLMv3.pdf | Page=2 | Type=image | CE=2.2683
+Rank=08 | OriginalIndex=00 | Source=LayoutLMv3.pdf | Page=6 | Type=text | CE=1.7265
+Rank=09 | OriginalIndex=04 | Source=LayoutLMv3.pdf | Page=7 | Type=text | CE=1.2802
+Rank=10 | OriginalIndex=05 | Source=LayoutLMv3.pdf | Page=7 | Type=text | CE=-1.8840
+Rank=11 | OriginalIndex=03 | Source=LayoutLMv3.pdf | Page=7 | Type=text | CE=-10.4148
+
+--------------------------------------------------------------------------------
+CLIP IMAGE RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=08 | Source=LayoutLMv3.pdf | Page=2 | Image=extracted_images\LayoutLMv3_page2_img6.png | CLIP=0.2462
+Rank=02 | OriginalIndex=09 | Source=LayoutLMv3.pdf | Page=2 | Image=extracted_images\LayoutLMv3_page2_img0.png | CLIP=0.2244
+Rank=03 | OriginalIndex=10 | Source=LayoutLMv3.pdf | Page=2 | Image=extracted_images\LayoutLMv3_page2_img2.png | CLIP=0.2236
+
+================================================================================
+STEP 3A — COMPLETE MULTIMODAL RERANK RESULT
+================================================================================
+Rank=01 | Type=image | Source=LayoutLMv3.pdf | Page=2 | RRF=0.032522 | CE=3.2644 | CLIP=0.2462
+    Content=FIGURE FROM DOCUMENT  Caption: four different types of marble tiles  OCR Text: No readable text found in this image.  Nearby Document Text: Faster R-CNN Linear Embedding CNN Word E
+Rank=02 | Type=image | Source=LayoutLMv3.pdf | Page=2 | RRF=0.031281 | CE=2.2717 | CLIP=0.2244
+    Content=FIGURE FROM DOCUMENT  Caption: a white paper with a black and white text on it  OCR Text: Esters yal hes  Nearby Document Text: Faster R-CNN Linear Embedding CNN Word Embedding Mas
+Rank=03 | Type=image | Source=LayoutLMv3.pdf | Page=2 | RRF=0.030798 | CE=2.2683 | CLIP=0.2236
+    Content=FIGURE FROM DOCUMENT  Caption: a picture of a painting with a white background  OCR Text: No readable text found in this image.  Nearby Document Text: Faster R-CNN Linear Embedding
+Rank=04 | Type=text | Source=LayoutLMv3.pdf | Page=5 | RRF=0.016393 | CE=4.0193 | CLIP=N/A
+    Content=outLMv2 and improves layout representation. • [T+L+I (P)] text, layout, and image modalities with lin- ear patch features: LayoutLMv3 replaces CNN backbones with simple linear embe
+Rank=05 | Type=text | Source=LayoutLMv3.pdf | Page=4 | RRF=0.015873 | CE=2.9758 | CLIP=N/A
+    Content=• [T+L] text and layout modalities: LayoutLM incorporates layout information by adding word-level spatial embeddings to embeddings of BERT [54]. StructuralLM leverages segment- lev
+Rank=06 | Type=text | Source=LayoutLMv3.pdf | Page=6 | RRF=0.015625 | CE=2.6359 | CLIP=N/A
+    Content=LayoutLMv3BASE improves the ANLS score of LayoutLMv2BASE from 78.08 to 78.76, with much simpler image embedding (i.e., from ResNeXt101-FPN to Linear embedding). The LayoutLMv3LARGE
+Rank=07 | Type=text | Source=LayoutLMv3.pdf | Page=4 | RRF=0.015385 | CE=2.6203 | CLIP=N/A
+    Content=of them to train LayoutLMv3. We do not do image augmentation following LayoutLM models [ 54, 56]. For the multimodal Trans- former encoder along with the text embedding layer, Layo
+Rank=08 | Type=text | Source=LayoutLMv3.pdf | Page=6 | RRF=0.014706 | CE=1.7265 | CLIP=N/A
+    Content=which significantly outperforms the SOTA result of 85.14 provided by StructuralLM [28]. Note that LayoutLMv3 and StructuralLM use segment-level layout positions, while the other wo
+Rank=09 | Type=text | Source=LayoutLMv3.pdf | Page=7 | RRF=0.014493 | CE=1.2802 | CLIP=N/A
+    Content=achieving an overall mAP score of 95.1. LayoutLMv3 achieves a high gain in the “Title” category. Since titles are typically much smaller than other categories and can be identified
+Rank=10 | Type=text | Source=LayoutLMv3.pdf | Page=7 | RRF=0.014286 | CE=-1.8840 | CLIP=N/A
+    Content=meaningful visual representation on the linear patch embeddings without any pre-training objective associated with image modality. The MIM objective mitigates this problem by prese
+Rank=11 | Type=text | Source=LayoutLMv3.pdf | Page=7 | RRF=0.014085 | CE=-10.4148 | CLIP=N/A
+    Content=and #4 in Table 3, we observe that the WPA objective consistently improves all tasks. Moreover, the WPA objective decreases the loss of the vision task on PubLayNet in Figure 4. Th
+================================================================================
+
+================================================================================
+STEP 3A — FINAL RERANK TOP-K
+================================================================================
+Requested top_k: 12
+Returned documents: 11
+01. Source=LayoutLMv3.pdf | Page=2 | Type=image | Image=extracted_images\LayoutLMv3_page2_img6.png
+02. Source=LayoutLMv3.pdf | Page=2 | Type=image | Image=extracted_images\LayoutLMv3_page2_img0.png
+03. Source=LayoutLMv3.pdf | Page=2 | Type=image | Image=extracted_images\LayoutLMv3_page2_img2.png
+04. Source=LayoutLMv3.pdf | Page=5 | Type=text | Image=N/A
+05. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+06. Source=LayoutLMv3.pdf | Page=6 | Type=text | Image=N/A
+07. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+08. Source=LayoutLMv3.pdf | Page=6 | Type=text | Image=N/A
+09. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+10. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+11. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+================================================================================
+
+================================================================================
+STAGE 3 — MULTIMODAL RERANKING
+================================================================================
+Input Candidates : 11
+Reranked Output   : 11
+
+[RERANK #1] Source=LayoutLMv3.pdf | Page=2 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT  Caption: four different types of marble tiles  OCR Text: No readable text found in this image.  Nearby Document Text: Faster R-CNN Linear Embedding CNN Word Embedding Masked Word  Token Classification Visual Transformer (Optional) Origin Image  Reconstruction (a) Patch (LayoutL
+
+[RERANK #2] Source=LayoutLMv3.pdf | Page=2 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT  Caption: a white paper with a black and white text on it  OCR Text: Esters yal hes  Nearby Document Text: Faster R-CNN Linear Embedding CNN Word Embedding Masked Word  Token Classification Visual Transformer (Optional) Origin Image  Reconstruction (a) Patch (LayoutLMv3) “A few 
+
+[RERANK #3] Source=LayoutLMv3.pdf | Page=2 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT  Caption: a picture of a painting with a white background  OCR Text: No readable text found in this image.  Nearby Document Text: Faster R-CNN Linear Embedding CNN Word Embedding Masked Word  Token Classification Visual Transformer (Optional) Origin Image  Reconstruction (a) Pat
+
+[RERANK #4] Source=LayoutLMv3.pdf | Page=5 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: outLMv2 and improves layout representation. • [T+L+I (P)] text, layout, and image modalities with lin- ear patch features: LayoutLMv3 replaces CNN backbones with simple linear embedding to encode image patches. We fine-tune LayoutLMv3 on multimodal tasks on publicly avail- able benchmarks. Results a
+
+[RERANK #5] Source=LayoutLMv3.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: • [T+L] text and layout modalities: LayoutLM incorporates layout information by adding word-level spatial embeddings to embeddings of BERT [54]. StructuralLM leverages segment- level layout information [28]. BROS encodes relative layout
+
+[RERANK #6] Source=LayoutLMv3.pdf | Page=6 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: LayoutLMv3BASE improves the ANLS score of LayoutLMv2BASE from 78.08 to 78.76, with much simpler image embedding (i.e., from ResNeXt101-FPN to Linear embedding). The LayoutLMv3LARGE further gains an absolute ANLS score of 4.61 overLayoutLMv3BASE. The results show that LayoutLMv3 is effective for the 
+
+[RERANK #7] Source=LayoutLMv3.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: of them to train LayoutLMv3. We do not do image augmentation following LayoutLM models [ 54, 56]. For the multimodal Trans- former encoder along with the text embedding layer, LayoutLMv3 is initialized from the pre-trained weights of RoBERTa [36]. Our image tokenizer is initialized from a pre-traine
+
+[RERANK #8] Source=LayoutLMv3.pdf | Page=6 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: which significantly outperforms the SOTA result of 85.14 provided by StructuralLM [28]. Note that LayoutLMv3 and StructuralLM use segment-level layout positions, while the other works use word- level layout positions. Using segment-level positions may benefit the semantic entity labeling task on FUN
+
+[RERANK #9] Source=LayoutLMv3.pdf | Page=7 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: achieving an overall mAP score of 95.1. LayoutLMv3 achieves a high gain in the “Title” category. Since titles are typically much smaller than other categories and can be identified by their tex- tual content, we attribute this improvement to our incorporation of language modality in pre-training Lay
+
+[RERANK #10] Source=LayoutLMv3.pdf | Page=7 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: meaningful visual representation on the linear patch embeddings without any pre-training objective associated with image modality. The MIM objective mitigates this problem by preserving the image information until the last layer of the model by randomly masking out a portion of input image patches a
+
+[RERANK #11] Source=LayoutLMv3.pdf | Page=7 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: and #4 in Table 3, we observe that the WPA objective consistently improves all tasks. Moreover, the WPA objective decreases the loss of the vision task on PubLayNet in Figure 4. These results confirm the effectiveness of WPA not only in cross-modal representation learning, but also in image represen
+================================================================================
+
+================================================================================
+FINAL CONTEXT DOCUMENTS
+================================================================================
+Final context candidates: 11
+
+[FINAL #1] Source=LayoutLMv3.pdf | Page=2 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT  Caption: four different types of marble tiles  OCR Text: No readable text found in this image.  Nearby Document Text: Faster R-CNN Linear Embedding CNN Word Embedding Masked Word  Token Classification Visual Transformer (Optional) Origin Image  Reconstruction (a) Patch (LayoutL
+
+[FINAL #2] Source=LayoutLMv3.pdf | Page=2 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT  Caption: a white paper with a black and white text on it  OCR Text: Esters yal hes  Nearby Document Text: Faster R-CNN Linear Embedding CNN Word Embedding Masked Word  Token Classification Visual Transformer (Optional) Origin Image  Reconstruction (a) Patch (LayoutLMv3) “A few 
+
+[FINAL #3] Source=LayoutLMv3.pdf | Page=2 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT  Caption: a picture of a painting with a white background  OCR Text: No readable text found in this image.  Nearby Document Text: Faster R-CNN Linear Embedding CNN Word Embedding Masked Word  Token Classification Visual Transformer (Optional) Origin Image  Reconstruction (a) Pat
+
+[FINAL #4] Source=LayoutLMv3.pdf | Page=5 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: outLMv2 and improves layout representation. • [T+L+I (P)] text, layout, and image modalities with lin- ear patch features: LayoutLMv3 replaces CNN backbones with simple linear embedding to encode image patches. We fine-tune LayoutLMv3 on multimodal tasks on publicly avail- able benchmarks. Results a
+
+[FINAL #5] Source=LayoutLMv3.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: • [T+L] text and layout modalities: LayoutLM incorporates layout information by adding word-level spatial embeddings to embeddings of BERT [54]. StructuralLM leverages segment- level layout information [28]. BROS encodes relative layout
+
+[FINAL #6] Source=LayoutLMv3.pdf | Page=6 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: LayoutLMv3BASE improves the ANLS score of LayoutLMv2BASE from 78.08 to 78.76, with much simpler image embedding (i.e., from ResNeXt101-FPN to Linear embedding). The LayoutLMv3LARGE further gains an absolute ANLS score of 4.61 overLayoutLMv3BASE. The results show that LayoutLMv3 is effective for the 
+
+[FINAL #7] Source=LayoutLMv3.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: of them to train LayoutLMv3. We do not do image augmentation following LayoutLM models [ 54, 56]. For the multimodal Trans- former encoder along with the text embedding layer, LayoutLMv3 is initialized from the pre-trained weights of RoBERTa [36]. Our image tokenizer is initialized from a pre-traine
+
+[FINAL #8] Source=LayoutLMv3.pdf | Page=6 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: which significantly outperforms the SOTA result of 85.14 provided by StructuralLM [28]. Note that LayoutLMv3 and StructuralLM use segment-level layout positions, while the other works use word- level layout positions. Using segment-level positions may benefit the semantic entity labeling task on FUN
+
+[FINAL #9] Source=LayoutLMv3.pdf | Page=7 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: achieving an overall mAP score of 95.1. LayoutLMv3 achieves a high gain in the “Title” category. Since titles are typically much smaller than other categories and can be identified by their tex- tual content, we attribute this improvement to our incorporation of language modality in pre-training Lay
+
+[FINAL #10] Source=LayoutLMv3.pdf | Page=7 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: meaningful visual representation on the linear patch embeddings without any pre-training objective associated with image modality. The MIM objective mitigates this problem by preserving the image information until the last layer of the model by randomly masking out a portion of input image patches a
+
+[FINAL #11] Source=LayoutLMv3.pdf | Page=7 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: and #4 in Table 3, we observe that the WPA objective consistently improves all tasks. Moreover, the WPA objective decreases the loss of the vision task on PubLayNet in Figure 4. These results confirm the effectiveness of WPA not only in cross-modal representation learning, but also in image represen
+================================================================================
+
+================================================================================
+FINAL CONTEXT SENT TO LLM
+================================================================================
+
+================================================================================
+DOCUMENT : LayoutLMv3.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 2
+--------------------------------------------------------------------------------
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT
+
+Caption:
+four different types of marble tiles
+
+OCR Text:
+No readable text found in this image.
+
+Nearby Document Text:
+Faster R-CNN
+Linear Embedding
+CNN
+Word Embedding
+Masked Word 
+Token Classification
+Visual Transformer (Optional)
+Origin Image 
+Reconstruction
+(a) Patch
+(LayoutLMv3)
+“A few 
+number of 
+tumor cell…”
+Masked Patch 
+Token Classification
+(c) Region
+(e.g., SelfDoc)
+(b) Grid
+(e.g., DocFormer)
+Masked Region 
+Feature Regression
+𝑖𝑑𝑡1, 𝑖𝑑𝑡2, 𝑖𝑑𝑡3,
+𝑖𝑑𝑡4, 𝑖𝑑𝑡5, 𝑖𝑑𝑡6, …
+Text
+Multimodal Transformer
+(2) Pre-training Objectives of Image Modality
+(1) Image Embedding
+Image
+𝑖𝑑𝑖1 𝑖𝑑𝑖2 𝑖𝑑𝑖3
+𝑖𝑑𝑖4 𝑖𝑑𝑖5 𝑖𝑑𝑖6
+𝑖𝑑𝑖7 𝑖𝑑𝑖8 𝑖𝑑𝑖9
+Figure 2: Comparisons with existing works (e.g., DocFormer
+[2] and SelfDoc [31]) on (1) image emb
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT
+
+Caption:
+a white paper with a black and white text on it
+
+OCR Text:
+Esters
+yal hes
+
+Nearby Document Text:
+Faster R-CNN
+Linear Embedding
+CNN
+Word Embedding
+Masked Word 
+Token Classification
+Visual Transformer (Optional)
+Origin Image 
+Reconstruction
+(a) Patch
+(LayoutLMv3)
+“A few 
+number of 
+tumor cell…”
+Masked Patch 
+Token Classification
+(c) Region
+(e.g., SelfDoc)
+(b) Grid
+(e.g., DocFormer)
+Masked Region 
+Feature Regression
+𝑖𝑑𝑡1, 𝑖𝑑𝑡2, 𝑖𝑑𝑡3,
+𝑖𝑑𝑡4, 𝑖𝑑𝑡5, 𝑖𝑑𝑡6, …
+Text
+Multimodal Transformer
+(2) Pre-training Objectives of Image Modality
+(1) Image Embedding
+Image
+𝑖𝑑𝑖1 𝑖𝑑𝑖2 𝑖𝑑𝑖3
+𝑖𝑑𝑖4 𝑖𝑑𝑖5 𝑖𝑑𝑖6
+𝑖𝑑𝑖7 𝑖𝑑𝑖8 𝑖𝑑𝑖9
+Figure 2: Comparisons with existing works (e.g., DocFormer
+[2] and SelfDoc [31]) on (1) image emb
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT
+
+Caption:
+a picture of a painting with a white background
+
+OCR Text:
+No readable text found in this image.
+
+Nearby Document Text:
+Faster R-CNN
+Linear Embedding
+CNN
+Word Embedding
+Masked Word 
+Token Classification
+Visual Transformer (Optional)
+Origin Image 
+Reconstruction
+(a) Patch
+(LayoutLMv3)
+“A few 
+number of 
+tumor cell…”
+Masked Patch 
+Token Classification
+(c) Region
+(e.g., SelfDoc)
+(b) Grid
+(e.g., DocFormer)
+Masked Region 
+Feature Regression
+𝑖𝑑𝑡1, 𝑖𝑑𝑡2, 𝑖𝑑𝑡3,
+𝑖𝑑𝑡4, 𝑖𝑑𝑡5, 𝑖𝑑𝑡6, …
+Text
+Multimodal Transformer
+(2) Pre-training Objectives of Image Modality
+(1) Image Embedding
+Image
+𝑖𝑑𝑖1 𝑖𝑑𝑖2 𝑖𝑑𝑖3
+𝑖𝑑𝑖4 𝑖𝑑𝑖5 𝑖𝑑𝑖6
+𝑖𝑑𝑖7 𝑖𝑑𝑖8 𝑖𝑑𝑖9
+Figure 2: Comparisons with existing works (e.g., DocFormer
+[2] and SelfDoc [31]) on (1) image emb
+
+
+--------------------------------------------------------------------------------
+PAGE : 4
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+• [T+L] text and layout modalities: LayoutLM incorporates
+layout information by adding word-level spatial embeddings
+to embeddings of BERT [54]. StructuralLM leverages segment-
+level layout information [28]. BROS encodes relative layout
+
+
+[TEXT]
+
+of them to train LayoutLMv3. We do not do image augmentation
+following LayoutLM models [ 54, 56]. For the multimodal Trans-
+former encoder along with the text embedding layer, LayoutLMv3
+is initialized from the pre-trained weights of RoBERTa [36]. Our
+image tokenizer is initialized from a pre-trained image tokenizer
+in DiT, a self-supervised pre-trained document image Transformer
+model [30]. The vocabulary size of image tokens is 8,192. We ran-
+domly initialized the rest model parameters. We pre-train Lay-
+outLMv3 using Adam optimizer [23] with a batch size of 2,048 for
+
+
+--------------------------------------------------------------------------------
+PAGE : 5
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+outLMv2 and improves layout representation.
+• [T+L+I (P)] text, layout, and image modalities with lin-
+ear patch features: LayoutLMv3 replaces CNN backbones
+with simple linear embedding to encode image patches.
+We fine-tune LayoutLMv3 on multimodal tasks on publicly avail-
+able benchmarks. Results are shown in Table 1.
+Task I: Form and Receipt Understanding. Form and receipt
+understanding tasks require extracting and structuring forms and
+receipts’ textual content. The tasks are a sequence labeling problem
+aiming to tag each word with a label. We predict the label of the
+
+
+--------------------------------------------------------------------------------
+PAGE : 6
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+LayoutLMv3BASE improves the ANLS score of LayoutLMv2BASE
+from 78.08 to 78.76, with much simpler image embedding (i.e., from
+ResNeXt101-FPN to Linear embedding). The LayoutLMv3LARGE
+further gains an absolute ANLS score of 4.61 overLayoutLMv3BASE.
+The results show that LayoutLMv3 is effective for the document
+visual question answering task.
+3.4 Fine-tuning on a Vision Task
+To demonstrate the generality of LayoutLMv3 from the multimodal
+domain to the visual domain, we transfer LayoutLMv3 to a docu-
+ment layout analysis task. This task is about detecting the layouts
+
+
+[TEXT]
+
+which significantly outperforms the SOTA result of 85.14 provided
+by StructuralLM [28]. Note that LayoutLMv3 and StructuralLM use
+segment-level layout positions, while the other works use word-
+level layout positions. Using segment-level positions may benefit
+the semantic entity labeling task on FUNSD [28], so the two types
+of work are not directly comparable. The LayoutLMv3 also achieves
+SOTA F1 scores on the CORD dataset for both base and large model
+sizes. The results show that LayoutLMv3 can significantly benefit
+the text-centric form and receipt understanding tasks.
+
+
+--------------------------------------------------------------------------------
+PAGE : 7
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+achieving an overall mAP score of 95.1. LayoutLMv3 achieves a
+high gain in the “Title” category. Since titles are typically much
+smaller than other categories and can be identified by their tex-
+tual content, we attribute this improvement to our incorporation
+of language modality in pre-training LayoutLMv3. These results
+demonstrate the generality and superiority of LayoutLMv3.
+3.5 Ablation Study
+In Table 3 we study the effect of our image embeddings and pre-
+training objectives. We first build a baseline model #1 that uses text
+and layout information, pre-trained with MLM objective. Then we
+
+
+[TEXT]
+
+meaningful visual representation on the linear patch embeddings
+without any pre-training objective associated with image modality.
+The MIM objective mitigates this problem by preserving the image
+information until the last layer of the model by randomly masking
+out a portion of input image patches and reconstructing them in
+the output [22]. Comparing the results of model #3 and model #2,
+the MIM objective benefits CORD and RVL-CDIP. As simply using
+linear image embedding has improved FUNSD, MIM does not fur-
+ther contribute to FUNSD. By incorporating the MIM objective in
+
+
+[TEXT]
+
+and #4 in Table 3, we observe that the WPA objective consistently
+improves all tasks. Moreover, the WPA objective decreases the loss
+of the vision task on PubLayNet in Figure 4. These results confirm
+the effectiveness of WPA not only in cross-modal representation
+learning, but also in image representation learning.
+
+================================================================================
+
+================================================================================
+RAG PIPELINE DEBUG
+================================================================================
+Query Type        : factual
+Retrieved Chunks  : 8
+Retrieved Images  : 3
+Reranked Chunks   : 11
+Reranked Text     : 8
+Reranked Images   : 3
+Final Context Docs: 11
+Exact Figure Query: False
+Exact Figure Match: False
+Exact Figure Final: False
+================================================================================
+
+====================================================================================================
+RAG ANSWER
+====================================================================================================
+ The text representation in LayoutLMv3 consists of two types of embeddings: word-level spatial embeddings and embeddings of BERT.
+
+IMAGE PATHS:
+D:/Projects/Major-Project-2-main/extracted_images/LayoutLMv3_page2_img6.png
+D:/Projects/Major-Project-2-main/extracted_images/LayoutLMv3_page2_img0.png
+D:/Projects/Major-Project-2-main/extracted_images/LayoutLMv3_page2_img2.png

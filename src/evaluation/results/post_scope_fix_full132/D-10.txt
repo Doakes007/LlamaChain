@@ -1,0 +1,899 @@
+====================================================================================================
+QUESTION_ID   : D-10
+DOCUMENT      : Donut
+QUESTION_TYPE : Figure / visual understanding
+ELAPSED_SEC   : 71.6
+ERROR         : no
+====================================================================================================
+
+QUESTION:
+According to Figure 2, how does Donut compare with OCR-dependent VDU models in terms of inference time, memory usage, and accuracy?
+
+GROUND TRUTH ANSWER:
+Figure 2 shows Donut outperforming the OCR-dependent VDU pipeline in the reported system benchmark: Donut uses less memory (about **143M vs. 179M**), lower time cost (about **0.9 vs. 1.2 sec/image**), and higher accuracy (**91% vs. 82%**) in the comparison shown. The paper summarizes this as better memory, time cost, and accuracy.
+
+GROUND TRUTH SOURCE:
+Donut.pdf, p. 2, Figure 2
+
+====================================================================================================
+FORENSIC TRANSCRIPT
+====================================================================================================
+
+####################################################################################################
+FORENSIC CASE START
+####################################################################################################
+Original Query   : According to Figure 2, how does Donut compare with OCR-dependent VDU models in terms of inference time, memory usage, and accuracy?
+Expanded Query   : According to Figure 2, how does Donut compare with OCR-dependent VDU models in terms of inference time, memory usage, and accuracy?
+Query Type       : factual
+[DOCUMENT SCOPE] Normalized query: 'according to figure 2 how does donut compare with ocr dependent vdu models in terms of inference time memory usage and accuracy'
+[DOCUMENT SCOPE] Source='BERT.pdf' -> Normalized='bert'
+[DOCUMENT SCOPE] Token overlap for 'BERT.pdf': []
+[DOCUMENT SCOPE] Source='BLIP-2.pdf' -> Normalized='blip 2'
+[DOCUMENT SCOPE] Token overlap for 'BLIP-2.pdf': []
+[DOCUMENT SCOPE] Source='CLIP.pdf' -> Normalized='clip'
+[DOCUMENT SCOPE] Token overlap for 'CLIP.pdf': []
+[DOCUMENT SCOPE] Source='CNN Paper.pdf' -> Normalized='cnn paper'
+[DOCUMENT SCOPE] Token overlap for 'CNN Paper.pdf': []
+[DOCUMENT SCOPE] Source='Donut.pdf' -> Normalized='donut'
+[DOCUMENT SCOPE] EXACT MATCH -> Donut.pdf
+[DOCUMENT SCOPE] Source='LayoutLMv3.pdf' -> Normalized='layout l mv3'
+[DOCUMENT SCOPE] Token overlap for 'LayoutLMv3.pdf': []
+[DOCUMENT SCOPE] Source='NLP Paper.pdf' -> Normalized='nlp paper'
+[DOCUMENT SCOPE] Token overlap for 'NLP Paper.pdf': []
+[DOCUMENT SCOPE] Source='RAG.pdf' -> Normalized='rag'
+[DOCUMENT SCOPE] Token overlap for 'RAG.pdf': []
+[DOCUMENT SCOPE] Source='Self-RAG.pdf' -> Normalized='self rag'
+[DOCUMENT SCOPE] Token overlap for 'Self-RAG.pdf': []
+[DOCUMENT SCOPE] Source='Vision Transformer.pdf' -> Normalized='vision transformer'
+[DOCUMENT SCOPE] Token overlap for 'Vision Transformer.pdf': []
+[DOCUMENT SCOPE] Final matched sources: ['Donut.pdf']
+
+================================================================================
+DOCUMENT SCOPE DEBUG
+================================================================================
+Query          : According to Figure 2, how does Donut compare with OCR-dependent VDU models in terms of inference time, memory usage, and accuracy?
+Expanded Query : According to Figure 2, how does Donut compare with OCR-dependent VDU models in terms of inference time, memory usage, and accuracy?
+Query Type     : factual
+Document Scope : ['Donut.pdf']
+================================================================================
+
+==========================================================================================
+STEP 3A — SCOPED HYBRID RETRIEVAL
+==========================================================================================
+Query              : According to Figure 2, how does Donut compare with OCR-dependent VDU models in terms of inference time, memory usage, and accuracy?
+Sources            : ['Donut.pdf']
+Dense candidate K  : 25
+Final hybrid K     : 8
+
+------------------------------------------------------------------------------------------
+[SCOPED DENSE / VECTOR RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=Donut.pdf | Page=2 | Type=text | Image=N/A
+    Content=Donut 🍩 (Proposed) 1.2 0.9 Time (sec/img) 91 82 Accuracy (%) 0.8 ~0.6 sec 143 179 +a Memory (M) (a) Pipeline Overview. (b) System Benchmarks. Fig. 2. The pipeline overview and benc
+02. Source=Donut.pdf | Page=9 | Type=text | Image=N/A
+    Content=3.3 Experimental Results Document Classification. The results are shown in Table 1. Without re- lying on any other resource (e.g., off-the-shelf OCR engine), Donut shows a state-of
+03. Source=Donut.pdf | Page=4 | Type=text | Image=N/A
+    Content=effort is required to ensure the performance of an entire VDU model by using the off-the-shelf OCR engine. 2.2 Document Understanding Transformer Donut is an end-to-end (i.e., self
+04. Source=Donut.pdf | Page=1 | Type=text | Image=N/A
+    Content=fective. Through extensive experiments and analyses, we show a simple OCR-free VDU model, Donut, achieves state-of-the-art performances on various VDU tasks in terms of both speed 
+05. Source=Donut.pdf | Page=3 | Type=text | Image=N/A
+    Content=language flexibility straightforwardly pre-training with synthetic data. During fine-tuning stage, Donut learns how to understand the whole document accord- ing to the downstream t
+06. Source=Donut.pdf | Page=9 | Type=text | Image=N/A
+    Content=OCR-free Document Understanding Transformer 9 Table 1. Classification results on the RVL-CDIP dataset. Donut achieves state-of-the-are performance with reasonable speed and model s
+07. Source=Donut.pdf | Page=3 | Type=text | Image=N/A
+    Content=a raw input image to the desired output without OCR. We introduce a new OCR-free VDU model to address the problems induced by the OCR-dependency. Our model is based on Transformer-
+08. Source=Donut.pdf | Page=6 | Type=text | Image=N/A
+    Content=the class “memo”), if such replacement is available in the target task. 3 Experiments and Analyses In this section, we present Donut fine-tuning results on three VDU applications o
+09. Source=Donut.pdf | Page=1 | Type=text | Image=N/A
+    Content=and a holistic understanding of the document . Current Visual Document Understanding (VDU) methods outsource the task of reading text to off- the-shelf Optical Character Recognitio
+10. Source=Donut.pdf | Page=2 | Type=text | Image=N/A
+    Content=on various VDU tasks are available at Section 3 showing the same trend Current VDU methods [22,24,65,64,18] solve the task in a two-stage manner: 1) reading the texts in the docume
+11. Source=Donut.pdf | Page=9 | Type=text | Image=N/A
+    Content=Business Card parsing tasks. We fine-tune the model while monitoring the edit distance over token sequences. The speed of Donut is measured on a P40 GPU, which is much slower than 
+12. Source=Donut.pdf | Page=12 | Type=text | Image=N/A
+    Content=in Figure 8, the model shows meaningful results that can be used as an auxiliary indicator. The model attends to a desired location in the given image. On OCR System. We test four 
+13. Source=Donut.pdf | Page=13 | Type=text | Image=N/A
+    Content=4 Related Work 4.1 Optical Character Recognition Recent trends of OCR study are to utilize deep learning models in its two sub- steps: 1) text areas are predicted by a detector; 2)
+14. Source=Donut.pdf | Page=10 | Type=text | Image=N/A
+    Content=in the official leader-board. 6 As can be seen, Donut achieves competitive scores with the baselines that are dependent on external OCR engines. Especially, Donut shows that it is 
+15. Source=Donut.pdf | Page=13 | Type=text | Image=N/A
+    Content=1280   2560 EasyOCR PaddleOCR MSAzure ClovaOCR 80 160 400 800 number of samples 50 60 70 80 90Accuracy Donut, 2560 Donut, 1280 LayoutLMv2 BERT Fig. 9. Comparison of BERT, LayoutLMv
+16. Source=Donut.pdf | Page=10 | Type=text | Image=N/A
+    Content=10 G. Kim et al. Table 2. Performances on various document IE tasks. The field-level F1 scores and tree-edit-distance-based accuracies are reported. Donut shows the best accuracies
+17. Source=Donut.pdf | Page=2 | Type=text | Image=N/A
+    Content=ods rarely have flexibility dealing with different languages or domain changes, which may lead to poor generalization ability. If we train an OCR model, it also requires extensive 
+18. Source=Donut.pdf | Page=14 | Type=text | Image=N/A
+    Content=a language model (e.g., BERT) with some visual features if available. Although the idea is simple, the methods showed remarkable performance improvements and became a main trend in
+19. Source=Donut.pdf | Page=26 | Type=text | Image=N/A
+    Content=of Donut was small. For example, the model fine-tuning on CORD or Ticket took approximately 0.5 hours with one A100 GPU. However, when we set the
+20. Source=Donut.pdf | Page=19 | Type=text | Image=N/A
+    Content=on Empirical Methods in Natural Language Processing (EMNLP). pp. 5931–5942. Association for Computational Linguistics, Online (Nov 2020). https://doi.org/10.18653/v1/2020.emnlp-mai
+21. Source=Donut.pdf | Page=4 | Type=text | Image=N/A
+    Content=bones [27,1,15,12,31], but the performances are limited. Later, with the remark- able advances of OCR [4,3] and BERT [8], various OCR-dependent VDU models have been proposed by com
+22. Source=Donut.pdf | Page=26 | Type=text | Image=N/A
+    Content=Fig. C. Examples of CORD [45] with Donut predictions. There is a hierarchy in the structure of information (i.e., depth = 2). Donut not only reads some important key information fr
+23. Source=Donut.pdf | Page=14 | Type=text | Image=N/A
+    Content=14 G. Kim et al. 4.2 Visual Document Understanding Classification of the document type is a core step towards automated document processing. Early methods treated the problem as a 
+24. Source=Donut.pdf | Page=11 | Type=image | Image=extracted_images\Donut_page11_img4.png
+    Content=FIGURE FROM DOCUMENT  Caption: a black and white photo of a man with a beard  OCR Text: No readable text found in this image.  Nearby Document Text: OCR-free Document Understanding
+25. Source=Donut.pdf | Page=8 | Type=text | Image=N/A
+    Content=in Figure 5 and in the supplementary material. Document Visual Question Answering. To validate the further capacity of the model, we conduct a document visual question answering ta
+
+------------------------------------------------------------------------------------------
+[SCOPED BM25 RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=Donut.pdf | Page=3 | Type=text | Image=N/A
+    Content=language flexibility straightforwardly pre-training with synthetic data. During fine-tuning stage, Donut learns how to understand the whole document accord- ing to the downstream t
+02. Source=Donut.pdf | Page=27 | Type=text | Image=N/A
+    Content=the SPADE [25] baseline, the official implementation 16 is used. The models are trained using NVIDIA P40, V100, or A100 GPUs. The major hyperparameters, such as initial learning ra
+03. Source=Donut.pdf | Page=2 | Type=text | Image=N/A
+    Content=Donut 🍩 (Proposed) 1.2 0.9 Time (sec/img) 91 82 Accuracy (%) 0.8 ~0.6 sec 143 179 +a Memory (M) (a) Pipeline Overview. (b) System Benchmarks. Fig. 2. The pipeline overview and benc
+04. Source=Donut.pdf | Page=4 | Type=image | Image=extracted_images\Donut_page4_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram showing the different types of the different types of the different types of the different types of the different  OCR Text: 
+05. Source=Donut.pdf | Page=2 | Type=image | Image=extracted_images\Donut_page2_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a screenshot of a computer screen with a text box and a picture of a computer screen with a text box and a picture of a computer  OCR T
+06. Source=Donut.pdf | Page=4 | Type=text | Image=N/A
+    Content=bones [27,1,15,12,31], but the performances are limited. Later, with the remark- able advances of OCR [4,3] and BERT [8], various OCR-dependent VDU models have been proposed by com
+07. Source=Donut.pdf | Page=4 | Type=text | Image=N/A
+    Content=effort is required to ensure the performance of an entire VDU model by using the off-the-shelf OCR engine. 2.2 Document Understanding Transformer Donut is an end-to-end (i.e., self
+08. Source=Donut.pdf | Page=28 | Type=text | Image=N/A
+    Content=(8 V100 GPUs for 5 days). The input size was 2048 ×1536. In this setting, DonutProto also achieved comparable results on RVL-CDIP and CORD. The accuracy on RVL-CDIP was 94.5 and CO
+09. Source=Donut.pdf | Page=3 | Type=image | Image=extracted_images\Donut_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a book with the text in english  OCR Text: OOCR-free Document Understanding Transformer 3  languages with complex character
+10. Source=Donut.pdf | Page=6 | Type=text | Image=N/A
+    Content=the class “memo”), if such replacement is available in the target task. 3 Experiments and Analyses In this section, we present Donut fine-tuning results on three VDU applications o
+11. Source=Donut.pdf | Page=1 | Type=text | Image=N/A
+    Content=fective. Through extensive experiments and analyses, we show a simple OCR-free VDU model, Donut, achieves state-of-the-art performances on various VDU tasks in terms of both speed 
+12. Source=Donut.pdf | Page=11 | Type=text | Image=N/A
+    Content=Answer: 540 Donut: 943  (another number in the image is extracted) LayoutLMv2-Large-QG: 540 Q: What is the phone number given? Answer: 336-723-6100 Donut: 336-723-6100 LayoutLMv2-L
+13. Source=Donut.pdf | Page=10 | Type=text | Image=N/A
+    Content=tasks are already actively used in industries. Document Visual Question Answering. Table 3 shows the results on the DocVQA dataset. The first group is the general-purposed VDU back
+14. Source=Donut.pdf | Page=9 | Type=text | Image=N/A
+    Content=3.3 Experimental Results Document Classification. The results are shown in Table 1. Without re- lying on any other resource (e.g., off-the-shelf OCR engine), Donut shows a state-of
+15. Source=Donut.pdf | Page=1 | Type=text | Image=N/A
+    Content=languages or types of documents; 3) OCR error propagation to the sub- sequent process. To address these issues, in this paper, we introduce a novel OCR-free VDU model named Donut, 
+16. Source=Donut.pdf | Page=11 | Type=text | Image=N/A
+    Content=but this could be mitigated by scaling the input image size (See Section 3.4) errors is an option to strengthen the pipeline [51,50,10] or adopting an encoder- decoder architecture
+17. Source=Donut.pdf | Page=4 | Type=text | Image=N/A
+    Content=Note that Donut does not rely on any modules related to OCR functionality but uses a visual encoder for extracting features from a given document im- age. The following textual dec
+18. Source=Donut.pdf | Page=6 | Type=image | Image=extracted_images\Donut_page6_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a book with a picture of a person in the background  OCR Text: 6 G. Kim et al.  Wak gaGHIe - —— ATP  Fig. 4. Generated Englis
+19. Source=Donut.pdf | Page=3 | Type=text | Image=N/A
+    Content=better overall performance than previous methods as shown in Figure 2. We take pre-train-and-fine-tune scheme [8,65] on Donut training. In the pre-training phase, Donut learns how 
+20. Source=Donut.pdf | Page=3 | Type=text | Image=N/A
+    Content=a raw input image to the desired output without OCR. We introduce a new OCR-free VDU model to address the problems induced by the OCR-dependency. Our model is based on Transformer-
+21. Source=Donut.pdf | Page=28 | Type=text | Image=N/A
+    Content=backbones, such as LayoutLM [65] and LayoutLMv2 [64]. To be specific, we explain how the conventional backbones perform downstream VDU tasks; docu- ment classification, IE, and VQA
+22. Source=Donut.pdf | Page=8 | Type=text | Image=N/A
+    Content=3.2 Setups We use Swin-B [40] as a visual encoder of Donut with slight modification. We set the layer numbers and window size as {2, 2, 14, 2} and 10. In further consideration of t
+23. Source=Donut.pdf | Page=13 | Type=text | Image=N/A
+    Content=1280   2560 EasyOCR PaddleOCR MSAzure ClovaOCR 80 160 400 800 number of samples 50 60 70 80 90Accuracy Donut, 2560 Donut, 1280 LayoutLMv2 BERT Fig. 9. Comparison of BERT, LayoutLMv
+24. Source=Donut.pdf | Page=2 | Type=text | Image=N/A
+    Content=structured information from documents (a.k.a. document parsing) consists of three separate modules for text detection, text recognition, and parsing [22,24]. However, the OCR-depen
+25. Source=Donut.pdf | Page=2 | Type=text | Image=N/A
+    Content=on various VDU tasks are available at Section 3 showing the same trend Current VDU methods [22,24,65,64,18] solve the task in a two-stage manner: 1) reading the texts in the docume
+
+------------------------------------------------------------------------------------------
+[RRF FUSION RANKING]
+------------------------------------------------------------------------------------------
+01. RRF=0.032266 | DenseRank=1 | BM25Rank=3 | Source=Donut.pdf | Page=2 | Type=text
+02. RRF=0.031778 | DenseRank=5 | BM25Rank=1 | Source=Donut.pdf | Page=3 | Type=text
+03. RRF=0.030798 | DenseRank=3 | BM25Rank=7 | Source=Donut.pdf | Page=4 | Type=text
+04. RRF=0.029710 | DenseRank=4 | BM25Rank=11 | Source=Donut.pdf | Page=1 | Type=text
+05. RRF=0.029643 | DenseRank=2 | BM25Rank=14 | Source=Donut.pdf | Page=9 | Type=text
+06. RRF=0.028992 | DenseRank=8 | BM25Rank=10 | Source=Donut.pdf | Page=6 | Type=text
+07. RRF=0.027497 | DenseRank=21 | BM25Rank=6 | Source=Donut.pdf | Page=4 | Type=text
+08. RRF=0.027425 | DenseRank=7 | BM25Rank=20 | Source=Donut.pdf | Page=3 | Type=text
+09. RRF=0.026050 | DenseRank=10 | BM25Rank=25 | Source=Donut.pdf | Page=2 | Type=text
+10. RRF=0.025382 | DenseRank=15 | BM25Rank=23 | Source=Donut.pdf | Page=13 | Type=text
+11. RRF=0.016129 | DenseRank=- | BM25Rank=2 | Source=Donut.pdf | Page=27 | Type=text
+12. RRF=0.015625 | DenseRank=- | BM25Rank=4 | Source=Donut.pdf | Page=4 | Type=image
+13. RRF=0.015385 | DenseRank=- | BM25Rank=5 | Source=Donut.pdf | Page=2 | Type=image
+14. RRF=0.015152 | DenseRank=6 | BM25Rank=- | Source=Donut.pdf | Page=9 | Type=text
+15. RRF=0.014706 | DenseRank=- | BM25Rank=8 | Source=Donut.pdf | Page=28 | Type=text
+16. RRF=0.014493 | DenseRank=9 | BM25Rank=- | Source=Donut.pdf | Page=1 | Type=text
+17. RRF=0.014493 | DenseRank=- | BM25Rank=9 | Source=Donut.pdf | Page=3 | Type=image
+18. RRF=0.014085 | DenseRank=11 | BM25Rank=- | Source=Donut.pdf | Page=9 | Type=text
+19. RRF=0.013889 | DenseRank=12 | BM25Rank=- | Source=Donut.pdf | Page=12 | Type=text
+20. RRF=0.013889 | DenseRank=- | BM25Rank=12 | Source=Donut.pdf | Page=11 | Type=text
+21. RRF=0.013699 | DenseRank=13 | BM25Rank=- | Source=Donut.pdf | Page=13 | Type=text
+22. RRF=0.013699 | DenseRank=- | BM25Rank=13 | Source=Donut.pdf | Page=10 | Type=text
+23. RRF=0.013514 | DenseRank=14 | BM25Rank=- | Source=Donut.pdf | Page=10 | Type=text
+24. RRF=0.013333 | DenseRank=- | BM25Rank=15 | Source=Donut.pdf | Page=1 | Type=text
+25. RRF=0.013158 | DenseRank=16 | BM25Rank=- | Source=Donut.pdf | Page=10 | Type=text
+26. RRF=0.013158 | DenseRank=- | BM25Rank=16 | Source=Donut.pdf | Page=11 | Type=text
+27. RRF=0.012987 | DenseRank=17 | BM25Rank=- | Source=Donut.pdf | Page=2 | Type=text
+28. RRF=0.012987 | DenseRank=- | BM25Rank=17 | Source=Donut.pdf | Page=4 | Type=text
+29. RRF=0.012821 | DenseRank=18 | BM25Rank=- | Source=Donut.pdf | Page=14 | Type=text
+30. RRF=0.012821 | DenseRank=- | BM25Rank=18 | Source=Donut.pdf | Page=6 | Type=image
+31. RRF=0.012658 | DenseRank=19 | BM25Rank=- | Source=Donut.pdf | Page=26 | Type=text
+32. RRF=0.012658 | DenseRank=- | BM25Rank=19 | Source=Donut.pdf | Page=3 | Type=text
+33. RRF=0.012500 | DenseRank=20 | BM25Rank=- | Source=Donut.pdf | Page=19 | Type=text
+34. RRF=0.012346 | DenseRank=- | BM25Rank=21 | Source=Donut.pdf | Page=28 | Type=text
+35. RRF=0.012195 | DenseRank=22 | BM25Rank=- | Source=Donut.pdf | Page=26 | Type=text
+36. RRF=0.012195 | DenseRank=- | BM25Rank=22 | Source=Donut.pdf | Page=8 | Type=text
+37. RRF=0.012048 | DenseRank=23 | BM25Rank=- | Source=Donut.pdf | Page=14 | Type=text
+38. RRF=0.011905 | DenseRank=24 | BM25Rank=- | Source=Donut.pdf | Page=11 | Type=image
+39. RRF=0.011905 | DenseRank=- | BM25Rank=24 | Source=Donut.pdf | Page=2 | Type=text
+40. RRF=0.011765 | DenseRank=25 | BM25Rank=- | Source=Donut.pdf | Page=8 | Type=text
+------------------------------------------------------------------------------------------
+
+==========================================================================================
+STEP 3A — RETRIEVAL STAGE SUMMARY
+==========================================================================================
+Dense candidates       : 25
+BM25 candidates        : 25
+Dense ∩ BM25           : 10
+Dense-only candidates  : 15
+BM25-only candidates   : 15
+Unique candidate pool  : 40
+RRF candidates         : 40
+Returned to pipeline   : 8
+==========================================================================================
+
+------------------------------------------------------------------------------------------
+[SCOPED FINAL HYBRID RESULT] 8 candidates
+------------------------------------------------------------------------------------------
+01. Source=Donut.pdf | Page=2 | Type=text | Image=N/A
+    Content=Donut 🍩 (Proposed) 1.2 0.9 Time (sec/img) 91 82 Accuracy (%) 0.8 ~0.6 sec 143 179 +a Memory (M) (a) Pipeline Overview. (b) System Benchmarks. Fig. 2. The pipeline overview and benc
+02. Source=Donut.pdf | Page=3 | Type=text | Image=N/A
+    Content=language flexibility straightforwardly pre-training with synthetic data. During fine-tuning stage, Donut learns how to understand the whole document accord- ing to the downstream t
+03. Source=Donut.pdf | Page=4 | Type=text | Image=N/A
+    Content=effort is required to ensure the performance of an entire VDU model by using the off-the-shelf OCR engine. 2.2 Document Understanding Transformer Donut is an end-to-end (i.e., self
+04. Source=Donut.pdf | Page=1 | Type=text | Image=N/A
+    Content=fective. Through extensive experiments and analyses, we show a simple OCR-free VDU model, Donut, achieves state-of-the-art performances on various VDU tasks in terms of both speed 
+05. Source=Donut.pdf | Page=9 | Type=text | Image=N/A
+    Content=3.3 Experimental Results Document Classification. The results are shown in Table 1. Without re- lying on any other resource (e.g., off-the-shelf OCR engine), Donut shows a state-of
+06. Source=Donut.pdf | Page=6 | Type=text | Image=N/A
+    Content=the class “memo”), if such replacement is available in the target task. 3 Experiments and Analyses In this section, we present Donut fine-tuning results on three VDU applications o
+07. Source=Donut.pdf | Page=4 | Type=text | Image=N/A
+    Content=bones [27,1,15,12,31], but the performances are limited. Later, with the remark- able advances of OCR [4,3] and BERT [8], various OCR-dependent VDU models have been proposed by com
+08. Source=Donut.pdf | Page=3 | Type=text | Image=N/A
+    Content=a raw input image to the desired output without OCR. We introduce a new OCR-free VDU model to address the problems induced by the OCR-dependency. Our model is based on Transformer-
+==========================================================================================
+
+================================================================================
+STAGE 1 — HYBRID RETRIEVAL
+================================================================================
+Retrieved Count : 8
+
+[HYBRID #1] Source=Donut.pdf | Page=2 | Type=text
+Content: Donut 🍩 (Proposed) 1.2 0.9 Time (sec/img) 91 82 Accuracy (%) 0.8 ~0.6 sec 143 179 +a Memory (M) (a) Pipeline Overview. (b) System Benchmarks. Fig. 2. The pipeline overview and benchmarks. The proposed end-to-end model, Donut, outperforms the recent OCR-dependent VDU models in memory, time cost and accuracy. Performances on visual document IE [45] are shown in (b). More results on various VDU tasks are available at Section 3 showing the same trend Current VDU methods [22,24,65,64,18] solve the ta
+
+[HYBRID #2] Source=Donut.pdf | Page=3 | Type=text
+Content: language flexibility straightforwardly pre-training with synthetic data. During fine-tuning stage, Donut learns how to understand the whole document accord- ing to the downstream task. We demonstrateDonut has a strong understanding ability through extensive evaluation on various VDU tasks and datasets. The experiments show a simple OCR-free VDU model can achieve state-of-the-art performance in terms of both speed and accuracy. The contributions are summarized as follows: 1. We propose a novel OC
+
+[HYBRID #3] Source=Donut.pdf | Page=4 | Type=text
+Content: effort is required to ensure the performance of an entire VDU model by using the off-the-shelf OCR engine. 2.2 Document Understanding Transformer Donut is an end-to-end (i.e., self-contained) VDU model for general understand- ing of document images. The architecture of Donut is quite simple, which con- sists of a Transformer [58,9]-based visual encoder and textual decoder modules. Note that Donut does not rely on any modules related to OCR functionality but uses a visual encoder for extracting f
+
+[HYBRID #4] Source=Donut.pdf | Page=1 | Type=text
+Content: fective. Through extensive experiments and analyses, we show a simple OCR-free VDU model, Donut, achieves state-of-the-art performances on various VDU tasks in terms of both speed and accuracy. In addition, we offer a synthetic data generator that helps the model pre-training to be flexible in various languages and domains. The code, trained model, and synthetic data are available at https://github.com/clovaai/donut. Keywords: Visual Document Understanding, Document Information Extraction, Optic
+
+[HYBRID #5] Source=Donut.pdf | Page=9 | Type=text
+Content: 3.3 Experimental Results Document Classification. The results are shown in Table 1. Without re- lying on any other resource (e.g., off-the-shelf OCR engine), Donut shows a state-of-the-art performance among the general-purpose VDU models such as LayoutLM [65] and LayoutLMv2 [64]. In particular, Donut surpasses the Lay- outLMv2 accuracy reported in [64], while using fewer parameters with the 2x faster speed. Note that the OCR-based models must consider additional model parameters and speed for th
+
+[HYBRID #6] Source=Donut.pdf | Page=6 | Type=text
+Content: the class “memo”), if such replacement is available in the target task. 3 Experiments and Analyses In this section, we present Donut fine-tuning results on three VDU applications on six different datasets including both public benchmarks and private industrial service datasets. The samples are shown in Figure 5. 3.1 Downstream Tasks and Datasets Document Classification. To see whether the model can distinguish across different types of documents, we test a classification task. Unlike other model
+
+[HYBRID #7] Source=Donut.pdf | Page=4 | Type=text
+Content: bones [27,1,15,12,31], but the performances are limited. Later, with the remark- able advances of OCR [4,3] and BERT [8], various OCR-dependent VDU models have been proposed by combining them [22,24,23]. More recently, in order to get a more general VDU, most state-of-the-arts [64,18] use both powerful OCR en- gines and large-scale real document image data (e.g., IIT-CDIP [32]) for a model pre-training. Although they showed remarkable advances in recent years, extra effort is required to ensure 
+
+[HYBRID #8] Source=Donut.pdf | Page=3 | Type=text
+Content: a raw input image to the desired output without OCR. We introduce a new OCR-free VDU model to address the problems induced by the OCR-dependency. Our model is based on Transformer-only architecture, referred to as Document understanding transformer (Donut), following the huge success in vision and language [8,9,29]. We present a minimal baseline including a simple architecture and pre-training method. Despite its simplicity, Donut shows comparable or better overall performance than previous meth
+================================================================================
+[DOCUMENT SCOPE] Text chunks: 8 -> 8
+
+================================================================================
+EXPLICIT FIGURE QUERY DETECTED
+================================================================================
+Requested Figure : 2
+================================================================================
+
+================================================================================
+FIGURE NUMBER RETRIEVAL
+================================================================================
+Requested Figure : 2
+Query            : According to Figure 2, how does Donut compare with OCR-dependent VDU models in terms of inference time, memory usage, and accuracy?
+Matched Images   : 31
+Rejected References : 4
+[MATCH 1] Source=BERT.pdf | Page=4 | Image=BERT_page4_render.png | Path=extracted_images\BERT_page4_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Input/Output Representations To make BERT handle a variety of down-stream ta...
+[MATCH 2] Source=BERT.pdf | Page=5 | Image=BERT_page5_render.png | Path=extracted_images\BERT_page5_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a book with a page of a page of a page of a page of a page of a page of a page of a  OCR Text: f/f Token | ll Embeddings Eris) Fay E tog Es Eu = Eines E ay Essing E se0] + + + + Segment Embeddings E, Ey E, : Lt Es + + + + Position  Figure 2: BER...
+[MATCH 3] Source=CLIP.pdf | Page=3 | Image=CLIP_page3_render.png | Path=extracted_images\CLIP_page3_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with a graph and a graph on it  OCR Text: Learning Transferable Visual Models From Natural Language Supervision 3  25  Zero-Shot ImageNet Accuracy N oOo  15 10 7 —O- Bag of Words Contrastive (CLIP) 5 -O- Bag of Words Prediction =O Transformer Lang...
+[MATCH 4] Source=CLIP.pdf | Page=4 | Image=CLIP_page4_render.png | Path=extracted_images\CLIP_page4_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Learning Transferable Visual Models From Natural Language Supervision 4  bal...
+[MATCH 5] Source=CLIP.pdf | Page=11 | Image=CLIP_page11_render.png | Path=extracted_images\CLIP_page11_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with a graph and a line graph on it  OCR Text: Learning Transferable Visual Models From Natural Language Supervision 11  Error (%)  61 9.9 21.5 75.3 Model GFLOPs  Figure 9. Zero-shot CLIP performance scales smoothly as a function of model compute....
+[MATCH 6] Source=CLIP.pdf | Page=12 | Image=CLIP_page12_render.png | Path=extracted_images\CLIP_page12_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: the results of the results of the results of the results of the results of the results of the results of  OCR Text: Learning Transferable Visual Models From Natural Language Supervision 12  Linear probe average over Kornblith et al.'s 12 datasets  90  85 ...
+[MATCH 7] Source=CLIP.pdf | Page=38 | Image=CLIP_page38_render.png | Path=extracted_images\CLIP_page38_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: worksheet for algebra algebra algebra worksheet worksheet worksheet worksheet worksheet worksheet worksheet worksheet  OCR Text: Learning Transferable Visual Models From Natural Language Supervision 38  Montias ... pumps a lot of energy into his nicely nu...
+[MATCH 8] Source=CLIP.pdf | Page=41 | Image=CLIP_page41_render.png | Path=extracted_images\CLIP_page41_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a chart showing the number of people in each region  OCR Text: Food101  CIFAR1O  Learning Transferable Visual Models From Natural Language Supervision  CIFAR1O0  Birdsnap  iol Pascal¥OC2007  10° ig? 107 DescribableTextures  accuracy  mean per class o oo w...
+[MATCH 9] Source=CLIP.pdf | Page=43 | Image=CLIP_page43_render.png | Path=extracted_images\CLIP_page43_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a chart showing the number of people in each region of the world  OCR Text: Learning Transferable Visual Models From Natural Language Supervision  CLEVR  HatefulMemes Rendered SST2 ImageNet  43  accuracy  accuracy  curacy  CLIP-ViT | CLIP-ResNet  PascalVO...
+[MATCH 10] Source=CLIP.pdf | Page=44 | Image=CLIP_page44_render.png | Path=extracted_images\CLIP_page44_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the university of technology and engineering  OCR Text: Learning Transferable Visual Models From Natural Language Supervision 44  B. Zero-Shot Prediction  To provide a qualitative summary / overview of CLIP’s zero- shot performa...
+[MATCH 11] Source=CNN Paper.pdf | Page=2 | Image=CNN Paper_page2_img0.png | Path=extracted_images\CNN Paper_page2_img0.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: figure 2 training ratio curves  OCR Text: Accuracy  eo S FS SF FSF Ff oN BR DOD ®O OO  Figure 2: Training and Validation Curves over 20 Epochs  Model Accuracy  2.5 5.0 7.5 10.0 12.5 15.0 17.5 20.0 Epoch  Model Loss  2.5 5.0 7.5 10.0 12.5 15.0 17.5 20.0 Epoch  Nearby Do...
+[MATCH 12] Source=CNN Paper.pdf | Page=2 | Image=CNN Paper_page2_render.png | Path=extracted_images\CNN Paper_page2_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a chart showing the number of different types of water in the ocean  OCR Text: 2. Dataset Description  The dataset was compiled from three open-source repositories: ImageNet, Openlmages, and a custom web-scraped collection. Each image was manually verifie...
+[MATCH 13] Source=CNN Paper.pdf | Page=5 | Image=CNN Paper_page5_render.png | Path=extracted_images\CNN Paper_page5_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a table with a number of different items on it  OCR Text: 7. Discussion  The CNN model achieves strong overall performance with a weighted F1 score of 0.926. However, several limitations and areas for improvement were identified during evaluation.  7.1 St...
+[MATCH 14] Source=Donut.pdf | Page=2 | Image=Donut_page2_render.png | Path=extracted_images\Donut_page2_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a screenshot of a computer screen with a text box and a picture of a computer screen with a text box and a picture of a computer  OCR Text: 2 G. Kim et al.  pee ere ee ee een nn ee ee ee ee eee » Structured Information  (*word?s [ (Tames (  "pbox”:[[0,11,...
+[MATCH 15] Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img0.png | Path=extracted_images\LayoutLMv3_page2_img0.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a white paper with a black and white text on it  OCR Text: Esters yal hes  Nearby Document Text: Faster R-CNN Linear Embedding CNN Word Embedding Masked Word  Token Classification Visual Transformer (Optional) Origin Image  Reconstruction (a) Patch (LayoutLMv3) “A few ...
+[MATCH 16] Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img1.png | Path=extracted_images\LayoutLMv3_page2_img1.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: the cover of a book with an image of a boat in the water  OCR Text: No readable text found in this image.  Nearby Document Text: Faster R-CNN Linear Embedding CNN Word Embedding Masked Word  Token Classification Visual Transformer (Optional) Origin Image  Reconstructio...
+[MATCH 17] Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img2.png | Path=extracted_images\LayoutLMv3_page2_img2.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a picture of a painting with a white background  OCR Text: No readable text found in this image.  Nearby Document Text: Faster R-CNN Linear Embedding CNN Word Embedding Masked Word  Token Classification Visual Transformer (Optional) Origin Image  Reconstruction (a) Pat...
+[MATCH 18] Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img3.png | Path=extracted_images\LayoutLMv3_page2_img3.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a sample of the pigment pigment pigment pigment pigment pigment pigment pigment pigment pigment pigment pigment pigment pigment pigment pigment pigment  OCR Text: No readable text found in this image.  Nearby Document Text: Faster R-CNN Linear Embedding CNN Word Embedd...
+[MATCH 19] Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img4.png | Path=extracted_images\LayoutLMv3_page2_img4.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: the cover of a book with an image of a man in a suit and tie  OCR Text: No readable text found in this image.  Nearby Document Text: Faster R-CNN Linear Embedding CNN Word Embedding Masked Word  Token Classification Visual Transformer (Optional) Origin Image  Reconstru...
+[MATCH 20] Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img5.png | Path=extracted_images\LayoutLMv3_page2_img5.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a book with a picture of a man in a suit and tie  OCR Text: SAAD TD, Me OE TAC ATA my ee  : dear mara  Ka ditfervatnled Ul: quae hain oe  Nearby Document Text: Faster R-CNN Linear Embedding CNN Word Embedding Masked Word  Token Classification Visual Transformer (Option...
+[MATCH 21] Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img6.png | Path=extracted_images\LayoutLMv3_page2_img6.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: four different types of marble tiles  OCR Text: No readable text found in this image.  Nearby Document Text: Faster R-CNN Linear Embedding CNN Word Embedding Masked Word  Token Classification Visual Transformer (Optional) Origin Image  Reconstruction (a) Patch (LayoutL...
+[MATCH 22] Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img7.png | Path=extracted_images\LayoutLMv3_page2_img7.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a page of a book with an image of a man in a suit and tie  OCR Text: jn tetore vimprcy CHM Be Vliet up wateg aberey orcdeice wf broth:  nci uh teste oe pares Ine ane {AOE pe fit a  Nearby Document Text: Faster R-CNN Linear Embedding CNN Word Embedding Masked Word  Toke...
+[MATCH 23] Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img8.png | Path=extracted_images\LayoutLMv3_page2_img8.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a newspaper article with a picture of a man in a suit and tie  OCR Text: MRT es Carclevirne father. tbe 2 metuplasli Gt tlre ceria Mteblig u dageedte at saneillf Li, om Snr needle wopcevilon Clesnead.imite! Sede peaubl mbar os waccivlecveise PY, tquaissie'sad glindaboe...
+[MATCH 24] Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img9.png | Path=extracted_images\LayoutLMv3_page2_img9.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a page from the publication of the journal of the journal of the journal of the journal of the journal of the journal of journal of the journal of the journal of journal of journal of journal of journal of journal of journal of journal of journal of journal of journal ...
+[MATCH 25] Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_render.png | Path=extracted_images\LayoutLMv3_page2_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a computer and a computer with a text that reads,  OCR Text: _(2) Pre-training Objectives of Image Modality  | — | ra  |  |  I idn, idya, idys, | idyyidys, ides, ». |  I kde dia Fao  ! teh  | fication  Masked Word...
+[MATCH 26] Source=NLP Paper.pdf | Page=3 | Image=NLP Paper_page3_img0.png | Path=extracted_images\NLP Paper_page3_img0.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: figure 2 model and composite composite structures  OCR Text: Score (%)  100  95  90  85  80  75  70  65  60  Figure 2:  CI Accuracy (%) Fir Score (%)-  Model Accuracy and F1 Score Comparison Across 5 Architectures  Naive Bayes  SVM BiLSTM BERT RoBERTa (fine-tune)  Near...
+[MATCH 27] Source=NLP Paper.pdf | Page=3 | Image=NLP Paper_page3_render.png | Path=extracted_images\NLP Paper_page3_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a bar chart showing the percentage of the number of people in each country  OCR Text: 3. Model Comparison  Figure 2 presents accuracy and F1 scores for all five models evaluated on the test set. ROBERTa achieves the best performance with 94.1% accuracy an...
+[MATCH 28] Source=RAG.pdf | Page=6 | Image=RAG_page6_render.png | Path=extracted_images\RAG_page6_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: the table shows the number of protons and protons of protons in a, b, and c  OCR Text: Table 1: Open-Domain QA Test Scores. For TQA, Table 2: Generation and classification Test Scores. left column uses the standard test set for Open- MS-MARCO SotA is [4],...
+[MATCH 29] Source=RAG.pdf | Page=7 | Image=RAG_page7_render.png | Path=extracted_images\RAG_page7_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with the title of a research paper  OCR Text: Dacument 1: his works are considered classics of American literature ... His wartime experiences formed the basis for his novel “A Farewell to Arms” (1929)...  Document 2: ... artists of the 1920s “Los...
+[MATCH 30] Source=Self-RAG.pdf | Page=5 | Image=Self-RAG_page5_render.png | Path=extracted_images\Self-RAG_page5_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a book with the title title and title title  OCR Text: Preprint.  Input: Write an essay of your best summer vacation Input: How did US states get thelr names?  foutput: My best summer vacation was a magical escape) |Output: 1 of 50 states names ...
+[MATCH 31] Source=Vision Transformer.pdf | Page=6 | Image=Vision Transformer_page6_render.png | Path=extracted_images\Vision Transformer_page6_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with a bar chart and a bar chart on it  OCR Text: Published as a conference paper at ICLR 2021  Ours-JFT Ours-JFT Ours-I21k BiT-L Noisy Student  (ViT-H/14) = (ViT-L/16) —- (ViT-L/16) (ResNet152x4) (EfficientNet-L2) ImageNet 88.5540.04 87.764003 85...
+[REJECTED 1] Source=BLIP-2.pdf | Page=2 | Image=BLIP-2_page2_render.png
+    Reason   : Cross-reference rather than actual Figure 2
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the journal of the journal of the journal of the journal of the journal of the journal of the journal of the  OCR Text: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models  visu...
+[REJECTED 2] Source=BLIP-2.pdf | Page=3 | Image=BLIP-2_page3_render.png
+    Reason   : Cross-reference rather than actual Figure 2
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders...
+[REJECTED 3] Source=Donut.pdf | Page=3 | Image=Donut_page3_render.png
+    Reason   : Cross-reference rather than actual Figure 2
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a book with the text in english  OCR Text: OOCR-free Document Understanding Transformer 3  languages with complex character sets, such as Korean or Chinese, where the quality of OCR. is relatively low [50]. To deal with this, post-OCR correcti...
+[REJECTED 4] Source=LayoutLMv3.pdf | Page=1 | Image=LayoutLMv3_page1_render.png
+    Reason   : Cross-reference rather than actual Figure 2
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: the layout of the layout and layout of the layout of the layout and layout of the layout of the layout  OCR Text: 2204.08387v3 [cs.CL] 19 Jul 2022  arXiv  LayoutLMv3: Pre-training for Document Al with Unified Text and Image Masking  Yupan Huang* Sun Yat-s...
+Matched Sources  : ['BERT.pdf', 'CLIP.pdf', 'CNN Paper.pdf', 'Donut.pdf', 'LayoutLMv3.pdf', 'NLP Paper.pdf', 'RAG.pdf', 'Self-RAG.pdf', 'Vision Transformer.pdf']
+Matched Pages    : ['11', '12', '2', '3', '38', '4', '41', '43', '44', '5', '6', '7']
+[FIGURE LOOKUP] High-confidence figure reference found. Generic CLIP fallback should not be used.
+================================================================================
+[FIGURE IMAGE DEDUPLICATION] 1 -> 1 authoritative image(s), one per source/page.
+
+================================================================================
+EXACT FIGURE RETRIEVAL RESULT
+================================================================================
+Requested Figure : 2
+Exact Match      : True
+Matched Images   : 1
+[EXACT FIGURE #1] Source=Donut.pdf | Page=2 | Image=Donut_page2_render.png | Path=extracted_images\Donut_page2_render.png
+================================================================================
+[FIGURE PIPELINE] Explicit figure/page image match found. CLIP fallback disabled.
+[DOCUMENT SCOPE] Images: 1 -> 1
+
+================================================================================
+STAGE 2 — IMAGE RETRIEVAL RESULT
+================================================================================
+Image Results       : 1
+Exact Figure Match  : True
+
+[IMAGE #1] Source=Donut.pdf | Page=2 | Image=Donut_page2_render.png
+Image Path: extracted_images\Donut_page2_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a screenshot of a computer screen with a text box and a picture of a computer screen with a text box and a picture of a computer  OCR Text: 2 G. Kim et al.  pee ere ee ee een nn ee ee ee ee eee » Structured Information  (*word?s [ (Tames (  "pbox”:[[0,11,0.21},..,,[0.19,0.22]}, “name"s"3002-Kyoto Choco Machi", 002-Kyoto”  "text": “00: “oount’: 2, he pricalrdo': { *phox’:[[0.21,0.22],.,.{0.45,0.23]), *unllPrica’s 14000 "3 "Chaco" “price”: 22000. k . ap
+================================================================================
+
+================================================================================
+COMBINED RETRIEVAL CANDIDATES
+================================================================================
+Text Candidates  : 8
+Image Candidates : 1
+Total Candidates : 9
+================================================================================
+
+================================================================================
+STEP 3A — RERANKER INPUT
+================================================================================
+Query: According to Figure 2, how does Donut compare with OCR-dependent VDU models in terms of inference time, memory usage, and accuracy?
+Input candidates: 9
+01. Source=Donut.pdf | Page=2 | Type=text | Image=N/A
+    Content=Donut 🍩 (Proposed) 1.2 0.9 Time (sec/img) 91 82 Accuracy (%) 0.8 ~0.6 sec 143 179 +a Memory (M) (a) Pipeline Overview. (b) System Benchmarks. Fig. 2. The pipeline overview and benc
+02. Source=Donut.pdf | Page=3 | Type=text | Image=N/A
+    Content=language flexibility straightforwardly pre-training with synthetic data. During fine-tuning stage, Donut learns how to understand the whole document accord- ing to the downstream t
+03. Source=Donut.pdf | Page=4 | Type=text | Image=N/A
+    Content=effort is required to ensure the performance of an entire VDU model by using the off-the-shelf OCR engine. 2.2 Document Understanding Transformer Donut is an end-to-end (i.e., self
+04. Source=Donut.pdf | Page=1 | Type=text | Image=N/A
+    Content=fective. Through extensive experiments and analyses, we show a simple OCR-free VDU model, Donut, achieves state-of-the-art performances on various VDU tasks in terms of both speed 
+05. Source=Donut.pdf | Page=9 | Type=text | Image=N/A
+    Content=3.3 Experimental Results Document Classification. The results are shown in Table 1. Without re- lying on any other resource (e.g., off-the-shelf OCR engine), Donut shows a state-of
+06. Source=Donut.pdf | Page=6 | Type=text | Image=N/A
+    Content=the class “memo”), if such replacement is available in the target task. 3 Experiments and Analyses In this section, we present Donut fine-tuning results on three VDU applications o
+07. Source=Donut.pdf | Page=4 | Type=text | Image=N/A
+    Content=bones [27,1,15,12,31], but the performances are limited. Later, with the remark- able advances of OCR [4,3] and BERT [8], various OCR-dependent VDU models have been proposed by com
+08. Source=Donut.pdf | Page=3 | Type=text | Image=N/A
+    Content=a raw input image to the desired output without OCR. We introduce a new OCR-free VDU model to address the problems induced by the OCR-dependency. Our model is based on Transformer-
+09. Source=Donut.pdf | Page=2 | Type=image | Image=extracted_images\Donut_page2_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a screenshot of a computer screen with a text box and a picture of a computer screen with a text box and a picture of a computer  OCR T
+================================================================================
+
+--------------------------------------------------------------------------------
+CROSS-ENCODER RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=00 | Source=Donut.pdf | Page=2 | Type=text | CE=4.8411
+Rank=02 | OriginalIndex=07 | Source=Donut.pdf | Page=3 | Type=text | CE=3.6101
+Rank=03 | OriginalIndex=04 | Source=Donut.pdf | Page=9 | Type=text | CE=3.0726
+Rank=04 | OriginalIndex=03 | Source=Donut.pdf | Page=1 | Type=text | CE=1.6581
+Rank=05 | OriginalIndex=01 | Source=Donut.pdf | Page=3 | Type=text | CE=1.5595
+Rank=06 | OriginalIndex=02 | Source=Donut.pdf | Page=4 | Type=text | CE=0.9787
+Rank=07 | OriginalIndex=06 | Source=Donut.pdf | Page=4 | Type=text | CE=-0.2332
+Rank=08 | OriginalIndex=05 | Source=Donut.pdf | Page=6 | Type=text | CE=-1.7048
+Rank=09 | OriginalIndex=08 | Source=Donut.pdf | Page=2 | Type=image | CE=-9.1457
+
+--------------------------------------------------------------------------------
+CLIP IMAGE RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=08 | Source=Donut.pdf | Page=2 | Image=extracted_images\Donut_page2_render.png | CLIP=0.2529
+
+================================================================================
+STEP 3A — COMPLETE MULTIMODAL RERANK RESULT
+================================================================================
+Rank=01 | Type=image | Source=Donut.pdf | Page=2 | RRF=0.030886 | CE=-9.1457 | CLIP=0.2529
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a screenshot of a computer screen with a text box and a picture of a computer screen with a text box and a picture of a computer  OCR T
+Rank=02 | Type=text | Source=Donut.pdf | Page=2 | RRF=0.016393 | CE=4.8411 | CLIP=N/A
+    Content=Donut 🍩 (Proposed) 1.2 0.9 Time (sec/img) 91 82 Accuracy (%) 0.8 ~0.6 sec 143 179 +a Memory (M) (a) Pipeline Overview. (b) System Benchmarks. Fig. 2. The pipeline overview and benc
+Rank=03 | Type=text | Source=Donut.pdf | Page=3 | RRF=0.016129 | CE=3.6101 | CLIP=N/A
+    Content=a raw input image to the desired output without OCR. We introduce a new OCR-free VDU model to address the problems induced by the OCR-dependency. Our model is based on Transformer-
+Rank=04 | Type=text | Source=Donut.pdf | Page=9 | RRF=0.015873 | CE=3.0726 | CLIP=N/A
+    Content=3.3 Experimental Results Document Classification. The results are shown in Table 1. Without re- lying on any other resource (e.g., off-the-shelf OCR engine), Donut shows a state-of
+Rank=05 | Type=text | Source=Donut.pdf | Page=1 | RRF=0.015625 | CE=1.6581 | CLIP=N/A
+    Content=fective. Through extensive experiments and analyses, we show a simple OCR-free VDU model, Donut, achieves state-of-the-art performances on various VDU tasks in terms of both speed 
+Rank=06 | Type=text | Source=Donut.pdf | Page=3 | RRF=0.015385 | CE=1.5595 | CLIP=N/A
+    Content=language flexibility straightforwardly pre-training with synthetic data. During fine-tuning stage, Donut learns how to understand the whole document accord- ing to the downstream t
+Rank=07 | Type=text | Source=Donut.pdf | Page=4 | RRF=0.015152 | CE=0.9787 | CLIP=N/A
+    Content=effort is required to ensure the performance of an entire VDU model by using the off-the-shelf OCR engine. 2.2 Document Understanding Transformer Donut is an end-to-end (i.e., self
+Rank=08 | Type=text | Source=Donut.pdf | Page=4 | RRF=0.014925 | CE=-0.2332 | CLIP=N/A
+    Content=bones [27,1,15,12,31], but the performances are limited. Later, with the remark- able advances of OCR [4,3] and BERT [8], various OCR-dependent VDU models have been proposed by com
+Rank=09 | Type=text | Source=Donut.pdf | Page=6 | RRF=0.014706 | CE=-1.7048 | CLIP=N/A
+    Content=the class “memo”), if such replacement is available in the target task. 3 Experiments and Analyses In this section, we present Donut fine-tuning results on three VDU applications o
+================================================================================
+
+================================================================================
+STEP 3A — FINAL RERANK TOP-K
+================================================================================
+Requested top_k: 12
+Returned documents: 9
+01. Source=Donut.pdf | Page=2 | Type=image | Image=extracted_images\Donut_page2_render.png
+02. Source=Donut.pdf | Page=2 | Type=text | Image=N/A
+03. Source=Donut.pdf | Page=3 | Type=text | Image=N/A
+04. Source=Donut.pdf | Page=9 | Type=text | Image=N/A
+05. Source=Donut.pdf | Page=1 | Type=text | Image=N/A
+06. Source=Donut.pdf | Page=3 | Type=text | Image=N/A
+07. Source=Donut.pdf | Page=4 | Type=text | Image=N/A
+08. Source=Donut.pdf | Page=4 | Type=text | Image=N/A
+09. Source=Donut.pdf | Page=6 | Type=text | Image=N/A
+================================================================================
+
+================================================================================
+STAGE 3 — MULTIMODAL RERANKING
+================================================================================
+Input Candidates : 9
+Reranked Output   : 9
+
+[RERANK #1] Source=Donut.pdf | Page=2 | Type=image
+Exact Figure : True
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a screenshot of a computer screen with a text box and a picture of a computer screen with a text box and a picture of a computer  OCR Text: 2 G. Kim et al.  pee ere ee ee een nn ee ee ee ee eee » Structured Information  (*word?s [ (Tames (  "pbox”:[[0,11,
+
+[RERANK #2] Source=Donut.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Donut 🍩 (Proposed) 1.2 0.9 Time (sec/img) 91 82 Accuracy (%) 0.8 ~0.6 sec 143 179 +a Memory (M) (a) Pipeline Overview. (b) System Benchmarks. Fig. 2. The pipeline overview and benchmarks. The proposed end-to-end model, Donut, outperforms the recent OCR-dependent VDU models in memory, time cost and a
+
+[RERANK #3] Source=Donut.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: a raw input image to the desired output without OCR. We introduce a new OCR-free VDU model to address the problems induced by the OCR-dependency. Our model is based on Transformer-only architecture, referred to as Document understanding transformer (Donut), following the huge success in vision and l
+
+[RERANK #4] Source=Donut.pdf | Page=9 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: 3.3 Experimental Results Document Classification. The results are shown in Table 1. Without re- lying on any other resource (e.g., off-the-shelf OCR engine), Donut shows a state-of-the-art performance among the general-purpose VDU models such as LayoutLM [65] and LayoutLMv2 [64]. In particular, Donu
+
+[RERANK #5] Source=Donut.pdf | Page=1 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: fective. Through extensive experiments and analyses, we show a simple OCR-free VDU model, Donut, achieves state-of-the-art performances on various VDU tasks in terms of both speed and accuracy. In addition, we offer a synthetic data generator that helps the model pre-training to be flexible in vario
+
+[RERANK #6] Source=Donut.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: language flexibility straightforwardly pre-training with synthetic data. During fine-tuning stage, Donut learns how to understand the whole document accord- ing to the downstream task. We demonstrateDonut has a strong understanding ability through extensive evaluation on various VDU tasks and datase
+
+[RERANK #7] Source=Donut.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: effort is required to ensure the performance of an entire VDU model by using the off-the-shelf OCR engine. 2.2 Document Understanding Transformer Donut is an end-to-end (i.e., self-contained) VDU model for general understand- ing of document images. The architecture of Donut is quite simple, which c
+
+[RERANK #8] Source=Donut.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: bones [27,1,15,12,31], but the performances are limited. Later, with the remark- able advances of OCR [4,3] and BERT [8], various OCR-dependent VDU models have been proposed by combining them [22,24,23]. More recently, in order to get a more general VDU, most state-of-the-arts [64,18] use both power
+
+[RERANK #9] Source=Donut.pdf | Page=6 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: the class “memo”), if such replacement is available in the target task. 3 Experiments and Analyses In this section, we present Donut fine-tuning results on three VDU applications on six different datasets including both public benchmarks and private industrial service datasets. The samples are shown
+================================================================================
+
+================================================================================
+FINAL CONTEXT DOCUMENTS
+================================================================================
+Final context candidates: 9
+
+[FINAL #1] Source=Donut.pdf | Page=2 | Type=image
+Exact Figure : True
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a screenshot of a computer screen with a text box and a picture of a computer screen with a text box and a picture of a computer  OCR Text: 2 G. Kim et al.  pee ere ee ee een nn ee ee ee ee eee » Structured Information  (*word?s [ (Tames (  "pbox”:[[0,11,
+
+[FINAL #2] Source=Donut.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Donut 🍩 (Proposed) 1.2 0.9 Time (sec/img) 91 82 Accuracy (%) 0.8 ~0.6 sec 143 179 +a Memory (M) (a) Pipeline Overview. (b) System Benchmarks. Fig. 2. The pipeline overview and benchmarks. The proposed end-to-end model, Donut, outperforms the recent OCR-dependent VDU models in memory, time cost and a
+
+[FINAL #3] Source=Donut.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: a raw input image to the desired output without OCR. We introduce a new OCR-free VDU model to address the problems induced by the OCR-dependency. Our model is based on Transformer-only architecture, referred to as Document understanding transformer (Donut), following the huge success in vision and l
+
+[FINAL #4] Source=Donut.pdf | Page=9 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: 3.3 Experimental Results Document Classification. The results are shown in Table 1. Without re- lying on any other resource (e.g., off-the-shelf OCR engine), Donut shows a state-of-the-art performance among the general-purpose VDU models such as LayoutLM [65] and LayoutLMv2 [64]. In particular, Donu
+
+[FINAL #5] Source=Donut.pdf | Page=1 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: fective. Through extensive experiments and analyses, we show a simple OCR-free VDU model, Donut, achieves state-of-the-art performances on various VDU tasks in terms of both speed and accuracy. In addition, we offer a synthetic data generator that helps the model pre-training to be flexible in vario
+
+[FINAL #6] Source=Donut.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: language flexibility straightforwardly pre-training with synthetic data. During fine-tuning stage, Donut learns how to understand the whole document accord- ing to the downstream task. We demonstrateDonut has a strong understanding ability through extensive evaluation on various VDU tasks and datase
+
+[FINAL #7] Source=Donut.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: effort is required to ensure the performance of an entire VDU model by using the off-the-shelf OCR engine. 2.2 Document Understanding Transformer Donut is an end-to-end (i.e., self-contained) VDU model for general understand- ing of document images. The architecture of Donut is quite simple, which c
+
+[FINAL #8] Source=Donut.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: bones [27,1,15,12,31], but the performances are limited. Later, with the remark- able advances of OCR [4,3] and BERT [8], various OCR-dependent VDU models have been proposed by combining them [22,24,23]. More recently, in order to get a more general VDU, most state-of-the-arts [64,18] use both power
+
+[FINAL #9] Source=Donut.pdf | Page=6 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: the class “memo”), if such replacement is available in the target task. 3 Experiments and Analyses In this section, we present Donut fine-tuning results on three VDU applications on six different datasets including both public benchmarks and private industrial service datasets. The samples are shown
+================================================================================
+
+================================================================================
+FIGURE FINAL-CONTEXT DIAGNOSTIC
+================================================================================
+Requested Figure     : 2
+Exact Figure Match   : True
+Present In Final     : True
+[FIGURE DIAGNOSTIC] PASS — exact figure/page image evidence survived into final context.
+================================================================================
+
+================================================================================
+FINAL CONTEXT SENT TO LLM
+================================================================================
+
+================================================================================
+DOCUMENT : Donut.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 1
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+fective. Through extensive experiments and analyses, we show a simple
+OCR-free VDU model, Donut, achieves state-of-the-art performances on
+various VDU tasks in terms of both speed and accuracy. In addition, we
+offer a synthetic data generator that helps the model pre-training to be
+flexible in various languages and domains. The code, trained model, and
+synthetic data are available at https://github.com/clovaai/donut.
+Keywords: Visual Document Understanding, Document Information
+Extraction, Optical Character Recognition, End-to-End Transformer
+1 Introduction
+
+
+--------------------------------------------------------------------------------
+PAGE : 2
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+Donut 🍩
+(Proposed) 1.2
+0.9
+Time (sec/img)
+91
+82
+Accuracy (%)
+0.8
+~0.6 sec
+143
+179
++a
+Memory (M)
+(a) Pipeline Overview. (b) System Benchmarks.
+Fig. 2. The pipeline overview and benchmarks. The proposed end-to-end model,
+Donut, outperforms the recent OCR-dependent VDU models in memory, time cost
+and accuracy. Performances on visual document IE [45] are shown in (b). More results
+on various VDU tasks are available at Section 3 showing the same trend
+Current VDU methods [22,24,65,64,18] solve the task in a two-stage manner:
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a screenshot of a computer screen with a text box and a picture of a computer screen with a text box and a picture of a computer
+
+OCR Text:
+2 G. Kim et al.
+
+pee ere ee ee een nn ee ee ee ee eee » Structured Information
+
+(*word?s [ (Tames (
+
+"pbox”:[[0,11,0.21},..,,[0.19,0.22]}, “name"s"3002-Kyoto Choco Machi",
+002-Kyoto”
+
+"text": “00: “oount’: 2,
+he pricalrdo': {
+*phox’:[[0.21,0.22],.,.{0.45,0.23]), *unllPrica’s 14000
+"3 "Chaco" “price”: 22000.
+k . apm of
+"pox: 10,46,0.22)....£0.52,0.23]], ko
+"text": *tachi" (d) 1
+on "total" [{
+
+“menugty_ent': 4,
+tots|_peica": 50000
+}
+
+]
+}
+
+Fig. 1. The schema of the conventional document information extraction
+(IE) pipeline. (a) The goal is to extract the structured information from a given semi-
+structured document image. In the pipeline, (b) text detection is conducted to obtain
+text locations and (c) each box is passed to the recognizer to comprehend characters.
+(d) Finally, the recognized texts and its locations are passed to the following module
+to be processed for the desired structured form of the information
+
+AS-IS (OCR + BERT, Layout LM, ...)
+
+Image
+
+CS a ee
+
+Memory (©) Time (sec/img) Accuracy (%)
+Donut GB Proposca)
+
+91
+179 1.2
+143 0.9
+Image E2E Madel Output
+
+(a) Pipeline Overview. (b) System Benchmarks.
+Fig. 2. The pipeline overview and benchmarks. The proposed end-to-end model,
+Donut, outperforms the recent OCR-dependent VDU models in memory, time cost
+and accuracy. Performances on visual document IE [45] are shown in (b). More results
+on various VDU tasks are available at Section 3 showing the same trend
+
+Current VDU methods [22,24,65,64,18] solve the task in a two-stage manner:
+1) reading the texts in the document image; 2) holistic understanding of the doc-
+ument. They usually rely on deep-learning-based Optical Character Recognition
+(OCR) [4,3] for the text reading task and focus on modeling the understanding
+part. For example, as shown in Figure 1, a conventional pipeline for extracting
+structured information from documents (a.k.a. document parsing) consists of
+three separate modules for text detection, text recognition, and parsing [22,24].
+
+However, the OCR-dependent approach has critical problems. First of all, us-
+ing OCR as a pre-processing method is expensive. We can utilize pre-trained off-
+the-shelf OCR engines; however, the computational cost for inference would be
+expensive for high-quality OCR results. Moreover, the off-the-shelf OCR meth-
+ods rarely have flexibility dealing with different languages or domain changes,
+which may lead to poor generalization ability. If we train an OCR model, it also
+requires extensive training costs and large-scale datasets [4,3,39,46]. Another
+problem is, OCR errors would propagate to the VDU system and negatively
+influence subsequent processes [54,23]. This problem becomes more severe in
+
+Nearby Document Text:
+2
+G. Kim et al.
+Document Image
+{ "items": [ 
+    {
+      "name": "3002-Kyoto Choco Mochi",
+      "count": 2,
+      "priceInfo": {
+        "unitPrice": 14000,
+        "price": 28000
+      }
+    }, ...
+  ],
+  "total": [ { 
+      "menuqty_cnt": 4, 
+      "total_price": 50000
+    } 
+  ]
+}
+{ "words": [ 
+       {
+            "bbox":[[0.11,0.21],...,[0.19,0.22]],
+            "text": "3002-Kyoto"
+        }, {
+            "bbox":[[0.21,0.22],...,[0.45,0.23]],
+            "text": "Choco"
+        }, {
+            "bbox":[[0.46,0.22],...,[0.52,0.23]],
+            "text": "Mochi"
+        }, …, {
+
+
+[RELATED PAGE TEXT]
+
+Donut 🍩
+(Proposed) 1.2
+0.9
+Time (sec/img)
+91
+82
+Accuracy (%)
+0.8
+~0.6 sec
+143
+179
++a
+Memory (M)
+(a) Pipeline Overview. (b) System Benchmarks.
+Fig. 2. The pipeline overview and benchmarks. The proposed end-to-end model,
+Donut, outperforms the recent OCR-dependent VDU models in memory, time cost
+and accuracy. Performances on visual document IE [45] a
+
+
+--------------------------------------------------------------------------------
+PAGE : 3
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+a raw input image to the desired output without OCR. We introduce a new
+OCR-free VDU model to address the problems induced by the OCR-dependency.
+Our model is based on Transformer-only architecture, referred to as Document
+understanding transformer (Donut), following the huge success in vision and
+language [8,9,29]. We present a minimal baseline including a simple architecture
+and pre-training method. Despite its simplicity, Donut shows comparable or
+better overall performance than previous methods as shown in Figure 2.
+We take pre-train-and-fine-tune scheme [8,65] on Donut training. In the
+
+
+[TEXT]
+
+language flexibility straightforwardly pre-training with synthetic data. During
+fine-tuning stage, Donut learns how to understand the whole document accord-
+ing to the downstream task. We demonstrateDonut has a strong understanding
+ability through extensive evaluation on various VDU tasks and datasets. The
+experiments show a simple OCR-free VDU model can achieve state-of-the-art
+performance in terms of both speed and accuracy.
+The contributions are summarized as follows:
+1. We propose a novel OCR-free approach for VDU. To the best of our knowl-
+
+
+--------------------------------------------------------------------------------
+PAGE : 4
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+effort is required to ensure the performance of an entire VDU model by using
+the off-the-shelf OCR engine.
+2.2 Document Understanding Transformer
+Donut is an end-to-end (i.e., self-contained) VDU model for general understand-
+ing of document images. The architecture of Donut is quite simple, which con-
+sists of a Transformer [58,9]-based visual encoder and textual decoder modules.
+Note that Donut does not rely on any modules related to OCR functionality
+but uses a visual encoder for extracting features from a given document im-
+
+
+[TEXT]
+
+bones [27,1,15,12,31], but the performances are limited. Later, with the remark-
+able advances of OCR [4,3] and BERT [8], various OCR-dependent VDU models
+have been proposed by combining them [22,24,23]. More recently, in order to get
+a more general VDU, most state-of-the-arts [64,18] use both powerful OCR en-
+gines and large-scale real document image data (e.g., IIT-CDIP [32]) for a model
+pre-training. Although they showed remarkable advances in recent years, extra
+effort is required to ensure the performance of an entire VDU model by using
+the off-the-shelf OCR engine.
+
+
+--------------------------------------------------------------------------------
+PAGE : 6
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+the class “memo”), if such replacement is available in the target task.
+3 Experiments and Analyses
+In this section, we present Donut fine-tuning results on three VDU applications
+on six different datasets including both public benchmarks and private industrial
+service datasets. The samples are shown in Figure 5.
+3.1 Downstream Tasks and Datasets
+Document Classification. To see whether the model can distinguish across
+different types of documents, we test a classification task. Unlike other models
+that predict the class label via a softmax on the encoded embedding, Donut
+
+
+--------------------------------------------------------------------------------
+PAGE : 9
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+3.3 Experimental Results
+Document Classification. The results are shown in Table 1. Without re-
+lying on any other resource (e.g., off-the-shelf OCR engine), Donut shows a
+state-of-the-art performance among the general-purpose VDU models such as
+LayoutLM [65] and LayoutLMv2 [64]. In particular, Donut surpasses the Lay-
+outLMv2 accuracy reported in [64], while using fewer parameters with the 2x
+faster speed. Note that the OCR-based models must consider additional model
+parameters and speed for the entire OCR framework, which is not small in gen-
+
+================================================================================
+
+================================================================================
+RAG PIPELINE DEBUG
+================================================================================
+Query Type        : factual
+Retrieved Chunks  : 8
+Retrieved Images  : 1
+Reranked Chunks   : 9
+Reranked Text     : 8
+Reranked Images   : 1
+Final Context Docs: 9
+Exact Figure Query: True
+Exact Figure Match: True
+Exact Figure Final: True
+================================================================================
+
+====================================================================================================
+RAG ANSWER
+====================================================================================================
+ Donut outperforms OCR-dependent VDU models in terms of inference time (91 sec vs. not specified for OCR-dependent models), memory usage (91M vs. not specified for OCR-dependent models), and accuracy (0.8% vs. not specified for OCR-dependent models). Specifically, Donut's time and memory usage are lower, and its accuracy is higher.
+
+IMAGE PATHS:
+D:/Projects/Major-Project-2-main/extracted_images/Donut_page2_render.png

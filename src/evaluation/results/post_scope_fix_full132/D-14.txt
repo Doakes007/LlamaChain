@@ -1,0 +1,770 @@
+====================================================================================================
+QUESTION_ID   : D-14
+DOCUMENT      : Donut
+QUESTION_TYPE : Table / numerical reasoning
+ELAPSED_SEC   : 53.2
+ERROR         : no
+====================================================================================================
+
+QUESTION:
+According to Figure 7, how does increasing the input image resolution affect Donut's performance, particularly on DocVQA?
+
+GROUND TRUTH ANSWER:
+Figure 7(c) shows that Donut's performance increases rapidly as input image resolution increases. The improvement is particularly clear on DocVQA, whose images contain many tiny texts. However, larger input resolutions increase computational cost, creating a speed/accuracy trade-off.
+
+GROUND TRUTH SOURCE:
+Donut.pdf, p. 12, Figure 7(c)
+
+====================================================================================================
+FORENSIC TRANSCRIPT
+====================================================================================================
+
+####################################################################################################
+FORENSIC CASE START
+####################################################################################################
+Original Query   : According to Figure 7, how does increasing the input image resolution affect Donut's performance, particularly on DocVQA?
+Expanded Query   : According to Figure 7, how does increasing the input image resolution affect Donut's performance, particularly on DocVQA?
+Query Type       : visual
+[DOCUMENT SCOPE] Normalized query: 'according to figure 7 how does increasing the input image resolution affect donut s performance particularly on doc vqa'
+[DOCUMENT SCOPE] Source='BERT.pdf' -> Normalized='bert'
+[DOCUMENT SCOPE] Token overlap for 'BERT.pdf': []
+[DOCUMENT SCOPE] Source='BLIP-2.pdf' -> Normalized='blip 2'
+[DOCUMENT SCOPE] Token overlap for 'BLIP-2.pdf': []
+[DOCUMENT SCOPE] Source='CLIP.pdf' -> Normalized='clip'
+[DOCUMENT SCOPE] Token overlap for 'CLIP.pdf': []
+[DOCUMENT SCOPE] Source='CNN Paper.pdf' -> Normalized='cnn paper'
+[DOCUMENT SCOPE] Token overlap for 'CNN Paper.pdf': []
+[DOCUMENT SCOPE] Source='Donut.pdf' -> Normalized='donut'
+[DOCUMENT SCOPE] EXACT MATCH -> Donut.pdf
+[DOCUMENT SCOPE] Source='LayoutLMv3.pdf' -> Normalized='layout l mv3'
+[DOCUMENT SCOPE] Token overlap for 'LayoutLMv3.pdf': []
+[DOCUMENT SCOPE] Source='NLP Paper.pdf' -> Normalized='nlp paper'
+[DOCUMENT SCOPE] Token overlap for 'NLP Paper.pdf': []
+[DOCUMENT SCOPE] Source='RAG.pdf' -> Normalized='rag'
+[DOCUMENT SCOPE] Token overlap for 'RAG.pdf': []
+[DOCUMENT SCOPE] Source='Self-RAG.pdf' -> Normalized='self rag'
+[DOCUMENT SCOPE] Token overlap for 'Self-RAG.pdf': []
+[DOCUMENT SCOPE] Source='Vision Transformer.pdf' -> Normalized='vision transformer'
+[DOCUMENT SCOPE] Token overlap for 'Vision Transformer.pdf': []
+[DOCUMENT SCOPE] Final matched sources: ['Donut.pdf']
+
+================================================================================
+DOCUMENT SCOPE DEBUG
+================================================================================
+Query          : According to Figure 7, how does increasing the input image resolution affect Donut's performance, particularly on DocVQA?
+Expanded Query : According to Figure 7, how does increasing the input image resolution affect Donut's performance, particularly on DocVQA?
+Query Type     : visual
+Document Scope : ['Donut.pdf']
+================================================================================
+
+==========================================================================================
+STEP 3A — SCOPED HYBRID RETRIEVAL
+==========================================================================================
+Query              : According to Figure 7, how does increasing the input image resolution affect Donut's performance, particularly on DocVQA?
+Sources            : ['Donut.pdf']
+Dense candidate K  : 25
+Final hybrid K     : 8
+
+------------------------------------------------------------------------------------------
+[SCOPED DENSE / VECTOR RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=Donut.pdf | Page=10 | Type=text | Image=N/A
+    Content=a large input resolution gives robust accuracies but makes the model slower. For example, the performance on the CORD with 1280 ×960 was 0.7 sec./image and 91.1 accuracy. But, the 
+02. Source=Donut.pdf | Page=11 | Type=table | Image=N/A
+    Content=outLMv2 (left and middle examples). Due to the input resolution constraint of the end-to-end pipeline, Donut miss some tiny texts in large-scale images (right example) but this cou
+03. Source=Donut.pdf | Page=12 | Type=text | Image=N/A
+    Content=document IE task in our analysis. However, in the DocVQA task, it was impor- tant to see the real images. This is probably because the image distributions of IIT-CDIP and DocVQA ar
+04. Source=Donut.pdf | Page=12 | Type=text | Image=N/A
+    Content=Swin Transformer [40] outperform others on both datasets. We argue that this is due to the high expressiveness of the backbones, which were shown by the strik- ing scores on severa
+05. Source=Donut.pdf | Page=25 | Type=text | Image=N/A
+    Content=64 NVIDIA A100 GPUs and a mini-batch size of 196, which takes about 2-3 GPU days. We also apply a gradient clipping technique where a maximum gra- dient norm is selected from 0.05 
+06. Source=Donut.pdf | Page=11 | Type=text | Image=N/A
+    Content=but this could be mitigated by scaling the input image size (See Section 3.4) errors is an option to strengthen the pipeline [51,50,10] or adopting an encoder- decoder architecture
+07. Source=Donut.pdf | Page=14 | Type=text | Image=N/A
+    Content=have also been proposed [48]. 5 Conclusions In this work, we propose a novel end-to-end framework for visual document un- derstanding. The proposed method, Donut, directly maps an 
+08. Source=Donut.pdf | Page=9 | Type=text | Image=N/A
+    Content=3.3 Experimental Results Document Classification. The results are shown in Table 1. Without re- lying on any other resource (e.g., off-the-shelf OCR engine), Donut shows a state-of
+09. Source=Donut.pdf | Page=11 | Type=image | Image=extracted_images\Donut_page11_img4.png
+    Content=FIGURE FROM DOCUMENT  Caption: a black and white photo of a man with a beard  OCR Text: No readable text found in this image.  Nearby Document Text: OCR-free Document Understanding
+10. Source=Donut.pdf | Page=13 | Type=text | Image=N/A
+    Content=On Low Resourced Situation. We evaluate the models by limiting the size of training set of CORD [45]. The performance curves are shown in the right Figure 9. Donut shows a robust p
+11. Source=Donut.pdf | Page=11 | Type=text | Image=N/A
+    Content=Answer: 540 Donut: 943  (another number in the image is extracted) LayoutLMv2-Large-QG: 540 Q: What is the phone number given? Answer: 336-723-6100 Donut: 336-723-6100 LayoutLMv2-L
+12. Source=Donut.pdf | Page=8 | Type=text | Image=N/A
+    Content=in Figure 5 and in the supplementary material. Document Visual Question Answering. To validate the further capacity of the model, we conduct a document visual question answering ta
+13. Source=Donut.pdf | Page=3 | Type=image | Image=extracted_images\Donut_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a book with the text in english  OCR Text: OOCR-free Document Understanding Transformer 3  languages with complex character
+14. Source=Donut.pdf | Page=12 | Type=text | Image=N/A
+    Content=images are larger with many tiny texts. But, increasing the size for a precise result incurs bigger computational costs. Using an efficient attention mecha- nism [60] may avoid the
+15. Source=Donut.pdf | Page=28 | Type=text | Image=N/A
+    Content=(8 V100 GPUs for 5 days). The input size was 2048 ×1536. In this setting, DonutProto also achieved comparable results on RVL-CDIP and CORD. The accuracy on RVL-CDIP was 94.5 and CO
+16. Source=Donut.pdf | Page=12 | Type=text | Image=N/A
+    Content=Fig. 7. Analysis on (a) pre-training strategies, (b) image backbones, and (c) input resolutions. Performances on CORD [45] and DocVQA [44] are shown simple yet effective approach. 
+17. Source=Donut.pdf | Page=13 | Type=text | Image=N/A
+    Content=OCR-free Document Understanding Transformer 13 K Cho co Mo chi yo to300 2- Fig. 8. Visualization of cross-attention maps in the decoder and its applica- tion to text localization. 
+18. Source=Donut.pdf | Page=11 | Type=text | Image=N/A
+    Content=of Donut as well as the left challenges in the Donut-like end-to-end approach. Further analysis and ablation is available in Section 3.4. 3.4 Further Studies In this section, we st
+19. Source=Donut.pdf | Page=23 | Type=text | Image=N/A
+    Content=al. [67]. Our source code is available at https://github.com/clovaai/donut. More samples are shown in Figure A. Background Background images are sampled from ImageNet [7]. Gaussian
+20. Source=Donut.pdf | Page=10 | Type=text | Image=N/A
+    Content=in the official leader-board. 6 As can be seen, Donut achieves competitive scores with the baselines that are dependent on external OCR engines. Especially, Donut shows that it is 
+21. Source=Donut.pdf | Page=4 | Type=text | Image=N/A
+    Content=effort is required to ensure the performance of an entire VDU model by using the off-the-shelf OCR engine. 2.2 Document Understanding Transformer Donut is an end-to-end (i.e., self
+22. Source=Donut.pdf | Page=8 | Type=text | Image=N/A
+    Content=a starting prompt to keep the uniformity of the method (See Figure 3). DocVQA. The dataset is from Document Visual Question Answering competi- tion4 and consists of 50K questions d
+23. Source=Donut.pdf | Page=24 | Type=text | Image=N/A
+    Content=ness Card and Receipt). Figure B shows examples of Ticket with the outputs of Donut. Figure C shows examples of CORD with the outputs of Donut. Due to strict industrial policies on
+24. Source=Donut.pdf | Page=9 | Type=text | Image=N/A
+    Content=RoBERTa ✓ 125M + α† 1392 90.06 LayoutLM ✓ 113M + α† 1396 91.78 LayoutLM (w/ image) ✓ 160M + α† 1426 94.42 LayoutLMv2 ✓ 200M + α† 1489 95.25 Donut (Proposed) 143M 752 95.30 from 1e-
+25. Source=Donut.pdf | Page=27 | Type=text | Image=N/A
+    Content=OCR-free Document Understanding Transformer 27 Fig. D. Examples of Business Card (top) and Receipt (bottom). Due to strict industrial policies on the private industrial datasets fr
+
+------------------------------------------------------------------------------------------
+[SCOPED BM25 RETRIEVAL] 13 candidates
+------------------------------------------------------------------------------------------
+01. Source=Donut.pdf | Page=11 | Type=table | Image=N/A
+    Content=outLMv2 (left and middle examples). Due to the input resolution constraint of the end-to-end pipeline, Donut miss some tiny texts in large-scale images (right example) but this cou
+02. Source=Donut.pdf | Page=11 | Type=text | Image=N/A
+    Content=Answer: 540 Donut: 943  (another number in the image is extracted) LayoutLMv2-Large-QG: 540 Q: What is the phone number given? Answer: 336-723-6100 Donut: 336-723-6100 LayoutLMv2-L
+03. Source=Donut.pdf | Page=10 | Type=text | Image=N/A
+    Content=a large input resolution gives robust accuracies but makes the model slower. For example, the performance on the CORD with 1280 ×960 was 0.7 sec./image and 91.1 accuracy. But, the 
+04. Source=Donut.pdf | Page=12 | Type=text | Image=N/A
+    Content=images are larger with many tiny texts. But, increasing the size for a precise result incurs bigger computational costs. Using an efficient attention mecha- nism [60] may avoid the
+05. Source=Donut.pdf | Page=11 | Type=table | Image=N/A
+    Content=Rows: Column_2: Q: What Answer: Donut: LayoutL, Column_3: is the name of the passenger? DR. William J. Darby DR. William J. Darby Mv2-Large-QG: DR. William J. Jarry, Column_5: Q: W
+06. Source=Donut.pdf | Page=4 | Type=text | Image=N/A
+    Content=Note that Donut does not rely on any modules related to OCR functionality but uses a visual encoder for extracting features from a given document im- age. The following textual dec
+07. Source=Donut.pdf | Page=12 | Type=text | Image=N/A
+    Content=Swin Transformer [40] outperform others on both datasets. We argue that this is due to the high expressiveness of the backbones, which were shown by the strik- ing scores on severa
+08. Source=Donut.pdf | Page=6 | Type=text | Image=N/A
+    Content=addition, several image rendering techniques [13,41,67] are applied to mimic real documents. The generated examples are shown in Figure 4. More details of SynthDoG are available in
+09. Source=Donut.pdf | Page=14 | Type=text | Image=N/A
+    Content=have also been proposed [48]. 5 Conclusions In this work, we propose a novel end-to-end framework for visual document un- derstanding. The proposed method, Donut, directly maps an 
+10. Source=Donut.pdf | Page=25 | Type=text | Image=N/A
+    Content=64 NVIDIA A100 GPUs and a mini-batch size of 196, which takes about 2-3 GPU days. We also apply a gradient clipping technique where a maximum gra- dient norm is selected from 0.05 
+11. Source=Donut.pdf | Page=27 | Type=text | Image=N/A
+    Content=increasing the input size for a precise result incurs higher computational costs in general. Using an efficient attention mechanism [60] may avoid the prob- lem in architectural de
+12. Source=Donut.pdf | Page=27 | Type=text | Image=N/A
+    Content=OCR-free Document Understanding Transformer 27 Fig. D. Examples of Business Card (top) and Receipt (bottom). Due to strict industrial policies on the private industrial datasets fr
+13. Source=Donut.pdf | Page=4 | Type=text | Image=N/A
+    Content=Encoder. The visual encoder converts the input document image x∈RH×W ×C into a set of embeddings {zi|zi∈Rd, 1≤i≤n}, where n is feature map size or the number of image patches and d
+
+------------------------------------------------------------------------------------------
+[RRF FUSION RANKING]
+------------------------------------------------------------------------------------------
+01. RRF=0.032522 | DenseRank=2 | BM25Rank=1 | Source=Donut.pdf | Page=11 | Type=table
+02. RRF=0.032266 | DenseRank=1 | BM25Rank=3 | Source=Donut.pdf | Page=10 | Type=text
+03. RRF=0.030550 | DenseRank=4 | BM25Rank=7 | Source=Donut.pdf | Page=12 | Type=text
+04. RRF=0.030214 | DenseRank=11 | BM25Rank=2 | Source=Donut.pdf | Page=11 | Type=text
+05. RRF=0.029670 | DenseRank=5 | BM25Rank=10 | Source=Donut.pdf | Page=25 | Type=text
+06. RRF=0.029418 | DenseRank=7 | BM25Rank=9 | Source=Donut.pdf | Page=14 | Type=text
+07. RRF=0.029139 | DenseRank=14 | BM25Rank=4 | Source=Donut.pdf | Page=12 | Type=text
+08. RRF=0.025654 | DenseRank=25 | BM25Rank=12 | Source=Donut.pdf | Page=27 | Type=text
+09. RRF=0.015873 | DenseRank=3 | BM25Rank=- | Source=Donut.pdf | Page=12 | Type=text
+10. RRF=0.015385 | DenseRank=- | BM25Rank=5 | Source=Donut.pdf | Page=11 | Type=table
+11. RRF=0.015152 | DenseRank=6 | BM25Rank=- | Source=Donut.pdf | Page=11 | Type=text
+12. RRF=0.015152 | DenseRank=- | BM25Rank=6 | Source=Donut.pdf | Page=4 | Type=text
+13. RRF=0.014706 | DenseRank=8 | BM25Rank=- | Source=Donut.pdf | Page=9 | Type=text
+14. RRF=0.014706 | DenseRank=- | BM25Rank=8 | Source=Donut.pdf | Page=6 | Type=text
+15. RRF=0.014493 | DenseRank=9 | BM25Rank=- | Source=Donut.pdf | Page=11 | Type=image
+16. RRF=0.014286 | DenseRank=10 | BM25Rank=- | Source=Donut.pdf | Page=13 | Type=text
+17. RRF=0.014085 | DenseRank=- | BM25Rank=11 | Source=Donut.pdf | Page=27 | Type=text
+18. RRF=0.013889 | DenseRank=12 | BM25Rank=- | Source=Donut.pdf | Page=8 | Type=text
+19. RRF=0.013699 | DenseRank=13 | BM25Rank=- | Source=Donut.pdf | Page=3 | Type=image
+20. RRF=0.013699 | DenseRank=- | BM25Rank=13 | Source=Donut.pdf | Page=4 | Type=text
+21. RRF=0.013333 | DenseRank=15 | BM25Rank=- | Source=Donut.pdf | Page=28 | Type=text
+22. RRF=0.013158 | DenseRank=16 | BM25Rank=- | Source=Donut.pdf | Page=12 | Type=text
+23. RRF=0.012987 | DenseRank=17 | BM25Rank=- | Source=Donut.pdf | Page=13 | Type=text
+24. RRF=0.012821 | DenseRank=18 | BM25Rank=- | Source=Donut.pdf | Page=11 | Type=text
+25. RRF=0.012658 | DenseRank=19 | BM25Rank=- | Source=Donut.pdf | Page=23 | Type=text
+26. RRF=0.012500 | DenseRank=20 | BM25Rank=- | Source=Donut.pdf | Page=10 | Type=text
+27. RRF=0.012346 | DenseRank=21 | BM25Rank=- | Source=Donut.pdf | Page=4 | Type=text
+28. RRF=0.012195 | DenseRank=22 | BM25Rank=- | Source=Donut.pdf | Page=8 | Type=text
+29. RRF=0.012048 | DenseRank=23 | BM25Rank=- | Source=Donut.pdf | Page=24 | Type=text
+30. RRF=0.011905 | DenseRank=24 | BM25Rank=- | Source=Donut.pdf | Page=9 | Type=text
+------------------------------------------------------------------------------------------
+
+==========================================================================================
+STEP 3A — RETRIEVAL STAGE SUMMARY
+==========================================================================================
+Dense candidates       : 25
+BM25 candidates        : 13
+Dense ∩ BM25           : 8
+Dense-only candidates  : 17
+BM25-only candidates   : 5
+Unique candidate pool  : 30
+RRF candidates         : 30
+Returned to pipeline   : 8
+==========================================================================================
+
+------------------------------------------------------------------------------------------
+[SCOPED FINAL HYBRID RESULT] 8 candidates
+------------------------------------------------------------------------------------------
+01. Source=Donut.pdf | Page=11 | Type=table | Image=N/A
+    Content=outLMv2 (left and middle examples). Due to the input resolution constraint of the end-to-end pipeline, Donut miss some tiny texts in large-scale images (right example) but this cou
+02. Source=Donut.pdf | Page=10 | Type=text | Image=N/A
+    Content=a large input resolution gives robust accuracies but makes the model slower. For example, the performance on the CORD with 1280 ×960 was 0.7 sec./image and 91.1 accuracy. But, the 
+03. Source=Donut.pdf | Page=12 | Type=text | Image=N/A
+    Content=Swin Transformer [40] outperform others on both datasets. We argue that this is due to the high expressiveness of the backbones, which were shown by the strik- ing scores on severa
+04. Source=Donut.pdf | Page=11 | Type=text | Image=N/A
+    Content=Answer: 540 Donut: 943  (another number in the image is extracted) LayoutLMv2-Large-QG: 540 Q: What is the phone number given? Answer: 336-723-6100 Donut: 336-723-6100 LayoutLMv2-L
+05. Source=Donut.pdf | Page=25 | Type=text | Image=N/A
+    Content=64 NVIDIA A100 GPUs and a mini-batch size of 196, which takes about 2-3 GPU days. We also apply a gradient clipping technique where a maximum gra- dient norm is selected from 0.05 
+06. Source=Donut.pdf | Page=14 | Type=text | Image=N/A
+    Content=have also been proposed [48]. 5 Conclusions In this work, we propose a novel end-to-end framework for visual document un- derstanding. The proposed method, Donut, directly maps an 
+07. Source=Donut.pdf | Page=12 | Type=text | Image=N/A
+    Content=images are larger with many tiny texts. But, increasing the size for a precise result incurs bigger computational costs. Using an efficient attention mecha- nism [60] may avoid the
+08. Source=Donut.pdf | Page=27 | Type=text | Image=N/A
+    Content=OCR-free Document Understanding Transformer 27 Fig. D. Examples of Business Card (top) and Receipt (bottom). Due to strict industrial policies on the private industrial datasets fr
+==========================================================================================
+
+================================================================================
+STAGE 1 — HYBRID RETRIEVAL
+================================================================================
+Retrieved Count : 8
+
+[HYBRID #1] Source=Donut.pdf | Page=11 | Type=table
+Content: outLMv2 (left and middle examples). Due to the input resolution constraint of the end-to-end pipeline, Donut miss some tiny texts in large-scale images (right example) but this could be mitigated by scaling the input image size (See Section 3.4)
+
+[HYBRID #2] Source=Donut.pdf | Page=10 | Type=text
+Content: a large input resolution gives robust accuracies but makes the model slower. For example, the performance on the CORD with 1280 ×960 was 0.7 sec./image and 91.1 accuracy. But, the large resolution showed better performances on the low-resource situation. The detailed analyses are in Section 3.4. Unlike other baselines, Donut shows stable performance regardless of the size of datasets and complexity of the tasks (See Figure 5). This is a significant impact as the target tasks are already actively
+
+[HYBRID #3] Source=Donut.pdf | Page=12 | Type=text
+Content: Swin Transformer [40] outperform others on both datasets. We argue that this is due to the high expressiveness of the backbones, which were shown by the strik- ing scores on several downstream tasks as well. We choose Swin Transformer due to the high scalability of the Transformer-based architecture and higher performance over the EfficientNetV2’s. On Input Resolution. The Figure 7(c) shows the performance of Donut grows rapidly as we set a larger input size. This gets clearer in the DocVQA wher
+
+[HYBRID #4] Source=Donut.pdf | Page=11 | Type=text
+Content: Answer: 540 Donut: 943  (another number in the image is extracted) LayoutLMv2-Large-QG: 540 Q: What is the phone number given? Answer: 336-723-6100 Donut: 336-723-6100 LayoutLMv2-Large-QG: 336-723- 4100 Fig. 6. Examples of Donut and LayoutLMv2 outputs on DocVQA.The OCR- errors make a performance upper-bound of the OCR-dependent baselines, e.g., Lay- outLMv2 (left and middle examples). Due to the input resolution constraint of the end-to-end pipeline, Donut miss some tiny texts in large-scale ima
+
+[HYBRID #5] Source=Donut.pdf | Page=25 | Type=text
+Content: 64 NVIDIA A100 GPUs and a mini-batch size of 196, which takes about 2-3 GPU days. We also apply a gradient clipping technique where a maximum gra- dient norm is selected from 0.05 to 1.0. The input resolution of Donut is set to 2560 ×1920 at the pre-training phase. In downstream tasks, the input reso- lutions are controlled. In some downstream document IE experiments, such as, 13https://github.com/clovaai/donut. 14https://github.com/huggingface/transformers. 15https://github.com/rwightman/pytorc
+
+[HYBRID #6] Source=Donut.pdf | Page=14 | Type=text
+Content: have also been proposed [48]. 5 Conclusions In this work, we propose a novel end-to-end framework for visual document un- derstanding. The proposed method, Donut, directly maps an input document image into a desired structured output. Unlike conventional methods, Donut does not depend on OCR and can easily be trained in an end-to-end fashion. We also propose a synthetic document image generator, SynthDoG, to alleviate the dependency on large-scale real document images and we show that Donut can 
+
+[HYBRID #7] Source=Donut.pdf | Page=12 | Type=text
+Content: images are larger with many tiny texts. But, increasing the size for a precise result incurs bigger computational costs. Using an efficient attention mecha- nism [60] may avoid the matter in architectural design, but we use the original Transformer [58] as we aim to present a simpler architecture in this work. On Text Localization. To see how the model behaves, we visualize the corss attention maps of the decoder given an unseen document image. As can be seen in Figure 8, the model shows meaning
+
+[HYBRID #8] Source=Donut.pdf | Page=27 | Type=text
+Content: OCR-free Document Understanding Transformer 27 Fig. D. Examples of Business Card (top) and Receipt (bottom). Due to strict industrial policies on the private industrial datasets from our active products, real-like high-quality samples are shown instead 2560×1920 setting for larger datasets, e.g., RVL-CDIP or DocVQA, the cost increased rapidly. With 64 A100 GPUs, DocVQA requires one GPU day and RVL-CDIP requires two GPU days approximately. This is not surprising in that increasing the input size 
+================================================================================
+[DOCUMENT SCOPE] Text chunks: 8 -> 8
+
+================================================================================
+EXPLICIT FIGURE QUERY DETECTED
+================================================================================
+Requested Figure : 7
+================================================================================
+
+================================================================================
+FIGURE NUMBER RETRIEVAL
+================================================================================
+Requested Figure : 7
+Query            : According to Figure 7, how does increasing the input image resolution affect Donut's performance, particularly on DocVQA?
+Matched Images   : 30
+Rejected References : 12
+[MATCH 1] Source=BLIP-2.pdf | Page=13 | Image=BLIP-2_page13_img1.png | Path=extracted_images\BLIP-2_page13_img1.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a cat wearing sunglasses and looking up at the camera  OCR Text: No readable text found in this image.  Nearby Document Text: BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models Image Encoder Input Image Queries … Q-Fo...
+[MATCH 2] Source=CLIP.pdf | Page=17 | Image=CLIP_page17_render.png | Path=extracted_images\CLIP_page17_render.png
+    Evidence : FIGURE FROM DOCUMENT (Page Render)  Caption: a graph plot with a line graph and a line graph with a line graph and a line graph with a  OCR Text: Learning Transferable Visual Models From Natural Language Supervision 17  ~l wn  ~~! Oo  ron) uw  a Oo  wa uw  wa Oo  b a  bh Oo  Ww uw  n_ideal robust mo...
+[MATCH 3] Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img0.png | Path=extracted_images\Vision Transformer_page9_img0.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: an image of a black and white striped pattern  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 RGB embedding filters (first 28 principal components) 1 2 3 4 5 6 7 Input patch column 1 2 3 4 5 6 7 Input...
+[MATCH 4] Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img1.png | Path=extracted_images\Vision Transformer_page9_img1.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: an image of a green square in the middle of a purple square  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 RGB embedding filters (first 28 principal components) 1 2 3 4 5 6 7 Input patch column 1 2 3...
+[MATCH 5] Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img2.png | Path=extracted_images\Vision Transformer_page9_img2.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a green and pink background with squares  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 RGB embedding filters (first 28 principal components) 1 2 3 4 5 6 7 Input patch column 1 2 3 4 5 6 7 Input patc...
+[MATCH 6] Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img3.png | Path=extracted_images\Vision Transformer_page9_img3.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: an image of a black hole in the middle of a green field  OCR Text: | CPE Reese |) POET  Nearby Document Text: Published as a conference paper at ICLR 2021 RGB embedding filters (first 28 principal components) 1 2 3 4 5 6 7 Input patch column 1 2 3 4 5 6 7 Input patch r...
+[MATCH 7] Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img4.png | Path=extracted_images\Vision Transformer_page9_img4.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: an image of a green and purple background  OCR Text: 4, en! —-5-- colt i ial — hy | 4== | oe TO  Ll Ha 5 Soe ee  rH c  je ee ee  i ee ee  Soto  en yy oe it 1  Nearby Document Text: Published as a conference paper at ICLR 2021 RGB embedding filters (first 28 principal c...
+[MATCH 8] Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img5.png | Path=extracted_images\Vision Transformer_page9_img5.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: an image of a square in the middle of a square  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 RGB embedding filters (first 28 principal components) 1 2 3 4 5 6 7 Input patch column 1 2 3 4 5 6 7 Inpu...
+[MATCH 9] Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img6.png | Path=extracted_images\Vision Transformer_page9_img6.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: an image of a cross on a colorful background  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 RGB embedding filters (first 28 principal components) 1 2 3 4 5 6 7 Input patch column 1 2 3 4 5 6 7 Input ...
+[MATCH 10] Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img7.png | Path=extracted_images\Vision Transformer_page9_img7.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: an image of a cross in the center of a square  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 RGB embedding filters (first 28 principal components) 1 2 3 4 5 6 7 Input patch column 1 2 3 4 5 6 7 Input...
+[MATCH 11] Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img8.png | Path=extracted_images\Vision Transformer_page9_img8.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: an image of a cross in the center of a square  OCR Text: * ae i = _ is |_L| as Seripie sattt ae  SSEO7=  Nearby Document Text: Published as a conference paper at ICLR 2021 RGB embedding filters (first 28 principal components) 1 2 3 4 5 6 7 Input patch column 1 2 3 4 5 ...
+[MATCH 12] Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img9.png | Path=extracted_images\Vision Transformer_page9_img9.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: an image of a green and blue square  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 RGB embedding filters (first 28 principal components) 1 2 3 4 5 6 7 Input patch column 1 2 3 4 5 6 7 Input patch row...
+[MATCH 13] Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img10.png | Path=extracted_images\Vision Transformer_page9_img10.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: an image of the face of a man with a green background  OCR Text: i L  Cl 7. ee aan 4 ahha th  eS oo wen es  Li [ml  eet oes me | — -  — bo oy namnen yg) L 7 oor Te \ tf  cep He  i= Suit {bere  Porn LE =H  Nearby Document Text: Published as a conference paper at ICLR 20...
+[MATCH 14] Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img11.png | Path=extracted_images\Vision Transformer_page9_img11.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white striped pattern  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 RGB embedding filters (first 28 principal components) 1 2 3 4 5 6 7 Input patch column 1 2 3 4 5 6 7 Input patch row P...
+[MATCH 15] Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img12.png | Path=extracted_images\Vision Transformer_page9_img12.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: an image of a square in the middle of a square  OCR Text: - eI t  IEE (ee peeggerecerel Seeenact || eaeike eee CL  ere  7 i  Nearby Document Text: Published as a conference paper at ICLR 2021 RGB embedding filters (first 28 principal components) 1 2 3 4 5 6 7 Input pat...
+[MATCH 16] Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img13.png | Path=extracted_images\Vision Transformer_page9_img13.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: an image of a square in the middle of a square  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 RGB embedding filters (first 28 principal components) 1 2 3 4 5 6 7 Input patch column 1 2 3 4 5 6 7 Inpu...
+[MATCH 17] Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img14.png | Path=extracted_images\Vision Transformer_page9_img14.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: an image of a cross in the middle of a field  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 RGB embedding filters (first 28 principal components) 1 2 3 4 5 6 7 Input patch column 1 2 3 4 5 6 7 Input ...
+[MATCH 18] Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img15.png | Path=extracted_images\Vision Transformer_page9_img15.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white photo of a person in the middle of the image  OCR Text: . EE tase aa 7  | Sar re . {HE — di len Speak a rr cre Vi,  Nearby Document Text: Published as a conference paper at ICLR 2021 RGB embedding filters (first 28 principal components) 1 2 3 4 5 6 7 ...
+[MATCH 19] Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img16.png | Path=extracted_images\Vision Transformer_page9_img16.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white photo of a man in a suit  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 RGB embedding filters (first 28 principal components) 1 2 3 4 5 6 7 Input patch column 1 2 3 4 5 6 7 Input pa...
+[MATCH 20] Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img17.png | Path=extracted_images\Vision Transformer_page9_img17.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: an image of the face of a man  OCR Text: Hi  hen Rene 99444  Nearby Document Text: Published as a conference paper at ICLR 2021 RGB embedding filters (first 28 principal components) 1 2 3 4 5 6 7 Input patch column 1 2 3 4 5 6 7 Input patch row Position embedding simil...
+[MATCH 21] Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img18.png | Path=extracted_images\Vision Transformer_page9_img18.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white photo of a man with a beard  OCR Text: SERS SES EEE et {comm fait on pete | EES Perera  Baireireseeciiie 1 ae {sf em fn Deed eg  Ee cee | | Cee  Nearby Document Text: Published as a conference paper at ICLR 2021 RGB embedding filters (first 28 princip...
+[MATCH 22] Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img19.png | Path=extracted_images\Vision Transformer_page9_img19.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white photo of a man in a suit  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 RGB embedding filters (first 28 principal components) 1 2 3 4 5 6 7 Input patch column 1 2 3 4 5 6 7 Input pa...
+[MATCH 23] Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img20.png | Path=extracted_images\Vision Transformer_page9_img20.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: an image of the face of a man  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 RGB embedding filters (first 28 principal components) 1 2 3 4 5 6 7 Input patch column 1 2 3 4 5 6 7 Input patch row Posit...
+[MATCH 24] Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img21.png | Path=extracted_images\Vision Transformer_page9_img21.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white photo of a man in a suit  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 RGB embedding filters (first 28 principal components) 1 2 3 4 5 6 7 Input patch column 1 2 3 4 5 6 7 Input pa...
+[MATCH 25] Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img22.png | Path=extracted_images\Vision Transformer_page9_img22.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black and white photo of a man ' s face  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 RGB embedding filters (first 28 principal components) 1 2 3 4 5 6 7 Input patch column 1 2 3 4 5 6 7 Input pat...
+[MATCH 26] Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img23.png | Path=extracted_images\Vision Transformer_page9_img23.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: an image of a rainbow - colored sky  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 RGB embedding filters (first 28 principal components) 1 2 3 4 5 6 7 Input patch column 1 2 3 4 5 6 7 Input patch row...
+[MATCH 27] Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img24.png | Path=extracted_images\Vision Transformer_page9_img24.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: an image of a pink and green square  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 RGB embedding filters (first 28 principal components) 1 2 3 4 5 6 7 Input patch column 1 2 3 4 5 6 7 Input patch row...
+[MATCH 28] Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img25.png | Path=extracted_images\Vision Transformer_page9_img25.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: an image of a green and purple striped pattern  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 RGB embedding filters (first 28 principal components) 1 2 3 4 5 6 7 Input patch column 1 2 3 4 5 6 7 Inpu...
+[MATCH 29] Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img26.png | Path=extracted_images\Vision Transformer_page9_img26.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: a black hole in the sky  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 RGB embedding filters (first 28 principal components) 1 2 3 4 5 6 7 Input patch column 1 2 3 4 5 6 7 Input patch row Position em...
+[MATCH 30] Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img27.png | Path=extracted_images\Vision Transformer_page9_img27.png
+    Evidence : FIGURE FROM DOCUMENT  Caption: an image of a blue and orange square  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 RGB embedding filters (first 28 principal components) 1 2 3 4 5 6 7 Input patch column 1 2 3 4 5 6 7 Input patch ro...
+[REJECTED 1] Source=Donut.pdf | Page=23 | Image=Donut_page23_img0.png
+    Reason   : Cross-reference rather than actual Figure 7
+    Evidence : FIGURE FROM DOCUMENT  Caption: a whiteboard with the words in different languages  OCR Text: t aircraft construction would st bedif ficult and arttosoftenduetot expensive.B he heat of friction, ands y 1956 there was ome new material wouldha enough of ficial i ve to be used instead. Stainle —_—nteres...
+[REJECTED 2] Source=Donut.pdf | Page=23 | Image=Donut_page23_img1.png
+    Reason   : Cross-reference rather than actual Figure 7
+    Evidence : FIGURE FROM DOCUMENT  Caption: a man holding up a piece of paper with the words on it  OCR Text: No readable text found in this image.  Nearby Document Text: OCR-free Document Understanding Transformer 23 Fig. A. Examples of SynthDoG. English, Chinese, Japanese and Korean samples are shown (from top...
+[REJECTED 3] Source=Donut.pdf | Page=23 | Image=Donut_page23_img2.png
+    Reason   : Cross-reference rather than actual Figure 7
+    Evidence : FIGURE FROM DOCUMENT  Caption: a piece of paper with writing on it  OCR Text: © jee sh} Rasa aie al ae Le} ae Be ayulh oF Bay WHR OR aqUSE a S]alet te  o] Soi] DESSLaL S 7rSolal 2 So] As bs = A Alo}. ach. Eos aes Sa] Nba] S20] Fao] Bao} Wes okay aS 2Ealzich., Ba: 9]  Nearby Document Text: OCR-free D...
+[REJECTED 4] Source=Donut.pdf | Page=23 | Image=Donut_page23_img3.png
+    Reason   : Cross-reference rather than actual Figure 7
+    Evidence : FIGURE FROM DOCUMENT  Caption: a car parked in front of a building with a sign on it  OCR Text: rr  ORAS ene!  eo m7 ae ate as yi Tiree ht SN £505  Wht reat  Nearby Document Text: OCR-free Document Understanding Transformer 23 Fig. A. Examples of SynthDoG. English, Chinese, Japanese and Korean sampl...
+[REJECTED 5] Source=Donut.pdf | Page=23 | Image=Donut_page23_img4.png
+    Reason   : Cross-reference rather than actual Figure 7
+    Evidence : FIGURE FROM DOCUMENT  Caption: a piece of paper with the words written on it  OCR Text: are. brenugies ce, Se pe Se Nwinss: VY » Hae ie At ES is Pees i ' Ee Ne I a Ot et ed i aed  Nearby Document Text: OCR-free Document Understanding Transformer 23 Fig. A. Examples of SynthDoG. English, Chinese, Jap...
+[REJECTED 6] Source=Donut.pdf | Page=23 | Image=Donut_page23_img5.png
+    Reason   : Cross-reference rather than actual Figure 7
+    Evidence : FIGURE FROM DOCUMENT  Caption: a piece of paper with a quote on it that says, ` ` ` ` ` ` ` ` ` ` ` ` ` ` ` ` ` ` ` ` ` ` ` ` ` ` ` ` ` ` ` ` ` ` ` ` ` ` ` ` ` ` ` ` ` ` ` `  OCR Text: = ¥ ing le} artivient Was'es  _ Eee anae ‘consists Of; thirteen teams, linctuaic  ‘teams plays'in the | Bezir The’ ...
+[REJECTED 7] Source=Donut.pdf | Page=23 | Image=Donut_page23_img6.png
+    Reason   : Cross-reference rather than actual Figure 7
+    Evidence : FIGURE FROM DOCUMENT  Caption: a piece of paper with chinese writing on it  OCR Text: No readable text found in this image.  Nearby Document Text: OCR-free Document Understanding Transformer 23 Fig. A. Examples of SynthDoG. English, Chinese, Japanese and Korean samples are shown (from top to bottom)...
+[REJECTED 8] Source=Donut.pdf | Page=23 | Image=Donut_page23_img7.png
+    Reason   : Cross-reference rather than actual Figure 7
+    Evidence : FIGURE FROM DOCUMENT  Caption: a piece of paper with chinese writing on it  OCR Text: No readable text found in this image.  Nearby Document Text: OCR-free Document Understanding Transformer 23 Fig. A. Examples of SynthDoG. English, Chinese, Japanese and Korean samples are shown (from top to bottom)...
+[REJECTED 9] Source=Donut.pdf | Page=23 | Image=Donut_page23_img8.png
+    Reason   : Cross-reference rather than actual Figure 7
+    Evidence : FIGURE FROM DOCUMENT  Caption: a piece of paper with chinese writing on it  OCR Text: No readable text found in this image.  Nearby Document Text: OCR-free Document Understanding Transformer 23 Fig. A. Examples of SynthDoG. English, Chinese, Japanese and Korean samples are shown (from top to bottom)...
+[REJECTED 10] Source=Donut.pdf | Page=23 | Image=Donut_page23_img9.png
+    Reason   : Cross-reference rather than actual Figure 7
+    Evidence : FIGURE FROM DOCUMENT  Caption: a sign on a trash can in a park  OCR Text: No readable text found in this image.  Nearby Document Text: OCR-free Document Understanding Transformer 23 Fig. A. Examples of SynthDoG. English, Chinese, Japanese and Korean samples are shown (from top to bottom). Although t...
+[REJECTED 11] Source=Donut.pdf | Page=23 | Image=Donut_page23_img10.png
+    Reason   : Cross-reference rather than actual Figure 7
+    Evidence : FIGURE FROM DOCUMENT  Caption: a piece of paper that has been written on it  OCR Text: STU sgoare KCL IRROMM SDS oT HERA ORE ETO ROMERO TZOEEA Wok. BRISA. AMETOBTH Shia be RODIER-CS, O00Re REE Here Aly ZOE LCHAU ELIE RU. uv CLA  ecw situs oc ORE - 48) Naas #25. A Aves SORES °H oi HA RAVEMENS, ia  x ...
+[REJECTED 12] Source=Donut.pdf | Page=23 | Image=Donut_page23_img11.png
+    Reason   : Cross-reference rather than actual Figure 7
+    Evidence : FIGURE FROM DOCUMENT  Caption: a person holding up a piece of paper  OCR Text: No readable text found in this image.  Nearby Document Text: OCR-free Document Understanding Transformer 23 Fig. A. Examples of SynthDoG. English, Chinese, Japanese and Korean samples are shown (from top to bottom). Altho...
+Matched Sources  : ['BLIP-2.pdf', 'CLIP.pdf', 'Vision Transformer.pdf']
+Matched Pages    : ['13', '17', '9']
+[FIGURE LOOKUP] High-confidence figure reference found. Generic CLIP fallback should not be used.
+================================================================================
+
+================================================================================
+EXACT FIGURE RETRIEVAL RESULT
+================================================================================
+Requested Figure : 7
+Exact Match      : False
+Matched Images   : 0
+================================================================================
+
+================================================================================
+FIGURE PAGE → IMAGE ASSOCIATION
+================================================================================
+Figure Page Candidates : 1
+[FIGURE PAGE] Source=Donut.pdf | Page=12
+[FIGURE PAGE IMAGE LOOKUP] No image chunk found on the identified Figure page.
+
+================================================================================
+PAGE RENDER FALLBACK
+================================================================================
+[PAGE RENDER FALLBACK] PDF path resolved to: D:\Projects\Major-Project-2-main\src\evaluation\datasets\benchmark_documents\Donut.pdf
+[PAGE RENDER FALLBACK] PDF found: D:\Projects\Major-Project-2-main\src\evaluation\datasets\benchmark_documents\Donut.pdf
+[PAGE RENDER FALLBACK] Rendering page 12...
+[PAGE RENDER FALLBACK] Rendered Donut.pdf page 12 -> extracted_images\Donut_page12_fallback_render.png
+[PAGE RENDER FALLBACK] Recovered 1 page render(s) as figure evidence.
+================================================================================
+[FIGURE PIPELINE] Explicit figure/page image match found. CLIP fallback disabled.
+[DOCUMENT SCOPE] Images: 1 -> 1
+
+================================================================================
+STAGE 2 — IMAGE RETRIEVAL RESULT
+================================================================================
+Image Results       : 1
+Exact Figure Match  : True
+
+[IMAGE #1] Source=Donut.pdf | Page=12 | Image=Donut_page12_fallback_render.png
+Image Path: D:\Projects\Major-Project-2-main\extracted_images\Donut_page12_fallback_render.png
+Figure Page Match: True
+Content: FALLBACK PAGE RENDER (no extracted figure image was available for this page). This is a full-page render of Donut.pdf page 12, which contains the requested figure.
+================================================================================
+
+================================================================================
+COMBINED RETRIEVAL CANDIDATES
+================================================================================
+Text Candidates  : 8
+Image Candidates : 1
+Total Candidates : 9
+================================================================================
+
+================================================================================
+STEP 3A — RERANKER INPUT
+================================================================================
+Query: According to Figure 7, how does increasing the input image resolution affect Donut's performance, particularly on DocVQA?
+Input candidates: 9
+01. Source=Donut.pdf | Page=11 | Type=table | Image=N/A
+    Content=outLMv2 (left and middle examples). Due to the input resolution constraint of the end-to-end pipeline, Donut miss some tiny texts in large-scale images (right example) but this cou
+02. Source=Donut.pdf | Page=10 | Type=text | Image=N/A
+    Content=a large input resolution gives robust accuracies but makes the model slower. For example, the performance on the CORD with 1280 ×960 was 0.7 sec./image and 91.1 accuracy. But, the 
+03. Source=Donut.pdf | Page=12 | Type=text | Image=N/A
+    Content=Swin Transformer [40] outperform others on both datasets. We argue that this is due to the high expressiveness of the backbones, which were shown by the strik- ing scores on severa
+04. Source=Donut.pdf | Page=11 | Type=text | Image=N/A
+    Content=Answer: 540 Donut: 943  (another number in the image is extracted) LayoutLMv2-Large-QG: 540 Q: What is the phone number given? Answer: 336-723-6100 Donut: 336-723-6100 LayoutLMv2-L
+05. Source=Donut.pdf | Page=25 | Type=text | Image=N/A
+    Content=64 NVIDIA A100 GPUs and a mini-batch size of 196, which takes about 2-3 GPU days. We also apply a gradient clipping technique where a maximum gra- dient norm is selected from 0.05 
+06. Source=Donut.pdf | Page=14 | Type=text | Image=N/A
+    Content=have also been proposed [48]. 5 Conclusions In this work, we propose a novel end-to-end framework for visual document un- derstanding. The proposed method, Donut, directly maps an 
+07. Source=Donut.pdf | Page=12 | Type=text | Image=N/A
+    Content=images are larger with many tiny texts. But, increasing the size for a precise result incurs bigger computational costs. Using an efficient attention mecha- nism [60] may avoid the
+08. Source=Donut.pdf | Page=27 | Type=text | Image=N/A
+    Content=OCR-free Document Understanding Transformer 27 Fig. D. Examples of Business Card (top) and Receipt (bottom). Due to strict industrial policies on the private industrial datasets fr
+09. Source=Donut.pdf | Page=12 | Type=image | Image=D:\Projects\Major-Project-2-main\extracted_images\Donut_page12_fallback_render.png
+    Content=FALLBACK PAGE RENDER (no extracted figure image was available for this page). This is a full-page render of Donut.pdf page 12, which contains the requested figure.
+================================================================================
+
+--------------------------------------------------------------------------------
+CROSS-ENCODER RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=02 | Source=Donut.pdf | Page=12 | Type=text | CE=5.6852
+Rank=02 | OriginalIndex=01 | Source=Donut.pdf | Page=10 | Type=text | CE=3.4824
+Rank=03 | OriginalIndex=03 | Source=Donut.pdf | Page=11 | Type=text | CE=1.5466
+Rank=04 | OriginalIndex=00 | Source=Donut.pdf | Page=11 | Type=table | CE=0.2503
+Rank=05 | OriginalIndex=04 | Source=Donut.pdf | Page=25 | Type=text | CE=-0.3425
+Rank=06 | OriginalIndex=05 | Source=Donut.pdf | Page=14 | Type=text | CE=-3.2615
+Rank=07 | OriginalIndex=07 | Source=Donut.pdf | Page=27 | Type=text | CE=-4.0286
+Rank=08 | OriginalIndex=08 | Source=Donut.pdf | Page=12 | Type=image | CE=-6.3401
+Rank=09 | OriginalIndex=06 | Source=Donut.pdf | Page=12 | Type=text | CE=-7.3983
+
+--------------------------------------------------------------------------------
+CLIP IMAGE RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=08 | Source=Donut.pdf | Page=12 | Image=D:\Projects\Major-Project-2-main\extracted_images\Donut_page12_fallback_render.png | CLIP=0.2169
+
+================================================================================
+STEP 3A — COMPLETE MULTIMODAL RERANK RESULT
+================================================================================
+Rank=01 | Type=image | Source=Donut.pdf | Page=12 | RRF=0.031099 | CE=-6.3401 | CLIP=0.2169
+    Content=FALLBACK PAGE RENDER (no extracted figure image was available for this page). This is a full-page render of Donut.pdf page 12, which contains the requested figure.
+Rank=02 | Type=text | Source=Donut.pdf | Page=12 | RRF=0.016393 | CE=5.6852 | CLIP=N/A
+    Content=Swin Transformer [40] outperform others on both datasets. We argue that this is due to the high expressiveness of the backbones, which were shown by the strik- ing scores on severa
+Rank=03 | Type=text | Source=Donut.pdf | Page=10 | RRF=0.016129 | CE=3.4824 | CLIP=N/A
+    Content=a large input resolution gives robust accuracies but makes the model slower. For example, the performance on the CORD with 1280 ×960 was 0.7 sec./image and 91.1 accuracy. But, the 
+Rank=04 | Type=text | Source=Donut.pdf | Page=11 | RRF=0.015873 | CE=1.5466 | CLIP=N/A
+    Content=Answer: 540 Donut: 943  (another number in the image is extracted) LayoutLMv2-Large-QG: 540 Q: What is the phone number given? Answer: 336-723-6100 Donut: 336-723-6100 LayoutLMv2-L
+Rank=05 | Type=table | Source=Donut.pdf | Page=11 | RRF=0.015625 | CE=0.2503 | CLIP=N/A
+    Content=outLMv2 (left and middle examples). Due to the input resolution constraint of the end-to-end pipeline, Donut miss some tiny texts in large-scale images (right example) but this cou
+Rank=06 | Type=text | Source=Donut.pdf | Page=25 | RRF=0.015385 | CE=-0.3425 | CLIP=N/A
+    Content=64 NVIDIA A100 GPUs and a mini-batch size of 196, which takes about 2-3 GPU days. We also apply a gradient clipping technique where a maximum gra- dient norm is selected from 0.05 
+Rank=07 | Type=text | Source=Donut.pdf | Page=14 | RRF=0.015152 | CE=-3.2615 | CLIP=N/A
+    Content=have also been proposed [48]. 5 Conclusions In this work, we propose a novel end-to-end framework for visual document un- derstanding. The proposed method, Donut, directly maps an 
+Rank=08 | Type=text | Source=Donut.pdf | Page=27 | RRF=0.014925 | CE=-4.0286 | CLIP=N/A
+    Content=OCR-free Document Understanding Transformer 27 Fig. D. Examples of Business Card (top) and Receipt (bottom). Due to strict industrial policies on the private industrial datasets fr
+Rank=09 | Type=text | Source=Donut.pdf | Page=12 | RRF=0.014493 | CE=-7.3983 | CLIP=N/A
+    Content=images are larger with many tiny texts. But, increasing the size for a precise result incurs bigger computational costs. Using an efficient attention mecha- nism [60] may avoid the
+================================================================================
+
+================================================================================
+STEP 3A — FINAL RERANK TOP-K
+================================================================================
+Requested top_k: 12
+Returned documents: 9
+01. Source=Donut.pdf | Page=12 | Type=image | Image=D:\Projects\Major-Project-2-main\extracted_images\Donut_page12_fallback_render.png
+02. Source=Donut.pdf | Page=12 | Type=text | Image=N/A
+03. Source=Donut.pdf | Page=10 | Type=text | Image=N/A
+04. Source=Donut.pdf | Page=11 | Type=text | Image=N/A
+05. Source=Donut.pdf | Page=11 | Type=table | Image=N/A
+06. Source=Donut.pdf | Page=25 | Type=text | Image=N/A
+07. Source=Donut.pdf | Page=14 | Type=text | Image=N/A
+08. Source=Donut.pdf | Page=27 | Type=text | Image=N/A
+09. Source=Donut.pdf | Page=12 | Type=text | Image=N/A
+================================================================================
+
+================================================================================
+STAGE 3 — MULTIMODAL RERANKING
+================================================================================
+Input Candidates : 9
+Reranked Output   : 9
+
+[RERANK #1] Source=Donut.pdf | Page=12 | Type=image
+Exact Figure : True
+Figure Page Match : True
+Content: FALLBACK PAGE RENDER (no extracted figure image was available for this page). This is a full-page render of Donut.pdf page 12, which contains the requested figure.
+
+[RERANK #2] Source=Donut.pdf | Page=12 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Swin Transformer [40] outperform others on both datasets. We argue that this is due to the high expressiveness of the backbones, which were shown by the strik- ing scores on several downstream tasks as well. We choose Swin Transformer due to the high scalability of the Transformer-based architecture
+
+[RERANK #3] Source=Donut.pdf | Page=10 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: a large input resolution gives robust accuracies but makes the model slower. For example, the performance on the CORD with 1280 ×960 was 0.7 sec./image and 91.1 accuracy. But, the large resolution showed better performances on the low-resource situation. The detailed analyses are in Section 3.4. Unl
+
+[RERANK #4] Source=Donut.pdf | Page=11 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Answer: 540 Donut: 943  (another number in the image is extracted) LayoutLMv2-Large-QG: 540 Q: What is the phone number given? Answer: 336-723-6100 Donut: 336-723-6100 LayoutLMv2-Large-QG: 336-723- 4100 Fig. 6. Examples of Donut and LayoutLMv2 outputs on DocVQA.The OCR- errors make a performance upp
+
+[RERANK #5] Source=Donut.pdf | Page=11 | Type=table
+Exact Figure : False
+Figure Page Match : False
+Content: outLMv2 (left and middle examples). Due to the input resolution constraint of the end-to-end pipeline, Donut miss some tiny texts in large-scale images (right example) but this could be mitigated by scaling the input image size (See Section 3.4)
+
+[RERANK #6] Source=Donut.pdf | Page=25 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: 64 NVIDIA A100 GPUs and a mini-batch size of 196, which takes about 2-3 GPU days. We also apply a gradient clipping technique where a maximum gra- dient norm is selected from 0.05 to 1.0. The input resolution of Donut is set to 2560 ×1920 at the pre-training phase. In downstream tasks, the input res
+
+[RERANK #7] Source=Donut.pdf | Page=14 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: have also been proposed [48]. 5 Conclusions In this work, we propose a novel end-to-end framework for visual document un- derstanding. The proposed method, Donut, directly maps an input document image into a desired structured output. Unlike conventional methods, Donut does not depend on OCR and can
+
+[RERANK #8] Source=Donut.pdf | Page=27 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: OCR-free Document Understanding Transformer 27 Fig. D. Examples of Business Card (top) and Receipt (bottom). Due to strict industrial policies on the private industrial datasets from our active products, real-like high-quality samples are shown instead 2560×1920 setting for larger datasets, e.g., RV
+
+[RERANK #9] Source=Donut.pdf | Page=12 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: images are larger with many tiny texts. But, increasing the size for a precise result incurs bigger computational costs. Using an efficient attention mecha- nism [60] may avoid the matter in architectural design, but we use the original Transformer [58] as we aim to present a simpler architecture in
+================================================================================
+
+================================================================================
+FINAL CONTEXT DOCUMENTS
+================================================================================
+Final context candidates: 9
+
+[FINAL #1] Source=Donut.pdf | Page=12 | Type=image
+Exact Figure : True
+Figure Page Match : True
+Content: FALLBACK PAGE RENDER (no extracted figure image was available for this page). This is a full-page render of Donut.pdf page 12, which contains the requested figure.
+
+[FINAL #2] Source=Donut.pdf | Page=12 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Swin Transformer [40] outperform others on both datasets. We argue that this is due to the high expressiveness of the backbones, which were shown by the strik- ing scores on several downstream tasks as well. We choose Swin Transformer due to the high scalability of the Transformer-based architecture
+
+[FINAL #3] Source=Donut.pdf | Page=10 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: a large input resolution gives robust accuracies but makes the model slower. For example, the performance on the CORD with 1280 ×960 was 0.7 sec./image and 91.1 accuracy. But, the large resolution showed better performances on the low-resource situation. The detailed analyses are in Section 3.4. Unl
+
+[FINAL #4] Source=Donut.pdf | Page=11 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Answer: 540 Donut: 943  (another number in the image is extracted) LayoutLMv2-Large-QG: 540 Q: What is the phone number given? Answer: 336-723-6100 Donut: 336-723-6100 LayoutLMv2-Large-QG: 336-723- 4100 Fig. 6. Examples of Donut and LayoutLMv2 outputs on DocVQA.The OCR- errors make a performance upp
+
+[FINAL #5] Source=Donut.pdf | Page=11 | Type=table
+Exact Figure : False
+Figure Page Match : False
+Content: outLMv2 (left and middle examples). Due to the input resolution constraint of the end-to-end pipeline, Donut miss some tiny texts in large-scale images (right example) but this could be mitigated by scaling the input image size (See Section 3.4)
+
+[FINAL #6] Source=Donut.pdf | Page=25 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: 64 NVIDIA A100 GPUs and a mini-batch size of 196, which takes about 2-3 GPU days. We also apply a gradient clipping technique where a maximum gra- dient norm is selected from 0.05 to 1.0. The input resolution of Donut is set to 2560 ×1920 at the pre-training phase. In downstream tasks, the input res
+
+[FINAL #7] Source=Donut.pdf | Page=14 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: have also been proposed [48]. 5 Conclusions In this work, we propose a novel end-to-end framework for visual document un- derstanding. The proposed method, Donut, directly maps an input document image into a desired structured output. Unlike conventional methods, Donut does not depend on OCR and can
+
+[FINAL #8] Source=Donut.pdf | Page=27 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: OCR-free Document Understanding Transformer 27 Fig. D. Examples of Business Card (top) and Receipt (bottom). Due to strict industrial policies on the private industrial datasets from our active products, real-like high-quality samples are shown instead 2560×1920 setting for larger datasets, e.g., RV
+
+[FINAL #9] Source=Donut.pdf | Page=12 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: images are larger with many tiny texts. But, increasing the size for a precise result incurs bigger computational costs. Using an efficient attention mecha- nism [60] may avoid the matter in architectural design, but we use the original Transformer [58] as we aim to present a simpler architecture in
+================================================================================
+
+================================================================================
+FIGURE FINAL-CONTEXT DIAGNOSTIC
+================================================================================
+Requested Figure     : 7
+Exact Figure Match   : True
+Present In Final     : True
+[FIGURE DIAGNOSTIC] PASS — exact figure/page image evidence survived into final context.
+================================================================================
+
+================================================================================
+FINAL CONTEXT SENT TO LLM
+================================================================================
+
+================================================================================
+DOCUMENT : Donut.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 10
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+a large input resolution gives robust accuracies but makes the model slower.
+For example, the performance on the CORD with 1280 ×960 was 0.7 sec./image
+and 91.1 accuracy. But, the large resolution showed better performances on the
+low-resource situation. The detailed analyses are in Section 3.4. Unlike other
+baselines, Donut shows stable performance regardless of the size of datasets and
+complexity of the tasks (See Figure 5). This is a significant impact as the target
+tasks are already actively used in industries.
+Document Visual Question Answering. Table 3 shows the results on the
+
+
+--------------------------------------------------------------------------------
+PAGE : 11
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+Answer: 540
+Donut: 943  (another number in the image is extracted)
+LayoutLMv2-Large-QG: 540
+Q: What is the phone number given?
+Answer: 336-723-6100
+Donut: 336-723-6100
+LayoutLMv2-Large-QG: 336-723- 4100
+Fig. 6. Examples of Donut and LayoutLMv2 outputs on DocVQA.The OCR-
+errors make a performance upper-bound of the OCR-dependent baselines, e.g., Lay-
+outLMv2 (left and middle examples). Due to the input resolution constraint of the
+end-to-end pipeline, Donut miss some tiny texts in large-scale images (right example)
+but this could be mitigated by scaling the input image size (See Section 3.4)
+
+
+[TEXT]
+
+outLMv2 (left and middle examples). Due to the input resolution constraint of the
+end-to-end pipeline, Donut miss some tiny texts in large-scale images (right example)
+but this could be mitigated by scaling the input image size (See Section 3.4)
+
+
+--------------------------------------------------------------------------------
+PAGE : 12
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+Swin Transformer [40] outperform others on both datasets. We argue that this is
+due to the high expressiveness of the backbones, which were shown by the strik-
+ing scores on several downstream tasks as well. We choose Swin Transformer
+due to the high scalability of the Transformer-based architecture and higher
+performance over the EfficientNetV2’s.
+On Input Resolution. The Figure 7(c) shows the performance of Donut grows
+rapidly as we set a larger input size. This gets clearer in the DocVQA where the
+images are larger with many tiny texts. But, increasing the size for a precise
+
+
+[TEXT]
+
+images are larger with many tiny texts. But, increasing the size for a precise
+result incurs bigger computational costs. Using an efficient attention mecha-
+nism [60] may avoid the matter in architectural design, but we use the original
+Transformer [58] as we aim to present a simpler architecture in this work.
+On Text Localization. To see how the model behaves, we visualize the corss
+attention maps of the decoder given an unseen document image. As can be seen
+in Figure 8, the model shows meaningful results that can be used as an auxiliary
+
+
+[IMAGE DESCRIPTION]
+
+FALLBACK PAGE RENDER (no extracted figure image was available for this page). This is a full-page render of Donut.pdf page 12, which contains the requested figure.
+
+
+[RELATED PAGE TEXT]
+
+Swin Transformer [40] outperform others on both datasets. We argue that this is
+due to the high expressiveness of the backbones, which were shown by the strik-
+ing scores on several downstream tasks as well. We choose Swin Transformer
+due to the high scalability of the Transformer-based architecture and higher
+performance over the EfficientNetV2’s.
+
+
+--------------------------------------------------------------------------------
+PAGE : 14
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+have also been proposed [48].
+5 Conclusions
+In this work, we propose a novel end-to-end framework for visual document un-
+derstanding. The proposed method, Donut, directly maps an input document
+image into a desired structured output. Unlike conventional methods, Donut
+does not depend on OCR and can easily be trained in an end-to-end fashion. We
+also propose a synthetic document image generator, SynthDoG, to alleviate the
+dependency on large-scale real document images and we show that Donut can
+be easily extended to a multi-lingual setting. We gradually trained the model
+
+
+--------------------------------------------------------------------------------
+PAGE : 25
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+64 NVIDIA A100 GPUs and a mini-batch size of 196, which takes about 2-3
+GPU days. We also apply a gradient clipping technique where a maximum gra-
+dient norm is selected from 0.05 to 1.0. The input resolution of Donut is set
+to 2560 ×1920 at the pre-training phase. In downstream tasks, the input reso-
+lutions are controlled. In some downstream document IE experiments, such as,
+13https://github.com/clovaai/donut.
+14https://github.com/huggingface/transformers.
+15https://github.com/rwightman/pytorch-image-models.
+
+
+--------------------------------------------------------------------------------
+PAGE : 27
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+OCR-free Document Understanding Transformer 27
+Fig. D. Examples of Business Card (top) and Receipt (bottom). Due to strict
+industrial policies on the private industrial datasets from our active products, real-like
+high-quality samples are shown instead
+2560×1920 setting for larger datasets, e.g., RVL-CDIP or DocVQA, the cost
+increased rapidly. With 64 A100 GPUs, DocVQA requires one GPU day and
+RVL-CDIP requires two GPU days approximately. This is not surprising in that
+increasing the input size for a precise result incurs higher computational costs
+
+================================================================================
+
+================================================================================
+RAG PIPELINE DEBUG
+================================================================================
+Query Type        : visual
+Retrieved Chunks  : 8
+Retrieved Images  : 1
+Reranked Chunks   : 9
+Reranked Text     : 8
+Reranked Images   : 1
+Final Context Docs: 9
+Exact Figure Query: True
+Exact Figure Match: True
+Exact Figure Final: True
+================================================================================
+
+====================================================================================================
+RAG ANSWER
+====================================================================================================
+ Increasing the input image resolution in Donut significantly improves its performance, particularly on DocVQA. The figure shows that as the input size is set larger, Donut's performance grows rapidly, making it clearer in the DocVQA where images are larger with many tiny texts. However, it's important to note that increasing the size for a precise result incurs bigger computational costs.
+
+IMAGE PATHS:
+D:/Projects/Major-Project-2-main/extracted_images/Donut_page12_fallback_render.png

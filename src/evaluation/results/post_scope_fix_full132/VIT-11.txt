@@ -1,0 +1,1463 @@
+====================================================================================================
+QUESTION_ID   : VIT-11
+DOCUMENT      : Vision Transformer
+QUESTION_TYPE : Experiments / Results
+ELAPSED_SEC   : 97.0
+ERROR         : no
+====================================================================================================
+
+QUESTION:
+How does ViT perform when transferred from large-scale pre-training datasets to smaller downstream datasets?
+
+GROUND TRUTH ANSWER:
+ViT transfers effectively from large-scale pre-training to smaller downstream datasets. Models pre-trained on ImageNet-21k or JFT-300M perform strongly across multiple downstream benchmarks, including low-data VTAB tasks. The paper shows that sufficient large-scale pre-training enables ViT to work well even when downstream datasets contain relatively few examples.
+
+GROUND TRUTH SOURCE:
+Vision Transformer.pdf, pp. 1–2, 5–7
+
+====================================================================================================
+FORENSIC TRANSCRIPT
+====================================================================================================
+
+####################################################################################################
+FORENSIC CASE START
+####################################################################################################
+Original Query   : How does ViT perform when transferred from large-scale pre-training datasets to smaller downstream datasets?
+Expanded Query   : How does ViT perform when transferred from large-scale pre-training datasets to smaller downstream datasets?
+Query Type       : analytical
+[DOCUMENT SCOPE] Normalized query: 'how does vi t perform when transferred from large scale pre training datasets to smaller downstream datasets'
+[DOCUMENT SCOPE] Source='BERT.pdf' -> Normalized='bert'
+[DOCUMENT SCOPE] Token overlap for 'BERT.pdf': []
+[DOCUMENT SCOPE] Source='BLIP-2.pdf' -> Normalized='blip 2'
+[DOCUMENT SCOPE] Token overlap for 'BLIP-2.pdf': []
+[DOCUMENT SCOPE] Source='CLIP.pdf' -> Normalized='clip'
+[DOCUMENT SCOPE] Token overlap for 'CLIP.pdf': []
+[DOCUMENT SCOPE] Source='CNN Paper.pdf' -> Normalized='cnn paper'
+[DOCUMENT SCOPE] Token overlap for 'CNN Paper.pdf': []
+[DOCUMENT SCOPE] Source='Donut.pdf' -> Normalized='donut'
+[DOCUMENT SCOPE] Token overlap for 'Donut.pdf': []
+[DOCUMENT SCOPE] Source='LayoutLMv3.pdf' -> Normalized='layout l mv3'
+[DOCUMENT SCOPE] Token overlap for 'LayoutLMv3.pdf': []
+[DOCUMENT SCOPE] Source='NLP Paper.pdf' -> Normalized='nlp paper'
+[DOCUMENT SCOPE] Token overlap for 'NLP Paper.pdf': []
+[DOCUMENT SCOPE] Source='RAG.pdf' -> Normalized='rag'
+[DOCUMENT SCOPE] Token overlap for 'RAG.pdf': []
+[DOCUMENT SCOPE] Source='Self-RAG.pdf' -> Normalized='self rag'
+[DOCUMENT SCOPE] Token overlap for 'Self-RAG.pdf': []
+[DOCUMENT SCOPE] Source='Vision Transformer.pdf' -> Normalized='vision transformer'
+[DOCUMENT SCOPE] Token overlap for 'Vision Transformer.pdf': []
+[DOCUMENT SCOPE] No reliable document scope detected. Retrieval remains global.
+
+================================================================================
+DOCUMENT SCOPE DEBUG
+================================================================================
+Query          : How does ViT perform when transferred from large-scale pre-training datasets to smaller downstream datasets?
+Expanded Query : How does ViT perform when transferred from large-scale pre-training datasets to smaller downstream datasets?
+Query Type     : analytical
+Document Scope : None
+================================================================================
+
+==========================================================================================
+STEP 3A — GLOBAL HYBRID RETRIEVAL
+==========================================================================================
+Query              : How does ViT perform when transferred from large-scale pre-training datasets to smaller downstream datasets?
+Dense candidate K  : 25
+Final hybrid K     : 8
+RRF constant       : 60
+
+------------------------------------------------------------------------------------------
+[DENSE / VECTOR RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=Vision Transformer.pdf | Page=7 | Type=text | Image=N/A
+    Content=Published as a conference paper at ICLR 2021 ImageNet ImageNet-21k JFT-300M Pre-training dataset 70 75 80 85 90ImageNet Top1 Accuracy [%] BiT ViT-B/32 ViT-B/16 ViT-L/32 ViT-L/16 Vi
+02. Source=Vision Transformer.pdf | Page=5 | Type=text | Image=N/A
+    Content=(which is pre-trained on the same dataset) on all tasks, while requiring substantially less computa- tional resources to train. The larger model, ViT-H/14, further improves the per
+03. Source=Vision Transformer.pdf | Page=6 | Type=text | Image=N/A
+    Content=4.3 P RE-TRAINING DATA REQUIREMENTS The Vision Transformer performs well when pre-trained on a large JFT-300M dataset. With fewer inductive biases for vision than ResNets, how cruc
+04. Source=Vision Transformer.pdf | Page=7 | Type=text | Image=N/A
+    Content=for ResNet152x2 and ViT-L/16. This result reinforces the intuition that the convolutional inductive bias is useful for smaller datasets, but for larger ones, learning the relevant 
+05. Source=Vision Transformer.pdf | Page=6 | Type=text | Image=N/A
+    Content=rameters, such as training schedule, optimizer, weight decay, etc. We provide a controlled study of performance vs. compute for different architectures in Section 4.4. Finally, the
+06. Source=Vision Transformer.pdf | Page=6 | Type=text | Image=N/A
+    Content=parameters – weight decay, dropout, and label smoothing. Figure 3 shows the results after ﬁne- tuning to ImageNet (results on other datasets are shown in Table 5) 2. When pre-train
+07. Source=Vision Transformer.pdf | Page=14 | Type=text | Image=N/A
+    Content=et al., 2020)). When transferring ViT models to another dataset, we remove the whole head (two linear layers) and replace it by a single, zero-initialized linear layer outputting t
+08. Source=Vision Transformer.pdf | Page=15 | Type=text | Image=N/A
+    Content=R50x1+ViT-L/16 7 86.60 89.72 99.18 93.64 97.03 99.40 859 R50x1+ViT-L/16 14 87.12 89.76 99.31 93.89 97.36 99.11 1668 Table 6: Detailed results of model scaling experiments. These co
+09. Source=Vision Transformer.pdf | Page=13 | Type=text | Image=N/A
+    Content=training is done on resolution 224. B.1.1 F INE -TUNING We ﬁne-tune all ViT models using SGD with a momentum of 0.9. We run a small grid search over learning rates, see learning ra
+10. Source=Vision Transformer.pdf | Page=4 | Type=text | Image=N/A
+    Content=4 E XPERIMENTS We evaluate the representation learning capabilities of ResNet, Vision Transformer (ViT), and the hybrid. To understand the data requirements of each model, we pre-t
+11. Source=Vision Transformer.pdf | Page=5 | Type=text | Image=N/A
+    Content=300M with the labels removed. Currently, Noisy Student is the state of the art on ImageNet and BiT-L on the other datasets reported here. All models were trained on TPUv3 hardware,
+12. Source=Vision Transformer.pdf | Page=9 | Type=text | Image=N/A
+    Content=supervised pre-training methods. Our initial experiments show improvement from self-supervised pre-training, but there is still large gap between self-supervised and large-scale su
+13. Source=CLIP.pdf | Page=44 | Type=text | Image=N/A
+    Content=To study whether our custom dataset is critical to the perfor- mance of CLIP, we trained a model on a ﬁltered subset of the YFCC100M dataset (details described in Section 2.2) and 
+14. Source=CLIP.pdf | Page=26 | Type=text | Image=N/A
+    Content=ﬁers trained on these large but noisily labeled datasets can be competitive with those trained on smaller carefully la- beled datasets. These image-query pairs are also often used 
+15. Source=CLIP.pdf | Page=17 | Type=text | Image=N/A
+    Content=5. Data Overlap Analysis A concern with pre-training on a very large internet dataset is unintentional overlap with downstream evals. This is important to investigate since, in a w
+16. Source=CLIP.pdf | Page=37 | Type=text | Image=N/A
+    Content=models, trained on the JFT-300M dataset, are not available publicly. SimCLRv2 The SimCLRv2 (Chen et al., 2020c) project released pre-trained and ﬁne-tuned models in various set- ti
+17. Source=Vision Transformer.pdf | Page=8 | Type=text | Image=N/A
+    Content=for details on computational costs). Detailed results per model are provided in Table 6 in the Ap- pendix. A few patterns can be observed. First, Vision Transformers dominate ResNe
+18. Source=CLIP.pdf | Page=2 | Type=text | Image=N/A
+    Content=target dataset’s classes. classiﬁcation datasets by scoring target classes based on their dictionary of learned visual n-grams and predicting the one with the highest score. Adopti
+19. Source=Vision Transformer.pdf | Page=19 | Type=text | Image=N/A
+    Content=geNet 5shot linear, when pretrained on JFT dataset, verses the pretraining compute, both in terms of number of FLOPs and inference time (example per seconds). As we can see, both A
+20. Source=BERT.pdf | Page=9 | Type=text | Image=N/A
+    Content=mixed results on the downstream task impact of increasing the pre-trained bi-LM size from two to four layers and Melamud et al. (2016) men- tioned in passing that increasing hidden
+21. Source=CLIP.pdf | Page=4 | Type=text | Image=N/A
+    Content=Learning Transferable Visual Models From Natural Language Supervision 4 balance the results by including up to 20,000 (image, text) pairs per query. The resulting dataset has a sim
+22. Source=CNN Paper.pdf | Page=1 | Type=text | Image=N/A
+    Content=after 20 epochs of training using the Adam optimizer with a learning rate of 0.001. The model employs two convolutional layers followed by max-pooling and a fully-connected classif
+23. Source=BERT.pdf | Page=3 | Type=text | Image=N/A
+    Content=strated the importance of transfer learning from large pre-trained models, where an effective recipe is to ﬁne-tune models pre-trained with Ima- geNet (Deng et al., 2009; Yosinski 
+24. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=performance deterioration by retrieving less is smaller on PubHealth but larger in PopQA. Effects of training data size. We conduct an analysis of how the data scale affects the mo
+25. Source=BLIP-2.pdf | Page=6 | Type=text | Image=N/A
+    Content=formance. This observation is supported by several facts: (1) ViT-g outperforms ViT-L for both OPT and FlanT5. (2) Within the same LLM family, larger models outperform smaller ones
+
+------------------------------------------------------------------------------------------
+[BM25 RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=Vision Transformer.pdf | Page=7 | Type=image | Image=extracted_images\Vision Transformer_page7_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal on the characterization and characterization of a single - cell cell  OCR Text: Published as a conference paper
+02. Source=Vision Transformer.pdf | Page=7 | Type=text | Image=N/A
+    Content=Published as a conference paper at ICLR 2021 ImageNet ImageNet-21k JFT-300M Pre-training dataset 70 75 80 85 90ImageNet Top1 Accuracy [%] BiT ViT-B/32 ViT-B/16 ViT-L/32 ViT-L/16 Vi
+03. Source=Vision Transformer.pdf | Page=6 | Type=text | Image=N/A
+    Content=4.3 P RE-TRAINING DATA REQUIREMENTS The Vision Transformer performs well when pre-trained on a large JFT-300M dataset. With fewer inductive biases for vision than ResNets, how cruc
+04. Source=Vision Transformer.pdf | Page=2 | Type=text | Image=N/A
+    Content=Published as a conference paper at ICLR 2021 inherent to CNNs, such as translation equivariance and locality, and therefore do not generalize well when trained on insufﬁcient amoun
+05. Source=Vision Transformer.pdf | Page=4 | Type=text | Image=N/A
+    Content=4 E XPERIMENTS We evaluate the representation learning capabilities of ResNet, Vision Transformer (ViT), and the hybrid. To understand the data requirements of each model, we pre-t
+06. Source=Vision Transformer.pdf | Page=9 | Type=text | Image=N/A
+    Content=supervised pre-training methods. Our initial experiments show improvement from self-supervised pre-training, but there is still large gap between self-supervised and large-scale su
+07. Source=RAG.pdf | Page=19 | Type=text | Image=N/A
+    Content=and the RAG model would perform equivalently to BART. The collapse could be due to a less-explicit requirement for factual knowledge in some tasks, or the longer target sequences, 
+08. Source=Vision Transformer.pdf | Page=7 | Type=text | Image=N/A
+    Content=vanishes for larger models. region spanned by BiT models of different sizes. The BiT CNNs outperform ViT on ImageNet, but with the larger datasets, ViT overtakes. Second, we train 
+09. Source=Vision Transformer.pdf | Page=4 | Type=text | Image=N/A
+    Content=that self-supervised ViT holds promise for the future. 4.1 S ETUP Datasets. To explore model scalability, we use the ILSVRC-2012 ImageNet dataset with 1k classes and 1.3M images (w
+10. Source=CLIP.pdf | Page=16 | Type=text | Image=N/A
+    Content=ural distribution shift ﬁnds, similar to Taori et al. (2020), little evidence of effective robustness improvements to date. 4. Comparison to Human Performance How does CLIP compare
+11. Source=BLIP-2.pdf | Page=2 | Type=text | Image=N/A
+    Content=et al., 2021; 2022; Yu et al., 2022; Wang et al., 2022b). Most VLP methods perform end-to-end pre-training using large-scale image-text pair datasets. As the model size keeps incre
+12. Source=Vision Transformer.pdf | Page=7 | Type=text | Image=N/A
+    Content=102 103 90 95Transfer accuracy [%] Average-5 Transformer (ViT) ResNet (BiT) Hybrid 102 10375 80 85 90 ImageNet Transformer (ViT) ResNet (BiT) Hybrid Total pre-training compute [exa
+13. Source=LayoutLMv3.pdf | Page=8 | Type=text | Image=N/A
+    Content=tion weights in their self-attention image encoder, which does not apply to simple linear image encoders. ViLT [22] and METER [12] attempt to leverage MPM similar to ViT [11] and B
+14. Source=Vision Transformer.pdf | Page=8 | Type=text | Image=N/A
+    Content=Published as a conference paper at ICLR 2021 4.4 S CALING STUDY We perform a controlled scaling study of different models by evaluating transfer performance from JFT-300M. In this 
+15. Source=Vision Transformer.pdf | Page=13 | Type=text | Image=N/A
+    Content=B E XPERIMENT DETAILS B.1 T RAINING Table 3 summarizes our training setups for our different models. We found strong regularization to be key when training models from scratch on I
+16. Source=CLIP.pdf | Page=14 | Type=text | Image=N/A
+    Content=Learning Transferable Visual Models From Natural Language Supervision 14 65 70 75 80 85 90 ImageNet Score (%) 65 70 75 80 85 90Transfer Score (%) Linear probe average over Kornblit
+17. Source=Vision Transformer.pdf | Page=1 | Type=text | Image=N/A
+    Content=and a pure transformer applied directly to sequences of image patches can perform very well on image classiﬁcation tasks. When pre-trained on large amounts of data and transferred 
+18. Source=BERT.pdf | Page=9 | Type=text | Image=N/A
+    Content=mixed results on the downstream task impact of increasing the pre-trained bi-LM size from two to four layers and Melamud et al. (2016) men- tioned in passing that increasing hidden
+19. Source=Vision Transformer.pdf | Page=7 | Type=text | Image=N/A
+    Content=10 M 30 M 100 M 300 M Number of JFT pre-training samples 30 40 50 60 70Linear 5-shot ImageNet Top1 [%] ViT-L/16 ViT-L/32 ViT-B/32 ViT-b/32 ResNet50x1 (BiT) ResNet152x2 (BiT) Figure
+20. Source=CLIP.pdf | Page=19 | Type=text | Image=N/A
+    Content=99.5% Clopper-Pearson conﬁdence intervals that exclude a 0% accuracy difference. 2 of these datasetsdo worse on overlapping data. (Right) Since the percentage of detected overlappi
+21. Source=Vision Transformer.pdf | Page=7 | Type=text | Image=N/A
+    Content=for ResNet152x2 and ViT-L/16. This result reinforces the intuition that the convolutional inductive bias is useful for smaller datasets, but for larger ones, learning the relevant 
+22. Source=CLIP.pdf | Page=2 | Type=text | Image=N/A
+    Content=of learning from natural language supervision. We study the scalability of CLIP by training a series of eight models spanning almost 2 orders of magnitude of compute and ob- serve 
+23. Source=CLIP.pdf | Page=26 | Type=text | Image=N/A
+    Content=However, these datasets still use signiﬁcantly more aggres- sive ﬁltering or are designed for a speciﬁc task such as OCR and as a result are still much smaller than WIT with betwee
+24. Source=CLIP.pdf | Page=12 | Type=text | Image=N/A
+    Content=as the 14.7% improvement on GTSRB could be indicative of an issue with ImageNet-1K, which has only a single la- bel for all trafﬁc and street signs. This could encourage a supervis
+25. Source=Vision Transformer.pdf | Page=4 | Type=text | Image=N/A
+    Content=this, we remove the pre-trained prediction head and attach a zero-initialized D×K feedforward layer, where K is the number of downstream classes. It is often beneﬁcial to ﬁne-tune 
+
+------------------------------------------------------------------------------------------
+[RRF FUSION RANKING]
+------------------------------------------------------------------------------------------
+01. RRF=0.032522 | DenseRank=1 | BM25Rank=2 | Source=Vision Transformer.pdf | Page=7 | Type=text
+02. RRF=0.031746 | DenseRank=3 | BM25Rank=3 | Source=Vision Transformer.pdf | Page=6 | Type=text
+03. RRF=0.029670 | DenseRank=10 | BM25Rank=5 | Source=Vision Transformer.pdf | Page=4 | Type=text
+04. RRF=0.029040 | DenseRank=12 | BM25Rank=6 | Source=Vision Transformer.pdf | Page=9 | Type=text
+05. RRF=0.027971 | DenseRank=4 | BM25Rank=21 | Source=Vision Transformer.pdf | Page=7 | Type=text
+06. RRF=0.025321 | DenseRank=20 | BM25Rank=18 | Source=BERT.pdf | Page=9 | Type=text
+07. RRF=0.016393 | DenseRank=- | BM25Rank=1 | Source=Vision Transformer.pdf | Page=7 | Type=image
+08. RRF=0.016129 | DenseRank=2 | BM25Rank=- | Source=Vision Transformer.pdf | Page=5 | Type=text
+09. RRF=0.015625 | DenseRank=- | BM25Rank=4 | Source=Vision Transformer.pdf | Page=2 | Type=text
+10. RRF=0.015385 | DenseRank=5 | BM25Rank=- | Source=Vision Transformer.pdf | Page=6 | Type=text
+11. RRF=0.015152 | DenseRank=6 | BM25Rank=- | Source=Vision Transformer.pdf | Page=6 | Type=text
+12. RRF=0.014925 | DenseRank=7 | BM25Rank=- | Source=Vision Transformer.pdf | Page=14 | Type=text
+13. RRF=0.014925 | DenseRank=- | BM25Rank=7 | Source=RAG.pdf | Page=19 | Type=text
+14. RRF=0.014706 | DenseRank=8 | BM25Rank=- | Source=Vision Transformer.pdf | Page=15 | Type=text
+15. RRF=0.014706 | DenseRank=- | BM25Rank=8 | Source=Vision Transformer.pdf | Page=7 | Type=text
+16. RRF=0.014493 | DenseRank=9 | BM25Rank=- | Source=Vision Transformer.pdf | Page=13 | Type=text
+17. RRF=0.014493 | DenseRank=- | BM25Rank=9 | Source=Vision Transformer.pdf | Page=4 | Type=text
+18. RRF=0.014286 | DenseRank=- | BM25Rank=10 | Source=CLIP.pdf | Page=16 | Type=text
+19. RRF=0.014085 | DenseRank=11 | BM25Rank=- | Source=Vision Transformer.pdf | Page=5 | Type=text
+20. RRF=0.014085 | DenseRank=- | BM25Rank=11 | Source=BLIP-2.pdf | Page=2 | Type=text
+21. RRF=0.013889 | DenseRank=- | BM25Rank=12 | Source=Vision Transformer.pdf | Page=7 | Type=text
+22. RRF=0.013699 | DenseRank=13 | BM25Rank=- | Source=CLIP.pdf | Page=44 | Type=text
+23. RRF=0.013699 | DenseRank=- | BM25Rank=13 | Source=LayoutLMv3.pdf | Page=8 | Type=text
+24. RRF=0.013514 | DenseRank=14 | BM25Rank=- | Source=CLIP.pdf | Page=26 | Type=text
+25. RRF=0.013514 | DenseRank=- | BM25Rank=14 | Source=Vision Transformer.pdf | Page=8 | Type=text
+26. RRF=0.013333 | DenseRank=15 | BM25Rank=- | Source=CLIP.pdf | Page=17 | Type=text
+27. RRF=0.013333 | DenseRank=- | BM25Rank=15 | Source=Vision Transformer.pdf | Page=13 | Type=text
+28. RRF=0.013158 | DenseRank=16 | BM25Rank=- | Source=CLIP.pdf | Page=37 | Type=text
+29. RRF=0.013158 | DenseRank=- | BM25Rank=16 | Source=CLIP.pdf | Page=14 | Type=text
+30. RRF=0.012987 | DenseRank=17 | BM25Rank=- | Source=Vision Transformer.pdf | Page=8 | Type=text
+31. RRF=0.012987 | DenseRank=- | BM25Rank=17 | Source=Vision Transformer.pdf | Page=1 | Type=text
+32. RRF=0.012821 | DenseRank=18 | BM25Rank=- | Source=CLIP.pdf | Page=2 | Type=text
+33. RRF=0.012658 | DenseRank=19 | BM25Rank=- | Source=Vision Transformer.pdf | Page=19 | Type=text
+34. RRF=0.012658 | DenseRank=- | BM25Rank=19 | Source=Vision Transformer.pdf | Page=7 | Type=text
+35. RRF=0.012500 | DenseRank=- | BM25Rank=20 | Source=CLIP.pdf | Page=19 | Type=text
+36. RRF=0.012346 | DenseRank=21 | BM25Rank=- | Source=CLIP.pdf | Page=4 | Type=text
+37. RRF=0.012195 | DenseRank=22 | BM25Rank=- | Source=CNN Paper.pdf | Page=1 | Type=text
+38. RRF=0.012195 | DenseRank=- | BM25Rank=22 | Source=CLIP.pdf | Page=2 | Type=text
+39. RRF=0.012048 | DenseRank=23 | BM25Rank=- | Source=BERT.pdf | Page=3 | Type=text
+40. RRF=0.012048 | DenseRank=- | BM25Rank=23 | Source=CLIP.pdf | Page=26 | Type=text
+41. RRF=0.011905 | DenseRank=24 | BM25Rank=- | Source=Self-RAG.pdf | Page=10 | Type=text
+42. RRF=0.011905 | DenseRank=- | BM25Rank=24 | Source=CLIP.pdf | Page=12 | Type=text
+43. RRF=0.011765 | DenseRank=25 | BM25Rank=- | Source=BLIP-2.pdf | Page=6 | Type=text
+44. RRF=0.011765 | DenseRank=- | BM25Rank=25 | Source=Vision Transformer.pdf | Page=4 | Type=text
+------------------------------------------------------------------------------------------
+
+==========================================================================================
+STEP 3A — RETRIEVAL STAGE SUMMARY
+==========================================================================================
+Dense candidates       : 25
+BM25 candidates        : 25
+Dense ∩ BM25           : 6
+Dense-only candidates  : 19
+BM25-only candidates   : 19
+Unique candidate pool  : 44
+RRF candidates         : 44
+Returned to pipeline   : 8
+==========================================================================================
+
+------------------------------------------------------------------------------------------
+[FINAL HYBRID RESULT] 8 candidates
+------------------------------------------------------------------------------------------
+01. Source=Vision Transformer.pdf | Page=7 | Type=text | Image=N/A
+    Content=Published as a conference paper at ICLR 2021 ImageNet ImageNet-21k JFT-300M Pre-training dataset 70 75 80 85 90ImageNet Top1 Accuracy [%] BiT ViT-B/32 ViT-B/16 ViT-L/32 ViT-L/16 Vi
+02. Source=Vision Transformer.pdf | Page=6 | Type=text | Image=N/A
+    Content=4.3 P RE-TRAINING DATA REQUIREMENTS The Vision Transformer performs well when pre-trained on a large JFT-300M dataset. With fewer inductive biases for vision than ResNets, how cruc
+03. Source=Vision Transformer.pdf | Page=4 | Type=text | Image=N/A
+    Content=4 E XPERIMENTS We evaluate the representation learning capabilities of ResNet, Vision Transformer (ViT), and the hybrid. To understand the data requirements of each model, we pre-t
+04. Source=Vision Transformer.pdf | Page=9 | Type=text | Image=N/A
+    Content=supervised pre-training methods. Our initial experiments show improvement from self-supervised pre-training, but there is still large gap between self-supervised and large-scale su
+05. Source=Vision Transformer.pdf | Page=7 | Type=text | Image=N/A
+    Content=for ResNet152x2 and ViT-L/16. This result reinforces the intuition that the convolutional inductive bias is useful for smaller datasets, but for larger ones, learning the relevant 
+06. Source=BERT.pdf | Page=9 | Type=text | Image=N/A
+    Content=mixed results on the downstream task impact of increasing the pre-trained bi-LM size from two to four layers and Melamud et al. (2016) men- tioned in passing that increasing hidden
+07. Source=Vision Transformer.pdf | Page=7 | Type=image | Image=extracted_images\Vision Transformer_page7_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal on the characterization and characterization of a single - cell cell  OCR Text: Published as a conference paper
+08. Source=Vision Transformer.pdf | Page=5 | Type=text | Image=N/A
+    Content=(which is pre-trained on the same dataset) on all tasks, while requiring substantially less computa- tional resources to train. The larger model, ViT-H/14, further improves the per
+==========================================================================================
+
+================================================================================
+STAGE 1 — HYBRID RETRIEVAL
+================================================================================
+Retrieved Count : 8
+
+[HYBRID #1] Source=Vision Transformer.pdf | Page=7 | Type=text
+Content: Published as a conference paper at ICLR 2021 ImageNet ImageNet-21k JFT-300M Pre-training dataset 70 75 80 85 90ImageNet Top1 Accuracy [%] BiT ViT-B/32 ViT-B/16 ViT-L/32 ViT-L/16 ViT-H/14 Figure 3: Transfer to ImageNet. While large ViT models perform worse than BiT ResNets (shaded area) when pre-trained on small datasets, they shine when pre-trained on larger datasets. Similarly, larger ViT variants overtake smaller ones as the dataset grows. 10 M 30 M 100 M 300 M Number of JFT pre-training sampl
+
+[HYBRID #2] Source=Vision Transformer.pdf | Page=6 | Type=text
+Content: 4.3 P RE-TRAINING DATA REQUIREMENTS The Vision Transformer performs well when pre-trained on a large JFT-300M dataset. With fewer inductive biases for vision than ResNets, how crucial is the dataset size? We perform two series of experiments. First, we pre-train ViT models on datasets of increasing size: ImageNet, ImageNet-21k, and JFT- 300M. To boost the performance on the smaller datasets, we optimize three basic regularization parameters – weight decay, dropout, and label smoothing. Figure 3 
+
+[HYBRID #3] Source=Vision Transformer.pdf | Page=4 | Type=text
+Content: 4 E XPERIMENTS We evaluate the representation learning capabilities of ResNet, Vision Transformer (ViT), and the hybrid. To understand the data requirements of each model, we pre-train on datasets of varying size and evaluate many benchmark tasks. When considering the computational cost of pre-training the model, ViT performs very favourably, attaining state of the art on most recognition benchmarks at a lower pre-training cost. Lastly, we perform a small experiment using self-supervision, and s
+
+[HYBRID #4] Source=Vision Transformer.pdf | Page=9 | Type=text
+Content: supervised pre-training methods. Our initial experiments show improvement from self-supervised pre-training, but there is still large gap between self-supervised and large-scale supervised pre- training. Finally, further scaling of ViT would likely lead to improved performance. ACKNOWLEDGEMENTS The work was performed in Berlin, Z ¨urich, and Amsterdam. We thank many colleagues at Google for their help, in particular Andreas Steiner for crucial help with the infrastructure and the open- source re
+
+[HYBRID #5] Source=Vision Transformer.pdf | Page=7 | Type=text
+Content: for ResNet152x2 and ViT-L/16. This result reinforces the intuition that the convolutional inductive bias is useful for smaller datasets, but for larger ones, learning the relevant patterns directly from data is sufﬁcient, even beneﬁcial. Overall, the few-shot results on ImageNet (Figure 4), as well as the low-data results on VTAB (Table 2) seem promising for very low-data transfer. Further analysis of few-shot properties of ViT is an exciting direction of future work. 7
+
+[HYBRID #6] Source=BERT.pdf | Page=9 | Type=text
+Content: mixed results on the downstream task impact of increasing the pre-trained bi-LM size from two to four layers and Melamud et al. (2016) men- tioned in passing that increasing hidden dimen- sion size from 200 to 600 helped, but increasing further to 1,000 did not bring further improve- ments. Both of these prior works used a feature- based approach — we hypothesize that when the model is ﬁne-tuned directly on the downstream tasks and uses only a very small number of ran- domly initialized addition
+
+[HYBRID #7] Source=Vision Transformer.pdf | Page=7 | Type=image
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal on the characterization and characterization of a single - cell cell  OCR Text: Published as a conference paper at ICLR 2021  =J o  oe] wr  BiT- ViT-BB2- O...ViT-B/16. CO} iT-H/14 |  ImageNet Top! Accuracy (%]  Linear 5-shot ImageNet Top! [%]  ImageNet ImageNet-21k JFT-300M 10M 30M 100M 300M Pre-training dataset Number of JFT pre-training samples  Figure 3: Transfer to ImageNet. While Figure 4: Linear few-shot evaluation on Ima
+
+[HYBRID #8] Source=Vision Transformer.pdf | Page=5 | Type=text
+Content: (which is pre-trained on the same dataset) on all tasks, while requiring substantially less computa- tional resources to train. The larger model, ViT-H/14, further improves the performance, especially on the more challenging datasets – ImageNet, CIFAR-100, and the VTAB suite. Interestingly, this 5
+================================================================================
+
+================================================================================
+IMAGE RETRIEVAL DIAGNOSTIC
+================================================================================
+Query                 : How does ViT perform when transferred from large-scale pre-training datasets to smaller downstream datasets?
+Image Candidates      : 554
+
+ALL IMAGE CANDIDATES
+--------------------------------------------------------------------------------
+Rank=01 | Source=Vision Transformer.pdf | Page=7 | Image=Vision Transformer_page7_render.png | Hybrid=2.0208 | CE=3.1888 | CLIP=0.2689
+Rank=02 | Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img5.png | Hybrid=-0.2813 | CE=-0.6035 | CLIP=0.2019
+Rank=03 | Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img3.png | Hybrid=-0.4820 | CE=-0.9330 | CLIP=0.1944
+Rank=04 | Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img2.png | Hybrid=-0.4857 | CE=-0.9330 | CLIP=0.1853
+Rank=05 | Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img4.png | Hybrid=-0.5402 | CE=-1.0234 | CLIP=0.1847
+Rank=06 | Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img0.png | Hybrid=-0.8387 | CE=-1.5140 | CLIP=0.1743
+Rank=07 | Source=CLIP.pdf | Page=38 | Image=CLIP_page38_img0.png | Hybrid=-0.8436 | CE=-1.5130 | CLIP=0.1604
+Rank=08 | Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img1.png | Hybrid=-0.9177 | CE=-1.6541 | CLIP=0.1869
+Rank=09 | Source=CLIP.pdf | Page=38 | Image=CLIP_page38_img1.png | Hybrid=-0.9547 | CE=-1.7178 | CLIP=0.1899
+Rank=10 | Source=Vision Transformer.pdf | Page=19 | Image=Vision Transformer_page19_render.png | Hybrid=-2.4145 | CE=-4.1974 | CLIP=0.2598
+Rank=11 | Source=CLIP.pdf | Page=4 | Image=CLIP_page4_render.png | Hybrid=-2.5769 | CE=-4.4443 | CLIP=0.2241
+Rank=12 | Source=BERT.pdf | Page=13 | Image=BERT_page13_render.png | Hybrid=-2.6089 | CE=-4.5141 | CLIP=0.2489
+Rank=13 | Source=CLIP.pdf | Page=14 | Image=CLIP_page14_render.png | Hybrid=-2.7778 | CE=-4.8047 | CLIP=0.2627
+Rank=14 | Source=BLIP-2.pdf | Page=12 | Image=BLIP-2_page12_img3.png | Hybrid=-3.0240 | CE=-5.1463 | CLIP=0.1595
+Rank=15 | Source=BLIP-2.pdf | Page=12 | Image=BLIP-2_page12_img1.png | Hybrid=-3.0657 | CE=-5.2396 | CLIP=0.1952
+Rank=16 | Source=BLIP-2.pdf | Page=12 | Image=BLIP-2_page12_img2.png | Hybrid=-3.0959 | CE=-5.2893 | CLIP=0.1941
+Rank=17 | Source=BLIP-2.pdf | Page=1 | Image=BLIP-2_page1_img1.png | Hybrid=-3.2969 | CE=-5.6198 | CLIP=0.1873
+Rank=18 | Source=BLIP-2.pdf | Page=1 | Image=BLIP-2_page1_render.png | Hybrid=-3.3944 | CE=-5.8116 | CLIP=0.2314
+Rank=19 | Source=BERT.pdf | Page=14 | Image=BERT_page14_render.png | Hybrid=-3.5672 | CE=-6.1022 | CLIP=0.2354
+Rank=20 | Source=BERT.pdf | Page=3 | Image=BERT_page3_render.png | Hybrid=-3.7504 | CE=-6.4249 | CLIP=0.2613
+Rank=21 | Source=BLIP-2.pdf | Page=2 | Image=BLIP-2_page2_render.png | Hybrid=-3.8843 | CE=-6.6261 | CLIP=0.2284
+Rank=22 | Source=CLIP.pdf | Page=38 | Image=CLIP_page38_render.png | Hybrid=-3.8984 | CE=-6.6461 | CLIP=0.2231
+Rank=23 | Source=Vision Transformer.pdf | Page=3 | Image=Vision Transformer_page3_img0.png | Hybrid=-3.9062 | CE=-6.6529 | CLIP=0.2138
+Rank=24 | Source=Vision Transformer.pdf | Page=3 | Image=Vision Transformer_page3_img1.png | Hybrid=-3.9185 | CE=-6.6800 | CLIP=0.2238
+Rank=25 | Source=Vision Transformer.pdf | Page=3 | Image=Vision Transformer_page3_render.png | Hybrid=-3.9633 | CE=-6.7601 | CLIP=0.2318
+Rank=26 | Source=Vision Transformer.pdf | Page=6 | Image=Vision Transformer_page6_render.png | Hybrid=-4.0109 | CE=-6.8515 | CLIP=0.2500
+Rank=27 | Source=CLIP.pdf | Page=2 | Image=CLIP_page2_render.png | Hybrid=-4.2594 | CE=-7.2743 | CLIP=0.2629
+Rank=28 | Source=BLIP-2.pdf | Page=4 | Image=BLIP-2_page4_render.png | Hybrid=-4.2666 | CE=-7.2660 | CLIP=0.2325
+Rank=29 | Source=CLIP.pdf | Page=12 | Image=CLIP_page12_render.png | Hybrid=-4.3847 | CE=-7.4762 | CLIP=0.2526
+Rank=30 | Source=CLIP.pdf | Page=11 | Image=CLIP_page11_render.png | Hybrid=-4.4529 | CE=-7.5914 | CLIP=0.2550
+Rank=31 | Source=Donut.pdf | Page=7 | Image=Donut_page7_img4.png | Hybrid=-4.4650 | CE=-7.5746 | CLIP=0.1995
+Rank=32 | Source=Donut.pdf | Page=7 | Image=Donut_page7_img6.png | Hybrid=-4.4903 | CE=-7.6088 | CLIP=0.1875
+Rank=33 | Source=Donut.pdf | Page=7 | Image=Donut_page7_img5.png | Hybrid=-4.5177 | CE=-7.6484 | CLIP=0.1784
+Rank=34 | Source=Donut.pdf | Page=7 | Image=Donut_page7_img3.png | Hybrid=-4.5232 | CE=-7.6657 | CLIP=0.1906
+Rank=35 | Source=BLIP-2.pdf | Page=12 | Image=BLIP-2_page12_img0.png | Hybrid=-4.5266 | CE=-7.6859 | CLIP=0.2125
+Rank=36 | Source=CLIP.pdf | Page=16 | Image=CLIP_page16_render.png | Hybrid=-4.5849 | CE=-7.8092 | CLIP=0.2516
+Rank=37 | Source=Donut.pdf | Page=7 | Image=Donut_page7_img2.png | Hybrid=-4.5867 | CE=-7.7697 | CLIP=0.1878
+Rank=38 | Source=LayoutLMv3.pdf | Page=7 | Image=LayoutLMv3_page7_img0.png | Hybrid=-4.6876 | CE=-8.0096 | CLIP=0.2954
+Rank=39 | Source=Vision Transformer.pdf | Page=18 | Image=Vision Transformer_page18_render.png | Hybrid=-4.9495 | CE=-8.4286 | CLIP=0.2692
+Rank=40 | Source=CLIP.pdf | Page=37 | Image=CLIP_page37_render.png | Hybrid=-4.9505 | CE=-8.3958 | CLIP=0.2173
+Rank=41 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_render.png | Hybrid=-5.0746 | CE=-8.6381 | CLIP=0.2707
+Rank=42 | Source=NLP Paper.pdf | Page=4 | Image=NLP Paper_page4_render.png | Hybrid=-5.0793 | CE=-8.6415 | CLIP=0.2641
+Rank=43 | Source=CNN Paper.pdf | Page=2 | Image=CNN Paper_page2_img0.png | Hybrid=-5.0816 | CE=-8.6668 | CLIP=0.2962
+Rank=44 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img35.png | Hybrid=-5.0905 | CE=-8.6074 | CLIP=0.1848
+Rank=45 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img9.png | Hybrid=-5.1099 | CE=-8.6419 | CLIP=0.1880
+Rank=46 | Source=LayoutLMv3.pdf | Page=1 | Image=LayoutLMv3_page1_render.png | Hybrid=-5.1110 | CE=-8.6791 | CLIP=0.2413
+Rank=47 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img11.png | Hybrid=-5.1121 | CE=-8.6422 | CLIP=0.1831
+Rank=48 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_render.png | Hybrid=-5.1409 | CE=-8.7329 | CLIP=0.2472
+Rank=49 | Source=Self-RAG.pdf | Page=3 | Image=Self-RAG_page3_render.png | Hybrid=-5.1580 | CE=-8.7433 | CLIP=0.2198
+Rank=50 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img25.png | Hybrid=-5.1720 | CE=-8.7481 | CLIP=0.1921
+Rank=51 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img21.png | Hybrid=-5.1826 | CE=-8.7721 | CLIP=0.2017
+Rank=52 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img14.png | Hybrid=-5.1913 | CE=-8.7761 | CLIP=0.1858
+Rank=53 | Source=BERT.pdf | Page=5 | Image=BERT_page5_render.png | Hybrid=-5.2051 | CE=-8.8324 | CLIP=0.2358
+Rank=54 | Source=NLP Paper.pdf | Page=4 | Image=NLP Paper_page4_img0.png | Hybrid=-5.2122 | CE=-8.8550 | CLIP=0.2519
+Rank=55 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img5.png | Hybrid=-5.2156 | CE=-8.8289 | CLIP=0.2044
+Rank=56 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img8.png | Hybrid=-5.2164 | CE=-8.8236 | CLIP=0.1942
+Rank=57 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img7.png | Hybrid=-5.2177 | CE=-8.8321 | CLIP=0.2039
+Rank=58 | Source=BLIP-2.pdf | Page=4 | Image=BLIP-2_page4_img1.png | Hybrid=-5.2279 | CE=-8.8548 | CLIP=0.2124
+Rank=59 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img10.png | Hybrid=-5.2496 | CE=-8.8840 | CLIP=0.2020
+Rank=60 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img31.png | Hybrid=-5.2536 | CE=-8.8840 | CLIP=0.1922
+Rank=61 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img6.png | Hybrid=-5.2549 | CE=-8.9019 | CLIP=0.2155
+Rank=62 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img12.png | Hybrid=-5.2550 | CE=-8.8741 | CLIP=0.1737
+Rank=63 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img32.png | Hybrid=-5.2625 | CE=-8.9093 | CLIP=0.2076
+Rank=64 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img13.png | Hybrid=-5.2830 | CE=-8.9315 | CLIP=0.1897
+Rank=65 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img17.png | Hybrid=-5.2912 | CE=-8.9465 | CLIP=0.1917
+Rank=66 | Source=Donut.pdf | Page=5 | Image=Donut_page5_render.png | Hybrid=-5.2933 | CE=-8.9913 | CLIP=0.2538
+Rank=67 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img4.png | Hybrid=-5.2980 | CE=-8.9702 | CLIP=0.2103
+Rank=68 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img15.png | Hybrid=-5.3015 | CE=-8.9761 | CLIP=0.2104
+Rank=69 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img16.png | Hybrid=-5.3035 | CE=-8.9579 | CLIP=0.1782
+Rank=70 | Source=CLIP.pdf | Page=2 | Image=CLIP_page2_img1.png | Hybrid=-5.3100 | CE=-8.9659 | CLIP=0.1737
+Rank=71 | Source=CLIP.pdf | Page=17 | Image=CLIP_page17_render.png | Hybrid=-5.3260 | CE=-9.0471 | CLIP=0.2557
+Rank=72 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img11.png | Hybrid=-5.3552 | CE=-9.0700 | CLIP=0.2169
+Rank=73 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img27.png | Hybrid=-5.3617 | CE=-9.0607 | CLIP=0.1868
+Rank=74 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img28.png | Hybrid=-5.3729 | CE=-9.0940 | CLIP=0.2088
+Rank=75 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img33.png | Hybrid=-5.3730 | CE=-9.0893 | CLIP=0.2014
+Rank=76 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img2.png | Hybrid=-5.3885 | CE=-9.1148 | CLIP=0.2011
+Rank=77 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img26.png | Hybrid=-5.3907 | CE=-9.1170 | CLIP=0.1989
+Rank=78 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img34.png | Hybrid=-5.3909 | CE=-9.1040 | CLIP=0.1787
+Rank=79 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img24.png | Hybrid=-5.4125 | CE=-9.1515 | CLIP=0.1960
+Rank=80 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img18.png | Hybrid=-5.4202 | CE=-9.1525 | CLIP=0.1782
+Rank=81 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img29.png | Hybrid=-5.4214 | CE=-9.1742 | CLIP=0.2078
+Rank=82 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img26.png | Hybrid=-5.4242 | CE=-9.1742 | CLIP=0.2008
+Rank=83 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img23.png | Hybrid=-5.4345 | CE=-9.1892 | CLIP=0.1975
+Rank=84 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img14.png | Hybrid=-5.4379 | CE=-9.1989 | CLIP=0.2035
+Rank=85 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img19.png | Hybrid=-5.4450 | CE=-9.1955 | CLIP=0.1807
+Rank=86 | Source=Donut.pdf | Page=7 | Image=Donut_page7_render.png | Hybrid=-5.4690 | CE=-9.2791 | CLIP=0.2461
+Rank=87 | Source=Donut.pdf | Page=27 | Image=Donut_page27_img5.png | Hybrid=-5.4901 | CE=-9.2811 | CLIP=0.1964
+Rank=88 | Source=Donut.pdf | Page=27 | Image=Donut_page27_img2.png | Hybrid=-5.4944 | CE=-9.2827 | CLIP=0.1881
+Rank=89 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img30.png | Hybrid=-5.5025 | CE=-9.2988 | CLIP=0.1919
+Rank=90 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img0.png | Hybrid=-5.5052 | CE=-9.2879 | CLIP=0.1689
+Rank=91 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img1.png | Hybrid=-5.5113 | CE=-9.2879 | CLIP=0.1537
+Rank=92 | Source=CLIP.pdf | Page=43 | Image=CLIP_page43_render.png | Hybrid=-5.5155 | CE=-9.3644 | CLIP=0.2579
+Rank=93 | Source=BLIP-2.pdf | Page=3 | Image=BLIP-2_page3_render.png | Hybrid=-5.5169 | CE=-9.3667 | CLIP=0.2578
+Rank=94 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img20.png | Hybrid=-5.5303 | CE=-9.3425 | CLIP=0.1879
+Rank=95 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img3.png | Hybrid=-5.5411 | CE=-9.3597 | CLIP=0.1869
+Rank=96 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img2.png | Hybrid=-5.5444 | CE=-9.3765 | CLIP=0.2038
+Rank=97 | Source=CLIP.pdf | Page=2 | Image=CLIP_page2_img0.png | Hybrid=-5.5450 | CE=-9.3680 | CLIP=0.1894
+Rank=98 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img8.png | Hybrid=-5.5488 | CE=-9.3785 | CLIP=0.1956
+Rank=99 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img17.png | Hybrid=-5.5522 | CE=-9.3883 | CLIP=0.2019
+Rank=100 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img1.png | Hybrid=-5.5550 | CE=-9.3863 | CLIP=0.1920
+Rank=101 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img7.png | Hybrid=-5.5609 | CE=-9.4004 | CLIP=0.1983
+Rank=102 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img6.png | Hybrid=-5.5703 | CE=-9.4268 | CLIP=0.2146
+Rank=103 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img0.png | Hybrid=-5.5755 | CE=-9.4292 | CLIP=0.2050
+Rank=104 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img9.png | Hybrid=-5.5802 | CE=-9.4323 | CLIP=0.1981
+Rank=105 | Source=Vision Transformer.pdf | Page=20 | Image=Vision Transformer_page20_render.png | Hybrid=-5.5878 | CE=-9.4914 | CLIP=0.2676
+Rank=106 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img22.png | Hybrid=-5.5914 | CE=-9.4514 | CLIP=0.1984
+Rank=107 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img5.png | Hybrid=-5.5962 | CE=-9.4634 | CLIP=0.2046
+Rank=108 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img24.png | Hybrid=-5.5981 | CE=-9.4688 | CLIP=0.2078
+Rank=109 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img13.png | Hybrid=-5.5984 | CE=-9.4634 | CLIP=0.1990
+Rank=110 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img27.png | Hybrid=-5.5985 | CE=-9.4710 | CLIP=0.2102
+Rank=111 | Source=Donut.pdf | Page=27 | Image=Donut_page27_img4.png | Hybrid=-5.6026 | CE=-9.4672 | CLIP=0.1944
+Rank=112 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img25.png | Hybrid=-5.6031 | CE=-9.4696 | CLIP=0.1968
+Rank=113 | Source=BLIP-2.pdf | Page=3 | Image=BLIP-2_page3_img1.png | Hybrid=-5.6065 | CE=-9.4858 | CLIP=0.2124
+Rank=114 | Source=CNN Paper.pdf | Page=5 | Image=CNN Paper_page5_render.png | Hybrid=-5.6327 | CE=-9.5565 | CLIP=0.2529
+Rank=115 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_render.png | Hybrid=-5.6419 | CE=-9.5722 | CLIP=0.2536
+Rank=116 | Source=BERT.pdf | Page=6 | Image=BERT_page6_render.png | Hybrid=-5.6498 | CE=-9.5749 | CLIP=0.2378
+Rank=117 | Source=Donut.pdf | Page=27 | Image=Donut_page27_img3.png | Hybrid=-5.6545 | CE=-9.5572 | CLIP=0.1995
+Rank=118 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img20.png | Hybrid=-5.6558 | CE=-9.5604 | CLIP=0.2012
+Rank=119 | Source=BLIP-2.pdf | Page=13 | Image=BLIP-2_page13_img1.png | Hybrid=-5.6639 | CE=-9.5815 | CLIP=0.2124
+Rank=120 | Source=CLIP.pdf | Page=2 | Image=CLIP_page2_img2.png | Hybrid=-5.6652 | CE=-9.5805 | CLIP=0.2076
+Rank=121 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img23.png | Hybrid=-5.6707 | CE=-9.5924 | CLIP=0.2117
+Rank=122 | Source=CLIP.pdf | Page=44 | Image=CLIP_page44_render.png | Hybrid=-5.6732 | CE=-9.6180 | CLIP=0.2440
+Rank=123 | Source=CNN Paper.pdf | Page=2 | Image=CNN Paper_page2_render.png | Hybrid=-5.6761 | CE=-9.6469 | CLIP=0.2800
+Rank=124 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img3.png | Hybrid=-5.6801 | CE=-9.6003 | CLIP=0.2001
+Rank=125 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img12.png | Hybrid=-5.6991 | CE=-9.6324 | CLIP=0.2009
+Rank=126 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img22.png | Hybrid=-5.6999 | CE=-9.6439 | CLIP=0.2162
+Rank=127 | Source=CLIP.pdf | Page=2 | Image=CLIP_page2_img4.png | Hybrid=-5.7038 | CE=-9.6474 | CLIP=0.2115
+Rank=128 | Source=CNN Paper.pdf | Page=1 | Image=CNN Paper_page1_render.png | Hybrid=-5.7289 | CE=-9.7068 | CLIP=0.2380
+Rank=129 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img15.png | Hybrid=-5.7319 | CE=-9.6835 | CLIP=0.1954
+Rank=130 | Source=Donut.pdf | Page=27 | Image=Donut_page27_img0.png | Hybrid=-5.7514 | CE=-9.7253 | CLIP=0.2094
+Rank=131 | Source=CLIP.pdf | Page=2 | Image=CLIP_page2_img3.png | Hybrid=-5.7538 | CE=-9.7180 | CLIP=0.1925
+Rank=132 | Source=Donut.pdf | Page=27 | Image=Donut_page27_img1.png | Hybrid=-5.7563 | CE=-9.7162 | CLIP=0.1834
+Rank=133 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img19.png | Hybrid=-5.7570 | CE=-9.7325 | CLIP=0.2064
+Rank=134 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img21.png | Hybrid=-5.7594 | CE=-9.7325 | CLIP=0.2003
+Rank=135 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img16.png | Hybrid=-5.7596 | CE=-9.7325 | CLIP=0.1998
+Rank=136 | Source=CNN Paper.pdf | Page=3 | Image=CNN Paper_page3_render.png | Hybrid=-5.7812 | CE=-9.8014 | CLIP=0.2491
+Rank=137 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img4.png | Hybrid=-5.7818 | CE=-9.7669 | CLIP=0.1958
+Rank=138 | Source=Vision Transformer.pdf | Page=15 | Image=Vision Transformer_page15_render.png | Hybrid=-5.7836 | CE=-9.7893 | CLIP=0.2248
+Rank=139 | Source=Self-RAG.pdf | Page=10 | Image=Self-RAG_page10_render.png | Hybrid=-5.7907 | CE=-9.8184 | CLIP=0.2508
+Rank=140 | Source=CLIP.pdf | Page=41 | Image=CLIP_page41_render.png | Hybrid=-5.8361 | CE=-9.8881 | CLIP=0.2419
+Rank=141 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img8.png | Hybrid=-5.8554 | CE=-9.8754 | CLIP=0.1746
+Rank=142 | Source=CNN Paper.pdf | Page=3 | Image=CNN Paper_page3_img0.png | Hybrid=-5.8588 | CE=-9.9204 | CLIP=0.2336
+Rank=143 | Source=CLIP.pdf | Page=19 | Image=CLIP_page19_render.png | Hybrid=-5.8966 | CE=-10.0039 | CLIP=0.2643
+Rank=144 | Source=CLIP.pdf | Page=13 | Image=CLIP_page13_render.png | Hybrid=-5.9095 | CE=-10.0046 | CLIP=0.2330
+Rank=145 | Source=Vision Transformer.pdf | Page=18 | Image=Vision Transformer_page18_img0.png | Hybrid=-5.9195 | CE=-10.0223 | CLIP=0.2346
+Rank=146 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img10.png | Hybrid=-5.9242 | CE=-9.9973 | CLIP=0.1854
+Rank=147 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img0.png | Hybrid=-5.9244 | CE=-10.0153 | CLIP=0.2120
+Rank=148 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img3.png | Hybrid=-5.9393 | CE=-10.0326 | CLIP=0.2007
+Rank=149 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img18.png | Hybrid=-5.9611 | CE=-10.0671 | CLIP=0.1977
+Rank=150 | Source=CNN Paper.pdf | Page=3 | Image=CNN Paper_page3_img1.png | Hybrid=-5.9906 | CE=-10.1566 | CLIP=0.2582
+Rank=151 | Source=Vision Transformer.pdf | Page=18 | Image=Vision Transformer_page18_img4.png | Hybrid=-5.9963 | CE=-10.1406 | CLIP=0.2201
+Rank=152 | Source=Vision Transformer.pdf | Page=18 | Image=Vision Transformer_page18_img2.png | Hybrid=-5.9968 | CE=-10.1406 | CLIP=0.2189
+Rank=153 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img2.png | Hybrid=-6.0034 | CE=-10.1204 | CLIP=0.1721
+Rank=154 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img6.png | Hybrid=-6.0070 | CE=-10.1545 | CLIP=0.2142
+Rank=155 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img11.png | Hybrid=-6.0132 | CE=-10.1462 | CLIP=0.1862
+Rank=156 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img9.png | Hybrid=-6.0177 | CE=-10.1523 | CLIP=0.1843
+Rank=157 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img3.png | Hybrid=-6.0209 | CE=-10.1637 | CLIP=0.1935
+Rank=158 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img8.png | Hybrid=-6.0250 | CE=-10.1772 | CLIP=0.2033
+Rank=159 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img6.png | Hybrid=-6.0308 | CE=-10.1772 | CLIP=0.1888
+Rank=160 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img7.png | Hybrid=-6.0310 | CE=-10.1772 | CLIP=0.1884
+Rank=161 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img1.png | Hybrid=-6.0406 | CE=-10.2135 | CLIP=0.2186
+Rank=162 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img3.png | Hybrid=-6.0419 | CE=-10.1769 | CLIP=0.1606
+Rank=163 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img7.png | Hybrid=-6.0460 | CE=-10.2254 | CLIP=0.2230
+Rank=164 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img6.png | Hybrid=-6.0473 | CE=-10.2088 | CLIP=0.1951
+Rank=165 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img4.png | Hybrid=-6.0793 | CE=-10.2644 | CLIP=0.1984
+Rank=166 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img12.png | Hybrid=-6.0800 | CE=-10.2493 | CLIP=0.1739
+Rank=167 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img1.png | Hybrid=-6.0824 | CE=-10.2521 | CLIP=0.1721
+Rank=168 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img4.png | Hybrid=-6.0848 | CE=-10.2412 | CLIP=0.1499
+Rank=169 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img11.png | Hybrid=-6.0850 | CE=-10.2546 | CLIP=0.1694
+Rank=170 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img6.png | Hybrid=-6.0966 | CE=-10.3215 | CLIP=0.2409
+Rank=171 | Source=CNN Paper.pdf | Page=1 | Image=CNN Paper_page1_img0.png | Hybrid=-6.1003 | CE=-10.3173 | CLIP=0.2253
+Rank=172 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img5.png | Hybrid=-6.1025 | CE=-10.3095 | CLIP=0.2079
+Rank=173 | Source=Donut.pdf | Page=8 | Image=Donut_page8_render.png | Hybrid=-6.1069 | CE=-10.3454 | CLIP=0.2508
+Rank=174 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img7.png | Hybrid=-6.1338 | CE=-10.3573 | CLIP=0.2014
+Rank=175 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img1.png | Hybrid=-6.1355 | CE=-10.3255 | CLIP=0.1496
+Rank=176 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img2.png | Hybrid=-6.1375 | CE=-10.3734 | CLIP=0.2163
+Rank=177 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img7.png | Hybrid=-6.1381 | CE=-10.3735 | CLIP=0.2149
+Rank=178 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img1.png | Hybrid=-6.1522 | CE=-10.3704 | CLIP=0.1753
+Rank=179 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img4.png | Hybrid=-6.1522 | CE=-10.4044 | CLIP=0.2261
+Rank=180 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img2.png | Hybrid=-6.1585 | CE=-10.3944 | CLIP=0.1953
+Rank=181 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img9.png | Hybrid=-6.1871 | CE=-10.4375 | CLIP=0.1885
+Rank=182 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img0.png | Hybrid=-6.1950 | CE=-10.4462 | CLIP=0.1817
+Rank=183 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img8.png | Hybrid=-6.1956 | CE=-10.4780 | CLIP=0.2280
+Rank=184 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img10.png | Hybrid=-6.2479 | CE=-10.5463 | CLIP=0.1997
+Rank=185 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img2.png | Hybrid=-6.2516 | CE=-10.5393 | CLIP=0.1798
+Rank=186 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img9.png | Hybrid=-6.2577 | CE=-10.5279 | CLIP=0.1475
+Rank=187 | Source=NLP Paper.pdf | Page=2 | Image=NLP Paper_page2_img0.png | Hybrid=-6.2782 | CE=-10.6181 | CLIP=0.2318
+Rank=188 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img10.png | Hybrid=-6.2884 | CE=-10.6062 | CLIP=0.1885
+Rank=189 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img5.png | Hybrid=-6.2958 | CE=-10.6346 | CLIP=0.2125
+Rank=190 | Source=Donut.pdf | Page=7 | Image=Donut_page7_img1.png | Hybrid=-6.2986 | CE=-10.6417 | CLIP=0.2161
+Rank=191 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img4.png | Hybrid=-6.2987 | CE=-10.6422 | CLIP=0.2164
+Rank=192 | Source=NLP Paper.pdf | Page=1 | Image=NLP Paper_page1_render.png | Hybrid=-6.3525 | CE=-10.7437 | CLIP=0.2342
+Rank=193 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img8.png | Hybrid=-6.3740 | CE=-10.7663 | CLIP=0.2146
+Rank=194 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img3.png | Hybrid=-6.3782 | CE=-10.7868 | CLIP=0.2348
+Rank=195 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img5.png | Hybrid=-6.3949 | CE=-10.8052 | CLIP=0.2205
+Rank=196 | Source=NLP Paper.pdf | Page=1 | Image=NLP Paper_page1_img0.png | Hybrid=-6.4171 | CE=-10.8452 | CLIP=0.2250
+Rank=197 | Source=NLP Paper.pdf | Page=3 | Image=NLP Paper_page3_img0.png | Hybrid=-6.4551 | CE=-10.9327 | CLIP=0.2611
+Rank=198 | Source=CNN Paper.pdf | Page=4 | Image=CNN Paper_page4_img0.png | Hybrid=-6.5005 | CE=-11.0016 | CLIP=0.2511
+Rank=199 | Source=Self-RAG.pdf | Page=9 | Image=Self-RAG_page9_render.png | Hybrid=-6.5190 | CE=-11.0356 | CLIP=0.2558
+Rank=200 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img20.png | Hybrid=-6.5264 | CE=-10.9901 | CLIP=0.1691
+Rank=201 | Source=CLIP.pdf | Page=3 | Image=CLIP_page3_render.png | Hybrid=-6.5330 | CE=-11.0565 | CLIP=0.2522
+Rank=202 | Source=Donut.pdf | Page=3 | Image=Donut_page3_render.png | Hybrid=-6.5685 | CE=-11.1255 | CLIP=0.2668
+Rank=203 | Source=NLP Paper.pdf | Page=3 | Image=NLP Paper_page3_render.png | Hybrid=-6.5686 | CE=-11.1133 | CLIP=0.2483
+Rank=204 | Source=CLIP.pdf | Page=18 | Image=CLIP_page18_render.png | Hybrid=-6.5722 | CE=-11.1247 | CLIP=0.2565
+Rank=205 | Source=Self-RAG.pdf | Page=4 | Image=Self-RAG_page4_render.png | Hybrid=-6.5803 | CE=-11.1366 | CLIP=0.2542
+Rank=206 | Source=BERT.pdf | Page=3 | Image=BERT_page3_img12.png | Hybrid=-6.5804 | CE=-11.1220 | CLIP=0.2319
+Rank=207 | Source=Vision Transformer.pdf | Page=14 | Image=Vision Transformer_page14_render.png | Hybrid=-6.5896 | CE=-11.1380 | CLIP=0.2331
+Rank=208 | Source=CLIP.pdf | Page=5 | Image=CLIP_page5_render.png | Hybrid=-6.5903 | CE=-11.1504 | CLIP=0.2499
+Rank=209 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img9.png | Hybrid=-6.6232 | CE=-11.1884 | CLIP=0.2246
+Rank=210 | Source=NLP Paper.pdf | Page=4 | Image=NLP Paper_page4_img1.png | Hybrid=-6.6294 | CE=-11.2017 | CLIP=0.2291
+Rank=211 | Source=CLIP.pdf | Page=23 | Image=CLIP_page23_render.png | Hybrid=-6.6374 | CE=-11.2110 | CLIP=0.2229
+Rank=212 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img101.png | Hybrid=-6.6478 | CE=-11.2132 | CLIP=0.2004
+Rank=213 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img132.png | Hybrid=-6.6487 | CE=-11.2183 | CLIP=0.2057
+Rank=214 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img176.png | Hybrid=-6.6510 | CE=-11.2183 | CLIP=0.1999
+Rank=215 | Source=Donut.pdf | Page=2 | Image=Donut_page2_render.png | Hybrid=-6.6556 | CE=-11.2645 | CLIP=0.2577
+Rank=216 | Source=Donut.pdf | Page=28 | Image=Donut_page28_img0.png | Hybrid=-6.6562 | CE=-11.2148 | CLIP=0.1817
+Rank=217 | Source=LayoutLMv3.pdf | Page=1 | Image=LayoutLMv3_page1_img1.png | Hybrid=-6.6573 | CE=-11.2560 | CLIP=0.2409
+Rank=218 | Source=Self-RAG.pdf | Page=1 | Image=Self-RAG_page1_render.png | Hybrid=-6.6624 | CE=-11.2587 | CLIP=0.2319
+Rank=219 | Source=Donut.pdf | Page=4 | Image=Donut_page4_render.png | Hybrid=-6.6714 | CE=-11.3098 | CLIP=0.2863
+Rank=220 | Source=CLIP.pdf | Page=24 | Image=CLIP_page24_render.png | Hybrid=-6.6888 | CE=-11.3126 | CLIP=0.2470
+Rank=221 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img0.png | Hybrid=-6.6905 | CE=-11.2832 | CLIP=0.1984
+Rank=222 | Source=Self-RAG.pdf | Page=2 | Image=Self-RAG_page2_render.png | Hybrid=-6.6935 | CE=-11.3142 | CLIP=0.2376
+Rank=223 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img217.png | Hybrid=-6.6951 | CE=-11.3052 | CLIP=0.2200
+Rank=224 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img201.png | Hybrid=-6.6955 | CE=-11.2886 | CLIP=0.1941
+Rank=225 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img130.png | Hybrid=-6.6972 | CE=-11.2968 | CLIP=0.2021
+Rank=226 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img5.png | Hybrid=-6.6984 | CE=-11.2848 | CLIP=0.1811
+Rank=227 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img227.png | Hybrid=-6.6996 | CE=-11.2888 | CLIP=0.1843
+Rank=228 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img62.png | Hybrid=-6.7007 | CE=-11.3031 | CLIP=0.2029
+Rank=229 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img28.png | Hybrid=-6.7017 | CE=-11.2928 | CLIP=0.1851
+Rank=230 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img128.png | Hybrid=-6.7021 | CE=-11.3029 | CLIP=0.1991
+Rank=231 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img40.png | Hybrid=-6.7026 | CE=-11.3238 | CLIP=0.2291
+Rank=232 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img49.png | Hybrid=-6.7026 | CE=-11.3060 | CLIP=0.2024
+Rank=233 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img26.png | Hybrid=-6.7047 | CE=-11.3007 | CLIP=0.1894
+Rank=234 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img123.png | Hybrid=-6.7062 | CE=-11.3151 | CLIP=0.2071
+Rank=235 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img22.png | Hybrid=-6.7080 | CE=-11.3083 | CLIP=0.1924
+Rank=236 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img115.png | Hybrid=-6.7085 | CE=-11.3059 | CLIP=0.1877
+Rank=237 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img144.png | Hybrid=-6.7086 | CE=-11.3195 | CLIP=0.2077
+Rank=238 | Source=Donut.pdf | Page=13 | Image=Donut_page13_img4.png | Hybrid=-6.7095 | CE=-11.3058 | CLIP=0.1849
+Rank=239 | Source=Donut.pdf | Page=13 | Image=Donut_page13_img5.png | Hybrid=-6.7095 | CE=-11.3058 | CLIP=0.1849
+Rank=240 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img24.png | Hybrid=-6.7098 | CE=-11.3139 | CLIP=0.1964
+Rank=241 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img255.png | Hybrid=-6.7106 | CE=-11.3111 | CLIP=0.1901
+Rank=242 | Source=RAG.pdf | Page=8 | Image=RAG_page8_render.png | Hybrid=-6.7110 | CE=-11.3560 | CLIP=0.2565
+Rank=243 | Source=Donut.pdf | Page=13 | Image=Donut_page13_img7.png | Hybrid=-6.7113 | CE=-11.3124 | CLIP=0.1905
+Rank=244 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img175.png | Hybrid=-6.7117 | CE=-11.3083 | CLIP=0.1833
+Rank=245 | Source=Donut.pdf | Page=13 | Image=Donut_page13_img8.png | Hybrid=-6.7120 | CE=-11.3188 | CLIP=0.1981
+Rank=246 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img235.png | Hybrid=-6.7121 | CE=-11.3111 | CLIP=0.1865
+Rank=247 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img100.png | Hybrid=-6.7133 | CE=-11.3320 | CLIP=0.2146
+Rank=248 | Source=Donut.pdf | Page=13 | Image=Donut_page13_img6.png | Hybrid=-6.7136 | CE=-11.3124 | CLIP=0.1848
+Rank=249 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img213.png | Hybrid=-6.7138 | CE=-11.3196 | CLIP=0.1948
+Rank=250 | Source=Donut.pdf | Page=13 | Image=Donut_page13_img2.png | Hybrid=-6.7139 | CE=-11.3124 | CLIP=0.1840
+Rank=251 | Source=Donut.pdf | Page=13 | Image=Donut_page13_img3.png | Hybrid=-6.7139 | CE=-11.3124 | CLIP=0.1839
+Rank=252 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img36.png | Hybrid=-6.7179 | CE=-11.3131 | CLIP=0.1748
+Rank=253 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img41.png | Hybrid=-6.7189 | CE=-11.3366 | CLIP=0.2076
+Rank=254 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img59.png | Hybrid=-6.7201 | CE=-11.3407 | CLIP=0.2108
+Rank=255 | Source=BERT.pdf | Page=15 | Image=BERT_page15_img13.png | Hybrid=-6.7201 | CE=-11.3548 | CLIP=0.2319
+Rank=256 | Source=Donut.pdf | Page=13 | Image=Donut_page13_img0.png | Hybrid=-6.7202 | CE=-11.3246 | CLIP=0.1865
+Rank=257 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img112.png | Hybrid=-6.7204 | CE=-11.3398 | CLIP=0.2086
+Rank=258 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img219.png | Hybrid=-6.7212 | CE=-11.3374 | CLIP=0.2031
+Rank=259 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img48.png | Hybrid=-6.7214 | CE=-11.3241 | CLIP=0.1826
+Rank=260 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img67.png | Hybrid=-6.7216 | CE=-11.3155 | CLIP=0.1693
+Rank=261 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img211.png | Hybrid=-6.7217 | CE=-11.3357 | CLIP=0.1992
+Rank=262 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img155.png | Hybrid=-6.7219 | CE=-11.3388 | CLIP=0.2036
+Rank=263 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img206.png | Hybrid=-6.7223 | CE=-11.3403 | CLIP=0.2047
+Rank=264 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img27.png | Hybrid=-6.7228 | CE=-11.3353 | CLIP=0.1959
+Rank=265 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img212.png | Hybrid=-6.7233 | CE=-11.3233 | CLIP=0.1769
+Rank=266 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img35.png | Hybrid=-6.7234 | CE=-11.3457 | CLIP=0.2102
+Rank=267 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img60.png | Hybrid=-6.7237 | CE=-11.3512 | CLIP=0.2175
+Rank=268 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img137.png | Hybrid=-6.7244 | CE=-11.3227 | CLIP=0.1729
+Rank=269 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img180.png | Hybrid=-6.7246 | CE=-11.3318 | CLIP=0.1863
+Rank=270 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img181.png | Hybrid=-6.7249 | CE=-11.3370 | CLIP=0.1933
+Rank=271 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img172.png | Hybrid=-6.7249 | CE=-11.3503 | CLIP=0.2132
+Rank=272 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img167.png | Hybrid=-6.7249 | CE=-11.3464 | CLIP=0.2073
+Rank=273 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img141.png | Hybrid=-6.7253 | CE=-11.3431 | CLIP=0.2015
+Rank=274 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img207.png | Hybrid=-6.7253 | CE=-11.3471 | CLIP=0.2074
+Rank=275 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img171.png | Hybrid=-6.7264 | CE=-11.3472 | CLIP=0.2049
+Rank=276 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img17.png | Hybrid=-6.7264 | CE=-11.3518 | CLIP=0.2118
+Rank=277 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img244.png | Hybrid=-6.7264 | CE=-11.3413 | CLIP=0.1959
+Rank=278 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img198.png | Hybrid=-6.7269 | CE=-11.3513 | CLIP=0.2097
+Rank=279 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img13.png | Hybrid=-6.7271 | CE=-11.3478 | CLIP=0.2041
+Rank=280 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img226.png | Hybrid=-6.7272 | CE=-11.3296 | CLIP=0.1763
+Rank=281 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img118.png | Hybrid=-6.7274 | CE=-11.3369 | CLIP=0.1868
+Rank=282 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img129.png | Hybrid=-6.7276 | CE=-11.3333 | CLIP=0.1811
+Rank=283 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img94.png | Hybrid=-6.7279 | CE=-11.3471 | CLIP=0.2010
+Rank=284 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img32.png | Hybrid=-6.7280 | CE=-11.3313 | CLIP=0.1769
+Rank=285 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img92.png | Hybrid=-6.7280 | CE=-11.3558 | CLIP=0.2136
+Rank=286 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img34.png | Hybrid=-6.7282 | CE=-11.3433 | CLIP=0.1944
+Rank=287 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img69.png | Hybrid=-6.7283 | CE=-11.3411 | CLIP=0.1908
+Rank=288 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img16.png | Hybrid=-6.7286 | CE=-11.3431 | CLIP=0.1932
+Rank=289 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img231.png | Hybrid=-6.7288 | CE=-11.3474 | CLIP=0.1991
+Rank=290 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img113.png | Hybrid=-6.7292 | CE=-11.3516 | CLIP=0.2043
+Rank=291 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img250.png | Hybrid=-6.7295 | CE=-11.3487 | CLIP=0.1994
+Rank=292 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img221.png | Hybrid=-6.7298 | CE=-11.3367 | CLIP=0.1807
+Rank=293 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img135.png | Hybrid=-6.7299 | CE=-11.3560 | CLIP=0.2092
+Rank=294 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img190.png | Hybrid=-6.7305 | CE=-11.3576 | CLIP=0.2102
+Rank=295 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img150.png | Hybrid=-6.7306 | CE=-11.3408 | CLIP=0.1849
+Rank=296 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img239.png | Hybrid=-6.7308 | CE=-11.3453 | CLIP=0.1911
+Rank=297 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img85.png | Hybrid=-6.7309 | CE=-11.3478 | CLIP=0.1943
+Rank=298 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img228.png | Hybrid=-6.7312 | CE=-11.3515 | CLIP=0.1992
+Rank=299 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img189.png | Hybrid=-6.7313 | CE=-11.3529 | CLIP=0.2012
+Rank=300 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img220.png | Hybrid=-6.7313 | CE=-11.3345 | CLIP=0.1734
+Rank=301 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img80.png | Hybrid=-6.7313 | CE=-11.3562 | CLIP=0.2060
+Rank=302 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img223.png | Hybrid=-6.7316 | CE=-11.3533 | CLIP=0.2011
+Rank=303 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img95.png | Hybrid=-6.7321 | CE=-11.3667 | CLIP=0.2199
+Rank=304 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img254.png | Hybrid=-6.7321 | CE=-11.3395 | CLIP=0.1789
+Rank=305 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img52.png | Hybrid=-6.7324 | CE=-11.3677 | CLIP=0.2206
+Rank=306 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img208.png | Hybrid=-6.7326 | CE=-11.3463 | CLIP=0.1881
+Rank=307 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img145.png | Hybrid=-6.7326 | CE=-11.3579 | CLIP=0.2053
+Rank=308 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img97.png | Hybrid=-6.7326 | CE=-11.3521 | CLIP=0.1966
+Rank=309 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img88.png | Hybrid=-6.7328 | CE=-11.3377 | CLIP=0.1746
+Rank=310 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img222.png | Hybrid=-6.7330 | CE=-11.3649 | CLIP=0.2150
+Rank=311 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img99.png | Hybrid=-6.7332 | CE=-11.3475 | CLIP=0.1883
+Rank=312 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img125.png | Hybrid=-6.7332 | CE=-11.3483 | CLIP=0.1894
+Rank=313 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img89.png | Hybrid=-6.7333 | CE=-11.3520 | CLIP=0.1947
+Rank=314 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img199.png | Hybrid=-6.7335 | CE=-11.3594 | CLIP=0.2053
+Rank=315 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img216.png | Hybrid=-6.7339 | CE=-11.3539 | CLIP=0.1961
+Rank=316 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img122.png | Hybrid=-6.7339 | CE=-11.3526 | CLIP=0.1942
+Rank=317 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img18.png | Hybrid=-6.7340 | CE=-11.3703 | CLIP=0.2206
+Rank=318 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img157.png | Hybrid=-6.7342 | CE=-11.3577 | CLIP=0.2010
+Rank=319 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img114.png | Hybrid=-6.7347 | CE=-11.3478 | CLIP=0.1850
+Rank=320 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img68.png | Hybrid=-6.7348 | CE=-11.3567 | CLIP=0.1981
+Rank=321 | Source=Donut.pdf | Page=13 | Image=Donut_page13_img1.png | Hybrid=-6.7349 | CE=-11.3549 | CLIP=0.1953
+Rank=322 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img238.png | Hybrid=-6.7353 | CE=-11.3476 | CLIP=0.1832
+Rank=323 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img168.png | Hybrid=-6.7353 | CE=-11.3640 | CLIP=0.2078
+Rank=324 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img96.png | Hybrid=-6.7353 | CE=-11.3720 | CLIP=0.2198
+Rank=325 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img110.png | Hybrid=-6.7354 | CE=-11.3650 | CLIP=0.2090
+Rank=326 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img23.png | Hybrid=-6.7357 | CE=-11.3656 | CLIP=0.2091
+Rank=327 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img47.png | Hybrid=-6.7359 | CE=-11.3660 | CLIP=0.2092
+Rank=328 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img193.png | Hybrid=-6.7362 | CE=-11.3507 | CLIP=0.1857
+Rank=329 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img3.png | Hybrid=-6.7363 | CE=-11.3563 | CLIP=0.1938
+Rank=330 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img153.png | Hybrid=-6.7368 | CE=-11.3499 | CLIP=0.1828
+Rank=331 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img93.png | Hybrid=-6.7369 | CE=-11.3615 | CLIP=0.2001
+Rank=332 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img91.png | Hybrid=-6.7370 | CE=-11.3674 | CLIP=0.2084
+Rank=333 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img15.png | Hybrid=-6.7373 | CE=-11.3725 | CLIP=0.2156
+Rank=334 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img45.png | Hybrid=-6.7374 | CE=-11.3542 | CLIP=0.1879
+Rank=335 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img83.png | Hybrid=-6.7376 | CE=-11.3699 | CLIP=0.2109
+Rank=336 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img70.png | Hybrid=-6.7378 | CE=-11.3516 | CLIP=0.1829
+Rank=337 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img126.png | Hybrid=-6.7380 | CE=-11.3632 | CLIP=0.1998
+Rank=338 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img154.png | Hybrid=-6.7381 | CE=-11.3569 | CLIP=0.1901
+Rank=339 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img84.png | Hybrid=-6.7382 | CE=-11.3478 | CLIP=0.1763
+Rank=340 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img205.png | Hybrid=-6.7383 | CE=-11.3662 | CLIP=0.2036
+Rank=341 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img31.png | Hybrid=-6.7386 | CE=-11.3636 | CLIP=0.1988
+Rank=342 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img109.png | Hybrid=-6.7389 | CE=-11.3686 | CLIP=0.2055
+Rank=343 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img75.png | Hybrid=-6.7392 | CE=-11.3595 | CLIP=0.1911
+Rank=344 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img111.png | Hybrid=-6.7393 | CE=-11.3579 | CLIP=0.1886
+Rank=345 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img12.png | Hybrid=-6.7394 | CE=-11.3629 | CLIP=0.1959
+Rank=346 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img192.png | Hybrid=-6.7395 | CE=-11.3507 | CLIP=0.1773
+Rank=347 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img6.png | Hybrid=-6.7396 | CE=-11.3667 | CLIP=0.2011
+Rank=348 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img243.png | Hybrid=-6.7397 | CE=-11.3617 | CLIP=0.1933
+Rank=349 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img151.png | Hybrid=-6.7398 | CE=-11.3556 | CLIP=0.1838
+Rank=350 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img1.png | Hybrid=-6.7400 | CE=-11.3714 | CLIP=0.2072
+Rank=351 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img177.png | Hybrid=-6.7403 | CE=-11.3698 | CLIP=0.2040
+Rank=352 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img30.png | Hybrid=-6.7408 | CE=-11.3656 | CLIP=0.1963
+Rank=353 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img252.png | Hybrid=-6.7408 | CE=-11.3615 | CLIP=0.1903
+Rank=354 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img253.png | Hybrid=-6.7411 | CE=-11.3662 | CLIP=0.1966
+Rank=355 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img251.png | Hybrid=-6.7411 | CE=-11.3705 | CLIP=0.2029
+Rank=356 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img7.png | Hybrid=-6.7412 | CE=-11.3689 | CLIP=0.2002
+Rank=357 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img14.png | Hybrid=-6.7413 | CE=-11.3673 | CLIP=0.1978
+Rank=358 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img107.png | Hybrid=-6.7414 | CE=-11.3718 | CLIP=0.2043
+Rank=359 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img76.png | Hybrid=-6.7416 | CE=-11.3708 | CLIP=0.2023
+Rank=360 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img79.png | Hybrid=-6.7416 | CE=-11.3562 | CLIP=0.1804
+Rank=361 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img224.png | Hybrid=-6.7416 | CE=-11.3597 | CLIP=0.1855
+Rank=362 | Source=RAG.pdf | Page=2 | Image=RAG_page2_render.png | Hybrid=-6.7418 | CE=-11.4082 | CLIP=0.2577
+Rank=363 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img161.png | Hybrid=-6.7421 | CE=-11.3501 | CLIP=0.1700
+Rank=364 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img136.png | Hybrid=-6.7423 | CE=-11.3716 | CLIP=0.2017
+Rank=365 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img242.png | Hybrid=-6.7423 | CE=-11.3614 | CLIP=0.1863
+Rank=366 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img218.png | Hybrid=-6.7427 | CE=-11.3545 | CLIP=0.1750
+Rank=367 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img203.png | Hybrid=-6.7433 | CE=-11.3770 | CLIP=0.2072
+Rank=368 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img188.png | Hybrid=-6.7436 | CE=-11.3512 | CLIP=0.1678
+Rank=369 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img43.png | Hybrid=-6.7437 | CE=-11.3680 | CLIP=0.1926
+Rank=370 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img98.png | Hybrid=-6.7438 | CE=-11.3708 | CLIP=0.1966
+Rank=371 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img138.png | Hybrid=-6.7439 | CE=-11.3635 | CLIP=0.1856
+Rank=372 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img195.png | Hybrid=-6.7441 | CE=-11.3740 | CLIP=0.2008
+Rank=373 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img61.png | Hybrid=-6.7441 | CE=-11.3656 | CLIP=0.1880
+Rank=374 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img11.png | Hybrid=-6.7442 | CE=-11.3788 | CLIP=0.2077
+Rank=375 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img233.png | Hybrid=-6.7443 | CE=-11.3585 | CLIP=0.1771
+Rank=376 | Source=Donut.pdf | Page=7 | Image=Donut_page7_img0.png | Hybrid=-6.7444 | CE=-11.3748 | CLIP=0.2012
+Rank=377 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img149.png | Hybrid=-6.7445 | CE=-11.3772 | CLIP=0.2045
+Rank=378 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img64.png | Hybrid=-6.7447 | CE=-11.3742 | CLIP=0.1996
+Rank=379 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img229.png | Hybrid=-6.7448 | CE=-11.3796 | CLIP=0.2074
+Rank=380 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img82.png | Hybrid=-6.7448 | CE=-11.3708 | CLIP=0.1940
+Rank=381 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img119.png | Hybrid=-6.7449 | CE=-11.3696 | CLIP=0.1923
+Rank=382 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img106.png | Hybrid=-6.7449 | CE=-11.3837 | CLIP=0.2133
+Rank=383 | Source=Donut.pdf | Page=2 | Image=Donut_page2_img3.png | Hybrid=-6.7452 | CE=-11.3630 | CLIP=0.1814
+Rank=384 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img117.png | Hybrid=-6.7454 | CE=-11.3699 | CLIP=0.1914
+Rank=385 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img209.png | Hybrid=-6.7455 | CE=-11.3725 | CLIP=0.1951
+Rank=386 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img191.png | Hybrid=-6.7457 | CE=-11.3596 | CLIP=0.1753
+Rank=387 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img25.png | Hybrid=-6.7458 | CE=-11.3784 | CLIP=0.2030
+Rank=388 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img134.png | Hybrid=-6.7459 | CE=-11.3635 | CLIP=0.1806
+Rank=389 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img143.png | Hybrid=-6.7465 | CE=-11.3645 | CLIP=0.1804
+Rank=390 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img86.png | Hybrid=-6.7466 | CE=-11.3657 | CLIP=0.1820
+Rank=391 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img174.png | Hybrid=-6.7466 | CE=-11.3712 | CLIP=0.1902
+Rank=392 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img33.png | Hybrid=-6.7468 | CE=-11.3778 | CLIP=0.1998
+Rank=393 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img51.png | Hybrid=-6.7469 | CE=-11.3880 | CLIP=0.2148
+Rank=394 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img127.png | Hybrid=-6.7470 | CE=-11.3494 | CLIP=0.1566
+Rank=395 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img202.png | Hybrid=-6.7470 | CE=-11.3725 | CLIP=0.1911
+Rank=396 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img63.png | Hybrid=-6.7473 | CE=-11.3742 | CLIP=0.1929
+Rank=397 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img166.png | Hybrid=-6.7474 | CE=-11.3738 | CLIP=0.1922
+Rank=398 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img179.png | Hybrid=-6.7475 | CE=-11.3731 | CLIP=0.1908
+Rank=399 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img210.png | Hybrid=-6.7476 | CE=-11.3795 | CLIP=0.2003
+Rank=400 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img148.png | Hybrid=-6.7477 | CE=-11.3772 | CLIP=0.1967
+Rank=401 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img19.png | Hybrid=-6.7478 | CE=-11.3850 | CLIP=0.2081
+Rank=402 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img121.png | Hybrid=-6.7478 | CE=-11.3734 | CLIP=0.1906
+Rank=403 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img29.png | Hybrid=-6.7478 | CE=-11.3679 | CLIP=0.1822
+Rank=404 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img131.png | Hybrid=-6.7479 | CE=-11.3630 | CLIP=0.1748
+Rank=405 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img140.png | Hybrid=-6.7483 | CE=-11.3736 | CLIP=0.1898
+Rank=406 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img245.png | Hybrid=-6.7485 | CE=-11.3785 | CLIP=0.1966
+Rank=407 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img146.png | Hybrid=-6.7485 | CE=-11.3657 | CLIP=0.1773
+Rank=408 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img42.png | Hybrid=-6.7488 | CE=-11.3597 | CLIP=0.1676
+Rank=409 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img147.png | Hybrid=-6.7488 | CE=-11.3657 | CLIP=0.1766
+Rank=410 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img72.png | Hybrid=-6.7489 | CE=-11.3674 | CLIP=0.1790
+Rank=411 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img77.png | Hybrid=-6.7489 | CE=-11.3838 | CLIP=0.2034
+Rank=412 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img2.png | Hybrid=-6.7490 | CE=-11.3715 | CLIP=0.1848
+Rank=413 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img0.png | Hybrid=-6.7494 | CE=-11.3887 | CLIP=0.2096
+Rank=414 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img0.png | Hybrid=-6.7494 | CE=-11.4014 | CLIP=0.2286
+Rank=415 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img105.png | Hybrid=-6.7494 | CE=-11.3791 | CLIP=0.1952
+Rank=416 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img4.png | Hybrid=-6.7495 | CE=-11.3842 | CLIP=0.2026
+Rank=417 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img156.png | Hybrid=-6.7497 | CE=-11.3758 | CLIP=0.1896
+Rank=418 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img90.png | Hybrid=-6.7497 | CE=-11.3720 | CLIP=0.1839
+Rank=419 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img170.png | Hybrid=-6.7497 | CE=-11.3849 | CLIP=0.2033
+Rank=420 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img246.png | Hybrid=-6.7497 | CE=-11.3650 | CLIP=0.1734
+Rank=421 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img21.png | Hybrid=-6.7499 | CE=-11.3818 | CLIP=0.1978
+Rank=422 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img37.png | Hybrid=-6.7500 | CE=-11.3820 | CLIP=0.1978
+Rank=423 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img237.png | Hybrid=-6.7503 | CE=-11.3876 | CLIP=0.2058
+Rank=424 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img230.png | Hybrid=-6.7504 | CE=-11.3701 | CLIP=0.1791
+Rank=425 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img124.png | Hybrid=-6.7507 | CE=-11.3797 | CLIP=0.1929
+Rank=426 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img5.png | Hybrid=-6.7510 | CE=-11.3900 | CLIP=0.2076
+Rank=427 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img78.png | Hybrid=-6.7513 | CE=-11.3935 | CLIP=0.2121
+Rank=428 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img236.png | Hybrid=-6.7514 | CE=-11.3750 | CLIP=0.1840
+Rank=429 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img116.png | Hybrid=-6.7518 | CE=-11.3699 | CLIP=0.1754
+Rank=430 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img225.png | Hybrid=-6.7518 | CE=-11.3879 | CLIP=0.2023
+Rank=431 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img240.png | Hybrid=-6.7519 | CE=-11.3859 | CLIP=0.1991
+Rank=432 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img102.png | Hybrid=-6.7519 | CE=-11.3901 | CLIP=0.2054
+Rank=433 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img164.png | Hybrid=-6.7520 | CE=-11.3758 | CLIP=0.1838
+Rank=434 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img165.png | Hybrid=-6.7520 | CE=-11.3747 | CLIP=0.1821
+Rank=435 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img74.png | Hybrid=-6.7522 | CE=-11.3696 | CLIP=0.1739
+Rank=436 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img200.png | Hybrid=-6.7524 | CE=-11.3719 | CLIP=0.1769
+Rank=437 | Source=LayoutLMv3.pdf | Page=1 | Image=LayoutLMv3_page1_img0.png | Hybrid=-6.7524 | CE=-11.3980 | CLIP=0.2161
+Rank=438 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img241.png | Hybrid=-6.7524 | CE=-11.3915 | CLIP=0.2062
+Rank=439 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img249.png | Hybrid=-6.7531 | CE=-11.3852 | CLIP=0.1950
+Rank=440 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img194.png | Hybrid=-6.7535 | CE=-11.3744 | CLIP=0.1780
+Rank=441 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img142.png | Hybrid=-6.7535 | CE=-11.3974 | CLIP=0.2125
+Rank=442 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img103.png | Hybrid=-6.7535 | CE=-11.3705 | CLIP=0.1720
+Rank=443 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img173.png | Hybrid=-6.7538 | CE=-11.3730 | CLIP=0.1749
+Rank=444 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img197.png | Hybrid=-6.7538 | CE=-11.3786 | CLIP=0.1833
+Rank=445 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img158.png | Hybrid=-6.7539 | CE=-11.3911 | CLIP=0.2020
+Rank=446 | Source=RAG.pdf | Page=6 | Image=RAG_page6_render.png | Hybrid=-6.7539 | CE=-11.4156 | CLIP=0.2386
+Rank=447 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img183.png | Hybrid=-6.7540 | CE=-11.3825 | CLIP=0.1887
+Rank=448 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img46.png | Hybrid=-6.7541 | CE=-11.3797 | CLIP=0.1842
+Rank=449 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img234.png | Hybrid=-6.7542 | CE=-11.3821 | CLIP=0.1875
+Rank=450 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img108.png | Hybrid=-6.7543 | CE=-11.3878 | CLIP=0.1961
+Rank=451 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img160.png | Hybrid=-6.7543 | CE=-11.3920 | CLIP=0.2022
+Rank=452 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img71.png | Hybrid=-6.7544 | CE=-11.3765 | CLIP=0.1789
+Rank=453 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img204.png | Hybrid=-6.7545 | CE=-11.3730 | CLIP=0.1733
+Rank=454 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img58.png | Hybrid=-6.7545 | CE=-11.3980 | CLIP=0.2107
+Rank=455 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img87.png | Hybrid=-6.7545 | CE=-11.3859 | CLIP=0.1925
+Rank=456 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_render.png | Hybrid=-6.7547 | CE=-11.4020 | CLIP=0.2163
+Rank=457 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img32.png | Hybrid=-6.7547 | CE=-11.3990 | CLIP=0.2116
+Rank=458 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img39.png | Hybrid=-6.7554 | CE=-11.3812 | CLIP=0.1832
+Rank=459 | Source=RAG.pdf | Page=7 | Image=RAG_page7_render.png | Hybrid=-6.7555 | CE=-11.4208 | CLIP=0.2425
+Rank=460 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img185.png | Hybrid=-6.7558 | CE=-11.3935 | CLIP=0.2007
+Rank=461 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img8.png | Hybrid=-6.7559 | CE=-11.3861 | CLIP=0.1895
+Rank=462 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img73.png | Hybrid=-6.7559 | CE=-11.3714 | CLIP=0.1674
+Rank=463 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img38.png | Hybrid=-6.7560 | CE=-11.3763 | CLIP=0.1745
+Rank=464 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img247.png | Hybrid=-6.7562 | CE=-11.3858 | CLIP=0.1882
+Rank=465 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img215.png | Hybrid=-6.7563 | CE=-11.3754 | CLIP=0.1725
+Rank=466 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img169.png | Hybrid=-6.7566 | CE=-11.3823 | CLIP=0.1820
+Rank=467 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img133.png | Hybrid=-6.7568 | CE=-11.3780 | CLIP=0.1751
+Rank=468 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img178.png | Hybrid=-6.7568 | CE=-11.3859 | CLIP=0.1869
+Rank=469 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img104.png | Hybrid=-6.7570 | CE=-11.3879 | CLIP=0.1894
+Rank=470 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img186.png | Hybrid=-6.7572 | CE=-11.3853 | CLIP=0.1849
+Rank=471 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img20.png | Hybrid=-6.7575 | CE=-11.3774 | CLIP=0.1724
+Rank=472 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img81.png | Hybrid=-6.7577 | CE=-11.3935 | CLIP=0.1961
+Rank=473 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img57.png | Hybrid=-6.7577 | CE=-11.3845 | CLIP=0.1824
+Rank=474 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img66.png | Hybrid=-6.7578 | CE=-11.3970 | CLIP=0.2010
+Rank=475 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img56.png | Hybrid=-6.7583 | CE=-11.3911 | CLIP=0.1909
+Rank=476 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img50.png | Hybrid=-6.7583 | CE=-11.3863 | CLIP=0.1837
+Rank=477 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img55.png | Hybrid=-6.7585 | CE=-11.3882 | CLIP=0.1861
+Rank=478 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img162.png | Hybrid=-6.7595 | CE=-11.3870 | CLIP=0.1817
+Rank=479 | Source=Donut.pdf | Page=6 | Image=Donut_page6_render.png | Hybrid=-6.7597 | CE=-11.4355 | CLIP=0.2541
+Rank=480 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img159.png | Hybrid=-6.7598 | CE=-11.3920 | CLIP=0.1886
+Rank=481 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img9.png | Hybrid=-6.7599 | CE=-11.4060 | CLIP=0.2092
+Rank=482 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img44.png | Hybrid=-6.7604 | CE=-11.3910 | CLIP=0.1855
+Rank=483 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img54.png | Hybrid=-6.7605 | CE=-11.3812 | CLIP=0.1706
+Rank=484 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img31.png | Hybrid=-6.7606 | CE=-11.4246 | CLIP=0.2354
+Rank=485 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img9.png | Hybrid=-6.7607 | CE=-11.3919 | CLIP=0.1861
+Rank=486 | Source=Donut.pdf | Page=2 | Image=Donut_page2_img0.png | Hybrid=-6.7607 | CE=-11.4008 | CLIP=0.1995
+Rank=487 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img214.png | Hybrid=-6.7609 | CE=-11.3773 | CLIP=0.1637
+Rank=488 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img1.png | Hybrid=-6.7613 | CE=-11.4059 | CLIP=0.2055
+Rank=489 | Source=Donut.pdf | Page=26 | Image=Donut_page26_img0.png | Hybrid=-6.7613 | CE=-11.3864 | CLIP=0.1762
+Rank=490 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img163.png | Hybrid=-6.7615 | CE=-11.3763 | CLIP=0.1607
+Rank=491 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img120.png | Hybrid=-6.7617 | CE=-11.3720 | CLIP=0.1538
+Rank=492 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img187.png | Hybrid=-6.7617 | CE=-11.3853 | CLIP=0.1738
+Rank=493 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img139.png | Hybrid=-6.7618 | CE=-11.3885 | CLIP=0.1782
+Rank=494 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img196.png | Hybrid=-6.7622 | CE=-11.3836 | CLIP=0.1700
+Rank=495 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img152.png | Hybrid=-6.7623 | CE=-11.3782 | CLIP=0.1617
+Rank=496 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img6.png | Hybrid=-6.7623 | CE=-11.4093 | CLIP=0.2083
+Rank=497 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img248.png | Hybrid=-6.7637 | CE=-11.3920 | CLIP=0.1787
+Rank=498 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img184.png | Hybrid=-6.7639 | CE=-11.3935 | CLIP=0.1805
+Rank=499 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img34.png | Hybrid=-6.7640 | CE=-11.4087 | CLIP=0.2031
+Rank=500 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img182.png | Hybrid=-6.7640 | CE=-11.3848 | CLIP=0.1671
+Rank=501 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img232.png | Hybrid=-6.7642 | CE=-11.3832 | CLIP=0.1642
+Rank=502 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img65.png | Hybrid=-6.7652 | CE=-11.3985 | CLIP=0.1847
+Rank=503 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img30.png | Hybrid=-6.7658 | CE=-11.3945 | CLIP=0.1772
+Rank=504 | Source=Donut.pdf | Page=26 | Image=Donut_page26_img2.png | Hybrid=-6.7662 | CE=-11.4085 | CLIP=0.1974
+Rank=505 | Source=Donut.pdf | Page=26 | Image=Donut_page26_img1.png | Hybrid=-6.7672 | CE=-11.4058 | CLIP=0.1907
+Rank=506 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img11.png | Hybrid=-6.7678 | CE=-11.4096 | CLIP=0.1949
+Rank=507 | Source=Donut.pdf | Page=2 | Image=Donut_page2_img1.png | Hybrid=-6.7678 | CE=-11.4008 | CLIP=0.1817
+Rank=508 | Source=Donut.pdf | Page=11 | Image=Donut_page11_img0.png | Hybrid=-6.7689 | CE=-11.4056 | CLIP=0.1860
+Rank=509 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img28.png | Hybrid=-6.7690 | CE=-11.4149 | CLIP=0.1997
+Rank=510 | Source=Self-RAG.pdf | Page=5 | Image=Self-RAG_page5_render.png | Hybrid=-6.7703 | CE=-11.4427 | CLIP=0.2384
+Rank=511 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img14.png | Hybrid=-6.7708 | CE=-11.4159 | CLIP=0.1968
+Rank=512 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img22.png | Hybrid=-6.7713 | CE=-11.4164 | CLIP=0.1963
+Rank=513 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img29.png | Hybrid=-6.7729 | CE=-11.4287 | CLIP=0.2109
+Rank=514 | Source=Donut.pdf | Page=4 | Image=Donut_page4_img1.png | Hybrid=-6.7739 | CE=-11.4107 | CLIP=0.1814
+Rank=515 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img25.png | Hybrid=-6.7739 | CE=-11.4138 | CLIP=0.1858
+Rank=516 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img53.png | Hybrid=-6.7740 | CE=-11.3914 | CLIP=0.1522
+Rank=517 | Source=BERT.pdf | Page=4 | Image=BERT_page4_render.png | Hybrid=-6.7742 | CE=-11.4393 | CLIP=0.2233
+Rank=518 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img10.png | Hybrid=-6.7745 | CE=-11.3945 | CLIP=0.1556
+Rank=519 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img19.png | Hybrid=-6.7754 | CE=-11.4199 | CLIP=0.1913
+Rank=520 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img35.png | Hybrid=-6.7764 | CE=-11.4028 | CLIP=0.1633
+Rank=521 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img12.png | Hybrid=-6.7768 | CE=-11.4317 | CLIP=0.2055
+Rank=522 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img3.png | Hybrid=-6.7780 | CE=-11.4268 | CLIP=0.1954
+Rank=523 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img10.png | Hybrid=-6.7783 | CE=-11.4356 | CLIP=0.2075
+Rank=524 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img27.png | Hybrid=-6.7786 | CE=-11.4356 | CLIP=0.2068
+Rank=525 | Source=Donut.pdf | Page=11 | Image=Donut_page11_img4.png | Hybrid=-6.7789 | CE=-11.4205 | CLIP=0.1836
+Rank=526 | Source=Donut.pdf | Page=25 | Image=Donut_page25_img0.png | Hybrid=-6.7799 | CE=-11.4335 | CLIP=0.2005
+Rank=527 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img8.png | Hybrid=-6.7805 | CE=-11.4238 | CLIP=0.1845
+Rank=528 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img13.png | Hybrid=-6.7812 | CE=-11.4317 | CLIP=0.1945
+Rank=529 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img23.png | Hybrid=-6.7815 | CE=-11.4246 | CLIP=0.1831
+Rank=530 | Source=Donut.pdf | Page=11 | Image=Donut_page11_img2.png | Hybrid=-6.7827 | CE=-11.4335 | CLIP=0.1934
+Rank=531 | Source=Donut.pdf | Page=11 | Image=Donut_page11_img3.png | Hybrid=-6.7827 | CE=-11.4335 | CLIP=0.1934
+Rank=532 | Source=Donut.pdf | Page=25 | Image=Donut_page25_img2.png | Hybrid=-6.7828 | CE=-11.4459 | CLIP=0.2119
+Rank=533 | Source=Donut.pdf | Page=2 | Image=Donut_page2_img2.png | Hybrid=-6.7832 | CE=-11.4042 | CLIP=0.1483
+Rank=534 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img5.png | Hybrid=-6.7838 | CE=-11.4264 | CLIP=0.1801
+Rank=535 | Source=Donut.pdf | Page=6 | Image=Donut_page6_img2.png | Hybrid=-6.7843 | CE=-11.4424 | CLIP=0.2028
+Rank=536 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img24.png | Hybrid=-6.7847 | CE=-11.4330 | CLIP=0.1877
+Rank=537 | Source=Donut.pdf | Page=25 | Image=Donut_page25_img1.png | Hybrid=-6.7863 | CE=-11.4394 | CLIP=0.1934
+Rank=538 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img0.png | Hybrid=-6.7873 | CE=-11.4359 | CLIP=0.1856
+Rank=539 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img2.png | Hybrid=-6.7880 | CE=-11.4252 | CLIP=0.1678
+Rank=540 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img16.png | Hybrid=-6.7887 | CE=-11.4314 | CLIP=0.1754
+Rank=541 | Source=Donut.pdf | Page=11 | Image=Donut_page11_img1.png | Hybrid=-6.7889 | CE=-11.4543 | CLIP=0.2093
+Rank=542 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img18.png | Hybrid=-6.7896 | CE=-11.4388 | CLIP=0.1844
+Rank=543 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img33.png | Hybrid=-6.7907 | CE=-11.4301 | CLIP=0.1685
+Rank=544 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img15.png | Hybrid=-6.7912 | CE=-11.4270 | CLIP=0.1625
+Rank=545 | Source=Donut.pdf | Page=4 | Image=Donut_page4_img0.png | Hybrid=-6.7915 | CE=-11.4404 | CLIP=0.1817
+Rank=546 | Source=Donut.pdf | Page=6 | Image=Donut_page6_img0.png | Hybrid=-6.7916 | CE=-11.4383 | CLIP=0.1785
+Rank=547 | Source=Donut.pdf | Page=6 | Image=Donut_page6_img1.png | Hybrid=-6.7940 | CE=-11.4294 | CLIP=0.1591
+Rank=548 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img7.png | Hybrid=-6.7941 | CE=-11.4462 | CLIP=0.1840
+Rank=549 | Source=Donut.pdf | Page=6 | Image=Donut_page6_img3.png | Hybrid=-6.7949 | CE=-11.4459 | CLIP=0.1817
+Rank=550 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img21.png | Hybrid=-6.7961 | CE=-11.4303 | CLIP=0.1552
+Rank=551 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img4.png | Hybrid=-6.7966 | CE=-11.4399 | CLIP=0.1682
+Rank=552 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img26.png | Hybrid=-6.7985 | CE=-11.4455 | CLIP=0.1721
+Rank=553 | Source=RAG.pdf | Page=17 | Image=RAG_page17_img0.png | Hybrid=-6.8008 | CE=-11.4589 | CLIP=0.1863
+Rank=554 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img17.png | Hybrid=-6.8056 | CE=-11.4469 | CLIP=0.1564
+
+TOP IMAGE RESULTS
+--------------------------------------------------------------------------------
+TOP-1 | Source=Vision Transformer.pdf | Page=7 | Image=Vision Transformer_page7_render.png | Hybrid=2.0208 | CE=3.1888 | CLIP=0.2689
+TOP-2 | Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img5.png | Hybrid=-0.2813 | CE=-0.6035 | CLIP=0.2019
+TOP-3 | Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img3.png | Hybrid=-0.4820 | CE=-0.9330 | CLIP=0.1944
+================================================================================
+
+================================================================================
+STAGE 2 — IMAGE RETRIEVAL RESULT
+================================================================================
+Image Results       : 3
+Exact Figure Match  : False
+
+[IMAGE #1] Source=Vision Transformer.pdf | Page=7 | Image=Vision Transformer_page7_render.png
+Image Path: extracted_images\Vision Transformer_page7_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal on the characterization and characterization of a single - cell cell  OCR Text: Published as a conference paper at ICLR 2021  =J o  oe] wr  BiT- ViT-BB2- O...ViT-B/16. CO} iT-H/14 |  ImageNet Top! Accuracy (%]  Linear 5-shot ImageNet Top! [%]  ImageNet ImageNet-21k JFT-300M 10M 30M 100M 300M Pre-training dataset Number of JFT pre-training samples  Figure 3: Transfer to ImageNet. While Figure 4: Linear few-shot evaluation on Ima
+
+[IMAGE #2] Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img5.png
+Image Path: extracted_images\Vision Transformer_page8_img5.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT  Caption: a yellow leaf laying on the ground  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 4.4 SCALING STUDY We perform a controlled scaling study of different models by evaluating transfer performance from JFT-300M. In this setting data size does not bottleneck the models’ performances, and we assess performance versus pre-training cost of each model. The model set includes: 7 ResNets, R50x1, R50x2 R101x
+
+[IMAGE #3] Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img3.png
+Image Path: extracted_images\Vision Transformer_page8_img3.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT  Caption: a plane flying in the sky  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 4.4 SCALING STUDY We perform a controlled scaling study of different models by evaluating transfer performance from JFT-300M. In this setting data size does not bottleneck the models’ performances, and we assess performance versus pre-training cost of each model. The model set includes: 7 ResNets, R50x1, R50x2 R101x1, R152x1
+================================================================================
+
+================================================================================
+COMBINED RETRIEVAL CANDIDATES
+================================================================================
+Text Candidates  : 8
+Image Candidates : 3
+Total Candidates : 11
+================================================================================
+
+================================================================================
+STEP 3A — RERANKER INPUT
+================================================================================
+Query: How does ViT perform when transferred from large-scale pre-training datasets to smaller downstream datasets?
+Input candidates: 11
+01. Source=Vision Transformer.pdf | Page=7 | Type=text | Image=N/A
+    Content=Published as a conference paper at ICLR 2021 ImageNet ImageNet-21k JFT-300M Pre-training dataset 70 75 80 85 90ImageNet Top1 Accuracy [%] BiT ViT-B/32 ViT-B/16 ViT-L/32 ViT-L/16 Vi
+02. Source=Vision Transformer.pdf | Page=6 | Type=text | Image=N/A
+    Content=4.3 P RE-TRAINING DATA REQUIREMENTS The Vision Transformer performs well when pre-trained on a large JFT-300M dataset. With fewer inductive biases for vision than ResNets, how cruc
+03. Source=Vision Transformer.pdf | Page=4 | Type=text | Image=N/A
+    Content=4 E XPERIMENTS We evaluate the representation learning capabilities of ResNet, Vision Transformer (ViT), and the hybrid. To understand the data requirements of each model, we pre-t
+04. Source=Vision Transformer.pdf | Page=9 | Type=text | Image=N/A
+    Content=supervised pre-training methods. Our initial experiments show improvement from self-supervised pre-training, but there is still large gap between self-supervised and large-scale su
+05. Source=Vision Transformer.pdf | Page=7 | Type=text | Image=N/A
+    Content=for ResNet152x2 and ViT-L/16. This result reinforces the intuition that the convolutional inductive bias is useful for smaller datasets, but for larger ones, learning the relevant 
+06. Source=BERT.pdf | Page=9 | Type=text | Image=N/A
+    Content=mixed results on the downstream task impact of increasing the pre-trained bi-LM size from two to four layers and Melamud et al. (2016) men- tioned in passing that increasing hidden
+07. Source=Vision Transformer.pdf | Page=7 | Type=image | Image=extracted_images\Vision Transformer_page7_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal on the characterization and characterization of a single - cell cell  OCR Text: Published as a conference paper
+08. Source=Vision Transformer.pdf | Page=5 | Type=text | Image=N/A
+    Content=(which is pre-trained on the same dataset) on all tasks, while requiring substantially less computa- tional resources to train. The larger model, ViT-H/14, further improves the per
+09. Source=Vision Transformer.pdf | Page=7 | Type=image | Image=extracted_images\Vision Transformer_page7_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal on the characterization and characterization of a single - cell cell  OCR Text: Published as a conference paper
+10. Source=Vision Transformer.pdf | Page=8 | Type=image | Image=extracted_images\Vision Transformer_page8_img5.png
+    Content=FIGURE FROM DOCUMENT  Caption: a yellow leaf laying on the ground  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 20
+11. Source=Vision Transformer.pdf | Page=8 | Type=image | Image=extracted_images\Vision Transformer_page8_img3.png
+    Content=FIGURE FROM DOCUMENT  Caption: a plane flying in the sky  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 4.4 SC
+================================================================================
+
+--------------------------------------------------------------------------------
+CROSS-ENCODER RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=00 | Source=Vision Transformer.pdf | Page=7 | Type=text | CE=5.4424
+Rank=02 | OriginalIndex=01 | Source=Vision Transformer.pdf | Page=6 | Type=text | CE=3.7456
+Rank=03 | OriginalIndex=06 | Source=Vision Transformer.pdf | Page=7 | Type=image | CE=3.1888
+Rank=04 | OriginalIndex=08 | Source=Vision Transformer.pdf | Page=7 | Type=image | CE=3.1888
+Rank=05 | OriginalIndex=04 | Source=Vision Transformer.pdf | Page=7 | Type=text | CE=2.1319
+Rank=06 | OriginalIndex=02 | Source=Vision Transformer.pdf | Page=4 | Type=text | CE=1.8836
+Rank=07 | OriginalIndex=07 | Source=Vision Transformer.pdf | Page=5 | Type=text | CE=1.3276
+Rank=08 | OriginalIndex=03 | Source=Vision Transformer.pdf | Page=9 | Type=text | CE=1.2042
+Rank=09 | OriginalIndex=09 | Source=Vision Transformer.pdf | Page=8 | Type=image | CE=-0.6035
+Rank=10 | OriginalIndex=10 | Source=Vision Transformer.pdf | Page=8 | Type=image | CE=-0.9330
+Rank=11 | OriginalIndex=05 | Source=BERT.pdf | Page=9 | Type=text | CE=-2.9610
+
+--------------------------------------------------------------------------------
+CLIP IMAGE RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=06 | Source=Vision Transformer.pdf | Page=7 | Image=extracted_images\Vision Transformer_page7_render.png | CLIP=0.2689
+Rank=02 | OriginalIndex=08 | Source=Vision Transformer.pdf | Page=7 | Image=extracted_images\Vision Transformer_page7_render.png | CLIP=0.2689
+Rank=03 | OriginalIndex=09 | Source=Vision Transformer.pdf | Page=8 | Image=extracted_images\Vision Transformer_page8_img5.png | CLIP=0.2019
+Rank=04 | OriginalIndex=10 | Source=Vision Transformer.pdf | Page=8 | Image=extracted_images\Vision Transformer_page8_img3.png | CLIP=0.1944
+
+================================================================================
+STEP 3A — COMPLETE MULTIMODAL RERANK RESULT
+================================================================================
+Rank=01 | Type=image | Source=Vision Transformer.pdf | Page=7 | RRF=0.032266 | CE=3.1888 | CLIP=0.2689
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal on the characterization and characterization of a single - cell cell  OCR Text: Published as a conference paper
+Rank=02 | Type=image | Source=Vision Transformer.pdf | Page=7 | RRF=0.031754 | CE=3.1888 | CLIP=0.2689
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal on the characterization and characterization of a single - cell cell  OCR Text: Published as a conference paper
+Rank=03 | Type=image | Source=Vision Transformer.pdf | Page=8 | RRF=0.030366 | CE=-0.6035 | CLIP=0.2019
+    Content=FIGURE FROM DOCUMENT  Caption: a yellow leaf laying on the ground  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 20
+Rank=04 | Type=image | Source=Vision Transformer.pdf | Page=8 | RRF=0.029911 | CE=-0.9330 | CLIP=0.1944
+    Content=FIGURE FROM DOCUMENT  Caption: a plane flying in the sky  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 4.4 SC
+Rank=05 | Type=text | Source=Vision Transformer.pdf | Page=7 | RRF=0.016393 | CE=5.4424 | CLIP=N/A
+    Content=Published as a conference paper at ICLR 2021 ImageNet ImageNet-21k JFT-300M Pre-training dataset 70 75 80 85 90ImageNet Top1 Accuracy [%] BiT ViT-B/32 ViT-B/16 ViT-L/32 ViT-L/16 Vi
+Rank=06 | Type=text | Source=Vision Transformer.pdf | Page=6 | RRF=0.016129 | CE=3.7456 | CLIP=N/A
+    Content=4.3 P RE-TRAINING DATA REQUIREMENTS The Vision Transformer performs well when pre-trained on a large JFT-300M dataset. With fewer inductive biases for vision than ResNets, how cruc
+Rank=07 | Type=text | Source=Vision Transformer.pdf | Page=7 | RRF=0.015385 | CE=2.1319 | CLIP=N/A
+    Content=for ResNet152x2 and ViT-L/16. This result reinforces the intuition that the convolutional inductive bias is useful for smaller datasets, but for larger ones, learning the relevant 
+Rank=08 | Type=text | Source=Vision Transformer.pdf | Page=4 | RRF=0.015152 | CE=1.8836 | CLIP=N/A
+    Content=4 E XPERIMENTS We evaluate the representation learning capabilities of ResNet, Vision Transformer (ViT), and the hybrid. To understand the data requirements of each model, we pre-t
+Rank=09 | Type=text | Source=Vision Transformer.pdf | Page=5 | RRF=0.014925 | CE=1.3276 | CLIP=N/A
+    Content=(which is pre-trained on the same dataset) on all tasks, while requiring substantially less computa- tional resources to train. The larger model, ViT-H/14, further improves the per
+Rank=10 | Type=text | Source=Vision Transformer.pdf | Page=9 | RRF=0.014706 | CE=1.2042 | CLIP=N/A
+    Content=supervised pre-training methods. Our initial experiments show improvement from self-supervised pre-training, but there is still large gap between self-supervised and large-scale su
+Rank=11 | Type=text | Source=BERT.pdf | Page=9 | RRF=0.014085 | CE=-2.9610 | CLIP=N/A
+    Content=mixed results on the downstream task impact of increasing the pre-trained bi-LM size from two to four layers and Melamud et al. (2016) men- tioned in passing that increasing hidden
+================================================================================
+
+================================================================================
+STEP 3A — FINAL RERANK TOP-K
+================================================================================
+Requested top_k: 12
+Returned documents: 10
+01. Source=Vision Transformer.pdf | Page=7 | Type=image | Image=extracted_images\Vision Transformer_page7_render.png
+02. Source=Vision Transformer.pdf | Page=8 | Type=image | Image=extracted_images\Vision Transformer_page8_img5.png
+03. Source=Vision Transformer.pdf | Page=8 | Type=image | Image=extracted_images\Vision Transformer_page8_img3.png
+04. Source=Vision Transformer.pdf | Page=7 | Type=text | Image=N/A
+05. Source=Vision Transformer.pdf | Page=6 | Type=text | Image=N/A
+06. Source=Vision Transformer.pdf | Page=7 | Type=text | Image=N/A
+07. Source=Vision Transformer.pdf | Page=4 | Type=text | Image=N/A
+08. Source=Vision Transformer.pdf | Page=5 | Type=text | Image=N/A
+09. Source=Vision Transformer.pdf | Page=9 | Type=text | Image=N/A
+10. Source=BERT.pdf | Page=9 | Type=text | Image=N/A
+================================================================================
+
+================================================================================
+STAGE 3 — MULTIMODAL RERANKING
+================================================================================
+Input Candidates : 11
+Reranked Output   : 10
+
+[RERANK #1] Source=Vision Transformer.pdf | Page=7 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal on the characterization and characterization of a single - cell cell  OCR Text: Published as a conference paper at ICLR 2021  =J o  oe] wr  BiT- ViT-BB2- O...ViT-B/16. CO} iT-H/14 |  ImageNet Top! Accuracy (%]  Linear 5-shot ImageN
+
+[RERANK #2] Source=Vision Transformer.pdf | Page=8 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT  Caption: a yellow leaf laying on the ground  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 4.4 SCALING STUDY We perform a controlled scaling study of different models by evaluating transfer performance from J
+
+[RERANK #3] Source=Vision Transformer.pdf | Page=8 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT  Caption: a plane flying in the sky  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 4.4 SCALING STUDY We perform a controlled scaling study of different models by evaluating transfer performance from JFT-300M. 
+
+[RERANK #4] Source=Vision Transformer.pdf | Page=7 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Published as a conference paper at ICLR 2021 ImageNet ImageNet-21k JFT-300M Pre-training dataset 70 75 80 85 90ImageNet Top1 Accuracy [%] BiT ViT-B/32 ViT-B/16 ViT-L/32 ViT-L/16 ViT-H/14 Figure 3: Transfer to ImageNet. While large ViT models perform worse than BiT ResNets (shaded area) when pre-trai
+
+[RERANK #5] Source=Vision Transformer.pdf | Page=6 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: 4.3 P RE-TRAINING DATA REQUIREMENTS The Vision Transformer performs well when pre-trained on a large JFT-300M dataset. With fewer inductive biases for vision than ResNets, how crucial is the dataset size? We perform two series of experiments. First, we pre-train ViT models on datasets of increasing 
+
+[RERANK #6] Source=Vision Transformer.pdf | Page=7 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: for ResNet152x2 and ViT-L/16. This result reinforces the intuition that the convolutional inductive bias is useful for smaller datasets, but for larger ones, learning the relevant patterns directly from data is sufﬁcient, even beneﬁcial. Overall, the few-shot results on ImageNet (Figure 4), as well 
+
+[RERANK #7] Source=Vision Transformer.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: 4 E XPERIMENTS We evaluate the representation learning capabilities of ResNet, Vision Transformer (ViT), and the hybrid. To understand the data requirements of each model, we pre-train on datasets of varying size and evaluate many benchmark tasks. When considering the computational cost of pre-train
+
+[RERANK #8] Source=Vision Transformer.pdf | Page=5 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: (which is pre-trained on the same dataset) on all tasks, while requiring substantially less computa- tional resources to train. The larger model, ViT-H/14, further improves the performance, especially on the more challenging datasets – ImageNet, CIFAR-100, and the VTAB suite. Interestingly, this 5
+
+[RERANK #9] Source=Vision Transformer.pdf | Page=9 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: supervised pre-training methods. Our initial experiments show improvement from self-supervised pre-training, but there is still large gap between self-supervised and large-scale supervised pre- training. Finally, further scaling of ViT would likely lead to improved performance. ACKNOWLEDGEMENTS The 
+
+[RERANK #10] Source=BERT.pdf | Page=9 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: mixed results on the downstream task impact of increasing the pre-trained bi-LM size from two to four layers and Melamud et al. (2016) men- tioned in passing that increasing hidden dimen- sion size from 200 to 600 helped, but increasing further to 1,000 did not bring further improve- ments. Both of 
+================================================================================
+
+================================================================================
+FINAL CONTEXT DOCUMENTS
+================================================================================
+Final context candidates: 10
+
+[FINAL #1] Source=Vision Transformer.pdf | Page=7 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal on the characterization and characterization of a single - cell cell  OCR Text: Published as a conference paper at ICLR 2021  =J o  oe] wr  BiT- ViT-BB2- O...ViT-B/16. CO} iT-H/14 |  ImageNet Top! Accuracy (%]  Linear 5-shot ImageN
+
+[FINAL #2] Source=Vision Transformer.pdf | Page=8 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT  Caption: a yellow leaf laying on the ground  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 4.4 SCALING STUDY We perform a controlled scaling study of different models by evaluating transfer performance from J
+
+[FINAL #3] Source=Vision Transformer.pdf | Page=8 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT  Caption: a plane flying in the sky  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 4.4 SCALING STUDY We perform a controlled scaling study of different models by evaluating transfer performance from JFT-300M. 
+
+[FINAL #4] Source=Vision Transformer.pdf | Page=7 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Published as a conference paper at ICLR 2021 ImageNet ImageNet-21k JFT-300M Pre-training dataset 70 75 80 85 90ImageNet Top1 Accuracy [%] BiT ViT-B/32 ViT-B/16 ViT-L/32 ViT-L/16 ViT-H/14 Figure 3: Transfer to ImageNet. While large ViT models perform worse than BiT ResNets (shaded area) when pre-trai
+
+[FINAL #5] Source=Vision Transformer.pdf | Page=6 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: 4.3 P RE-TRAINING DATA REQUIREMENTS The Vision Transformer performs well when pre-trained on a large JFT-300M dataset. With fewer inductive biases for vision than ResNets, how crucial is the dataset size? We perform two series of experiments. First, we pre-train ViT models on datasets of increasing 
+
+[FINAL #6] Source=Vision Transformer.pdf | Page=7 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: for ResNet152x2 and ViT-L/16. This result reinforces the intuition that the convolutional inductive bias is useful for smaller datasets, but for larger ones, learning the relevant patterns directly from data is sufﬁcient, even beneﬁcial. Overall, the few-shot results on ImageNet (Figure 4), as well 
+
+[FINAL #7] Source=Vision Transformer.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: 4 E XPERIMENTS We evaluate the representation learning capabilities of ResNet, Vision Transformer (ViT), and the hybrid. To understand the data requirements of each model, we pre-train on datasets of varying size and evaluate many benchmark tasks. When considering the computational cost of pre-train
+
+[FINAL #8] Source=Vision Transformer.pdf | Page=5 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: (which is pre-trained on the same dataset) on all tasks, while requiring substantially less computa- tional resources to train. The larger model, ViT-H/14, further improves the performance, especially on the more challenging datasets – ImageNet, CIFAR-100, and the VTAB suite. Interestingly, this 5
+
+[FINAL #9] Source=Vision Transformer.pdf | Page=9 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: supervised pre-training methods. Our initial experiments show improvement from self-supervised pre-training, but there is still large gap between self-supervised and large-scale supervised pre- training. Finally, further scaling of ViT would likely lead to improved performance. ACKNOWLEDGEMENTS The 
+
+[FINAL #10] Source=BERT.pdf | Page=9 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: mixed results on the downstream task impact of increasing the pre-trained bi-LM size from two to four layers and Melamud et al. (2016) men- tioned in passing that increasing hidden dimen- sion size from 200 to 600 helped, but increasing further to 1,000 did not bring further improve- ments. Both of 
+================================================================================
+
+================================================================================
+FINAL CONTEXT SENT TO LLM
+================================================================================
+
+================================================================================
+DOCUMENT : Vision Transformer.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 4
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+4 E XPERIMENTS
+We evaluate the representation learning capabilities of ResNet, Vision Transformer (ViT), and the
+hybrid. To understand the data requirements of each model, we pre-train on datasets of varying size
+and evaluate many benchmark tasks. When considering the computational cost of pre-training the
+model, ViT performs very favourably, attaining state of the art on most recognition benchmarks at
+a lower pre-training cost. Lastly, we perform a small experiment using self-supervision, and show
+that self-supervised ViT holds promise for the future.
+4.1 S ETUP
+
+
+--------------------------------------------------------------------------------
+PAGE : 5
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+(which is pre-trained on the same dataset) on all tasks, while requiring substantially less computa-
+tional resources to train. The larger model, ViT-H/14, further improves the performance, especially
+on the more challenging datasets – ImageNet, CIFAR-100, and the VTAB suite. Interestingly, this
+5
+
+
+--------------------------------------------------------------------------------
+PAGE : 6
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+4.3 P RE-TRAINING DATA REQUIREMENTS
+The Vision Transformer performs well when pre-trained on a large JFT-300M dataset. With fewer
+inductive biases for vision than ResNets, how crucial is the dataset size? We perform two series of
+experiments.
+First, we pre-train ViT models on datasets of increasing size: ImageNet, ImageNet-21k, and JFT-
+300M. To boost the performance on the smaller datasets, we optimize three basic regularization
+parameters – weight decay, dropout, and label smoothing. Figure 3 shows the results after ﬁne-
+
+
+--------------------------------------------------------------------------------
+PAGE : 7
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+Published as a conference paper at ICLR 2021
+ImageNet ImageNet-21k JFT-300M
+Pre-training dataset
+70
+75
+80
+85
+90ImageNet Top1 Accuracy [%]
+BiT
+ViT-B/32
+ViT-B/16
+ViT-L/32
+ViT-L/16
+ViT-H/14
+Figure 3: Transfer to ImageNet. While
+large ViT models perform worse than BiT
+ResNets (shaded area) when pre-trained on
+small datasets, they shine when pre-trained on
+larger datasets. Similarly, larger ViT variants
+overtake smaller ones as the dataset grows.
+10 M 30 M 100 M 300 M
+Number of JFT pre-training samples
+30
+40
+50
+60
+70Linear 5-shot ImageNet Top1 [%]
+ViT-L/16
+ViT-L/32
+ViT-B/32
+ViT-b/32
+
+
+[TEXT]
+
+for ResNet152x2 and ViT-L/16. This result reinforces the intuition that the convolutional inductive
+bias is useful for smaller datasets, but for larger ones, learning the relevant patterns directly from
+data is sufﬁcient, even beneﬁcial.
+Overall, the few-shot results on ImageNet (Figure 4), as well as the low-data results on VTAB
+(Table 2) seem promising for very low-data transfer. Further analysis of few-shot properties of ViT
+is an exciting direction of future work.
+7
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a page from the journal on the characterization and characterization of a single - cell cell
+
+OCR Text:
+Published as a conference paper at ICLR 2021
+
+=J
+o
+
+oe]
+wr
+
+BiT-
+ViT-BB2-
+O...ViT-B/16. CO} iT-H/14 |
+
+ImageNet Top! Accuracy (%]
+
+Linear 5-shot ImageNet Top! [%]
+
+ImageNet ImageNet-21k JFT-300M 10M 30M 100M 300M
+Pre-training dataset Number of JFT pre-training samples
+
+Figure 3: Transfer to ImageNet. While Figure 4: Linear few-shot evaluation on Ima-
+large ViT models perform worse than BiT geNet versus pre-training size. ResNets per-
+ResNets (shaded area) when pre-trained on form better with smaller pre-training datasets
+small datasets, they shine when pre-trained on but plateau sooner than ViT, which performs
+larger datasets. Similarly, larger ViT variants better with larger pre-training. ViT-b is ViT-B
+
+overtake smaller ones as the dataset grows. with all hidden dimensions halved.
+Average-5 90 ImageNet
+
+ge 95
+
+> 85
+
+g
+
+os
+
+Ls)
+
+Qg
+
+a
+
+-
+
+oo
+
+g
+
+& 90 _© Transformer (ViT) | *~ Transformer (ViT) |}
+1. ResNet Gi) J, ResNet (BIT). |;
+a: Hybrid H Hybrid. ef
+
+10? 10° 10? 10°
+Total pre-training compute [exaFLOPs]
+
+Figure 5: Performance versus pre-training compute for different architectures: Vision Transformers,
+ResNets, and hybrids. Vision Transformers generally outperform ResNets with the same compu-
+tational budget. Hybrids improve upon pure Transformers for smaller model sizes, but the gap
+vanishes for larger models.
+
+region spanned by BiT models of different sizes. The BiT CNNs outperform ViT on ImageNet, but
+with the larger datasets, ViT overtakes.
+
+Second, we train our models on random subsets of 9M, 30M, and 90M as well as the full JFT-
+300M dataset. We do not perform additional regularization on the smaller subsets and use the same
+hyper-parameters for all settings. This way, we assess the intrinsic model properties, and not the
+effect of regularization. We do, however, use early-stopping, and report the best validation accuracy
+achieved during training. To save compute, we report few-shot linear accuracy instead of full fine-
+tuning accuracy. Figure 4 contains the results. Vision Transformers overfit more than ResNets with
+comparable computational cost on smaller datasets. For example, ViT-B/32 is slightly faster than
+ResNet50; it performs much worse on the 9M subset, but better on 90M+ subsets. The same is true
+for ResNet152x2 and ViT-L/16. This result reinforces the intuition that the convolutional inductive
+bias is useful for smaller datasets, but for larger ones, learning the relevant patterns directly from
+data is sufficient, even beneficial.
+
+Overall, the few-shot results on ImageNet (Figure 4), as well as the low-data results on VTAB
+(Table 2) seem promising for very low-data transfer. Further analysis of few-shot properties of ViT
+is an exciting direction of future work.
+
+Nearby Document Text:
+Published as a conference paper at ICLR 2021
+ImageNet
+ImageNet-21k
+JFT-300M
+Pre-training dataset
+70
+75
+80
+85
+90
+ImageNet Top1 Accuracy [%]
+BiT
+ViT-B/32
+ViT-B/16
+ViT-L/32
+ViT-L/16
+ViT-H/14
+Figure 3:
+Transfer to ImageNet.
+While
+large ViT models perform worse than BiT
+ResNets (shaded area) when pre-trained on
+small datasets, they shine when pre-trained on
+larger datasets. Similarly, larger ViT variants
+overtake smaller ones as the dataset grows.
+10 M
+30 M
+100 M
+300 M
+Number of JFT pre-training samples
+30
+40
+50
+60
+70
+Linear 5-shot ImageNet Top1 [%]
+ViT-L/16
+ViT-L/32
+ViT-B/32
+ViT-b/32
+ResNet50x1 (B
+
+
+[RELATED PAGE TEXT]
+
+Published as a conference paper at ICLR 2021
+ImageNet ImageNet-21k JFT-300M
+Pre-training dataset
+70
+75
+80
+85
+90ImageNet Top1 Accuracy [%]
+BiT
+ViT-B/32
+ViT-B/16
+ViT-L/32
+ViT-L/16
+ViT-H/14
+Figure 3: Transfer to ImageNet. While
+large ViT models perform worse than BiT
+ResNets (shaded area) when pre-trained on
+small datasets, they shine when pre-trained
+
+
+--------------------------------------------------------------------------------
+PAGE : 8
+--------------------------------------------------------------------------------
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT
+
+Caption:
+a yellow leaf laying on the ground
+
+OCR Text:
+No readable text found in this image.
+
+Nearby Document Text:
+Published as a conference paper at ICLR 2021
+4.4
+SCALING STUDY
+We perform a controlled scaling study of different models by evaluating transfer performance from
+JFT-300M. In this setting data size does not bottleneck the models’ performances, and we assess
+performance versus pre-training cost of each model. The model set includes: 7 ResNets, R50x1,
+R50x2 R101x1, R152x1, R152x2, pre-trained for 7 epochs, plus R152x2 and R200x3 pre-trained
+for 14 epochs; 6 Vision Transformers, ViT-B/32, B/16, L/32, L/16, pre-trained for 7 epochs, plus
+L/16 and H/14 pre-trained for 14 epochs; and 5 hybrids, R50+V
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT
+
+Caption:
+a plane flying in the sky
+
+OCR Text:
+No readable text found in this image.
+
+Nearby Document Text:
+Published as a conference paper at ICLR 2021
+4.4
+SCALING STUDY
+We perform a controlled scaling study of different models by evaluating transfer performance from
+JFT-300M. In this setting data size does not bottleneck the models’ performances, and we assess
+performance versus pre-training cost of each model. The model set includes: 7 ResNets, R50x1,
+R50x2 R101x1, R152x1, R152x2, pre-trained for 7 epochs, plus R152x2 and R200x3 pre-trained
+for 14 epochs; 6 Vision Transformers, ViT-B/32, B/16, L/32, L/16, pre-trained for 7 epochs, plus
+L/16 and H/14 pre-trained for 14 epochs; and 5 hybrids, R50+V
+
+
+--------------------------------------------------------------------------------
+PAGE : 9
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+supervised pre-training methods. Our initial experiments show improvement from self-supervised
+pre-training, but there is still large gap between self-supervised and large-scale supervised pre-
+training. Finally, further scaling of ViT would likely lead to improved performance.
+ACKNOWLEDGEMENTS
+The work was performed in Berlin, Z ¨urich, and Amsterdam. We thank many colleagues at Google
+for their help, in particular Andreas Steiner for crucial help with the infrastructure and the open-
+source release of the code; Joan Puigcerver and Maxim Neumann for help with the large-scale
+
+
+================================================================================
+DOCUMENT : BERT.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 9
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+mixed results on the downstream task impact of
+increasing the pre-trained bi-LM size from two
+to four layers and Melamud et al. (2016) men-
+tioned in passing that increasing hidden dimen-
+sion size from 200 to 600 helped, but increasing
+further to 1,000 did not bring further improve-
+ments. Both of these prior works used a feature-
+based approach — we hypothesize that when the
+model is ﬁne-tuned directly on the downstream
+tasks and uses only a very small number of ran-
+domly initialized additional parameters, the task-
+speciﬁc models can beneﬁt from the larger, more
+
+================================================================================
+
+================================================================================
+RAG PIPELINE DEBUG
+================================================================================
+Query Type        : analytical
+Retrieved Chunks  : 8
+Retrieved Images  : 3
+Reranked Chunks   : 10
+Reranked Text     : 7
+Reranked Images   : 3
+Final Context Docs: 10
+Exact Figure Query: False
+Exact Figure Match: False
+Exact Figure Final: False
+================================================================================
+
+====================================================================================================
+RAG ANSWER
+====================================================================================================
+ ViT performs worse than BiT ResNets when pre-trained on smaller datasets, but it shines when pre-trained on larger datasets. For example, on the 9M subset, ViT-B/32 performs much worse than ResNet50, but on 90M+ subsets, it performs better. (Refer to Figure 4 in the Vision Transformer.pdf document)
+
+IMAGE PATHS:
+D:/Projects/Major-Project-2-main/extracted_images/Vision Transformer_page7_render.png
+D:/Projects/Major-Project-2-main/extracted_images/Vision Transformer_page8_img5.png
+D:/Projects/Major-Project-2-main/extracted_images/Vision Transformer_page8_img3.png

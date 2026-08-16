@@ -1,0 +1,1209 @@
+====================================================================================================
+QUESTION_ID   : BERT-05
+DOCUMENT      : BERT
+QUESTION_TYPE : Core / Architecture
+ELAPSED_SEC   : 49.8
+ERROR         : no
+====================================================================================================
+
+QUESTION:
+What is the purpose of the Next Sentence Prediction (NSP) task in BERT?
+
+GROUND TRUTH ANSWER:
+NSP trains BERT to predict whether two sampled text spans are consecutive in the original corpus. It is a binary IsNext/NotNext pre-training task intended to help the model learn relationships between sentence pairs, useful for tasks such as question answering and natural language inference.
+
+GROUND TRUTH SOURCE:
+BERT.pdf, pp. 1–8, 13–16
+
+====================================================================================================
+FORENSIC TRANSCRIPT
+====================================================================================================
+
+####################################################################################################
+FORENSIC CASE START
+####################################################################################################
+Original Query   : What is the purpose of the Next Sentence Prediction (NSP) task in BERT?
+Expanded Query   : What is the purpose of the Next Sentence Prediction (NSP) task in BERT?
+Query Type       : factual
+[DOCUMENT SCOPE] Normalized query: 'what is the purpose of the next sentence prediction nsp task in bert'
+[DOCUMENT SCOPE] Source='BERT.pdf' -> Normalized='bert'
+[DOCUMENT SCOPE] EXACT MATCH -> BERT.pdf
+[DOCUMENT SCOPE] Source='BLIP-2.pdf' -> Normalized='blip 2'
+[DOCUMENT SCOPE] Token overlap for 'BLIP-2.pdf': []
+[DOCUMENT SCOPE] Source='CLIP.pdf' -> Normalized='clip'
+[DOCUMENT SCOPE] Token overlap for 'CLIP.pdf': []
+[DOCUMENT SCOPE] Source='CNN Paper.pdf' -> Normalized='cnn paper'
+[DOCUMENT SCOPE] Token overlap for 'CNN Paper.pdf': []
+[DOCUMENT SCOPE] Source='Donut.pdf' -> Normalized='donut'
+[DOCUMENT SCOPE] Token overlap for 'Donut.pdf': []
+[DOCUMENT SCOPE] Source='LayoutLMv3.pdf' -> Normalized='layout l mv3'
+[DOCUMENT SCOPE] Token overlap for 'LayoutLMv3.pdf': []
+[DOCUMENT SCOPE] Source='NLP Paper.pdf' -> Normalized='nlp paper'
+[DOCUMENT SCOPE] Token overlap for 'NLP Paper.pdf': []
+[DOCUMENT SCOPE] Source='RAG.pdf' -> Normalized='rag'
+[DOCUMENT SCOPE] Token overlap for 'RAG.pdf': []
+[DOCUMENT SCOPE] Source='Self-RAG.pdf' -> Normalized='self rag'
+[DOCUMENT SCOPE] Token overlap for 'Self-RAG.pdf': []
+[DOCUMENT SCOPE] Source='Vision Transformer.pdf' -> Normalized='vision transformer'
+[DOCUMENT SCOPE] Token overlap for 'Vision Transformer.pdf': []
+[DOCUMENT SCOPE] Final matched sources: ['BERT.pdf']
+
+================================================================================
+DOCUMENT SCOPE DEBUG
+================================================================================
+Query          : What is the purpose of the Next Sentence Prediction (NSP) task in BERT?
+Expanded Query : What is the purpose of the Next Sentence Prediction (NSP) task in BERT?
+Query Type     : factual
+Document Scope : ['BERT.pdf']
+================================================================================
+
+==========================================================================================
+STEP 3A — SCOPED HYBRID RETRIEVAL
+==========================================================================================
+Query              : What is the purpose of the Next Sentence Prediction (NSP) task in BERT?
+Sources            : ['BERT.pdf']
+Dense candidate K  : 25
+Final hybrid K     : 8
+
+------------------------------------------------------------------------------------------
+[SCOPED DENSE / VECTOR RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=BERT.pdf | Page=15 | Type=text | Image=N/A
+    Content=1  [SEP]... Tok  N Tok  1 ... Tok M Sentence 1 ... Sentence 2 Figure 4: Illustrations of Fine-tuning BERT on Different Tasks. SST-2 The Stanford Sentiment Treebank is a binary sing
+02. Source=BERT.pdf | Page=2 | Type=text | Image=N/A
+    Content=• We show that pre-trained representations reduce the need for many heavily-engineered task- speciﬁc architectures. BERT is the ﬁrst ﬁne- tuning based representation model that ach
+03. Source=BERT.pdf | Page=13 | Type=text | Image=N/A
+    Content=the empirical improvements of the MLM model far outweigh the increased training cost. Next Sentence Prediction The next sentence prediction task can be illustrated in the following
+04. Source=BERT.pdf | Page=4 | Type=text | Image=N/A
+    Content=and 50% of the time it is a random sentence from the corpus (labeled as NotNext). As we show in Figure 1, C is used for next sentence predic- tion (NSP). 5 Despite its simplicity, 
+05. Source=BERT.pdf | Page=8 | Type=text | Image=N/A
+    Content=prediction, like OpenAI GPT. “+ BiLSTM” adds a ran- domly initialized BiLSTM on top of the “LTR + No NSP” model during ﬁne-tuning. ablation studies can be found in Appendix C. 5.1 
+06. Source=BERT.pdf | Page=3 | Type=text | Image=N/A
+    Content=tuning, the BERT model is ﬁrst initialized with the pre-trained parameters, and all of the param- eters are ﬁne-tuned using labeled data from the downstream tasks. Each downstream 
+07. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+    Content=BERT is conceptually simple and empirically powerful. It obtains new state-of-the-art re- sults on eleven natural language processing tasks, including pushing the GLUE score to 80.
+08. Source=BERT.pdf | Page=5 | Type=text | Image=N/A
+    Content=lows BERT to model many downstream tasks— whether they involve single text or text pairs—by swapping out the appropriate inputs and outputs. For applications involving text pairs, 
+09. Source=BERT.pdf | Page=8 | Type=text | Image=N/A
+    Content=using the “masked LM” (MLM) but without the “next sentence prediction” (NSP) task. LTR & No NSP: A left-context-only model which is trained using a standard Left-to-Right (LTR) LM,
+10. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+    Content=BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding Jacob Devlin Ming-Wei Chang Kenton Lee Kristina Toutanova Google AI Language {jacobdevlin,mingweich
+11. Source=BERT.pdf | Page=3 | Type=text | Image=N/A
+    Content=BERT BERT E[CLS] E1  E[SEP]... EN E1’ ... EM’ C  T1  T[SEP]...  TN  T1’ ...  TM’ [CLS] Tok 1  [SEP]... Tok N Tok 1 ... TokM Question Paragraph Start/End Span BERT E[CLS] E1  E[SEP]
+12. Source=BERT.pdf | Page=4 | Type=text | Image=N/A
+    Content=Input/Output Representations To make BERT handle a variety of down-stream tasks, our input representation is able to unambiguously represent both a single sentence and a pair of se
+13. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+    Content=BERT alleviates the previously mentioned unidi- rectionality constraint by using a “masked lan- guage model” (MLM) pre-training objective, in- spired by the Cloze task (Taylor, 195
+14. Source=BERT.pdf | Page=5 | Type=text | Image=N/A
+    Content=pair with self-attention effectively includes bidi- rectional cross attention between two sentences. For each task, we simply plug in the task- speciﬁc inputs and outputs into BERT
+15. Source=BERT.pdf | Page=6 | Type=text | Image=N/A
+    Content=Table 1: GLUE Test results, scored by the evaluation server ( https://gluebenchmark.com/leaderboard). The number below each task denotes the number of training examples. The “Avera
+16. Source=BERT.pdf | Page=5 | Type=text | Image=N/A
+    Content=learning objectives used in Jernite et al. (2017) and Logeswaran and Lee (2018). However, in prior work, only sentence embeddings are transferred to down-stream tasks, where BERT t
+17. Source=BERT.pdf | Page=4 | Type=text | Image=N/A
+    Content=predict the target word in a multi-layered context. former is often referred to as a “Transformer encoder” while the left-context-only version is referred to as a “Transformer deco
+18. Source=BERT.pdf | Page=4 | Type=text | Image=N/A
+    Content=thei-th token with (1) the [MASK] token 80% of the time (2) a random token 10% of the time (3) the unchanged i-th token 10% of the time. Then, Ti will be used to predict the origin
+19. Source=BERT.pdf | Page=13 | Type=text | Image=N/A
+    Content=To generate each training input sequence, we sam- ple two spans of text from the corpus, which we refer to as “sentences” even though they are typ- ically much longer than single s
+20. Source=BERT.pdf | Page=15 | Type=text | Image=N/A
+    Content=from online news sources, with human annotations for whether the sentences in the pair are semanti- cally equivalent (Dolan and Brockett, 2005). RTE Recognizing Textual Entailment 
+21. Source=BERT.pdf | Page=3 | Type=text | Image=N/A
+    Content=eters=110M) and BERTLARGE (L=24, H=1024, A=16, Total Parameters=340M). BERTBASE was chosen to have the same model size as OpenAI GPT for comparison purposes. Critically, however, t
+22. Source=BERT.pdf | Page=10 | Type=text | Image=N/A
+    Content=for learning predictive structures from multiple tasks and unlabeled data. Journal of Machine Learning Research, 6(Nov):1817–1853. Luisa Bentivogli, Bernardo Magnini, Ido Dagan, Ho
+23. Source=BERT.pdf | Page=6 | Type=text | Image=N/A
+    Content=all of the words in the paragraph: Pi = eS·Ti ∑ j eS·Tj . The analogous formula is used for the end of the answer span. The score of a candidate span from positioni to positionj is
+24. Source=BERT.pdf | Page=5 | Type=text | Image=N/A
+    Content=gle Cloud TPU, or a few hours on a GPU, starting from the exact same pre-trained model. 7 We de- scribe the task-speciﬁc details in the correspond- ing subsections of Section 4. Mo
+25. Source=BERT.pdf | Page=7 | Type=text | Image=N/A
+    Content=(SW AG) dataset contains 113k sentence-pair com- pletion examples that evaluate grounded common- sense inference (Zellers et al., 2018). Given a sen- tence, the task is to choose t
+
+------------------------------------------------------------------------------------------
+[SCOPED BM25 RETRIEVAL] 12 candidates
+------------------------------------------------------------------------------------------
+01. Source=BERT.pdf | Page=4 | Type=text | Image=N/A
+    Content=thei-th token with (1) the [MASK] token 80% of the time (2) a random token 10% of the time (3) the unchanged i-th token 10% of the time. Then, Ti will be used to predict the origin
+02. Source=BERT.pdf | Page=13 | Type=text | Image=N/A
+    Content=the empirical improvements of the MLM model far outweigh the increased training cost. Next Sentence Prediction The next sentence prediction task can be illustrated in the following
+03. Source=BERT.pdf | Page=13 | Type=text | Image=N/A
+    Content=left LSTMs to generate features for downstream tasks. Among the three, only BERT representations are jointly conditioned on both left and right context in all layers. In addition t
+04. Source=BERT.pdf | Page=4 | Type=image | Image=extracted_images\BERT_page4_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+05. Source=BERT.pdf | Page=8 | Type=text | Image=N/A
+    Content=prediction, like OpenAI GPT. “+ BiLSTM” adds a ran- domly initialized BiLSTM on top of the “LTR + No NSP” model during ﬁne-tuning. ablation studies can be found in Appendix C. 5.1 
+06. Source=BERT.pdf | Page=3 | Type=image | Image=extracted_images\BERT_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a circuit and a circuit  OCR Text: Mask LM  Masked Sentence A Masked Sentence B  Unlabeled Se
+07. Source=BERT.pdf | Page=15 | Type=text | Image=N/A
+    Content=1  [SEP]... Tok  N Tok  1 ... Tok M Sentence 1 ... Sentence 2 Figure 4: Illustrations of Fine-tuning BERT on Different Tasks. SST-2 The Stanford Sentiment Treebank is a binary sing
+08. Source=BERT.pdf | Page=13 | Type=image | Image=extracted_images\BERT_page13_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a textbook on the internet network  OCR Text: BERT (Ours)  OpenAl GPT  Figure 3: Differences in pre-training model architec
+09. Source=BERT.pdf | Page=12 | Type=text | Image=N/A
+    Content=hairy, and during the random masking procedure we chose the 4-th token (which corresponding to hairy), our masking procedure can be further il- lustrated by • 80% of the time: Repl
+10. Source=BERT.pdf | Page=12 | Type=text | Image=N/A
+    Content=is hairy . The purpose of this is to bias the representation towards the actual observed word. The advantage of this procedure is that the Transformer encoder does not know which w
+11. Source=BERT.pdf | Page=6 | Type=text | Image=N/A
+    Content=4.2 SQuAD v1.1 The Stanford Question Answering Dataset (SQuAD v1.1) is a collection of 100k crowd- sourced question/answer pairs (Rajpurkar et al., 2016). Given a question and a pa
+12. Source=BERT.pdf | Page=14 | Type=text | Image=N/A
+    Content=datasets, the descriptions of which were originally summarized in Wang et al. (2018a): MNLI Multi-Genre Natural Language Inference is a large-scale, crowdsourced entailment classiﬁ
+
+------------------------------------------------------------------------------------------
+[RRF FUSION RANKING]
+------------------------------------------------------------------------------------------
+01. RRF=0.032002 | DenseRank=3 | BM25Rank=2 | Source=BERT.pdf | Page=13 | Type=text
+02. RRF=0.031319 | DenseRank=1 | BM25Rank=7 | Source=BERT.pdf | Page=15 | Type=text
+03. RRF=0.030769 | DenseRank=5 | BM25Rank=5 | Source=BERT.pdf | Page=8 | Type=text
+04. RRF=0.029214 | DenseRank=18 | BM25Rank=1 | Source=BERT.pdf | Page=4 | Type=text
+05. RRF=0.016129 | DenseRank=2 | BM25Rank=- | Source=BERT.pdf | Page=2 | Type=text
+06. RRF=0.015873 | DenseRank=- | BM25Rank=3 | Source=BERT.pdf | Page=13 | Type=text
+07. RRF=0.015625 | DenseRank=4 | BM25Rank=- | Source=BERT.pdf | Page=4 | Type=text
+08. RRF=0.015625 | DenseRank=- | BM25Rank=4 | Source=BERT.pdf | Page=4 | Type=image
+09. RRF=0.015152 | DenseRank=6 | BM25Rank=- | Source=BERT.pdf | Page=3 | Type=text
+10. RRF=0.015152 | DenseRank=- | BM25Rank=6 | Source=BERT.pdf | Page=3 | Type=image
+11. RRF=0.014925 | DenseRank=7 | BM25Rank=- | Source=BERT.pdf | Page=1 | Type=text
+12. RRF=0.014706 | DenseRank=8 | BM25Rank=- | Source=BERT.pdf | Page=5 | Type=text
+13. RRF=0.014706 | DenseRank=- | BM25Rank=8 | Source=BERT.pdf | Page=13 | Type=image
+14. RRF=0.014493 | DenseRank=9 | BM25Rank=- | Source=BERT.pdf | Page=8 | Type=text
+15. RRF=0.014493 | DenseRank=- | BM25Rank=9 | Source=BERT.pdf | Page=12 | Type=text
+16. RRF=0.014286 | DenseRank=10 | BM25Rank=- | Source=BERT.pdf | Page=1 | Type=text
+17. RRF=0.014286 | DenseRank=- | BM25Rank=10 | Source=BERT.pdf | Page=12 | Type=text
+18. RRF=0.014085 | DenseRank=11 | BM25Rank=- | Source=BERT.pdf | Page=3 | Type=text
+19. RRF=0.014085 | DenseRank=- | BM25Rank=11 | Source=BERT.pdf | Page=6 | Type=text
+20. RRF=0.013889 | DenseRank=12 | BM25Rank=- | Source=BERT.pdf | Page=4 | Type=text
+21. RRF=0.013889 | DenseRank=- | BM25Rank=12 | Source=BERT.pdf | Page=14 | Type=text
+22. RRF=0.013699 | DenseRank=13 | BM25Rank=- | Source=BERT.pdf | Page=1 | Type=text
+23. RRF=0.013514 | DenseRank=14 | BM25Rank=- | Source=BERT.pdf | Page=5 | Type=text
+24. RRF=0.013333 | DenseRank=15 | BM25Rank=- | Source=BERT.pdf | Page=6 | Type=text
+25. RRF=0.013158 | DenseRank=16 | BM25Rank=- | Source=BERT.pdf | Page=5 | Type=text
+26. RRF=0.012987 | DenseRank=17 | BM25Rank=- | Source=BERT.pdf | Page=4 | Type=text
+27. RRF=0.012658 | DenseRank=19 | BM25Rank=- | Source=BERT.pdf | Page=13 | Type=text
+28. RRF=0.012500 | DenseRank=20 | BM25Rank=- | Source=BERT.pdf | Page=15 | Type=text
+29. RRF=0.012346 | DenseRank=21 | BM25Rank=- | Source=BERT.pdf | Page=3 | Type=text
+30. RRF=0.012195 | DenseRank=22 | BM25Rank=- | Source=BERT.pdf | Page=10 | Type=text
+31. RRF=0.012048 | DenseRank=23 | BM25Rank=- | Source=BERT.pdf | Page=6 | Type=text
+32. RRF=0.011905 | DenseRank=24 | BM25Rank=- | Source=BERT.pdf | Page=5 | Type=text
+33. RRF=0.011765 | DenseRank=25 | BM25Rank=- | Source=BERT.pdf | Page=7 | Type=text
+------------------------------------------------------------------------------------------
+
+==========================================================================================
+STEP 3A — RETRIEVAL STAGE SUMMARY
+==========================================================================================
+Dense candidates       : 25
+BM25 candidates        : 12
+Dense ∩ BM25           : 4
+Dense-only candidates  : 21
+BM25-only candidates   : 8
+Unique candidate pool  : 33
+RRF candidates         : 33
+Returned to pipeline   : 8
+==========================================================================================
+
+------------------------------------------------------------------------------------------
+[SCOPED FINAL HYBRID RESULT] 8 candidates
+------------------------------------------------------------------------------------------
+01. Source=BERT.pdf | Page=13 | Type=text | Image=N/A
+    Content=the empirical improvements of the MLM model far outweigh the increased training cost. Next Sentence Prediction The next sentence prediction task can be illustrated in the following
+02. Source=BERT.pdf | Page=15 | Type=text | Image=N/A
+    Content=1  [SEP]... Tok  N Tok  1 ... Tok M Sentence 1 ... Sentence 2 Figure 4: Illustrations of Fine-tuning BERT on Different Tasks. SST-2 The Stanford Sentiment Treebank is a binary sing
+03. Source=BERT.pdf | Page=8 | Type=text | Image=N/A
+    Content=prediction, like OpenAI GPT. “+ BiLSTM” adds a ran- domly initialized BiLSTM on top of the “LTR + No NSP” model during ﬁne-tuning. ablation studies can be found in Appendix C. 5.1 
+04. Source=BERT.pdf | Page=4 | Type=text | Image=N/A
+    Content=thei-th token with (1) the [MASK] token 80% of the time (2) a random token 10% of the time (3) the unchanged i-th token 10% of the time. Then, Ti will be used to predict the origin
+05. Source=BERT.pdf | Page=2 | Type=text | Image=N/A
+    Content=• We show that pre-trained representations reduce the need for many heavily-engineered task- speciﬁc architectures. BERT is the ﬁrst ﬁne- tuning based representation model that ach
+06. Source=BERT.pdf | Page=13 | Type=text | Image=N/A
+    Content=left LSTMs to generate features for downstream tasks. Among the three, only BERT representations are jointly conditioned on both left and right context in all layers. In addition t
+07. Source=BERT.pdf | Page=4 | Type=text | Image=N/A
+    Content=and 50% of the time it is a random sentence from the corpus (labeled as NotNext). As we show in Figure 1, C is used for next sentence predic- tion (NSP). 5 Despite its simplicity, 
+08. Source=BERT.pdf | Page=4 | Type=image | Image=extracted_images\BERT_page4_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+==========================================================================================
+
+================================================================================
+STAGE 1 — HYBRID RETRIEVAL
+================================================================================
+Retrieved Count : 8
+
+[HYBRID #1] Source=BERT.pdf | Page=13 | Type=text
+Content: the empirical improvements of the MLM model far outweigh the increased training cost. Next Sentence Prediction The next sentence prediction task can be illustrated in the following examples. Input = [CLS] the man went to [MASK] store [SEP] he bought a gallon [MASK] milk [SEP] Label = IsNext Input = [CLS] the man [MASK] to the store [SEP] penguin [MASK] are flight ##less birds [SEP] Label = NotNext A.2 Pre-training Procedure To generate each training input sequence, we sam- ple two spans of text 
+
+[HYBRID #2] Source=BERT.pdf | Page=15 | Type=text
+Content: 1  [SEP]... Tok  N Tok  1 ... Tok M Sentence 1 ... Sentence 2 Figure 4: Illustrations of Fine-tuning BERT on Different Tasks. SST-2 The Stanford Sentiment Treebank is a binary single-sentence classiﬁcation task consist- ing of sentences extracted from movie reviews with human annotations of their sentiment (Socher et al., 2013). CoLA The Corpus of Linguistic Acceptability is a binary single-sentence classiﬁcation task, where the goal is to predict whether an English sentence is linguistically “a
+
+[HYBRID #3] Source=BERT.pdf | Page=8 | Type=text
+Content: prediction, like OpenAI GPT. “+ BiLSTM” adds a ran- domly initialized BiLSTM on top of the “LTR + No NSP” model during ﬁne-tuning. ablation studies can be found in Appendix C. 5.1 Effect of Pre-training Tasks We demonstrate the importance of the deep bidi- rectionality of BERT by evaluating two pre- training objectives using exactly the same pre- training data, ﬁne-tuning scheme, and hyperpa- rameters as BERTBASE : No NSP : A bidirectional model which is trained using the “masked LM” (MLM) but w
+
+[HYBRID #4] Source=BERT.pdf | Page=4 | Type=text
+Content: thei-th token with (1) the [MASK] token 80% of the time (2) a random token 10% of the time (3) the unchanged i-th token 10% of the time. Then, Ti will be used to predict the original token with cross entropy loss. We compare variations of this procedure in Appendix C.2. Task #2: Next Sentence Prediction (NSP) Many important downstream tasks such as Ques- tion Answering (QA) and Natural Language Infer- ence (NLI) are based on understanding the rela- tionship between two sentences, which is not di
+
+[HYBRID #5] Source=BERT.pdf | Page=2 | Type=text
+Content: • We show that pre-trained representations reduce the need for many heavily-engineered task- speciﬁc architectures. BERT is the ﬁrst ﬁne- tuning based representation model that achieves state-of-the-art performance on a large suite of sentence-level and token-level tasks, outper- forming many task-speciﬁc architectures. • BERT advances the state of the art for eleven NLP tasks. The code and pre-trained mod- els are available at https://github.com/ google-research/bert. 2 Related Work There is a 
+
+[HYBRID #6] Source=BERT.pdf | Page=13 | Type=text
+Content: left LSTMs to generate features for downstream tasks. Among the three, only BERT representations are jointly conditioned on both left and right context in all layers. In addition to the architecture differences, BERT and OpenAI GPT are ﬁne-tuning approaches, while ELMo is a feature-based approach. to converge. In Section C.1 we demonstrate that MLM does converge marginally slower than a left- to-right model (which predicts every token), but the empirical improvements of the MLM model far outweig
+
+[HYBRID #7] Source=BERT.pdf | Page=4 | Type=text
+Content: and 50% of the time it is a random sentence from the corpus (labeled as NotNext). As we show in Figure 1, C is used for next sentence predic- tion (NSP). 5 Despite its simplicity, we demon- strate in Section 5.1 that pre-training towards this task is very beneﬁcial to both QA and NLI. 6 5The ﬁnal model achieves 97%-98% accuracy on NSP. 6The vector C is not a meaningful sentence representation without ﬁne-tuning, since it was trained with NSP.
+
+[HYBRID #8] Source=BERT.pdf | Page=4 | Type=image
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Input/Output Representations To make BERT handle a variety of down-stream tasks, our input representation is able to unambiguously represent both a single sentence and a pair of sentences (e.g., (Question, Answer )) in one token sequence. Throughout this work, a “sentence” ca
+================================================================================
+[DOCUMENT SCOPE] Text chunks: 8 -> 8
+
+================================================================================
+IMAGE RETRIEVAL DIAGNOSTIC
+================================================================================
+Query                 : What is the purpose of the Next Sentence Prediction (NSP) task in BERT?
+Allowed Sources       : ['BERT.pdf']
+Image Candidates      : 554 -> 8 (scoped before ranking)
+
+ALL IMAGE CANDIDATES
+--------------------------------------------------------------------------------
+Rank=01 | Source=BERT.pdf | Page=5 | Image=BERT_page5_render.png | Hybrid=0.3698 | CE=0.4513 | CLIP=0.2476
+Rank=02 | Source=BERT.pdf | Page=13 | Image=BERT_page13_render.png | Hybrid=0.1441 | CE=0.0637 | CLIP=0.2647
+Rank=03 | Source=BERT.pdf | Page=4 | Image=BERT_page4_render.png | Hybrid=-1.0818 | CE=-1.9613 | CLIP=0.2376
+Rank=04 | Source=BERT.pdf | Page=3 | Image=BERT_page3_render.png | Hybrid=-2.2549 | CE=-3.9291 | CLIP=0.2564
+Rank=05 | Source=BERT.pdf | Page=6 | Image=BERT_page6_render.png | Hybrid=-2.3542 | CE=-4.0904 | CLIP=0.2499
+Rank=06 | Source=BERT.pdf | Page=3 | Image=BERT_page3_img12.png | Hybrid=-3.8706 | CE=-6.6168 | CLIP=0.2485
+Rank=07 | Source=BERT.pdf | Page=15 | Image=BERT_page15_img13.png | Hybrid=-4.7169 | CE=-8.0271 | CLIP=0.2485
+Rank=08 | Source=BERT.pdf | Page=14 | Image=BERT_page14_render.png | Hybrid=-5.2823 | CE=-8.9678 | CLIP=0.2459
+
+TOP IMAGE RESULTS
+--------------------------------------------------------------------------------
+TOP-1 | Source=BERT.pdf | Page=5 | Image=BERT_page5_render.png | Hybrid=0.3698 | CE=0.4513 | CLIP=0.2476
+TOP-2 | Source=BERT.pdf | Page=13 | Image=BERT_page13_render.png | Hybrid=0.1441 | CE=0.0637 | CLIP=0.2647
+TOP-3 | Source=BERT.pdf | Page=4 | Image=BERT_page4_render.png | Hybrid=-1.0818 | CE=-1.9613 | CLIP=0.2376
+================================================================================
+[DOCUMENT SCOPE] Images: 3 -> 3
+
+================================================================================
+STAGE 2 — IMAGE RETRIEVAL RESULT
+================================================================================
+Image Results       : 3
+Exact Figure Match  : False
+
+[IMAGE #1] Source=BERT.pdf | Page=5 | Image=BERT_page5_render.png
+Image Path: extracted_images\BERT_page5_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a book with a page of a page of a page of a page of a page of a page of a page of a  OCR Text: f/f Token | ll Embeddings Eris) Fay E tog Es Eu = Eines E ay Essing E se0] + + + + Segment Embeddings E, Ey E, : Lt Es + + + + Position  Figure 2: BERT input representation. The input embeddings are the sum of the token embeddings, the segmenta-  tion embeddings and the position embeddings.  The NSP task is closely related to representation- learni
+
+[IMAGE #2] Source=BERT.pdf | Page=13 | Image=BERT_page13_render.png
+Image Path: extracted_images\BERT_page13_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a textbook on the internet network  OCR Text: BERT (Ours)  OpenAl GPT  Figure 3: Differences in pre-training model architectures. BERT uses a bidirectional Transformer. OpenAI GPT uses a left-to-right Transformer. ELMo uses the concatenation of independently trained left-to-right and right-to- left LSTMs to generate features for downstream tasks. Among the three, only BERT representations are jointly conditioned on both left and right cont
+
+[IMAGE #3] Source=BERT.pdf | Page=4 | Image=BERT_page4_render.png
+Image Path: extracted_images\BERT_page4_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Input/Output Representations To make BERT handle a variety of down-stream tasks, our input representation is able to unambiguously represent both a single sentence and a pair of sentences (e.g., (Question, Answer )) in one token sequence. Throughout this work, a “sentence” ca
+================================================================================
+
+================================================================================
+COMBINED RETRIEVAL CANDIDATES
+================================================================================
+Text Candidates  : 8
+Image Candidates : 3
+Total Candidates : 11
+================================================================================
+
+================================================================================
+STEP 3A — RERANKER INPUT
+================================================================================
+Query: What is the purpose of the Next Sentence Prediction (NSP) task in BERT?
+Input candidates: 11
+01. Source=BERT.pdf | Page=13 | Type=text | Image=N/A
+    Content=the empirical improvements of the MLM model far outweigh the increased training cost. Next Sentence Prediction The next sentence prediction task can be illustrated in the following
+02. Source=BERT.pdf | Page=15 | Type=text | Image=N/A
+    Content=1  [SEP]... Tok  N Tok  1 ... Tok M Sentence 1 ... Sentence 2 Figure 4: Illustrations of Fine-tuning BERT on Different Tasks. SST-2 The Stanford Sentiment Treebank is a binary sing
+03. Source=BERT.pdf | Page=8 | Type=text | Image=N/A
+    Content=prediction, like OpenAI GPT. “+ BiLSTM” adds a ran- domly initialized BiLSTM on top of the “LTR + No NSP” model during ﬁne-tuning. ablation studies can be found in Appendix C. 5.1 
+04. Source=BERT.pdf | Page=4 | Type=text | Image=N/A
+    Content=thei-th token with (1) the [MASK] token 80% of the time (2) a random token 10% of the time (3) the unchanged i-th token 10% of the time. Then, Ti will be used to predict the origin
+05. Source=BERT.pdf | Page=2 | Type=text | Image=N/A
+    Content=• We show that pre-trained representations reduce the need for many heavily-engineered task- speciﬁc architectures. BERT is the ﬁrst ﬁne- tuning based representation model that ach
+06. Source=BERT.pdf | Page=13 | Type=text | Image=N/A
+    Content=left LSTMs to generate features for downstream tasks. Among the three, only BERT representations are jointly conditioned on both left and right context in all layers. In addition t
+07. Source=BERT.pdf | Page=4 | Type=text | Image=N/A
+    Content=and 50% of the time it is a random sentence from the corpus (labeled as NotNext). As we show in Figure 1, C is used for next sentence predic- tion (NSP). 5 Despite its simplicity, 
+08. Source=BERT.pdf | Page=4 | Type=image | Image=extracted_images\BERT_page4_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+09. Source=BERT.pdf | Page=5 | Type=image | Image=extracted_images\BERT_page5_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a book with a page of a page of a page of a page of a page of a page of a page of a  OCR Text: f/f Token | ll Embeddings Eris
+10. Source=BERT.pdf | Page=13 | Type=image | Image=extracted_images\BERT_page13_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a textbook on the internet network  OCR Text: BERT (Ours)  OpenAl GPT  Figure 3: Differences in pre-training model architec
+11. Source=BERT.pdf | Page=4 | Type=image | Image=extracted_images\BERT_page4_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+================================================================================
+
+--------------------------------------------------------------------------------
+CROSS-ENCODER RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=02 | Source=BERT.pdf | Page=8 | Type=text | CE=4.4258
+Rank=02 | OriginalIndex=03 | Source=BERT.pdf | Page=4 | Type=text | CE=3.2225
+Rank=03 | OriginalIndex=05 | Source=BERT.pdf | Page=13 | Type=text | CE=3.2053
+Rank=04 | OriginalIndex=06 | Source=BERT.pdf | Page=4 | Type=text | CE=0.7865
+Rank=05 | OriginalIndex=00 | Source=BERT.pdf | Page=13 | Type=text | CE=0.5560
+Rank=06 | OriginalIndex=08 | Source=BERT.pdf | Page=5 | Type=image | CE=0.4513
+Rank=07 | OriginalIndex=09 | Source=BERT.pdf | Page=13 | Type=image | CE=0.0637
+Rank=08 | OriginalIndex=04 | Source=BERT.pdf | Page=2 | Type=text | CE=0.0035
+Rank=09 | OriginalIndex=01 | Source=BERT.pdf | Page=15 | Type=text | CE=-0.0526
+Rank=10 | OriginalIndex=07 | Source=BERT.pdf | Page=4 | Type=image | CE=-1.9613
+Rank=11 | OriginalIndex=10 | Source=BERT.pdf | Page=4 | Type=image | CE=-1.9613
+
+--------------------------------------------------------------------------------
+CLIP IMAGE RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=09 | Source=BERT.pdf | Page=13 | Image=extracted_images\BERT_page13_render.png | CLIP=0.2647
+Rank=02 | OriginalIndex=08 | Source=BERT.pdf | Page=5 | Image=extracted_images\BERT_page5_render.png | CLIP=0.2476
+Rank=03 | OriginalIndex=07 | Source=BERT.pdf | Page=4 | Image=extracted_images\BERT_page4_render.png | CLIP=0.2376
+Rank=04 | OriginalIndex=10 | Source=BERT.pdf | Page=4 | Image=extracted_images\BERT_page4_render.png | CLIP=0.2376
+
+================================================================================
+STEP 3A — COMPLETE MULTIMODAL RERANK RESULT
+================================================================================
+Rank=01 | Type=image | Source=BERT.pdf | Page=13 | RRF=0.031319 | CE=0.0637 | CLIP=0.2647
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a textbook on the internet network  OCR Text: BERT (Ours)  OpenAl GPT  Figure 3: Differences in pre-training model architec
+Rank=02 | Type=image | Source=BERT.pdf | Page=5 | RRF=0.031281 | CE=0.4513 | CLIP=0.2476
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a book with a page of a page of a page of a page of a page of a page of a page of a  OCR Text: f/f Token | ll Embeddings Eris
+Rank=03 | Type=image | Source=BERT.pdf | Page=4 | RRF=0.030159 | CE=-1.9613 | CLIP=0.2376
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+Rank=04 | Type=image | Source=BERT.pdf | Page=4 | RRF=0.029710 | CE=-1.9613 | CLIP=0.2376
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+Rank=05 | Type=text | Source=BERT.pdf | Page=8 | RRF=0.016393 | CE=4.4258 | CLIP=N/A
+    Content=prediction, like OpenAI GPT. “+ BiLSTM” adds a ran- domly initialized BiLSTM on top of the “LTR + No NSP” model during ﬁne-tuning. ablation studies can be found in Appendix C. 5.1 
+Rank=06 | Type=text | Source=BERT.pdf | Page=4 | RRF=0.016129 | CE=3.2225 | CLIP=N/A
+    Content=thei-th token with (1) the [MASK] token 80% of the time (2) a random token 10% of the time (3) the unchanged i-th token 10% of the time. Then, Ti will be used to predict the origin
+Rank=07 | Type=text | Source=BERT.pdf | Page=13 | RRF=0.015873 | CE=3.2053 | CLIP=N/A
+    Content=left LSTMs to generate features for downstream tasks. Among the three, only BERT representations are jointly conditioned on both left and right context in all layers. In addition t
+Rank=08 | Type=text | Source=BERT.pdf | Page=4 | RRF=0.015625 | CE=0.7865 | CLIP=N/A
+    Content=and 50% of the time it is a random sentence from the corpus (labeled as NotNext). As we show in Figure 1, C is used for next sentence predic- tion (NSP). 5 Despite its simplicity, 
+Rank=09 | Type=text | Source=BERT.pdf | Page=13 | RRF=0.015385 | CE=0.5560 | CLIP=N/A
+    Content=the empirical improvements of the MLM model far outweigh the increased training cost. Next Sentence Prediction The next sentence prediction task can be illustrated in the following
+Rank=10 | Type=text | Source=BERT.pdf | Page=2 | RRF=0.014706 | CE=0.0035 | CLIP=N/A
+    Content=• We show that pre-trained representations reduce the need for many heavily-engineered task- speciﬁc architectures. BERT is the ﬁrst ﬁne- tuning based representation model that ach
+Rank=11 | Type=text | Source=BERT.pdf | Page=15 | RRF=0.014493 | CE=-0.0526 | CLIP=N/A
+    Content=1  [SEP]... Tok  N Tok  1 ... Tok M Sentence 1 ... Sentence 2 Figure 4: Illustrations of Fine-tuning BERT on Different Tasks. SST-2 The Stanford Sentiment Treebank is a binary sing
+================================================================================
+
+================================================================================
+STEP 3A — FINAL RERANK TOP-K
+================================================================================
+Requested top_k: 12
+Returned documents: 10
+01. Source=BERT.pdf | Page=13 | Type=image | Image=extracted_images\BERT_page13_render.png
+02. Source=BERT.pdf | Page=5 | Type=image | Image=extracted_images\BERT_page5_render.png
+03. Source=BERT.pdf | Page=4 | Type=image | Image=extracted_images\BERT_page4_render.png
+04. Source=BERT.pdf | Page=8 | Type=text | Image=N/A
+05. Source=BERT.pdf | Page=4 | Type=text | Image=N/A
+06. Source=BERT.pdf | Page=13 | Type=text | Image=N/A
+07. Source=BERT.pdf | Page=4 | Type=text | Image=N/A
+08. Source=BERT.pdf | Page=13 | Type=text | Image=N/A
+09. Source=BERT.pdf | Page=2 | Type=text | Image=N/A
+10. Source=BERT.pdf | Page=15 | Type=text | Image=N/A
+================================================================================
+
+================================================================================
+STAGE 3 — MULTIMODAL RERANKING
+================================================================================
+Input Candidates : 11
+Reranked Output   : 10
+
+[RERANK #1] Source=BERT.pdf | Page=13 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a textbook on the internet network  OCR Text: BERT (Ours)  OpenAl GPT  Figure 3: Differences in pre-training model architectures. BERT uses a bidirectional Transformer. OpenAI GPT uses a left-to-right Transformer. ELMo uses the concatenation o
+
+[RERANK #2] Source=BERT.pdf | Page=5 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a book with a page of a page of a page of a page of a page of a page of a page of a  OCR Text: f/f Token | ll Embeddings Eris) Fay E tog Es Eu = Eines E ay Essing E se0] + + + + Segment Embeddings E, Ey E, : Lt Es + + + + Position  Figure 2: BER
+
+[RERANK #3] Source=BERT.pdf | Page=4 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Input/Output Representations To make BERT handle a variety of down-stream ta
+
+[RERANK #4] Source=BERT.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: prediction, like OpenAI GPT. “+ BiLSTM” adds a ran- domly initialized BiLSTM on top of the “LTR + No NSP” model during ﬁne-tuning. ablation studies can be found in Appendix C. 5.1 Effect of Pre-training Tasks We demonstrate the importance of the deep bidi- rectionality of BERT by evaluating two pre-
+
+[RERANK #5] Source=BERT.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: thei-th token with (1) the [MASK] token 80% of the time (2) a random token 10% of the time (3) the unchanged i-th token 10% of the time. Then, Ti will be used to predict the original token with cross entropy loss. We compare variations of this procedure in Appendix C.2. Task #2: Next Sentence Predic
+
+[RERANK #6] Source=BERT.pdf | Page=13 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: left LSTMs to generate features for downstream tasks. Among the three, only BERT representations are jointly conditioned on both left and right context in all layers. In addition to the architecture differences, BERT and OpenAI GPT are ﬁne-tuning approaches, while ELMo is a feature-based approach. t
+
+[RERANK #7] Source=BERT.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: and 50% of the time it is a random sentence from the corpus (labeled as NotNext). As we show in Figure 1, C is used for next sentence predic- tion (NSP). 5 Despite its simplicity, we demon- strate in Section 5.1 that pre-training towards this task is very beneﬁcial to both QA and NLI. 6 5The ﬁnal mo
+
+[RERANK #8] Source=BERT.pdf | Page=13 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: the empirical improvements of the MLM model far outweigh the increased training cost. Next Sentence Prediction The next sentence prediction task can be illustrated in the following examples. Input = [CLS] the man went to [MASK] store [SEP] he bought a gallon [MASK] milk [SEP] Label = IsNext Input = 
+
+[RERANK #9] Source=BERT.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: • We show that pre-trained representations reduce the need for many heavily-engineered task- speciﬁc architectures. BERT is the ﬁrst ﬁne- tuning based representation model that achieves state-of-the-art performance on a large suite of sentence-level and token-level tasks, outper- forming many task-s
+
+[RERANK #10] Source=BERT.pdf | Page=15 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: 1  [SEP]... Tok  N Tok  1 ... Tok M Sentence 1 ... Sentence 2 Figure 4: Illustrations of Fine-tuning BERT on Different Tasks. SST-2 The Stanford Sentiment Treebank is a binary single-sentence classiﬁcation task consist- ing of sentences extracted from movie reviews with human annotations of their se
+================================================================================
+
+================================================================================
+FINAL CONTEXT DOCUMENTS
+================================================================================
+Final context candidates: 10
+
+[FINAL #1] Source=BERT.pdf | Page=13 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a textbook on the internet network  OCR Text: BERT (Ours)  OpenAl GPT  Figure 3: Differences in pre-training model architectures. BERT uses a bidirectional Transformer. OpenAI GPT uses a left-to-right Transformer. ELMo uses the concatenation o
+
+[FINAL #2] Source=BERT.pdf | Page=5 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a book with a page of a page of a page of a page of a page of a page of a page of a  OCR Text: f/f Token | ll Embeddings Eris) Fay E tog Es Eu = Eines E ay Essing E se0] + + + + Segment Embeddings E, Ey E, : Lt Es + + + + Position  Figure 2: BER
+
+[FINAL #3] Source=BERT.pdf | Page=4 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Input/Output Representations To make BERT handle a variety of down-stream ta
+
+[FINAL #4] Source=BERT.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: prediction, like OpenAI GPT. “+ BiLSTM” adds a ran- domly initialized BiLSTM on top of the “LTR + No NSP” model during ﬁne-tuning. ablation studies can be found in Appendix C. 5.1 Effect of Pre-training Tasks We demonstrate the importance of the deep bidi- rectionality of BERT by evaluating two pre-
+
+[FINAL #5] Source=BERT.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: thei-th token with (1) the [MASK] token 80% of the time (2) a random token 10% of the time (3) the unchanged i-th token 10% of the time. Then, Ti will be used to predict the original token with cross entropy loss. We compare variations of this procedure in Appendix C.2. Task #2: Next Sentence Predic
+
+[FINAL #6] Source=BERT.pdf | Page=13 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: left LSTMs to generate features for downstream tasks. Among the three, only BERT representations are jointly conditioned on both left and right context in all layers. In addition to the architecture differences, BERT and OpenAI GPT are ﬁne-tuning approaches, while ELMo is a feature-based approach. t
+
+[FINAL #7] Source=BERT.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: and 50% of the time it is a random sentence from the corpus (labeled as NotNext). As we show in Figure 1, C is used for next sentence predic- tion (NSP). 5 Despite its simplicity, we demon- strate in Section 5.1 that pre-training towards this task is very beneﬁcial to both QA and NLI. 6 5The ﬁnal mo
+
+[FINAL #8] Source=BERT.pdf | Page=13 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: the empirical improvements of the MLM model far outweigh the increased training cost. Next Sentence Prediction The next sentence prediction task can be illustrated in the following examples. Input = [CLS] the man went to [MASK] store [SEP] he bought a gallon [MASK] milk [SEP] Label = IsNext Input = 
+
+[FINAL #9] Source=BERT.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: • We show that pre-trained representations reduce the need for many heavily-engineered task- speciﬁc architectures. BERT is the ﬁrst ﬁne- tuning based representation model that achieves state-of-the-art performance on a large suite of sentence-level and token-level tasks, outper- forming many task-s
+
+[FINAL #10] Source=BERT.pdf | Page=15 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: 1  [SEP]... Tok  N Tok  1 ... Tok M Sentence 1 ... Sentence 2 Figure 4: Illustrations of Fine-tuning BERT on Different Tasks. SST-2 The Stanford Sentiment Treebank is a binary single-sentence classiﬁcation task consist- ing of sentences extracted from movie reviews with human annotations of their se
+================================================================================
+
+================================================================================
+FINAL CONTEXT SENT TO LLM
+================================================================================
+
+================================================================================
+DOCUMENT : BERT.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 2
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+• We show that pre-trained representations reduce
+the need for many heavily-engineered task-
+speciﬁc architectures. BERT is the ﬁrst ﬁne-
+tuning based representation model that achieves
+state-of-the-art performance on a large suite
+of sentence-level and token-level tasks, outper-
+forming many task-speciﬁc architectures.
+• BERT advances the state of the art for eleven
+NLP tasks. The code and pre-trained mod-
+els are available at https://github.com/
+google-research/bert.
+2 Related Work
+There is a long history of pre-training general lan-
+guage representations, and we brieﬂy review the
+
+
+--------------------------------------------------------------------------------
+PAGE : 4
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+thei-th token with (1) the [MASK] token 80% of
+the time (2) a random token 10% of the time (3)
+the unchanged i-th token 10% of the time. Then,
+Ti will be used to predict the original token with
+cross entropy loss. We compare variations of this
+procedure in Appendix C.2.
+Task #2: Next Sentence Prediction (NSP)
+Many important downstream tasks such as Ques-
+tion Answering (QA) and Natural Language Infer-
+ence (NLI) are based on understanding the rela-
+tionship between two sentences, which is not di-
+rectly captured by language modeling. In order
+to train a model that understands sentence rela-
+
+
+[TEXT]
+
+and 50% of the time it is a random sentence from
+the corpus (labeled as NotNext). As we show
+in Figure 1, C is used for next sentence predic-
+tion (NSP). 5 Despite its simplicity, we demon-
+strate in Section 5.1 that pre-training towards this
+task is very beneﬁcial to both QA and NLI. 6
+5The ﬁnal model achieves 97%-98% accuracy on NSP.
+6The vector C is not a meaningful sentence representation
+without ﬁne-tuning, since it was trained with NSP.
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the
+
+OCR Text:
+Input/Output Representations To make BERT
+handle a variety of down-stream tasks, our input
+representation is able to unambiguously represent
+both a single sentence and a pair of sentences
+(e.g., (Question, Answer )) in one token sequence.
+Throughout this work, a “sentence” can be an arbi-
+trary span of contiguous text, rather than an actual
+linguistic sentence. A “sequence” refers to the in-
+put token sequence to BERT, which may be a sin-
+gle sentence or two sentences packed together.
+
+We use WordPiece embeddings (Wu et al.,
+2016) with a 30,000 token vocabulary. The first
+token of every sequence is always a special clas-
+sification token ([CLS]). The final hidden state
+corresponding to this token is used as the ag-
+gregate sequence representation for classification
+tasks. Sentence pairs are packed together into a
+single sequence. We differentiate the sentences in
+two ways. First, we separate them with a special
+token ([ SEP] ). Second, we add a learned embed-
+ding to every token indicating whether it belongs
+to sentence A or sentence B. As shown in Figure 1,
+we denote input embedding as F, the final hidden
+vector of the special [CLS] token as C € R#®,
+and the final hidden vector for the i** input token
+as T; € R®.
+
+For a given token, its input representation is
+constructed by summing the corresponding token,
+segment, and position embeddings. A visualiza-
+tion of this construction can be seen in Figure 2.
+
+3.1 Pre-training BERT
+
+Unlike Peters et al. (2018a) and Radford et al.
+(2018), we do not use traditional left-to-right or
+right-to-left language models to pre-train BERT.
+Instead, we pre-train BERT using two unsuper-
+vised tasks, described in this section. This step
+is presented in the left part of Figure 1.
+
+Task #1: Masked LM Intuitively, it is reason-
+able to believe that a deep bidirectional model is
+strictly more powerful than either a left-to-right
+model or the shallow concatenation of a left-to-
+right and a right-to-left model. Unfortunately,
+standard conditional language models can only be
+trained left-to-right or right-to-left, since bidirec-
+tional conditioning would allow each word to in-
+directly “see itself”, and the model could trivially
+predict the target word in a multi-layered context.
+
+former is often referred to as a “Transformer encoder” while
+the left-context-only version is referred to as a “Transformer
+decoder” since it can be used for text generation.
+
+In order to train a deep bidirectional representa-
+tion, we simply mask some percentage of the input
+tokens at random, and then predict those masked
+tokens. We refer to this procedure as a “masked
+LM” (MLM), although it is often referred to as a
+Cloze task in the literature (Taylor, 1953). In this
+case, the final hidden vectors corresponding to the
+mask tokens are fed into an output softmax over
+the vocabulary, as in a standard LM. In all of our
+experiments, we mask 15% of all WordPiece to-
+kens in each sequence at random. In contrast to
+denoising auto-encoders (Vincent et al., 2008), we
+only predict the masked words rather than recon-
+structing the entire input.
+
+Although this allows us to obtain a bidirec-
+tional pre-trained model, a downside is that we
+are creating a mismatch between pre-training and
+fine-tuning, since the [MASK] token does not ap-
+pear during fine-tuning. To mitigate this, we do
+not always replace “masked” words with the ac-
+tual [MASK] token. The training data generator
+chooses 15% of the token positions at random for
+prediction. If the 7-th token is chosen, we replace
+the 7-th token with (1) the [MASK] token 80% of
+the time (2) a random token 10% of the time (3)
+the unchanged 3-th token 10% of the time. Then,
+T; will be used to predict the original token with
+cross entropy loss. We compare variations of this
+procedure in Appendix C.2.
+
+Task #2: Next Sentence Prediction (NSP)
+Many important downstream tasks such as Ques-
+tion Answering (QA) and Natural Language Infer-
+ence (NLI) are based on understanding the rela-
+tionship between two sentences, which is not di-
+rectly captured by language modeling. In order
+to train a model that understands sentence rela-
+tionships, we pre-train for a binarized next sen-
+tence prediction task that can be trivially gener-
+ated from any monolingual corpus. Specifically,
+when choosing the sentences A and B for each pre-
+training example, 50% of the time B is the actual
+next sentence that follows A (labeled as IsNext),
+and 50% of the time it is a random sentence from
+the corpus (labeled as NotNext). As we show
+in Figure 1, C is used for next sentence predic-
+tion (NSP).° Despite its simplicity, we demon-
+strate in Section 5.1 that pre-training towards this
+task is very beneficial to both QA and NLI. ®
+5The final model achieves 97%-98% accuracy on NSP.
+
+The vector C is not a meaningful sentence representation
+without fine-tuning, since it was trained with NSP.
+
+Nearby Document Text:
+Input/Output Representations
+To make BERT
+handle a variety of down-stream tasks, our input
+representation is able to unambiguously represent
+both a single sentence and a pair of sentences
+(e.g., ⟨Question, Answer ⟩) in one token sequence.
+Throughout this work, a “sentence” can be an arbi-
+trary span of contiguous text, rather than an actual
+linguistic sentence. A “sequence” refers to the in-
+put token sequence to BERT, which may be a sin-
+gle sentence or two sentences packed together.
+We use WordPiece embeddings (Wu et al.,
+2016) with a 30,000 token vocabulary. The ﬁrst
+token of every sequence
+
+
+[RELATED PAGE TEXT]
+
+thei-th token with (1) the [MASK] token 80% of
+the time (2) a random token 10% of the time (3)
+the unchanged i-th token 10% of the time. Then,
+Ti will be used to predict the original token with
+cross entropy loss. We compare variations of this
+procedure in Appendix C.2.
+Task #2: Next Sentence Prediction (NSP)
+Many important downstream tasks such as
+
+
+--------------------------------------------------------------------------------
+PAGE : 5
+--------------------------------------------------------------------------------
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a page of a book with a page of a page of a page of a page of a page of a page of a page of a
+
+OCR Text:
+f/f
+Token | ll
+Embeddings Eris) Fay E tog Es Eu = Eines E ay Essing E se0]
++ + + +
+Segment
+Embeddings E, Ey E, : Lt Es
++ + + +
+Position
+
+Figure 2: BERT input representation. The input embeddings are the sum of the token embeddings, the segmenta-
+
+tion embeddings and the position embeddings.
+
+The NSP task is closely related to representation-
+learning objectives used in Jernite et al. (2017) and
+Logeswaran and Lee (2018). However, in prior
+work, only sentence embeddings are transferred to
+down-stream tasks, where BERT transfers all pa-
+rameters to initialize end-task model parameters.
+
+Pre-training data The pre-training procedure
+largely follows the existing literature on language
+model pre-training. For the pre-training corpus we
+use the BooksCorpus (800M words) (Zhu et al.,
+2015) and English Wikipedia (2,500M words).
+For Wikipedia we extract only the text passages
+and ignore lists, tables, and headers. It is criti-
+cal to use a document-level corpus rather than a
+shuffled sentence-level corpus such as the Billion
+Word Benchmark (Chelba et al., 2013) in order to
+extract long contiguous sequences.
+
+3.2 Fine-tuning BERT
+
+Fine-tuning is straightforward since the self-
+attention mechanism in the Transformer al-
+lows BERT to model many downstream tasks—
+whether they involve single text or text pairs—by
+swapping out the appropriate inputs and outputs.
+For applications involving text pairs, a common
+pattern is to independently encode text pairs be-
+fore applying bidirectional cross attention, such
+as Parikh et al. (2016); Seo et al. (2017). BERT
+instead uses the self-attention mechanism to unify
+these two stages, as encoding a concatenated text
+pair with self-attention effectively includes bidi-
+rectional cross attention between two sentences.
+For each task, we simply plug in the task-
+specific inputs and outputs into BERT and fine-
+tune all the parameters end-to-end. At the in-
+put, sentence A and sentence B from pre-training
+are analogous to (1) sentence pairs in paraphras-
+ing, (2) hypothesis-premise pairs in entailment, (3)
+question-passage pairs in question answering, and
+
+(4) a degenerate text-@ pair in text classification
+or sequence tagging. At the output, the token rep-
+resentations are fed into an output layer for token-
+level tasks, such as sequence tagging or question
+answering, and the [CLS] representation is fed
+into an output layer for classification, such as en-
+tailment or sentiment analysis.
+
+Compared to pre-training, fine-tuning is rela-
+tively inexpensive. All of the results in the pa-
+per can be replicated in at most 1 hour on a sin-
+gle Cloud TPU, or a few hours on a GPU, starting
+from the exact same pre-trained model.’ We de-
+scribe the task-specific details in the correspond-
+ing subsections of Section 4. More details can be
+found in Appendix A.5.
+
+4 Experiments
+
+In this section, we present BERT fine-tuning re-
+sults on 11 NLP tasks.
+
+4.1 GLUE
+
+The General Language Understanding Evaluation
+(GLUE) benchmark (Wang et al., 2018a) is a col-
+lection of diverse natural language understanding
+tasks. Detailed descriptions of GLUE datasets are
+included in Appendix B.1.
+
+To fine-tune on GLUE, we represent the input
+sequence (for single sentence or sentence pairs)
+as described in Section 3, and use the final hid-
+den vector C € R*” corresponding to the first
+input token ([CLS]) as the aggregate representa-
+tion. The only new parameters introduced during
+fine-tuning are classification layer weights W €
+R*Xx4) where K is the number of labels. We com-
+pute a standard classification loss with C and W,
+i.e., log(softmax(CW7)).
+
+For example, the BERT SQUAD model can be trained in
+around 30 minutes on a single Cloud TPU to achieve a Dev
+
+F1 score of 91.0%.
+®See (10) in https: //gluebenchmark . com/faq.
+
+Nearby Document Text:
+[CLS]
+he
+likes
+play
+##ing
+[SEP]
+my
+dog
+is
+cute
+[SEP]
+Input
+E[CLS]
+Ehe
+Elikes
+Eplay
+E##ing
+E[SEP]
+Emy
+Edog
+Eis
+Ecute
+E[SEP]
+Token
+Embeddings
+EA
+EB
+EB
+EB
+EB
+EB
+EA
+EA
+EA
+EA
+EA
+Segment
+Embeddings
+E0
+E6
+E7
+E8
+E9
+E10
+E1
+E2
+E3
+E4
+E5
+Position
+Embeddings
+Figure 2: BERT input representation. The input embeddings are the sum of the token embeddings, the segmenta-
+tion embeddings and the position embeddings.
+The NSP task is closely related to representation-
+learning objectives used in Jernite et al. (2017) and
+Logeswaran and Lee (2018). However, in prior
+work, only sentence embeddings are transferred to
+
+
+--------------------------------------------------------------------------------
+PAGE : 8
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+prediction, like OpenAI GPT. “+ BiLSTM” adds a ran-
+domly initialized BiLSTM on top of the “LTR + No
+NSP” model during ﬁne-tuning.
+ablation studies can be found in Appendix C.
+5.1 Effect of Pre-training Tasks
+We demonstrate the importance of the deep bidi-
+rectionality of BERT by evaluating two pre-
+training objectives using exactly the same pre-
+training data, ﬁne-tuning scheme, and hyperpa-
+rameters as BERTBASE :
+No NSP : A bidirectional model which is trained
+using the “masked LM” (MLM) but without the
+“next sentence prediction” (NSP) task.
+LTR & No NSP: A left-context-only model which
+
+
+--------------------------------------------------------------------------------
+PAGE : 13
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+left LSTMs to generate features for downstream tasks. Among the three, only BERT representations are jointly
+conditioned on both left and right context in all layers. In addition to the architecture differences, BERT and
+OpenAI GPT are ﬁne-tuning approaches, while ELMo is a feature-based approach.
+to converge. In Section C.1 we demonstrate that
+MLM does converge marginally slower than a left-
+to-right model (which predicts every token), but
+the empirical improvements of the MLM model
+far outweigh the increased training cost.
+Next Sentence Prediction The next sentence
+
+
+[TEXT]
+
+the empirical improvements of the MLM model
+far outweigh the increased training cost.
+Next Sentence Prediction The next sentence
+prediction task can be illustrated in the following
+examples.
+Input = [CLS] the man went to [MASK] store [SEP]
+he bought a gallon [MASK] milk [SEP]
+Label = IsNext
+Input = [CLS] the man [MASK] to the store [SEP]
+penguin [MASK] are flight ##less birds [SEP]
+Label = NotNext
+A.2 Pre-training Procedure
+To generate each training input sequence, we sam-
+ple two spans of text from the corpus, which we
+refer to as “sentences” even though they are typ-
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a page from a textbook on the internet network
+
+OCR Text:
+BERT (Ours)
+
+OpenAl GPT
+
+Figure 3: Differences in pre-training model architectures. BERT uses a bidirectional Transformer. OpenAI GPT
+uses a left-to-right Transformer. ELMo uses the concatenation of independently trained left-to-right and right-to-
+left LSTMs to generate features for downstream tasks. Among the three, only BERT representations are jointly
+conditioned on both left and right context in all layers. In addition to the architecture differences, BERT and
+OpenAlI GPT are fine-tuning approaches, while ELMo is a feature-based approach.
+
+to converge. In Section C.1 we demonstrate that
+MLM does converge marginally slower than a left-
+to-right model (which predicts every token), but
+the empirical improvements of the MLM model
+far outweigh the increased training cost.
+
+Next Sentence Prediction The next sentence
+prediction task can be illustrated in the following
+examples.
+
+Input = [CLS] the man went to [MASK] store [SEP]
+he bought a gallon [MASK] milk [SEP]
+
+Label = tsnext
+
+Input = [CLS] the man [MASK] to the store [SEP]
+penguin [MASK] are flight f#less birds [SEP]
+
+Label = notnext
+
+A.2 Pre-training Procedure
+
+To generate each training input sequence, we sam-
+ple two spans of text from the corpus, which we
+refer to as “sentences” even though they are typ-
+ically much longer than single sentences (but can
+be shorter also). The first sentence receives the A
+embedding and the second receives the B embed-
+ding. 50% of the time B is the actual next sentence
+that follows A and 50% of the time it is a random
+sentence, which is done for the “next sentence pre-
+diction” task. They are sampled such that the com-
+bined length is < 512 tokens. The LM masking is
+applied after WordPiece tokenization with a uni-
+form masking rate of 15%, and no special consid-
+eration given to partial word pieces.
+
+We train with batch size of 256 sequences (256
+sequences * 512 tokens = 128,000 tokens/batch)
+for 1,000,000 steps, which is approximately 40
+
+epochs over the 3.3 billion word corpus. We
+use Adam with learning rate of le-4, 6: = 0.9,
+B2 = 0.999, L2 weight decay of 0.01, learning
+rate warmup over the first 10,000 steps, and linear
+decay of the learning rate. We use a dropout prob-
+ability of 0.1 on all layers. We use a gelu acti-
+vation (Hendrycks and Gimpel, 2016) rather than
+the standard relu, following OpenAI GPT. The
+training loss is the sum of the mean masked LM
+likelihood and the mean next sentence prediction
+likelihood.
+
+Training of BERTpase was performed on 4
+Cloud TPUs in Pod configuration (16 TPU chips
+total).!3 Training of BERT, arGr was performed
+on 16 Cloud TPUs (64 TPU chips total). Each pre-
+training took 4 days to complete.
+
+Longer sequences are disproportionately expen-
+sive because attention is quadratic to the sequence
+length. To speed up pretraing in our experiments,
+we pre-train the model with sequence length of
+128 for 90% of the steps. Then, we train the rest
+10% of the steps of sequence of 512 to learn the
+positional embeddings.
+
+A3  Fine-tuning Procedure
+
+For fine-tuning, most model hyperparameters are
+the same as in pre-training, with the exception of
+the batch size, learning rate, and number of train-
+ing epochs. The dropout probability was always
+kept at 0.1. The optimal hyperparameter values
+are task-specific, but we found the following range
+of possible values to work well across all tasks:
+
+¢ Batch size: 16, 32
+
+Shittps://cloudplatform.googleblog.com/2018/06/Cloud-
+TPU-now-offers-preemptible-pricing-and-global-
+availability.htm]
+
+Nearby Document Text:
+BERT (Ours)
+Trm
+Trm
+Trm
+Trm
+Trm
+Trm
+...
+...
+Trm
+Trm
+Trm
+Trm
+Trm
+Trm
+...
+...
+OpenAI GPT
+Lstm
+ELMo
+Lstm
+Lstm
+Lstm
+Lstm
+Lstm
+Lstm
+Lstm
+Lstm
+Lstm
+Lstm
+Lstm
+ T1
+T2
+ TN
+...
+...
+...
+...
+...
+ E1
+E2
+ EN
+...
+ T1
+T2
+TN
+...
+ E1
+E2
+ EN
+...
+ T1
+T2
+ TN
+...
+ E1
+E2
+ EN
+...
+Figure 3: Differences in pre-training model architectures. BERT uses a bidirectional Transformer. OpenAI GPT
+uses a left-to-right Transformer. ELMo uses the concatenation of independently trained left-to-right and right-to-
+left LSTMs to generate features for downstream tasks. Among the three, only BERT representations are jointly
+conditione
+
+
+[RELATED PAGE TEXT]
+
+left LSTMs to generate features for downstream tasks. Among the three, only BERT representations are jointly
+conditioned on both left and right context in all layers. In addition to the architecture differences, BERT and
+OpenAI GPT are ﬁne-tuning approaches, while ELMo is a feature-based approach.
+to converge. In Section C.1 we demonstrate that
+MLM
+
+
+--------------------------------------------------------------------------------
+PAGE : 15
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+1
+ [SEP]... Tok 
+N
+Tok 
+1 ... Tok
+M
+Sentence 1
+...
+Sentence 2
+Figure 4: Illustrations of Fine-tuning BERT on Different Tasks.
+SST-2 The Stanford Sentiment Treebank is a
+binary single-sentence classiﬁcation task consist-
+ing of sentences extracted from movie reviews
+with human annotations of their sentiment (Socher
+et al., 2013).
+CoLA The Corpus of Linguistic Acceptability is
+a binary single-sentence classiﬁcation task, where
+the goal is to predict whether an English sentence
+is linguistically “acceptable” or not (Warstadt
+et al., 2018).
+STS-B The Semantic Textual Similarity Bench-
+
+================================================================================
+
+================================================================================
+RAG PIPELINE DEBUG
+================================================================================
+Query Type        : factual
+Retrieved Chunks  : 8
+Retrieved Images  : 3
+Reranked Chunks   : 10
+Reranked Text     : 7
+Reranked Images   : 3
+Final Context Docs: 10
+Exact Figure Query: False
+Exact Figure Match: False
+Exact Figure Final: False
+================================================================================
+
+================================================================================
+STAGE 4 — EVIDENCE VERIFICATION
+================================================================================
+Verification Units : 2
+Supported          : 0
+Partially Supported: 2
+Unsupported        : 0
+Unknown            : 0
+Groundedness Ratio : 0.00
+
+[CLAIM #1] The purpose of the Next Sentence Prediction (NSP) task in BERT is to predict whether a given sentence is the next sentence in a text, or a random sentence.
+  Status=PARTIALLY_SUPPORTED | NLI=NEUTRAL | Confidence=0.6436 | Citation=BERT.pdf (Page 4)
+
+[CLAIM #2] This task is used during the pre-training phase of BERT to help the model understand the order and coherence of sentences in a text.
+  Status=PARTIALLY_SUPPORTED | NLI=NEUTRAL | Confidence=0.6978 | Citation=BERT.pdf (Page 13)
+================================================================================
+
+====================================================================================================
+RAG ANSWER
+====================================================================================================
+ The purpose of the Next Sentence Prediction (NSP) task in BERT is to predict whether a given sentence is the next sentence in a text, or a random sentence. This task is used during the pre-training phase of BERT to help the model understand the order and coherence of sentences in a text.
+
+IMAGE PATHS:
+D:/Projects/Major-Project-2-main/extracted_images/BERT_page4_render.png
+D:/Projects/Major-Project-2-main/extracted_images/BERT_page5_render.png
+D:/Projects/Major-Project-2-main/extracted_images/BERT_page13_render.png

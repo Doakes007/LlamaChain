@@ -1,0 +1,1189 @@
+====================================================================================================
+QUESTION_ID   : VIT-13
+DOCUMENT      : Vision Transformer
+QUESTION_TYPE : Attention / Interpretability
+ELAPSED_SEC   : 104.5
+ERROR         : no
+====================================================================================================
+
+QUESTION:
+What do the attention maps in the Vision Transformer reveal about the image regions that the model uses for classification?
+
+GROUND TRUTH ANSWER:
+The attention maps show that ViT attends to image regions that are semantically relevant for classification. Some heads attend to most of the image even in low layers, while other heads initially focus on localized regions.
+
+GROUND TRUTH SOURCE:
+Vision Transformer.pdf, p. 8; Figure 6/7
+
+====================================================================================================
+FORENSIC TRANSCRIPT
+====================================================================================================
+
+####################################################################################################
+FORENSIC CASE START
+####################################################################################################
+Original Query   : What do the attention maps in the Vision Transformer reveal about the image regions that the model uses for classification?
+Expanded Query   : What do the attention maps in the Vision Transformer reveal about the image regions that the model uses for classification?
+Query Type       : visual
+[DOCUMENT SCOPE] Normalized query: 'what do the attention maps in the vision transformer reveal about the image regions that the model uses for classification'
+[DOCUMENT SCOPE] Source='BERT.pdf' -> Normalized='bert'
+[DOCUMENT SCOPE] Token overlap for 'BERT.pdf': []
+[DOCUMENT SCOPE] Source='BLIP-2.pdf' -> Normalized='blip 2'
+[DOCUMENT SCOPE] Token overlap for 'BLIP-2.pdf': []
+[DOCUMENT SCOPE] Source='CLIP.pdf' -> Normalized='clip'
+[DOCUMENT SCOPE] Token overlap for 'CLIP.pdf': []
+[DOCUMENT SCOPE] Source='CNN Paper.pdf' -> Normalized='cnn paper'
+[DOCUMENT SCOPE] Token overlap for 'CNN Paper.pdf': []
+[DOCUMENT SCOPE] Source='Donut.pdf' -> Normalized='donut'
+[DOCUMENT SCOPE] Token overlap for 'Donut.pdf': []
+[DOCUMENT SCOPE] Source='LayoutLMv3.pdf' -> Normalized='layout l mv3'
+[DOCUMENT SCOPE] Token overlap for 'LayoutLMv3.pdf': []
+[DOCUMENT SCOPE] Source='NLP Paper.pdf' -> Normalized='nlp paper'
+[DOCUMENT SCOPE] Token overlap for 'NLP Paper.pdf': []
+[DOCUMENT SCOPE] Source='RAG.pdf' -> Normalized='rag'
+[DOCUMENT SCOPE] Token overlap for 'RAG.pdf': []
+[DOCUMENT SCOPE] Source='Self-RAG.pdf' -> Normalized='self rag'
+[DOCUMENT SCOPE] Token overlap for 'Self-RAG.pdf': []
+[DOCUMENT SCOPE] Source='Vision Transformer.pdf' -> Normalized='vision transformer'
+[DOCUMENT SCOPE] EXACT MATCH -> Vision Transformer.pdf
+[DOCUMENT SCOPE] Final matched sources: ['Vision Transformer.pdf']
+
+================================================================================
+DOCUMENT SCOPE DEBUG
+================================================================================
+Query          : What do the attention maps in the Vision Transformer reveal about the image regions that the model uses for classification?
+Expanded Query : What do the attention maps in the Vision Transformer reveal about the image regions that the model uses for classification?
+Query Type     : visual
+Document Scope : ['Vision Transformer.pdf']
+================================================================================
+
+==========================================================================================
+STEP 3A — SCOPED HYBRID RETRIEVAL
+==========================================================================================
+Query              : What do the attention maps in the Vision Transformer reveal about the image regions that the model uses for classification?
+Sources            : ['Vision Transformer.pdf']
+Dense candidate K  : 25
+Final hybrid K     : 8
+
+------------------------------------------------------------------------------------------
+[SCOPED DENSE / VECTOR RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=Vision Transformer.pdf | Page=9 | Type=text | Image=N/A
+    Content=Thus, Vision Transformer matches or exceeds the state of the art on many image classiﬁcation datasets, whilst being relatively cheap to pre-train. While these initial results are e
+02. Source=Vision Transformer.pdf | Page=8 | Type=text | Image=N/A
+    Content=since one might expect convolutional local feature processing to assist ViT at any size. Third, Vision Transformers appear not to saturate within the range tried, motivating future
+03. Source=Vision Transformer.pdf | Page=1 | Type=text | Image=N/A
+    Content=and a pure transformer applied directly to sequences of image patches can perform very well on image classiﬁcation tasks. When pre-trained on large amounts of data and transferred 
+04. Source=Vision Transformer.pdf | Page=9 | Type=text | Image=N/A
+    Content=5 C ONCLUSION We have explored the direct application of Transformers to image recognition. Unlike prior works using self-attention in computer vision, we do not introduce image-sp
+05. Source=Vision Transformer.pdf | Page=8 | Type=text | Image=N/A
+    Content=age data, we analyze its internal representations. The ﬁrst layer of the Vision Transformer linearly projects the ﬂattened patches into a lower-dimensional space (Eq. 1). Figure 7 
+06. Source=Vision Transformer.pdf | Page=2 | Type=text | Image=N/A
+    Content=to image pixels after reducing image resolution and color space. The model is trained in an unsu- pervised fashion as a generative model, and the resulting representation can then 
+07. Source=Vision Transformer.pdf | Page=8 | Type=text | Image=N/A
+    Content=We ﬁnd that some heads attend to most of the image already in the lowest layers, showing that the ability to integrate information globally is indeed used by the model. Other atten
+08. Source=Vision Transformer.pdf | Page=14 | Type=text | Image=N/A
+    Content=that Vision Transformer beneﬁts most from a high resolution (384× 384) for all tasks. B.1.2 S ELF -SUPERVISION We employ the masked patch prediction objective for preliminary self-
+09. Source=Vision Transformer.pdf | Page=18 | Type=text | Image=N/A
+    Content=positional information. We speculate that since our Transformer encoder operates on patch-level inputs, as opposed to pixel-level, the differences in how to encode spatial informat
+10. Source=Vision Transformer.pdf | Page=8 | Type=text | Image=N/A
+    Content=plains why hand-crafted 2D-aware embedding variants do not yield improvements (Appendix D.4). Self-attention allows ViT to integrate information across the entire image even in the
+11. Source=Vision Transformer.pdf | Page=17 | Type=text | Image=N/A
+    Content=its from the relative attention as a bias term and add it to the logits of the main attention (content-based attention) before applying the softmax. In addition to different ways o
+12. Source=Vision Transformer.pdf | Page=1 | Type=text | Image=N/A
+    Content={adosovitskiy, neilhoulsby}@google.com ABSTRACT While the Transformer architecture has become the de-facto standard for natural language processing tasks, its applications to compu
+13. Source=Vision Transformer.pdf | Page=3 | Type=image | Image=extracted_images\Vision Transformer_page3_img1.png
+    Content=FIGURE FROM DOCUMENT  Caption: a picture of a city with buildings in the background  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conferenc
+14. Source=Vision Transformer.pdf | Page=20 | Type=text | Image=N/A
+    Content=the average distance spanned by attention weights at different layers (Figure 11). This “attention distance” is analogous to receptive ﬁeld size in CNNs. Average attention distance
+15. Source=Vision Transformer.pdf | Page=4 | Type=text | Image=N/A
+    Content=the patches can have spatial size 1x1, which means that the input sequence is obtained by simply ﬂattening the spatial dimensions of the feature map and projecting to the Transform
+16. Source=Vision Transformer.pdf | Page=16 | Type=text | Image=N/A
+    Content=[class] token, which is taken as image representation. The output of this token is then trans- formed into a class prediction via a small multi-layer perceptron (MLP) with tanh as 
+17. Source=Vision Transformer.pdf | Page=12 | Type=text | Image=N/A
+    Content=Gelly, and Mario Lucic. Self-supervised learning of video-induced visual invariances. In Pro- ceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR),
+18. Source=Vision Transformer.pdf | Page=16 | Type=text | Image=N/A
+    Content=Models All Depth Patch size Width MLP Width 100 101 Relative Compute 0.4 0.5 0.6 0.7 0.8Average 5shot Models All Depth Patch size Width MLP Width Figure 8: Scaling different model 
+19. Source=Vision Transformer.pdf | Page=2 | Type=text | Image=N/A
+    Content=pixel. With quadratic cost in the number of pixels, this does not scale to realistic input sizes. Thus, to apply Transformers in the context of image processing, several approximat
+20. Source=Vision Transformer.pdf | Page=10 | Type=text | Image=N/A
+    Content=for contrastive learning of visual representations. In ICML, 2020b. Yen-Chun Chen, Linjie Li, Licheng Yu, Ahmed El Kholy, Faisal Ahmed, Zhe Gan, Yu Cheng, and Jingjing Liu. UNITER:
+21. Source=Vision Transformer.pdf | Page=14 | Type=text | Image=N/A
+    Content=predict the 3-bit, mean color (i.e., 512 colors in total) of every corrupted patch using their respective patch representations. We trained our self-supervised model for 1M steps (
+22. Source=Vision Transformer.pdf | Page=2 | Type=text | Image=N/A
+    Content=further processing the output of a CNN using self-attention, e.g. for object detection (Hu et al., 2018; Carion et al., 2020), video processing (Wang et al., 2018; Sun et al., 2019
+23. Source=Vision Transformer.pdf | Page=9 | Type=text | Image=N/A
+    Content=ilarity of position embeddings of ViT-L/32. Tiles show the cosine similarity between the position embedding of the patch with the indicated row and column and the position embeddin
+24. Source=Vision Transformer.pdf | Page=11 | Type=text | Image=N/A
+    Content=Alex Krizhevsky. Learning multiple layers of features from tiny images. Technical report, 2009. Alex Krizhevsky, Ilya Sutskever, and Geoffrey E. Hinton. Imagenet classiﬁcation with
+25. Source=Vision Transformer.pdf | Page=5 | Type=text | Image=N/A
+    Content=three groups: Natural – tasks like the above, Pets, CIFAR, etc. Specialized – medical and satellite imagery, and Structured – tasks that require geometric understanding like locali
+
+------------------------------------------------------------------------------------------
+[SCOPED BM25 RETRIEVAL] 14 candidates
+------------------------------------------------------------------------------------------
+01. Source=Vision Transformer.pdf | Page=4 | Type=text | Image=N/A
+    Content=however, the pre-trained position embeddings may no longer be meaningful. We therefore perform 2D interpolation of the pre-trained position embeddings, according to their location 
+02. Source=Vision Transformer.pdf | Page=9 | Type=text | Image=N/A
+    Content=5 C ONCLUSION We have explored the direct application of Transformers to image recognition. Unlike prior works using self-attention in computer vision, we do not introduce image-sp
+03. Source=Vision Transformer.pdf | Page=8 | Type=text | Image=N/A
+    Content=We ﬁnd that some heads attend to most of the image already in the lowest layers, showing that the ability to integrate information globally is indeed used by the model. Other atten
+04. Source=Vision Transformer.pdf | Page=1 | Type=text | Image=N/A
+    Content=theoretically efﬁcient, have not yet been scaled effectively on modern hardware accelerators due to the use of specialized attention patterns. Therefore, in large-scale image recog
+05. Source=Vision Transformer.pdf | Page=8 | Type=text | Image=N/A
+    Content=age data, we analyze its internal representations. The ﬁrst layer of the Vision Transformer linearly projects the ﬂattened patches into a lower-dimensional space (Eq. 1). Figure 7 
+06. Source=Vision Transformer.pdf | Page=8 | Type=text | Image=N/A
+    Content=plains why hand-crafted 2D-aware embedding variants do not yield improvements (Appendix D.4). Self-attention allows ViT to integrate information across the entire image even in the
+07. Source=Vision Transformer.pdf | Page=14 | Type=text | Image=N/A
+    Content=setting for all tasks. We use a learning rate of 0.01 and train for 2500 steps (Tab. 4). We chose this setting by running a small sweep over two learning rates and two schedules, a
+08. Source=Vision Transformer.pdf | Page=3 | Type=image | Image=extracted_images\Vision Transformer_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: the diagram shows the different types of the system and how they are used in the system  OCR Text: Published as a conference paper at I
+09. Source=Vision Transformer.pdf | Page=8 | Type=text | Image=N/A
+    Content=for details on computational costs). Detailed results per model are provided in Table 6 in the Ap- pendix. A few patterns can be observed. First, Vision Transformers dominate ResNe
+10. Source=Vision Transformer.pdf | Page=8 | Type=text | Image=N/A
+    Content=patch representations. Figure 7 (center) shows that the model learns to encode distance within the image in the similarity of position em- beddings, i.e. closer patches tend to hav
+11. Source=Vision Transformer.pdf | Page=8 | Type=text | Image=N/A
+    Content=since one might expect convolutional local feature processing to assist ViT at any size. Third, Vision Transformers appear not to saturate within the range tried, motivating future
+12. Source=Vision Transformer.pdf | Page=1 | Type=text | Image=N/A
+    Content=Transformer directly to images, with the fewest possible modiﬁcations. To do so, we split an image into patches and provide the sequence of linear embeddings of these patches as an
+13. Source=Vision Transformer.pdf | Page=20 | Type=text | Image=N/A
+    Content=the average distance spanned by attention weights at different layers (Figure 11). This “attention distance” is analogous to receptive ﬁeld size in CNNs. Average attention distance
+14. Source=Vision Transformer.pdf | Page=14 | Type=text | Image=N/A
+    Content=that Vision Transformer beneﬁts most from a high resolution (384× 384) for all tasks. B.1.2 S ELF -SUPERVISION We employ the masked patch prediction objective for preliminary self-
+
+------------------------------------------------------------------------------------------
+[RRF FUSION RANKING]
+------------------------------------------------------------------------------------------
+01. RRF=0.031754 | DenseRank=4 | BM25Rank=2 | Source=Vision Transformer.pdf | Page=9 | Type=text
+02. RRF=0.030798 | DenseRank=7 | BM25Rank=3 | Source=Vision Transformer.pdf | Page=8 | Type=text
+03. RRF=0.030769 | DenseRank=5 | BM25Rank=5 | Source=Vision Transformer.pdf | Page=8 | Type=text
+04. RRF=0.030214 | DenseRank=2 | BM25Rank=11 | Source=Vision Transformer.pdf | Page=8 | Type=text
+05. RRF=0.029437 | DenseRank=10 | BM25Rank=6 | Source=Vision Transformer.pdf | Page=8 | Type=text
+06. RRF=0.028219 | DenseRank=8 | BM25Rank=14 | Source=Vision Transformer.pdf | Page=14 | Type=text
+07. RRF=0.027212 | DenseRank=14 | BM25Rank=13 | Source=Vision Transformer.pdf | Page=20 | Type=text
+08. RRF=0.016393 | DenseRank=1 | BM25Rank=- | Source=Vision Transformer.pdf | Page=9 | Type=text
+09. RRF=0.016393 | DenseRank=- | BM25Rank=1 | Source=Vision Transformer.pdf | Page=4 | Type=text
+10. RRF=0.015873 | DenseRank=3 | BM25Rank=- | Source=Vision Transformer.pdf | Page=1 | Type=text
+11. RRF=0.015625 | DenseRank=- | BM25Rank=4 | Source=Vision Transformer.pdf | Page=1 | Type=text
+12. RRF=0.015152 | DenseRank=6 | BM25Rank=- | Source=Vision Transformer.pdf | Page=2 | Type=text
+13. RRF=0.014925 | DenseRank=- | BM25Rank=7 | Source=Vision Transformer.pdf | Page=14 | Type=text
+14. RRF=0.014706 | DenseRank=- | BM25Rank=8 | Source=Vision Transformer.pdf | Page=3 | Type=image
+15. RRF=0.014493 | DenseRank=9 | BM25Rank=- | Source=Vision Transformer.pdf | Page=18 | Type=text
+16. RRF=0.014493 | DenseRank=- | BM25Rank=9 | Source=Vision Transformer.pdf | Page=8 | Type=text
+17. RRF=0.014286 | DenseRank=- | BM25Rank=10 | Source=Vision Transformer.pdf | Page=8 | Type=text
+18. RRF=0.014085 | DenseRank=11 | BM25Rank=- | Source=Vision Transformer.pdf | Page=17 | Type=text
+19. RRF=0.013889 | DenseRank=12 | BM25Rank=- | Source=Vision Transformer.pdf | Page=1 | Type=text
+20. RRF=0.013889 | DenseRank=- | BM25Rank=12 | Source=Vision Transformer.pdf | Page=1 | Type=text
+21. RRF=0.013699 | DenseRank=13 | BM25Rank=- | Source=Vision Transformer.pdf | Page=3 | Type=image
+22. RRF=0.013333 | DenseRank=15 | BM25Rank=- | Source=Vision Transformer.pdf | Page=4 | Type=text
+23. RRF=0.013158 | DenseRank=16 | BM25Rank=- | Source=Vision Transformer.pdf | Page=16 | Type=text
+24. RRF=0.012987 | DenseRank=17 | BM25Rank=- | Source=Vision Transformer.pdf | Page=12 | Type=text
+25. RRF=0.012821 | DenseRank=18 | BM25Rank=- | Source=Vision Transformer.pdf | Page=16 | Type=text
+26. RRF=0.012658 | DenseRank=19 | BM25Rank=- | Source=Vision Transformer.pdf | Page=2 | Type=text
+27. RRF=0.012500 | DenseRank=20 | BM25Rank=- | Source=Vision Transformer.pdf | Page=10 | Type=text
+28. RRF=0.012346 | DenseRank=21 | BM25Rank=- | Source=Vision Transformer.pdf | Page=14 | Type=text
+29. RRF=0.012195 | DenseRank=22 | BM25Rank=- | Source=Vision Transformer.pdf | Page=2 | Type=text
+30. RRF=0.012048 | DenseRank=23 | BM25Rank=- | Source=Vision Transformer.pdf | Page=9 | Type=text
+31. RRF=0.011905 | DenseRank=24 | BM25Rank=- | Source=Vision Transformer.pdf | Page=11 | Type=text
+32. RRF=0.011765 | DenseRank=25 | BM25Rank=- | Source=Vision Transformer.pdf | Page=5 | Type=text
+------------------------------------------------------------------------------------------
+
+==========================================================================================
+STEP 3A — RETRIEVAL STAGE SUMMARY
+==========================================================================================
+Dense candidates       : 25
+BM25 candidates        : 14
+Dense ∩ BM25           : 7
+Dense-only candidates  : 18
+BM25-only candidates   : 7
+Unique candidate pool  : 32
+RRF candidates         : 32
+Returned to pipeline   : 8
+==========================================================================================
+
+------------------------------------------------------------------------------------------
+[SCOPED FINAL HYBRID RESULT] 8 candidates
+------------------------------------------------------------------------------------------
+01. Source=Vision Transformer.pdf | Page=9 | Type=text | Image=N/A
+    Content=5 C ONCLUSION We have explored the direct application of Transformers to image recognition. Unlike prior works using self-attention in computer vision, we do not introduce image-sp
+02. Source=Vision Transformer.pdf | Page=8 | Type=text | Image=N/A
+    Content=We ﬁnd that some heads attend to most of the image already in the lowest layers, showing that the ability to integrate information globally is indeed used by the model. Other atten
+03. Source=Vision Transformer.pdf | Page=8 | Type=text | Image=N/A
+    Content=age data, we analyze its internal representations. The ﬁrst layer of the Vision Transformer linearly projects the ﬂattened patches into a lower-dimensional space (Eq. 1). Figure 7 
+04. Source=Vision Transformer.pdf | Page=8 | Type=text | Image=N/A
+    Content=since one might expect convolutional local feature processing to assist ViT at any size. Third, Vision Transformers appear not to saturate within the range tried, motivating future
+05. Source=Vision Transformer.pdf | Page=8 | Type=text | Image=N/A
+    Content=plains why hand-crafted 2D-aware embedding variants do not yield improvements (Appendix D.4). Self-attention allows ViT to integrate information across the entire image even in the
+06. Source=Vision Transformer.pdf | Page=14 | Type=text | Image=N/A
+    Content=that Vision Transformer beneﬁts most from a high resolution (384× 384) for all tasks. B.1.2 S ELF -SUPERVISION We employ the masked patch prediction objective for preliminary self-
+07. Source=Vision Transformer.pdf | Page=20 | Type=text | Image=N/A
+    Content=the average distance spanned by attention weights at different layers (Figure 11). This “attention distance” is analogous to receptive ﬁeld size in CNNs. Average attention distance
+08. Source=Vision Transformer.pdf | Page=9 | Type=text | Image=N/A
+    Content=Thus, Vision Transformer matches or exceeds the state of the art on many image classiﬁcation datasets, whilst being relatively cheap to pre-train. While these initial results are e
+==========================================================================================
+
+================================================================================
+STAGE 1 — HYBRID RETRIEVAL
+================================================================================
+Retrieved Count : 8
+
+[HYBRID #1] Source=Vision Transformer.pdf | Page=9 | Type=text
+Content: 5 C ONCLUSION We have explored the direct application of Transformers to image recognition. Unlike prior works using self-attention in computer vision, we do not introduce image-speciﬁc inductive biases into the architecture apart from the initial patch extraction step. Instead, we interpret an image as a sequence of patches and process it by a standard Transformer encoder as used in NLP. This simple, yet scalable, strategy works surprisingly well when coupled with pre-training on large datasets
+
+[HYBRID #2] Source=Vision Transformer.pdf | Page=8 | Type=text
+Content: We ﬁnd that some heads attend to most of the image already in the lowest layers, showing that the ability to integrate information globally is indeed used by the model. Other attention heads have consistently small attention distances in the low layers. This highly localized attention is less pronounced in hybrid models that apply a ResNet before the Transformer (Figure 7, right), suggesting that it may serve a similar function as early convolutional layers in CNNs. Further, the attention distan
+
+[HYBRID #3] Source=Vision Transformer.pdf | Page=8 | Type=text
+Content: age data, we analyze its internal representations. The ﬁrst layer of the Vision Transformer linearly projects the ﬂattened patches into a lower-dimensional space (Eq. 1). Figure 7 (left) shows the top prin- cipal components of the the learned embedding ﬁlters. The com- ponents resemble plausible basis functions for a low-dimensional representation of the ﬁne structure within each patch. After the projection, a learned position embedding is added to the patch representations. Figure 7 (center) sh
+
+[HYBRID #4] Source=Vision Transformer.pdf | Page=8 | Type=text
+Content: since one might expect convolutional local feature processing to assist ViT at any size. Third, Vision Transformers appear not to saturate within the range tried, motivating future scaling efforts. 4.5 I NSPECTING VISION TRANSFORMER Input  Attention Figure 6: Representative ex- amples of attention from the output token to the input space. See Appendix D.7 for details. To begin to understand how the Vision Transformer processes im- age data, we analyze its internal representations. The ﬁrst layer
+
+[HYBRID #5] Source=Vision Transformer.pdf | Page=8 | Type=text
+Content: plains why hand-crafted 2D-aware embedding variants do not yield improvements (Appendix D.4). Self-attention allows ViT to integrate information across the entire image even in the lowest layers. We investigate to what degree the network makes use of this capability. Speciﬁcally, we compute the average distance in image space across which information is integrated, based on the attention weights (Figure 7, right). This “attention distance” is analogous to receptive ﬁeld size in CNNs. We ﬁnd that
+
+[HYBRID #6] Source=Vision Transformer.pdf | Page=14 | Type=text
+Content: that Vision Transformer beneﬁts most from a high resolution (384× 384) for all tasks. B.1.2 S ELF -SUPERVISION We employ the masked patch prediction objective for preliminary self-supervision experiments. To do so we corrupt 50% of patch embeddings by either replacing their embeddings with a learnable [mask] embedding (80%), a random other patch embedding (10%) or just keeping them as is (10%). This setup is very similar to the one used for language by Devlin et al. (2019). Finally, we predict t
+
+[HYBRID #7] Source=Vision Transformer.pdf | Page=20 | Type=text
+Content: the average distance spanned by attention weights at different layers (Figure 11). This “attention distance” is analogous to receptive ﬁeld size in CNNs. Average attention distance is highly variable across heads in lower layers, with some heads attending to much of the image, while others attend to small regions at or near the query location. As depth increases, attention distance increases for all heads. In the second half of the network, most heads attend widely across tokens. D.8 A TTENTION 
+
+[HYBRID #8] Source=Vision Transformer.pdf | Page=9 | Type=text
+Content: Thus, Vision Transformer matches or exceeds the state of the art on many image classiﬁcation datasets, whilst being relatively cheap to pre-train. While these initial results are encouraging, many challenges remain. One is to apply ViT to other computer vision tasks, such as detection and segmentation. Our results, coupled with those in Carion et al. (2020), indicate the promise of this approach. Another challenge is to continue exploring self- supervised pre-training methods. Our initial experi
+================================================================================
+[DOCUMENT SCOPE] Text chunks: 8 -> 8
+
+================================================================================
+IMAGE RETRIEVAL DIAGNOSTIC
+================================================================================
+Query                 : What do the attention maps in the Vision Transformer reveal about the image regions that the model uses for classification?
+Allowed Sources       : ['Vision Transformer.pdf']
+Image Candidates      : 554 -> 304 (scoped before ranking)
+
+ALL IMAGE CANDIDATES
+--------------------------------------------------------------------------------
+Rank=01 | Source=Vision Transformer.pdf | Page=3 | Image=Vision Transformer_page3_render.png | Hybrid=0.2947 | CE=0.3346 | CLIP=0.2350
+Rank=02 | Source=Vision Transformer.pdf | Page=3 | Image=Vision Transformer_page3_img1.png | Hybrid=-0.6918 | CE=-1.2920 | CLIP=0.2085
+Rank=03 | Source=Vision Transformer.pdf | Page=3 | Image=Vision Transformer_page3_img0.png | Hybrid=-1.0226 | CE=-1.8416 | CLIP=0.2059
+Rank=04 | Source=Vision Transformer.pdf | Page=6 | Image=Vision Transformer_page6_render.png | Hybrid=-2.2992 | CE=-3.9721 | CLIP=0.2103
+Rank=05 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img154.png | Hybrid=-3.9283 | CE=-6.7082 | CLIP=0.2414
+Rank=06 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img67.png | Hybrid=-4.4458 | CE=-7.5454 | CLIP=0.2036
+Rank=07 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img40.png | Hybrid=-4.4667 | CE=-7.5813 | CLIP=0.2054
+Rank=08 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img137.png | Hybrid=-4.6137 | CE=-7.8298 | CLIP=0.2103
+Rank=09 | Source=Vision Transformer.pdf | Page=20 | Image=Vision Transformer_page20_render.png | Hybrid=-4.6393 | CE=-7.8928 | CLIP=0.2411
+Rank=10 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img32.png | Hybrid=-4.6781 | CE=-7.9511 | CLIP=0.2314
+Rank=11 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img129.png | Hybrid=-4.7210 | CE=-8.0094 | CLIP=0.2117
+Rank=12 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img0.png | Hybrid=-4.8115 | CE=-8.1548 | CLIP=0.2033
+Rank=13 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img48.png | Hybrid=-4.8578 | CE=-8.2214 | CLIP=0.1878
+Rank=14 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img244.png | Hybrid=-4.8605 | CE=-8.2560 | CLIP=0.2329
+Rank=15 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img128.png | Hybrid=-4.8630 | CE=-8.2694 | CLIP=0.2467
+Rank=16 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img101.png | Hybrid=-4.8656 | CE=-8.2597 | CLIP=0.2256
+Rank=17 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img27.png | Hybrid=-4.8689 | CE=-8.2636 | CLIP=0.2230
+Rank=18 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img193.png | Hybrid=-4.8817 | CE=-8.2831 | CLIP=0.2204
+Rank=19 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img192.png | Hybrid=-4.8887 | CE=-8.2831 | CLIP=0.2030
+Rank=20 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img115.png | Hybrid=-4.9324 | CE=-8.3514 | CLIP=0.1959
+Rank=21 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img255.png | Hybrid=-4.9395 | CE=-8.3837 | CLIP=0.2269
+Rank=22 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img49.png | Hybrid=-4.9462 | CE=-8.3934 | CLIP=0.2246
+Rank=23 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img235.png | Hybrid=-4.9471 | CE=-8.3837 | CLIP=0.2079
+Rank=24 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img62.png | Hybrid=-4.9482 | CE=-8.4130 | CLIP=0.2489
+Rank=25 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img250.png | Hybrid=-4.9638 | CE=-8.4284 | CLIP=0.2331
+Rank=26 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img26.png | Hybrid=-4.9639 | CE=-8.4277 | CLIP=0.2317
+Rank=27 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_render.png | Hybrid=-4.9643 | CE=-8.4288 | CLIP=0.2324
+Rank=28 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img125.png | Hybrid=-4.9903 | CE=-8.4610 | CLIP=0.2157
+Rank=29 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img28.png | Hybrid=-4.9924 | CE=-8.4664 | CLIP=0.2186
+Rank=30 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img113.png | Hybrid=-4.9928 | CE=-8.4834 | CLIP=0.2430
+Rank=31 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img131.png | Hybrid=-5.0098 | CE=-8.4800 | CLIP=0.1955
+Rank=32 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img226.png | Hybrid=-5.0186 | CE=-8.4905 | CLIP=0.1893
+Rank=33 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img132.png | Hybrid=-5.0255 | CE=-8.5178 | CLIP=0.2129
+Rank=34 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img221.png | Hybrid=-5.0306 | CE=-8.5214 | CLIP=0.2057
+Rank=35 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img176.png | Hybrid=-5.0329 | CE=-8.5178 | CLIP=0.1945
+Rank=36 | Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img0.png | Hybrid=-5.0520 | CE=-8.5480 | CLIP=0.1920
+Rank=37 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img218.png | Hybrid=-5.0567 | CE=-8.5616 | CLIP=0.2007
+Rank=38 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img85.png | Hybrid=-5.0610 | CE=-8.5920 | CLIP=0.2356
+Rank=39 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img189.png | Hybrid=-5.0641 | CE=-8.5776 | CLIP=0.2060
+Rank=40 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img60.png | Hybrid=-5.0644 | CE=-8.6124 | CLIP=0.2577
+Rank=41 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img240.png | Hybrid=-5.0678 | CE=-8.5809 | CLIP=0.2019
+Rank=42 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img84.png | Hybrid=-5.0682 | CE=-8.5920 | CLIP=0.2176
+Rank=43 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img180.png | Hybrid=-5.0711 | CE=-8.6029 | CLIP=0.2264
+Rank=44 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img34.png | Hybrid=-5.0801 | CE=-8.6014 | CLIP=0.2018
+Rank=45 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img138.png | Hybrid=-5.0805 | CE=-8.6156 | CLIP=0.2222
+Rank=46 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img188.png | Hybrid=-5.0808 | CE=-8.5976 | CLIP=0.1943
+Rank=47 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img151.png | Hybrid=-5.0966 | CE=-8.6442 | CLIP=0.2247
+Rank=48 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img213.png | Hybrid=-5.1021 | CE=-8.6556 | CLIP=0.2282
+Rank=49 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img241.png | Hybrid=-5.1125 | CE=-8.6638 | CLIP=0.2144
+Rank=50 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img233.png | Hybrid=-5.1130 | CE=-8.6592 | CLIP=0.2064
+Rank=51 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img155.png | Hybrid=-5.1136 | CE=-8.6838 | CLIP=0.2419
+Rank=52 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img144.png | Hybrid=-5.1193 | CE=-8.6838 | CLIP=0.2273
+Rank=53 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img219.png | Hybrid=-5.1273 | CE=-8.6967 | CLIP=0.2267
+Rank=54 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img92.png | Hybrid=-5.1305 | CE=-8.7063 | CLIP=0.2332
+Rank=55 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img157.png | Hybrid=-5.1356 | CE=-8.7123 | CLIP=0.2293
+Rank=56 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img100.png | Hybrid=-5.1376 | CE=-8.7121 | CLIP=0.2243
+Rank=57 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img59.png | Hybrid=-5.1499 | CE=-8.7488 | CLIP=0.2484
+Rank=58 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img181.png | Hybrid=-5.1544 | CE=-8.7422 | CLIP=0.2272
+Rank=59 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img41.png | Hybrid=-5.1797 | CE=-8.8116 | CLIP=0.2681
+Rank=60 | Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img5.png | Hybrid=-5.1999 | CE=-8.7952 | CLIP=0.1931
+Rank=61 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img167.png | Hybrid=-5.2068 | CE=-8.8216 | CLIP=0.2155
+Rank=62 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img117.png | Hybrid=-5.2228 | CE=-8.8602 | CLIP=0.2332
+Rank=63 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img80.png | Hybrid=-5.2232 | CE=-8.8693 | CLIP=0.2460
+Rank=64 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img116.png | Hybrid=-5.2308 | CE=-8.8602 | CLIP=0.2133
+Rank=65 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img79.png | Hybrid=-5.2323 | CE=-8.8693 | CLIP=0.2232
+Rank=66 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img123.png | Hybrid=-5.2408 | CE=-8.8764 | CLIP=0.2126
+Rank=67 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img4.png | Hybrid=-5.2564 | CE=-8.9059 | CLIP=0.2180
+Rank=68 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img18.png | Hybrid=-5.2572 | CE=-8.9102 | CLIP=0.2223
+Rank=69 | Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img4.png | Hybrid=-5.2654 | CE=-8.8893 | CLIP=0.1704
+Rank=70 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img22.png | Hybrid=-5.2732 | CE=-8.9240 | CLIP=0.2031
+Rank=71 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img24.png | Hybrid=-5.2734 | CE=-8.9232 | CLIP=0.2014
+Rank=72 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img61.png | Hybrid=-5.2754 | CE=-8.9403 | CLIP=0.2220
+Rank=73 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img175.png | Hybrid=-5.2770 | CE=-8.9240 | CLIP=0.1936
+Rank=74 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img70.png | Hybrid=-5.2827 | CE=-8.9458 | CLIP=0.2119
+Rank=75 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img86.png | Hybrid=-5.3061 | CE=-8.9824 | CLIP=0.2083
+Rank=76 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img190.png | Hybrid=-5.3109 | CE=-9.0032 | CLIP=0.2275
+Rank=77 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img206.png | Hybrid=-5.3130 | CE=-8.9978 | CLIP=0.2143
+Rank=78 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img109.png | Hybrid=-5.3135 | CE=-9.0033 | CLIP=0.2213
+Rank=79 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img239.png | Hybrid=-5.3159 | CE=-9.0119 | CLIP=0.2282
+Rank=80 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img17.png | Hybrid=-5.3178 | CE=-9.0286 | CLIP=0.2483
+Rank=81 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img31.png | Hybrid=-5.3243 | CE=-9.0263 | CLIP=0.2288
+Rank=82 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img35.png | Hybrid=-5.3268 | CE=-9.0274 | CLIP=0.2241
+Rank=83 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img216.png | Hybrid=-5.3317 | CE=-9.0271 | CLIP=0.2113
+Rank=84 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img99.png | Hybrid=-5.3327 | CE=-9.0260 | CLIP=0.2074
+Rank=85 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img172.png | Hybrid=-5.3414 | CE=-9.0478 | CLIP=0.2184
+Rank=86 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img135.png | Hybrid=-5.3470 | CE=-9.0515 | CLIP=0.2098
+Rank=87 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img246.png | Hybrid=-5.3511 | CE=-9.0571 | CLIP=0.2079
+Rank=88 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img165.png | Hybrid=-5.3520 | CE=-9.0623 | CLIP=0.2135
+Rank=89 | Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img3.png | Hybrid=-5.3677 | CE=-9.0792 | CLIP=0.1995
+Rank=90 | Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img2.png | Hybrid=-5.3733 | CE=-9.0792 | CLIP=0.1856
+Rank=91 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img82.png | Hybrid=-5.3733 | CE=-9.1012 | CLIP=0.2185
+Rank=92 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img12.png | Hybrid=-5.3868 | CE=-9.1243 | CLIP=0.2194
+Rank=93 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img130.png | Hybrid=-5.3901 | CE=-9.1344 | CLIP=0.2263
+Rank=94 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img217.png | Hybrid=-5.3940 | CE=-9.1462 | CLIP=0.2343
+Rank=95 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img13.png | Hybrid=-5.3946 | CE=-9.1413 | CLIP=0.2255
+Rank=96 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img242.png | Hybrid=-5.3951 | CE=-9.1351 | CLIP=0.2149
+Rank=97 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img30.png | Hybrid=-5.4000 | CE=-9.1316 | CLIP=0.1974
+Rank=98 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img127.png | Hybrid=-5.4074 | CE=-9.1465 | CLIP=0.2013
+Rank=99 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img64.png | Hybrid=-5.4122 | CE=-9.1620 | CLIP=0.2125
+Rank=100 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img236.png | Hybrid=-5.4193 | CE=-9.1712 | CLIP=0.2085
+Rank=101 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img231.png | Hybrid=-5.4212 | CE=-9.1839 | CLIP=0.2227
+Rank=102 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img164.png | Hybrid=-5.4215 | CE=-9.1782 | CLIP=0.2136
+Rank=103 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img63.png | Hybrid=-5.4227 | CE=-9.1620 | CLIP=0.1862
+Rank=104 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img120.png | Hybrid=-5.4227 | CE=-9.1770 | CLIP=0.2086
+Rank=105 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img46.png | Hybrid=-5.4369 | CE=-9.1966 | CLIP=0.2027
+Rank=106 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img163.png | Hybrid=-5.4391 | CE=-9.1970 | CLIP=0.1978
+Rank=107 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img1.png | Hybrid=-5.4453 | CE=-9.2386 | CLIP=0.2447
+Rank=108 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img205.png | Hybrid=-5.4541 | CE=-9.2204 | CLIP=0.1952
+Rank=109 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img174.png | Hybrid=-5.4572 | CE=-9.2408 | CLIP=0.2180
+Rank=110 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img153.png | Hybrid=-5.4598 | CE=-9.2342 | CLIP=0.2018
+Rank=111 | Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img1.png | Hybrid=-5.4607 | CE=-9.2419 | CLIP=0.2112
+Rank=112 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img253.png | Hybrid=-5.4732 | CE=-9.2540 | CLIP=0.1981
+Rank=113 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img47.png | Hybrid=-5.4845 | CE=-9.2910 | CLIP=0.2252
+Rank=114 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img107.png | Hybrid=-5.4874 | CE=-9.2800 | CLIP=0.2014
+Rank=115 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img33.png | Hybrid=-5.5006 | CE=-9.3395 | CLIP=0.2577
+Rank=116 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img119.png | Hybrid=-5.5006 | CE=-9.3084 | CLIP=0.2110
+Rank=117 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img50.png | Hybrid=-5.5110 | CE=-9.3107 | CLIP=0.1885
+Rank=118 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img208.png | Hybrid=-5.5228 | CE=-9.3491 | CLIP=0.2166
+Rank=119 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img224.png | Hybrid=-5.5232 | CE=-9.3394 | CLIP=0.2010
+Rank=120 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img211.png | Hybrid=-5.5261 | CE=-9.3765 | CLIP=0.2496
+Rank=121 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img160.png | Hybrid=-5.5285 | CE=-9.3665 | CLIP=0.2285
+Rank=122 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img223.png | Hybrid=-5.5296 | CE=-9.3611 | CLIP=0.2177
+Rank=123 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img78.png | Hybrid=-5.5298 | CE=-9.3693 | CLIP=0.2295
+Rank=124 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img114.png | Hybrid=-5.5298 | CE=-9.3419 | CLIP=0.1882
+Rank=125 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img81.png | Hybrid=-5.5308 | CE=-9.3693 | CLIP=0.2270
+Rank=126 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img76.png | Hybrid=-5.5338 | CE=-9.3758 | CLIP=0.2293
+Rank=127 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img75.png | Hybrid=-5.5353 | CE=-9.3743 | CLIP=0.2233
+Rank=128 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img203.png | Hybrid=-5.5375 | CE=-9.3829 | CLIP=0.2306
+Rank=129 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img159.png | Hybrid=-5.5403 | CE=-9.3665 | CLIP=0.1990
+Rank=130 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img161.png | Hybrid=-5.5447 | CE=-9.3458 | CLIP=0.1569
+Rank=131 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img171.png | Hybrid=-5.5462 | CE=-9.3892 | CLIP=0.2182
+Rank=132 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img102.png | Hybrid=-5.5534 | CE=-9.4087 | CLIP=0.2295
+Rank=133 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img112.png | Hybrid=-5.5602 | CE=-9.4103 | CLIP=0.2151
+Rank=134 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img5.png | Hybrid=-5.5707 | CE=-9.4394 | CLIP=0.2322
+Rank=135 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img52.png | Hybrid=-5.5787 | CE=-9.4568 | CLIP=0.2384
+Rank=136 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img204.png | Hybrid=-5.5794 | CE=-9.4154 | CLIP=0.1746
+Rank=137 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img228.png | Hybrid=-5.5830 | CE=-9.4574 | CLIP=0.2286
+Rank=138 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img25.png | Hybrid=-5.5832 | CE=-9.4461 | CLIP=0.2111
+Rank=139 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img227.png | Hybrid=-5.5892 | CE=-9.4555 | CLIP=0.2101
+Rank=140 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img10.png | Hybrid=-5.5899 | CE=-9.4354 | CLIP=0.1783
+Rank=141 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img121.png | Hybrid=-5.5911 | CE=-9.4727 | CLIP=0.2313
+Rank=142 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img20.png | Hybrid=-5.6015 | CE=-9.4795 | CLIP=0.2156
+Rank=143 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img3.png | Hybrid=-5.6043 | CE=-9.4841 | CLIP=0.2154
+Rank=144 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img36.png | Hybrid=-5.6071 | CE=-9.4787 | CLIP=0.2002
+Rank=145 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img177.png | Hybrid=-5.6118 | CE=-9.5097 | CLIP=0.2352
+Rank=146 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img55.png | Hybrid=-5.6173 | CE=-9.5075 | CLIP=0.2180
+Rank=147 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img149.png | Hybrid=-5.6252 | CE=-9.5332 | CLIP=0.2367
+Rank=148 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img234.png | Hybrid=-5.6261 | CE=-9.5147 | CLIP=0.2067
+Rank=149 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img150.png | Hybrid=-5.6328 | CE=-9.5328 | CLIP=0.2173
+Rank=150 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img148.png | Hybrid=-5.6332 | CE=-9.5332 | CLIP=0.2167
+Rank=151 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img56.png | Hybrid=-5.6347 | CE=-9.5438 | CLIP=0.2289
+Rank=152 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img194.png | Hybrid=-5.6354 | CE=-9.5107 | CLIP=0.1774
+Rank=153 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img23.png | Hybrid=-5.6429 | CE=-9.5449 | CLIP=0.2101
+Rank=154 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img158.png | Hybrid=-5.6486 | CE=-9.5711 | CLIP=0.2353
+Rank=155 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img51.png | Hybrid=-5.6491 | CE=-9.5691 | CLIP=0.2308
+Rank=156 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img140.png | Hybrid=-5.6511 | CE=-9.5550 | CLIP=0.2048
+Rank=157 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img39.png | Hybrid=-5.6527 | CE=-9.5680 | CLIP=0.2202
+Rank=158 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img136.png | Hybrid=-5.6561 | CE=-9.5769 | CLIP=0.2250
+Rank=159 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img141.png | Hybrid=-5.6655 | CE=-9.5858 | CLIP=0.2149
+Rank=160 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img187.png | Hybrid=-5.6660 | CE=-9.5827 | CLIP=0.2092
+Rank=161 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img186.png | Hybrid=-5.6671 | CE=-9.5827 | CLIP=0.2062
+Rank=162 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img16.png | Hybrid=-5.6681 | CE=-9.5858 | CLIP=0.2084
+Rank=163 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img21.png | Hybrid=-5.6706 | CE=-9.6077 | CLIP=0.2351
+Rank=164 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img14.png | Hybrid=-5.6721 | CE=-9.6044 | CLIP=0.2264
+Rank=165 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img38.png | Hybrid=-5.6772 | CE=-9.5987 | CLIP=0.2050
+Rank=166 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img237.png | Hybrid=-5.6777 | CE=-9.6202 | CLIP=0.2360
+Rank=167 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img96.png | Hybrid=-5.6780 | CE=-9.5958 | CLIP=0.1988
+Rank=168 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img126.png | Hybrid=-5.6802 | CE=-9.6355 | CLIP=0.2527
+Rank=169 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img170.png | Hybrid=-5.6817 | CE=-9.6121 | CLIP=0.2138
+Rank=170 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img77.png | Hybrid=-5.6873 | CE=-9.6163 | CLIP=0.2062
+Rank=171 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img19.png | Hybrid=-5.6893 | CE=-9.6396 | CLIP=0.2363
+Rank=172 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img229.png | Hybrid=-5.6943 | CE=-9.6439 | CLIP=0.2301
+Rank=173 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img152.png | Hybrid=-5.6956 | CE=-9.6008 | CLIP=0.1622
+Rank=174 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img2.png | Hybrid=-5.7011 | CE=-9.6360 | CLIP=0.2014
+Rank=175 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img66.png | Hybrid=-5.7023 | CE=-9.6683 | CLIP=0.2466
+Rank=176 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img122.png | Hybrid=-5.7079 | CE=-9.6429 | CLIP=0.1946
+Rank=177 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img111.png | Hybrid=-5.7120 | CE=-9.6532 | CLIP=0.1997
+Rank=178 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img168.png | Hybrid=-5.7149 | CE=-9.6759 | CLIP=0.2265
+Rank=179 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img222.png | Hybrid=-5.7265 | CE=-9.6776 | CLIP=0.2003
+Rank=180 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img207.png | Hybrid=-5.7336 | CE=-9.7052 | CLIP=0.2239
+Rank=181 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img98.png | Hybrid=-5.7355 | CE=-9.7259 | CLIP=0.2502
+Rank=182 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img74.png | Hybrid=-5.7441 | CE=-9.7072 | CLIP=0.2004
+Rank=183 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img65.png | Hybrid=-5.7451 | CE=-9.7193 | CLIP=0.2161
+Rank=184 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img169.png | Hybrid=-5.7454 | CE=-9.7025 | CLIP=0.1902
+Rank=185 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img54.png | Hybrid=-5.7464 | CE=-9.7303 | CLIP=0.2295
+Rank=186 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img215.png | Hybrid=-5.7500 | CE=-9.7133 | CLIP=0.1951
+Rank=187 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img43.png | Hybrid=-5.7517 | CE=-9.7333 | CLIP=0.2208
+Rank=188 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img209.png | Hybrid=-5.7546 | CE=-9.7470 | CLIP=0.2340
+Rank=189 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img45.png | Hybrid=-5.7574 | CE=-9.7514 | CLIP=0.2337
+Rank=190 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img162.png | Hybrid=-5.7610 | CE=-9.7197 | CLIP=0.1770
+Rank=191 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img198.png | Hybrid=-5.7663 | CE=-9.7520 | CLIP=0.2122
+Rank=192 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img57.png | Hybrid=-5.7673 | CE=-9.7457 | CLIP=0.2002
+Rank=193 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img108.png | Hybrid=-5.7731 | CE=-9.7767 | CLIP=0.2323
+Rank=194 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img243.png | Hybrid=-5.7798 | CE=-9.7813 | CLIP=0.2225
+Rank=195 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img195.png | Hybrid=-5.7811 | CE=-9.7829 | CLIP=0.2215
+Rank=196 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img15.png | Hybrid=-5.7839 | CE=-9.7953 | CLIP=0.2331
+Rank=197 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img249.png | Hybrid=-5.7844 | CE=-9.7897 | CLIP=0.2235
+Rank=198 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img7.png | Hybrid=-5.7848 | CE=-9.7950 | CLIP=0.2306
+Rank=199 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img139.png | Hybrid=-5.7901 | CE=-9.7933 | CLIP=0.2146
+Rank=200 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img118.png | Hybrid=-5.7903 | CE=-9.7730 | CLIP=0.1838
+Rank=201 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img252.png | Hybrid=-5.7947 | CE=-9.7820 | CLIP=0.1863
+Rank=202 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img191.png | Hybrid=-5.7950 | CE=-9.8035 | CLIP=0.2179
+Rank=203 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img6.png | Hybrid=-5.7955 | CE=-9.8055 | CLIP=0.2194
+Rank=204 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img200.png | Hybrid=-5.7965 | CE=-9.7912 | CLIP=0.1955
+Rank=205 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img143.png | Hybrid=-5.7985 | CE=-9.8095 | CLIP=0.2180
+Rank=206 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img173.png | Hybrid=-5.8000 | CE=-9.8134 | CLIP=0.2200
+Rank=207 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img9.png | Hybrid=-5.8103 | CE=-9.8347 | CLIP=0.2263
+Rank=208 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img199.png | Hybrid=-5.8117 | CE=-9.8305 | CLIP=0.2165
+Rank=209 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img106.png | Hybrid=-5.8118 | CE=-9.8293 | CLIP=0.2145
+Rank=210 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img210.png | Hybrid=-5.8125 | CE=-9.8370 | CLIP=0.2242
+Rank=211 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img90.png | Hybrid=-5.8127 | CE=-9.8303 | CLIP=0.2138
+Rank=212 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img133.png | Hybrid=-5.8179 | CE=-9.8272 | CLIP=0.1960
+Rank=213 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img83.png | Hybrid=-5.8204 | CE=-9.8569 | CLIP=0.2345
+Rank=214 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img110.png | Hybrid=-5.8309 | CE=-9.8559 | CLIP=0.2065
+Rank=215 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img44.png | Hybrid=-5.8347 | CE=-9.8728 | CLIP=0.2225
+Rank=216 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img68.png | Hybrid=-5.8354 | CE=-9.8760 | CLIP=0.2256
+Rank=217 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img182.png | Hybrid=-5.8370 | CE=-9.8539 | CLIP=0.1884
+Rank=218 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img105.png | Hybrid=-5.8370 | CE=-9.8604 | CLIP=0.1981
+Rank=219 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img214.png | Hybrid=-5.8410 | CE=-9.8484 | CLIP=0.1699
+Rank=220 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img245.png | Hybrid=-5.8411 | CE=-9.8913 | CLIP=0.2342
+Rank=221 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img156.png | Hybrid=-5.8431 | CE=-9.8783 | CLIP=0.2096
+Rank=222 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img42.png | Hybrid=-5.8441 | CE=-9.8683 | CLIP=0.1922
+Rank=223 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img145.png | Hybrid=-5.8446 | CE=-9.8899 | CLIP=0.2235
+Rank=224 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img53.png | Hybrid=-5.8508 | CE=-9.8706 | CLIP=0.1789
+Rank=225 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img73.png | Hybrid=-5.8619 | CE=-9.8977 | CLIP=0.1919
+Rank=226 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img72.png | Hybrid=-5.8624 | CE=-9.9076 | CLIP=0.2054
+Rank=227 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img179.png | Hybrid=-5.8651 | CE=-9.9143 | CLIP=0.2088
+Rank=228 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img95.png | Hybrid=-5.8690 | CE=-9.9105 | CLIP=0.1932
+Rank=229 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img88.png | Hybrid=-5.8702 | CE=-9.9085 | CLIP=0.1872
+Rank=230 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img71.png | Hybrid=-5.8783 | CE=-9.9279 | CLIP=0.1961
+Rank=231 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img58.png | Hybrid=-5.8835 | CE=-9.9622 | CLIP=0.2344
+Rank=232 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img196.png | Hybrid=-5.8908 | CE=-9.9589 | CLIP=0.2114
+Rank=233 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img142.png | Hybrid=-5.9032 | CE=-9.9970 | CLIP=0.2374
+Rank=234 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img134.png | Hybrid=-5.9220 | CE=-10.0130 | CLIP=0.2145
+Rank=235 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img94.png | Hybrid=-5.9272 | CE=-10.0344 | CLIP=0.2337
+Rank=236 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img69.png | Hybrid=-5.9280 | CE=-10.0235 | CLIP=0.2153
+Rank=237 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img254.png | Hybrid=-5.9323 | CE=-10.0291 | CLIP=0.2129
+Rank=238 | Source=Vision Transformer.pdf | Page=19 | Image=Vision Transformer_page19_render.png | Hybrid=-5.9362 | CE=-10.0428 | CLIP=0.2238
+Rank=239 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img225.png | Hybrid=-5.9438 | CE=-10.0676 | CLIP=0.2420
+Rank=240 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img201.png | Hybrid=-5.9547 | CE=-10.0828 | CLIP=0.2375
+Rank=241 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img185.png | Hybrid=-5.9566 | CE=-10.0761 | CLIP=0.2225
+Rank=242 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img184.png | Hybrid=-5.9594 | CE=-10.0761 | CLIP=0.2156
+Rank=243 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img9.png | Hybrid=-5.9729 | CE=-10.1271 | CLIP=0.2584
+Rank=244 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img8.png | Hybrid=-5.9891 | CE=-10.1313 | CLIP=0.2242
+Rank=245 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img183.png | Hybrid=-5.9932 | CE=-10.1291 | CLIP=0.2105
+Rank=246 | Source=Vision Transformer.pdf | Page=18 | Image=Vision Transformer_page18_render.png | Hybrid=-5.9956 | CE=-10.1648 | CLIP=0.2582
+Rank=247 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img232.png | Hybrid=-5.9959 | CE=-10.1090 | CLIP=0.1737
+Rank=248 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img93.png | Hybrid=-5.9970 | CE=-10.1323 | CLIP=0.2059
+Rank=249 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img27.png | Hybrid=-6.0055 | CE=-10.1773 | CLIP=0.2522
+Rank=250 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img202.png | Hybrid=-6.0152 | CE=-10.1523 | CLIP=0.1904
+Rank=251 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img238.png | Hybrid=-6.0163 | CE=-10.1626 | CLIP=0.2030
+Rank=252 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img87.png | Hybrid=-6.0163 | CE=-10.1686 | CLIP=0.2120
+Rank=253 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img11.png | Hybrid=-6.0176 | CE=-10.1831 | CLIP=0.2308
+Rank=254 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img8.png | Hybrid=-6.0180 | CE=-10.2120 | CLIP=0.2730
+Rank=255 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img37.png | Hybrid=-6.0186 | CE=-10.1758 | CLIP=0.2173
+Rank=256 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img230.png | Hybrid=-6.0240 | CE=-10.1698 | CLIP=0.1945
+Rank=257 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img24.png | Hybrid=-6.0258 | CE=-10.2219 | CLIP=0.2683
+Rank=258 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img7.png | Hybrid=-6.0324 | CE=-10.2295 | CLIP=0.2633
+Rank=259 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img166.png | Hybrid=-6.0350 | CE=-10.2103 | CLIP=0.2280
+Rank=260 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img247.png | Hybrid=-6.0439 | CE=-10.2208 | CLIP=0.2215
+Rank=261 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img14.png | Hybrid=-6.0456 | CE=-10.2566 | CLIP=0.2709
+Rank=262 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img89.png | Hybrid=-6.0524 | CE=-10.2294 | CLIP=0.2130
+Rank=263 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img178.png | Hybrid=-6.0529 | CE=-10.2318 | CLIP=0.2154
+Rank=264 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img97.png | Hybrid=-6.0532 | CE=-10.2292 | CLIP=0.2108
+Rank=265 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img91.png | Hybrid=-6.0533 | CE=-10.2428 | CLIP=0.2311
+Rank=266 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img197.png | Hybrid=-6.0666 | CE=-10.2584 | CLIP=0.2212
+Rank=267 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img146.png | Hybrid=-6.0695 | CE=-10.2577 | CLIP=0.2128
+Rank=268 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img147.png | Hybrid=-6.0698 | CE=-10.2577 | CLIP=0.2120
+Rank=269 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img12.png | Hybrid=-6.0784 | CE=-10.3137 | CLIP=0.2745
+Rank=270 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img103.png | Hybrid=-6.0881 | CE=-10.2789 | CLIP=0.1982
+Rank=271 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img23.png | Hybrid=-6.0903 | CE=-10.3226 | CLIP=0.2581
+Rank=272 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img5.png | Hybrid=-6.0914 | CE=-10.3373 | CLIP=0.2776
+Rank=273 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img20.png | Hybrid=-6.0922 | CE=-10.3331 | CLIP=0.2691
+Rank=274 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img13.png | Hybrid=-6.0933 | CE=-10.3373 | CLIP=0.2728
+Rank=275 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img248.png | Hybrid=-6.1008 | CE=-10.3134 | CLIP=0.2180
+Rank=276 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img104.png | Hybrid=-6.1078 | CE=-10.3380 | CLIP=0.2375
+Rank=277 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img0.png | Hybrid=-6.1119 | CE=-10.3616 | CLIP=0.2626
+Rank=278 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img1.png | Hybrid=-6.1217 | CE=-10.3804 | CLIP=0.2663
+Rank=279 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img29.png | Hybrid=-6.1282 | CE=-10.3605 | CLIP=0.2203
+Rank=280 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img124.png | Hybrid=-6.1423 | CE=-10.3739 | CLIP=0.2051
+Rank=281 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img2.png | Hybrid=-6.1457 | CE=-10.4193 | CLIP=0.2646
+Rank=282 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img25.png | Hybrid=-6.1458 | CE=-10.4148 | CLIP=0.2577
+Rank=283 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img15.png | Hybrid=-6.1511 | CE=-10.4345 | CLIP=0.2740
+Rank=284 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img3.png | Hybrid=-6.1519 | CE=-10.4297 | CLIP=0.2648
+Rank=285 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img251.png | Hybrid=-6.1523 | CE=-10.4075 | CLIP=0.2305
+Rank=286 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img6.png | Hybrid=-6.1641 | CE=-10.4501 | CLIP=0.2649
+Rank=287 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img17.png | Hybrid=-6.1742 | CE=-10.4699 | CLIP=0.2695
+Rank=288 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img212.png | Hybrid=-6.2076 | CE=-10.4815 | CLIP=0.2032
+Rank=289 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img11.png | Hybrid=-6.2176 | CE=-10.5306 | CLIP=0.2519
+Rank=290 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img22.png | Hybrid=-6.2312 | CE=-10.5597 | CLIP=0.2615
+Rank=291 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img26.png | Hybrid=-6.2436 | CE=-10.5850 | CLIP=0.2685
+Rank=292 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img19.png | Hybrid=-6.2803 | CE=-10.6474 | CLIP=0.2704
+Rank=293 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img4.png | Hybrid=-6.2809 | CE=-10.6448 | CLIP=0.2649
+Rank=294 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img16.png | Hybrid=-6.2821 | CE=-10.6474 | CLIP=0.2658
+Rank=295 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img21.png | Hybrid=-6.2927 | CE=-10.6474 | CLIP=0.2393
+Rank=296 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img18.png | Hybrid=-6.3487 | CE=-10.7598 | CLIP=0.2681
+Rank=297 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img10.png | Hybrid=-6.3656 | CE=-10.7900 | CLIP=0.2709
+Rank=298 | Source=Vision Transformer.pdf | Page=7 | Image=Vision Transformer_page7_render.png | Hybrid=-6.4327 | CE=-10.8775 | CLIP=0.2346
+Rank=299 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img220.png | Hybrid=-6.4760 | CE=-10.9216 | CLIP=0.1925
+Rank=300 | Source=Vision Transformer.pdf | Page=18 | Image=Vision Transformer_page18_img2.png | Hybrid=-6.5140 | CE=-11.0147 | CLIP=0.2369
+Rank=301 | Source=Vision Transformer.pdf | Page=18 | Image=Vision Transformer_page18_img4.png | Hybrid=-6.5141 | CE=-11.0147 | CLIP=0.2367
+Rank=302 | Source=Vision Transformer.pdf | Page=18 | Image=Vision Transformer_page18_img0.png | Hybrid=-6.5874 | CE=-11.1584 | CLIP=0.2690
+Rank=303 | Source=Vision Transformer.pdf | Page=15 | Image=Vision Transformer_page15_render.png | Hybrid=-6.5975 | CE=-11.1338 | CLIP=0.2068
+Rank=304 | Source=Vision Transformer.pdf | Page=14 | Image=Vision Transformer_page14_render.png | Hybrid=-6.7237 | CE=-11.3549 | CLIP=0.2231
+
+TOP IMAGE RESULTS
+--------------------------------------------------------------------------------
+TOP-1 | Source=Vision Transformer.pdf | Page=3 | Image=Vision Transformer_page3_render.png | Hybrid=0.2947 | CE=0.3346 | CLIP=0.2350
+TOP-2 | Source=Vision Transformer.pdf | Page=3 | Image=Vision Transformer_page3_img1.png | Hybrid=-0.6918 | CE=-1.2920 | CLIP=0.2085
+TOP-3 | Source=Vision Transformer.pdf | Page=3 | Image=Vision Transformer_page3_img0.png | Hybrid=-1.0226 | CE=-1.8416 | CLIP=0.2059
+================================================================================
+[DOCUMENT SCOPE] Images: 3 -> 3
+
+================================================================================
+STAGE 2 — IMAGE RETRIEVAL RESULT
+================================================================================
+Image Results       : 3
+Exact Figure Match  : False
+
+[IMAGE #1] Source=Vision Transformer.pdf | Page=3 | Image=Vision Transformer_page3_render.png
+Image Path: extracted_images\Vision Transformer_page3_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: the diagram shows the different types of the system and how they are used in the system  OCR Text: Published as a conference paper at ICLR 2021  Transformer Encoder  Vision Transformer (ViT)  Patch + Position  Embedding  * Extra learmable  [class] embedding Linear Projection of Flattened Patches  = HEGRE  Embedded Patches  Figure 1: Model overview. We split an image into fixed-size patches, linearly embed each of them, add position embeddings, and fee
+
+[IMAGE #2] Source=Vision Transformer.pdf | Page=3 | Image=Vision Transformer_page3_img1.png
+Image Path: extracted_images\Vision Transformer_page3_img1.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT  Caption: a picture of a city with buildings in the background  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 Transformer Encoder MLP  Head Vision Transformer (ViT) * Linear Projection of Flattened Patches * Extra learnable      [ cl ass]  embedding 1 2 3 4 5 6 7 8 9 0 Patch + Position  Embedding Class Bird Ball Car ... Embedded  Patches Multi-Head  Attention Norm MLP Norm + L x + Transformer Encoder Figur
+
+[IMAGE #3] Source=Vision Transformer.pdf | Page=3 | Image=Vision Transformer_page3_img0.png
+Image Path: extracted_images\Vision Transformer_page3_img0.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT  Caption: a series of photos of a building with a clock tower  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 Transformer Encoder MLP  Head Vision Transformer (ViT) * Linear Projection of Flattened Patches * Extra learnable      [ cl ass]  embedding 1 2 3 4 5 6 7 8 9 0 Patch + Position  Embedding Class Bird Ball Car ... Embedded  Patches Multi-Head  Attention Norm MLP Norm + L x + Transformer Encoder Figure
+================================================================================
+
+================================================================================
+COMBINED RETRIEVAL CANDIDATES
+================================================================================
+Text Candidates  : 8
+Image Candidates : 3
+Total Candidates : 11
+================================================================================
+
+================================================================================
+STEP 3A — RERANKER INPUT
+================================================================================
+Query: What do the attention maps in the Vision Transformer reveal about the image regions that the model uses for classification?
+Input candidates: 11
+01. Source=Vision Transformer.pdf | Page=9 | Type=text | Image=N/A
+    Content=5 C ONCLUSION We have explored the direct application of Transformers to image recognition. Unlike prior works using self-attention in computer vision, we do not introduce image-sp
+02. Source=Vision Transformer.pdf | Page=8 | Type=text | Image=N/A
+    Content=We ﬁnd that some heads attend to most of the image already in the lowest layers, showing that the ability to integrate information globally is indeed used by the model. Other atten
+03. Source=Vision Transformer.pdf | Page=8 | Type=text | Image=N/A
+    Content=age data, we analyze its internal representations. The ﬁrst layer of the Vision Transformer linearly projects the ﬂattened patches into a lower-dimensional space (Eq. 1). Figure 7 
+04. Source=Vision Transformer.pdf | Page=8 | Type=text | Image=N/A
+    Content=since one might expect convolutional local feature processing to assist ViT at any size. Third, Vision Transformers appear not to saturate within the range tried, motivating future
+05. Source=Vision Transformer.pdf | Page=8 | Type=text | Image=N/A
+    Content=plains why hand-crafted 2D-aware embedding variants do not yield improvements (Appendix D.4). Self-attention allows ViT to integrate information across the entire image even in the
+06. Source=Vision Transformer.pdf | Page=14 | Type=text | Image=N/A
+    Content=that Vision Transformer beneﬁts most from a high resolution (384× 384) for all tasks. B.1.2 S ELF -SUPERVISION We employ the masked patch prediction objective for preliminary self-
+07. Source=Vision Transformer.pdf | Page=20 | Type=text | Image=N/A
+    Content=the average distance spanned by attention weights at different layers (Figure 11). This “attention distance” is analogous to receptive ﬁeld size in CNNs. Average attention distance
+08. Source=Vision Transformer.pdf | Page=9 | Type=text | Image=N/A
+    Content=Thus, Vision Transformer matches or exceeds the state of the art on many image classiﬁcation datasets, whilst being relatively cheap to pre-train. While these initial results are e
+09. Source=Vision Transformer.pdf | Page=3 | Type=image | Image=extracted_images\Vision Transformer_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: the diagram shows the different types of the system and how they are used in the system  OCR Text: Published as a conference paper at I
+10. Source=Vision Transformer.pdf | Page=3 | Type=image | Image=extracted_images\Vision Transformer_page3_img1.png
+    Content=FIGURE FROM DOCUMENT  Caption: a picture of a city with buildings in the background  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conferenc
+11. Source=Vision Transformer.pdf | Page=3 | Type=image | Image=extracted_images\Vision Transformer_page3_img0.png
+    Content=FIGURE FROM DOCUMENT  Caption: a series of photos of a building with a clock tower  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference
+================================================================================
+
+--------------------------------------------------------------------------------
+CROSS-ENCODER RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=01 | Source=Vision Transformer.pdf | Page=8 | Type=text | CE=1.4952
+Rank=02 | OriginalIndex=08 | Source=Vision Transformer.pdf | Page=3 | Type=image | CE=0.3346
+Rank=03 | OriginalIndex=00 | Source=Vision Transformer.pdf | Page=9 | Type=text | CE=-0.3114
+Rank=04 | OriginalIndex=02 | Source=Vision Transformer.pdf | Page=8 | Type=text | CE=-1.0994
+Rank=05 | OriginalIndex=09 | Source=Vision Transformer.pdf | Page=3 | Type=image | CE=-1.2920
+Rank=06 | OriginalIndex=03 | Source=Vision Transformer.pdf | Page=8 | Type=text | CE=-1.4305
+Rank=07 | OriginalIndex=10 | Source=Vision Transformer.pdf | Page=3 | Type=image | CE=-1.8416
+Rank=08 | OriginalIndex=07 | Source=Vision Transformer.pdf | Page=9 | Type=text | CE=-2.9406
+Rank=09 | OriginalIndex=06 | Source=Vision Transformer.pdf | Page=20 | Type=text | CE=-4.0563
+Rank=10 | OriginalIndex=05 | Source=Vision Transformer.pdf | Page=14 | Type=text | CE=-6.0994
+Rank=11 | OriginalIndex=04 | Source=Vision Transformer.pdf | Page=8 | Type=text | CE=-6.3891
+
+--------------------------------------------------------------------------------
+CLIP IMAGE RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=08 | Source=Vision Transformer.pdf | Page=3 | Image=extracted_images\Vision Transformer_page3_render.png | CLIP=0.2350
+Rank=02 | OriginalIndex=09 | Source=Vision Transformer.pdf | Page=3 | Image=extracted_images\Vision Transformer_page3_img1.png | CLIP=0.2085
+Rank=03 | OriginalIndex=10 | Source=Vision Transformer.pdf | Page=3 | Image=extracted_images\Vision Transformer_page3_img0.png | CLIP=0.2059
+
+================================================================================
+STEP 3A — COMPLETE MULTIMODAL RERANK RESULT
+================================================================================
+Rank=01 | Type=image | Source=Vision Transformer.pdf | Page=3 | RRF=0.032522 | CE=0.3346 | CLIP=0.2350
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: the diagram shows the different types of the system and how they are used in the system  OCR Text: Published as a conference paper at I
+Rank=02 | Type=image | Source=Vision Transformer.pdf | Page=3 | RRF=0.031514 | CE=-1.2920 | CLIP=0.2085
+    Content=FIGURE FROM DOCUMENT  Caption: a picture of a city with buildings in the background  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conferenc
+Rank=03 | Type=image | Source=Vision Transformer.pdf | Page=3 | RRF=0.030798 | CE=-1.8416 | CLIP=0.2059
+    Content=FIGURE FROM DOCUMENT  Caption: a series of photos of a building with a clock tower  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference
+Rank=04 | Type=text | Source=Vision Transformer.pdf | Page=8 | RRF=0.016393 | CE=1.4952 | CLIP=N/A
+    Content=We ﬁnd that some heads attend to most of the image already in the lowest layers, showing that the ability to integrate information globally is indeed used by the model. Other atten
+Rank=05 | Type=text | Source=Vision Transformer.pdf | Page=9 | RRF=0.015873 | CE=-0.3114 | CLIP=N/A
+    Content=5 C ONCLUSION We have explored the direct application of Transformers to image recognition. Unlike prior works using self-attention in computer vision, we do not introduce image-sp
+Rank=06 | Type=text | Source=Vision Transformer.pdf | Page=8 | RRF=0.015625 | CE=-1.0994 | CLIP=N/A
+    Content=age data, we analyze its internal representations. The ﬁrst layer of the Vision Transformer linearly projects the ﬂattened patches into a lower-dimensional space (Eq. 1). Figure 7 
+Rank=07 | Type=text | Source=Vision Transformer.pdf | Page=8 | RRF=0.015152 | CE=-1.4305 | CLIP=N/A
+    Content=since one might expect convolutional local feature processing to assist ViT at any size. Third, Vision Transformers appear not to saturate within the range tried, motivating future
+Rank=08 | Type=text | Source=Vision Transformer.pdf | Page=9 | RRF=0.014706 | CE=-2.9406 | CLIP=N/A
+    Content=Thus, Vision Transformer matches or exceeds the state of the art on many image classiﬁcation datasets, whilst being relatively cheap to pre-train. While these initial results are e
+Rank=09 | Type=text | Source=Vision Transformer.pdf | Page=20 | RRF=0.014493 | CE=-4.0563 | CLIP=N/A
+    Content=the average distance spanned by attention weights at different layers (Figure 11). This “attention distance” is analogous to receptive ﬁeld size in CNNs. Average attention distance
+Rank=10 | Type=text | Source=Vision Transformer.pdf | Page=14 | RRF=0.014286 | CE=-6.0994 | CLIP=N/A
+    Content=that Vision Transformer beneﬁts most from a high resolution (384× 384) for all tasks. B.1.2 S ELF -SUPERVISION We employ the masked patch prediction objective for preliminary self-
+Rank=11 | Type=text | Source=Vision Transformer.pdf | Page=8 | RRF=0.014085 | CE=-6.3891 | CLIP=N/A
+    Content=plains why hand-crafted 2D-aware embedding variants do not yield improvements (Appendix D.4). Self-attention allows ViT to integrate information across the entire image even in the
+================================================================================
+
+================================================================================
+STEP 3A — FINAL RERANK TOP-K
+================================================================================
+Requested top_k: 12
+Returned documents: 11
+01. Source=Vision Transformer.pdf | Page=3 | Type=image | Image=extracted_images\Vision Transformer_page3_render.png
+02. Source=Vision Transformer.pdf | Page=3 | Type=image | Image=extracted_images\Vision Transformer_page3_img1.png
+03. Source=Vision Transformer.pdf | Page=3 | Type=image | Image=extracted_images\Vision Transformer_page3_img0.png
+04. Source=Vision Transformer.pdf | Page=8 | Type=text | Image=N/A
+05. Source=Vision Transformer.pdf | Page=9 | Type=text | Image=N/A
+06. Source=Vision Transformer.pdf | Page=8 | Type=text | Image=N/A
+07. Source=Vision Transformer.pdf | Page=8 | Type=text | Image=N/A
+08. Source=Vision Transformer.pdf | Page=9 | Type=text | Image=N/A
+09. Source=Vision Transformer.pdf | Page=20 | Type=text | Image=N/A
+10. Source=Vision Transformer.pdf | Page=14 | Type=text | Image=N/A
+11. Source=Vision Transformer.pdf | Page=8 | Type=text | Image=N/A
+================================================================================
+
+================================================================================
+STAGE 3 — MULTIMODAL RERANKING
+================================================================================
+Input Candidates : 11
+Reranked Output   : 11
+
+[RERANK #1] Source=Vision Transformer.pdf | Page=3 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: the diagram shows the different types of the system and how they are used in the system  OCR Text: Published as a conference paper at ICLR 2021  Transformer Encoder  Vision Transformer (ViT)  Patch + Position  Embedding  * Extra learmable  [class] embeddi
+
+[RERANK #2] Source=Vision Transformer.pdf | Page=3 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT  Caption: a picture of a city with buildings in the background  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 Transformer Encoder MLP  Head Vision Transformer (ViT) * Linear Projection of Flattened Patches * E
+
+[RERANK #3] Source=Vision Transformer.pdf | Page=3 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT  Caption: a series of photos of a building with a clock tower  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 Transformer Encoder MLP  Head Vision Transformer (ViT) * Linear Projection of Flattened Patches * Ex
+
+[RERANK #4] Source=Vision Transformer.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: We ﬁnd that some heads attend to most of the image already in the lowest layers, showing that the ability to integrate information globally is indeed used by the model. Other attention heads have consistently small attention distances in the low layers. This highly localized attention is less pronou
+
+[RERANK #5] Source=Vision Transformer.pdf | Page=9 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: 5 C ONCLUSION We have explored the direct application of Transformers to image recognition. Unlike prior works using self-attention in computer vision, we do not introduce image-speciﬁc inductive biases into the architecture apart from the initial patch extraction step. Instead, we interpret an imag
+
+[RERANK #6] Source=Vision Transformer.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: age data, we analyze its internal representations. The ﬁrst layer of the Vision Transformer linearly projects the ﬂattened patches into a lower-dimensional space (Eq. 1). Figure 7 (left) shows the top prin- cipal components of the the learned embedding ﬁlters. The com- ponents resemble plausible bas
+
+[RERANK #7] Source=Vision Transformer.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: since one might expect convolutional local feature processing to assist ViT at any size. Third, Vision Transformers appear not to saturate within the range tried, motivating future scaling efforts. 4.5 I NSPECTING VISION TRANSFORMER Input  Attention Figure 6: Representative ex- amples of attention f
+
+[RERANK #8] Source=Vision Transformer.pdf | Page=9 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Thus, Vision Transformer matches or exceeds the state of the art on many image classiﬁcation datasets, whilst being relatively cheap to pre-train. While these initial results are encouraging, many challenges remain. One is to apply ViT to other computer vision tasks, such as detection and segmentati
+
+[RERANK #9] Source=Vision Transformer.pdf | Page=20 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: the average distance spanned by attention weights at different layers (Figure 11). This “attention distance” is analogous to receptive ﬁeld size in CNNs. Average attention distance is highly variable across heads in lower layers, with some heads attending to much of the image, while others attend to
+
+[RERANK #10] Source=Vision Transformer.pdf | Page=14 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: that Vision Transformer beneﬁts most from a high resolution (384× 384) for all tasks. B.1.2 S ELF -SUPERVISION We employ the masked patch prediction objective for preliminary self-supervision experiments. To do so we corrupt 50% of patch embeddings by either replacing their embeddings with a learnab
+
+[RERANK #11] Source=Vision Transformer.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: plains why hand-crafted 2D-aware embedding variants do not yield improvements (Appendix D.4). Self-attention allows ViT to integrate information across the entire image even in the lowest layers. We investigate to what degree the network makes use of this capability. Speciﬁcally, we compute the aver
+================================================================================
+
+================================================================================
+FINAL CONTEXT DOCUMENTS
+================================================================================
+Final context candidates: 11
+
+[FINAL #1] Source=Vision Transformer.pdf | Page=3 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: the diagram shows the different types of the system and how they are used in the system  OCR Text: Published as a conference paper at ICLR 2021  Transformer Encoder  Vision Transformer (ViT)  Patch + Position  Embedding  * Extra learmable  [class] embeddi
+
+[FINAL #2] Source=Vision Transformer.pdf | Page=3 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT  Caption: a picture of a city with buildings in the background  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 Transformer Encoder MLP  Head Vision Transformer (ViT) * Linear Projection of Flattened Patches * E
+
+[FINAL #3] Source=Vision Transformer.pdf | Page=3 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT  Caption: a series of photos of a building with a clock tower  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 Transformer Encoder MLP  Head Vision Transformer (ViT) * Linear Projection of Flattened Patches * Ex
+
+[FINAL #4] Source=Vision Transformer.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: We ﬁnd that some heads attend to most of the image already in the lowest layers, showing that the ability to integrate information globally is indeed used by the model. Other attention heads have consistently small attention distances in the low layers. This highly localized attention is less pronou
+
+[FINAL #5] Source=Vision Transformer.pdf | Page=9 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: 5 C ONCLUSION We have explored the direct application of Transformers to image recognition. Unlike prior works using self-attention in computer vision, we do not introduce image-speciﬁc inductive biases into the architecture apart from the initial patch extraction step. Instead, we interpret an imag
+
+[FINAL #6] Source=Vision Transformer.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: age data, we analyze its internal representations. The ﬁrst layer of the Vision Transformer linearly projects the ﬂattened patches into a lower-dimensional space (Eq. 1). Figure 7 (left) shows the top prin- cipal components of the the learned embedding ﬁlters. The com- ponents resemble plausible bas
+
+[FINAL #7] Source=Vision Transformer.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: since one might expect convolutional local feature processing to assist ViT at any size. Third, Vision Transformers appear not to saturate within the range tried, motivating future scaling efforts. 4.5 I NSPECTING VISION TRANSFORMER Input  Attention Figure 6: Representative ex- amples of attention f
+
+[FINAL #8] Source=Vision Transformer.pdf | Page=9 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Thus, Vision Transformer matches or exceeds the state of the art on many image classiﬁcation datasets, whilst being relatively cheap to pre-train. While these initial results are encouraging, many challenges remain. One is to apply ViT to other computer vision tasks, such as detection and segmentati
+
+[FINAL #9] Source=Vision Transformer.pdf | Page=20 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: the average distance spanned by attention weights at different layers (Figure 11). This “attention distance” is analogous to receptive ﬁeld size in CNNs. Average attention distance is highly variable across heads in lower layers, with some heads attending to much of the image, while others attend to
+
+[FINAL #10] Source=Vision Transformer.pdf | Page=14 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: that Vision Transformer beneﬁts most from a high resolution (384× 384) for all tasks. B.1.2 S ELF -SUPERVISION We employ the masked patch prediction objective for preliminary self-supervision experiments. To do so we corrupt 50% of patch embeddings by either replacing their embeddings with a learnab
+
+[FINAL #11] Source=Vision Transformer.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: plains why hand-crafted 2D-aware embedding variants do not yield improvements (Appendix D.4). Self-attention allows ViT to integrate information across the entire image even in the lowest layers. We investigate to what degree the network makes use of this capability. Speciﬁcally, we compute the aver
+================================================================================
+
+================================================================================
+FINAL CONTEXT SENT TO LLM
+================================================================================
+
+================================================================================
+DOCUMENT : Vision Transformer.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 3
+--------------------------------------------------------------------------------
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+the diagram shows the different types of the system and how they are used in the system
+
+OCR Text:
+Published as a conference paper at ICLR 2021
+
+Transformer Encoder
+
+Vision Transformer (ViT)
+
+Patch + Position
+
+Embedding
+
+* Extra learmable
+
+[class] embedding Linear Projection of Flattened Patches
+
+=
+HEGRE
+
+Embedded
+Patches
+
+Figure 1: Model overview. We split an image into fixed-size patches, linearly embed each of them,
+add position embeddings, and feed the resulting sequence of vectors to a standard Transformer
+encoder. In order to perform classification, we use the standard approach of adding an extra learnable
+“classification token” to the sequence. The illustration of the Transformer encoder was inspired by
+Vaswani et al. (2017).
+
+3 METHOD
+
+In model design we follow the original Transformer (Vaswani et al., 2017) as closely as possible.
+An advantage of this intentionally simple setup is that scalable NLP Transformer architectures — and
+their efficient implementations — can be used almost out of the box.
+
+3.1 VISION TRANSFORMER (VIT)
+
+An overview of the model is depicted in Figure 1. The standard Transformer receives as input a 1D
+sequence of token embeddings. To handle 2D images, we reshape the image x € R#?*W*° into a
+sequence of flattened 2D patches x, € R*(P *-C) where (H, W) is the resolution of the original
+image, C is the number of channels, (P, P) is the resolution of each image patch, and N = HW/P?
+is the resulting number of patches, which also serves as the effective input sequence length for the
+Transformer. The Transformer uses constant latent vector size D through all of its layers, so we
+flatten the patches and map to D dimensions with a trainable linear projection (Eq. 1). We refer to
+the output of this projection as the patch embeddings.
+
+Similar to BERT’s [class] token, we prepend a learnable embedding to the sequence of embed-
+ded patches (z§ = Xclass), Whose state at the output of the Transformer encoder (z?.) serves as the
+image representation y (Eq. 4). Both during pre-training and fine-tuning, a classification head is at-
+tached to z°. The classification head is implemented by a MLP with one hidden layer at pre-training
+time and by a single linear layer at fine-tuning time.
+
+Position embeddings are added to the patch embeddings to retain positional information. We use
+standard learnable 1D position embeddings, since we have not observed significant performance
+gains from using more advanced 2D-aware position embeddings (Appendix D.4). The resulting
+sequence of embedding vectors serves as input to the encoder.
+
+The Transformer encoder (Vaswani et al., 2017) consists of alternating layers of multiheaded self-
+attention (MSA, see Appendix A) and MLP blocks (Eq. 2, 3). Layernorm (LN) is applied before
+every block, and residual connections after every block (Wang et al., 2019; Baevski & Auli, 2019).
+
+Nearby Document Text:
+Published as a conference paper at ICLR 2021
+Transformer Encoder
+MLP 
+Head
+Vision Transformer (ViT)
+*
+Linear Projection of Flattened Patches
+* Extra learnable
+     [ cl ass]  embedding
+1
+2
+3
+4
+5
+6
+7
+8
+9
+0
+Patch + Position 
+Embedding
+Class
+Bird
+Ball
+Car
+...
+Embedded 
+Patches
+Multi-Head 
+Attention
+Norm
+MLP
+Norm
++
+L x
++
+Transformer Encoder
+Figure 1: Model overview. We split an image into ﬁxed-size patches, linearly embed each of them,
+add position embeddings, and feed the resulting sequence of vectors to a standard Transformer
+encoder. In order to perform classiﬁcation, we use the standard approa
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT
+
+Caption:
+a picture of a city with buildings in the background
+
+OCR Text:
+No readable text found in this image.
+
+Nearby Document Text:
+Published as a conference paper at ICLR 2021
+Transformer Encoder
+MLP 
+Head
+Vision Transformer (ViT)
+*
+Linear Projection of Flattened Patches
+* Extra learnable
+     [ cl ass]  embedding
+1
+2
+3
+4
+5
+6
+7
+8
+9
+0
+Patch + Position 
+Embedding
+Class
+Bird
+Ball
+Car
+...
+Embedded 
+Patches
+Multi-Head 
+Attention
+Norm
+MLP
+Norm
++
+L x
++
+Transformer Encoder
+Figure 1: Model overview. We split an image into ﬁxed-size patches, linearly embed each of them,
+add position embeddings, and feed the resulting sequence of vectors to a standard Transformer
+encoder. In order to perform classiﬁcation, we use the standard approa
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT
+
+Caption:
+a series of photos of a building with a clock tower
+
+OCR Text:
+No readable text found in this image.
+
+Nearby Document Text:
+Published as a conference paper at ICLR 2021
+Transformer Encoder
+MLP 
+Head
+Vision Transformer (ViT)
+*
+Linear Projection of Flattened Patches
+* Extra learnable
+     [ cl ass]  embedding
+1
+2
+3
+4
+5
+6
+7
+8
+9
+0
+Patch + Position 
+Embedding
+Class
+Bird
+Ball
+Car
+...
+Embedded 
+Patches
+Multi-Head 
+Attention
+Norm
+MLP
+Norm
++
+L x
++
+Transformer Encoder
+Figure 1: Model overview. We split an image into ﬁxed-size patches, linearly embed each of them,
+add position embeddings, and feed the resulting sequence of vectors to a standard Transformer
+encoder. In order to perform classiﬁcation, we use the standard approa
+
+
+--------------------------------------------------------------------------------
+PAGE : 8
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+We ﬁnd that some heads attend to most of the image already in the lowest layers, showing that
+the ability to integrate information globally is indeed used by the model. Other attention heads
+have consistently small attention distances in the low layers. This highly localized attention is
+less pronounced in hybrid models that apply a ResNet before the Transformer (Figure 7, right),
+suggesting that it may serve a similar function as early convolutional layers in CNNs. Further, the
+attention distance increases with network depth. Globally, we ﬁnd that the model attends to image
+
+
+[TEXT]
+
+age data, we analyze its internal representations. The ﬁrst layer of
+the Vision Transformer linearly projects the ﬂattened patches into a
+lower-dimensional space (Eq. 1). Figure 7 (left) shows the top prin-
+cipal components of the the learned embedding ﬁlters. The com-
+ponents resemble plausible basis functions for a low-dimensional
+representation of the ﬁne structure within each patch.
+After the projection, a learned position embedding is added to the
+patch representations. Figure 7 (center) shows that the model learns
+to encode distance within the image in the similarity of position em-
+
+
+[TEXT]
+
+since one might expect convolutional local feature processing to assist ViT at any size. Third, Vision
+Transformers appear not to saturate within the range tried, motivating future scaling efforts.
+4.5 I NSPECTING VISION TRANSFORMER
+Input
+ Attention
+Figure 6: Representative ex-
+amples of attention from the
+output token to the input
+space. See Appendix D.7 for
+details.
+To begin to understand how the Vision Transformer processes im-
+age data, we analyze its internal representations. The ﬁrst layer of
+the Vision Transformer linearly projects the ﬂattened patches into a
+
+
+[TEXT]
+
+plains why hand-crafted 2D-aware embedding variants do not yield
+improvements (Appendix D.4).
+Self-attention allows ViT to integrate information across the entire
+image even in the lowest layers. We investigate to what degree
+the network makes use of this capability. Speciﬁcally, we compute
+the average distance in image space across which information is
+integrated, based on the attention weights (Figure 7, right). This
+“attention distance” is analogous to receptive ﬁeld size in CNNs.
+We ﬁnd that some heads attend to most of the image already in the lowest layers, showing that
+
+
+--------------------------------------------------------------------------------
+PAGE : 9
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+5 C ONCLUSION
+We have explored the direct application of Transformers to image recognition. Unlike prior works
+using self-attention in computer vision, we do not introduce image-speciﬁc inductive biases into
+the architecture apart from the initial patch extraction step. Instead, we interpret an image as a
+sequence of patches and process it by a standard Transformer encoder as used in NLP. This simple,
+yet scalable, strategy works surprisingly well when coupled with pre-training on large datasets.
+Thus, Vision Transformer matches or exceeds the state of the art on many image classiﬁcation
+
+
+[TEXT]
+
+Thus, Vision Transformer matches or exceeds the state of the art on many image classiﬁcation
+datasets, whilst being relatively cheap to pre-train.
+While these initial results are encouraging, many challenges remain. One is to apply ViT to other
+computer vision tasks, such as detection and segmentation. Our results, coupled with those in Carion
+et al. (2020), indicate the promise of this approach. Another challenge is to continue exploring self-
+supervised pre-training methods. Our initial experiments show improvement from self-supervised
+
+
+--------------------------------------------------------------------------------
+PAGE : 14
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+that Vision Transformer beneﬁts most from a high resolution (384× 384) for all tasks.
+B.1.2 S ELF -SUPERVISION
+We employ the masked patch prediction objective for preliminary self-supervision experiments. To
+do so we corrupt 50% of patch embeddings by either replacing their embeddings with a learnable
+[mask] embedding (80%), a random other patch embedding (10%) or just keeping them as is
+(10%). This setup is very similar to the one used for language by Devlin et al. (2019). Finally, we
+predict the 3-bit, mean color (i.e., 512 colors in total) of every corrupted patch using their respective
+
+
+--------------------------------------------------------------------------------
+PAGE : 20
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+the average distance spanned by attention weights at different layers (Figure 11). This “attention
+distance” is analogous to receptive ﬁeld size in CNNs. Average attention distance is highly variable
+across heads in lower layers, with some heads attending to much of the image, while others attend
+to small regions at or near the query location. As depth increases, attention distance increases for all
+heads. In the second half of the network, most heads attend widely across tokens.
+D.8 A TTENTION MAPS
+
+================================================================================
+
+================================================================================
+RAG PIPELINE DEBUG
+================================================================================
+Query Type        : visual
+Retrieved Chunks  : 8
+Retrieved Images  : 3
+Reranked Chunks   : 11
+Reranked Text     : 8
+Reranked Images   : 3
+Final Context Docs: 11
+Exact Figure Query: False
+Exact Figure Match: False
+Exact Figure Final: False
+================================================================================
+
+====================================================================================================
+RAG ANSWER
+====================================================================================================
+ The context provides information about a Vision Transformer model, but it does not contain any attention maps for an image. However, it does explain how attention maps are computed in the Vision Transformer. The attention maps are based on the attention weights, which represent the degree to which different parts of the image are integrated by the model. The attention distance, which is analogous to receptive field size in CNNs, is computed based on these attention weights. The attention distance is found to be highly variable across heads in lower layers, with some heads attending to much of the image, while others attend to small regions at or near the query location. As depth increases, attention distance increases for all heads. In the second half of the network, most heads attend widely across tokens. Unfortunately, without an actual attention map for an image, we cannot determine which specific image regions the model uses for classification.
+
+IMAGE PATHS:
+D:/Projects/Major-Project-2-main/extracted_images/Vision Transformer_page3_render.png
+D:/Projects/Major-Project-2-main/extracted_images/Vision Transformer_page3_img1.png
+D:/Projects/Major-Project-2-main/extracted_images/Vision Transformer_page3_img0.png

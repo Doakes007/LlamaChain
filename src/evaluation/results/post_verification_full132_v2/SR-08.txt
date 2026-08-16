@@ -1,0 +1,1052 @@
+====================================================================================================
+QUESTION_ID   : SR-08
+DOCUMENT      : SELF-RAG
+QUESTION_TYPE : Architecture / reasoning
+ELAPSED_SEC   : 80.2
+ERROR         : no
+====================================================================================================
+
+QUESTION:
+How does the SELF-RAG generator learn to produce both normal text and reflection tokens?
+
+GROUND TRUTH ANSWER:
+The generator is trained on a curated corpus whose examples contain normal task text interleaved with retrieved passages and reflection tokens inserted offline by the trained critic. Reflection tokens are added to the model vocabulary and learned with the standard next-token prediction objective, so the generator learns to predict both normal output tokens and reflection tokens itself.
+
+GROUND TRUTH SOURCE:
+Self-RAG.pdf — Pages 4–5
+
+====================================================================================================
+FORENSIC TRANSCRIPT
+====================================================================================================
+
+####################################################################################################
+FORENSIC CASE START
+####################################################################################################
+Original Query   : How does the SELF-RAG generator learn to produce both normal text and reflection tokens?
+Expanded Query   : How does the SELF-RAG generator learn to produce both normal text and reflection tokens?
+Query Type       : analytical
+[DOCUMENT SCOPE] Normalized query: 'how does the self rag generator learn to produce both normal text and reflection tokens'
+[DOCUMENT SCOPE] Source='BERT.pdf' -> Normalized='bert'
+[DOCUMENT SCOPE] Token overlap for 'BERT.pdf': []
+[DOCUMENT SCOPE] Source='BLIP-2.pdf' -> Normalized='blip 2'
+[DOCUMENT SCOPE] Token overlap for 'BLIP-2.pdf': []
+[DOCUMENT SCOPE] Source='CLIP.pdf' -> Normalized='clip'
+[DOCUMENT SCOPE] Token overlap for 'CLIP.pdf': []
+[DOCUMENT SCOPE] Source='CNN Paper.pdf' -> Normalized='cnn paper'
+[DOCUMENT SCOPE] Token overlap for 'CNN Paper.pdf': []
+[DOCUMENT SCOPE] Source='Donut.pdf' -> Normalized='donut'
+[DOCUMENT SCOPE] Token overlap for 'Donut.pdf': []
+[DOCUMENT SCOPE] Source='LayoutLMv3.pdf' -> Normalized='layout l mv3'
+[DOCUMENT SCOPE] Token overlap for 'LayoutLMv3.pdf': []
+[DOCUMENT SCOPE] Source='NLP Paper.pdf' -> Normalized='nlp paper'
+[DOCUMENT SCOPE] Token overlap for 'NLP Paper.pdf': []
+[DOCUMENT SCOPE] Source='RAG.pdf' -> Normalized='rag'
+[DOCUMENT SCOPE] EXACT MATCH -> RAG.pdf
+[DOCUMENT SCOPE] Source='Self-RAG.pdf' -> Normalized='self rag'
+[DOCUMENT SCOPE] EXACT MATCH -> Self-RAG.pdf
+[DOCUMENT SCOPE] Source='Vision Transformer.pdf' -> Normalized='vision transformer'
+[DOCUMENT SCOPE] Token overlap for 'Vision Transformer.pdf': []
+[DOCUMENT SCOPE] Final matched sources: ['RAG.pdf', 'Self-RAG.pdf']
+
+================================================================================
+DOCUMENT SCOPE DEBUG
+================================================================================
+Query          : How does the SELF-RAG generator learn to produce both normal text and reflection tokens?
+Expanded Query : How does the SELF-RAG generator learn to produce both normal text and reflection tokens?
+Query Type     : analytical
+Document Scope : ['RAG.pdf', 'Self-RAG.pdf']
+================================================================================
+
+==========================================================================================
+STEP 3A — SCOPED HYBRID RETRIEVAL
+==========================================================================================
+Query              : How does the SELF-RAG generator learn to produce both normal text and reflection tokens?
+Sources            : ['RAG.pdf', 'Self-RAG.pdf']
+Dense candidate K  : 25
+Final hybrid K     : 8
+
+------------------------------------------------------------------------------------------
+[SCOPED DENSE / VECTOR RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=Self-RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=SELF -RAG trains an arbitrary LM to generate text with reflection tokens by unifying them as the next token prediction from the expanded model vocabulary. We train our generator LM
+02. Source=Self-RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=tokens (i.e., reflection tokens). Reflection tokens are categorized into retrieval and critique tokens to indicate the need for retrieval and its generation quality respectively (F
+03. Source=Self-RAG.pdf | Page=3 | Type=text | Image=N/A
+    Content=Concurrent RAG work. A few concurrent works2 on RAG propose new training or prompting strategies to improve widely-adopted RAG approaches. Lin et al. (2023) fine-tune both the retr
+04. Source=Self-RAG.pdf | Page=3 | Type=text | Image=N/A
+    Content=or confirm the output’s relevance, support, or completeness. In contrast, common RAG approaches retrieve passages indiscriminately, without ensuring complete support from cited sou
+05. Source=RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=the input to generate the output. We marginalize the latent documents with a top-K approximation, either on a per-output basis (assuming the same document is responsible for all to
+06. Source=Self-RAG.pdf | Page=6 | Type=text | Image=N/A
+    Content=Adaptive retrieval with threshold.SELF -RAG dynamically decides when to retrieve text passages by predicting Retrieve . Alternatively, our framework allows a threshold to be set. S
+07. Source=RAG.pdf | Page=3 | Type=text | Image=N/A
+    Content=byθ that generates a current token based on a context of the previousi− 1 tokensy1:i−1, the original inputx and a retrieved passagez. To train the retriever and generator end-to-en
+08. Source=Self-RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=to enhance overall generation quality, factuality, and verifiability. consistently retrieves a fixed number of documents for generation regardless of the retrieval necessity (e.g.,
+09. Source=Self-RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=work introduces Self-Reflective Retrieval-augmented Generation (SELF -R AG) to improve an LLM’s generation quality, including its factual accuracy without hurting its versatility, 
+10. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=RAG approaches causes a large drop in PopQA and ASQA, and removing ISSUP during the beam search results hurts performance on ASQA. This demonstrates the effectiveness of SELF -RAG’
+11. Source=RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=more diverse than RAG-Token’s, and both are signiﬁcantly more diverse than BART without needing any diversity-promoting decoding. Retrieval Ablations A key feature of RAG is learni
+12. Source=Self-RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=guide text generation (Lu et al., 2022; Keskar et al., 2019), our trained LM uses critique tokens to assess its own predictions after each generated segment as an integral part of 
+13. Source=RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=distributions over text passages given a queryx and (ii) a generatorpθ(yi|x,z,y 1:i−1) parametrized 1Code to run experiments with RAG has been open-sourced as part of the HuggingFa
+14. Source=Self-RAG.pdf | Page=6 | Type=text | Image=N/A
+    Content=learns to generate special tokens to evaluate its own predictionafter each generated segment, enabling the use of a soft re-ranking mechanism or hard constraints at inference (disc
+15. Source=Self-RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=with reflection tokens Dgen using the standard next token objective: max M E(x,y,r)∼Dgen log pM(y, r|x). (2) Unlike C training (Eq. 1), M learns to predict the target output as wel
+16. Source=RAG.pdf | Page=3 | Type=text | Image=N/A
+    Content=target token and marginalize accordingly. This allows the generator to choose content from several documents when producing an answer. Concretely, the top K documents are retrieved
+17. Source=RAG.pdf | Page=4 | Type=text | Image=N/A
+    Content=2.5 Decoding At test time, RAG-Sequence and RAG-Token require different ways to approximatearg maxyp(y|x). RAG-Token The RAG-Token model can be seen as a standard, autoregressive s
+18. Source=Self-RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=calls a retriever model on demand (Step 1). Subsequently,SELF -RAG concurrently processes multiple retrieved passages, evaluating their relevance and thengenerating corresponding t
+19. Source=Self-RAG.pdf | Page=17 | Type=text | Image=N/A
+    Content=Preprint. A S ELF -R AG DETAILS A.1 R EFLECTION TOKENS . Definitions of reflection tokens. Below, we provide a detailed definition of reflection type and output tokens. The first t
+20. Source=RAG.pdf | Page=4 | Type=text | Image=N/A
+    Content=text generation. To test RAG’s natural language generation (NLG) in a knowledge-intensive setting, we use the MSMARCO NLG task v2.1 [ 43]. The task consists of questions, ten gold 
+21. Source=Self-RAG.pdf | Page=20 | Type=text | Image=N/A
+    Content=generation length to 100 tokens for all baselines to avoid this issue, rather than the original 300 tokens in the ALCE paper. Consequently, all of the baseline output length is wit
+22. Source=RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=We build RAG models where the parametric memory is a pre-trained seq2seq transformer, and the non-parametric memory is a dense vector index of Wikipedia, accessed with a pre-traine
+23. Source=Self-RAG.pdf | Page=21 | Type=text | Image=N/A
+    Content=instruction, preceding sentences, and previously retrieved passages. Due to the longer demonstration and test input, we only use a single demonstration. Table 10 shows an instructi
+24. Source=Self-RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=Preprint. SELF -RAG: L EARNING TO RETRIEVE , G ENERATE , AND CRITIQUE THROUGH SELF -R EFLECTION Akari Asai†, Zeqiu Wu†, Yizhong Wang†§, Avirup Sil‡, Hannaneh Hajishirzi†§ †Universi
+25. Source=RAG.pdf | Page=8 | Type=table | Image=N/A
+    Content=TABLE FROM DOCUMENT  Columns: RAG-Tok RAG-Seq FixedDPR BM25 | Column_1  Rows: Column_1: RAG-Tok RAG-Seq FixedDPR BM25
+
+------------------------------------------------------------------------------------------
+[SCOPED BM25 RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=Self-RAG.pdf | Page=4 | Type=image | Image=extracted_images\Self-RAG_page4_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Preprint.  Typ
+02. Source=Self-RAG.pdf | Page=2 | Type=image | Image=extracted_images\Self-RAG_page2_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+03. Source=Self-RAG.pdf | Page=10 | Type=image | Image=extracted_images\Self-RAG_page10_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+04. Source=Self-RAG.pdf | Page=4 | Type=text | Image=N/A
+    Content=(Algorithm 1) over the generated task output. For instance, in Figure 1 (right), the retrieved passages d1 is selected at the first time step since d2 does not provide direct evide
+05. Source=Self-RAG.pdf | Page=4 | Type=text | Image=N/A
+    Content=update the training corpus by inserting reflection tokens into task outputs offline. Subsequently, we train the final generator model (M) using the conventional LM objective (Secti
+06. Source=Self-RAG.pdf | Page=1 | Type=image | Image=extracted_images\Self-RAG_page1_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with the title title of a research paper  OCR Text: 2310.11511v1 [cs.CL] 17 Oct 2023  arXiv  Preprint.  SELF-RAG: LEARNING TO R
+07. Source=Self-RAG.pdf | Page=4 | Type=text | Image=N/A
+    Content=vocabulary plus reflection tokens). Specifically, we train the generator model M on a curated corpus with interleaving passages retrieved by a retriever R and reflection tokens pre
+08. Source=Self-RAG.pdf | Page=5 | Type=image | Image=extracted_images\Self-RAG_page5_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a book with the title title and title title  OCR Text: Preprint.  Input: Write an essay of your best summer vacation Input: H
+09. Source=Self-RAG.pdf | Page=3 | Type=image | Image=extracted_images\Self-RAG_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+10. Source=RAG.pdf | Page=3 | Type=text | Image=N/A
+    Content=byθ that generates a current token based on a context of the previousi− 1 tokensy1:i−1, the original inputx and a retrieved passagez. To train the retriever and generator end-to-en
+11. Source=Self-RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=SELF -RAG trains an arbitrary LM to generate text with reflection tokens by unifying them as the next token prediction from the expanded model vocabulary. We train our generator LM
+12. Source=Self-RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=evaluates whether the passage supports the model generation and predicts ISSUP . Critique tokens ISREL and ISSUP are appended after the retrieved passage or generations. At the end
+13. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=through retrieval on demand and self-reflection.SELF -R AG trains an LM to learn to retrieve, generate, and critique text passages and its own generation by predicting the next tok
+14. Source=RAG.pdf | Page=19 | Type=text | Image=N/A
+    Content=728 dimensional vectors, consisting of 15.3B values. These can be easily be stored at 8-bit ﬂoating point precision to manage memory and disk footprints. H Retrieval Collapse In pr
+15. Source=Self-RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=training data for each type and combine them to form training data for C. Appendix Section D shows the full list of instructions, and A.1 contains more details and our analysis. Cr
+16. Source=Self-RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=to enhance overall generation quality, factuality, and verifiability. consistently retrieves a fixed number of documents for generation regardless of the retrieval necessity (e.g.,
+17. Source=Self-RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=work introduces Self-Reflective Retrieval-augmented Generation (SELF -R AG) to improve an LLM’s generation quality, including its factual accuracy without hurting its versatility, 
+18. Source=Self-RAG.pdf | Page=17 | Type=text | Image=N/A
+    Content=Preprint. A S ELF -R AG DETAILS A.1 R EFLECTION TOKENS . Definitions of reflection tokens. Below, we provide a detailed definition of reflection type and output tokens. The first t
+19. Source=Self-RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=Though the initial model can be any pre-trained LM, we use the same one as the generator LM (i.e., Llama 2-7B; Touvron et al. 2023) for C initialization. The critic achieves a high
+20. Source=Self-RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=with reflection tokens Dgen using the standard next token objective: max M E(x,y,r)∼Dgen log pM(y, r|x). (2) Unlike C training (Eq. 1), M learns to predict the target output as wel
+21. Source=Self-RAG.pdf | Page=9 | Type=image | Image=extracted_images\Self-RAG_page9_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the textbook on the characterization and characterization of semiconductors in semiconductors and semiconductors  OCR Text:
+22. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=plausible and supported by relevant passages with higher S&P scores on short-form PopQA, which is consistent with Menick et al. (2022). Human annotators also find ISREL and ISSUP r
+23. Source=RAG.pdf | Page=3 | Type=text | Image=N/A
+    Content=target token and marginalize accordingly. This allows the generator to choose content from several documents when producing an answer. Concretely, the top K documents are retrieved
+24. Source=RAG.pdf | Page=4 | Type=text | Image=N/A
+    Content=token likelihood, hence we cannot solve it with a single beam search. Instead, we run beam search for each documentz, scoring each hypothesis usingpθ(yi|x,z,y 1:i−1). This yields a
+25. Source=RAG.pdf | Page=3 | Type=text | Image=N/A
+    Content=is marginalized to get the seq2seq probability p(y|x) via a top-K approximation. Concretely, the top K documents are retrieved using the retriever, and the generator produces the o
+
+------------------------------------------------------------------------------------------
+[RRF FUSION RANKING]
+------------------------------------------------------------------------------------------
+01. RRF=0.030478 | DenseRank=1 | BM25Rank=11 | Source=Self-RAG.pdf | Page=2 | Type=text
+02. RRF=0.029211 | DenseRank=7 | BM25Rank=10 | Source=RAG.pdf | Page=3 | Type=text
+03. RRF=0.027864 | DenseRank=8 | BM25Rank=16 | Source=Self-RAG.pdf | Page=2 | Type=text
+04. RRF=0.027480 | DenseRank=9 | BM25Rank=17 | Source=Self-RAG.pdf | Page=1 | Type=text
+05. RRF=0.025833 | DenseRank=15 | BM25Rank=20 | Source=Self-RAG.pdf | Page=5 | Type=text
+06. RRF=0.025479 | DenseRank=19 | BM25Rank=18 | Source=Self-RAG.pdf | Page=17 | Type=text
+07. RRF=0.025206 | DenseRank=16 | BM25Rank=23 | Source=RAG.pdf | Page=3 | Type=text
+08. RRF=0.016393 | DenseRank=- | BM25Rank=1 | Source=Self-RAG.pdf | Page=4 | Type=image
+09. RRF=0.016129 | DenseRank=2 | BM25Rank=- | Source=Self-RAG.pdf | Page=1 | Type=text
+10. RRF=0.016129 | DenseRank=- | BM25Rank=2 | Source=Self-RAG.pdf | Page=2 | Type=image
+11. RRF=0.015873 | DenseRank=3 | BM25Rank=- | Source=Self-RAG.pdf | Page=3 | Type=text
+12. RRF=0.015873 | DenseRank=- | BM25Rank=3 | Source=Self-RAG.pdf | Page=10 | Type=image
+13. RRF=0.015625 | DenseRank=4 | BM25Rank=- | Source=Self-RAG.pdf | Page=3 | Type=text
+14. RRF=0.015625 | DenseRank=- | BM25Rank=4 | Source=Self-RAG.pdf | Page=4 | Type=text
+15. RRF=0.015385 | DenseRank=5 | BM25Rank=- | Source=RAG.pdf | Page=2 | Type=text
+16. RRF=0.015385 | DenseRank=- | BM25Rank=5 | Source=Self-RAG.pdf | Page=4 | Type=text
+17. RRF=0.015152 | DenseRank=6 | BM25Rank=- | Source=Self-RAG.pdf | Page=6 | Type=text
+18. RRF=0.015152 | DenseRank=- | BM25Rank=6 | Source=Self-RAG.pdf | Page=1 | Type=image
+19. RRF=0.014925 | DenseRank=- | BM25Rank=7 | Source=Self-RAG.pdf | Page=4 | Type=text
+20. RRF=0.014706 | DenseRank=- | BM25Rank=8 | Source=Self-RAG.pdf | Page=5 | Type=image
+21. RRF=0.014493 | DenseRank=- | BM25Rank=9 | Source=Self-RAG.pdf | Page=3 | Type=image
+22. RRF=0.014286 | DenseRank=10 | BM25Rank=- | Source=Self-RAG.pdf | Page=9 | Type=text
+23. RRF=0.014085 | DenseRank=11 | BM25Rank=- | Source=RAG.pdf | Page=7 | Type=text
+24. RRF=0.013889 | DenseRank=12 | BM25Rank=- | Source=Self-RAG.pdf | Page=2 | Type=text
+25. RRF=0.013889 | DenseRank=- | BM25Rank=12 | Source=Self-RAG.pdf | Page=5 | Type=text
+26. RRF=0.013699 | DenseRank=13 | BM25Rank=- | Source=RAG.pdf | Page=2 | Type=text
+27. RRF=0.013699 | DenseRank=- | BM25Rank=13 | Source=Self-RAG.pdf | Page=10 | Type=text
+28. RRF=0.013514 | DenseRank=14 | BM25Rank=- | Source=Self-RAG.pdf | Page=6 | Type=text
+29. RRF=0.013514 | DenseRank=- | BM25Rank=14 | Source=RAG.pdf | Page=19 | Type=text
+30. RRF=0.013333 | DenseRank=- | BM25Rank=15 | Source=Self-RAG.pdf | Page=5 | Type=text
+31. RRF=0.012987 | DenseRank=17 | BM25Rank=- | Source=RAG.pdf | Page=4 | Type=text
+32. RRF=0.012821 | DenseRank=18 | BM25Rank=- | Source=Self-RAG.pdf | Page=1 | Type=text
+33. RRF=0.012658 | DenseRank=- | BM25Rank=19 | Source=Self-RAG.pdf | Page=5 | Type=text
+34. RRF=0.012500 | DenseRank=20 | BM25Rank=- | Source=RAG.pdf | Page=4 | Type=text
+35. RRF=0.012346 | DenseRank=21 | BM25Rank=- | Source=Self-RAG.pdf | Page=20 | Type=text
+36. RRF=0.012346 | DenseRank=- | BM25Rank=21 | Source=Self-RAG.pdf | Page=9 | Type=image
+37. RRF=0.012195 | DenseRank=22 | BM25Rank=- | Source=RAG.pdf | Page=2 | Type=text
+38. RRF=0.012195 | DenseRank=- | BM25Rank=22 | Source=Self-RAG.pdf | Page=10 | Type=text
+39. RRF=0.012048 | DenseRank=23 | BM25Rank=- | Source=Self-RAG.pdf | Page=21 | Type=text
+40. RRF=0.011905 | DenseRank=24 | BM25Rank=- | Source=Self-RAG.pdf | Page=1 | Type=text
+41. RRF=0.011905 | DenseRank=- | BM25Rank=24 | Source=RAG.pdf | Page=4 | Type=text
+42. RRF=0.011765 | DenseRank=25 | BM25Rank=- | Source=RAG.pdf | Page=8 | Type=table
+43. RRF=0.011765 | DenseRank=- | BM25Rank=25 | Source=RAG.pdf | Page=3 | Type=text
+------------------------------------------------------------------------------------------
+
+==========================================================================================
+STEP 3A — RETRIEVAL STAGE SUMMARY
+==========================================================================================
+Dense candidates       : 25
+BM25 candidates        : 25
+Dense ∩ BM25           : 7
+Dense-only candidates  : 18
+BM25-only candidates   : 18
+Unique candidate pool  : 43
+RRF candidates         : 43
+Returned to pipeline   : 8
+==========================================================================================
+
+------------------------------------------------------------------------------------------
+[SCOPED FINAL HYBRID RESULT] 8 candidates
+------------------------------------------------------------------------------------------
+01. Source=Self-RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=SELF -RAG trains an arbitrary LM to generate text with reflection tokens by unifying them as the next token prediction from the expanded model vocabulary. We train our generator LM
+02. Source=RAG.pdf | Page=3 | Type=text | Image=N/A
+    Content=byθ that generates a current token based on a context of the previousi− 1 tokensy1:i−1, the original inputx and a retrieved passagez. To train the retriever and generator end-to-en
+03. Source=Self-RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=to enhance overall generation quality, factuality, and verifiability. consistently retrieves a fixed number of documents for generation regardless of the retrieval necessity (e.g.,
+04. Source=Self-RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=work introduces Self-Reflective Retrieval-augmented Generation (SELF -R AG) to improve an LLM’s generation quality, including its factual accuracy without hurting its versatility, 
+05. Source=Self-RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=with reflection tokens Dgen using the standard next token objective: max M E(x,y,r)∼Dgen log pM(y, r|x). (2) Unlike C training (Eq. 1), M learns to predict the target output as wel
+06. Source=Self-RAG.pdf | Page=17 | Type=text | Image=N/A
+    Content=Preprint. A S ELF -R AG DETAILS A.1 R EFLECTION TOKENS . Definitions of reflection tokens. Below, we provide a detailed definition of reflection type and output tokens. The first t
+07. Source=RAG.pdf | Page=3 | Type=text | Image=N/A
+    Content=target token and marginalize accordingly. This allows the generator to choose content from several documents when producing an answer. Concretely, the top K documents are retrieved
+08. Source=Self-RAG.pdf | Page=4 | Type=image | Image=extracted_images\Self-RAG_page4_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Preprint.  Typ
+==========================================================================================
+
+================================================================================
+STAGE 1 — HYBRID RETRIEVAL
+================================================================================
+Retrieved Count : 8
+
+[HYBRID #1] Source=Self-RAG.pdf | Page=2 | Type=text
+Content: SELF -RAG trains an arbitrary LM to generate text with reflection tokens by unifying them as the next token prediction from the expanded model vocabulary. We train our generator LM on a diverse collection of text interleaved with reflection tokens and retrieved passages. Reflection tokens, inspired by reward models used in reinforcement learning (Ziegler et al., 2019; Ouyang et al., 2022), are inserted offline into the original corpus by a trained critic model. This eliminates the need to host a
+
+[HYBRID #2] Source=RAG.pdf | Page=3 | Type=text
+Content: byθ that generates a current token based on a context of the previousi− 1 tokensy1:i−1, the original inputx and a retrieved passagez. To train the retriever and generator end-to-end, we treat the retrieved document as a latent variable. We propose two models that marginalize over the latent documents in different ways to produce a distribution over generated text. In one approach, RAG-Sequence, the model uses the same document to predict each target token. The second approach, RAG-Token, can pre
+
+[HYBRID #3] Source=Self-RAG.pdf | Page=2 | Type=text
+Content: to enhance overall generation quality, factuality, and verifiability. consistently retrieves a fixed number of documents for generation regardless of the retrieval necessity (e.g., the bottom figure example does not require factual knowledge) and never second visits the generation quality. Moreover, SELF -RAG provides citations for each segment with its self-assessment of whether the output is supported by the passage, leading to easier fact verification. SELF -RAG trains an arbitrary LM to gene
+
+[HYBRID #4] Source=Self-RAG.pdf | Page=1 | Type=text
+Content: work introduces Self-Reflective Retrieval-augmented Generation (SELF -R AG) to improve an LLM’s generation quality, including its factual accuracy without hurting its versatility, via on-demand retrieval and self-reflection. We train an arbitrary LM in an end-to-end manner to learn to reflect on its own generation process given a task input by generating both task output and intermittent special tokens (i.e., reflection tokens). Reflection tokens are categorized into retrieval and critique token
+
+[HYBRID #5] Source=Self-RAG.pdf | Page=5 | Type=text
+Content: with reflection tokens Dgen using the standard next token objective: max M E(x,y,r)∼Dgen log pM(y, r|x). (2) Unlike C training (Eq. 1), M learns to predict the target output as well as the reflection tokens. During training, we mask out the retrieved text chunks (surrounded by <p> and </p> in Figure 2) for loss calculation and expand the original vocabulary V with a set of reflection tokens { Critique , Retrieve }. Connections to prior work on learning with critique. Recent work incorporates add
+
+[HYBRID #6] Source=Self-RAG.pdf | Page=17 | Type=text
+Content: Preprint. A S ELF -R AG DETAILS A.1 R EFLECTION TOKENS . Definitions of reflection tokens. Below, we provide a detailed definition of reflection type and output tokens. The first three aspects will be provided at each segment level, while the final aspect is only given at each output level. • Retrieval-on-demand ( Retrieve ): Given an input and previous-step generation (if applicable), an LM determines whether the continuation requires factual grounding. No indicates retrieval is unnecessary as 
+
+[HYBRID #7] Source=RAG.pdf | Page=3 | Type=text
+Content: target token and marginalize accordingly. This allows the generator to choose content from several documents when producing an answer. Concretely, the top K documents are retrieved using the retriever, and then the generator produces a distribution for the next output token for each document, before marginalizing, and repeating the process with the following output token, Formally, we deﬁne: pRAG-Token(y|x) ≈ N∏ i ∑ z∈top-k(p(·|x)) pη(z|x)pθ(yi|x,z,y 1:i−1) Finally, we note that RAG can be used 
+
+[HYBRID #8] Source=Self-RAG.pdf | Page=4 | Type=image
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Preprint.  Type Input Output Definitions  eln,y {yes, no, continue} Decides when to retrieve with R.  x,d {relevant, irrelevant} d provides useful information to solve x.  x,d,y {fully supported, partially All of the verification-worthy statement in y supported, no support} is supported by d.  x,y {5, 4, 3, 2, 1} y is a useful respo
+================================================================================
+[DOCUMENT SCOPE] Text chunks: 8 -> 8
+
+================================================================================
+IMAGE RETRIEVAL DIAGNOSTIC
+================================================================================
+Query                 : How does the SELF-RAG generator learn to produce both normal text and reflection tokens?
+Allowed Sources       : ['RAG.pdf', 'Self-RAG.pdf']
+Image Candidates      : 554 -> 12 (scoped before ranking)
+
+ALL IMAGE CANDIDATES
+--------------------------------------------------------------------------------
+Rank=01 | Source=Self-RAG.pdf | Page=1 | Image=Self-RAG_page1_render.png | Hybrid=0.6139 | CE=0.8669 | CLIP=0.2343
+Rank=02 | Source=Self-RAG.pdf | Page=4 | Image=Self-RAG_page4_render.png | Hybrid=0.3335 | CE=0.4110 | CLIP=0.2172
+Rank=03 | Source=Self-RAG.pdf | Page=2 | Image=Self-RAG_page2_render.png | Hybrid=-2.3434 | CE=-4.0625 | CLIP=0.2353
+Rank=04 | Source=RAG.pdf | Page=7 | Image=RAG_page7_render.png | Hybrid=-3.0789 | CE=-5.2791 | CLIP=0.2213
+Rank=05 | Source=RAG.pdf | Page=8 | Image=RAG_page8_render.png | Hybrid=-4.8482 | CE=-8.2149 | CLIP=0.2018
+Rank=06 | Source=RAG.pdf | Page=6 | Image=RAG_page6_render.png | Hybrid=-6.1525 | CE=-10.3946 | CLIP=0.2107
+Rank=07 | Source=Self-RAG.pdf | Page=3 | Image=Self-RAG_page3_render.png | Hybrid=-6.5247 | CE=-11.0254 | CLIP=0.2264
+Rank=08 | Source=RAG.pdf | Page=2 | Image=RAG_page2_render.png | Hybrid=-6.5514 | CE=-11.0711 | CLIP=0.2282
+Rank=09 | Source=Self-RAG.pdf | Page=9 | Image=Self-RAG_page9_render.png | Hybrid=-6.6083 | CE=-11.1554 | CLIP=0.2122
+Rank=10 | Source=Self-RAG.pdf | Page=10 | Image=Self-RAG_page10_render.png | Hybrid=-6.7413 | CE=-11.3765 | CLIP=0.2116
+Rank=11 | Source=RAG.pdf | Page=17 | Image=RAG_page17_img0.png | Hybrid=-6.7666 | CE=-11.4409 | CLIP=0.2448
+Rank=12 | Source=Self-RAG.pdf | Page=5 | Image=Self-RAG_page5_render.png | Hybrid=-6.7978 | CE=-11.4863 | CLIP=0.2349
+
+TOP IMAGE RESULTS
+--------------------------------------------------------------------------------
+TOP-1 | Source=Self-RAG.pdf | Page=1 | Image=Self-RAG_page1_render.png | Hybrid=0.6139 | CE=0.8669 | CLIP=0.2343
+TOP-2 | Source=Self-RAG.pdf | Page=4 | Image=Self-RAG_page4_render.png | Hybrid=0.3335 | CE=0.4110 | CLIP=0.2172
+TOP-3 | Source=Self-RAG.pdf | Page=2 | Image=Self-RAG_page2_render.png | Hybrid=-2.3434 | CE=-4.0625 | CLIP=0.2353
+================================================================================
+[DOCUMENT SCOPE] Images: 3 -> 3
+
+================================================================================
+STAGE 2 — IMAGE RETRIEVAL RESULT
+================================================================================
+Image Results       : 3
+Exact Figure Match  : False
+
+[IMAGE #1] Source=Self-RAG.pdf | Page=1 | Image=Self-RAG_page1_render.png
+Image Path: extracted_images\Self-RAG_page1_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with the title title of a research paper  OCR Text: 2310.11511v1 [cs.CL] 17 Oct 2023  arXiv  Preprint.  SELF-RAG: LEARNING TO RETRIEVE, GENERATE, AND CRITIQUE THROUGH SELF-REFLECTION  Akari Asai! , Zeqiu Wul, Yizhong Wang’, Avirup Sil?, Hannaneh Hajishirzi'® tUniversity of Washington Allen Institute for AI +IBM Research AI {akari, zeqiuwu, yizhongw, hannaneh}@cs.washington.edu, avi@us.ibm.com  ABSTRACT  Despite their remarkable capabilities, l
+
+[IMAGE #2] Source=Self-RAG.pdf | Page=4 | Image=Self-RAG_page4_render.png
+Image Path: extracted_images\Self-RAG_page4_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Preprint.  Type Input Output Definitions  eln,y {yes, no, continue} Decides when to retrieve with R.  x,d {relevant, irrelevant} d provides useful information to solve x.  x,d,y {fully supported, partially All of the verification-worthy statement in y supported, no support} is supported by d.  x,y {5, 4, 3, 2, 1} y is a useful respo
+
+[IMAGE #3] Source=Self-RAG.pdf | Page=2 | Image=Self-RAG_page2_render.png
+Image Path: extracted_images\Self-RAG_page2_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Preprint.  Retrieval-Augmented Generation (RAG) Ours: Self-reflective Retrieval-Augmented Generation (Self-RAG) , [Prompt How did US states gat thelr names? Prompt How did US states get thelr names? Stop 4: Retrieve on demand ? t : ¢ : Step 1: Retrleve K documents Be US state
+================================================================================
+
+================================================================================
+COMBINED RETRIEVAL CANDIDATES
+================================================================================
+Text Candidates  : 8
+Image Candidates : 3
+Total Candidates : 11
+================================================================================
+
+================================================================================
+STEP 3A — RERANKER INPUT
+================================================================================
+Query: How does the SELF-RAG generator learn to produce both normal text and reflection tokens?
+Input candidates: 11
+01. Source=Self-RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=SELF -RAG trains an arbitrary LM to generate text with reflection tokens by unifying them as the next token prediction from the expanded model vocabulary. We train our generator LM
+02. Source=RAG.pdf | Page=3 | Type=text | Image=N/A
+    Content=byθ that generates a current token based on a context of the previousi− 1 tokensy1:i−1, the original inputx and a retrieved passagez. To train the retriever and generator end-to-en
+03. Source=Self-RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=to enhance overall generation quality, factuality, and verifiability. consistently retrieves a fixed number of documents for generation regardless of the retrieval necessity (e.g.,
+04. Source=Self-RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=work introduces Self-Reflective Retrieval-augmented Generation (SELF -R AG) to improve an LLM’s generation quality, including its factual accuracy without hurting its versatility, 
+05. Source=Self-RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=with reflection tokens Dgen using the standard next token objective: max M E(x,y,r)∼Dgen log pM(y, r|x). (2) Unlike C training (Eq. 1), M learns to predict the target output as wel
+06. Source=Self-RAG.pdf | Page=17 | Type=text | Image=N/A
+    Content=Preprint. A S ELF -R AG DETAILS A.1 R EFLECTION TOKENS . Definitions of reflection tokens. Below, we provide a detailed definition of reflection type and output tokens. The first t
+07. Source=RAG.pdf | Page=3 | Type=text | Image=N/A
+    Content=target token and marginalize accordingly. This allows the generator to choose content from several documents when producing an answer. Concretely, the top K documents are retrieved
+08. Source=Self-RAG.pdf | Page=4 | Type=image | Image=extracted_images\Self-RAG_page4_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Preprint.  Typ
+09. Source=Self-RAG.pdf | Page=1 | Type=image | Image=extracted_images\Self-RAG_page1_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with the title title of a research paper  OCR Text: 2310.11511v1 [cs.CL] 17 Oct 2023  arXiv  Preprint.  SELF-RAG: LEARNING TO R
+10. Source=Self-RAG.pdf | Page=4 | Type=image | Image=extracted_images\Self-RAG_page4_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Preprint.  Typ
+11. Source=Self-RAG.pdf | Page=2 | Type=image | Image=extracted_images\Self-RAG_page2_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+================================================================================
+
+--------------------------------------------------------------------------------
+CROSS-ENCODER RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=00 | Source=Self-RAG.pdf | Page=2 | Type=text | CE=6.1793
+Rank=02 | OriginalIndex=02 | Source=Self-RAG.pdf | Page=2 | Type=text | CE=3.5514
+Rank=03 | OriginalIndex=03 | Source=Self-RAG.pdf | Page=1 | Type=text | CE=2.9793
+Rank=04 | OriginalIndex=04 | Source=Self-RAG.pdf | Page=5 | Type=text | CE=1.0201
+Rank=05 | OriginalIndex=08 | Source=Self-RAG.pdf | Page=1 | Type=image | CE=0.8669
+Rank=06 | OriginalIndex=01 | Source=RAG.pdf | Page=3 | Type=text | CE=0.7196
+Rank=07 | OriginalIndex=07 | Source=Self-RAG.pdf | Page=4 | Type=image | CE=0.4110
+Rank=08 | OriginalIndex=09 | Source=Self-RAG.pdf | Page=4 | Type=image | CE=0.4110
+Rank=09 | OriginalIndex=06 | Source=RAG.pdf | Page=3 | Type=text | CE=0.2186
+Rank=10 | OriginalIndex=05 | Source=Self-RAG.pdf | Page=17 | Type=text | CE=-3.2667
+Rank=11 | OriginalIndex=10 | Source=Self-RAG.pdf | Page=2 | Type=image | CE=-4.0625
+
+--------------------------------------------------------------------------------
+CLIP IMAGE RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=10 | Source=Self-RAG.pdf | Page=2 | Image=extracted_images\Self-RAG_page2_render.png | CLIP=0.2353
+Rank=02 | OriginalIndex=08 | Source=Self-RAG.pdf | Page=1 | Image=extracted_images\Self-RAG_page1_render.png | CLIP=0.2343
+Rank=03 | OriginalIndex=07 | Source=Self-RAG.pdf | Page=4 | Image=extracted_images\Self-RAG_page4_render.png | CLIP=0.2172
+Rank=04 | OriginalIndex=09 | Source=Self-RAG.pdf | Page=4 | Image=extracted_images\Self-RAG_page4_render.png | CLIP=0.2172
+
+================================================================================
+STEP 3A — COMPLETE MULTIMODAL RERANK RESULT
+================================================================================
+Rank=01 | Type=image | Source=Self-RAG.pdf | Page=1 | RRF=0.031514 | CE=0.8669 | CLIP=0.2343
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with the title title of a research paper  OCR Text: 2310.11511v1 [cs.CL] 17 Oct 2023  arXiv  Preprint.  SELF-RAG: LEARNING TO R
+Rank=02 | Type=image | Source=Self-RAG.pdf | Page=4 | RRF=0.030798 | CE=0.4110 | CLIP=0.2172
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Preprint.  Typ
+Rank=03 | Type=image | Source=Self-RAG.pdf | Page=2 | RRF=0.030478 | CE=-4.0625 | CLIP=0.2353
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+Rank=04 | Type=image | Source=Self-RAG.pdf | Page=4 | RRF=0.030331 | CE=0.4110 | CLIP=0.2172
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Preprint.  Typ
+Rank=05 | Type=text | Source=Self-RAG.pdf | Page=2 | RRF=0.016393 | CE=6.1793 | CLIP=N/A
+    Content=SELF -RAG trains an arbitrary LM to generate text with reflection tokens by unifying them as the next token prediction from the expanded model vocabulary. We train our generator LM
+Rank=06 | Type=text | Source=Self-RAG.pdf | Page=2 | RRF=0.016129 | CE=3.5514 | CLIP=N/A
+    Content=to enhance overall generation quality, factuality, and verifiability. consistently retrieves a fixed number of documents for generation regardless of the retrieval necessity (e.g.,
+Rank=07 | Type=text | Source=Self-RAG.pdf | Page=1 | RRF=0.015873 | CE=2.9793 | CLIP=N/A
+    Content=work introduces Self-Reflective Retrieval-augmented Generation (SELF -R AG) to improve an LLM’s generation quality, including its factual accuracy without hurting its versatility, 
+Rank=08 | Type=text | Source=Self-RAG.pdf | Page=5 | RRF=0.015625 | CE=1.0201 | CLIP=N/A
+    Content=with reflection tokens Dgen using the standard next token objective: max M E(x,y,r)∼Dgen log pM(y, r|x). (2) Unlike C training (Eq. 1), M learns to predict the target output as wel
+Rank=09 | Type=text | Source=RAG.pdf | Page=3 | RRF=0.015152 | CE=0.7196 | CLIP=N/A
+    Content=byθ that generates a current token based on a context of the previousi− 1 tokensy1:i−1, the original inputx and a retrieved passagez. To train the retriever and generator end-to-en
+Rank=10 | Type=text | Source=RAG.pdf | Page=3 | RRF=0.014493 | CE=0.2186 | CLIP=N/A
+    Content=target token and marginalize accordingly. This allows the generator to choose content from several documents when producing an answer. Concretely, the top K documents are retrieved
+Rank=11 | Type=text | Source=Self-RAG.pdf | Page=17 | RRF=0.014286 | CE=-3.2667 | CLIP=N/A
+    Content=Preprint. A S ELF -R AG DETAILS A.1 R EFLECTION TOKENS . Definitions of reflection tokens. Below, we provide a detailed definition of reflection type and output tokens. The first t
+================================================================================
+
+================================================================================
+STEP 3A — FINAL RERANK TOP-K
+================================================================================
+Requested top_k: 12
+Returned documents: 10
+01. Source=Self-RAG.pdf | Page=1 | Type=image | Image=extracted_images\Self-RAG_page1_render.png
+02. Source=Self-RAG.pdf | Page=4 | Type=image | Image=extracted_images\Self-RAG_page4_render.png
+03. Source=Self-RAG.pdf | Page=2 | Type=image | Image=extracted_images\Self-RAG_page2_render.png
+04. Source=Self-RAG.pdf | Page=2 | Type=text | Image=N/A
+05. Source=Self-RAG.pdf | Page=2 | Type=text | Image=N/A
+06. Source=Self-RAG.pdf | Page=1 | Type=text | Image=N/A
+07. Source=Self-RAG.pdf | Page=5 | Type=text | Image=N/A
+08. Source=RAG.pdf | Page=3 | Type=text | Image=N/A
+09. Source=RAG.pdf | Page=3 | Type=text | Image=N/A
+10. Source=Self-RAG.pdf | Page=17 | Type=text | Image=N/A
+================================================================================
+
+================================================================================
+STAGE 3 — MULTIMODAL RERANKING
+================================================================================
+Input Candidates : 11
+Reranked Output   : 10
+
+[RERANK #1] Source=Self-RAG.pdf | Page=1 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with the title title of a research paper  OCR Text: 2310.11511v1 [cs.CL] 17 Oct 2023  arXiv  Preprint.  SELF-RAG: LEARNING TO RETRIEVE, GENERATE, AND CRITIQUE THROUGH SELF-REFLECTION  Akari Asai! , Zeqiu Wul, Yizhong Wang’, Avirup Sil?, Hannaneh H
+
+[RERANK #2] Source=Self-RAG.pdf | Page=4 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Preprint.  Type Input Output Definitions  eln,y {yes, no, continue} Decides when to retrieve with R.  x,d {relevant, irrelevant} d pro
+
+[RERANK #3] Source=Self-RAG.pdf | Page=2 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Preprint.  Retrieval-Augmented Generation (RAG) Ours: Self-reflective Retrie
+
+[RERANK #4] Source=Self-RAG.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: SELF -RAG trains an arbitrary LM to generate text with reflection tokens by unifying them as the next token prediction from the expanded model vocabulary. We train our generator LM on a diverse collection of text interleaved with reflection tokens and retrieved passages. Reflection tokens, inspired 
+
+[RERANK #5] Source=Self-RAG.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: to enhance overall generation quality, factuality, and verifiability. consistently retrieves a fixed number of documents for generation regardless of the retrieval necessity (e.g., the bottom figure example does not require factual knowledge) and never second visits the generation quality. Moreover,
+
+[RERANK #6] Source=Self-RAG.pdf | Page=1 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: work introduces Self-Reflective Retrieval-augmented Generation (SELF -R AG) to improve an LLM’s generation quality, including its factual accuracy without hurting its versatility, via on-demand retrieval and self-reflection. We train an arbitrary LM in an end-to-end manner to learn to reflect on its
+
+[RERANK #7] Source=Self-RAG.pdf | Page=5 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: with reflection tokens Dgen using the standard next token objective: max M E(x,y,r)∼Dgen log pM(y, r|x). (2) Unlike C training (Eq. 1), M learns to predict the target output as well as the reflection tokens. During training, we mask out the retrieved text chunks (surrounded by <p> and </p> in Figure
+
+[RERANK #8] Source=RAG.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: byθ that generates a current token based on a context of the previousi− 1 tokensy1:i−1, the original inputx and a retrieved passagez. To train the retriever and generator end-to-end, we treat the retrieved document as a latent variable. We propose two models that marginalize over the latent document
+
+[RERANK #9] Source=RAG.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: target token and marginalize accordingly. This allows the generator to choose content from several documents when producing an answer. Concretely, the top K documents are retrieved using the retriever, and then the generator produces a distribution for the next output token for each document, before
+
+[RERANK #10] Source=Self-RAG.pdf | Page=17 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Preprint. A S ELF -R AG DETAILS A.1 R EFLECTION TOKENS . Definitions of reflection tokens. Below, we provide a detailed definition of reflection type and output tokens. The first three aspects will be provided at each segment level, while the final aspect is only given at each output level. • Retrie
+================================================================================
+
+================================================================================
+FINAL CONTEXT DOCUMENTS
+================================================================================
+Final context candidates: 10
+
+[FINAL #1] Source=Self-RAG.pdf | Page=1 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with the title title of a research paper  OCR Text: 2310.11511v1 [cs.CL] 17 Oct 2023  arXiv  Preprint.  SELF-RAG: LEARNING TO RETRIEVE, GENERATE, AND CRITIQUE THROUGH SELF-REFLECTION  Akari Asai! , Zeqiu Wul, Yizhong Wang’, Avirup Sil?, Hannaneh H
+
+[FINAL #2] Source=Self-RAG.pdf | Page=4 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Preprint.  Type Input Output Definitions  eln,y {yes, no, continue} Decides when to retrieve with R.  x,d {relevant, irrelevant} d pro
+
+[FINAL #3] Source=Self-RAG.pdf | Page=2 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the  OCR Text: Preprint.  Retrieval-Augmented Generation (RAG) Ours: Self-reflective Retrie
+
+[FINAL #4] Source=Self-RAG.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: SELF -RAG trains an arbitrary LM to generate text with reflection tokens by unifying them as the next token prediction from the expanded model vocabulary. We train our generator LM on a diverse collection of text interleaved with reflection tokens and retrieved passages. Reflection tokens, inspired 
+
+[FINAL #5] Source=Self-RAG.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: to enhance overall generation quality, factuality, and verifiability. consistently retrieves a fixed number of documents for generation regardless of the retrieval necessity (e.g., the bottom figure example does not require factual knowledge) and never second visits the generation quality. Moreover,
+
+[FINAL #6] Source=Self-RAG.pdf | Page=1 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: work introduces Self-Reflective Retrieval-augmented Generation (SELF -R AG) to improve an LLM’s generation quality, including its factual accuracy without hurting its versatility, via on-demand retrieval and self-reflection. We train an arbitrary LM in an end-to-end manner to learn to reflect on its
+
+[FINAL #7] Source=Self-RAG.pdf | Page=5 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: with reflection tokens Dgen using the standard next token objective: max M E(x,y,r)∼Dgen log pM(y, r|x). (2) Unlike C training (Eq. 1), M learns to predict the target output as well as the reflection tokens. During training, we mask out the retrieved text chunks (surrounded by <p> and </p> in Figure
+
+[FINAL #8] Source=RAG.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: byθ that generates a current token based on a context of the previousi− 1 tokensy1:i−1, the original inputx and a retrieved passagez. To train the retriever and generator end-to-end, we treat the retrieved document as a latent variable. We propose two models that marginalize over the latent document
+
+[FINAL #9] Source=RAG.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: target token and marginalize accordingly. This allows the generator to choose content from several documents when producing an answer. Concretely, the top K documents are retrieved using the retriever, and then the generator produces a distribution for the next output token for each document, before
+
+[FINAL #10] Source=Self-RAG.pdf | Page=17 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Preprint. A S ELF -R AG DETAILS A.1 R EFLECTION TOKENS . Definitions of reflection tokens. Below, we provide a detailed definition of reflection type and output tokens. The first three aspects will be provided at each segment level, while the final aspect is only given at each output level. • Retrie
+================================================================================
+
+================================================================================
+FINAL CONTEXT SENT TO LLM
+================================================================================
+
+================================================================================
+DOCUMENT : Self-RAG.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 1
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+work introduces Self-Reflective Retrieval-augmented Generation (SELF -R AG) to improve an
+LLM’s generation quality, including its factual accuracy without hurting its versatility, via on-demand
+retrieval and self-reflection. We train an arbitrary LM in an end-to-end manner to learn to reflect on
+its own generation process given a task input by generating both task output and intermittent special
+tokens (i.e., reflection tokens). Reflection tokens are categorized into retrieval and critique tokens to
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a paper with the title title of a research paper
+
+OCR Text:
+2310.11511v1 [cs.CL] 17 Oct 2023
+
+arXiv
+
+Preprint.
+
+SELF-RAG: LEARNING TO RETRIEVE, GENERATE, AND
+CRITIQUE THROUGH SELF-REFLECTION
+
+Akari Asai! , Zeqiu Wul, Yizhong Wang’, Avirup Sil?, Hannaneh Hajishirzi'®
+tUniversity of Washington Allen Institute for AI +IBM Research AI
+{akari, zeqiuwu, yizhongw, hannaneh}@cs.washington.edu, avi@us.ibm.com
+
+ABSTRACT
+
+Despite their remarkable capabilities, large language models (LLMs) often produce
+responses containing factual inaccuracies due to their sole reliance on the paramet-
+ric knowledge they encapsulate. Retrieval-Augmented Generation (RAG), an ad
+hoc approach that augments LMs with retrieval of relevant knowledge, decreases
+such issues. However, indiscriminately retrieving and incorporating a fixed number
+of retrieved passages, regardless of whether retrieval is necessary, or passages are
+relevant, diminishes LM versatility or can lead to unhelpful response generation.
+We introduce a new framework called Self-Reflective Retrieval-Augmented Gen-
+eration (SELF-RAG) that enhances an LM’s quality and factuality through retrieval
+and self-reflection. Our framework trains a single arbitrary LM that adaptively
+retrieves passages on-demand, and generates and reflects on retrieved passages
+and its own generations using special tokens, called reflection tokens. Generating
+reflection tokens makes the LM controllable during the inference phase, enabling it
+to tailor its behavior to diverse task requirements. Experiments show that SELF-
+RAG (7B and 13B parameters) significantly outperforms state-of-the-art LLMs
+and retrieval-augmented models on a diverse set of tasks. Specifically, SELF-RAG
+outperforms ChatGPT and retrieval-augmented Llama2-chat on Open-domain QA,
+reasoning and fact verification tasks, and it shows significant gains in improving
+factuality and citation accuracy for long-form generations relative to these models.'
+
+1 INTRODUCTION
+
+State-of-the-art LLMs continue to struggle with factual errors (Mallen et al., 2023; Min et al., 2023)
+despite their increased model and data scale (Ouyang et al., 2022). Retrieval-Augmented Generation
+(RAG) methods (Figure 1 left; Lewis et al. 2020; Guu et al. 2020) augment the input of LLMs
+with relevant retrieved passages, reducing factual errors in knowledge-intensive tasks (Ram et al.,
+2023; Asai et al., 2023a). However, these methods may hinder the versatility of LLMs or introduce
+unnecessary or off-topic passages that lead to low-quality generations (Shi et al., 2023) since they
+retrieve passages indiscriminately regardless of whether the factual grounding is helpful. Moreover,
+the output is not guaranteed to be consistent with retrieved relevant passages (Gao et al., 2023) since
+the models are not explicitly trained to leverage and follow facts from provided passages. This
+work introduces Self-Reflective Retrieval-augmented Generation (SELF-RAG) to improve an
+LLM’s generation quality, including its factual accuracy without hurting its versatility, via on-demand
+retrieval and self-reflection. We train an arbitrary LM in an end-to-end manner to learn to reflect on
+its own generation process given a task input by generating both task output and intermittent special
+tokens (.e., reflection tokens). Reflection tokens are categorized into retrieval and critique tokens to
+indicate the need for retrieval and its generation quality respectively (Figure 1 right). In particular,
+given an input prompt and preceding generations, SELF-RAG first determines if augmenting the
+continued generation with retrieved passages would be helpful. If so, it outputs a retrieval token that
+calls a retriever model on demand (Step 1). Subsequently, SELF-RAG concurrently processes multiple
+retrieved passages, evaluating their relevance and then generating corresponding task outputs (Step
+2). It then generates critique tokens to criticize its own output and choose best one (Step 3) in terms
+of factuality and overall quality. This process differs from conventional RAG (Figure 1 left), which
+
+‘Our code and trained models are available at https: //selfrag.github.io/.
+
+Nearby Document Text:
+Preprint.
+SELF-RAG: LEARNING TO RETRIEVE, GENERATE, AND
+CRITIQUE THROUGH SELF-REFLECTION
+Akari Asai†, Zeqiu Wu†, Yizhong Wang†§, Avirup Sil‡, Hannaneh Hajishirzi†§
+†University of Washington
+§Allen Institute for AI
+‡IBM Research AI
+{akari,zeqiuwu,yizhongw,hannaneh}@cs.washington.edu, avi@us.ibm.com
+ABSTRACT
+Despite their remarkable capabilities, large language models (LLMs) often produce
+responses containing factual inaccuracies due to their sole reliance on the paramet-
+ric knowledge they encapsulate. Retrieval-Augmented Generation (RAG), an ad
+hoc approach that augments LMs with retrieval of
+
+
+[RELATED PAGE TEXT]
+
+work introduces Self-Reflective Retrieval-augmented Generation (SELF -R AG) to improve an
+LLM’s generation quality, including its factual accuracy without hurting its versatility, via on-demand
+retrieval and self-reflection. We train an arbitrary LM in an end-to-end manner to learn to reflect on
+its own generation process given a task input by gene
+
+
+--------------------------------------------------------------------------------
+PAGE : 2
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+SELF -RAG trains an arbitrary LM to generate text with reflection tokens by unifying them as the
+next token prediction from the expanded model vocabulary. We train our generator LM on a diverse
+collection of text interleaved with reflection tokens and retrieved passages. Reflection tokens, inspired
+by reward models used in reinforcement learning (Ziegler et al., 2019; Ouyang et al., 2022), are
+inserted offline into the original corpus by a trained critic model. This eliminates the need to host a
+
+
+[TEXT]
+
+to enhance overall generation quality, factuality, and verifiability.
+consistently retrieves a fixed number of documents for generation regardless of the retrieval necessity
+(e.g., the bottom figure example does not require factual knowledge) and never second visits the
+generation quality. Moreover, SELF -RAG provides citations for each segment with its self-assessment
+of whether the output is supported by the passage, leading to easier fact verification.
+SELF -RAG trains an arbitrary LM to generate text with reflection tokens by unifying them as the
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a page from the publication of the publication of the publication of the publication of the publication of the publication of the publication of the publication of the
+
+OCR Text:
+Preprint.
+
+Retrieval-Augmented Generation (RAG) Ours: Self-reflective Retrieval-Augmented Generation (Self-RAG)
+, [Prompt How did US states gat thelr names? Prompt How did US states get thelr names? Stop 4: Retrieve on demand
+?
+t
+:
+¢
+: Step 1: Retrleve K documents Be US states got thelr names from a varlety of sources.
+t A) Ofthe fifty states, eleven are named
+‘ after an individual person, Step 2: Generate segmentin parallel nee ee
+
+“af -> Popularnamesbystates.InTexes, )| $= _ geec""7” &
+Emma is a popular baby name. Prompt + ® Prompt + 0)
+Rotri Caltfornia was named after a fictional
+otriever island in a, Spanish book. (rae BS v BS +
+
+Relavant 144 of 50 state names Relevant
+Tras is came Californla's name has Its
+Step 2: Prompt LM with K docs and generate come from persons. [crore ] Goel a 16th-century novel
+1 ; Step 3: Critique outputs and select bestsegment ¢T}
+US states got their names from a varlety of
+Be sources. Elven states are named after an Occ > Cs i | > 2
+
+Individual ‘person {a.g, Califomla_was_named
+ef olumbus}. Some states US states got thelr names from a varlety of sources. 11 of 50
+“ sf [rawr] —> Repeat. 8 pe
+
+incf\ng Taxes Uiah, are named after states namas are come from persons, ()26 states are named
+Contradictory atican tribe) No information In passages
+
+Prompt: Write an essay of your best summer vacation Prompt: Write an essay of your best summer vacation
+: v
+t
+. Q ft) 2) 3) > ee —> My best... ee — [Troncua | My best summer vacation Is when my family and | embarked on a road trip along ...
+se
+
+Figure 1: Overview of SELF-RAG. SELF-RAG learns to retrieve, critique, and generate text passages
+to enhance overall generation quality, factuality, and verifiability.
+
+consistently retrieves a fixed number of documents for generation regardless of the retrieval necessity
+(e.g., the bottom figure example does not require factual knowledge) and never second visits the
+generation quality. Moreover, SELF-RAG provides citations for each segment with its self-assessment
+of whether the output is supported by the passage, leading to easier fact verification.
+
+SELF-RAG trains an arbitrary LM to generate text with reflection tokens by unifying them as the
+next token prediction from the expanded model vocabulary. We train our generator LM on a diverse
+collection of text interleaved with reflection tokens and retrieved passages. Reflection tokens, inspired
+by reward models used in reinforcement learning (Ziegler et al., 2019; Ouyang et al., 2022), are
+inserted offline into the original corpus by a trained critic model. This eliminates the need to host a
+critic model during training, reducing overhead. The critic model, in part, is supervised on a dataset
+of input, output, and corresponding reflection tokens collected by prompting a propriety LM (Le.,
+GPT-4; OpenAI 2023). While we draw inspiration from studies that use control tokens to start and
+guide text generation (Lu et al., 2022; Keskar et al., 2019), our trained LM uses critique tokens to
+assess its own predictions after each generated segment as an integral part of the generation output.
+
+SELF-RAG further enables a customizable decoding algorithm to satisfy hard or soft constraints,
+which are defined by reflection token predictions. In particular, our inference-time algorithm enables
+us to (1) flexibly adjust retrieval frequency for different downstream applications and (2) customize
+models’ behaviors to user preferences by leveraging reflection tokens through segment-level beam
+search using the weighted linear sum of the reflection token probabilities as segment score.
+
+Empirical results on six tasks, including reasoning and long-form generation, demonstrate that SELF-
+RAG significantly outperforms pre-trained and instruction-tuned LLMs that have more parameters and
+widely adopted RAG approaches with higher citation accuracy. In particular, SELF-RAG outperforms
+retrieval-augmented ChatGPT on four tasks, Llama2-chat (Touvron et al., 2023) and Alpaca (Dubois
+et al., 2023) on all tasks. Our analysis demonstrates the effectiveness of training and inference with
+reflection tokens for overall performance improvements as well as test-time model customizations
+(e.g., balancing the trade-off between citation previsions and completeness).
+
+2 RELATED WORK
+
+Retrieval-Augmented Generation. Retrieval-Augmented Generation (RAG) augments the input
+space of LMs with retrieved text passages (Guu et al., 2020; Lewis et al., 2020), leading to large
+improvements in knowledge-intensive tasks after fine-tuning or used with off-the-shelf LMs (Ram
+et al., 2023). A more recent work (Luo et al., 2023) instruction-tunes an LM with a fixed number
+
+Nearby Document Text:
+Preprint.
+Step 1: Retrieve K documents
+California was named after a fictional 
+island in a Spanish book. 
+Prompt How did US states get their names? 
+US states got their names from a variety of 
+sources. Eleven states are named after an 
+individual person (e.g, California was named 
+after Christopher Columbus). Some states 
+including Texas and Utah, are named after 
+Native American tribe.
+Retrieval-Augmented Generation (RAG)
+Ours: Self-reflective Retrieval-Augmented Generation (Self-RAG) 
+Popular names by states. In Texas, 
+Emma is a popular baby name. 
+Of the fifty states, eleven are named 
+af
+
+
+[RELATED PAGE TEXT]
+
+SELF -RAG trains an arbitrary LM to generate text with reflection tokens by unifying them as the
+next token prediction from the expanded model vocabulary. We train our generator LM on a diverse
+collection of text interleaved with reflection tokens and retrieved passages. Reflection tokens, inspired
+by reward models used in reinforcement learning (Z
+
+
+--------------------------------------------------------------------------------
+PAGE : 4
+--------------------------------------------------------------------------------
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a
+
+OCR Text:
+Preprint.
+
+Type Input Output Definitions
+
+eln,y {yes, no, continue} Decides when to retrieve with R.
+
+x,d {relevant, irrelevant} d provides useful information to solve x.
+
+x,d,y {fully supported, partially All of the verification-worthy statement in y
+supported, no support} is supported by d.
+
+x,y {5, 4, 3, 2, 1} y is a useful response to x.
+
+Table 1: Four types of reflection tokens used in SELF-RAG. Each type uses several tokens to represent
+its output values. The bottom three rows are three types of tokens, and the bold text indicates
+the most desirable critique tokens. z, y, d indicate input, output, and a relevant passage, respectively.
+
+Algorithm 1 SELF-RAG Inference
+
+Require: Generator LM M, Retriever R, Large-scale passage collections {d1,...,da}
+1: Input: input prompt x and preceding generation y<;, Output: next output segment y,
+2: M predicts given (x, y<t)
+
+3: if [Retrieve| == Yes then
+
+4: Retrieve relevant text passages D using R given (x, yz_1) > Retrieve
+
+5: M predicts given x, d and y, given z,d, y<, for each d € D > Generate
+
+6: M predicts and given z, yz, d for each d € D > Critique
+
+7: Rank y, based on ; , > Detailed in Section 3.3
+
+8: else if == No then
+
+9: Megen predicts y; given x > Generate
+10: Megen predicts given x, yt > Critique
+
+Inference overview. Figure 1 and Algorithm 1 present an overview of SELF-RAG at inference. For
+every x and preceding generation y<;, the model decodes a retrieval token to evaluate the utility
+of retrieval. If retrieval is not required, the model predicts the next output segment, as it does in a
+standard LM. If retrieval is needed, the model generates: a critique token to evaluate the retrieved
+passage’s relevance, the next response segment, and a critique token to evaluate if the information in
+the response segment is supported by the passage. Finally, a new critique token evaluates the overall
+utility of the response.* To generate each segment, SELF-RAG processes multiple passages in parallel
+and uses its own generated reflection tokens to enforce soft constraints (Section 3.3) or hard control
+(Algorithm 1) over the generated task output. For instance, in Figure 1 (right), the retrieved passages
+dy is selected at the first time step since dz does not provide direct evidence ( [IsRet] is Irrelevant)
+and dz output is only partially supported while d; are fully supported.
+
+Training overview. SELF-RAG enables an arbitrary LM to generate text with reflection tokens
+by unifying them as next token predictions from the expanded model vocabulary (i.e., the original
+vocabulary plus reflection tokens). Specifically, we train the generator model M on a curated corpus
+with interleaving passages retrieved by a retriever FR and reflection tokens predicted by a critic model
+€ (summarized in Appendix Algorithm 2). We train C to generate reflection tokens for evaluating
+retrieved passages and the quality of a given task output (Section 3.2.1). Using the critic model, we
+update the training corpus by inserting reflection tokens into task outputs offline. Subsequently, we
+train the final generator model (M) using the conventional LM objective (Section 3.2.2) to enable
+M to generate reflection tokens by itself without relying on the critic at inference time.
+
+3.2 SELF-RAG TRAINING
+
+Here, we describe the supervised data collection and training of two models, the critic C (Section 3.2.1)
+and the generator M (Section 3.2.2).
+
+3.2.1 TRAINING THE CRITIC MODEL
+
+Data collection for critic model. Manual annotation of reflection tokens for each segment is
+expensive (Wu et al., 2023). A state-of-the-art LLM like GPT-4 (OpenAI, 2023) can be effectively
+
+“We follow Liu et al. (2023a) in using a “perceived” utility value that is independent of retrieved passages.
+
+Nearby Document Text:
+Preprint.
+Type
+Input
+Output
+Definitions
+Retrieve
+x / x, y
+{yes, no, continue}
+Decides when to retrieve with R
+ISREL
+x, d
+{relevant, irrelevant}
+d provides useful information to solve x.
+ISSUP
+x, d, y
+{fully supported, partially
+supported, no support}
+All of the verification-worthy statement in y
+is supported by d.
+ISUSE
+x, y
+{5, 4, 3, 2, 1}
+y is a useful response to x.
+Table 1: Four types of reflection tokens used in SELF-RAG. Each type uses several tokens to represent
+its output values. The bottom three rows are three types of Critique tokens, and the bold text indicates
+the most desirable cr
+
+
+--------------------------------------------------------------------------------
+PAGE : 5
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+with reflection tokens Dgen using the standard next token objective:
+max
+M
+E(x,y,r)∼Dgen log pM(y, r|x). (2)
+Unlike C training (Eq. 1), M learns to predict the target output as well as the reflection tokens. During
+training, we mask out the retrieved text chunks (surrounded by <p> and </p> in Figure 2) for loss
+calculation and expand the original vocabulary V with a set of reflection tokens { Critique , Retrieve }.
+Connections to prior work on learning with critique. Recent work incorporates additional
+
+
+--------------------------------------------------------------------------------
+PAGE : 17
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+Preprint.
+A S ELF -R AG DETAILS
+A.1 R EFLECTION TOKENS .
+Definitions of reflection tokens. Below, we provide a detailed definition of reflection type and
+output tokens. The first three aspects will be provided at each segment level, while the final aspect is
+only given at each output level.
+• Retrieval-on-demand ( Retrieve ): Given an input and previous-step generation (if applicable),
+an LM determines whether the continuation requires factual grounding. No indicates retrieval
+is unnecessary as the sequence does not require factual grounding or may not be enhanced by
+
+
+================================================================================
+DOCUMENT : RAG.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 3
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+byθ that generates a current token based on a context of the previousi− 1 tokensy1:i−1, the original
+inputx and a retrieved passagez.
+To train the retriever and generator end-to-end, we treat the retrieved document as a latent variable.
+We propose two models that marginalize over the latent documents in different ways to produce a
+distribution over generated text. In one approach, RAG-Sequence, the model uses the same document
+to predict each target token. The second approach, RAG-Token, can predict each target token based
+
+
+[TEXT]
+
+target token and marginalize accordingly. This allows the generator to choose content from several
+documents when producing an answer. Concretely, the top K documents are retrieved using the
+retriever, and then the generator produces a distribution for the next output token for each document,
+before marginalizing, and repeating the process with the following output token, Formally, we deﬁne:
+pRAG-Token(y|x) ≈
+N∏
+i
+∑
+z∈top-k(p(·|x))
+pη(z|x)pθ(yi|x,z,y 1:i−1)
+Finally, we note that RAG can be used for sequence classiﬁcation tasks by considering the target class
+
+================================================================================
+
+================================================================================
+RAG PIPELINE DEBUG
+================================================================================
+Query Type        : analytical
+Retrieved Chunks  : 8
+Retrieved Images  : 3
+Reranked Chunks   : 10
+Reranked Text     : 7
+Reranked Images   : 3
+Final Context Docs: 10
+Exact Figure Query: False
+Exact Figure Match: False
+Exact Figure Final: False
+================================================================================
+
+================================================================================
+STAGE 4 — EVIDENCE VERIFICATION
+================================================================================
+Verification Units : 8
+Supported          : 8
+Partially Supported: 0
+Unsupported        : 0
+Unknown            : 0
+Groundedness Ratio : 1.00
+
+[CLAIM #1] The SELF-RAG generator learns to produce both normal text and reflection tokens through a training process that involves two models: the critic model (C) and the generator model (M).
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.6973 | Citation=Self-RAG.pdf (Page 2)
+
+[CLAIM #2] Training the Critic Model (C): The critic model is trained on a curated corpus with interleaving passages retrieved by a retriever and reflection tokens predicted by the critic model itself.
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.6821 | Citation=Self-RAG.pdf (Page 2)
+
+[CLAIM #3] The critic model's goal is to evaluate the utility of retrieved passages and the quality of a given task output.
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.7705 | Citation=Self-RAG.pdf (Page 2)
+
+[CLAIM #4] Training the Generator Model (M): The generator model M is trained on the same curated corpus as the critic model, but it learns to predict the target output as well as the reflection tokens.
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.6577 | Citation=Self-RAG.pdf (Page 4)
+
+[CLAIM #5] During training, the retrieved text chunks are masked out for loss calculation, and the original vocabulary is expanded with a set of reflection tokens {Critique, Retrieve}.
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.981 | Citation=Self-RAG.pdf (Page 5)
+
+[CLAIM #6] The generator model learns to generate reflection tokens by itself without relying on the critic at inference time.
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.7983 | Citation=Self-RAG.pdf (Page 1)
+
+[CLAIM #7] In essence, the SELF-RAG generator is designed to decide when to retrieve information, evaluate the utility of retrieved passages, and generate both the response and reflection tokens for that response.
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.8496 | Citation=Self-RAG.pdf (Page 2)
+
+[CLAIM #8] This allows the model to produce more accurate and contextually relevant responses.
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.7305 | Citation=Self-RAG.pdf (Page 2)
+================================================================================
+
+====================================================================================================
+RAG ANSWER
+====================================================================================================
+ The SELF-RAG generator learns to produce both normal text and reflection tokens through a training process that involves two models: the critic model (C) and the generator model (M).
+
+1. Training the Critic Model (C): The critic model is trained on a curated corpus with interleaving passages retrieved by a retriever and reflection tokens predicted by the critic model itself. The critic model's goal is to evaluate the utility of retrieved passages and the quality of a given task output.
+
+2. Training the Generator Model (M): The generator model M is trained on the same curated corpus as the critic model, but it learns to predict the target output as well as the reflection tokens. During training, the retrieved text chunks are masked out for loss calculation, and the original vocabulary is expanded with a set of reflection tokens {Critique, Retrieve}. The generator model learns to generate reflection tokens by itself without relying on the critic at inference time.
+
+In essence, the SELF-RAG generator is designed to decide when to retrieve information, evaluate the utility of retrieved passages, and generate both the response and reflection tokens for that response. This allows the model to produce more accurate and contextually relevant responses.
+
+IMAGE PATHS:
+D:/Projects/Major-Project-2-main/extracted_images/Self-RAG_page1_render.png
+D:/Projects/Major-Project-2-main/extracted_images/Self-RAG_page2_render.png
+D:/Projects/Major-Project-2-main/extracted_images/Self-RAG_page4_render.png

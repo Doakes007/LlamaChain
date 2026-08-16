@@ -1,0 +1,1289 @@
+====================================================================================================
+QUESTION_ID   : BERT-09
+DOCUMENT      : BERT
+QUESTION_TYPE : Training / Comparison
+ELAPSED_SEC   : 48.0
+ERROR         : no
+====================================================================================================
+
+QUESTION:
+What optimizer and learning rate are used for BERT pre-training?
+
+GROUND TRUTH ANSWER:
+BERT pre-training uses the Adam optimizer with a learning rate of 1e-4 (with beta1=0.9, beta2=0.999, weight decay 0.01, warmup, and linear decay).
+
+GROUND TRUTH SOURCE:
+BERT.pdf, pp. 1–8, 13–16
+
+====================================================================================================
+FORENSIC TRANSCRIPT
+====================================================================================================
+
+####################################################################################################
+FORENSIC CASE START
+####################################################################################################
+Original Query   : What optimizer and learning rate are used for BERT pre-training?
+Expanded Query   : What optimizer and learning rate are used for BERT pre-training?
+Query Type       : factual
+[DOCUMENT SCOPE] Normalized query: 'what optimizer and learning rate are used for bert pre training'
+[DOCUMENT SCOPE] Source='BERT.pdf' -> Normalized='bert'
+[DOCUMENT SCOPE] EXACT MATCH -> BERT.pdf
+[DOCUMENT SCOPE] Source='BLIP-2.pdf' -> Normalized='blip 2'
+[DOCUMENT SCOPE] Token overlap for 'BLIP-2.pdf': []
+[DOCUMENT SCOPE] Source='CLIP.pdf' -> Normalized='clip'
+[DOCUMENT SCOPE] Token overlap for 'CLIP.pdf': []
+[DOCUMENT SCOPE] Source='CNN Paper.pdf' -> Normalized='cnn paper'
+[DOCUMENT SCOPE] Token overlap for 'CNN Paper.pdf': []
+[DOCUMENT SCOPE] Source='Donut.pdf' -> Normalized='donut'
+[DOCUMENT SCOPE] Token overlap for 'Donut.pdf': []
+[DOCUMENT SCOPE] Source='LayoutLMv3.pdf' -> Normalized='layout l mv3'
+[DOCUMENT SCOPE] Token overlap for 'LayoutLMv3.pdf': []
+[DOCUMENT SCOPE] Source='NLP Paper.pdf' -> Normalized='nlp paper'
+[DOCUMENT SCOPE] Token overlap for 'NLP Paper.pdf': []
+[DOCUMENT SCOPE] Source='RAG.pdf' -> Normalized='rag'
+[DOCUMENT SCOPE] Token overlap for 'RAG.pdf': []
+[DOCUMENT SCOPE] Source='Self-RAG.pdf' -> Normalized='self rag'
+[DOCUMENT SCOPE] Token overlap for 'Self-RAG.pdf': []
+[DOCUMENT SCOPE] Source='Vision Transformer.pdf' -> Normalized='vision transformer'
+[DOCUMENT SCOPE] Token overlap for 'Vision Transformer.pdf': []
+[DOCUMENT SCOPE] Final matched sources: ['BERT.pdf']
+
+================================================================================
+DOCUMENT SCOPE DEBUG
+================================================================================
+Query          : What optimizer and learning rate are used for BERT pre-training?
+Expanded Query : What optimizer and learning rate are used for BERT pre-training?
+Query Type     : factual
+Document Scope : ['BERT.pdf']
+================================================================================
+
+==========================================================================================
+STEP 3A — SCOPED HYBRID RETRIEVAL
+==========================================================================================
+Query              : What optimizer and learning rate are used for BERT pre-training?
+Sources            : ['BERT.pdf']
+Dense candidate K  : 25
+Final hybrid K     : 8
+
+------------------------------------------------------------------------------------------
+[SCOPED DENSE / VECTOR RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=BERT.pdf | Page=3 | Type=text | Image=N/A
+    Content=tuning, the BERT model is ﬁrst initialized with the pre-trained parameters, and all of the param- eters are ﬁne-tuned using labeled data from the downstream tasks. Each downstream 
+02. Source=BERT.pdf | Page=16 | Type=text | Image=N/A
+    Content=Procedures In Section 3.1, we mention that BERT uses a mixed strategy for masking the target tokens when pre-training with the masked language model (MLM) objective. The following 
+03. Source=BERT.pdf | Page=14 | Type=text | Image=N/A
+    Content=1M steps with a batch size of 128,000 words. • GPT used the same learning rate of 5e-5 for all ﬁne-tuning experiments; BERT chooses a task-speciﬁc ﬁne-tuning learning rate which pe
+04. Source=BERT.pdf | Page=3 | Type=text | Image=N/A
+    Content=strated the importance of transfer learning from large pre-trained models, where an effective recipe is to ﬁne-tune models pre-trained with Ima- geNet (Deng et al., 2009; Yosinski 
+05. Source=BERT.pdf | Page=13 | Type=text | Image=N/A
+    Content=likelihood. Training of BERT BASE was performed on 4 Cloud TPUs in Pod conﬁguration (16 TPU chips total).13 Training of BERTLARGE was performed on 16 Cloud TPUs (64 TPU chips total
+06. Source=BERT.pdf | Page=2 | Type=text | Image=N/A
+    Content=• We show that pre-trained representations reduce the need for many heavily-engineered task- speciﬁc architectures. BERT is the ﬁrst ﬁne- tuning based representation model that ach
+07. Source=BERT.pdf | Page=16 | Type=text | Image=N/A
+    Content=trained on 1M steps compared to 500k steps. 2. Question: Does MLM pre-training converge slower than LTR pre-training, since only 15% of words are predicted in each batch rather tha
+08. Source=BERT.pdf | Page=8 | Type=text | Image=N/A
+    Content=prediction, like OpenAI GPT. “+ BiLSTM” adds a ran- domly initialized BiLSTM on top of the “LTR + No NSP” model during ﬁne-tuning. ablation studies can be found in Appendix C. 5.1 
+09. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+    Content=BERT is conceptually simple and empirically powerful. It obtains new state-of-the-art re- sults on eleven natural language processing tasks, including pushing the GLUE score to 80.
+10. Source=BERT.pdf | Page=14 | Type=text | Image=N/A
+    Content=between how BERT and GPT were trained: • GPT is trained on the BooksCorpus (800M words); BERT is trained on the BooksCor- pus (800M words) and Wikipedia (2,500M words). • GPT uses 
+11. Source=BERT.pdf | Page=14 | Type=text | Image=N/A
+    Content=left-to-right Transformer LM on a large text cor- pus. In fact, many of the design decisions in BERT were intentionally made to make it as close to GPT as possible so that the two 
+12. Source=BERT.pdf | Page=13 | Type=text | Image=N/A
+    Content=128 for 90% of the steps. Then, we train the rest 10% of the steps of sequence of 512 to learn the positional embeddings. A.3 Fine-tuning Procedure For ﬁne-tuning, most model hyper
+13. Source=BERT.pdf | Page=9 | Type=text | Image=N/A
+    Content=training data once and then run many experiments with cheaper models on top of this representation. In this section, we compare the two approaches by applying BERT to the CoNLL-200
+14. Source=BERT.pdf | Page=13 | Type=text | Image=N/A
+    Content=left LSTMs to generate features for downstream tasks. Among the three, only BERT representations are jointly conditioned on both left and right context in all layers. In addition t
+15. Source=BERT.pdf | Page=14 | Type=text | Image=N/A
+    Content=• Learning rate (Adam): 5e-5, 3e-5, 2e-5 • Number of epochs: 2, 3, 4 We also observed that large data sets (e.g., 100k+ labeled training examples) were far less sensitive to hyperp
+16. Source=BERT.pdf | Page=2 | Type=text | Image=N/A
+    Content=google-research/bert. 2 Related Work There is a long history of pre-training general lan- guage representations, and we brieﬂy review the most widely-used approaches in this sectio
+17. Source=BERT.pdf | Page=16 | Type=text | Image=N/A
+    Content=jority class. C Additional Ablation Studies C.1 Effect of Number of Training Steps Figure 5 presents MNLI Dev accuracy after ﬁne- tuning from a checkpoint that has been pre-trained
+18. Source=BERT.pdf | Page=9 | Type=text | Image=N/A
+    Content=ized two-layer 768-dimensional BiLSTM before the classiﬁcation layer. Results are presented in Table 7. BERT LARGE performs competitively with state-of-the-art meth- ods. The best 
+19. Source=BERT.pdf | Page=2 | Type=text | Image=N/A
+    Content=• We demonstrate the importance of bidirectional pre-training for language representations. Un- like Radford et al. (2018), which uses unidirec- tional language models for pre-trai
+20. Source=BERT.pdf | Page=13 | Type=text | Image=N/A
+    Content=the empirical improvements of the MLM model far outweigh the increased training cost. Next Sentence Prediction The next sentence prediction task can be illustrated in the following
+21. Source=BERT.pdf | Page=3 | Type=text | Image=N/A
+    Content=eters=110M) and BERTLARGE (L=24, H=1024, A=16, Total Parameters=340M). BERTBASE was chosen to have the same model size as OpenAI GPT for comparison purposes. Critically, however, t
+22. Source=BERT.pdf | Page=8 | Type=text | Image=N/A
+    Content=than a deep bidirectional model, since it can use both left and right context at every layer. 5.2 Effect of Model Size In this section, we explore the effect of model size on ﬁne-t
+23. Source=BERT.pdf | Page=8 | Type=text | Image=N/A
+    Content=on large-scale tasks such as machine translation and language modeling, which is demonstrated by the LM perplexity of held-out training data shown in Table 6. However, we believe t
+24. Source=BERT.pdf | Page=5 | Type=text | Image=N/A
+    Content=learning objectives used in Jernite et al. (2017) and Logeswaran and Lee (2018). However, in prior work, only sentence embeddings are transferred to down-stream tasks, where BERT t
+25. Source=BERT.pdf | Page=5 | Type=text | Image=N/A
+    Content=pute a standard classiﬁcation loss with C andW , i.e., log(softmax(CW T )). 7For example, the BERT SQuAD model can be trained in around 30 minutes on a single Cloud TPU to achieve 
+
+------------------------------------------------------------------------------------------
+[SCOPED BM25 RETRIEVAL] 21 candidates
+------------------------------------------------------------------------------------------
+01. Source=BERT.pdf | Page=14 | Type=text | Image=N/A
+    Content=1M steps with a batch size of 128,000 words. • GPT used the same learning rate of 5e-5 for all ﬁne-tuning experiments; BERT chooses a task-speciﬁc ﬁne-tuning learning rate which pe
+02. Source=BERT.pdf | Page=14 | Type=text | Image=N/A
+    Content=between how BERT and GPT were trained: • GPT is trained on the BooksCorpus (800M words); BERT is trained on the BooksCor- pus (800M words) and Wikipedia (2,500M words). • GPT uses 
+03. Source=BERT.pdf | Page=13 | Type=text | Image=N/A
+    Content=use Adam with learning rate of 1e-4, β1 = 0.9, β2 = 0.999, L2 weight decay of 0.01, learning rate warmup over the ﬁrst 10,000 steps, and linear decay of the learning rate. We use a
+04. Source=BERT.pdf | Page=7 | Type=text | Image=N/A
+    Content=only task-speciﬁc parameters introduced is a vec- tor whose dot product with the [CLS] token rep- resentation C denotes a score for each choice which is normalized with a softmax l
+05. Source=BERT.pdf | Page=14 | Type=image | Image=extracted_images\BERT_page14_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a text book with an image of the text  OCR Text: * Learning rate (Adam): 5e-5, 3e-5, 2e-5 * Number of epochs: 2, 3, 4  We als
+06. Source=BERT.pdf | Page=13 | Type=text | Image=N/A
+    Content=diction” task. They are sampled such that the com- bined length is≤ 512 tokens. The LM masking is applied after WordPiece tokenization with a uni- form masking rate of 15%, and no 
+07. Source=BERT.pdf | Page=5 | Type=text | Image=N/A
+    Content=learning objectives used in Jernite et al. (2017) and Logeswaran and Lee (2018). However, in prior work, only sentence embeddings are transferred to down-stream tasks, where BERT t
+08. Source=BERT.pdf | Page=7 | Type=text | Image=N/A
+    Content=We did not use TriviaQA data for this model. We ﬁne-tuned for 2 epochs with a learning rate of 5e-5 and a batch size of 48. The results compared to prior leaderboard en- tries and 
+09. Source=BERT.pdf | Page=6 | Type=text | Image=N/A
+    Content=all of the words in the paragraph: Pi = eS·Ti ∑ j eS·Tj . The analogous formula is used for the end of the answer span. The score of a candidate span from positioni to positionj is
+10. Source=BERT.pdf | Page=5 | Type=text | Image=N/A
+    Content=[CLS] he likes play ##ing [SEP]my dog is cute [SEP]Input E[CLS] Ehe Elikes Eplay E##ing E[SEP]Emy Edog Eis Ecute E[SEP] Token Embeddings EA EB EB EB EB EBEA EA EA EA EASegment Embe
+11. Source=BERT.pdf | Page=3 | Type=image | Image=extracted_images\BERT_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a circuit and a circuit  OCR Text: Mask LM  Masked Sentence A Masked Sentence B  Unlabeled Se
+12. Source=BERT.pdf | Page=13 | Type=image | Image=extracted_images\BERT_page13_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a textbook on the internet network  OCR Text: BERT (Ours)  OpenAl GPT  Figure 3: Differences in pre-training model architec
+13. Source=BERT.pdf | Page=3 | Type=text | Image=N/A
+    Content=strated the importance of transfer learning from large pre-trained models, where an effective recipe is to ﬁne-tune models pre-trained with Ima- geNet (Deng et al., 2009; Yosinski 
+14. Source=BERT.pdf | Page=9 | Type=text | Image=N/A
+    Content=tasks and uses only a very small number of ran- domly initialized additional parameters, the task- speciﬁc models can beneﬁt from the larger, more expressive pre-trained representa
+15. Source=BERT.pdf | Page=14 | Type=text | Image=N/A
+    Content=OpenAI GPT Here we studies the differences in recent popular representation learning models including ELMo, OpenAI GPT and BERT. The comparisons be- tween the model architectures a
+16. Source=BERT.pdf | Page=6 | Type=text | Image=N/A
+    Content=We use a batch size of 32 and ﬁne-tune for 3 epochs over the data for all GLUE tasks. For each task, we selected the best ﬁne-tuning learning rate (among 5e-5, 4e-5, 3e-5, and 2e-5
+17. Source=BERT.pdf | Page=3 | Type=image | Image=extracted_images\BERT_page3_img12.png
+    Content=FIGURE FROM DOCUMENT  Caption: a black background with white circles on it  OCR Text: No readable text found in this image.  Nearby Document Text: BERT BERT E[CLS] E1  E[SEP] ... E
+18. Source=BERT.pdf | Page=6 | Type=image | Image=extracted_images\BERT_page6_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the university of california, showing the results of the experiment  OCR Text: System MNLI-(m/mm) QQP = QNLI
+19. Source=BERT.pdf | Page=5 | Type=image | Image=extracted_images\BERT_page5_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a book with a page of a page of a page of a page of a page of a page of a page of a  OCR Text: f/f Token | ll Embeddings Eris
+20. Source=BERT.pdf | Page=9 | Type=text | Image=N/A
+    Content=ized two-layer 768-dimensional BiLSTM before the classiﬁcation layer. Results are presented in Table 7. BERT LARGE performs competitively with state-of-the-art meth- ods. The best 
+21. Source=BERT.pdf | Page=3 | Type=text | Image=N/A
+    Content=SQuAD Question Answer Pair NERMNLI Figure 1: Overall pre-training and ﬁne-tuning procedures for BERT. Apart from output layers, the same architec- tures are used in both pre-traini
+
+------------------------------------------------------------------------------------------
+[RRF FUSION RANKING]
+------------------------------------------------------------------------------------------
+01. RRF=0.032266 | DenseRank=3 | BM25Rank=1 | Source=BERT.pdf | Page=14 | Type=text
+02. RRF=0.030415 | DenseRank=10 | BM25Rank=2 | Source=BERT.pdf | Page=14 | Type=text
+03. RRF=0.029324 | DenseRank=4 | BM25Rank=13 | Source=BERT.pdf | Page=3 | Type=text
+04. RRF=0.026830 | DenseRank=24 | BM25Rank=7 | Source=BERT.pdf | Page=5 | Type=text
+05. RRF=0.025321 | DenseRank=18 | BM25Rank=20 | Source=BERT.pdf | Page=9 | Type=text
+06. RRF=0.016393 | DenseRank=1 | BM25Rank=- | Source=BERT.pdf | Page=3 | Type=text
+07. RRF=0.016129 | DenseRank=2 | BM25Rank=- | Source=BERT.pdf | Page=16 | Type=text
+08. RRF=0.015873 | DenseRank=- | BM25Rank=3 | Source=BERT.pdf | Page=13 | Type=text
+09. RRF=0.015625 | DenseRank=- | BM25Rank=4 | Source=BERT.pdf | Page=7 | Type=text
+10. RRF=0.015385 | DenseRank=5 | BM25Rank=- | Source=BERT.pdf | Page=13 | Type=text
+11. RRF=0.015385 | DenseRank=- | BM25Rank=5 | Source=BERT.pdf | Page=14 | Type=image
+12. RRF=0.015152 | DenseRank=6 | BM25Rank=- | Source=BERT.pdf | Page=2 | Type=text
+13. RRF=0.015152 | DenseRank=- | BM25Rank=6 | Source=BERT.pdf | Page=13 | Type=text
+14. RRF=0.014925 | DenseRank=7 | BM25Rank=- | Source=BERT.pdf | Page=16 | Type=text
+15. RRF=0.014706 | DenseRank=8 | BM25Rank=- | Source=BERT.pdf | Page=8 | Type=text
+16. RRF=0.014706 | DenseRank=- | BM25Rank=8 | Source=BERT.pdf | Page=7 | Type=text
+17. RRF=0.014493 | DenseRank=9 | BM25Rank=- | Source=BERT.pdf | Page=1 | Type=text
+18. RRF=0.014493 | DenseRank=- | BM25Rank=9 | Source=BERT.pdf | Page=6 | Type=text
+19. RRF=0.014286 | DenseRank=- | BM25Rank=10 | Source=BERT.pdf | Page=5 | Type=text
+20. RRF=0.014085 | DenseRank=11 | BM25Rank=- | Source=BERT.pdf | Page=14 | Type=text
+21. RRF=0.014085 | DenseRank=- | BM25Rank=11 | Source=BERT.pdf | Page=3 | Type=image
+22. RRF=0.013889 | DenseRank=12 | BM25Rank=- | Source=BERT.pdf | Page=13 | Type=text
+23. RRF=0.013889 | DenseRank=- | BM25Rank=12 | Source=BERT.pdf | Page=13 | Type=image
+24. RRF=0.013699 | DenseRank=13 | BM25Rank=- | Source=BERT.pdf | Page=9 | Type=text
+25. RRF=0.013514 | DenseRank=14 | BM25Rank=- | Source=BERT.pdf | Page=13 | Type=text
+26. RRF=0.013514 | DenseRank=- | BM25Rank=14 | Source=BERT.pdf | Page=9 | Type=text
+27. RRF=0.013333 | DenseRank=15 | BM25Rank=- | Source=BERT.pdf | Page=14 | Type=text
+28. RRF=0.013333 | DenseRank=- | BM25Rank=15 | Source=BERT.pdf | Page=14 | Type=text
+29. RRF=0.013158 | DenseRank=16 | BM25Rank=- | Source=BERT.pdf | Page=2 | Type=text
+30. RRF=0.013158 | DenseRank=- | BM25Rank=16 | Source=BERT.pdf | Page=6 | Type=text
+31. RRF=0.012987 | DenseRank=17 | BM25Rank=- | Source=BERT.pdf | Page=16 | Type=text
+32. RRF=0.012987 | DenseRank=- | BM25Rank=17 | Source=BERT.pdf | Page=3 | Type=image
+33. RRF=0.012821 | DenseRank=- | BM25Rank=18 | Source=BERT.pdf | Page=6 | Type=image
+34. RRF=0.012658 | DenseRank=19 | BM25Rank=- | Source=BERT.pdf | Page=2 | Type=text
+35. RRF=0.012658 | DenseRank=- | BM25Rank=19 | Source=BERT.pdf | Page=5 | Type=image
+36. RRF=0.012500 | DenseRank=20 | BM25Rank=- | Source=BERT.pdf | Page=13 | Type=text
+37. RRF=0.012346 | DenseRank=21 | BM25Rank=- | Source=BERT.pdf | Page=3 | Type=text
+38. RRF=0.012346 | DenseRank=- | BM25Rank=21 | Source=BERT.pdf | Page=3 | Type=text
+39. RRF=0.012195 | DenseRank=22 | BM25Rank=- | Source=BERT.pdf | Page=8 | Type=text
+40. RRF=0.012048 | DenseRank=23 | BM25Rank=- | Source=BERT.pdf | Page=8 | Type=text
+41. RRF=0.011765 | DenseRank=25 | BM25Rank=- | Source=BERT.pdf | Page=5 | Type=text
+------------------------------------------------------------------------------------------
+
+==========================================================================================
+STEP 3A — RETRIEVAL STAGE SUMMARY
+==========================================================================================
+Dense candidates       : 25
+BM25 candidates        : 21
+Dense ∩ BM25           : 5
+Dense-only candidates  : 20
+BM25-only candidates   : 16
+Unique candidate pool  : 41
+RRF candidates         : 41
+Returned to pipeline   : 8
+==========================================================================================
+
+------------------------------------------------------------------------------------------
+[SCOPED FINAL HYBRID RESULT] 8 candidates
+------------------------------------------------------------------------------------------
+01. Source=BERT.pdf | Page=14 | Type=text | Image=N/A
+    Content=1M steps with a batch size of 128,000 words. • GPT used the same learning rate of 5e-5 for all ﬁne-tuning experiments; BERT chooses a task-speciﬁc ﬁne-tuning learning rate which pe
+02. Source=BERT.pdf | Page=14 | Type=text | Image=N/A
+    Content=between how BERT and GPT were trained: • GPT is trained on the BooksCorpus (800M words); BERT is trained on the BooksCor- pus (800M words) and Wikipedia (2,500M words). • GPT uses 
+03. Source=BERT.pdf | Page=3 | Type=text | Image=N/A
+    Content=strated the importance of transfer learning from large pre-trained models, where an effective recipe is to ﬁne-tune models pre-trained with Ima- geNet (Deng et al., 2009; Yosinski 
+04. Source=BERT.pdf | Page=5 | Type=text | Image=N/A
+    Content=learning objectives used in Jernite et al. (2017) and Logeswaran and Lee (2018). However, in prior work, only sentence embeddings are transferred to down-stream tasks, where BERT t
+05. Source=BERT.pdf | Page=9 | Type=text | Image=N/A
+    Content=ized two-layer 768-dimensional BiLSTM before the classiﬁcation layer. Results are presented in Table 7. BERT LARGE performs competitively with state-of-the-art meth- ods. The best 
+06. Source=BERT.pdf | Page=3 | Type=text | Image=N/A
+    Content=tuning, the BERT model is ﬁrst initialized with the pre-trained parameters, and all of the param- eters are ﬁne-tuned using labeled data from the downstream tasks. Each downstream 
+07. Source=BERT.pdf | Page=16 | Type=text | Image=N/A
+    Content=Procedures In Section 3.1, we mention that BERT uses a mixed strategy for masking the target tokens when pre-training with the masked language model (MLM) objective. The following 
+08. Source=BERT.pdf | Page=13 | Type=text | Image=N/A
+    Content=use Adam with learning rate of 1e-4, β1 = 0.9, β2 = 0.999, L2 weight decay of 0.01, learning rate warmup over the ﬁrst 10,000 steps, and linear decay of the learning rate. We use a
+==========================================================================================
+
+================================================================================
+STAGE 1 — HYBRID RETRIEVAL
+================================================================================
+Retrieved Count : 8
+
+[HYBRID #1] Source=BERT.pdf | Page=14 | Type=text
+Content: 1M steps with a batch size of 128,000 words. • GPT used the same learning rate of 5e-5 for all ﬁne-tuning experiments; BERT chooses a task-speciﬁc ﬁne-tuning learning rate which performs the best on the development set. To isolate the effect of these differences, we per- form ablation experiments in Section 5.1 which demonstrate that the majority of the improvements are in fact coming from the two pre-training tasks and the bidirectionality they enable. A.5 Illustrations of Fine-tuning on Differ
+
+[HYBRID #2] Source=BERT.pdf | Page=14 | Type=text
+Content: between how BERT and GPT were trained: • GPT is trained on the BooksCorpus (800M words); BERT is trained on the BooksCor- pus (800M words) and Wikipedia (2,500M words). • GPT uses a sentence separator ( [SEP]) and classiﬁer token ( [CLS]) which are only in- troduced at ﬁne-tuning time; BERT learns [SEP], [CLS] and sentence A/B embed- dings during pre-training. • GPT was trained for 1M steps with a batch size of 32,000 words; BERT was trained for 1M steps with a batch size of 128,000 words. • GPT
+
+[HYBRID #3] Source=BERT.pdf | Page=3 | Type=text
+Content: strated the importance of transfer learning from large pre-trained models, where an effective recipe is to ﬁne-tune models pre-trained with Ima- geNet (Deng et al., 2009; Yosinski et al., 2014). 3 BERT We introduce BERT and its detailed implementa- tion in this section. There are two steps in our framework: pre-training and ﬁne-tuning. Dur- ing pre-training, the model is trained on unlabeled data over different pre-training tasks. For ﬁne- tuning, the BERT model is ﬁrst initialized with the pre-
+
+[HYBRID #4] Source=BERT.pdf | Page=5 | Type=text
+Content: learning objectives used in Jernite et al. (2017) and Logeswaran and Lee (2018). However, in prior work, only sentence embeddings are transferred to down-stream tasks, where BERT transfers all pa- rameters to initialize end-task model parameters. Pre-training data The pre-training procedure largely follows the existing literature on language model pre-training. For the pre-training corpus we use the BooksCorpus (800M words) (Zhu et al., 2015) and English Wikipedia (2,500M words). For Wikipedia w
+
+[HYBRID #5] Source=BERT.pdf | Page=9 | Type=text
+Content: ized two-layer 768-dimensional BiLSTM before the classiﬁcation layer. Results are presented in Table 7. BERT LARGE performs competitively with state-of-the-art meth- ods. The best performing method concatenates the token representations from the top four hidden lay- ers of the pre-trained Transformer, which is only 0.3 F1 behind ﬁne-tuning the entire model. This demonstrates that BERT is effective for both ﬁne- tuning and feature-based approaches. 6 Conclusion Recent empirical improvements due t
+
+[HYBRID #6] Source=BERT.pdf | Page=3 | Type=text
+Content: tuning, the BERT model is ﬁrst initialized with the pre-trained parameters, and all of the param- eters are ﬁne-tuned using labeled data from the downstream tasks. Each downstream task has sep- arate ﬁne-tuned models, even though they are ini- tialized with the same pre-trained parameters. The question-answering example in Figure 1 will serve as a running example for this section. A distinctive feature of BERT is its uniﬁed ar- chitecture across different tasks. There is mini- mal difference bet
+
+[HYBRID #7] Source=BERT.pdf | Page=16 | Type=text
+Content: Procedures In Section 3.1, we mention that BERT uses a mixed strategy for masking the target tokens when pre-training with the masked language model (MLM) objective. The following is an ablation study to evaluate the effect of different masking strategies. 200 400 600 800 1,000 76 78 80 82 84 Pre-training Steps (Thousands) MNLI Dev Accuracy BERTBASE (Masked LM) BERTBASE (Left-to-Right) Figure 5: Ablation over number of training steps. This shows the MNLI accuracy after ﬁne-tuning, starting from 
+
+[HYBRID #8] Source=BERT.pdf | Page=13 | Type=text
+Content: use Adam with learning rate of 1e-4, β1 = 0.9, β2 = 0.999, L2 weight decay of 0.01, learning rate warmup over the ﬁrst 10,000 steps, and linear decay of the learning rate. We use a dropout prob- ability of 0.1 on all layers. We use a gelu acti- vation (Hendrycks and Gimpel, 2016) rather than the standard relu, following OpenAI GPT. The training loss is the sum of the mean masked LM likelihood and the mean next sentence prediction likelihood. Training of BERT BASE was performed on 4 Cloud TPUs in
+================================================================================
+[DOCUMENT SCOPE] Text chunks: 8 -> 8
+
+================================================================================
+IMAGE RETRIEVAL DIAGNOSTIC
+================================================================================
+Query                 : What optimizer and learning rate are used for BERT pre-training?
+Allowed Sources       : ['BERT.pdf']
+Image Candidates      : 554 -> 8 (scoped before ranking)
+
+ALL IMAGE CANDIDATES
+--------------------------------------------------------------------------------
+Rank=01 | Source=BERT.pdf | Page=14 | Image=BERT_page14_render.png | Hybrid=1.5551 | CE=2.4453 | CLIP=0.2199
+Rank=02 | Source=BERT.pdf | Page=3 | Image=BERT_page3_render.png | Hybrid=1.0048 | CE=1.5185 | CLIP=0.2343
+Rank=03 | Source=BERT.pdf | Page=13 | Image=BERT_page13_render.png | Hybrid=0.6900 | CE=0.9936 | CLIP=0.2345
+Rank=04 | Source=BERT.pdf | Page=5 | Image=BERT_page5_render.png | Hybrid=-1.1493 | CE=-2.0661 | CLIP=0.2259
+Rank=05 | Source=BERT.pdf | Page=6 | Image=BERT_page6_render.png | Hybrid=-1.7100 | CE=-3.0034 | CLIP=0.2302
+Rank=06 | Source=BERT.pdf | Page=3 | Image=BERT_page3_img12.png | Hybrid=-3.6630 | CE=-6.2421 | CLIP=0.2056
+Rank=07 | Source=BERT.pdf | Page=4 | Image=BERT_page4_render.png | Hybrid=-6.1064 | CE=-10.3210 | CLIP=0.2156
+Rank=08 | Source=BERT.pdf | Page=15 | Image=BERT_page15_img13.png | Hybrid=-6.2045 | CE=-10.4779 | CLIP=0.2056
+
+TOP IMAGE RESULTS
+--------------------------------------------------------------------------------
+TOP-1 | Source=BERT.pdf | Page=14 | Image=BERT_page14_render.png | Hybrid=1.5551 | CE=2.4453 | CLIP=0.2199
+TOP-2 | Source=BERT.pdf | Page=3 | Image=BERT_page3_render.png | Hybrid=1.0048 | CE=1.5185 | CLIP=0.2343
+TOP-3 | Source=BERT.pdf | Page=13 | Image=BERT_page13_render.png | Hybrid=0.6900 | CE=0.9936 | CLIP=0.2345
+================================================================================
+[DOCUMENT SCOPE] Images: 3 -> 3
+
+================================================================================
+STAGE 2 — IMAGE RETRIEVAL RESULT
+================================================================================
+Image Results       : 3
+Exact Figure Match  : False
+
+[IMAGE #1] Source=BERT.pdf | Page=14 | Image=BERT_page14_render.png
+Image Path: extracted_images\BERT_page14_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a text book with an image of the text  OCR Text: * Learning rate (Adam): 5e-5, 3e-5, 2e-5 * Number of epochs: 2, 3, 4  We also observed that large data sets (e.g., 100k+ labeled training examples) were far less sensitive to hyperparameter choice than small data sets. Fine-tuning is typically very fast, so it is rea- sonable to simply run an exhaustive search over the above parameters and choose the model that performs best on the development
+
+[IMAGE #2] Source=BERT.pdf | Page=3 | Image=BERT_page3_render.png
+Image Path: extracted_images\BERT_page3_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a circuit and a circuit  OCR Text: Mask LM  Masked Sentence A Masked Sentence B  Unlabeled Sentence A and B Pair  Pre-training  Question Paragraph Question er Pair /  Fine-Tuning  Figure 1: Overall pre-training and fine-tuning procedures for BERT. Apart from output layers, the same architec- tures are used in both pre-training and fine-tuning. The same pre-trained model parameters are used to initialize  model
+
+[IMAGE #3] Source=BERT.pdf | Page=13 | Image=BERT_page13_render.png
+Image Path: extracted_images\BERT_page13_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a textbook on the internet network  OCR Text: BERT (Ours)  OpenAl GPT  Figure 3: Differences in pre-training model architectures. BERT uses a bidirectional Transformer. OpenAI GPT uses a left-to-right Transformer. ELMo uses the concatenation of independently trained left-to-right and right-to- left LSTMs to generate features for downstream tasks. Among the three, only BERT representations are jointly conditioned on both left and right cont
+================================================================================
+
+================================================================================
+COMBINED RETRIEVAL CANDIDATES
+================================================================================
+Text Candidates  : 8
+Image Candidates : 3
+Total Candidates : 11
+================================================================================
+
+================================================================================
+STEP 3A — RERANKER INPUT
+================================================================================
+Query: What optimizer and learning rate are used for BERT pre-training?
+Input candidates: 11
+01. Source=BERT.pdf | Page=14 | Type=text | Image=N/A
+    Content=1M steps with a batch size of 128,000 words. • GPT used the same learning rate of 5e-5 for all ﬁne-tuning experiments; BERT chooses a task-speciﬁc ﬁne-tuning learning rate which pe
+02. Source=BERT.pdf | Page=14 | Type=text | Image=N/A
+    Content=between how BERT and GPT were trained: • GPT is trained on the BooksCorpus (800M words); BERT is trained on the BooksCor- pus (800M words) and Wikipedia (2,500M words). • GPT uses 
+03. Source=BERT.pdf | Page=3 | Type=text | Image=N/A
+    Content=strated the importance of transfer learning from large pre-trained models, where an effective recipe is to ﬁne-tune models pre-trained with Ima- geNet (Deng et al., 2009; Yosinski 
+04. Source=BERT.pdf | Page=5 | Type=text | Image=N/A
+    Content=learning objectives used in Jernite et al. (2017) and Logeswaran and Lee (2018). However, in prior work, only sentence embeddings are transferred to down-stream tasks, where BERT t
+05. Source=BERT.pdf | Page=9 | Type=text | Image=N/A
+    Content=ized two-layer 768-dimensional BiLSTM before the classiﬁcation layer. Results are presented in Table 7. BERT LARGE performs competitively with state-of-the-art meth- ods. The best 
+06. Source=BERT.pdf | Page=3 | Type=text | Image=N/A
+    Content=tuning, the BERT model is ﬁrst initialized with the pre-trained parameters, and all of the param- eters are ﬁne-tuned using labeled data from the downstream tasks. Each downstream 
+07. Source=BERT.pdf | Page=16 | Type=text | Image=N/A
+    Content=Procedures In Section 3.1, we mention that BERT uses a mixed strategy for masking the target tokens when pre-training with the masked language model (MLM) objective. The following 
+08. Source=BERT.pdf | Page=13 | Type=text | Image=N/A
+    Content=use Adam with learning rate of 1e-4, β1 = 0.9, β2 = 0.999, L2 weight decay of 0.01, learning rate warmup over the ﬁrst 10,000 steps, and linear decay of the learning rate. We use a
+09. Source=BERT.pdf | Page=14 | Type=image | Image=extracted_images\BERT_page14_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a text book with an image of the text  OCR Text: * Learning rate (Adam): 5e-5, 3e-5, 2e-5 * Number of epochs: 2, 3, 4  We als
+10. Source=BERT.pdf | Page=3 | Type=image | Image=extracted_images\BERT_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a circuit and a circuit  OCR Text: Mask LM  Masked Sentence A Masked Sentence B  Unlabeled Se
+11. Source=BERT.pdf | Page=13 | Type=image | Image=extracted_images\BERT_page13_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a textbook on the internet network  OCR Text: BERT (Ours)  OpenAl GPT  Figure 3: Differences in pre-training model architec
+================================================================================
+
+--------------------------------------------------------------------------------
+CROSS-ENCODER RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=00 | Source=BERT.pdf | Page=14 | Type=text | CE=5.7835
+Rank=02 | OriginalIndex=01 | Source=BERT.pdf | Page=14 | Type=text | CE=3.8700
+Rank=03 | OriginalIndex=07 | Source=BERT.pdf | Page=13 | Type=text | CE=3.4867
+Rank=04 | OriginalIndex=03 | Source=BERT.pdf | Page=5 | Type=text | CE=3.4170
+Rank=05 | OriginalIndex=06 | Source=BERT.pdf | Page=16 | Type=text | CE=2.7048
+Rank=06 | OriginalIndex=08 | Source=BERT.pdf | Page=14 | Type=image | CE=2.4453
+Rank=07 | OriginalIndex=02 | Source=BERT.pdf | Page=3 | Type=text | CE=1.8836
+Rank=08 | OriginalIndex=09 | Source=BERT.pdf | Page=3 | Type=image | CE=1.5185
+Rank=09 | OriginalIndex=10 | Source=BERT.pdf | Page=13 | Type=image | CE=0.9936
+Rank=10 | OriginalIndex=04 | Source=BERT.pdf | Page=9 | Type=text | CE=0.7402
+Rank=11 | OriginalIndex=05 | Source=BERT.pdf | Page=3 | Type=text | CE=0.3291
+
+--------------------------------------------------------------------------------
+CLIP IMAGE RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=10 | Source=BERT.pdf | Page=13 | Image=extracted_images\BERT_page13_render.png | CLIP=0.2345
+Rank=02 | OriginalIndex=09 | Source=BERT.pdf | Page=3 | Image=extracted_images\BERT_page3_render.png | CLIP=0.2343
+Rank=03 | OriginalIndex=08 | Source=BERT.pdf | Page=14 | Image=extracted_images\BERT_page14_render.png | CLIP=0.2199
+
+================================================================================
+STEP 3A — COMPLETE MULTIMODAL RERANK RESULT
+================================================================================
+Rank=01 | Type=image | Source=BERT.pdf | Page=14 | RRF=0.031025 | CE=2.4453 | CLIP=0.2199
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a text book with an image of the text  OCR Text: * Learning rate (Adam): 5e-5, 3e-5, 2e-5 * Number of epochs: 2, 3, 4  We als
+Rank=02 | Type=image | Source=BERT.pdf | Page=13 | RRF=0.030886 | CE=0.9936 | CLIP=0.2345
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a textbook on the internet network  OCR Text: BERT (Ours)  OpenAl GPT  Figure 3: Differences in pre-training model architec
+Rank=03 | Type=image | Source=BERT.pdf | Page=3 | RRF=0.030835 | CE=1.5185 | CLIP=0.2343
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a circuit and a circuit  OCR Text: Mask LM  Masked Sentence A Masked Sentence B  Unlabeled Se
+Rank=04 | Type=text | Source=BERT.pdf | Page=14 | RRF=0.016393 | CE=5.7835 | CLIP=N/A
+    Content=1M steps with a batch size of 128,000 words. • GPT used the same learning rate of 5e-5 for all ﬁne-tuning experiments; BERT chooses a task-speciﬁc ﬁne-tuning learning rate which pe
+Rank=05 | Type=text | Source=BERT.pdf | Page=14 | RRF=0.016129 | CE=3.8700 | CLIP=N/A
+    Content=between how BERT and GPT were trained: • GPT is trained on the BooksCorpus (800M words); BERT is trained on the BooksCor- pus (800M words) and Wikipedia (2,500M words). • GPT uses 
+Rank=06 | Type=text | Source=BERT.pdf | Page=13 | RRF=0.015873 | CE=3.4867 | CLIP=N/A
+    Content=use Adam with learning rate of 1e-4, β1 = 0.9, β2 = 0.999, L2 weight decay of 0.01, learning rate warmup over the ﬁrst 10,000 steps, and linear decay of the learning rate. We use a
+Rank=07 | Type=text | Source=BERT.pdf | Page=5 | RRF=0.015625 | CE=3.4170 | CLIP=N/A
+    Content=learning objectives used in Jernite et al. (2017) and Logeswaran and Lee (2018). However, in prior work, only sentence embeddings are transferred to down-stream tasks, where BERT t
+Rank=08 | Type=text | Source=BERT.pdf | Page=16 | RRF=0.015385 | CE=2.7048 | CLIP=N/A
+    Content=Procedures In Section 3.1, we mention that BERT uses a mixed strategy for masking the target tokens when pre-training with the masked language model (MLM) objective. The following 
+Rank=09 | Type=text | Source=BERT.pdf | Page=3 | RRF=0.014925 | CE=1.8836 | CLIP=N/A
+    Content=strated the importance of transfer learning from large pre-trained models, where an effective recipe is to ﬁne-tune models pre-trained with Ima- geNet (Deng et al., 2009; Yosinski 
+Rank=10 | Type=text | Source=BERT.pdf | Page=9 | RRF=0.014286 | CE=0.7402 | CLIP=N/A
+    Content=ized two-layer 768-dimensional BiLSTM before the classiﬁcation layer. Results are presented in Table 7. BERT LARGE performs competitively with state-of-the-art meth- ods. The best 
+Rank=11 | Type=text | Source=BERT.pdf | Page=3 | RRF=0.014085 | CE=0.3291 | CLIP=N/A
+    Content=tuning, the BERT model is ﬁrst initialized with the pre-trained parameters, and all of the param- eters are ﬁne-tuned using labeled data from the downstream tasks. Each downstream 
+================================================================================
+
+================================================================================
+STEP 3A — FINAL RERANK TOP-K
+================================================================================
+Requested top_k: 12
+Returned documents: 11
+01. Source=BERT.pdf | Page=14 | Type=image | Image=extracted_images\BERT_page14_render.png
+02. Source=BERT.pdf | Page=13 | Type=image | Image=extracted_images\BERT_page13_render.png
+03. Source=BERT.pdf | Page=3 | Type=image | Image=extracted_images\BERT_page3_render.png
+04. Source=BERT.pdf | Page=14 | Type=text | Image=N/A
+05. Source=BERT.pdf | Page=14 | Type=text | Image=N/A
+06. Source=BERT.pdf | Page=13 | Type=text | Image=N/A
+07. Source=BERT.pdf | Page=5 | Type=text | Image=N/A
+08. Source=BERT.pdf | Page=16 | Type=text | Image=N/A
+09. Source=BERT.pdf | Page=3 | Type=text | Image=N/A
+10. Source=BERT.pdf | Page=9 | Type=text | Image=N/A
+11. Source=BERT.pdf | Page=3 | Type=text | Image=N/A
+================================================================================
+
+================================================================================
+STAGE 3 — MULTIMODAL RERANKING
+================================================================================
+Input Candidates : 11
+Reranked Output   : 11
+
+[RERANK #1] Source=BERT.pdf | Page=14 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a text book with an image of the text  OCR Text: * Learning rate (Adam): 5e-5, 3e-5, 2e-5 * Number of epochs: 2, 3, 4  We also observed that large data sets (e.g., 100k+ labeled training examples) were far less sensitive to hyperparameter choice
+
+[RERANK #2] Source=BERT.pdf | Page=13 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a textbook on the internet network  OCR Text: BERT (Ours)  OpenAl GPT  Figure 3: Differences in pre-training model architectures. BERT uses a bidirectional Transformer. OpenAI GPT uses a left-to-right Transformer. ELMo uses the concatenation o
+
+[RERANK #3] Source=BERT.pdf | Page=3 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a circuit and a circuit  OCR Text: Mask LM  Masked Sentence A Masked Sentence B  Unlabeled Sentence A and B Pair  Pre-training  Question Paragraph Question er Pair /  Fine-Tuning  Figure 1: Overall pre-training an
+
+[RERANK #4] Source=BERT.pdf | Page=14 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: 1M steps with a batch size of 128,000 words. • GPT used the same learning rate of 5e-5 for all ﬁne-tuning experiments; BERT chooses a task-speciﬁc ﬁne-tuning learning rate which performs the best on the development set. To isolate the effect of these differences, we per- form ablation experiments in
+
+[RERANK #5] Source=BERT.pdf | Page=14 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: between how BERT and GPT were trained: • GPT is trained on the BooksCorpus (800M words); BERT is trained on the BooksCor- pus (800M words) and Wikipedia (2,500M words). • GPT uses a sentence separator ( [SEP]) and classiﬁer token ( [CLS]) which are only in- troduced at ﬁne-tuning time; BERT learns [
+
+[RERANK #6] Source=BERT.pdf | Page=13 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: use Adam with learning rate of 1e-4, β1 = 0.9, β2 = 0.999, L2 weight decay of 0.01, learning rate warmup over the ﬁrst 10,000 steps, and linear decay of the learning rate. We use a dropout prob- ability of 0.1 on all layers. We use a gelu acti- vation (Hendrycks and Gimpel, 2016) rather than the sta
+
+[RERANK #7] Source=BERT.pdf | Page=5 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: learning objectives used in Jernite et al. (2017) and Logeswaran and Lee (2018). However, in prior work, only sentence embeddings are transferred to down-stream tasks, where BERT transfers all pa- rameters to initialize end-task model parameters. Pre-training data The pre-training procedure largely 
+
+[RERANK #8] Source=BERT.pdf | Page=16 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Procedures In Section 3.1, we mention that BERT uses a mixed strategy for masking the target tokens when pre-training with the masked language model (MLM) objective. The following is an ablation study to evaluate the effect of different masking strategies. 200 400 600 800 1,000 76 78 80 82 84 Pre-tr
+
+[RERANK #9] Source=BERT.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: strated the importance of transfer learning from large pre-trained models, where an effective recipe is to ﬁne-tune models pre-trained with Ima- geNet (Deng et al., 2009; Yosinski et al., 2014). 3 BERT We introduce BERT and its detailed implementa- tion in this section. There are two steps in our fr
+
+[RERANK #10] Source=BERT.pdf | Page=9 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: ized two-layer 768-dimensional BiLSTM before the classiﬁcation layer. Results are presented in Table 7. BERT LARGE performs competitively with state-of-the-art meth- ods. The best performing method concatenates the token representations from the top four hidden lay- ers of the pre-trained Transforme
+
+[RERANK #11] Source=BERT.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: tuning, the BERT model is ﬁrst initialized with the pre-trained parameters, and all of the param- eters are ﬁne-tuned using labeled data from the downstream tasks. Each downstream task has sep- arate ﬁne-tuned models, even though they are ini- tialized with the same pre-trained parameters. The quest
+================================================================================
+
+================================================================================
+FINAL CONTEXT DOCUMENTS
+================================================================================
+Final context candidates: 11
+
+[FINAL #1] Source=BERT.pdf | Page=14 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a text book with an image of the text  OCR Text: * Learning rate (Adam): 5e-5, 3e-5, 2e-5 * Number of epochs: 2, 3, 4  We also observed that large data sets (e.g., 100k+ labeled training examples) were far less sensitive to hyperparameter choice
+
+[FINAL #2] Source=BERT.pdf | Page=13 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a textbook on the internet network  OCR Text: BERT (Ours)  OpenAl GPT  Figure 3: Differences in pre-training model architectures. BERT uses a bidirectional Transformer. OpenAI GPT uses a left-to-right Transformer. ELMo uses the concatenation o
+
+[FINAL #3] Source=BERT.pdf | Page=3 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a circuit and a circuit  OCR Text: Mask LM  Masked Sentence A Masked Sentence B  Unlabeled Sentence A and B Pair  Pre-training  Question Paragraph Question er Pair /  Fine-Tuning  Figure 1: Overall pre-training an
+
+[FINAL #4] Source=BERT.pdf | Page=14 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: 1M steps with a batch size of 128,000 words. • GPT used the same learning rate of 5e-5 for all ﬁne-tuning experiments; BERT chooses a task-speciﬁc ﬁne-tuning learning rate which performs the best on the development set. To isolate the effect of these differences, we per- form ablation experiments in
+
+[FINAL #5] Source=BERT.pdf | Page=14 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: between how BERT and GPT were trained: • GPT is trained on the BooksCorpus (800M words); BERT is trained on the BooksCor- pus (800M words) and Wikipedia (2,500M words). • GPT uses a sentence separator ( [SEP]) and classiﬁer token ( [CLS]) which are only in- troduced at ﬁne-tuning time; BERT learns [
+
+[FINAL #6] Source=BERT.pdf | Page=13 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: use Adam with learning rate of 1e-4, β1 = 0.9, β2 = 0.999, L2 weight decay of 0.01, learning rate warmup over the ﬁrst 10,000 steps, and linear decay of the learning rate. We use a dropout prob- ability of 0.1 on all layers. We use a gelu acti- vation (Hendrycks and Gimpel, 2016) rather than the sta
+
+[FINAL #7] Source=BERT.pdf | Page=5 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: learning objectives used in Jernite et al. (2017) and Logeswaran and Lee (2018). However, in prior work, only sentence embeddings are transferred to down-stream tasks, where BERT transfers all pa- rameters to initialize end-task model parameters. Pre-training data The pre-training procedure largely 
+
+[FINAL #8] Source=BERT.pdf | Page=16 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Procedures In Section 3.1, we mention that BERT uses a mixed strategy for masking the target tokens when pre-training with the masked language model (MLM) objective. The following is an ablation study to evaluate the effect of different masking strategies. 200 400 600 800 1,000 76 78 80 82 84 Pre-tr
+
+[FINAL #9] Source=BERT.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: strated the importance of transfer learning from large pre-trained models, where an effective recipe is to ﬁne-tune models pre-trained with Ima- geNet (Deng et al., 2009; Yosinski et al., 2014). 3 BERT We introduce BERT and its detailed implementa- tion in this section. There are two steps in our fr
+
+[FINAL #10] Source=BERT.pdf | Page=9 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: ized two-layer 768-dimensional BiLSTM before the classiﬁcation layer. Results are presented in Table 7. BERT LARGE performs competitively with state-of-the-art meth- ods. The best performing method concatenates the token representations from the top four hidden lay- ers of the pre-trained Transforme
+
+[FINAL #11] Source=BERT.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: tuning, the BERT model is ﬁrst initialized with the pre-trained parameters, and all of the param- eters are ﬁne-tuned using labeled data from the downstream tasks. Each downstream task has sep- arate ﬁne-tuned models, even though they are ini- tialized with the same pre-trained parameters. The quest
+================================================================================
+
+================================================================================
+FINAL CONTEXT SENT TO LLM
+================================================================================
+
+================================================================================
+DOCUMENT : BERT.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 3
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+strated the importance of transfer learning from
+large pre-trained models, where an effective recipe
+is to ﬁne-tune models pre-trained with Ima-
+geNet (Deng et al., 2009; Yosinski et al., 2014).
+3 BERT
+We introduce BERT and its detailed implementa-
+tion in this section. There are two steps in our
+framework: pre-training and ﬁne-tuning. Dur-
+ing pre-training, the model is trained on unlabeled
+data over different pre-training tasks. For ﬁne-
+tuning, the BERT model is ﬁrst initialized with
+the pre-trained parameters, and all of the param-
+eters are ﬁne-tuned using labeled data from the
+
+
+[TEXT]
+
+tuning, the BERT model is ﬁrst initialized with
+the pre-trained parameters, and all of the param-
+eters are ﬁne-tuned using labeled data from the
+downstream tasks. Each downstream task has sep-
+arate ﬁne-tuned models, even though they are ini-
+tialized with the same pre-trained parameters. The
+question-answering example in Figure 1 will serve
+as a running example for this section.
+A distinctive feature of BERT is its uniﬁed ar-
+chitecture across different tasks. There is mini-
+mal difference between the pre-trained architec-
+ture and the ﬁnal downstream architecture.
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a page from the book, showing an image of a circuit and a circuit
+
+OCR Text:
+Mask LM
+
+Masked Sentence A Masked Sentence B
+
+Unlabeled Sentence A and B Pair
+
+Pre-training
+
+Question Paragraph
+Question er Pair /
+
+Fine-Tuning
+
+Figure 1: Overall pre-training and fine-tuning procedures for BERT. Apart from output layers, the same architec-
+tures are used in both pre-training and fine-tuning. The same pre-trained model parameters are used to initialize
+
+models for different down-stream tasks. During fine-tuning, all parameters are fine-tuned.
+symbol added in front of every input example, and [SEP] is a special separator token (e.g.
+
+tions/answers).
+
+ing and auto-encoder objectives have been used
+for pre-training such models (Howard and Ruder,
+2018; Radford et al., 2018; Dai and Le, 2015).
+
+2.3 Transfer Learning from Supervised Data
+
+There has also been work showing effective trans-
+fer from supervised tasks with large datasets, such
+as natural language inference (Conneau et al.,
+2017) and machine translation (McCann et al.,
+2017). Computer vision research has also demon-
+strated the importance of transfer learning from
+large pre-trained models, where an effective recipe
+is to fine-tune models pre-trained with Ima-
+geNet (Deng et al., 2009; Yosinski et al., 2014).
+
+3 BERT
+
+We introduce BERT and its detailed implementa-
+tion in this section. There are two steps in our
+framework: pre-training and fine-tuning. Dur-
+ing pre-training, the model is trained on unlabeled
+data over different pre-training tasks. For fine-
+tuning, the BERT model is first initialized with
+the pre-trained parameters, and all of the param-
+eters are fine-tuned using labeled data from the
+downstream tasks. Each downstream task has sep-
+arate fine-tuned models, even though they are ini-
+tialized with the same pre-trained parameters. The
+question-answering example in Figure 1 will serve
+as a running example for this section.
+
+A distinctive feature of BERT is its unified ar-
+chitecture across different tasks. There is mini-
+
+[CLS] is a special
+separating ques-
+
+mal difference between the pre-trained architec-
+ture and the final downstream architecture.
+
+Model Architecture BERT’s model architec-
+ture is a multi-layer bidirectional Transformer en-
+coder based on the original implementation de-
+scribed in Vaswani et al. (2017) and released in
+the tensor2tensor library.! Because the use
+of Transformers has become common and our im-
+plementation is almost identical to the original,
+we will omit an exhaustive background descrip-
+tion of the model architecture and refer readers to
+Vaswani et al. (2017) as well as excellent guides
+such as “The Annotated Transformer.”
+
+In this work, we denote the number of layers
+(i.e., Transformer blocks) as LZ, the hidden size as
+H, and the number of self-attention heads as A3
+We primarily report results on two model sizes:
+BERT gasr (L=12, H=768, A=12, Total Param-
+eters=110M) and BERT arcer (L=24, H=1024,
+A=16, Total Parameters=340M).
+
+BERT gasg was chosen to have the same model
+size as OpenAI GPT for comparison purposes.
+Critically, however, the BERT Transformer uses
+bidirectional self-attention, while the GPT Trans-
+former uses constrained self-attention where every
+token can only attend to context to its left.*
+
+‘https://github.com/tensorflow/tensor2tensor
+*http://nlp.seas.harvard.edu/2018/04/03/attention. html
+3Yn all cases we set the feed-forward/filter size to be 4H,
+i.e., 3072 for the H = 768 and 4096 for the H = 1024,
+4We note that in the literature the bidirectional Trans-
+
+Nearby Document Text:
+BERT
+BERT
+E[CLS]
+E1
+ E[SEP]
+...
+EN
+E1’
+...
+EM’
+C
+T1
+T[SEP]
+...
+TN
+T1’
+...
+TM’
+[CLS]
+Tok 1
+ [SEP]
+...
+Tok N
+Tok 1
+...
+TokM
+Question
+Paragraph
+Start/End Span
+BERT
+E[CLS]
+E1
+ E[SEP]
+...
+EN
+E1’
+...
+EM’
+C
+T1
+T[SEP]
+...
+TN
+T1’
+...
+TM’
+[CLS]
+Tok 1
+ [SEP]
+...
+Tok N
+Tok 1
+...
+TokM
+Masked Sentence A
+Masked Sentence B
+Pre-training
+Fine-Tuning
+NSP
+Mask LM
+Mask LM
+Unlabeled Sentence A and B Pair 
+SQuAD
+Question Answer Pair
+NER
+MNLI
+Figure 1: Overall pre-training and ﬁne-tuning procedures for BERT. Apart from output layers, the same architec-
+tures are used in both pre-training and ﬁne-tuning. The same pre-
+
+
+[RELATED PAGE TEXT]
+
+strated the importance of transfer learning from
+large pre-trained models, where an effective recipe
+is to ﬁne-tune models pre-trained with Ima-
+geNet (Deng et al., 2009; Yosinski et al., 2014).
+3 BERT
+We introduce BERT and its detailed implementa-
+tion in this section. There are two steps in our
+framework: pre-training and ﬁne-tuning. Dur-
+ing pre
+
+
+--------------------------------------------------------------------------------
+PAGE : 5
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+learning objectives used in Jernite et al. (2017) and
+Logeswaran and Lee (2018). However, in prior
+work, only sentence embeddings are transferred to
+down-stream tasks, where BERT transfers all pa-
+rameters to initialize end-task model parameters.
+Pre-training data The pre-training procedure
+largely follows the existing literature on language
+model pre-training. For the pre-training corpus we
+use the BooksCorpus (800M words) (Zhu et al.,
+2015) and English Wikipedia (2,500M words).
+For Wikipedia we extract only the text passages
+and ignore lists, tables, and headers. It is criti-
+
+
+--------------------------------------------------------------------------------
+PAGE : 9
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+ized two-layer 768-dimensional BiLSTM before
+the classiﬁcation layer.
+Results are presented in Table 7. BERT LARGE
+performs competitively with state-of-the-art meth-
+ods. The best performing method concatenates the
+token representations from the top four hidden lay-
+ers of the pre-trained Transformer, which is only
+0.3 F1 behind ﬁne-tuning the entire model. This
+demonstrates that BERT is effective for both ﬁne-
+tuning and feature-based approaches.
+6 Conclusion
+Recent empirical improvements due to transfer
+learning with language models have demonstrated
+
+
+--------------------------------------------------------------------------------
+PAGE : 13
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+use Adam with learning rate of 1e-4, β1 = 0.9,
+β2 = 0.999, L2 weight decay of 0.01, learning
+rate warmup over the ﬁrst 10,000 steps, and linear
+decay of the learning rate. We use a dropout prob-
+ability of 0.1 on all layers. We use a gelu acti-
+vation (Hendrycks and Gimpel, 2016) rather than
+the standard relu, following OpenAI GPT. The
+training loss is the sum of the mean masked LM
+likelihood and the mean next sentence prediction
+likelihood.
+Training of BERT BASE was performed on 4
+Cloud TPUs in Pod conﬁguration (16 TPU chips
+total).13 Training of BERTLARGE was performed
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a page from a textbook on the internet network
+
+OCR Text:
+BERT (Ours)
+
+OpenAl GPT
+
+Figure 3: Differences in pre-training model architectures. BERT uses a bidirectional Transformer. OpenAI GPT
+uses a left-to-right Transformer. ELMo uses the concatenation of independently trained left-to-right and right-to-
+left LSTMs to generate features for downstream tasks. Among the three, only BERT representations are jointly
+conditioned on both left and right context in all layers. In addition to the architecture differences, BERT and
+OpenAlI GPT are fine-tuning approaches, while ELMo is a feature-based approach.
+
+to converge. In Section C.1 we demonstrate that
+MLM does converge marginally slower than a left-
+to-right model (which predicts every token), but
+the empirical improvements of the MLM model
+far outweigh the increased training cost.
+
+Next Sentence Prediction The next sentence
+prediction task can be illustrated in the following
+examples.
+
+Input = [CLS] the man went to [MASK] store [SEP]
+he bought a gallon [MASK] milk [SEP]
+
+Label = tsnext
+
+Input = [CLS] the man [MASK] to the store [SEP]
+penguin [MASK] are flight f#less birds [SEP]
+
+Label = notnext
+
+A.2 Pre-training Procedure
+
+To generate each training input sequence, we sam-
+ple two spans of text from the corpus, which we
+refer to as “sentences” even though they are typ-
+ically much longer than single sentences (but can
+be shorter also). The first sentence receives the A
+embedding and the second receives the B embed-
+ding. 50% of the time B is the actual next sentence
+that follows A and 50% of the time it is a random
+sentence, which is done for the “next sentence pre-
+diction” task. They are sampled such that the com-
+bined length is < 512 tokens. The LM masking is
+applied after WordPiece tokenization with a uni-
+form masking rate of 15%, and no special consid-
+eration given to partial word pieces.
+
+We train with batch size of 256 sequences (256
+sequences * 512 tokens = 128,000 tokens/batch)
+for 1,000,000 steps, which is approximately 40
+
+epochs over the 3.3 billion word corpus. We
+use Adam with learning rate of le-4, 6: = 0.9,
+B2 = 0.999, L2 weight decay of 0.01, learning
+rate warmup over the first 10,000 steps, and linear
+decay of the learning rate. We use a dropout prob-
+ability of 0.1 on all layers. We use a gelu acti-
+vation (Hendrycks and Gimpel, 2016) rather than
+the standard relu, following OpenAI GPT. The
+training loss is the sum of the mean masked LM
+likelihood and the mean next sentence prediction
+likelihood.
+
+Training of BERTpase was performed on 4
+Cloud TPUs in Pod configuration (16 TPU chips
+total).!3 Training of BERT, arGr was performed
+on 16 Cloud TPUs (64 TPU chips total). Each pre-
+training took 4 days to complete.
+
+Longer sequences are disproportionately expen-
+sive because attention is quadratic to the sequence
+length. To speed up pretraing in our experiments,
+we pre-train the model with sequence length of
+128 for 90% of the steps. Then, we train the rest
+10% of the steps of sequence of 512 to learn the
+positional embeddings.
+
+A3  Fine-tuning Procedure
+
+For fine-tuning, most model hyperparameters are
+the same as in pre-training, with the exception of
+the batch size, learning rate, and number of train-
+ing epochs. The dropout probability was always
+kept at 0.1. The optimal hyperparameter values
+are task-specific, but we found the following range
+of possible values to work well across all tasks:
+
+¢ Batch size: 16, 32
+
+Shittps://cloudplatform.googleblog.com/2018/06/Cloud-
+TPU-now-offers-preemptible-pricing-and-global-
+availability.htm]
+
+Nearby Document Text:
+BERT (Ours)
+Trm
+Trm
+Trm
+Trm
+Trm
+Trm
+...
+...
+Trm
+Trm
+Trm
+Trm
+Trm
+Trm
+...
+...
+OpenAI GPT
+Lstm
+ELMo
+Lstm
+Lstm
+Lstm
+Lstm
+Lstm
+Lstm
+Lstm
+Lstm
+Lstm
+Lstm
+Lstm
+ T1
+T2
+ TN
+...
+...
+...
+...
+...
+ E1
+E2
+ EN
+...
+ T1
+T2
+TN
+...
+ E1
+E2
+ EN
+...
+ T1
+T2
+ TN
+...
+ E1
+E2
+ EN
+...
+Figure 3: Differences in pre-training model architectures. BERT uses a bidirectional Transformer. OpenAI GPT
+uses a left-to-right Transformer. ELMo uses the concatenation of independently trained left-to-right and right-to-
+left LSTMs to generate features for downstream tasks. Among the three, only BERT representations are jointly
+conditione
+
+
+[RELATED PAGE TEXT]
+
+use Adam with learning rate of 1e-4, β1 = 0.9,
+β2 = 0.999, L2 weight decay of 0.01, learning
+rate warmup over the ﬁrst 10,000 steps, and linear
+decay of the learning rate. We use a dropout prob-
+ability of 0.1 on all layers. We use a gelu acti-
+vation (Hendrycks and Gimpel, 2016) rather than
+the standard relu, following OpenAI GPT. The
+training los
+
+
+--------------------------------------------------------------------------------
+PAGE : 14
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+1M steps with a batch size of 128,000 words.
+• GPT used the same learning rate of 5e-5 for
+all ﬁne-tuning experiments; BERT chooses a
+task-speciﬁc ﬁne-tuning learning rate which
+performs the best on the development set.
+To isolate the effect of these differences, we per-
+form ablation experiments in Section 5.1 which
+demonstrate that the majority of the improvements
+are in fact coming from the two pre-training tasks
+and the bidirectionality they enable.
+A.5 Illustrations of Fine-tuning on Different
+Tasks
+The illustration of ﬁne-tuning BERT on different
+
+
+[TEXT]
+
+between how BERT and GPT were trained:
+• GPT is trained on the BooksCorpus (800M
+words); BERT is trained on the BooksCor-
+pus (800M words) and Wikipedia (2,500M
+words).
+• GPT uses a sentence separator ( [SEP]) and
+classiﬁer token ( [CLS]) which are only in-
+troduced at ﬁne-tuning time; BERT learns
+[SEP], [CLS] and sentence A/B embed-
+dings during pre-training.
+• GPT was trained for 1M steps with a batch
+size of 32,000 words; BERT was trained for
+1M steps with a batch size of 128,000 words.
+• GPT used the same learning rate of 5e-5 for
+all ﬁne-tuning experiments; BERT chooses a
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a page of a text book with an image of the text
+
+OCR Text:
+* Learning rate (Adam): 5e-5, 3e-5, 2e-5
+* Number of epochs: 2, 3, 4
+
+We also observed that large data sets (e.g.,
+100k+ labeled training examples) were far less
+sensitive to hyperparameter choice than small data
+sets. Fine-tuning is typically very fast, so it is rea-
+sonable to simply run an exhaustive search over
+the above parameters and choose the model that
+performs best on the development set.
+
+A.4 Comparison of BERT, ELMo ,and
+OpenAI GPT
+
+Here we studies the differences in recent popular
+representation learning models including ELMo,
+OpenAI GPT and BERT. The comparisons be-
+tween the model architectures are shown visually
+in Figure 3. Note that in addition to the architec-
+ture differences, BERT and OpenAI GPT are fine-
+tuning approaches, while ELMo is a feature-based
+approach.
+
+The most comparable existing pre-training
+method to BERT is OpenAI GPT, which trains a
+left-to-right Transformer LM on a large text cor-
+pus. In fact, many of the design decisions in BERT
+were intentionally made to make it as close to
+GPT as possible so that the two methods could be
+minimally compared. The core argument of this
+work is that the bi-directionality and the two pre-
+training tasks presented in Section 3.1 account for
+the majority of the empirical improvements, but
+we do note that there are several other differences
+between how BERT and GPT were trained:
+
+* GPT is trained on the BooksCorpus (800M
+words); BERT is trained on the BooksCor-
+pus (800M words) and Wikipedia (2,500M
+words).
+
+GPT uses a sentence separator ([ SEP ]) and
+classifier token ({CLS]) which are only in-
+troduced at fine-tuning time; BERT learns
+[SEP], [CLS] and sentence A/B embed-
+dings during pre-training.
+
+GPT was trained for 1M steps with a batch
+size of 32,000 words; BERT was trained for
+1M steps with a batch size of 128,000 words.
+
+GPT used the same learning rate of 5e-5 for
+all fine-tuning experiments; BERT chooses a
+task-specific fine-tuning learning rate which
+performs the best on the development set.
+
+To isolate the effect of these differences, we per-
+form ablation experiments in Section 5.1 which
+demonstrate that the majority of the improvements
+are in fact coming from the two pre-training tasks
+and the bidirectionality they enable.
+
+A.5 Illustrations of Fine-tuning on Different
+Tasks
+
+The illustration of fine-tuning BERT on different
+tasks can be seen in Figure 4. Our task-specific
+models are formed by incorporating BERT with
+one additional output layer, so a minimal num-
+ber of parameters need to be learned from scratch.
+Among the tasks, (a) and (b) are sequence-level
+tasks while (c) and (d) are token-level tasks. In
+the figure, / represents the input embedding, T;
+represents the contextual representation of token 2,
+[CLS] is the special symbol for classification out-
+put, and [SEP] is the special symbol to separate
+non-consecutive token sequences.
+
+B_ Detailed Experimental Setup
+
+B.1 Detailed Descriptions for the GLUE
+Benchmark Experiments.
+
+Our GLUE results in Tablel are obtained
+from https://gluebenchmark.com/
+leaderboard and https: //blog.
+openai.com/language-unsupervised.
+The GLUE benchmark includes the following
+datasets, the descriptions of which were originally
+summarized in Wang et al. (2018a):
+
+MNLI Miulti-Genre Natural Language Inference
+is a large-scale, crowdsourced entailment classifi-
+cation task (Williams et al., 2018). Given a pair of
+sentences, the goal is to predict whether the sec-
+ond sentence is an entailment, contradiction, or
+neutral with respect to the first one.
+
+QQP Quora Question Pairs is a binary classifi-
+cation task where the goal is to determine if two
+questions asked on Quora are semantically equiv-
+alent (Chen et al., 2018).
+
+QNLI Question Natural Language Inference is
+a version of the Stanford Question Answering
+Dataset (Rajpurkar et al., 2016) which has been
+converted to a binary classification task (Wang
+et al., 2018a). The positive examples are (ques-
+tion, sentence) pairs which do contain the correct
+answer, and the negative examples are (question,
+sentence) from the same paragraph which do not
+contain the answer.
+
+Nearby Document Text:
+• Learning rate (Adam): 5e-5, 3e-5, 2e-5
+• Number of epochs: 2, 3, 4
+We also observed that large data sets (e.g.,
+100k+ labeled training examples) were far less
+sensitive to hyperparameter choice than small data
+sets. Fine-tuning is typically very fast, so it is rea-
+sonable to simply run an exhaustive search over
+the above parameters and choose the model that
+performs best on the development set.
+A.4
+Comparison of BERT, ELMo ,and
+OpenAI GPT
+Here we studies the differences in recent popular
+representation learning models including ELMo,
+OpenAI GPT and BERT. The comparisons be-
+tween the model
+
+
+[RELATED PAGE TEXT]
+
+1M steps with a batch size of 128,000 words.
+• GPT used the same learning rate of 5e-5 for
+all ﬁne-tuning experiments; BERT chooses a
+task-speciﬁc ﬁne-tuning learning rate which
+performs the best on the development set.
+To isolate the effect of these differences, we per-
+form ablation experiments in Section 5.1 which
+demonstrate that the majority o
+
+
+--------------------------------------------------------------------------------
+PAGE : 16
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+Procedures
+In Section 3.1, we mention that BERT uses a
+mixed strategy for masking the target tokens when
+pre-training with the masked language model
+(MLM) objective. The following is an ablation
+study to evaluate the effect of different masking
+strategies.
+200 400 600 800 1,000
+76
+78
+80
+82
+84
+Pre-training Steps (Thousands)
+MNLI Dev Accuracy
+BERTBASE (Masked LM)
+BERTBASE (Left-to-Right)
+Figure 5: Ablation over number of training steps. This
+shows the MNLI accuracy after ﬁne-tuning, starting
+from model parameters that have been pre-trained for
+k steps. The x-axis is the value ofk.
+
+================================================================================
+
+================================================================================
+RAG PIPELINE DEBUG
+================================================================================
+Query Type        : factual
+Retrieved Chunks  : 8
+Retrieved Images  : 3
+Reranked Chunks   : 11
+Reranked Text     : 8
+Reranked Images   : 3
+Final Context Docs: 11
+Exact Figure Query: False
+Exact Figure Match: False
+Exact Figure Final: False
+================================================================================
+
+================================================================================
+STAGE 4 — EVIDENCE VERIFICATION
+================================================================================
+Verification Units : 2
+Supported          : 0
+Partially Supported: 2
+Unsupported        : 0
+Unknown            : 0
+Groundedness Ratio : 0.00
+
+[CLAIM #1] The optimizer used for BERT pre-training is Adam, and the learning rate is 5e-5.
+  Status=PARTIALLY_SUPPORTED | NLI=NEUTRAL | Confidence=0.4856 | Citation=BERT.pdf (Page 14)
+
+[CLAIM #2] However, during fine-tuning, BERT chooses a task-specific learning rate that performs best on the development set.
+  Status=PARTIALLY_SUPPORTED | NLI=NEUTRAL | Confidence=0.7217 | Citation=BERT.pdf (Page 14)
+================================================================================
+
+====================================================================================================
+RAG ANSWER
+====================================================================================================
+ The optimizer used for BERT pre-training is Adam, and the learning rate is 5e-5. However, during fine-tuning, BERT chooses a task-specific learning rate that performs best on the development set.
+
+IMAGE PATHS:
+D:/Projects/Major-Project-2-main/extracted_images/BERT_page3_render.png
+D:/Projects/Major-Project-2-main/extracted_images/BERT_page13_render.png
+D:/Projects/Major-Project-2-main/extracted_images/BERT_page14_render.png

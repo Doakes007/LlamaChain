@@ -1,0 +1,1313 @@
+====================================================================================================
+QUESTION_ID   : CLIP-08
+DOCUMENT      : CLIP
+QUESTION_TYPE : Zero-Shot Classification
+ELAPSED_SEC   : 55.4
+ERROR         : no
+====================================================================================================
+
+QUESTION:
+How are the class names of a target dataset used to construct a zero-shot classifier with CLIP?
+
+GROUND TRUTH ANSWER:
+For a target dataset, CLIP uses the names of all classes as candidate text descriptions/pairings. The text encoder embeds those class descriptions, and the resulting text embeddings form the weights of the zero-shot classifier.
+
+GROUND TRUTH SOURCE:
+CLIP.pdf, p. 6
+
+====================================================================================================
+FORENSIC TRANSCRIPT
+====================================================================================================
+
+####################################################################################################
+FORENSIC CASE START
+####################################################################################################
+Original Query   : How are the class names of a target dataset used to construct a zero-shot classifier with CLIP?
+Expanded Query   : How are the class names of a target dataset used to construct a zero-shot classifier with CLIP?
+Query Type       : analytical
+[DOCUMENT SCOPE] Normalized query: 'how are the class names of a target dataset used to construct a zero shot classifier with clip'
+[DOCUMENT SCOPE] Source='BERT.pdf' -> Normalized='bert'
+[DOCUMENT SCOPE] Token overlap for 'BERT.pdf': []
+[DOCUMENT SCOPE] Source='BLIP-2.pdf' -> Normalized='blip 2'
+[DOCUMENT SCOPE] Token overlap for 'BLIP-2.pdf': []
+[DOCUMENT SCOPE] Source='CLIP.pdf' -> Normalized='clip'
+[DOCUMENT SCOPE] EXACT MATCH -> CLIP.pdf
+[DOCUMENT SCOPE] Source='CNN Paper.pdf' -> Normalized='cnn paper'
+[DOCUMENT SCOPE] Token overlap for 'CNN Paper.pdf': []
+[DOCUMENT SCOPE] Source='Donut.pdf' -> Normalized='donut'
+[DOCUMENT SCOPE] Token overlap for 'Donut.pdf': []
+[DOCUMENT SCOPE] Source='LayoutLMv3.pdf' -> Normalized='layout l mv3'
+[DOCUMENT SCOPE] Token overlap for 'LayoutLMv3.pdf': []
+[DOCUMENT SCOPE] Source='NLP Paper.pdf' -> Normalized='nlp paper'
+[DOCUMENT SCOPE] Token overlap for 'NLP Paper.pdf': []
+[DOCUMENT SCOPE] Source='RAG.pdf' -> Normalized='rag'
+[DOCUMENT SCOPE] Token overlap for 'RAG.pdf': []
+[DOCUMENT SCOPE] Source='Self-RAG.pdf' -> Normalized='self rag'
+[DOCUMENT SCOPE] Token overlap for 'Self-RAG.pdf': []
+[DOCUMENT SCOPE] Source='Vision Transformer.pdf' -> Normalized='vision transformer'
+[DOCUMENT SCOPE] Token overlap for 'Vision Transformer.pdf': []
+[DOCUMENT SCOPE] Final matched sources: ['CLIP.pdf']
+
+================================================================================
+DOCUMENT SCOPE DEBUG
+================================================================================
+Query          : How are the class names of a target dataset used to construct a zero-shot classifier with CLIP?
+Expanded Query : How are the class names of a target dataset used to construct a zero-shot classifier with CLIP?
+Query Type     : analytical
+Document Scope : ['CLIP.pdf']
+================================================================================
+
+==========================================================================================
+STEP 3A — SCOPED HYBRID RETRIEVAL
+==========================================================================================
+Query              : How are the class names of a target dataset used to construct a zero-shot classifier with CLIP?
+Sources            : ['CLIP.pdf']
+Dense candidate K  : 25
+Final hybrid K     : 8
+
+------------------------------------------------------------------------------------------
+[SCOPED DENSE / VECTOR RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=CLIP.pdf | Page=15 | Type=text | Image=N/A
+    Content=CLIP we can instead generate a custom zero-shot classi- ﬁer for each dataset directly based on its class names. In Figure 14 we see that this improves average effective ro- bustnes
+02. Source=CLIP.pdf | Page=10 | Type=text | Image=N/A
+    Content=estimated, then, because CLIP’s zero-shot classiﬁer is also a linear classiﬁer, the performance of the fully supervised classiﬁers roughly sets an upper bound for what zero-shot tr
+03. Source=CLIP.pdf | Page=8 | Type=text | Image=N/A
+    Content=In this section, we conduct a study of various properties of CLIP’s zero-shot classiﬁers. As a ﬁrst question, we look simply at how well zero-shot classiﬁers perform. To con- textu
+04. Source=CLIP.pdf | Page=45 | Type=text | Image=N/A
+    Content=zero-shot results on these two datasets. Zero-shot CLIP is also competitive with the current overall SOTA for the task of text retrieval on Flickr30k. On image retrieval, CLIP’s pe
+05. Source=CLIP.pdf | Page=6 | Type=text | Image=N/A
+    Content=introduced a zero-shot image classiﬁer of this form while the idea of generating a classiﬁer from natural language dates back to at least Elhoseiny et al. (2013). Continuing with t
+06. Source=CLIP.pdf | Page=20 | Type=text | Image=N/A
+    Content=is needed to develop methods that combine CLIP’s strong zero-shot performance with efﬁcient few-shot learning. 7. Broader Impacts CLIP has a wide range of capabilities due to its a
+07. Source=CLIP.pdf | Page=20 | Type=text | Image=N/A
+    Content=the development and capabilities of CLIP. Creating a new benchmark of tasks designed explicitly to evaluate broad zero-shot transfer capabilities, rather than re-using existing sup
+08. Source=CLIP.pdf | Page=8 | Type=text | Image=N/A
+    Content=+7.8SUN397 +12.4SST2 +14.5Kinetics700 +22.5Food101 +23.2Country211 +28.9StanfordCars Figure 5. Zero-shot CLIP is competitive with a fully super- vised baseline. Across a 27 dataset
+09. Source=CLIP.pdf | Page=9 | Type=text | Image=N/A
+    Content=comparing to few-shot methods is a more direct compari- son, since zero-shot is its limit. In Figure 6, we visualize how zero-shot CLIP compares to few-shot logistic regres- sion o
+10. Source=CLIP.pdf | Page=47 | Type=text | Image=N/A
+    Content=original paper. Since it does not require a training stage, we report CLIP’s zero-shot performance when averaging predictions across all frames. CLIP also performs well in this set
+11. Source=CLIP.pdf | Page=19 | Type=text | Image=N/A
+    Content=ages that resemble MNIST digits in our pre-training dataset. This suggests CLIP does little to address the underlying problem of brittle generalization of deep learning models. Ins
+12. Source=CLIP.pdf | Page=47 | Type=text | Image=N/A
+    Content=to measure zero-shot recognition of unusual actions like “hammering a phone” and “drilling an egg”. CLIP improves over the prior state of the art, a S3D model trained on auto- mati
+13. Source=CLIP.pdf | Page=17 | Type=text | Image=N/A
+    Content=the human zero shot case to the human one shot case is on images that participants were highly uncertain on. “Guesses” refers to restricting the dataset to where participants selec
+14. Source=CLIP.pdf | Page=14 | Type=text | Image=N/A
+    Content=zero-shot CLIP with existing ImageNet models on natural distribution shifts. All zero-shot CLIP models improve effective robustness by a large amount and reduce the size of the gap
+15. Source=CLIP.pdf | Page=6 | Type=text | Image=N/A
+    Content=basis for GPT-2 (Radford et al., 2019) which focused exclu- sively on studying the task-learning capabilities of language models via zero-shot transfer. 3.1.2. U SING CLIP FOR ZERO
+16. Source=CLIP.pdf | Page=6 | Type=text | Image=N/A
+    Content=cache the zero-shot classiﬁer once it has been computed by the text encoder and reuse it for all subsequent predictions. This allows the cost of generating it to be amortized acros
+17. Source=CLIP.pdf | Page=9 | Type=text | Image=N/A
+    Content=best results of a 16-shot linear classiﬁer across publicly available models. For both BiT-M and SimCLRv2, the best performing model is highlighted. Light gray lines are other model
+18. Source=CLIP.pdf | Page=2 | Type=text | Image=N/A
+    Content=target dataset’s classes. classiﬁcation datasets by scoring target classes based on their dictionary of learned visual n-grams and predicting the one with the highest score. Adopti
+19. Source=CLIP.pdf | Page=44 | Type=text | Image=N/A
+    Content=Learning Transferable Visual Models From Natural Language Supervision 44 B. Zero-Shot Prediction To provide a qualitative summary / overview of CLIP’s zero- shot performance we vis
+20. Source=CLIP.pdf | Page=7 | Type=text | Image=N/A
+    Content=zero-shot computer vision classiﬁers. As mentioned above, the comparison to Visual N-Grams is meant for contextu- alizing the performance of CLIP and should not be inter- preted as
+21. Source=CLIP.pdf | Page=25 | Type=text | Image=N/A
+    Content=that this analysis was done using only zero-shot identiﬁca- tion capabilities based on names inferred from pre-training data - we didn’t use any additional task-speciﬁc dataset, an
+22. Source=CLIP.pdf | Page=6 | Type=text | Image=N/A
+    Content=other work we are aware of that has studied zero-shot trans- fer to standard image classiﬁcation datasets using a gener- ically pre-trained model and serves as the best reference p
+23. Source=CLIP.pdf | Page=20 | Type=text | Image=N/A
+    Content=large-scale generative models like GPT-3 (Brown et al., 2020); models that exhibit non-trivial zero-shot (or few- shot) generalization can have a vast range of capabilities, many o
+24. Source=CLIP.pdf | Page=8 | Type=text | Image=N/A
+    Content=by almost 5%. In Figure 4 we visualize how prompt engi- neering and ensembling change the performance of a set of CLIP models compared to the contextless baseline approach of direc
+25. Source=CLIP.pdf | Page=6 | Type=text | Image=N/A
+    Content=million crowd-labeled training examples available for this dataset. Additionally, the top-5 accuracy of CLIP models are noticeably higher than their top-1, and this model has a 95%
+
+------------------------------------------------------------------------------------------
+[SCOPED BM25 RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=CLIP.pdf | Page=15 | Type=text | Image=N/A
+    Content=CLIP we can instead generate a custom zero-shot classi- ﬁer for each dataset directly based on its class names. In Figure 14 we see that this improves average effective ro- bustnes
+02. Source=CLIP.pdf | Page=16 | Type=image | Image=extracted_images\CLIP_page16_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Learning Trans
+03. Source=CLIP.pdf | Page=6 | Type=text | Image=N/A
+    Content=other work we are aware of that has studied zero-shot trans- fer to standard image classiﬁcation datasets using a gener- ically pre-trained model and serves as the best reference p
+04. Source=CLIP.pdf | Page=15 | Type=image | Image=extracted_images\CLIP_page15_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the university of california, showing the results of the study  OCR Text: Learning Transferable Visual Model
+05. Source=CLIP.pdf | Page=2 | Type=text | Image=N/A
+    Content=Image Encoder I1 I1·T2 I1·TNI1·T1 … … A	photo	of 	a	dog. TN IN·T1 IN·T2 IN·T3 I1·TN I2·TN I3·TN ⋮ …IN … ⋮ ⋱ IN·TN I1·T3 Figure 1. Summary of our approach. While standard image mode
+06. Source=CLIP.pdf | Page=6 | Type=text | Image=N/A
+    Content=In order to perform zero-shot transfer, they ﬁrst convert the text of each of the dataset’s class names into its n-gram representation and then compute its probability according to
+07. Source=CLIP.pdf | Page=15 | Type=text | Image=N/A
+    Content=classes of ImageNet. This presents a problem when trying to use the ﬁxed 1000-way classiﬁer of an ImageNet model to make predictions. Taori et al. (2020) handle this by max- poolin
+08. Source=CLIP.pdf | Page=6 | Type=text | Image=N/A
+    Content=basis for GPT-2 (Radford et al., 2019) which focused exclu- sively on studying the task-learning capabilities of language models via zero-shot transfer. 3.1.2. U SING CLIP FOR ZERO
+09. Source=CLIP.pdf | Page=14 | Type=image | Image=extracted_images\CLIP_page14_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: the correlation of the correlation of the correlation of the correlation of the correlation of the correlation of the correlation of  O
+10. Source=CLIP.pdf | Page=6 | Type=text | Image=N/A
+    Content=introduced a zero-shot image classiﬁer of this form while the idea of generating a classiﬁer from natural language dates back to at least Elhoseiny et al. (2013). Continuing with t
+11. Source=CLIP.pdf | Page=2 | Type=image | Image=extracted_images\CLIP_page2_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a computer and an image of a computer  OCR Text: Learning Transferable Visual Models From Nat
+12. Source=CLIP.pdf | Page=4 | Type=text | Image=N/A
+    Content=image and not the exact words of that text. Starting with the same bag-of-words encoding baseline, we swapped the predictive objective for a contrastive objective in Figure 2 and o
+13. Source=CLIP.pdf | Page=9 | Type=text | Image=N/A
+    Content=estimates for the number of labeled examples per class that a logistic regression classiﬁer on the same feature space requires to match the performance of zero-shot CLIP. Since zer
+14. Source=CLIP.pdf | Page=8 | Type=text | Image=N/A
+    Content=of a {label}.”. We also experimented with ensembling over multiple zero- shot classiﬁers as another way of improving performance. These classiﬁers are computed by using different c
+15. Source=CLIP.pdf | Page=15 | Type=text | Image=N/A
+    Content=small amount compared to using ImageNet class names and pooling predictions when necessary. While zero-shot CLIP improves effective robustness, Figure 14 shows that the beneﬁt is a
+16. Source=CLIP.pdf | Page=10 | Type=text | Image=N/A
+    Content=of 5.4. However, the mean estimated data efﬁciency is 20.8 examples per class. This is due to the 20% of datasets where supervised classiﬁers require many labeled examples per clas
+17. Source=CLIP.pdf | Page=10 | Type=text | Image=N/A
+    Content=3.5 3.9 4.8 6.0 9.8 12.0 12.7 13.6 14.4 14.7 16.0 32 48 64 81 184 Median: 5.4 Mean:  20.8 Figure 7. The data efﬁciency of zero-shot transfer varies widely. Calculating the number o
+18. Source=CLIP.pdf | Page=24 | Type=text | Image=N/A
+    Content=this to evaluate the model’s performance for identity detec- tion using just the publicly available data it was pre-trained on. While we tested this on a dataset of celebrities who
+19. Source=CLIP.pdf | Page=21 | Type=text | Image=N/A
+    Content=as an initial bias probe, then probe the model further to surface additional biases and sources of biases, including class design. We evaluated two versions of CLIP on the FairFace
+20. Source=CLIP.pdf | Page=17 | Type=image | Image=extracted_images\CLIP_page17_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a graph plot with a line graph and a line graph with a line graph and a line graph with a  OCR Text: Learning Transferable Visual Model
+21. Source=CLIP.pdf | Page=8 | Type=text | Image=N/A
+    Content=by almost 5%. In Figure 4 we visualize how prompt engi- neering and ensembling change the performance of a set of CLIP models compared to the contextless baseline approach of direc
+22. Source=CLIP.pdf | Page=14 | Type=text | Image=N/A
+    Content=of CLIP, such as its large and diverse pre-training dataset or use of natural language supervision could also result 4We caution that a zero-shot model can still exploit spurious c
+23. Source=CLIP.pdf | Page=37 | Type=text | Image=N/A
+    Content=GPS coordinates, and we built a balanced dataset with 211 categories, by sampling 200 photos for training and 100 photos for testing, for each country. The Rendered SST2 dataset is
+24. Source=CLIP.pdf | Page=44 | Type=image | Image=extracted_images\CLIP_page44_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the university of technology and engineering  OCR Text: Learning Transferable Visual Models From Natural Lan
+25. Source=CLIP.pdf | Page=3 | Type=image | Image=extracted_images\CLIP_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a paper with a graph and a graph on it  OCR Text: Learning Transferable Visual Models From Natural Language Supervision 3  25  Zero-Sho
+
+------------------------------------------------------------------------------------------
+[RRF FUSION RANKING]
+------------------------------------------------------------------------------------------
+01. RRF=0.032787 | DenseRank=1 | BM25Rank=1 | Source=CLIP.pdf | Page=15 | Type=text
+02. RRF=0.029670 | DenseRank=5 | BM25Rank=10 | Source=CLIP.pdf | Page=6 | Type=text
+03. RRF=0.028068 | DenseRank=22 | BM25Rank=3 | Source=CLIP.pdf | Page=6 | Type=text
+04. RRF=0.028039 | DenseRank=15 | BM25Rank=8 | Source=CLIP.pdf | Page=6 | Type=text
+05. RRF=0.024250 | DenseRank=24 | BM25Rank=21 | Source=CLIP.pdf | Page=8 | Type=text
+06. RRF=0.016129 | DenseRank=2 | BM25Rank=- | Source=CLIP.pdf | Page=10 | Type=text
+07. RRF=0.016129 | DenseRank=- | BM25Rank=2 | Source=CLIP.pdf | Page=16 | Type=image
+08. RRF=0.015873 | DenseRank=3 | BM25Rank=- | Source=CLIP.pdf | Page=8 | Type=text
+09. RRF=0.015625 | DenseRank=4 | BM25Rank=- | Source=CLIP.pdf | Page=45 | Type=text
+10. RRF=0.015625 | DenseRank=- | BM25Rank=4 | Source=CLIP.pdf | Page=15 | Type=image
+11. RRF=0.015385 | DenseRank=- | BM25Rank=5 | Source=CLIP.pdf | Page=2 | Type=text
+12. RRF=0.015152 | DenseRank=6 | BM25Rank=- | Source=CLIP.pdf | Page=20 | Type=text
+13. RRF=0.015152 | DenseRank=- | BM25Rank=6 | Source=CLIP.pdf | Page=6 | Type=text
+14. RRF=0.014925 | DenseRank=7 | BM25Rank=- | Source=CLIP.pdf | Page=20 | Type=text
+15. RRF=0.014925 | DenseRank=- | BM25Rank=7 | Source=CLIP.pdf | Page=15 | Type=text
+16. RRF=0.014706 | DenseRank=8 | BM25Rank=- | Source=CLIP.pdf | Page=8 | Type=text
+17. RRF=0.014493 | DenseRank=9 | BM25Rank=- | Source=CLIP.pdf | Page=9 | Type=text
+18. RRF=0.014493 | DenseRank=- | BM25Rank=9 | Source=CLIP.pdf | Page=14 | Type=image
+19. RRF=0.014286 | DenseRank=10 | BM25Rank=- | Source=CLIP.pdf | Page=47 | Type=text
+20. RRF=0.014085 | DenseRank=11 | BM25Rank=- | Source=CLIP.pdf | Page=19 | Type=text
+21. RRF=0.014085 | DenseRank=- | BM25Rank=11 | Source=CLIP.pdf | Page=2 | Type=image
+22. RRF=0.013889 | DenseRank=12 | BM25Rank=- | Source=CLIP.pdf | Page=47 | Type=text
+23. RRF=0.013889 | DenseRank=- | BM25Rank=12 | Source=CLIP.pdf | Page=4 | Type=text
+24. RRF=0.013699 | DenseRank=13 | BM25Rank=- | Source=CLIP.pdf | Page=17 | Type=text
+25. RRF=0.013699 | DenseRank=- | BM25Rank=13 | Source=CLIP.pdf | Page=9 | Type=text
+26. RRF=0.013514 | DenseRank=14 | BM25Rank=- | Source=CLIP.pdf | Page=14 | Type=text
+27. RRF=0.013514 | DenseRank=- | BM25Rank=14 | Source=CLIP.pdf | Page=8 | Type=text
+28. RRF=0.013333 | DenseRank=- | BM25Rank=15 | Source=CLIP.pdf | Page=15 | Type=text
+29. RRF=0.013158 | DenseRank=16 | BM25Rank=- | Source=CLIP.pdf | Page=6 | Type=text
+30. RRF=0.013158 | DenseRank=- | BM25Rank=16 | Source=CLIP.pdf | Page=10 | Type=text
+31. RRF=0.012987 | DenseRank=17 | BM25Rank=- | Source=CLIP.pdf | Page=9 | Type=text
+32. RRF=0.012987 | DenseRank=- | BM25Rank=17 | Source=CLIP.pdf | Page=10 | Type=text
+33. RRF=0.012821 | DenseRank=18 | BM25Rank=- | Source=CLIP.pdf | Page=2 | Type=text
+34. RRF=0.012821 | DenseRank=- | BM25Rank=18 | Source=CLIP.pdf | Page=24 | Type=text
+35. RRF=0.012658 | DenseRank=19 | BM25Rank=- | Source=CLIP.pdf | Page=44 | Type=text
+36. RRF=0.012658 | DenseRank=- | BM25Rank=19 | Source=CLIP.pdf | Page=21 | Type=text
+37. RRF=0.012500 | DenseRank=20 | BM25Rank=- | Source=CLIP.pdf | Page=7 | Type=text
+38. RRF=0.012500 | DenseRank=- | BM25Rank=20 | Source=CLIP.pdf | Page=17 | Type=image
+39. RRF=0.012346 | DenseRank=21 | BM25Rank=- | Source=CLIP.pdf | Page=25 | Type=text
+40. RRF=0.012195 | DenseRank=- | BM25Rank=22 | Source=CLIP.pdf | Page=14 | Type=text
+41. RRF=0.012048 | DenseRank=23 | BM25Rank=- | Source=CLIP.pdf | Page=20 | Type=text
+42. RRF=0.012048 | DenseRank=- | BM25Rank=23 | Source=CLIP.pdf | Page=37 | Type=text
+43. RRF=0.011905 | DenseRank=- | BM25Rank=24 | Source=CLIP.pdf | Page=44 | Type=image
+44. RRF=0.011765 | DenseRank=25 | BM25Rank=- | Source=CLIP.pdf | Page=6 | Type=text
+45. RRF=0.011765 | DenseRank=- | BM25Rank=25 | Source=CLIP.pdf | Page=3 | Type=image
+------------------------------------------------------------------------------------------
+
+==========================================================================================
+STEP 3A — RETRIEVAL STAGE SUMMARY
+==========================================================================================
+Dense candidates       : 25
+BM25 candidates        : 25
+Dense ∩ BM25           : 5
+Dense-only candidates  : 20
+BM25-only candidates   : 20
+Unique candidate pool  : 45
+RRF candidates         : 45
+Returned to pipeline   : 8
+==========================================================================================
+
+------------------------------------------------------------------------------------------
+[SCOPED FINAL HYBRID RESULT] 8 candidates
+------------------------------------------------------------------------------------------
+01. Source=CLIP.pdf | Page=15 | Type=text | Image=N/A
+    Content=CLIP we can instead generate a custom zero-shot classi- ﬁer for each dataset directly based on its class names. In Figure 14 we see that this improves average effective ro- bustnes
+02. Source=CLIP.pdf | Page=6 | Type=text | Image=N/A
+    Content=introduced a zero-shot image classiﬁer of this form while the idea of generating a classiﬁer from natural language dates back to at least Elhoseiny et al. (2013). Continuing with t
+03. Source=CLIP.pdf | Page=6 | Type=text | Image=N/A
+    Content=other work we are aware of that has studied zero-shot trans- fer to standard image classiﬁcation datasets using a gener- ically pre-trained model and serves as the best reference p
+04. Source=CLIP.pdf | Page=6 | Type=text | Image=N/A
+    Content=basis for GPT-2 (Radford et al., 2019) which focused exclu- sively on studying the task-learning capabilities of language models via zero-shot transfer. 3.1.2. U SING CLIP FOR ZERO
+05. Source=CLIP.pdf | Page=8 | Type=text | Image=N/A
+    Content=by almost 5%. In Figure 4 we visualize how prompt engi- neering and ensembling change the performance of a set of CLIP models compared to the contextless baseline approach of direc
+06. Source=CLIP.pdf | Page=10 | Type=text | Image=N/A
+    Content=estimated, then, because CLIP’s zero-shot classiﬁer is also a linear classiﬁer, the performance of the fully supervised classiﬁers roughly sets an upper bound for what zero-shot tr
+07. Source=CLIP.pdf | Page=16 | Type=image | Image=extracted_images\CLIP_page16_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Learning Trans
+08. Source=CLIP.pdf | Page=8 | Type=text | Image=N/A
+    Content=In this section, we conduct a study of various properties of CLIP’s zero-shot classiﬁers. As a ﬁrst question, we look simply at how well zero-shot classiﬁers perform. To con- textu
+==========================================================================================
+
+================================================================================
+STAGE 1 — HYBRID RETRIEVAL
+================================================================================
+Retrieved Count : 8
+
+[HYBRID #1] Source=CLIP.pdf | Page=15 | Type=text
+Content: CLIP we can instead generate a custom zero-shot classi- ﬁer for each dataset directly based on its class names. In Figure 14 we see that this improves average effective ro- bustness by 5% but is concentrated in large improvements on only a few datasets. Curiously, accuracy on ObjectNet also increases by 2.3%. Although the dataset was designed to closely overlap with ImageNet classes, using the names provided for each class by ObjectNet’s creators still helps a small amount compared to using Imag
+
+[HYBRID #2] Source=CLIP.pdf | Page=6 | Type=text
+Content: introduced a zero-shot image classiﬁer of this form while the idea of generating a classiﬁer from natural language dates back to at least Elhoseiny et al. (2013). Continuing with this interpretation, every step of CLIP pre-training can be viewed as optimizing the performance of a randomly created proxy to a computer vision dataset which contains 1 example per class and has 32,768 total classes deﬁned via natural language descriptions. For zero-shot evaluation, we cache the zero-shot classiﬁer on
+
+[HYBRID #3] Source=CLIP.pdf | Page=6 | Type=text
+Content: other work we are aware of that has studied zero-shot trans- fer to standard image classiﬁcation datasets using a gener- ically pre-trained model and serves as the best reference point for contextualizing CLIP. Their approach learns the parameters of a dictionary of 142,806 visual n-grams (span- ning 1- to 5- grams) and optimizes these n-grams using a differential version of Jelinek-Mercer smoothing to maxi- mize the probability of all text n-grams for a given image. In order to perform zero-sho
+
+[HYBRID #4] Source=CLIP.pdf | Page=6 | Type=text
+Content: basis for GPT-2 (Radford et al., 2019) which focused exclu- sively on studying the task-learning capabilities of language models via zero-shot transfer. 3.1.2. U SING CLIP FOR ZERO-SHOT TRANSFER CLIP is pre-trained to predict if an image and a text snippet are paired together in its dataset. To perform zero-shot clas- siﬁcation, we reuse this capability. For each dataset, we use the names of all the classes in the dataset as the set of poten- tial text pairings and predict the most probable (ima
+
+[HYBRID #5] Source=CLIP.pdf | Page=8 | Type=text
+Content: by almost 5%. In Figure 4 we visualize how prompt engi- neering and ensembling change the performance of a set of CLIP models compared to the contextless baseline approach of directly embedding the class name as done in Li et al. (2017). 3.1.5. A NALYSIS OF ZERO-SHOT CLIP P ERFORMANCE Since task-agnostic zero-shot classiﬁers for computer vision have been understudied, CLIP provides a promising oppor- tunity to gain a better understanding of this type of model. In this section, we conduct a study
+
+[HYBRID #6] Source=CLIP.pdf | Page=10 | Type=text
+Content: estimated, then, because CLIP’s zero-shot classiﬁer is also a linear classiﬁer, the performance of the fully supervised classiﬁers roughly sets an upper bound for what zero-shot transfer can achieve. In Figure 8 we compare CLIP’s zero- shot performance with fully supervised linear classiﬁers across datasets. The dashed,y =x line represents an “op- timal” zero-shot classiﬁer that matches the performance of its fully supervised equivalent. For most datasets, the per- formance of zero-shot classiﬁe
+
+[HYBRID #7] Source=CLIP.pdf | Page=16 | Type=image
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Learning Transferable Visual Models From Natural Language Supervision  Adaptive Zero-Shot cLIP ImageNet Zero-Shot CUP__| Lagistic Regression CLIP Standard ImageNet training Robustness intervention 7 Trained with more data  Average on 7 natural distribution shift datasets (top-1, %)  70 75 80 85 90 95 Average on class subsampled Imag
+
+[HYBRID #8] Source=CLIP.pdf | Page=8 | Type=text
+Content: In this section, we conduct a study of various properties of CLIP’s zero-shot classiﬁers. As a ﬁrst question, we look simply at how well zero-shot classiﬁers perform. To con- textualize this, we compare to the performance of a simple off-the-shelf baseline: ﬁtting a fully supervised, regularized, logistic regression classiﬁer on the features of the canonical ResNet-50. In Figure 5 we show this comparison across 27 datasets. Please see Appendix A for details of datasets and setup. Zero-shot CLIP 
+================================================================================
+[DOCUMENT SCOPE] Text chunks: 8 -> 8
+
+================================================================================
+IMAGE RETRIEVAL DIAGNOSTIC
+================================================================================
+Query                 : How are the class names of a target dataset used to construct a zero-shot classifier with CLIP?
+Allowed Sources       : ['CLIP.pdf']
+Image Candidates      : 554 -> 99 (scoped before ranking)
+
+ALL IMAGE CANDIDATES
+--------------------------------------------------------------------------------
+Rank=01 | Source=CLIP.pdf | Page=44 | Image=CLIP_page44_render.png | Hybrid=2.2388 | CE=3.5748 | CLIP=0.2347
+Rank=02 | Source=CLIP.pdf | Page=2 | Image=CLIP_page2_render.png | Hybrid=1.1956 | CE=1.8215 | CLIP=0.2566
+Rank=03 | Source=CLIP.pdf | Page=16 | Image=CLIP_page16_render.png | Hybrid=0.8313 | CE=1.2343 | CLIP=0.2267
+Rank=04 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_render.png | Hybrid=0.5775 | CE=0.8115 | CLIP=0.2267
+Rank=05 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img12.png | Hybrid=0.3150 | CE=0.3766 | CLIP=0.2226
+Rank=06 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img18.png | Hybrid=0.2677 | CE=0.3223 | CLIP=0.1857
+Rank=07 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img34.png | Hybrid=0.2613 | CE=0.2973 | CLIP=0.2073
+Rank=08 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img2.png | Hybrid=0.2541 | CE=0.2892 | CLIP=0.2014
+Rank=09 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img25.png | Hybrid=0.2375 | CE=0.2530 | CLIP=0.2141
+Rank=10 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img28.png | Hybrid=0.2366 | CE=0.2513 | CLIP=0.2147
+Rank=11 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img27.png | Hybrid=0.2211 | CE=0.2314 | CLIP=0.2057
+Rank=12 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img14.png | Hybrid=0.2200 | CE=0.2316 | CLIP=0.2026
+Rank=13 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img17.png | Hybrid=0.2178 | CE=0.2354 | CLIP=0.1914
+Rank=14 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img21.png | Hybrid=0.1666 | CE=0.1506 | CLIP=0.1907
+Rank=15 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img19.png | Hybrid=0.1662 | CE=0.1455 | CLIP=0.1971
+Rank=16 | Source=CLIP.pdf | Page=17 | Image=CLIP_page17_render.png | Hybrid=0.1632 | CE=0.1126 | CLIP=0.2391
+Rank=17 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img0.png | Hybrid=0.1471 | CE=0.1126 | CLIP=0.1989
+Rank=18 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img9.png | Hybrid=0.1423 | CE=0.0931 | CLIP=0.2161
+Rank=19 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img1.png | Hybrid=0.1400 | CE=0.1126 | CLIP=0.1812
+Rank=20 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img10.png | Hybrid=0.1303 | CE=0.0787 | CLIP=0.2076
+Rank=21 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img31.png | Hybrid=0.1212 | CE=0.0787 | CLIP=0.1850
+Rank=22 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img11.png | Hybrid=0.1138 | CE=0.0648 | CLIP=0.1872
+Rank=23 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img35.png | Hybrid=0.1128 | CE=0.0549 | CLIP=0.1996
+Rank=24 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img4.png | Hybrid=0.0798 | CE=-0.0116 | CLIP=0.2169
+Rank=25 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img24.png | Hybrid=0.0582 | CE=-0.0423 | CLIP=0.2090
+Rank=26 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img13.png | Hybrid=0.0567 | CE=-0.0392 | CLIP=0.2006
+Rank=27 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img29.png | Hybrid=0.0533 | CE=-0.0616 | CLIP=0.2258
+Rank=28 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img26.png | Hybrid=0.0517 | CE=-0.0616 | CLIP=0.2217
+Rank=29 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img6.png | Hybrid=0.0147 | CE=-0.1137 | CLIP=0.2072
+Rank=30 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img15.png | Hybrid=-0.0287 | CE=-0.1757 | CLIP=0.1919
+Rank=31 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img5.png | Hybrid=-0.0327 | CE=-0.1885 | CLIP=0.2011
+Rank=32 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img3.png | Hybrid=-0.0683 | CE=-0.2437 | CLIP=0.1949
+Rank=33 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img8.png | Hybrid=-0.0694 | CE=-0.2532 | CLIP=0.2064
+Rank=34 | Source=CLIP.pdf | Page=3 | Image=CLIP_page3_render.png | Hybrid=-0.0779 | CE=-0.2898 | CLIP=0.2400
+Rank=35 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img32.png | Hybrid=-0.0836 | CE=-0.2793 | CLIP=0.2101
+Rank=36 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img33.png | Hybrid=-0.0852 | CE=-0.2650 | CLIP=0.1845
+Rank=37 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img30.png | Hybrid=-0.0934 | CE=-0.2848 | CLIP=0.1937
+Rank=38 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img23.png | Hybrid=-0.1049 | CE=-0.3125 | CLIP=0.2063
+Rank=39 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img20.png | Hybrid=-0.1131 | CE=-0.3270 | CLIP=0.2078
+Rank=40 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img22.png | Hybrid=-0.1193 | CE=-0.3451 | CLIP=0.2193
+Rank=41 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img16.png | Hybrid=-0.2456 | CE=-0.5239 | CLIP=0.1718
+Rank=42 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img7.png | Hybrid=-0.2812 | CE=-0.6082 | CLIP=0.2093
+Rank=43 | Source=CLIP.pdf | Page=11 | Image=CLIP_page11_render.png | Hybrid=-0.4137 | CE=-0.8470 | CLIP=0.2362
+Rank=44 | Source=CLIP.pdf | Page=13 | Image=CLIP_page13_render.png | Hybrid=-2.3727 | CE=-4.1152 | CLIP=0.2411
+Rank=45 | Source=CLIP.pdf | Page=18 | Image=CLIP_page18_render.png | Hybrid=-2.8757 | CE=-4.9509 | CLIP=0.2372
+Rank=46 | Source=CLIP.pdf | Page=2 | Image=CLIP_page2_img1.png | Hybrid=-2.9723 | CE=-5.0874 | CLIP=0.2003
+Rank=47 | Source=CLIP.pdf | Page=23 | Image=CLIP_page23_render.png | Hybrid=-3.0927 | CE=-5.3053 | CLIP=0.2262
+Rank=48 | Source=CLIP.pdf | Page=2 | Image=CLIP_page2_img2.png | Hybrid=-4.7148 | CE=-8.0098 | CLIP=0.2278
+Rank=49 | Source=CLIP.pdf | Page=38 | Image=CLIP_page38_img1.png | Hybrid=-4.7524 | CE=-8.0558 | CLIP=0.2027
+Rank=50 | Source=CLIP.pdf | Page=38 | Image=CLIP_page38_img0.png | Hybrid=-4.8973 | CE=-8.2910 | CLIP=0.1933
+Rank=51 | Source=CLIP.pdf | Page=2 | Image=CLIP_page2_img3.png | Hybrid=-4.9461 | CE=-8.3656 | CLIP=0.1831
+Rank=52 | Source=CLIP.pdf | Page=14 | Image=CLIP_page14_render.png | Hybrid=-5.4189 | CE=-9.2035 | CLIP=0.2580
+Rank=53 | Source=CLIP.pdf | Page=2 | Image=CLIP_page2_img0.png | Hybrid=-5.4220 | CE=-9.1656 | CLIP=0.1934
+Rank=54 | Source=CLIP.pdf | Page=2 | Image=CLIP_page2_img4.png | Hybrid=-5.4355 | CE=-9.1873 | CLIP=0.1921
+Rank=55 | Source=CLIP.pdf | Page=19 | Image=CLIP_page19_render.png | Hybrid=-5.4618 | CE=-9.2523 | CLIP=0.2240
+Rank=56 | Source=CLIP.pdf | Page=12 | Image=CLIP_page12_render.png | Hybrid=-5.4801 | CE=-9.3000 | CLIP=0.2497
+Rank=57 | Source=CLIP.pdf | Page=43 | Image=CLIP_page43_render.png | Hybrid=-5.5472 | CE=-9.4106 | CLIP=0.2480
+Rank=58 | Source=CLIP.pdf | Page=4 | Image=CLIP_page4_render.png | Hybrid=-5.8388 | CE=-9.8803 | CLIP=0.2236
+Rank=59 | Source=CLIP.pdf | Page=37 | Image=CLIP_page37_render.png | Hybrid=-5.8505 | CE=-9.9174 | CLIP=0.2498
+Rank=60 | Source=CLIP.pdf | Page=41 | Image=CLIP_page41_render.png | Hybrid=-5.8877 | CE=-9.9831 | CLIP=0.2555
+Rank=61 | Source=CLIP.pdf | Page=38 | Image=CLIP_page38_render.png | Hybrid=-6.0563 | CE=-10.2566 | CLIP=0.2440
+Rank=62 | Source=CLIP.pdf | Page=24 | Image=CLIP_page24_render.png | Hybrid=-6.4129 | CE=-10.8375 | CLIP=0.2240
+Rank=63 | Source=CLIP.pdf | Page=5 | Image=CLIP_page5_render.png | Hybrid=-6.5251 | CE=-11.0513 | CLIP=0.2642
+Rank=64 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img9.png | Hybrid=-6.7611 | CE=-11.4108 | CLIP=0.2135
+Rank=65 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img1.png | Hybrid=-6.7611 | CE=-11.4260 | CLIP=0.2362
+Rank=66 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img29.png | Hybrid=-6.7663 | CE=-11.4334 | CLIP=0.2343
+Rank=67 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img31.png | Hybrid=-6.7667 | CE=-11.4333 | CLIP=0.2334
+Rank=68 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img32.png | Hybrid=-6.7686 | CE=-11.4232 | CLIP=0.2132
+Rank=69 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img22.png | Hybrid=-6.7688 | CE=-11.4384 | CLIP=0.2357
+Rank=70 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img5.png | Hybrid=-6.7736 | CE=-11.4260 | CLIP=0.2049
+Rank=71 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img34.png | Hybrid=-6.7751 | CE=-11.4316 | CLIP=0.2098
+Rank=72 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img28.png | Hybrid=-6.7765 | CE=-11.4437 | CLIP=0.2242
+Rank=73 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img8.png | Hybrid=-6.7787 | CE=-11.4476 | CLIP=0.2246
+Rank=74 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img6.png | Hybrid=-6.7799 | CE=-11.4409 | CLIP=0.2115
+Rank=75 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img0.png | Hybrid=-6.7850 | CE=-11.4463 | CLIP=0.2070
+Rank=76 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img11.png | Hybrid=-6.7864 | CE=-11.4401 | CLIP=0.1942
+Rank=77 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img27.png | Hybrid=-6.7869 | CE=-11.4496 | CLIP=0.2070
+Rank=78 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img30.png | Hybrid=-6.7870 | CE=-11.4449 | CLIP=0.1998
+Rank=79 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img3.png | Hybrid=-6.7875 | CE=-11.4498 | CLIP=0.2059
+Rank=80 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img35.png | Hybrid=-6.7886 | CE=-11.4382 | CLIP=0.1857
+Rank=81 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img18.png | Hybrid=-6.7902 | CE=-11.4576 | CLIP=0.2109
+Rank=82 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img23.png | Hybrid=-6.7906 | CE=-11.4408 | CLIP=0.1846
+Rank=83 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img14.png | Hybrid=-6.7919 | CE=-11.4496 | CLIP=0.1947
+Rank=84 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img19.png | Hybrid=-6.7924 | CE=-11.4464 | CLIP=0.1886
+Rank=85 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img25.png | Hybrid=-6.7927 | CE=-11.4357 | CLIP=0.1718
+Rank=86 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img20.png | Hybrid=-6.7938 | CE=-11.4342 | CLIP=0.1668
+Rank=87 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img12.png | Hybrid=-6.7964 | CE=-11.4573 | CLIP=0.1949
+Rank=88 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img16.png | Hybrid=-6.7969 | CE=-11.4484 | CLIP=0.1803
+Rank=89 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img4.png | Hybrid=-6.7975 | CE=-11.4362 | CLIP=0.1607
+Rank=90 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img2.png | Hybrid=-6.7986 | CE=-11.4423 | CLIP=0.1670
+Rank=91 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img10.png | Hybrid=-6.7988 | CE=-11.4514 | CLIP=0.1800
+Rank=92 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img15.png | Hybrid=-6.7997 | CE=-11.4454 | CLIP=0.1688
+Rank=93 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img13.png | Hybrid=-6.7998 | CE=-11.4534 | CLIP=0.1807
+Rank=94 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img33.png | Hybrid=-6.8001 | CE=-11.4506 | CLIP=0.1755
+Rank=95 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img21.png | Hybrid=-6.8010 | CE=-11.4424 | CLIP=0.1612
+Rank=96 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img24.png | Hybrid=-6.8047 | CE=-11.4574 | CLIP=0.1743
+Rank=97 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img26.png | Hybrid=-6.8122 | CE=-11.4509 | CLIP=0.1458
+Rank=98 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img7.png | Hybrid=-6.8156 | CE=-11.4623 | CLIP=0.1543
+Rank=99 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img17.png | Hybrid=-6.8166 | CE=-11.4625 | CLIP=0.1523
+
+TOP IMAGE RESULTS
+--------------------------------------------------------------------------------
+TOP-1 | Source=CLIP.pdf | Page=44 | Image=CLIP_page44_render.png | Hybrid=2.2388 | CE=3.5748 | CLIP=0.2347
+TOP-2 | Source=CLIP.pdf | Page=2 | Image=CLIP_page2_render.png | Hybrid=1.1956 | CE=1.8215 | CLIP=0.2566
+TOP-3 | Source=CLIP.pdf | Page=16 | Image=CLIP_page16_render.png | Hybrid=0.8313 | CE=1.2343 | CLIP=0.2267
+================================================================================
+[DOCUMENT SCOPE] Images: 3 -> 3
+
+================================================================================
+STAGE 2 — IMAGE RETRIEVAL RESULT
+================================================================================
+Image Results       : 3
+Exact Figure Match  : False
+
+[IMAGE #1] Source=CLIP.pdf | Page=44 | Image=CLIP_page44_render.png
+Image Path: extracted_images\CLIP_page44_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the university of technology and engineering  OCR Text: Learning Transferable Visual Models From Natural Language Supervision 44  B. Zero-Shot Prediction  To provide a qualitative summary / overview of CLIP’s zero- shot performance we visualize a randomly selected predic- tion for 36 different zero-shot CLIP classifiers in Figure 21. In addition, Table 11 and Figure 22 show the individual zero-shot performance scores for eac
+
+[IMAGE #2] Source=CLIP.pdf | Page=2 | Image=CLIP_page2_render.png
+Image Path: extracted_images\CLIP_page2_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a computer and an image of a computer  OCR Text: Learning Transferable Visual Models From Natural Language Supervision 2  (1) Contrastive pre-training  Pepper the Text aussie pup Encoder  Image Encoder  (2) Create dataset classifier from label text  Image  IeTy | Te | he ow [Ipty Encoder urTy | WyTe | U-T3 vy  A photo of a dog.  Figure 1. Summary of our approach. While standard image models jointly train an im
+
+[IMAGE #3] Source=CLIP.pdf | Page=16 | Image=CLIP_page16_render.png
+Image Path: extracted_images\CLIP_page16_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Learning Transferable Visual Models From Natural Language Supervision  Adaptive Zero-Shot cLIP ImageNet Zero-Shot CUP__| Lagistic Regression CLIP Standard ImageNet training Robustness intervention 7 Trained with more data  Average on 7 natural distribution shift datasets (top-1, %)  70 75 80 85 90 95 Average on class subsampled Imag
+================================================================================
+
+================================================================================
+COMBINED RETRIEVAL CANDIDATES
+================================================================================
+Text Candidates  : 8
+Image Candidates : 3
+Total Candidates : 11
+================================================================================
+
+================================================================================
+STEP 3A — RERANKER INPUT
+================================================================================
+Query: How are the class names of a target dataset used to construct a zero-shot classifier with CLIP?
+Input candidates: 11
+01. Source=CLIP.pdf | Page=15 | Type=text | Image=N/A
+    Content=CLIP we can instead generate a custom zero-shot classi- ﬁer for each dataset directly based on its class names. In Figure 14 we see that this improves average effective ro- bustnes
+02. Source=CLIP.pdf | Page=6 | Type=text | Image=N/A
+    Content=introduced a zero-shot image classiﬁer of this form while the idea of generating a classiﬁer from natural language dates back to at least Elhoseiny et al. (2013). Continuing with t
+03. Source=CLIP.pdf | Page=6 | Type=text | Image=N/A
+    Content=other work we are aware of that has studied zero-shot trans- fer to standard image classiﬁcation datasets using a gener- ically pre-trained model and serves as the best reference p
+04. Source=CLIP.pdf | Page=6 | Type=text | Image=N/A
+    Content=basis for GPT-2 (Radford et al., 2019) which focused exclu- sively on studying the task-learning capabilities of language models via zero-shot transfer. 3.1.2. U SING CLIP FOR ZERO
+05. Source=CLIP.pdf | Page=8 | Type=text | Image=N/A
+    Content=by almost 5%. In Figure 4 we visualize how prompt engi- neering and ensembling change the performance of a set of CLIP models compared to the contextless baseline approach of direc
+06. Source=CLIP.pdf | Page=10 | Type=text | Image=N/A
+    Content=estimated, then, because CLIP’s zero-shot classiﬁer is also a linear classiﬁer, the performance of the fully supervised classiﬁers roughly sets an upper bound for what zero-shot tr
+07. Source=CLIP.pdf | Page=16 | Type=image | Image=extracted_images\CLIP_page16_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Learning Trans
+08. Source=CLIP.pdf | Page=8 | Type=text | Image=N/A
+    Content=In this section, we conduct a study of various properties of CLIP’s zero-shot classiﬁers. As a ﬁrst question, we look simply at how well zero-shot classiﬁers perform. To con- textu
+09. Source=CLIP.pdf | Page=44 | Type=image | Image=extracted_images\CLIP_page44_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the university of technology and engineering  OCR Text: Learning Transferable Visual Models From Natural Lan
+10. Source=CLIP.pdf | Page=2 | Type=image | Image=extracted_images\CLIP_page2_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a computer and an image of a computer  OCR Text: Learning Transferable Visual Models From Nat
+11. Source=CLIP.pdf | Page=16 | Type=image | Image=extracted_images\CLIP_page16_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Learning Trans
+================================================================================
+
+--------------------------------------------------------------------------------
+CROSS-ENCODER RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=00 | Source=CLIP.pdf | Page=15 | Type=text | CE=5.7245
+Rank=02 | OriginalIndex=02 | Source=CLIP.pdf | Page=6 | Type=text | CE=4.7763
+Rank=03 | OriginalIndex=05 | Source=CLIP.pdf | Page=10 | Type=text | CE=4.6462
+Rank=04 | OriginalIndex=01 | Source=CLIP.pdf | Page=6 | Type=text | CE=3.9902
+Rank=05 | OriginalIndex=04 | Source=CLIP.pdf | Page=8 | Type=text | CE=3.9100
+Rank=06 | OriginalIndex=03 | Source=CLIP.pdf | Page=6 | Type=text | CE=3.8215
+Rank=07 | OriginalIndex=08 | Source=CLIP.pdf | Page=44 | Type=image | CE=3.5748
+Rank=08 | OriginalIndex=07 | Source=CLIP.pdf | Page=8 | Type=text | CE=3.1736
+Rank=09 | OriginalIndex=09 | Source=CLIP.pdf | Page=2 | Type=image | CE=1.8215
+Rank=10 | OriginalIndex=06 | Source=CLIP.pdf | Page=16 | Type=image | CE=1.2343
+Rank=11 | OriginalIndex=10 | Source=CLIP.pdf | Page=16 | Type=image | CE=1.2343
+
+--------------------------------------------------------------------------------
+CLIP IMAGE RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=09 | Source=CLIP.pdf | Page=2 | Image=extracted_images\CLIP_page2_render.png | CLIP=0.2566
+Rank=02 | OriginalIndex=08 | Source=CLIP.pdf | Page=44 | Image=extracted_images\CLIP_page44_render.png | CLIP=0.2347
+Rank=03 | OriginalIndex=06 | Source=CLIP.pdf | Page=16 | Image=extracted_images\CLIP_page16_render.png | CLIP=0.2267
+Rank=04 | OriginalIndex=10 | Source=CLIP.pdf | Page=16 | Image=extracted_images\CLIP_page16_render.png | CLIP=0.2267
+
+================================================================================
+STEP 3A — COMPLETE MULTIMODAL RERANK RESULT
+================================================================================
+Rank=01 | Type=image | Source=CLIP.pdf | Page=44 | RRF=0.031054 | CE=3.5748 | CLIP=0.2347
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the university of technology and engineering  OCR Text: Learning Transferable Visual Models From Natural Lan
+Rank=02 | Type=image | Source=CLIP.pdf | Page=2 | RRF=0.030886 | CE=1.8215 | CLIP=0.2566
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a computer and an image of a computer  OCR Text: Learning Transferable Visual Models From Nat
+Rank=03 | Type=image | Source=CLIP.pdf | Page=16 | RRF=0.030159 | CE=1.2343 | CLIP=0.2267
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Learning Trans
+Rank=04 | Type=image | Source=CLIP.pdf | Page=16 | RRF=0.029710 | CE=1.2343 | CLIP=0.2267
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Learning Trans
+Rank=05 | Type=text | Source=CLIP.pdf | Page=15 | RRF=0.016393 | CE=5.7245 | CLIP=N/A
+    Content=CLIP we can instead generate a custom zero-shot classi- ﬁer for each dataset directly based on its class names. In Figure 14 we see that this improves average effective ro- bustnes
+Rank=06 | Type=text | Source=CLIP.pdf | Page=6 | RRF=0.016129 | CE=4.7763 | CLIP=N/A
+    Content=other work we are aware of that has studied zero-shot trans- fer to standard image classiﬁcation datasets using a gener- ically pre-trained model and serves as the best reference p
+Rank=07 | Type=text | Source=CLIP.pdf | Page=10 | RRF=0.015873 | CE=4.6462 | CLIP=N/A
+    Content=estimated, then, because CLIP’s zero-shot classiﬁer is also a linear classiﬁer, the performance of the fully supervised classiﬁers roughly sets an upper bound for what zero-shot tr
+Rank=08 | Type=text | Source=CLIP.pdf | Page=6 | RRF=0.015625 | CE=3.9902 | CLIP=N/A
+    Content=introduced a zero-shot image classiﬁer of this form while the idea of generating a classiﬁer from natural language dates back to at least Elhoseiny et al. (2013). Continuing with t
+Rank=09 | Type=text | Source=CLIP.pdf | Page=8 | RRF=0.015385 | CE=3.9100 | CLIP=N/A
+    Content=by almost 5%. In Figure 4 we visualize how prompt engi- neering and ensembling change the performance of a set of CLIP models compared to the contextless baseline approach of direc
+Rank=10 | Type=text | Source=CLIP.pdf | Page=6 | RRF=0.015152 | CE=3.8215 | CLIP=N/A
+    Content=basis for GPT-2 (Radford et al., 2019) which focused exclu- sively on studying the task-learning capabilities of language models via zero-shot transfer. 3.1.2. U SING CLIP FOR ZERO
+Rank=11 | Type=text | Source=CLIP.pdf | Page=8 | RRF=0.014706 | CE=3.1736 | CLIP=N/A
+    Content=In this section, we conduct a study of various properties of CLIP’s zero-shot classiﬁers. As a ﬁrst question, we look simply at how well zero-shot classiﬁers perform. To con- textu
+================================================================================
+
+================================================================================
+STEP 3A — FINAL RERANK TOP-K
+================================================================================
+Requested top_k: 12
+Returned documents: 10
+01. Source=CLIP.pdf | Page=44 | Type=image | Image=extracted_images\CLIP_page44_render.png
+02. Source=CLIP.pdf | Page=2 | Type=image | Image=extracted_images\CLIP_page2_render.png
+03. Source=CLIP.pdf | Page=16 | Type=image | Image=extracted_images\CLIP_page16_render.png
+04. Source=CLIP.pdf | Page=15 | Type=text | Image=N/A
+05. Source=CLIP.pdf | Page=6 | Type=text | Image=N/A
+06. Source=CLIP.pdf | Page=10 | Type=text | Image=N/A
+07. Source=CLIP.pdf | Page=6 | Type=text | Image=N/A
+08. Source=CLIP.pdf | Page=8 | Type=text | Image=N/A
+09. Source=CLIP.pdf | Page=6 | Type=text | Image=N/A
+10. Source=CLIP.pdf | Page=8 | Type=text | Image=N/A
+================================================================================
+
+================================================================================
+STAGE 3 — MULTIMODAL RERANKING
+================================================================================
+Input Candidates : 11
+Reranked Output   : 10
+
+[RERANK #1] Source=CLIP.pdf | Page=44 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the university of technology and engineering  OCR Text: Learning Transferable Visual Models From Natural Language Supervision 44  B. Zero-Shot Prediction  To provide a qualitative summary / overview of CLIP’s zero- shot performa
+
+[RERANK #2] Source=CLIP.pdf | Page=2 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a computer and an image of a computer  OCR Text: Learning Transferable Visual Models From Natural Language Supervision 2  (1) Contrastive pre-training  Pepper the Text aussie pup Encoder  Image Encoder  (2) Create
+
+[RERANK #3] Source=CLIP.pdf | Page=16 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Learning Transferable Visual Models From Natural Language Supervision  Adaptive Zero-Shot cLIP ImageNet Zero-Shot CUP__| Lagistic Regr
+
+[RERANK #4] Source=CLIP.pdf | Page=15 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: CLIP we can instead generate a custom zero-shot classi- ﬁer for each dataset directly based on its class names. In Figure 14 we see that this improves average effective ro- bustness by 5% but is concentrated in large improvements on only a few datasets. Curiously, accuracy on ObjectNet also increase
+
+[RERANK #5] Source=CLIP.pdf | Page=6 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: other work we are aware of that has studied zero-shot trans- fer to standard image classiﬁcation datasets using a gener- ically pre-trained model and serves as the best reference point for contextualizing CLIP. Their approach learns the parameters of a dictionary of 142,806 visual n-grams (span- nin
+
+[RERANK #6] Source=CLIP.pdf | Page=10 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: estimated, then, because CLIP’s zero-shot classiﬁer is also a linear classiﬁer, the performance of the fully supervised classiﬁers roughly sets an upper bound for what zero-shot transfer can achieve. In Figure 8 we compare CLIP’s zero- shot performance with fully supervised linear classiﬁers across 
+
+[RERANK #7] Source=CLIP.pdf | Page=6 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: introduced a zero-shot image classiﬁer of this form while the idea of generating a classiﬁer from natural language dates back to at least Elhoseiny et al. (2013). Continuing with this interpretation, every step of CLIP pre-training can be viewed as optimizing the performance of a randomly created pr
+
+[RERANK #8] Source=CLIP.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: by almost 5%. In Figure 4 we visualize how prompt engi- neering and ensembling change the performance of a set of CLIP models compared to the contextless baseline approach of directly embedding the class name as done in Li et al. (2017). 3.1.5. A NALYSIS OF ZERO-SHOT CLIP P ERFORMANCE Since task-agn
+
+[RERANK #9] Source=CLIP.pdf | Page=6 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: basis for GPT-2 (Radford et al., 2019) which focused exclu- sively on studying the task-learning capabilities of language models via zero-shot transfer. 3.1.2. U SING CLIP FOR ZERO-SHOT TRANSFER CLIP is pre-trained to predict if an image and a text snippet are paired together in its dataset. To perf
+
+[RERANK #10] Source=CLIP.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: In this section, we conduct a study of various properties of CLIP’s zero-shot classiﬁers. As a ﬁrst question, we look simply at how well zero-shot classiﬁers perform. To con- textualize this, we compare to the performance of a simple off-the-shelf baseline: ﬁtting a fully supervised, regularized, lo
+================================================================================
+
+================================================================================
+FINAL CONTEXT DOCUMENTS
+================================================================================
+Final context candidates: 10
+
+[FINAL #1] Source=CLIP.pdf | Page=44 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the journal of the university of technology and engineering  OCR Text: Learning Transferable Visual Models From Natural Language Supervision 44  B. Zero-Shot Prediction  To provide a qualitative summary / overview of CLIP’s zero- shot performa
+
+[FINAL #2] Source=CLIP.pdf | Page=2 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a computer and an image of a computer  OCR Text: Learning Transferable Visual Models From Natural Language Supervision 2  (1) Contrastive pre-training  Pepper the Text aussie pup Encoder  Image Encoder  (2) Create
+
+[FINAL #3] Source=CLIP.pdf | Page=16 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a  OCR Text: Learning Transferable Visual Models From Natural Language Supervision  Adaptive Zero-Shot cLIP ImageNet Zero-Shot CUP__| Lagistic Regr
+
+[FINAL #4] Source=CLIP.pdf | Page=15 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: CLIP we can instead generate a custom zero-shot classi- ﬁer for each dataset directly based on its class names. In Figure 14 we see that this improves average effective ro- bustness by 5% but is concentrated in large improvements on only a few datasets. Curiously, accuracy on ObjectNet also increase
+
+[FINAL #5] Source=CLIP.pdf | Page=6 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: other work we are aware of that has studied zero-shot trans- fer to standard image classiﬁcation datasets using a gener- ically pre-trained model and serves as the best reference point for contextualizing CLIP. Their approach learns the parameters of a dictionary of 142,806 visual n-grams (span- nin
+
+[FINAL #6] Source=CLIP.pdf | Page=10 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: estimated, then, because CLIP’s zero-shot classiﬁer is also a linear classiﬁer, the performance of the fully supervised classiﬁers roughly sets an upper bound for what zero-shot transfer can achieve. In Figure 8 we compare CLIP’s zero- shot performance with fully supervised linear classiﬁers across 
+
+[FINAL #7] Source=CLIP.pdf | Page=6 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: introduced a zero-shot image classiﬁer of this form while the idea of generating a classiﬁer from natural language dates back to at least Elhoseiny et al. (2013). Continuing with this interpretation, every step of CLIP pre-training can be viewed as optimizing the performance of a randomly created pr
+
+[FINAL #8] Source=CLIP.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: by almost 5%. In Figure 4 we visualize how prompt engi- neering and ensembling change the performance of a set of CLIP models compared to the contextless baseline approach of directly embedding the class name as done in Li et al. (2017). 3.1.5. A NALYSIS OF ZERO-SHOT CLIP P ERFORMANCE Since task-agn
+
+[FINAL #9] Source=CLIP.pdf | Page=6 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: basis for GPT-2 (Radford et al., 2019) which focused exclu- sively on studying the task-learning capabilities of language models via zero-shot transfer. 3.1.2. U SING CLIP FOR ZERO-SHOT TRANSFER CLIP is pre-trained to predict if an image and a text snippet are paired together in its dataset. To perf
+
+[FINAL #10] Source=CLIP.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: In this section, we conduct a study of various properties of CLIP’s zero-shot classiﬁers. As a ﬁrst question, we look simply at how well zero-shot classiﬁers perform. To con- textualize this, we compare to the performance of a simple off-the-shelf baseline: ﬁtting a fully supervised, regularized, lo
+================================================================================
+
+================================================================================
+FINAL CONTEXT SENT TO LLM
+================================================================================
+
+================================================================================
+DOCUMENT : CLIP.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 2
+--------------------------------------------------------------------------------
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a page from the book, showing an image of a computer and an image of a computer
+
+OCR Text:
+Learning Transferable Visual Models From Natural Language Supervision 2
+
+(1) Contrastive pre-training
+
+Pepper the Text
+aussie pup Encoder
+
+Image
+Encoder
+
+(2) Create dataset classifier from label text
+
+Image
+
+IeTy | Te | he ow [Ipty
+Encoder urTy | WyTe | U-T3 vy
+
+A photo of
+a dog.
+
+Figure 1. Summary of our approach. While standard image models jointly train an image feature extractor and a linear classifier to predict
+some label, CLIP jointly trains an image encoder and a text encoder to predict the correct pairings of a batch of (image, text) training
+examples. At test time the learned text encoder synthesizes a zero-shot linear classifier by embedding the names or descriptions of the
+
+target dataset’s classes.
+
+classification datasets by scoring target classes based on
+their dictionary of learned visual n-grams and predicting the
+one with the highest score. Adopting more recent architec-
+tures and pre-training approaches, VirTex (Desai & Johnson,
+2020), ICMLM (Bulent Sariyildiz et al., 2020), and Con-
+VIRT (Zhang et al., 2020) have recently demonstrated the
+potential of transformer-based language modeling, masked
+language modeling, and contrastive objectives to learn im-
+age representations from text.
+
+While exciting as proofs of concept, using natural language
+supervision for image representation learning is still rare.
+This is likely because demonstrated performance on com-
+mon benchmarks is much lower than alternative approaches.
+For example, Li et al. (2017) reach only 11.5% accuracy
+on ImageNet in a zero-shot setting. This is well below the
+88.4% accuracy of the current state of the art (Xie et al.,
+2020). It is even below the 50% accuracy of classic com-
+puter vision approaches (Deng et al., 2012). Instead, more
+narrowly scoped but well-targeted uses of weak supervision
+have improved performance. Mahajan et al. (2018) showed
+that predicting ImageNet-related hashtags on Instagram im-
+ages is an effective pre-training task. When fine-tuned to
+ImageNet these pre-trained models increased accuracy by
+over 5% and improved the overall state of the art at the time.
+Kolesnikov et al. (2019) and Dosovitskiy et al. (2020) have
+also demonstrated large gains on a broader set of transfer
+benchmarks by pre-training models to predict the classes of
+the noisily labeled JFT-300M dataset.
+
+This line of work represents the current pragmatic middle
+ground between learning from a limited amount of super-
+vised “gold-labels” and learning from practically unlimited
+amounts of raw text. However, it is not without compro-
+
+mises. Both works carefully design, and in the process limit,
+their supervision to 1000 and 18291 classes respectively.
+Natural language is able to express, and therefore supervise,
+a much wider set of visual concepts through its general-
+ity. Both approaches also use static softmax classifiers to
+perform prediction and lack a mechanism for dynamic out-
+puts. This severely curtails their flexibility and limits their
+“zero-shot” capabilities.
+
+A crucial difference between these weakly supervised mod-
+els and recent explorations of learning image representations
+directly from natural language is scale. While Mahajan et al.
+(2018) and Kolesnikov et al. (2019) trained their models for
+accelerator years on millions to billions of images, VirTex,
+ICMLM, and ConVIRT trained for accelerator days on one
+to two hundred thousand images. In this work, we close
+this gap and study the behaviors of image classifiers trained
+with natural language supervision at large scale. Enabled
+by the large amounts of publicly available data of this form
+on the internet, we create a new dataset of 400 million (im-
+age, text) pairs and demonstrate that a simplified version of
+ConVIRT trained from scratch, which we call CLIP, for Con-
+trastive Language-Image Pre-training, is an efficient method
+of learning from natural language supervision. We study
+the scalability of CLIP by training a series of eight models
+spanning almost 2 orders of magnitude of compute and ob-
+serve that transfer performance is a smoothly predictable
+function of compute (Hestness et al., 2017; Kaplan et al.,
+2020). We find that CLIP, similar to the GPT family, learns
+to perform a wide set of tasks during pre-training including
+OCR, geo-localization, action recognition, and many others.
+We measure this by benchmarking the zero-shot transfer
+performance of CLIP on over 30 existing datasets and find
+
+Nearby Document Text:
+Learning Transferable Visual Models From Natural Language Supervision
+2
+I1·T2
+I1·T3
+…
+I2·T1
+I2·T3
+…
+I3·T1
+I3·T2
+…
+⋮
+⋮
+⋮
+I1·T1
+I2·T2
+I3·T3
+(1) Contrastive pre-training
+Image
+Encoder
+Text
+Encoder
+Pepper the
+aussie pup
+Pepper the
+aussie pup
+Pepper the
+aussie pup
+Pepper the
+aussie pup
+T1
+T2
+T3
+…
+I1
+I2
+I3
+⋮
+(2) Create dataset classiﬁer from label text
+plane
+car
+dog
+⋮
+bird
+A photo of
+a {object}.
+⋮
+Text
+Encoder
+T1
+T2
+T3
+TN
+…
+(3) Use for zero-shot prediction
+Image
+Encoder
+I1
+I1·T2
+I1·TN
+I1·T1
+…
+…
+A photo of
+ a dog.
+TN
+IN·T1
+IN·T2
+IN·T3
+I1·TN
+I2·TN
+I3·TN
+⋮
+…
+IN
+…
+⋮
+⋱
+IN·TN
+I1·T3
+Figure 1. Summary of ou
+
+
+--------------------------------------------------------------------------------
+PAGE : 6
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+other work we are aware of that has studied zero-shot trans-
+fer to standard image classiﬁcation datasets using a gener-
+ically pre-trained model and serves as the best reference
+point for contextualizing CLIP. Their approach learns the
+parameters of a dictionary of 142,806 visual n-grams (span-
+ning 1- to 5- grams) and optimizes these n-grams using a
+differential version of Jelinek-Mercer smoothing to maxi-
+mize the probability of all text n-grams for a given image.
+In order to perform zero-shot transfer, they ﬁrst convert the
+text of each of the dataset’s class names into its n-gram
+
+
+[TEXT]
+
+introduced a zero-shot image classiﬁer of this form while
+the idea of generating a classiﬁer from natural language
+dates back to at least Elhoseiny et al. (2013). Continuing
+with this interpretation, every step of CLIP pre-training can
+be viewed as optimizing the performance of a randomly
+created proxy to a computer vision dataset which contains 1
+example per class and has 32,768 total classes deﬁned via
+natural language descriptions. For zero-shot evaluation, we
+cache the zero-shot classiﬁer once it has been computed by
+the text encoder and reuse it for all subsequent predictions.
+
+
+[TEXT]
+
+basis for GPT-2 (Radford et al., 2019) which focused exclu-
+sively on studying the task-learning capabilities of language
+models via zero-shot transfer.
+3.1.2. U SING CLIP FOR ZERO-SHOT TRANSFER
+CLIP is pre-trained to predict if an image and a text snippet
+are paired together in its dataset. To perform zero-shot clas-
+siﬁcation, we reuse this capability. For each dataset, we use
+the names of all the classes in the dataset as the set of poten-
+tial text pairings and predict the most probable (image, text)
+pair according to CLIP. In a bit more detail, we ﬁrst compute
+
+
+--------------------------------------------------------------------------------
+PAGE : 8
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+by almost 5%. In Figure 4 we visualize how prompt engi-
+neering and ensembling change the performance of a set of
+CLIP models compared to the contextless baseline approach
+of directly embedding the class name as done in Li et al.
+(2017).
+3.1.5. A NALYSIS OF ZERO-SHOT CLIP P ERFORMANCE
+Since task-agnostic zero-shot classiﬁers for computer vision
+have been understudied, CLIP provides a promising oppor-
+tunity to gain a better understanding of this type of model.
+In this section, we conduct a study of various properties of
+CLIP’s zero-shot classiﬁers. As a ﬁrst question, we look
+
+
+[TEXT]
+
+In this section, we conduct a study of various properties of
+CLIP’s zero-shot classiﬁers. As a ﬁrst question, we look
+simply at how well zero-shot classiﬁers perform. To con-
+textualize this, we compare to the performance of a simple
+off-the-shelf baseline: ﬁtting a fully supervised, regularized,
+logistic regression classiﬁer on the features of the canonical
+ResNet-50. In Figure 5 we show this comparison across 27
+datasets. Please see Appendix A for details of datasets and
+setup.
+Zero-shot CLIP outperforms this baseline slightly more of-
+40
+ 30
+ 20
+ 10
+ 0 10 20 30 40
+ Score (%)
+
+
+--------------------------------------------------------------------------------
+PAGE : 10
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+estimated, then, because CLIP’s zero-shot classiﬁer is also
+a linear classiﬁer, the performance of the fully supervised
+classiﬁers roughly sets an upper bound for what zero-shot
+transfer can achieve. In Figure 8 we compare CLIP’s zero-
+shot performance with fully supervised linear classiﬁers
+across datasets. The dashed,y =x line represents an “op-
+timal” zero-shot classiﬁer that matches the performance of
+its fully supervised equivalent. For most datasets, the per-
+formance of zero-shot classiﬁers still underperform fully su-
+pervised classiﬁers by 10% to 25%, suggesting that there is
+
+
+--------------------------------------------------------------------------------
+PAGE : 15
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+CLIP we can instead generate a custom zero-shot classi-
+ﬁer for each dataset directly based on its class names. In
+Figure 14 we see that this improves average effective ro-
+bustness by 5% but is concentrated in large improvements
+on only a few datasets. Curiously, accuracy on ObjectNet
+also increases by 2.3%. Although the dataset was designed
+to closely overlap with ImageNet classes, using the names
+provided for each class by ObjectNet’s creators still helps a
+small amount compared to using ImageNet class names and
+pooling predictions when necessary.
+
+
+--------------------------------------------------------------------------------
+PAGE : 16
+--------------------------------------------------------------------------------
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a sample of a
+
+OCR Text:
+Learning Transferable Visual Models From Natural Language Supervision
+
+Adaptive Zero-Shot cLIP
+ImageNet Zero-Shot CUP__|
+Lagistic Regression CLIP
+Standard ImageNet training
+Robustness intervention 7
+Trained with more data
+
+Average on 7 natural distribution shift datasets (top-1, %)
+
+70 75 80 85 90 95
+Average on class subsampled ImageNet (top-1, %)
+
+16
+Adapt to ImageNet
+ImageNet +92
+ImageNetV2
+-2.8 ImageNet Sketch
+ObjectNet
+ImageNet-R
+-10 -5 0 5 10 15 20 25 30
+Change from zero-shot ImageNet classifier accuracy (%)
+Adapt to class shift
+Youtube-BB +26.9
+ImageNet Vid +8.3
+ObjectNet| [42.3
+ImageNet Sketch|O
+ImageNet-R/0
+ImageNet-AjO
+ImageNetV2|0
+ImageNet/0
+-10 -5 0 5 10 15 20 25 30
+
+Change from zero-shot ImageNet classifier accuracy (%)
+
+Figure 14, While supervised adaptation to lhmageNet increases ImageNet accuracy by 9.2%, it slightly reduces average robustness.
+(Left) Customizing zero-shot CLIP to each dataset improves robustness compared to using a single static zero-shot ImageNet classifier
+and pooling predictions across similar classes as in Taori et al. (2020). CLIP models adapted to ImageNet have similar effective robustness
+as the best prior ImageNet models. (Right) Details of per dataset changes in accuracy for the two robustness interventions. Adapting to
+ImageNet increases accuracy on ImageNetV2 noticeably but trades off accuracy on several other distributions. Dataset specific zero-shot
+classifiers can improve accuracy by a large amount but are limited to only a few datasets that include classes which don’t perfectly align
+
+with ImageNet categories.
+
+Across our experiments, high effective robustness seems to
+result from minimizing the amount of distribution specific
+training data a model has access to, but this comes at a cost
+of reducing dataset-specific performance.
+
+Taken together, these results suggest that the recent shift
+towards large-scale task and dataset agnostic pre-training
+combined with a reorientation towards zero-shot and few-
+shot benchmarking on broad evaluation suites (as advocated
+by Yogatama et al. (2019) and Linzen (2020)) promotes the
+development of more robust systems and provides a more
+accurate assessment of performance. We are curious to see
+if the same results hold for zero-shot models in the field
+of NLP such as the GPT family. While Hendrycks et al.
+(2020b) has reported that pre-training improves relative ro-
+bustness on sentiment analysis, Miller et al. (2020)’s study
+of the robustness of question answering models under nat-
+ural distribution shift finds, similar to Taori et al. (2020),
+little evidence of effective robustness improvements to date.
+
+4. Comparison to Human Performance
+
+How does CLIP compare to human performance and human
+learning? To get a better understanding of how well humans
+perform in similar evaluation settings to CLIP, we evaluated
+
+humans on one of our tasks. We wanted to get a sense of
+how strong human zero-shot performance is at these tasks,
+and how much human performance is improved if they are
+shown one or two image samples. This can help us to
+compare task difficulty for humans and CLIP, and identify
+correlations and differences between them.
+
+We had five different humans look at each of 3669 images
+in the test split of the Oxford IIT Pets dataset (Parkhi et al.,
+2012) and select which of the 37 cat or dog breeds best
+matched the image (or ‘I don’t know’ if they were com-
+pletely uncertain). In the zero-shot case the humans were
+given no examples of the breeds and asked to label them
+to the best of their ability without an internet search. In
+the one-shot experiment the humans were given one sample
+image of each breed and in the two-shot experiment they
+were given two sample images of each breed.>
+
+One possible concern was that the human workers were not
+sufficiently motivated in the zero-shot task. High human
+accuracy of 94% on the STL-10 dataset (Coates et al., 2011)
+
+>There is not a perfect correspondence between the human
+few-shot tasks and the model’s few-shot performance since the
+model cannot refer to sample images in the way that the humans
+can.
+
+Nearby Document Text:
+Learning Transferable Visual Models From Natural Language Supervision
+16
+70
+75
+80
+85
+90
+95
+Average on class subsampled ImageNet (top-1, %)
+25
+30
+35
+40
+45
+50
+55
+60
+65
+70
+75
+80
+Average on 7 natural distribution shift datasets (top-1, %)
+Adapt to class shift
+Adapt to ImageNet
+Ideal robust model (y = x)
+Adaptive Zero-Shot CLIP
+ImageNet Zero-Shot CLIP
+Logistic Regression CLIP
+Standard ImageNet training
+Robustness intervention
+Trained with more data
+10
+5
+0
+5
+10
+15
+20
+25
+30
+Change from zero-shot ImageNet classifier accuracy (%)
+ImageNet-R
+-4.7
+ObjectNet
+-3.8
+ImageNet Sketch
+-2.8
+ImageNet-A
+-1.9
+Image
+
+
+--------------------------------------------------------------------------------
+PAGE : 44
+--------------------------------------------------------------------------------
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a page from the journal of the university of technology and engineering
+
+OCR Text:
+Learning Transferable Visual Models From Natural Language Supervision 44
+
+B. Zero-Shot Prediction
+
+To provide a qualitative summary / overview of CLIP’s zero-
+shot performance we visualize a randomly selected predic-
+tion for 36 different zero-shot CLIP classifiers in Figure
+21. In addition, Table 11 and Figure 22 show the individual
+zero-shot performance scores for each dataset.
+
+C. Duplicate Detector
+
+Our early attempts at duplicate detection and analysis used
+nearest neighbors in the model’s learned embedding space.
+While it is intuitive to use a model’s own notion of similar-
+ity, we encountered issues. We found the model’s feature
+space is weighted very heavily towards semantic similar-
+ity. Many false positives occurred due to distinct objects
+that would be described similarly (soccer balls, flowers of
+the same species, etc...) having almost perfect similarity.
+We also observed the model was quite poor at assigning
+certain kinds of near-duplicates high similarity scores. We
+noticed repeatedly that images with high-frequency textures
+(such as fur or stripe patterns) pre-processed by different
+resizing algorithms (nearest neighbor vs bi-linear) could
+have surprisingly low similarity. This resulted in many false
+negatives.
+
+We built our own near-duplicate detector to fix this issue.
+We created a synthetic data augmentation pipeline that com-
+bined a variety of common image manipulations. The aug-
+mentation pipeline combines random cropping and zooming,
+aspect ratio distortion, downsizing and upscaling to different
+resolutions, minor rotations, jpeg compression, and HSV
+color jitter. The pipeline also randomly selects from differ-
+ent interpolation algorithms for all relevant steps. We then
+trained a model to maximize the similarity of an image and
+its transformed variant while minimizing similarity to all
+other images in a training batch. We used the same n-pair /
+InfoNCE loss as CLIP but with a fixed temperature of 0.07.
+
+We selected a ResNet-50 as the model architecture. We
+modified the base ResNet-50 with the anti-alias improve-
+ments from (Zhang, 2019) and used weight norm (Sali-
+mans & Kingma, 2016) instead of batch norm (loffe &
+Szegedy, 2015) to avoid leaking information about dupli-
+cates via batch statistics - a problem previously noted in
+(Henaff, 2020). We also found the GELU activation func-
+tion (Hlendrycks & Gimpel, 2016) to perform better for this
+task. We trained the model with a total batch size of 1,712
+for approximately 30 million images sampled from our pre-
+training dataset. At the end of training it achieves nearly
+100% accuracy on its proxy training task.
+
+Linear Classifier Zero Shot
+Dataset YFCC WIT A | YFCC WIT A
+Birdsnap 47.4 35.30 +121 19.9 45 +154
+Country211 23.1 17.3 +5.8 5.2 5.3 +0.1
+Flowers 102 94.4 89.8 +4.6 48.6 21.7 +269
+GTSRB 66.8 72.5 —57 6.9 7.0 —0.1
+UCF101 69.2 74.9 —57 22.9 32.0 —9.1
+Stanford Cars 31.4 50.3 —18.9 3.8 10.9 —7.1
+ImageNet 62.0 60.8 +1.2 31.3 27.6 +3.7
+Dataset Average 65.5 66.6 -La 29.6 30.0 —0.4
+Dataset “Wins” 10 15 —§ 19 18 +1
+
+Table 12, CLIP performs similarly when trained on only
+YFCC100M. Comparing a ResNet-50 trained on only
+YFCC100M with a same sized subset of WIT shows simi-
+lar average performance and number of wins on zero shot and
+linear classifier evals. However, large differences in dataset
+specific performance occur. We include performance on the 3
+datasets where YFCC does best and worst compared to WIT
+according to a linear probe in order to highlight this as well as
+aggregate performance across all linear and zero-shot evals and
+the canonical ImageNet dataset.
+
+D. Dataset Ablation on YFCC100M
+
+To study whether our custom dataset is critical to the perfor-
+mance of CLIP, we trained a model on a filtered subset of
+the YFCC100M dataset (details described in Section 2.2)
+and compared its performance to the same model trained
+on an equally sized subset of WIT. We train each model for
+32 epochs at which point transfer performance begins to
+plateau due to overfitting. Results are shown in Table 12.
+Across our whole eval suite, YFCC and WIT perform simi-
+larly on average for both zero-shot and linear probe settings.
+However, performance on specific fine-grained classifica-
+tion datasets can vary widely - sometimes by over 10%.
+Our speculation is that these differences in performance re-
+flect the relative density of relevant data in each pre-training
+dataset. For instance, pre-training on YFCC100M, which
+might contain many photos of birds and flowers (common
+subjects for photographers), results in better performance on
+Birdsnap and Flowers102, while pre-training on WIT results
+in better car and pet classifiers (which appear common in
+our dataset).
+
+Overall, these results are encouraging as they suggest our
+approach can use any reasonably filtered collection of paired
+(text, image) data. This mirrors recent work which reported
+positive results using the same contrastive pre-training ob-
+jective on the relatively different domain of medical imaging
+(Zhang et al., 2020). It also is similar to the findings of noisy
+student self-training which reported only slight improve-
+ments when using their JFT300M dataset over YFCC100M
+(Xie et al., 2020). We suspect the major advantage of our
+dataset over the already existing YFCC100M is its much
+larger size.
+
+Nearby Document Text:
+Learning Transferable Visual Models From Natural Language Supervision
+44
+B. Zero-Shot Prediction
+To provide a qualitative summary / overview of CLIP’s zero-
+shot performance we visualize a randomly selected predic-
+tion for 36 different zero-shot CLIP classiﬁers in Figure
+21. In addition, Table 11 and Figure 22 show the individual
+zero-shot performance scores for each dataset.
+C. Duplicate Detector
+Our early attempts at duplicate detection and analysis used
+nearest neighbors in the model’s learned embedding space.
+While it is intuitive to use a model’s own notion of similar-
+ity, we encountere
+
+================================================================================
+
+================================================================================
+RAG PIPELINE DEBUG
+================================================================================
+Query Type        : analytical
+Retrieved Chunks  : 8
+Retrieved Images  : 3
+Reranked Chunks   : 10
+Reranked Text     : 7
+Reranked Images   : 3
+Final Context Docs: 10
+Exact Figure Query: False
+Exact Figure Match: False
+Exact Figure Final: False
+================================================================================
+
+================================================================================
+STAGE 4 — EVIDENCE VERIFICATION
+================================================================================
+Verification Units : 3
+Supported          : 1
+Partially Supported: 2
+Unsupported        : 0
+Unknown            : 0
+Groundedness Ratio : 0.33
+
+[CLAIM #1] The class names of a target dataset are not explicitly used to construct a zero-shot classifier with CLIP.
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.625 | Citation=CLIP.pdf (Page 2)
+
+[CLAIM #2] Instead, CLIP learns to associate text and image features in a self-supervised manner during pre-training.
+  Status=PARTIALLY_SUPPORTED | NLI=NEUTRAL | Confidence=0.6196 | Citation=CLIP.pdf (Page 2)
+
+[CLAIM #3] For zero-shot evaluation, the model is tested on a set of classes that were not seen during pre-training, but it predicts the classes based on the learned associations between text and image features.
+  Status=PARTIALLY_SUPPORTED | NLI=NEUTRAL | Confidence=0.6841 | Citation=CLIP.pdf (Page 2)
+================================================================================
+
+====================================================================================================
+RAG ANSWER
+====================================================================================================
+ The class names of a target dataset are not explicitly used to construct a zero-shot classifier with CLIP. Instead, CLIP learns to associate text and image features in a self-supervised manner during pre-training. For zero-shot evaluation, the model is tested on a set of classes that were not seen during pre-training, but it predicts the classes based on the learned associations between text and image features.
+
+IMAGE PATHS:
+D:/Projects/Major-Project-2-main/extracted_images/CLIP_page2_render.png
+D:/Projects/Major-Project-2-main/extracted_images/CLIP_page16_render.png
+D:/Projects/Major-Project-2-main/extracted_images/CLIP_page44_render.png

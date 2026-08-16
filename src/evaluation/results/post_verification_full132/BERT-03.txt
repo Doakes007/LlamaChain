@@ -1,0 +1,1273 @@
+====================================================================================================
+QUESTION_ID   : BERT-03
+DOCUMENT      : BERT
+QUESTION_TYPE : Core / Architecture
+ELAPSED_SEC   : 53.9
+ERROR         : no
+====================================================================================================
+
+QUESTION:
+What is the masked language model (MLM) objective used during BERT pre-training?
+
+GROUND TRUTH ANSWER:
+The masked language model (MLM) randomly masks some input tokens and trains BERT to predict the original vocabulary identity of the masked tokens from their surrounding context.
+
+GROUND TRUTH SOURCE:
+BERT.pdf, pp. 1–8, 13–16
+
+====================================================================================================
+FORENSIC TRANSCRIPT
+====================================================================================================
+
+####################################################################################################
+FORENSIC CASE START
+####################################################################################################
+Original Query   : What is the masked language model (MLM) objective used during BERT pre-training?
+Expanded Query   : What is the masked language model (MLM) objective used during BERT pre-training?
+Query Type       : factual
+[DOCUMENT SCOPE] Normalized query: 'what is the masked language model mlm objective used during bert pre training'
+[DOCUMENT SCOPE] Source='BERT.pdf' -> Normalized='bert'
+[DOCUMENT SCOPE] EXACT MATCH -> BERT.pdf
+[DOCUMENT SCOPE] Source='BLIP-2.pdf' -> Normalized='blip 2'
+[DOCUMENT SCOPE] Token overlap for 'BLIP-2.pdf': []
+[DOCUMENT SCOPE] Source='CLIP.pdf' -> Normalized='clip'
+[DOCUMENT SCOPE] Token overlap for 'CLIP.pdf': []
+[DOCUMENT SCOPE] Source='CNN Paper.pdf' -> Normalized='cnn paper'
+[DOCUMENT SCOPE] Token overlap for 'CNN Paper.pdf': []
+[DOCUMENT SCOPE] Source='Donut.pdf' -> Normalized='donut'
+[DOCUMENT SCOPE] Token overlap for 'Donut.pdf': []
+[DOCUMENT SCOPE] Source='LayoutLMv3.pdf' -> Normalized='layout l mv3'
+[DOCUMENT SCOPE] Token overlap for 'LayoutLMv3.pdf': []
+[DOCUMENT SCOPE] Source='NLP Paper.pdf' -> Normalized='nlp paper'
+[DOCUMENT SCOPE] Token overlap for 'NLP Paper.pdf': []
+[DOCUMENT SCOPE] Source='RAG.pdf' -> Normalized='rag'
+[DOCUMENT SCOPE] Token overlap for 'RAG.pdf': []
+[DOCUMENT SCOPE] Source='Self-RAG.pdf' -> Normalized='self rag'
+[DOCUMENT SCOPE] Token overlap for 'Self-RAG.pdf': []
+[DOCUMENT SCOPE] Source='Vision Transformer.pdf' -> Normalized='vision transformer'
+[DOCUMENT SCOPE] Token overlap for 'Vision Transformer.pdf': []
+[DOCUMENT SCOPE] Final matched sources: ['BERT.pdf']
+
+================================================================================
+DOCUMENT SCOPE DEBUG
+================================================================================
+Query          : What is the masked language model (MLM) objective used during BERT pre-training?
+Expanded Query : What is the masked language model (MLM) objective used during BERT pre-training?
+Query Type     : factual
+Document Scope : ['BERT.pdf']
+================================================================================
+
+==========================================================================================
+STEP 3A — SCOPED HYBRID RETRIEVAL
+==========================================================================================
+Query              : What is the masked language model (MLM) objective used during BERT pre-training?
+Sources            : ['BERT.pdf']
+Dense candidate K  : 25
+Final hybrid K     : 8
+
+------------------------------------------------------------------------------------------
+[SCOPED DENSE / VECTOR RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+    Content=BERT alleviates the previously mentioned unidi- rectionality constraint by using a “masked lan- guage model” (MLM) pre-training objective, in- spired by the Cloze task (Taylor, 195
+02. Source=BERT.pdf | Page=16 | Type=text | Image=N/A
+    Content=Procedures In Section 3.1, we mention that BERT uses a mixed strategy for masking the target tokens when pre-training with the masked language model (MLM) objective. The following 
+03. Source=BERT.pdf | Page=8 | Type=text | Image=N/A
+    Content=using the “masked LM” (MLM) but without the “next sentence prediction” (NSP) task. LTR & No NSP: A left-context-only model which is trained using a standard Left-to-Right (LTR) LM,
+04. Source=BERT.pdf | Page=16 | Type=text | Image=N/A
+    Content=trained on 1M steps compared to 500k steps. 2. Question: Does MLM pre-training converge slower than LTR pre-training, since only 15% of words are predicted in each batch rather tha
+05. Source=BERT.pdf | Page=2 | Type=text | Image=N/A
+    Content=word based only on its context. Unlike left-to- right language model pre-training, the MLM ob- jective enables the representation to fuse the left and the right context, which allo
+06. Source=BERT.pdf | Page=2 | Type=text | Image=N/A
+    Content=• We demonstrate the importance of bidirectional pre-training for language representations. Un- like Radford et al. (2018), which uses unidirec- tional language models for pre-trai
+07. Source=BERT.pdf | Page=9 | Type=text | Image=N/A
+    Content=training data once and then run many experiments with cheaper models on top of this representation. In this section, we compare the two approaches by applying BERT to the CoNLL-200
+08. Source=BERT.pdf | Page=12 | Type=text | Image=N/A
+    Content=the model’s language understanding capability. In Section C.2, we evaluate the impact this proce- dure. Compared to standard langauge model training, the masked LM only make predic
+09. Source=BERT.pdf | Page=2 | Type=text | Image=N/A
+    Content=• We show that pre-trained representations reduce the need for many heavily-engineered task- speciﬁc architectures. BERT is the ﬁrst ﬁne- tuning based representation model that ach
+10. Source=BERT.pdf | Page=16 | Type=text | Image=N/A
+    Content=MASK means that we replace the target token with the [MASK] symbol for MLM; S AME means that we keep the target token as is; R ND means that we replace the target token with anothe
+11. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+    Content=include the pre-trained representations as addi- tional features. The ﬁne-tuning approach, such as the Generative Pre-trained Transformer (OpenAI GPT) (Radford et al., 2018), intro
+12. Source=BERT.pdf | Page=13 | Type=text | Image=N/A
+    Content=the empirical improvements of the MLM model far outweigh the increased training cost. Next Sentence Prediction The next sentence prediction task can be illustrated in the following
+13. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+    Content=BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding Jacob Devlin Ming-Wei Chang Kenton Lee Kristina Toutanova Google AI Language {jacobdevlin,mingweich
+14. Source=BERT.pdf | Page=13 | Type=text | Image=N/A
+    Content=left LSTMs to generate features for downstream tasks. Among the three, only BERT representations are jointly conditioned on both left and right context in all layers. In addition t
+15. Source=BERT.pdf | Page=2 | Type=text | Image=N/A
+    Content=google-research/bert. 2 Related Work There is a long history of pre-training general lan- guage representations, and we brieﬂy review the most widely-used approaches in this sectio
+16. Source=BERT.pdf | Page=4 | Type=text | Image=N/A
+    Content=predict the target word in a multi-layered context. former is often referred to as a “Transformer encoder” while the left-context-only version is referred to as a “Transformer deco
+17. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+    Content=holistically, as well as token-level tasks such as named entity recognition and question answering, where models are required to produce ﬁne-grained output at the token level (Tjon
+18. Source=BERT.pdf | Page=8 | Type=text | Image=N/A
+    Content=on large-scale tasks such as machine translation and language modeling, which is demonstrated by the LM perplexity of held-out training data shown in Table 6. However, we believe t
+19. Source=BERT.pdf | Page=3 | Type=image | Image=extracted_images\BERT_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a circuit and a circuit  OCR Text: Mask LM  Masked Sentence A Masked Sentence B  Unlabeled Se
+20. Source=BERT.pdf | Page=4 | Type=text | Image=N/A
+    Content=Although this allows us to obtain a bidirec- tional pre-trained model, a downside is that we are creating a mismatch between pre-training and ﬁne-tuning, since the [MASK] token doe
+21. Source=BERT.pdf | Page=14 | Type=text | Image=N/A
+    Content=between how BERT and GPT were trained: • GPT is trained on the BooksCorpus (800M words); BERT is trained on the BooksCor- pus (800M words) and Wikipedia (2,500M words). • GPT uses 
+22. Source=BERT.pdf | Page=10 | Type=text | Image=N/A
+    Content=ning, and Quoc Le. 2018. Semi-supervised se- quence modeling with cross-view training. In Pro- ceedings of the 2018 Conference on Empirical Meth- ods in Natural Language Processing
+23. Source=BERT.pdf | Page=11 | Type=text | Image=N/A
+    Content=Inc. Andriy Mnih and Geoffrey E Hinton. 2009. A scal- able hierarchical distributed language model. In D. Koller, D. Schuurmans, Y . Bengio, and L. Bot- tou, editors, Advances in N
+24. Source=BERT.pdf | Page=5 | Type=text | Image=N/A
+    Content=learning objectives used in Jernite et al. (2017) and Logeswaran and Lee (2018). However, in prior work, only sentence embeddings are transferred to down-stream tasks, where BERT t
+25. Source=BERT.pdf | Page=4 | Type=text | Image=N/A
+    Content=and 50% of the time it is a random sentence from the corpus (labeled as NotNext). As we show in Figure 1, C is used for next sentence predic- tion (NSP). 5 Despite its simplicity, 
+
+------------------------------------------------------------------------------------------
+[SCOPED BM25 RETRIEVAL] 22 candidates
+------------------------------------------------------------------------------------------
+01. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+    Content=BERT alleviates the previously mentioned unidi- rectionality constraint by using a “masked lan- guage model” (MLM) pre-training objective, in- spired by the Cloze task (Taylor, 195
+02. Source=BERT.pdf | Page=16 | Type=text | Image=N/A
+    Content=Procedures In Section 3.1, we mention that BERT uses a mixed strategy for masking the target tokens when pre-training with the masked language model (MLM) objective. The following 
+03. Source=BERT.pdf | Page=8 | Type=text | Image=N/A
+    Content=prediction, like OpenAI GPT. “+ BiLSTM” adds a ran- domly initialized BiLSTM on top of the “LTR + No NSP” model during ﬁne-tuning. ablation studies can be found in Appendix C. 5.1 
+04. Source=BERT.pdf | Page=2 | Type=text | Image=N/A
+    Content=• We demonstrate the importance of bidirectional pre-training for language representations. Un- like Radford et al. (2018), which uses unidirec- tional language models for pre-trai
+05. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+    Content=include the pre-trained representations as addi- tional features. The ﬁne-tuning approach, such as the Generative Pre-trained Transformer (OpenAI GPT) (Radford et al., 2018), intro
+06. Source=BERT.pdf | Page=14 | Type=text | Image=N/A
+    Content=between how BERT and GPT were trained: • GPT is trained on the BooksCorpus (800M words); BERT is trained on the BooksCor- pus (800M words) and Wikipedia (2,500M words). • GPT uses 
+07. Source=BERT.pdf | Page=16 | Type=text | Image=N/A
+    Content=trained on 1M steps compared to 500k steps. 2. Question: Does MLM pre-training converge slower than LTR pre-training, since only 15% of words are predicted in each batch rather tha
+08. Source=BERT.pdf | Page=5 | Type=text | Image=N/A
+    Content=learning objectives used in Jernite et al. (2017) and Logeswaran and Lee (2018). However, in prior work, only sentence embeddings are transferred to down-stream tasks, where BERT t
+09. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+    Content=general language representations. We argue that current techniques restrict the power of the pre-trained representations, espe- cially for the ﬁne-tuning approaches. The ma- jor li
+10. Source=BERT.pdf | Page=12 | Type=text | Image=N/A
+    Content=the model’s language understanding capability. In Section C.2, we evaluate the impact this proce- dure. Compared to standard langauge model training, the masked LM only make predic
+11. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+    Content=of the Transformer (Vaswani et al., 2017). Such re- strictions are sub-optimal for sentence-level tasks, and could be very harmful when applying ﬁne- tuning based approaches to tok
+12. Source=BERT.pdf | Page=16 | Type=text | Image=N/A
+    Content=MASK means that we replace the target token with the [MASK] symbol for MLM; S AME means that we keep the target token as is; R ND means that we replace the target token with anothe
+13. Source=BERT.pdf | Page=3 | Type=image | Image=extracted_images\BERT_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a circuit and a circuit  OCR Text: Mask LM  Masked Sentence A Masked Sentence B  Unlabeled Se
+14. Source=BERT.pdf | Page=4 | Type=image | Image=extracted_images\BERT_page4_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+15. Source=BERT.pdf | Page=2 | Type=text | Image=N/A
+    Content=word based only on its context. Unlike left-to- right language model pre-training, the MLM ob- jective enables the representation to fuse the left and the right context, which allo
+16. Source=BERT.pdf | Page=5 | Type=image | Image=extracted_images\BERT_page5_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a book with a page of a page of a page of a page of a page of a page of a page of a  OCR Text: f/f Token | ll Embeddings Eris
+17. Source=BERT.pdf | Page=8 | Type=text | Image=N/A
+    Content=For example, the largest Transformer explored in Vaswani et al. (2017) is (L=6, H=1024, A=16) with 100M parameters for the encoder, and the largest Transformer we have found in the
+18. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+    Content=ford et al., 2018), BERT is designed to pre- train deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers. As a
+19. Source=BERT.pdf | Page=12 | Type=text | Image=N/A
+    Content=presented in Appendix B; and • Additional ablation studies are presented in Appendix C. We present additional ablation studies for BERT including: – Effect of Number of Training St
+20. Source=BERT.pdf | Page=6 | Type=text | Image=N/A
+    Content=all of the words in the paragraph: Pi = eS·Ti ∑ j eS·Tj . The analogous formula is used for the end of the answer span. The score of a candidate span from positioni to positionj is
+21. Source=BERT.pdf | Page=8 | Type=text | Image=N/A
+    Content=using the “masked LM” (MLM) but without the “next sentence prediction” (NSP) task. LTR & No NSP: A left-context-only model which is trained using a standard Left-to-Right (LTR) LM,
+22. Source=BERT.pdf | Page=5 | Type=text | Image=N/A
+    Content=tasks. Detailed descriptions of GLUE datasets are included in Appendix B.1. To ﬁne-tune on GLUE, we represent the input sequence (for single sentence or sentence pairs) as describe
+
+------------------------------------------------------------------------------------------
+[RRF FUSION RANKING]
+------------------------------------------------------------------------------------------
+01. RRF=0.032787 | DenseRank=1 | BM25Rank=1 | Source=BERT.pdf | Page=1 | Type=text
+02. RRF=0.032258 | DenseRank=2 | BM25Rank=2 | Source=BERT.pdf | Page=16 | Type=text
+03. RRF=0.030777 | DenseRank=6 | BM25Rank=4 | Source=BERT.pdf | Page=2 | Type=text
+04. RRF=0.030550 | DenseRank=4 | BM25Rank=7 | Source=BERT.pdf | Page=16 | Type=text
+05. RRF=0.029469 | DenseRank=11 | BM25Rank=5 | Source=BERT.pdf | Page=1 | Type=text
+06. RRF=0.028992 | DenseRank=8 | BM25Rank=10 | Source=BERT.pdf | Page=12 | Type=text
+07. RRF=0.028718 | DenseRank=5 | BM25Rank=15 | Source=BERT.pdf | Page=2 | Type=text
+08. RRF=0.028219 | DenseRank=3 | BM25Rank=21 | Source=BERT.pdf | Page=8 | Type=text
+09. RRF=0.028175 | DenseRank=10 | BM25Rank=12 | Source=BERT.pdf | Page=16 | Type=text
+10. RRF=0.027497 | DenseRank=21 | BM25Rank=6 | Source=BERT.pdf | Page=14 | Type=text
+11. RRF=0.026611 | DenseRank=24 | BM25Rank=8 | Source=BERT.pdf | Page=5 | Type=text
+12. RRF=0.026357 | DenseRank=19 | BM25Rank=13 | Source=BERT.pdf | Page=3 | Type=image
+13. RRF=0.015873 | DenseRank=- | BM25Rank=3 | Source=BERT.pdf | Page=8 | Type=text
+14. RRF=0.014925 | DenseRank=7 | BM25Rank=- | Source=BERT.pdf | Page=9 | Type=text
+15. RRF=0.014493 | DenseRank=9 | BM25Rank=- | Source=BERT.pdf | Page=2 | Type=text
+16. RRF=0.014493 | DenseRank=- | BM25Rank=9 | Source=BERT.pdf | Page=1 | Type=text
+17. RRF=0.014085 | DenseRank=- | BM25Rank=11 | Source=BERT.pdf | Page=1 | Type=text
+18. RRF=0.013889 | DenseRank=12 | BM25Rank=- | Source=BERT.pdf | Page=13 | Type=text
+19. RRF=0.013699 | DenseRank=13 | BM25Rank=- | Source=BERT.pdf | Page=1 | Type=text
+20. RRF=0.013514 | DenseRank=14 | BM25Rank=- | Source=BERT.pdf | Page=13 | Type=text
+21. RRF=0.013514 | DenseRank=- | BM25Rank=14 | Source=BERT.pdf | Page=4 | Type=image
+22. RRF=0.013333 | DenseRank=15 | BM25Rank=- | Source=BERT.pdf | Page=2 | Type=text
+23. RRF=0.013158 | DenseRank=16 | BM25Rank=- | Source=BERT.pdf | Page=4 | Type=text
+24. RRF=0.013158 | DenseRank=- | BM25Rank=16 | Source=BERT.pdf | Page=5 | Type=image
+25. RRF=0.012987 | DenseRank=17 | BM25Rank=- | Source=BERT.pdf | Page=1 | Type=text
+26. RRF=0.012987 | DenseRank=- | BM25Rank=17 | Source=BERT.pdf | Page=8 | Type=text
+27. RRF=0.012821 | DenseRank=18 | BM25Rank=- | Source=BERT.pdf | Page=8 | Type=text
+28. RRF=0.012821 | DenseRank=- | BM25Rank=18 | Source=BERT.pdf | Page=1 | Type=text
+29. RRF=0.012658 | DenseRank=- | BM25Rank=19 | Source=BERT.pdf | Page=12 | Type=text
+30. RRF=0.012500 | DenseRank=20 | BM25Rank=- | Source=BERT.pdf | Page=4 | Type=text
+31. RRF=0.012500 | DenseRank=- | BM25Rank=20 | Source=BERT.pdf | Page=6 | Type=text
+32. RRF=0.012195 | DenseRank=22 | BM25Rank=- | Source=BERT.pdf | Page=10 | Type=text
+33. RRF=0.012195 | DenseRank=- | BM25Rank=22 | Source=BERT.pdf | Page=5 | Type=text
+34. RRF=0.012048 | DenseRank=23 | BM25Rank=- | Source=BERT.pdf | Page=11 | Type=text
+35. RRF=0.011765 | DenseRank=25 | BM25Rank=- | Source=BERT.pdf | Page=4 | Type=text
+------------------------------------------------------------------------------------------
+
+==========================================================================================
+STEP 3A — RETRIEVAL STAGE SUMMARY
+==========================================================================================
+Dense candidates       : 25
+BM25 candidates        : 22
+Dense ∩ BM25           : 12
+Dense-only candidates  : 13
+BM25-only candidates   : 10
+Unique candidate pool  : 35
+RRF candidates         : 35
+Returned to pipeline   : 8
+==========================================================================================
+
+------------------------------------------------------------------------------------------
+[SCOPED FINAL HYBRID RESULT] 8 candidates
+------------------------------------------------------------------------------------------
+01. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+    Content=BERT alleviates the previously mentioned unidi- rectionality constraint by using a “masked lan- guage model” (MLM) pre-training objective, in- spired by the Cloze task (Taylor, 195
+02. Source=BERT.pdf | Page=16 | Type=text | Image=N/A
+    Content=Procedures In Section 3.1, we mention that BERT uses a mixed strategy for masking the target tokens when pre-training with the masked language model (MLM) objective. The following 
+03. Source=BERT.pdf | Page=2 | Type=text | Image=N/A
+    Content=• We demonstrate the importance of bidirectional pre-training for language representations. Un- like Radford et al. (2018), which uses unidirec- tional language models for pre-trai
+04. Source=BERT.pdf | Page=16 | Type=text | Image=N/A
+    Content=trained on 1M steps compared to 500k steps. 2. Question: Does MLM pre-training converge slower than LTR pre-training, since only 15% of words are predicted in each batch rather tha
+05. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+    Content=include the pre-trained representations as addi- tional features. The ﬁne-tuning approach, such as the Generative Pre-trained Transformer (OpenAI GPT) (Radford et al., 2018), intro
+06. Source=BERT.pdf | Page=12 | Type=text | Image=N/A
+    Content=the model’s language understanding capability. In Section C.2, we evaluate the impact this proce- dure. Compared to standard langauge model training, the masked LM only make predic
+07. Source=BERT.pdf | Page=2 | Type=text | Image=N/A
+    Content=word based only on its context. Unlike left-to- right language model pre-training, the MLM ob- jective enables the representation to fuse the left and the right context, which allo
+08. Source=BERT.pdf | Page=8 | Type=text | Image=N/A
+    Content=using the “masked LM” (MLM) but without the “next sentence prediction” (NSP) task. LTR & No NSP: A left-context-only model which is trained using a standard Left-to-Right (LTR) LM,
+==========================================================================================
+
+================================================================================
+STAGE 1 — HYBRID RETRIEVAL
+================================================================================
+Retrieved Count : 8
+
+[HYBRID #1] Source=BERT.pdf | Page=1 | Type=text
+Content: BERT alleviates the previously mentioned unidi- rectionality constraint by using a “masked lan- guage model” (MLM) pre-training objective, in- spired by the Cloze task (Taylor, 1953). The masked language model randomly masks some of the tokens from the input, and the objective is to predict the original vocabulary id of the masked arXiv:1810.04805v2  [cs.CL]  24 May 2019
+
+[HYBRID #2] Source=BERT.pdf | Page=16 | Type=text
+Content: Procedures In Section 3.1, we mention that BERT uses a mixed strategy for masking the target tokens when pre-training with the masked language model (MLM) objective. The following is an ablation study to evaluate the effect of different masking strategies. 200 400 600 800 1,000 76 78 80 82 84 Pre-training Steps (Thousands) MNLI Dev Accuracy BERTBASE (Masked LM) BERTBASE (Left-to-Right) Figure 5: Ablation over number of training steps. This shows the MNLI accuracy after ﬁne-tuning, starting from 
+
+[HYBRID #3] Source=BERT.pdf | Page=2 | Type=text
+Content: • We demonstrate the importance of bidirectional pre-training for language representations. Un- like Radford et al. (2018), which uses unidirec- tional language models for pre-training, BERT uses masked language models to enable pre- trained deep bidirectional representations. This is also in contrast to Peters et al. (2018a), which uses a shallow concatenation of independently trained left-to-right and right-to-left LMs. • We show that pre-trained representations reduce the need for many heavil
+
+[HYBRID #4] Source=BERT.pdf | Page=16 | Type=text
+Content: trained on 1M steps compared to 500k steps. 2. Question: Does MLM pre-training converge slower than LTR pre-training, since only 15% of words are predicted in each batch rather than every word? Answer: The MLM model does converge slightly slower than the LTR model. How- ever, in terms of absolute accuracy the MLM model begins to outperform the LTR model almost immediately. C.2 Ablation for Different Masking Procedures In Section 3.1, we mention that BERT uses a mixed strategy for masking the tar
+
+[HYBRID #5] Source=BERT.pdf | Page=1 | Type=text
+Content: include the pre-trained representations as addi- tional features. The ﬁne-tuning approach, such as the Generative Pre-trained Transformer (OpenAI GPT) (Radford et al., 2018), introduces minimal task-speciﬁc parameters, and is trained on the downstream tasks by simply ﬁne-tuning all pre- trained parameters. The two approaches share the same objective function during pre-training, where they use unidirectional language models to learn general language representations. We argue that current techniq
+
+[HYBRID #6] Source=BERT.pdf | Page=12 | Type=text
+Content: the model’s language understanding capability. In Section C.2, we evaluate the impact this proce- dure. Compared to standard langauge model training, the masked LM only make predictions on 15% of tokens in each batch, which suggests that more pre-training steps may be required for the model
+
+[HYBRID #7] Source=BERT.pdf | Page=2 | Type=text
+Content: word based only on its context. Unlike left-to- right language model pre-training, the MLM ob- jective enables the representation to fuse the left and the right context, which allows us to pre- train a deep bidirectional Transformer. In addi- tion to the masked language model, we also use a “next sentence prediction” task that jointly pre- trains text-pair representations. The contributions of our paper are as follows: • We demonstrate the importance of bidirectional pre-training for language re
+
+[HYBRID #8] Source=BERT.pdf | Page=8 | Type=text
+Content: using the “masked LM” (MLM) but without the “next sentence prediction” (NSP) task. LTR & No NSP: A left-context-only model which is trained using a standard Left-to-Right (LTR) LM, rather than an MLM. The left-only constraint was also applied at ﬁne-tuning, because removing it introduced a pre-train/ﬁne-tune mismatch that degraded downstream performance. Additionally, this model was pre-trained without the NSP task. This is directly comparable to OpenAI GPT, but using our larger training dataset
+================================================================================
+[DOCUMENT SCOPE] Text chunks: 8 -> 8
+
+================================================================================
+IMAGE RETRIEVAL DIAGNOSTIC
+================================================================================
+Query                 : What is the masked language model (MLM) objective used during BERT pre-training?
+Allowed Sources       : ['BERT.pdf']
+Image Candidates      : 554 -> 8 (scoped before ranking)
+
+ALL IMAGE CANDIDATES
+--------------------------------------------------------------------------------
+Rank=01 | Source=BERT.pdf | Page=3 | Image=BERT_page3_render.png | Hybrid=3.3578 | CE=5.4360 | CLIP=0.2406
+Rank=02 | Source=BERT.pdf | Page=13 | Image=BERT_page13_render.png | Hybrid=2.3301 | CE=3.7169 | CLIP=0.2498
+Rank=03 | Source=BERT.pdf | Page=5 | Image=BERT_page5_render.png | Hybrid=-0.5029 | CE=-1.0010 | CLIP=0.2444
+Rank=04 | Source=BERT.pdf | Page=3 | Image=BERT_page3_img12.png | Hybrid=-1.0437 | CE=-1.8952 | CLIP=0.2336
+Rank=05 | Source=BERT.pdf | Page=6 | Image=BERT_page6_render.png | Hybrid=-1.1967 | CE=-2.1554 | CLIP=0.2412
+Rank=06 | Source=BERT.pdf | Page=14 | Image=BERT_page14_render.png | Hybrid=-1.8949 | CE=-3.3187 | CLIP=0.2409
+Rank=07 | Source=BERT.pdf | Page=4 | Image=BERT_page4_render.png | Hybrid=-4.8536 | CE=-8.2455 | CLIP=0.2342
+Rank=08 | Source=BERT.pdf | Page=15 | Image=BERT_page15_img13.png | Hybrid=-5.9307 | CE=-10.0403 | CLIP=0.2336
+
+TOP IMAGE RESULTS
+--------------------------------------------------------------------------------
+TOP-1 | Source=BERT.pdf | Page=3 | Image=BERT_page3_render.png | Hybrid=3.3578 | CE=5.4360 | CLIP=0.2406
+TOP-2 | Source=BERT.pdf | Page=13 | Image=BERT_page13_render.png | Hybrid=2.3301 | CE=3.7169 | CLIP=0.2498
+TOP-3 | Source=BERT.pdf | Page=5 | Image=BERT_page5_render.png | Hybrid=-0.5029 | CE=-1.0010 | CLIP=0.2444
+================================================================================
+[DOCUMENT SCOPE] Images: 3 -> 3
+
+================================================================================
+STAGE 2 — IMAGE RETRIEVAL RESULT
+================================================================================
+Image Results       : 3
+Exact Figure Match  : False
+
+[IMAGE #1] Source=BERT.pdf | Page=3 | Image=BERT_page3_render.png
+Image Path: extracted_images\BERT_page3_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a circuit and a circuit  OCR Text: Mask LM  Masked Sentence A Masked Sentence B  Unlabeled Sentence A and B Pair  Pre-training  Question Paragraph Question er Pair /  Fine-Tuning  Figure 1: Overall pre-training and fine-tuning procedures for BERT. Apart from output layers, the same architec- tures are used in both pre-training and fine-tuning. The same pre-trained model parameters are used to initialize  model
+
+[IMAGE #2] Source=BERT.pdf | Page=13 | Image=BERT_page13_render.png
+Image Path: extracted_images\BERT_page13_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a textbook on the internet network  OCR Text: BERT (Ours)  OpenAl GPT  Figure 3: Differences in pre-training model architectures. BERT uses a bidirectional Transformer. OpenAI GPT uses a left-to-right Transformer. ELMo uses the concatenation of independently trained left-to-right and right-to- left LSTMs to generate features for downstream tasks. Among the three, only BERT representations are jointly conditioned on both left and right cont
+
+[IMAGE #3] Source=BERT.pdf | Page=5 | Image=BERT_page5_render.png
+Image Path: extracted_images\BERT_page5_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a book with a page of a page of a page of a page of a page of a page of a page of a  OCR Text: f/f Token | ll Embeddings Eris) Fay E tog Es Eu = Eines E ay Essing E se0] + + + + Segment Embeddings E, Ey E, : Lt Es + + + + Position  Figure 2: BERT input representation. The input embeddings are the sum of the token embeddings, the segmenta-  tion embeddings and the position embeddings.  The NSP task is closely related to representation- learni
+================================================================================
+
+================================================================================
+COMBINED RETRIEVAL CANDIDATES
+================================================================================
+Text Candidates  : 8
+Image Candidates : 3
+Total Candidates : 11
+================================================================================
+
+================================================================================
+STEP 3A — RERANKER INPUT
+================================================================================
+Query: What is the masked language model (MLM) objective used during BERT pre-training?
+Input candidates: 11
+01. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+    Content=BERT alleviates the previously mentioned unidi- rectionality constraint by using a “masked lan- guage model” (MLM) pre-training objective, in- spired by the Cloze task (Taylor, 195
+02. Source=BERT.pdf | Page=16 | Type=text | Image=N/A
+    Content=Procedures In Section 3.1, we mention that BERT uses a mixed strategy for masking the target tokens when pre-training with the masked language model (MLM) objective. The following 
+03. Source=BERT.pdf | Page=2 | Type=text | Image=N/A
+    Content=• We demonstrate the importance of bidirectional pre-training for language representations. Un- like Radford et al. (2018), which uses unidirec- tional language models for pre-trai
+04. Source=BERT.pdf | Page=16 | Type=text | Image=N/A
+    Content=trained on 1M steps compared to 500k steps. 2. Question: Does MLM pre-training converge slower than LTR pre-training, since only 15% of words are predicted in each batch rather tha
+05. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+    Content=include the pre-trained representations as addi- tional features. The ﬁne-tuning approach, such as the Generative Pre-trained Transformer (OpenAI GPT) (Radford et al., 2018), intro
+06. Source=BERT.pdf | Page=12 | Type=text | Image=N/A
+    Content=the model’s language understanding capability. In Section C.2, we evaluate the impact this proce- dure. Compared to standard langauge model training, the masked LM only make predic
+07. Source=BERT.pdf | Page=2 | Type=text | Image=N/A
+    Content=word based only on its context. Unlike left-to- right language model pre-training, the MLM ob- jective enables the representation to fuse the left and the right context, which allo
+08. Source=BERT.pdf | Page=8 | Type=text | Image=N/A
+    Content=using the “masked LM” (MLM) but without the “next sentence prediction” (NSP) task. LTR & No NSP: A left-context-only model which is trained using a standard Left-to-Right (LTR) LM,
+09. Source=BERT.pdf | Page=3 | Type=image | Image=extracted_images\BERT_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a circuit and a circuit  OCR Text: Mask LM  Masked Sentence A Masked Sentence B  Unlabeled Se
+10. Source=BERT.pdf | Page=13 | Type=image | Image=extracted_images\BERT_page13_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a textbook on the internet network  OCR Text: BERT (Ours)  OpenAl GPT  Figure 3: Differences in pre-training model architec
+11. Source=BERT.pdf | Page=5 | Type=image | Image=extracted_images\BERT_page5_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a book with a page of a page of a page of a page of a page of a page of a page of a  OCR Text: f/f Token | ll Embeddings Eris
+================================================================================
+
+--------------------------------------------------------------------------------
+CROSS-ENCODER RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=00 | Source=BERT.pdf | Page=1 | Type=text | CE=8.9883
+Rank=02 | OriginalIndex=01 | Source=BERT.pdf | Page=16 | Type=text | CE=8.1273
+Rank=03 | OriginalIndex=02 | Source=BERT.pdf | Page=2 | Type=text | CE=6.4762
+Rank=04 | OriginalIndex=08 | Source=BERT.pdf | Page=3 | Type=image | CE=5.4360
+Rank=05 | OriginalIndex=06 | Source=BERT.pdf | Page=2 | Type=text | CE=4.9150
+Rank=06 | OriginalIndex=03 | Source=BERT.pdf | Page=16 | Type=text | CE=4.8649
+Rank=07 | OriginalIndex=05 | Source=BERT.pdf | Page=12 | Type=text | CE=3.8105
+Rank=08 | OriginalIndex=09 | Source=BERT.pdf | Page=13 | Type=image | CE=3.7169
+Rank=09 | OriginalIndex=07 | Source=BERT.pdf | Page=8 | Type=text | CE=3.6112
+Rank=10 | OriginalIndex=04 | Source=BERT.pdf | Page=1 | Type=text | CE=0.2222
+Rank=11 | OriginalIndex=10 | Source=BERT.pdf | Page=5 | Type=image | CE=-1.0010
+
+--------------------------------------------------------------------------------
+CLIP IMAGE RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=09 | Source=BERT.pdf | Page=13 | Image=extracted_images\BERT_page13_render.png | CLIP=0.2498
+Rank=02 | OriginalIndex=10 | Source=BERT.pdf | Page=5 | Image=extracted_images\BERT_page5_render.png | CLIP=0.2444
+Rank=03 | OriginalIndex=08 | Source=BERT.pdf | Page=3 | Image=extracted_images\BERT_page3_render.png | CLIP=0.2406
+
+================================================================================
+STEP 3A — COMPLETE MULTIMODAL RERANK RESULT
+================================================================================
+Rank=01 | Type=image | Source=BERT.pdf | Page=3 | RRF=0.031498 | CE=5.4360 | CLIP=0.2406
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a circuit and a circuit  OCR Text: Mask LM  Masked Sentence A Masked Sentence B  Unlabeled Se
+Rank=02 | Type=image | Source=BERT.pdf | Page=13 | RRF=0.031099 | CE=3.7169 | CLIP=0.2498
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a textbook on the internet network  OCR Text: BERT (Ours)  OpenAl GPT  Figure 3: Differences in pre-training model architec
+Rank=03 | Type=image | Source=BERT.pdf | Page=5 | RRF=0.030214 | CE=-1.0010 | CLIP=0.2444
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a book with a page of a page of a page of a page of a page of a page of a page of a  OCR Text: f/f Token | ll Embeddings Eris
+Rank=04 | Type=text | Source=BERT.pdf | Page=1 | RRF=0.016393 | CE=8.9883 | CLIP=N/A
+    Content=BERT alleviates the previously mentioned unidi- rectionality constraint by using a “masked lan- guage model” (MLM) pre-training objective, in- spired by the Cloze task (Taylor, 195
+Rank=05 | Type=text | Source=BERT.pdf | Page=16 | RRF=0.016129 | CE=8.1273 | CLIP=N/A
+    Content=Procedures In Section 3.1, we mention that BERT uses a mixed strategy for masking the target tokens when pre-training with the masked language model (MLM) objective. The following 
+Rank=06 | Type=text | Source=BERT.pdf | Page=2 | RRF=0.015873 | CE=6.4762 | CLIP=N/A
+    Content=• We demonstrate the importance of bidirectional pre-training for language representations. Un- like Radford et al. (2018), which uses unidirec- tional language models for pre-trai
+Rank=07 | Type=text | Source=BERT.pdf | Page=2 | RRF=0.015385 | CE=4.9150 | CLIP=N/A
+    Content=word based only on its context. Unlike left-to- right language model pre-training, the MLM ob- jective enables the representation to fuse the left and the right context, which allo
+Rank=08 | Type=text | Source=BERT.pdf | Page=16 | RRF=0.015152 | CE=4.8649 | CLIP=N/A
+    Content=trained on 1M steps compared to 500k steps. 2. Question: Does MLM pre-training converge slower than LTR pre-training, since only 15% of words are predicted in each batch rather tha
+Rank=09 | Type=text | Source=BERT.pdf | Page=12 | RRF=0.014925 | CE=3.8105 | CLIP=N/A
+    Content=the model’s language understanding capability. In Section C.2, we evaluate the impact this proce- dure. Compared to standard langauge model training, the masked LM only make predic
+Rank=10 | Type=text | Source=BERT.pdf | Page=8 | RRF=0.014493 | CE=3.6112 | CLIP=N/A
+    Content=using the “masked LM” (MLM) but without the “next sentence prediction” (NSP) task. LTR & No NSP: A left-context-only model which is trained using a standard Left-to-Right (LTR) LM,
+Rank=11 | Type=text | Source=BERT.pdf | Page=1 | RRF=0.014286 | CE=0.2222 | CLIP=N/A
+    Content=include the pre-trained representations as addi- tional features. The ﬁne-tuning approach, such as the Generative Pre-trained Transformer (OpenAI GPT) (Radford et al., 2018), intro
+================================================================================
+
+================================================================================
+STEP 3A — FINAL RERANK TOP-K
+================================================================================
+Requested top_k: 12
+Returned documents: 11
+01. Source=BERT.pdf | Page=3 | Type=image | Image=extracted_images\BERT_page3_render.png
+02. Source=BERT.pdf | Page=13 | Type=image | Image=extracted_images\BERT_page13_render.png
+03. Source=BERT.pdf | Page=5 | Type=image | Image=extracted_images\BERT_page5_render.png
+04. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+05. Source=BERT.pdf | Page=16 | Type=text | Image=N/A
+06. Source=BERT.pdf | Page=2 | Type=text | Image=N/A
+07. Source=BERT.pdf | Page=2 | Type=text | Image=N/A
+08. Source=BERT.pdf | Page=16 | Type=text | Image=N/A
+09. Source=BERT.pdf | Page=12 | Type=text | Image=N/A
+10. Source=BERT.pdf | Page=8 | Type=text | Image=N/A
+11. Source=BERT.pdf | Page=1 | Type=text | Image=N/A
+================================================================================
+
+================================================================================
+STAGE 3 — MULTIMODAL RERANKING
+================================================================================
+Input Candidates : 11
+Reranked Output   : 11
+
+[RERANK #1] Source=BERT.pdf | Page=3 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a circuit and a circuit  OCR Text: Mask LM  Masked Sentence A Masked Sentence B  Unlabeled Sentence A and B Pair  Pre-training  Question Paragraph Question er Pair /  Fine-Tuning  Figure 1: Overall pre-training an
+
+[RERANK #2] Source=BERT.pdf | Page=13 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a textbook on the internet network  OCR Text: BERT (Ours)  OpenAl GPT  Figure 3: Differences in pre-training model architectures. BERT uses a bidirectional Transformer. OpenAI GPT uses a left-to-right Transformer. ELMo uses the concatenation o
+
+[RERANK #3] Source=BERT.pdf | Page=5 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a book with a page of a page of a page of a page of a page of a page of a page of a  OCR Text: f/f Token | ll Embeddings Eris) Fay E tog Es Eu = Eines E ay Essing E se0] + + + + Segment Embeddings E, Ey E, : Lt Es + + + + Position  Figure 2: BER
+
+[RERANK #4] Source=BERT.pdf | Page=1 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: BERT alleviates the previously mentioned unidi- rectionality constraint by using a “masked lan- guage model” (MLM) pre-training objective, in- spired by the Cloze task (Taylor, 1953). The masked language model randomly masks some of the tokens from the input, and the objective is to predict the orig
+
+[RERANK #5] Source=BERT.pdf | Page=16 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Procedures In Section 3.1, we mention that BERT uses a mixed strategy for masking the target tokens when pre-training with the masked language model (MLM) objective. The following is an ablation study to evaluate the effect of different masking strategies. 200 400 600 800 1,000 76 78 80 82 84 Pre-tr
+
+[RERANK #6] Source=BERT.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: • We demonstrate the importance of bidirectional pre-training for language representations. Un- like Radford et al. (2018), which uses unidirec- tional language models for pre-training, BERT uses masked language models to enable pre- trained deep bidirectional representations. This is also in contra
+
+[RERANK #7] Source=BERT.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: word based only on its context. Unlike left-to- right language model pre-training, the MLM ob- jective enables the representation to fuse the left and the right context, which allows us to pre- train a deep bidirectional Transformer. In addi- tion to the masked language model, we also use a “next se
+
+[RERANK #8] Source=BERT.pdf | Page=16 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: trained on 1M steps compared to 500k steps. 2. Question: Does MLM pre-training converge slower than LTR pre-training, since only 15% of words are predicted in each batch rather than every word? Answer: The MLM model does converge slightly slower than the LTR model. How- ever, in terms of absolute ac
+
+[RERANK #9] Source=BERT.pdf | Page=12 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: the model’s language understanding capability. In Section C.2, we evaluate the impact this proce- dure. Compared to standard langauge model training, the masked LM only make predictions on 15% of tokens in each batch, which suggests that more pre-training steps may be required for the model
+
+[RERANK #10] Source=BERT.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: using the “masked LM” (MLM) but without the “next sentence prediction” (NSP) task. LTR & No NSP: A left-context-only model which is trained using a standard Left-to-Right (LTR) LM, rather than an MLM. The left-only constraint was also applied at ﬁne-tuning, because removing it introduced a pre-train
+
+[RERANK #11] Source=BERT.pdf | Page=1 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: include the pre-trained representations as addi- tional features. The ﬁne-tuning approach, such as the Generative Pre-trained Transformer (OpenAI GPT) (Radford et al., 2018), introduces minimal task-speciﬁc parameters, and is trained on the downstream tasks by simply ﬁne-tuning all pre- trained para
+================================================================================
+
+================================================================================
+FINAL CONTEXT DOCUMENTS
+================================================================================
+Final context candidates: 11
+
+[FINAL #1] Source=BERT.pdf | Page=3 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a circuit and a circuit  OCR Text: Mask LM  Masked Sentence A Masked Sentence B  Unlabeled Sentence A and B Pair  Pre-training  Question Paragraph Question er Pair /  Fine-Tuning  Figure 1: Overall pre-training an
+
+[FINAL #2] Source=BERT.pdf | Page=13 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from a textbook on the internet network  OCR Text: BERT (Ours)  OpenAl GPT  Figure 3: Differences in pre-training model architectures. BERT uses a bidirectional Transformer. OpenAI GPT uses a left-to-right Transformer. ELMo uses the concatenation o
+
+[FINAL #3] Source=BERT.pdf | Page=5 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page of a book with a page of a page of a page of a page of a page of a page of a page of a  OCR Text: f/f Token | ll Embeddings Eris) Fay E tog Es Eu = Eines E ay Essing E se0] + + + + Segment Embeddings E, Ey E, : Lt Es + + + + Position  Figure 2: BER
+
+[FINAL #4] Source=BERT.pdf | Page=1 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: BERT alleviates the previously mentioned unidi- rectionality constraint by using a “masked lan- guage model” (MLM) pre-training objective, in- spired by the Cloze task (Taylor, 1953). The masked language model randomly masks some of the tokens from the input, and the objective is to predict the orig
+
+[FINAL #5] Source=BERT.pdf | Page=16 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Procedures In Section 3.1, we mention that BERT uses a mixed strategy for masking the target tokens when pre-training with the masked language model (MLM) objective. The following is an ablation study to evaluate the effect of different masking strategies. 200 400 600 800 1,000 76 78 80 82 84 Pre-tr
+
+[FINAL #6] Source=BERT.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: • We demonstrate the importance of bidirectional pre-training for language representations. Un- like Radford et al. (2018), which uses unidirec- tional language models for pre-training, BERT uses masked language models to enable pre- trained deep bidirectional representations. This is also in contra
+
+[FINAL #7] Source=BERT.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: word based only on its context. Unlike left-to- right language model pre-training, the MLM ob- jective enables the representation to fuse the left and the right context, which allows us to pre- train a deep bidirectional Transformer. In addi- tion to the masked language model, we also use a “next se
+
+[FINAL #8] Source=BERT.pdf | Page=16 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: trained on 1M steps compared to 500k steps. 2. Question: Does MLM pre-training converge slower than LTR pre-training, since only 15% of words are predicted in each batch rather than every word? Answer: The MLM model does converge slightly slower than the LTR model. How- ever, in terms of absolute ac
+
+[FINAL #9] Source=BERT.pdf | Page=12 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: the model’s language understanding capability. In Section C.2, we evaluate the impact this proce- dure. Compared to standard langauge model training, the masked LM only make predictions on 15% of tokens in each batch, which suggests that more pre-training steps may be required for the model
+
+[FINAL #10] Source=BERT.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: using the “masked LM” (MLM) but without the “next sentence prediction” (NSP) task. LTR & No NSP: A left-context-only model which is trained using a standard Left-to-Right (LTR) LM, rather than an MLM. The left-only constraint was also applied at ﬁne-tuning, because removing it introduced a pre-train
+
+[FINAL #11] Source=BERT.pdf | Page=1 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: include the pre-trained representations as addi- tional features. The ﬁne-tuning approach, such as the Generative Pre-trained Transformer (OpenAI GPT) (Radford et al., 2018), introduces minimal task-speciﬁc parameters, and is trained on the downstream tasks by simply ﬁne-tuning all pre- trained para
+================================================================================
+
+================================================================================
+FINAL CONTEXT SENT TO LLM
+================================================================================
+
+================================================================================
+DOCUMENT : BERT.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 1
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+BERT alleviates the previously mentioned unidi-
+rectionality constraint by using a “masked lan-
+guage model” (MLM) pre-training objective, in-
+spired by the Cloze task (Taylor, 1953). The
+masked language model randomly masks some of
+the tokens from the input, and the objective is to
+predict the original vocabulary id of the masked
+arXiv:1810.04805v2  [cs.CL]  24 May 2019
+
+
+[TEXT]
+
+include the pre-trained representations as addi-
+tional features. The ﬁne-tuning approach, such as
+the Generative Pre-trained Transformer (OpenAI
+GPT) (Radford et al., 2018), introduces minimal
+task-speciﬁc parameters, and is trained on the
+downstream tasks by simply ﬁne-tuning all pre-
+trained parameters. The two approaches share the
+same objective function during pre-training, where
+they use unidirectional language models to learn
+general language representations.
+We argue that current techniques restrict the
+power of the pre-trained representations, espe-
+
+
+--------------------------------------------------------------------------------
+PAGE : 2
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+• We demonstrate the importance of bidirectional
+pre-training for language representations. Un-
+like Radford et al. (2018), which uses unidirec-
+tional language models for pre-training, BERT
+uses masked language models to enable pre-
+trained deep bidirectional representations. This
+is also in contrast to Peters et al. (2018a), which
+uses a shallow concatenation of independently
+trained left-to-right and right-to-left LMs.
+• We show that pre-trained representations reduce
+the need for many heavily-engineered task-
+speciﬁc architectures. BERT is the ﬁrst ﬁne-
+
+
+[TEXT]
+
+word based only on its context. Unlike left-to-
+right language model pre-training, the MLM ob-
+jective enables the representation to fuse the left
+and the right context, which allows us to pre-
+train a deep bidirectional Transformer. In addi-
+tion to the masked language model, we also use
+a “next sentence prediction” task that jointly pre-
+trains text-pair representations. The contributions
+of our paper are as follows:
+• We demonstrate the importance of bidirectional
+pre-training for language representations. Un-
+like Radford et al. (2018), which uses unidirec-
+
+
+--------------------------------------------------------------------------------
+PAGE : 3
+--------------------------------------------------------------------------------
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a page from the book, showing an image of a circuit and a circuit
+
+OCR Text:
+Mask LM
+
+Masked Sentence A Masked Sentence B
+
+Unlabeled Sentence A and B Pair
+
+Pre-training
+
+Question Paragraph
+Question er Pair /
+
+Fine-Tuning
+
+Figure 1: Overall pre-training and fine-tuning procedures for BERT. Apart from output layers, the same architec-
+tures are used in both pre-training and fine-tuning. The same pre-trained model parameters are used to initialize
+
+models for different down-stream tasks. During fine-tuning, all parameters are fine-tuned.
+symbol added in front of every input example, and [SEP] is a special separator token (e.g.
+
+tions/answers).
+
+ing and auto-encoder objectives have been used
+for pre-training such models (Howard and Ruder,
+2018; Radford et al., 2018; Dai and Le, 2015).
+
+2.3 Transfer Learning from Supervised Data
+
+There has also been work showing effective trans-
+fer from supervised tasks with large datasets, such
+as natural language inference (Conneau et al.,
+2017) and machine translation (McCann et al.,
+2017). Computer vision research has also demon-
+strated the importance of transfer learning from
+large pre-trained models, where an effective recipe
+is to fine-tune models pre-trained with Ima-
+geNet (Deng et al., 2009; Yosinski et al., 2014).
+
+3 BERT
+
+We introduce BERT and its detailed implementa-
+tion in this section. There are two steps in our
+framework: pre-training and fine-tuning. Dur-
+ing pre-training, the model is trained on unlabeled
+data over different pre-training tasks. For fine-
+tuning, the BERT model is first initialized with
+the pre-trained parameters, and all of the param-
+eters are fine-tuned using labeled data from the
+downstream tasks. Each downstream task has sep-
+arate fine-tuned models, even though they are ini-
+tialized with the same pre-trained parameters. The
+question-answering example in Figure 1 will serve
+as a running example for this section.
+
+A distinctive feature of BERT is its unified ar-
+chitecture across different tasks. There is mini-
+
+[CLS] is a special
+separating ques-
+
+mal difference between the pre-trained architec-
+ture and the final downstream architecture.
+
+Model Architecture BERT’s model architec-
+ture is a multi-layer bidirectional Transformer en-
+coder based on the original implementation de-
+scribed in Vaswani et al. (2017) and released in
+the tensor2tensor library.! Because the use
+of Transformers has become common and our im-
+plementation is almost identical to the original,
+we will omit an exhaustive background descrip-
+tion of the model architecture and refer readers to
+Vaswani et al. (2017) as well as excellent guides
+such as “The Annotated Transformer.”
+
+In this work, we denote the number of layers
+(i.e., Transformer blocks) as LZ, the hidden size as
+H, and the number of self-attention heads as A3
+We primarily report results on two model sizes:
+BERT gasr (L=12, H=768, A=12, Total Param-
+eters=110M) and BERT arcer (L=24, H=1024,
+A=16, Total Parameters=340M).
+
+BERT gasg was chosen to have the same model
+size as OpenAI GPT for comparison purposes.
+Critically, however, the BERT Transformer uses
+bidirectional self-attention, while the GPT Trans-
+former uses constrained self-attention where every
+token can only attend to context to its left.*
+
+‘https://github.com/tensorflow/tensor2tensor
+*http://nlp.seas.harvard.edu/2018/04/03/attention. html
+3Yn all cases we set the feed-forward/filter size to be 4H,
+i.e., 3072 for the H = 768 and 4096 for the H = 1024,
+4We note that in the literature the bidirectional Trans-
+
+Nearby Document Text:
+BERT
+BERT
+E[CLS]
+E1
+ E[SEP]
+...
+EN
+E1’
+...
+EM’
+C
+T1
+T[SEP]
+...
+TN
+T1’
+...
+TM’
+[CLS]
+Tok 1
+ [SEP]
+...
+Tok N
+Tok 1
+...
+TokM
+Question
+Paragraph
+Start/End Span
+BERT
+E[CLS]
+E1
+ E[SEP]
+...
+EN
+E1’
+...
+EM’
+C
+T1
+T[SEP]
+...
+TN
+T1’
+...
+TM’
+[CLS]
+Tok 1
+ [SEP]
+...
+Tok N
+Tok 1
+...
+TokM
+Masked Sentence A
+Masked Sentence B
+Pre-training
+Fine-Tuning
+NSP
+Mask LM
+Mask LM
+Unlabeled Sentence A and B Pair 
+SQuAD
+Question Answer Pair
+NER
+MNLI
+Figure 1: Overall pre-training and ﬁne-tuning procedures for BERT. Apart from output layers, the same architec-
+tures are used in both pre-training and ﬁne-tuning. The same pre-
+
+
+--------------------------------------------------------------------------------
+PAGE : 5
+--------------------------------------------------------------------------------
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a page of a book with a page of a page of a page of a page of a page of a page of a page of a
+
+OCR Text:
+f/f
+Token | ll
+Embeddings Eris) Fay E tog Es Eu = Eines E ay Essing E se0]
++ + + +
+Segment
+Embeddings E, Ey E, : Lt Es
++ + + +
+Position
+
+Figure 2: BERT input representation. The input embeddings are the sum of the token embeddings, the segmenta-
+
+tion embeddings and the position embeddings.
+
+The NSP task is closely related to representation-
+learning objectives used in Jernite et al. (2017) and
+Logeswaran and Lee (2018). However, in prior
+work, only sentence embeddings are transferred to
+down-stream tasks, where BERT transfers all pa-
+rameters to initialize end-task model parameters.
+
+Pre-training data The pre-training procedure
+largely follows the existing literature on language
+model pre-training. For the pre-training corpus we
+use the BooksCorpus (800M words) (Zhu et al.,
+2015) and English Wikipedia (2,500M words).
+For Wikipedia we extract only the text passages
+and ignore lists, tables, and headers. It is criti-
+cal to use a document-level corpus rather than a
+shuffled sentence-level corpus such as the Billion
+Word Benchmark (Chelba et al., 2013) in order to
+extract long contiguous sequences.
+
+3.2 Fine-tuning BERT
+
+Fine-tuning is straightforward since the self-
+attention mechanism in the Transformer al-
+lows BERT to model many downstream tasks—
+whether they involve single text or text pairs—by
+swapping out the appropriate inputs and outputs.
+For applications involving text pairs, a common
+pattern is to independently encode text pairs be-
+fore applying bidirectional cross attention, such
+as Parikh et al. (2016); Seo et al. (2017). BERT
+instead uses the self-attention mechanism to unify
+these two stages, as encoding a concatenated text
+pair with self-attention effectively includes bidi-
+rectional cross attention between two sentences.
+For each task, we simply plug in the task-
+specific inputs and outputs into BERT and fine-
+tune all the parameters end-to-end. At the in-
+put, sentence A and sentence B from pre-training
+are analogous to (1) sentence pairs in paraphras-
+ing, (2) hypothesis-premise pairs in entailment, (3)
+question-passage pairs in question answering, and
+
+(4) a degenerate text-@ pair in text classification
+or sequence tagging. At the output, the token rep-
+resentations are fed into an output layer for token-
+level tasks, such as sequence tagging or question
+answering, and the [CLS] representation is fed
+into an output layer for classification, such as en-
+tailment or sentiment analysis.
+
+Compared to pre-training, fine-tuning is rela-
+tively inexpensive. All of the results in the pa-
+per can be replicated in at most 1 hour on a sin-
+gle Cloud TPU, or a few hours on a GPU, starting
+from the exact same pre-trained model.’ We de-
+scribe the task-specific details in the correspond-
+ing subsections of Section 4. More details can be
+found in Appendix A.5.
+
+4 Experiments
+
+In this section, we present BERT fine-tuning re-
+sults on 11 NLP tasks.
+
+4.1 GLUE
+
+The General Language Understanding Evaluation
+(GLUE) benchmark (Wang et al., 2018a) is a col-
+lection of diverse natural language understanding
+tasks. Detailed descriptions of GLUE datasets are
+included in Appendix B.1.
+
+To fine-tune on GLUE, we represent the input
+sequence (for single sentence or sentence pairs)
+as described in Section 3, and use the final hid-
+den vector C € R*” corresponding to the first
+input token ([CLS]) as the aggregate representa-
+tion. The only new parameters introduced during
+fine-tuning are classification layer weights W €
+R*Xx4) where K is the number of labels. We com-
+pute a standard classification loss with C and W,
+i.e., log(softmax(CW7)).
+
+For example, the BERT SQUAD model can be trained in
+around 30 minutes on a single Cloud TPU to achieve a Dev
+
+F1 score of 91.0%.
+®See (10) in https: //gluebenchmark . com/faq.
+
+Nearby Document Text:
+[CLS]
+he
+likes
+play
+##ing
+[SEP]
+my
+dog
+is
+cute
+[SEP]
+Input
+E[CLS]
+Ehe
+Elikes
+Eplay
+E##ing
+E[SEP]
+Emy
+Edog
+Eis
+Ecute
+E[SEP]
+Token
+Embeddings
+EA
+EB
+EB
+EB
+EB
+EB
+EA
+EA
+EA
+EA
+EA
+Segment
+Embeddings
+E0
+E6
+E7
+E8
+E9
+E10
+E1
+E2
+E3
+E4
+E5
+Position
+Embeddings
+Figure 2: BERT input representation. The input embeddings are the sum of the token embeddings, the segmenta-
+tion embeddings and the position embeddings.
+The NSP task is closely related to representation-
+learning objectives used in Jernite et al. (2017) and
+Logeswaran and Lee (2018). However, in prior
+work, only sentence embeddings are transferred to
+
+
+--------------------------------------------------------------------------------
+PAGE : 8
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+using the “masked LM” (MLM) but without the
+“next sentence prediction” (NSP) task.
+LTR & No NSP: A left-context-only model which
+is trained using a standard Left-to-Right (LTR)
+LM, rather than an MLM. The left-only constraint
+was also applied at ﬁne-tuning, because removing
+it introduced a pre-train/ﬁne-tune mismatch that
+degraded downstream performance. Additionally,
+this model was pre-trained without the NSP task.
+This is directly comparable to OpenAI GPT, but
+using our larger training dataset, our input repre-
+sentation, and our ﬁne-tuning scheme.
+
+
+--------------------------------------------------------------------------------
+PAGE : 12
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+the model’s language understanding capability. In
+Section C.2, we evaluate the impact this proce-
+dure.
+Compared to standard langauge model training,
+the masked LM only make predictions on 15% of
+tokens in each batch, which suggests that more
+pre-training steps may be required for the model
+
+
+--------------------------------------------------------------------------------
+PAGE : 13
+--------------------------------------------------------------------------------
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a page from a textbook on the internet network
+
+OCR Text:
+BERT (Ours)
+
+OpenAl GPT
+
+Figure 3: Differences in pre-training model architectures. BERT uses a bidirectional Transformer. OpenAI GPT
+uses a left-to-right Transformer. ELMo uses the concatenation of independently trained left-to-right and right-to-
+left LSTMs to generate features for downstream tasks. Among the three, only BERT representations are jointly
+conditioned on both left and right context in all layers. In addition to the architecture differences, BERT and
+OpenAlI GPT are fine-tuning approaches, while ELMo is a feature-based approach.
+
+to converge. In Section C.1 we demonstrate that
+MLM does converge marginally slower than a left-
+to-right model (which predicts every token), but
+the empirical improvements of the MLM model
+far outweigh the increased training cost.
+
+Next Sentence Prediction The next sentence
+prediction task can be illustrated in the following
+examples.
+
+Input = [CLS] the man went to [MASK] store [SEP]
+he bought a gallon [MASK] milk [SEP]
+
+Label = tsnext
+
+Input = [CLS] the man [MASK] to the store [SEP]
+penguin [MASK] are flight f#less birds [SEP]
+
+Label = notnext
+
+A.2 Pre-training Procedure
+
+To generate each training input sequence, we sam-
+ple two spans of text from the corpus, which we
+refer to as “sentences” even though they are typ-
+ically much longer than single sentences (but can
+be shorter also). The first sentence receives the A
+embedding and the second receives the B embed-
+ding. 50% of the time B is the actual next sentence
+that follows A and 50% of the time it is a random
+sentence, which is done for the “next sentence pre-
+diction” task. They are sampled such that the com-
+bined length is < 512 tokens. The LM masking is
+applied after WordPiece tokenization with a uni-
+form masking rate of 15%, and no special consid-
+eration given to partial word pieces.
+
+We train with batch size of 256 sequences (256
+sequences * 512 tokens = 128,000 tokens/batch)
+for 1,000,000 steps, which is approximately 40
+
+epochs over the 3.3 billion word corpus. We
+use Adam with learning rate of le-4, 6: = 0.9,
+B2 = 0.999, L2 weight decay of 0.01, learning
+rate warmup over the first 10,000 steps, and linear
+decay of the learning rate. We use a dropout prob-
+ability of 0.1 on all layers. We use a gelu acti-
+vation (Hendrycks and Gimpel, 2016) rather than
+the standard relu, following OpenAI GPT. The
+training loss is the sum of the mean masked LM
+likelihood and the mean next sentence prediction
+likelihood.
+
+Training of BERTpase was performed on 4
+Cloud TPUs in Pod configuration (16 TPU chips
+total).!3 Training of BERT, arGr was performed
+on 16 Cloud TPUs (64 TPU chips total). Each pre-
+training took 4 days to complete.
+
+Longer sequences are disproportionately expen-
+sive because attention is quadratic to the sequence
+length. To speed up pretraing in our experiments,
+we pre-train the model with sequence length of
+128 for 90% of the steps. Then, we train the rest
+10% of the steps of sequence of 512 to learn the
+positional embeddings.
+
+A3  Fine-tuning Procedure
+
+For fine-tuning, most model hyperparameters are
+the same as in pre-training, with the exception of
+the batch size, learning rate, and number of train-
+ing epochs. The dropout probability was always
+kept at 0.1. The optimal hyperparameter values
+are task-specific, but we found the following range
+of possible values to work well across all tasks:
+
+¢ Batch size: 16, 32
+
+Shittps://cloudplatform.googleblog.com/2018/06/Cloud-
+TPU-now-offers-preemptible-pricing-and-global-
+availability.htm]
+
+Nearby Document Text:
+BERT (Ours)
+Trm
+Trm
+Trm
+Trm
+Trm
+Trm
+...
+...
+Trm
+Trm
+Trm
+Trm
+Trm
+Trm
+...
+...
+OpenAI GPT
+Lstm
+ELMo
+Lstm
+Lstm
+Lstm
+Lstm
+Lstm
+Lstm
+Lstm
+Lstm
+Lstm
+Lstm
+Lstm
+ T1
+T2
+ TN
+...
+...
+...
+...
+...
+ E1
+E2
+ EN
+...
+ T1
+T2
+TN
+...
+ E1
+E2
+ EN
+...
+ T1
+T2
+ TN
+...
+ E1
+E2
+ EN
+...
+Figure 3: Differences in pre-training model architectures. BERT uses a bidirectional Transformer. OpenAI GPT
+uses a left-to-right Transformer. ELMo uses the concatenation of independently trained left-to-right and right-to-
+left LSTMs to generate features for downstream tasks. Among the three, only BERT representations are jointly
+conditione
+
+
+--------------------------------------------------------------------------------
+PAGE : 16
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+Procedures
+In Section 3.1, we mention that BERT uses a
+mixed strategy for masking the target tokens when
+pre-training with the masked language model
+(MLM) objective. The following is an ablation
+study to evaluate the effect of different masking
+strategies.
+200 400 600 800 1,000
+76
+78
+80
+82
+84
+Pre-training Steps (Thousands)
+MNLI Dev Accuracy
+BERTBASE (Masked LM)
+BERTBASE (Left-to-Right)
+Figure 5: Ablation over number of training steps. This
+shows the MNLI accuracy after ﬁne-tuning, starting
+from model parameters that have been pre-trained for
+k steps. The x-axis is the value ofk.
+
+
+[TEXT]
+
+trained on 1M steps compared to 500k steps.
+2. Question: Does MLM pre-training converge
+slower than LTR pre-training, since only 15%
+of words are predicted in each batch rather
+than every word?
+Answer: The MLM model does converge
+slightly slower than the LTR model. How-
+ever, in terms of absolute accuracy the MLM
+model begins to outperform the LTR model
+almost immediately.
+C.2 Ablation for Different Masking
+Procedures
+In Section 3.1, we mention that BERT uses a
+mixed strategy for masking the target tokens when
+pre-training with the masked language model
+
+================================================================================
+
+================================================================================
+RAG PIPELINE DEBUG
+================================================================================
+Query Type        : factual
+Retrieved Chunks  : 8
+Retrieved Images  : 3
+Reranked Chunks   : 11
+Reranked Text     : 8
+Reranked Images   : 3
+Final Context Docs: 11
+Exact Figure Query: False
+Exact Figure Match: False
+Exact Figure Final: False
+================================================================================
+
+================================================================================
+STAGE 4 — EVIDENCE VERIFICATION
+================================================================================
+Verification Units : 2
+Supported          : 1
+Partially Supported: 1
+Unsupported        : 0
+Unknown            : 0
+Groundedness Ratio : 0.50
+
+[CLAIM #1] The masked language model (MLM) objective used during BERT pre-training is a technique where some tokens in a sentence are randomly masked, and the model is trained to predict the masked tokens based on the context provided by the remaining tokens.
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.4983 | Citation=BERT.pdf (Page 3)
+
+[CLAIM #2] This helps the model to learn the contextual relationships between words in a sentence.
+  Status=PARTIALLY_SUPPORTED | NLI=NEUTRAL | Confidence=0.5508 | Citation=BERT.pdf (Page 5)
+================================================================================
+
+====================================================================================================
+RAG ANSWER
+====================================================================================================
+ The masked language model (MLM) objective used during BERT pre-training is a technique where some tokens in a sentence are randomly masked, and the model is trained to predict the masked tokens based on the context provided by the remaining tokens. This helps the model to learn the contextual relationships between words in a sentence.
+
+IMAGE PATHS:
+D:/Projects/Major-Project-2-main/extracted_images/BERT_page3_render.png
+D:/Projects/Major-Project-2-main/extracted_images/BERT_page5_render.png
+D:/Projects/Major-Project-2-main/extracted_images/BERT_page13_render.png

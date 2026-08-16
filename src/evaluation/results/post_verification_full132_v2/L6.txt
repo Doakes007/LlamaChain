@@ -1,0 +1,1288 @@
+====================================================================================================
+QUESTION_ID   : L6
+DOCUMENT      : LayoutLMv3
+QUESTION_TYPE : Architecture / layout understanding
+ELAPSED_SEC   : 53.1
+ERROR         : no
+====================================================================================================
+
+QUESTION:
+How does LayoutLMv3's use of segment-level 2D positions differ from the word-level layout positions used by LayoutLM and LayoutLMv2?
+
+GROUND TRUTH ANSWER:
+LayoutLM and LayoutLMv2 assign a separate 2D layout position to each word. LayoutLMv3 instead uses segment-level 2D positions, so words belonging to the same segment share the same layout position because they generally express the same semantic meaning.
+
+GROUND TRUTH SOURCE:
+LayoutLMv3.pdf, p. 3
+
+====================================================================================================
+FORENSIC TRANSCRIPT
+====================================================================================================
+
+####################################################################################################
+FORENSIC CASE START
+####################################################################################################
+Original Query   : How does LayoutLMv3's use of segment-level 2D positions differ from the word-level layout positions used by LayoutLM and LayoutLMv2?
+Expanded Query   : How does LayoutLMv3's use of segment-level 2D positions differ from the word-level layout positions used by LayoutLM and LayoutLMv2?
+Query Type       : analytical
+[DOCUMENT SCOPE] Normalized query: 'how does layout l mv3 s use of segment level 2d positions differ from the word level layout positions used by layout lm and layout l mv2'
+[DOCUMENT SCOPE] Source='BERT.pdf' -> Normalized='bert'
+[DOCUMENT SCOPE] Token overlap for 'BERT.pdf': []
+[DOCUMENT SCOPE] Source='BLIP-2.pdf' -> Normalized='blip 2'
+[DOCUMENT SCOPE] Token overlap for 'BLIP-2.pdf': []
+[DOCUMENT SCOPE] Source='CLIP.pdf' -> Normalized='clip'
+[DOCUMENT SCOPE] Token overlap for 'CLIP.pdf': []
+[DOCUMENT SCOPE] Source='CNN Paper.pdf' -> Normalized='cnn paper'
+[DOCUMENT SCOPE] Token overlap for 'CNN Paper.pdf': []
+[DOCUMENT SCOPE] Source='Donut.pdf' -> Normalized='donut'
+[DOCUMENT SCOPE] Token overlap for 'Donut.pdf': []
+[DOCUMENT SCOPE] Source='LayoutLMv3.pdf' -> Normalized='layout l mv3'
+[DOCUMENT SCOPE] EXACT MATCH -> LayoutLMv3.pdf
+[DOCUMENT SCOPE] Source='NLP Paper.pdf' -> Normalized='nlp paper'
+[DOCUMENT SCOPE] Token overlap for 'NLP Paper.pdf': []
+[DOCUMENT SCOPE] Source='RAG.pdf' -> Normalized='rag'
+[DOCUMENT SCOPE] Token overlap for 'RAG.pdf': []
+[DOCUMENT SCOPE] Source='Self-RAG.pdf' -> Normalized='self rag'
+[DOCUMENT SCOPE] Token overlap for 'Self-RAG.pdf': []
+[DOCUMENT SCOPE] Source='Vision Transformer.pdf' -> Normalized='vision transformer'
+[DOCUMENT SCOPE] Token overlap for 'Vision Transformer.pdf': []
+[DOCUMENT SCOPE] Final matched sources: ['LayoutLMv3.pdf']
+
+================================================================================
+DOCUMENT SCOPE DEBUG
+================================================================================
+Query          : How does LayoutLMv3's use of segment-level 2D positions differ from the word-level layout positions used by LayoutLM and LayoutLMv2?
+Expanded Query : How does LayoutLMv3's use of segment-level 2D positions differ from the word-level layout positions used by LayoutLM and LayoutLMv2?
+Query Type     : analytical
+Document Scope : ['LayoutLMv3.pdf']
+================================================================================
+
+==========================================================================================
+STEP 3A — SCOPED HYBRID RETRIEVAL
+==========================================================================================
+Query              : How does LayoutLMv3's use of segment-level 2D positions differ from the word-level layout positions used by LayoutLM and LayoutLMv2?
+Sources            : ['LayoutLMv3.pdf']
+Dense candidate K  : 25
+Final hybrid K     : 8
+
+------------------------------------------------------------------------------------------
+[SCOPED DENSE / VECTOR RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=LayoutLMv3.pdf | Page=6 | Type=text | Image=N/A
+    Content=which significantly outperforms the SOTA result of 85.14 provided by StructuralLM [28]. Note that LayoutLMv3 and StructuralLM use segment-level layout positions, while the other wo
+02. Source=LayoutLMv3.pdf | Page=6 | Type=text | Image=N/A
+    Content=LayoutLMv3BASE improves the ANLS score of LayoutLMv2BASE from 78.08 to 78.76, with much simpler image embedding (i.e., from ResNeXt101-FPN to Linear embedding). The LayoutLMv3LARGE
+03. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=and LayoutLMv2 [56] for a fair comparison. We use base and large model sizes for LayoutLMv3. LayoutLMv3BASE adopts a 12-layer Transformer encoder with 12-head self-attention, hidde
+04. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=achieving an overall mAP score of 95.1. LayoutLMv3 achieves a high gain in the “Title” category. Since titles are typically much smaller than other categories and can be identified
+05. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=more, LayoutLMv3 is easy to reproduce for its simple and neat architecture and pre-training objectives. Our contributions are summarized as follows: • LayoutLMv3 is the first multi
+06. Source=LayoutLMv3.pdf | Page=5 | Type=text | Image=N/A
+    Content=outLMv2 and improves layout representation. • [T+L+I (P)] text, layout, and image modalities with lin- ear patch features: LayoutLMv3 replaces CNN backbones with simple linear embe
+07. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=We compare LayoutLMv3 with typical self-supervised pre-training approaches and categorize them by their pre-training modalities. • [T] text modality: BERT [9] and RoBERTa [36] are 
+08. Source=LayoutLMv3.pdf | Page=6 | Type=text | Image=N/A
+    Content=tics to find given answers in the extracted text as in LayoutLMv2. We fine-tune LayoutLMv3BASE for 100,000 steps with a batch size of 128, a learning rate of 3𝑒 − 5, and a warmup r
+09. Source=LayoutLMv3.pdf | Page=3 | Type=text | Image=N/A
+    Content=and layout position information, the model takes the linear projection of patches and word tokens as inputs and encodes them into contextualized vector representations. LayoutLMv3 
+10. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=of them to train LayoutLMv3. We do not do image augmentation following LayoutLM models [ 54, 56]. For the multimodal Trans- former encoder along with the text embedding layer, Layo
+11. Source=LayoutLMv3.pdf | Page=6 | Type=text | Image=N/A
+    Content=sizes. The results show that LayoutLMv3 can significantly benefit the text-centric form and receipt understanding tasks. Task II: Document Image Classification. The document image 
+12. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=• [T+L] text and layout modalities: LayoutLM incorporates layout information by adding word-level spatial embeddings to embeddings of BERT [54]. StructuralLM leverages segment- lev
+13. Source=LayoutLMv3.pdf | Page=3 | Type=text | Image=N/A
+    Content=position as bias terms in self-attention networks for text and image modalities following LayoutLMv2[56]. 2.2 Pre-training Objectives LayoutLMv3 is pre-trained with the MLM, MIM, a
+14. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=tasks in Document AI. The code and models are publicly available at https://aka.ms/layoutlmv3. 2 LAYOUTLMV3 Figure 3 gives an overview of the LayoutLMv3. 2.1 Model Architecture Lay
+15. Source=LayoutLMv3.pdf | Page=6 | Type=text | Image=N/A
+    Content=domain to the visual domain, we transfer LayoutLMv3 to a docu- ment layout analysis task. This task is about detecting the layouts of unstructured digital documents by providing bo
+16. Source=LayoutLMv3.pdf | Page=6 | Type=text | Image=N/A
+    Content=We integrate the LayoutLMv3 as feature backbone in the Cascade R-CNN detector [4] with FPN [34] implemented using the Detec- tron2 [53]. We adopt the standard practice to extract s
+17. Source=LayoutLMv3.pdf | Page=3 | Type=text | Image=N/A
+    Content=a sequence of vectors, which length is 𝑀 = 𝐻𝑊 /𝑃 2. Then we add learnable 1D position embeddings to each patch since we have not observed improvements from using 2D position embedd
+18. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=domly initialized the rest model parameters. We pre-train Lay- outLMv3 using Adam optimizer [23] with a batch size of 2,048 for 500,000 steps. We use a weight decay of 1𝑒 − 2, and 
+19. Source=LayoutLMv3.pdf | Page=6 | Type=text | Image=N/A
+    Content=of the IIT-CDIP collection labeled with 16 categories [16]. RVL-CDIP dataset contains 400,000 document images, among them 320,000 are training images, 40,000 are validation images,
+20. Source=LayoutLMv3.pdf | Page=6 | Type=text | Image=N/A
+    Content=Table 2: Document layout analysis mAP @ IOU [0.50:0.95] on PubLayNet validation set. All models use only information from the vision modality. LayoutLMv3 outperforms the compared R
+21. Source=LayoutLMv3.pdf | Page=5 | Type=text | Image=N/A
+    Content=OCR words’ bounding box to serve as region proposals and add the region features to corresponding text embeddings. SelfDoc [31] and UDoc [14] use document object proposals and conc
+22. Source=LayoutLMv3.pdf | Page=1 | Type=image | Image=extracted_images\LayoutLMv3_page1_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: the layout of the layout and layout of the layout of the layout and layout of the layout of the layout  OCR Text: 2204.08387v3 [cs.CL] 
+23. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=lic benchmarks, including text-centric benchmarks: FUNSD [ 20] for form understanding, CORD [ 39] for receipt understanding, DocVQA [38] for document visual question answering, and
+24. Source=LayoutLMv3.pdf | Page=6 | Type=text | Image=N/A
+    Content=features [1, 30, 33]. We conduct experiments onPubLayNet dataset [59]. The dataset contains research paper images annotated with bounding boxes and polygonal segmentation across fi
+25. Source=LayoutLMv3.pdf | Page=5 | Type=text | Image=N/A
+    Content=XYLayoutLMBASE [15] - T+L+I (G) ResNeXt-101 83.35 - - - LayoutLMv2BASE [56] 200M T+L+I (G) ResNeXt101-FPN 82.76 94.95 95.25 78.08 DocFormerBASE [2] 183M T+L+I (G) ResNet-50 83.34 9
+
+------------------------------------------------------------------------------------------
+[SCOPED BM25 RETRIEVAL] 22 candidates
+------------------------------------------------------------------------------------------
+01. Source=LayoutLMv3.pdf | Page=3 | Type=text | Image=N/A
+    Content=word is masked. “Seg” denotes segment-level positions. “[CLS]”, “[MASK]”, “[SEP]” and “[SPE]” are special tokens. sequence. Following the LayoutLM, we normalize all coordinates by 
+02. Source=LayoutLMv3.pdf | Page=6 | Type=text | Image=N/A
+    Content=which significantly outperforms the SOTA result of 85.14 provided by StructuralLM [28]. Note that LayoutLMv3 and StructuralLM use segment-level layout positions, while the other wo
+03. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=We compare LayoutLMv3 with typical self-supervised pre-training approaches and categorize them by their pre-training modalities. • [T] text modality: BERT [9] and RoBERTa [36] are 
+04. Source=LayoutLMv3.pdf | Page=5 | Type=text | Image=N/A
+    Content=* LiLT uses image features with ResNeXt101-FPN backbone in fine-tuning RVL-CDIP. positions [17]. LILT fine-tunes on different languages with pre-trained textual models [50]. FormNe
+05. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=• [T+L] text and layout modalities: LayoutLM incorporates layout information by adding word-level spatial embeddings to embeddings of BERT [54]. StructuralLM leverages segment- lev
+06. Source=LayoutLMv3.pdf | Page=3 | Type=image | Image=extracted_images\LayoutLMv3_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram of the structure of a computer system  OCR Text: Ty Tz  Pre-training  Objectives MLM Head  Unaligned Aligned  V2 V3  MIM Head
+07. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=tent and corresponding 2D position information. We initialize the word embeddings with a word embedding matrix from a pre-trained model RoBERTa [36]. The position embeddings includ
+08. Source=LayoutLMv3.pdf | Page=6 | Type=text | Image=N/A
+    Content=Task III: Document Visual Question Answering. Document visual question answering requires a model to take a document image and a question as input and output an answer [ 38]. We fo
+09. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=decreases the loss. Best viewed in color. with our pre-training stage. We do not use relative positions in self- attention networks as DiT. We measure the performance using the mea
+10. Source=LayoutLMv3.pdf | Page=3 | Type=text | Image=N/A
+    Content=and layout position information, the model takes the linear projection of patches and word tokens as inputs and encodes them into contextualized vector representations. LayoutLMv3 
+11. Source=LayoutLMv3.pdf | Page=1 | Type=image | Image=extracted_images\LayoutLMv3_page1_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: the layout of the layout and layout of the layout of the layout and layout of the layout of the layout  OCR Text: 2204.08387v3 [cs.CL] 
+12. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=Embed Objective(s) F1↑ F1↑ Accuracy↑ MAP↑ 1 None 125M MLM 88.64 96.27 95.33 Not Applicable 2 Linear 126M MLM 89.39 96.11 95.00 Loss Divergence 3 Linear 132M MLM+MIM 89.19 96.30 95.
+13. Source=LayoutLMv3.pdf | Page=8 | Type=text | Image=N/A
+    Content=Inspired by MLM and MIM, researchers in the field of vision- and-language have exploredreconstructive objectives for multi- modal representation learning. Whereas most well-perform
+14. Source=LayoutLMv3.pdf | Page=8 | Type=text | Image=N/A
+    Content=tions of document layout and image representation learning [2, 13– 15, 17, 25, 28, 31, 32, 40, 41, 50, 52, 54–56]. LayoutLM and following works joint layout representation learning
+15. Source=LayoutLMv3.pdf | Page=8 | Type=text | Image=N/A
+    Content=has 39.2M parameters for a text vocabulary size of 50,265. We did not take count of the image tokenizer when calculating parameters as the tokenizer is a standalone module for gene
+16. Source=LayoutLMv3.pdf | Page=1 | Type=text | Image=N/A
+    Content=important for industrial applications and academic research [8]. Self-supervised pre-training techniques have made rapid progress in representation learning due to their successful
+17. Source=LayoutLMv3.pdf | Page=3 | Type=text | Image=N/A
+    Content=a sequence of vectors, which length is 𝑀 = 𝐻𝑊 /𝑃 2. Then we add learnable 1D position embeddings to each patch since we have not observed improvements from using 2D position embedd
+18. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=training objectives. We first build a baseline model #1 that uses text and layout information, pre-trained with MLM objective. Then we use linearly projected image patches as the i
+19. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=patches. We use a two-layer MLP head that inputs contextual text and image and outputs the binary aligned/unaligned labels with a binary cross-entropy loss: 𝐿𝑊 𝑃𝐴 (𝜃 ) = − 𝐿−𝐿′ ∑︁ 
+20. Source=LayoutLMv3.pdf | Page=2 | Type=image | Image=extracted_images\LayoutLMv3_page2_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a computer and a computer with a text that reads,  OCR Text: _(2) Pre-training Objectives of 
+21. Source=LayoutLMv3.pdf | Page=5 | Type=text | Image=N/A
+    Content=OCR words’ bounding box to serve as region proposals and add the region features to corresponding text embeddings. SelfDoc [31] and UDoc [14] use document object proposals and conc
+22. Source=LayoutLMv3.pdf | Page=1 | Type=text | Image=N/A
+    Content=progress in Document AI. Most multimodal pre-trained models use a masked language modeling objective to learn bidirectional representations on the text modality, but they differ in
+
+------------------------------------------------------------------------------------------
+[RRF FUSION RANKING]
+------------------------------------------------------------------------------------------
+01. RRF=0.032522 | DenseRank=1 | BM25Rank=2 | Source=LayoutLMv3.pdf | Page=6 | Type=text
+02. RRF=0.030798 | DenseRank=7 | BM25Rank=3 | Source=LayoutLMv3.pdf | Page=4 | Type=text
+03. RRF=0.029274 | DenseRank=12 | BM25Rank=5 | Source=LayoutLMv3.pdf | Page=4 | Type=text
+04. RRF=0.028778 | DenseRank=9 | BM25Rank=10 | Source=LayoutLMv3.pdf | Page=3 | Type=text
+05. RRF=0.026280 | DenseRank=22 | BM25Rank=11 | Source=LayoutLMv3.pdf | Page=1 | Type=image
+06. RRF=0.025974 | DenseRank=17 | BM25Rank=17 | Source=LayoutLMv3.pdf | Page=3 | Type=text
+07. RRF=0.024691 | DenseRank=21 | BM25Rank=21 | Source=LayoutLMv3.pdf | Page=5 | Type=text
+08. RRF=0.016393 | DenseRank=- | BM25Rank=1 | Source=LayoutLMv3.pdf | Page=3 | Type=text
+09. RRF=0.016129 | DenseRank=2 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=6 | Type=text
+10. RRF=0.015873 | DenseRank=3 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=4 | Type=text
+11. RRF=0.015625 | DenseRank=4 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=7 | Type=text
+12. RRF=0.015625 | DenseRank=- | BM25Rank=4 | Source=LayoutLMv3.pdf | Page=5 | Type=text
+13. RRF=0.015385 | DenseRank=5 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=2 | Type=text
+14. RRF=0.015152 | DenseRank=6 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=5 | Type=text
+15. RRF=0.015152 | DenseRank=- | BM25Rank=6 | Source=LayoutLMv3.pdf | Page=3 | Type=image
+16. RRF=0.014925 | DenseRank=- | BM25Rank=7 | Source=LayoutLMv3.pdf | Page=2 | Type=text
+17. RRF=0.014706 | DenseRank=8 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=6 | Type=text
+18. RRF=0.014706 | DenseRank=- | BM25Rank=8 | Source=LayoutLMv3.pdf | Page=6 | Type=text
+19. RRF=0.014493 | DenseRank=- | BM25Rank=9 | Source=LayoutLMv3.pdf | Page=7 | Type=text
+20. RRF=0.014286 | DenseRank=10 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=4 | Type=text
+21. RRF=0.014085 | DenseRank=11 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=6 | Type=text
+22. RRF=0.013889 | DenseRank=- | BM25Rank=12 | Source=LayoutLMv3.pdf | Page=7 | Type=text
+23. RRF=0.013699 | DenseRank=13 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=3 | Type=text
+24. RRF=0.013699 | DenseRank=- | BM25Rank=13 | Source=LayoutLMv3.pdf | Page=8 | Type=text
+25. RRF=0.013514 | DenseRank=14 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=2 | Type=text
+26. RRF=0.013514 | DenseRank=- | BM25Rank=14 | Source=LayoutLMv3.pdf | Page=8 | Type=text
+27. RRF=0.013333 | DenseRank=15 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=6 | Type=text
+28. RRF=0.013333 | DenseRank=- | BM25Rank=15 | Source=LayoutLMv3.pdf | Page=8 | Type=text
+29. RRF=0.013158 | DenseRank=16 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=6 | Type=text
+30. RRF=0.013158 | DenseRank=- | BM25Rank=16 | Source=LayoutLMv3.pdf | Page=1 | Type=text
+31. RRF=0.012821 | DenseRank=18 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=4 | Type=text
+32. RRF=0.012821 | DenseRank=- | BM25Rank=18 | Source=LayoutLMv3.pdf | Page=7 | Type=text
+33. RRF=0.012658 | DenseRank=19 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=6 | Type=text
+34. RRF=0.012658 | DenseRank=- | BM25Rank=19 | Source=LayoutLMv3.pdf | Page=4 | Type=text
+35. RRF=0.012500 | DenseRank=20 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=6 | Type=text
+36. RRF=0.012500 | DenseRank=- | BM25Rank=20 | Source=LayoutLMv3.pdf | Page=2 | Type=image
+37. RRF=0.012195 | DenseRank=- | BM25Rank=22 | Source=LayoutLMv3.pdf | Page=1 | Type=text
+38. RRF=0.012048 | DenseRank=23 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=2 | Type=text
+39. RRF=0.011905 | DenseRank=24 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=6 | Type=text
+40. RRF=0.011765 | DenseRank=25 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=5 | Type=text
+------------------------------------------------------------------------------------------
+
+==========================================================================================
+STEP 3A — RETRIEVAL STAGE SUMMARY
+==========================================================================================
+Dense candidates       : 25
+BM25 candidates        : 22
+Dense ∩ BM25           : 7
+Dense-only candidates  : 18
+BM25-only candidates   : 15
+Unique candidate pool  : 40
+RRF candidates         : 40
+Returned to pipeline   : 8
+==========================================================================================
+
+------------------------------------------------------------------------------------------
+[SCOPED FINAL HYBRID RESULT] 8 candidates
+------------------------------------------------------------------------------------------
+01. Source=LayoutLMv3.pdf | Page=6 | Type=text | Image=N/A
+    Content=which significantly outperforms the SOTA result of 85.14 provided by StructuralLM [28]. Note that LayoutLMv3 and StructuralLM use segment-level layout positions, while the other wo
+02. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=We compare LayoutLMv3 with typical self-supervised pre-training approaches and categorize them by their pre-training modalities. • [T] text modality: BERT [9] and RoBERTa [36] are 
+03. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=• [T+L] text and layout modalities: LayoutLM incorporates layout information by adding word-level spatial embeddings to embeddings of BERT [54]. StructuralLM leverages segment- lev
+04. Source=LayoutLMv3.pdf | Page=3 | Type=text | Image=N/A
+    Content=and layout position information, the model takes the linear projection of patches and word tokens as inputs and encodes them into contextualized vector representations. LayoutLMv3 
+05. Source=LayoutLMv3.pdf | Page=1 | Type=image | Image=extracted_images\LayoutLMv3_page1_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: the layout of the layout and layout of the layout of the layout and layout of the layout of the layout  OCR Text: 2204.08387v3 [cs.CL] 
+06. Source=LayoutLMv3.pdf | Page=3 | Type=text | Image=N/A
+    Content=a sequence of vectors, which length is 𝑀 = 𝐻𝑊 /𝑃 2. Then we add learnable 1D position embeddings to each patch since we have not observed improvements from using 2D position embedd
+07. Source=LayoutLMv3.pdf | Page=5 | Type=text | Image=N/A
+    Content=OCR words’ bounding box to serve as region proposals and add the region features to corresponding text embeddings. SelfDoc [31] and UDoc [14] use document object proposals and conc
+08. Source=LayoutLMv3.pdf | Page=3 | Type=text | Image=N/A
+    Content=word is masked. “Seg” denotes segment-level positions. “[CLS]”, “[MASK]”, “[SEP]” and “[SPE]” are special tokens. sequence. Following the LayoutLM, we normalize all coordinates by 
+==========================================================================================
+
+================================================================================
+STAGE 1 — HYBRID RETRIEVAL
+================================================================================
+Retrieved Count : 8
+
+[HYBRID #1] Source=LayoutLMv3.pdf | Page=6 | Type=text
+Content: which significantly outperforms the SOTA result of 85.14 provided by StructuralLM [28]. Note that LayoutLMv3 and StructuralLM use segment-level layout positions, while the other works use word- level layout positions. Using segment-level positions may benefit the semantic entity labeling task on FUNSD [28], so the two types of work are not directly comparable. The LayoutLMv3 also achieves SOTA F1 scores on the CORD dataset for both base and large model sizes. The results show that LayoutLMv3 can
+
+[HYBRID #2] Source=LayoutLMv3.pdf | Page=4 | Type=text
+Content: We compare LayoutLMv3 with typical self-supervised pre-training approaches and categorize them by their pre-training modalities. • [T] text modality: BERT [9] and RoBERTa [36] are typical pre-trained language models which only use text information with Transformer architecture. We use FUNSD and RVL- CDIP results of the RoBERTa from LayoutLM [54] and results of BERT from LayoutLMv2 [56]. We reproduce and report the CORD and DocVQA results of the RoBERTa. • [T+L] text and layout modalities: Layout
+
+[HYBRID #3] Source=LayoutLMv3.pdf | Page=4 | Type=text
+Content: • [T+L] text and layout modalities: LayoutLM incorporates layout information by adding word-level spatial embeddings to embeddings of BERT [54]. StructuralLM leverages segment- level layout information [28]. BROS encodes relative layout
+
+[HYBRID #4] Source=LayoutLMv3.pdf | Page=3 | Type=text
+Content: and layout position information, the model takes the linear projection of patches and word tokens as inputs and encodes them into contextualized vector representations. LayoutLMv3 is pre-trained with discrete token reconstructive objectives of Masked Language Modeling (MLM) and Masked Image Modeling (MIM). Additionally, LayoutLMv3 is pre-trained with a Word-Patch Alignment (WPA) objective to learn cross-modal alignment by predicting whether the corresponding image patch of a text word is masked.
+
+[HYBRID #5] Source=LayoutLMv3.pdf | Page=1 | Type=image
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: the layout of the layout and layout of the layout of the layout and layout of the layout of the layout  OCR Text: 2204.08387v3 [cs.CL] 19 Jul 2022  arXiv  LayoutLMv3: Pre-training for Document Al with Unified Text and Image Masking  Yupan Huang* Sun Yat-sen University huangyp28@mail2.sysu.edu.cn  Yutong Lu Sun Yat-sen University luyutong@mail.sysu.edu.cn  ABSTRACT  Self-supervised pre-training techniques have achieved remarkable progress in Document A
+
+[HYBRID #6] Source=LayoutLMv3.pdf | Page=3 | Type=text
+Content: a sequence of vectors, which length is 𝑀 = 𝐻𝑊 /𝑃 2. Then we add learnable 1D position embeddings to each patch since we have not observed improvements from using 2D position embeddings in our preliminary experiments. LayoutLMv3 is the first multimodal model in Document AI that does not rely on CNNs to extract image features, which is vital to Document AI models to reduce parameters or remove complex pre-processing steps. We insert semantic 1D relative position and spatial 2D relative position as
+
+[HYBRID #7] Source=LayoutLMv3.pdf | Page=5 | Type=text
+Content: OCR words’ bounding box to serve as region proposals and add the region features to corresponding text embeddings. SelfDoc [31] and UDoc [14] use document object proposals and concatenate region features with text embeddings. • [T+L+I (G)] text, layout and image modalities with CNN grid features: LayoutLMv2 [56] and DocFormer [2] extract image grid features with a CNN backbone without object detection. XYLayoutLM [15] adopts the architecture of Lay- outLMv2 and improves layout representation. • 
+
+[HYBRID #8] Source=LayoutLMv3.pdf | Page=3 | Type=text
+Content: word is masked. “Seg” denotes segment-level positions. “[CLS]”, “[MASK]”, “[SEP]” and “[SPE]” are special tokens. sequence. Following the LayoutLM, we normalize all coordinates by the size of images, and use embedding layers to embed x-axis, y-axis, width and height features separately [54]. The LayoutLM and LayoutLMv2 adopt word-level layout positions, where each word has its positions. Instead, we adopt segment-level layout posi- tions that words in a segment share the same 2D position since t
+================================================================================
+[DOCUMENT SCOPE] Text chunks: 8 -> 8
+
+================================================================================
+IMAGE RETRIEVAL DIAGNOSTIC
+================================================================================
+Query                 : How does LayoutLMv3's use of segment-level 2D positions differ from the word-level layout positions used by LayoutLM and LayoutLMv2?
+Allowed Sources       : ['LayoutLMv3.pdf']
+Image Candidates      : 554 -> 26 (scoped before ranking)
+
+ALL IMAGE CANDIDATES
+--------------------------------------------------------------------------------
+Rank=01 | Source=LayoutLMv3.pdf | Page=1 | Image=LayoutLMv3_page1_render.png | Hybrid=-1.2404 | CE=-2.2295 | CLIP=0.2431
+Rank=02 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_render.png | Hybrid=-1.9724 | CE=-3.4545 | CLIP=0.2506
+Rank=03 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_render.png | Hybrid=-2.4420 | CE=-4.2254 | CLIP=0.2332
+Rank=04 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img9.png | Hybrid=-2.4826 | CE=-4.2734 | CLIP=0.2036
+Rank=05 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img2.png | Hybrid=-2.6338 | CE=-4.5323 | CLIP=0.2140
+Rank=06 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img0.png | Hybrid=-2.7626 | CE=-4.7347 | CLIP=0.1955
+Rank=07 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img6.png | Hybrid=-2.7704 | CE=-4.7568 | CLIP=0.2092
+Rank=08 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img4.png | Hybrid=-2.8373 | CE=-4.8715 | CLIP=0.2140
+Rank=09 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img5.png | Hybrid=-2.8619 | CE=-4.9177 | CLIP=0.2218
+Rank=10 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img2.png | Hybrid=-2.8689 | CE=-4.9081 | CLIP=0.1898
+Rank=11 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img5.png | Hybrid=-2.8804 | CE=-4.9589 | CLIP=0.2373
+Rank=12 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img8.png | Hybrid=-2.9507 | CE=-5.0741 | CLIP=0.2343
+Rank=13 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img1.png | Hybrid=-2.9552 | CE=-5.0797 | CLIP=0.2316
+Rank=14 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img4.png | Hybrid=-2.9648 | CE=-5.0949 | CLIP=0.2304
+Rank=15 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img7.png | Hybrid=-2.9725 | CE=-5.0859 | CLIP=0.1976
+Rank=16 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img6.png | Hybrid=-2.9738 | CE=-5.1209 | CLIP=0.2470
+Rank=17 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img3.png | Hybrid=-2.9835 | CE=-5.1174 | CLIP=0.2172
+Rank=18 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img9.png | Hybrid=-3.1222 | CE=-5.3565 | CLIP=0.2294
+Rank=19 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img3.png | Hybrid=-3.1855 | CE=-5.4661 | CLIP=0.2353
+Rank=20 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img1.png | Hybrid=-3.2420 | CE=-5.5533 | CLIP=0.2250
+Rank=21 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img7.png | Hybrid=-3.8316 | CE=-6.5459 | CLIP=0.2399
+Rank=22 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img8.png | Hybrid=-4.8325 | CE=-8.2059 | CLIP=0.2275
+Rank=23 | Source=LayoutLMv3.pdf | Page=7 | Image=LayoutLMv3_page7_img0.png | Hybrid=-5.0006 | CE=-8.5136 | CLIP=0.2690
+Rank=24 | Source=LayoutLMv3.pdf | Page=1 | Image=LayoutLMv3_page1_img1.png | Hybrid=-5.2590 | CE=-8.9153 | CLIP=0.2255
+Rank=25 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img0.png | Hybrid=-5.7481 | CE=-9.7160 | CLIP=0.2039
+Rank=26 | Source=LayoutLMv3.pdf | Page=1 | Image=LayoutLMv3_page1_img0.png | Hybrid=-5.8747 | CE=-9.9413 | CLIP=0.2251
+
+TOP IMAGE RESULTS
+--------------------------------------------------------------------------------
+TOP-1 | Source=LayoutLMv3.pdf | Page=1 | Image=LayoutLMv3_page1_render.png | Hybrid=-1.2404 | CE=-2.2295 | CLIP=0.2431
+TOP-2 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_render.png | Hybrid=-1.9724 | CE=-3.4545 | CLIP=0.2506
+TOP-3 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_render.png | Hybrid=-2.4420 | CE=-4.2254 | CLIP=0.2332
+================================================================================
+[DOCUMENT SCOPE] Images: 3 -> 3
+
+================================================================================
+STAGE 2 — IMAGE RETRIEVAL RESULT
+================================================================================
+Image Results       : 3
+Exact Figure Match  : False
+
+[IMAGE #1] Source=LayoutLMv3.pdf | Page=1 | Image=LayoutLMv3_page1_render.png
+Image Path: extracted_images\LayoutLMv3_page1_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: the layout of the layout and layout of the layout of the layout and layout of the layout of the layout  OCR Text: 2204.08387v3 [cs.CL] 19 Jul 2022  arXiv  LayoutLMv3: Pre-training for Document Al with Unified Text and Image Masking  Yupan Huang* Sun Yat-sen University huangyp28@mail2.sysu.edu.cn  Yutong Lu Sun Yat-sen University luyutong@mail.sysu.edu.cn  ABSTRACT  Self-supervised pre-training techniques have achieved remarkable progress in Document A
+
+[IMAGE #2] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_render.png
+Image Path: extracted_images\LayoutLMv3_page3_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram of the structure of a computer system  OCR Text: Ty Tz  Pre-training  Objectives MLM Head  Unaligned Aligned  V2 V3  MIM Head  Multimodal Transformer  2D Position  Embedding Seba) (Sees ] Seaewo) (see) [sees] [sees] [sess] Seseso) [Ptcheno} Patehs) (Pate [Pats] Pach) pa ae aoe soins SBOOae Embedding [3 | [4 |  “a oes bee e  OCR Parser Masking  Word Embedding  Document Image  ) foas) fas) ce  ween 1 een leet ’ (V2) (V3)  - Flatten Linear = | 
+
+[IMAGE #3] Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_render.png
+Image Path: extracted_images\LayoutLMv3_page2_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a computer and a computer with a text that reads,  OCR Text: _(2) Pre-training Objectives of Image Modality  | — | ra  |  |  I idn, idya, idys, | idyyidys, ides, ». |  I kde dia Fao  ! teh  | fication  Masked Word Masked Pai Origin Image Masked Region Token Classification Token Classi Reconstruction Feature Regression  in ist — Se ee ee Bost sS SS so  Multimodal Transformer  (1) Image Embedding  Linear Embeddi
+================================================================================
+
+================================================================================
+COMBINED RETRIEVAL CANDIDATES
+================================================================================
+Text Candidates  : 8
+Image Candidates : 3
+Total Candidates : 11
+================================================================================
+
+================================================================================
+STEP 3A — RERANKER INPUT
+================================================================================
+Query: How does LayoutLMv3's use of segment-level 2D positions differ from the word-level layout positions used by LayoutLM and LayoutLMv2?
+Input candidates: 11
+01. Source=LayoutLMv3.pdf | Page=6 | Type=text | Image=N/A
+    Content=which significantly outperforms the SOTA result of 85.14 provided by StructuralLM [28]. Note that LayoutLMv3 and StructuralLM use segment-level layout positions, while the other wo
+02. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=We compare LayoutLMv3 with typical self-supervised pre-training approaches and categorize them by their pre-training modalities. • [T] text modality: BERT [9] and RoBERTa [36] are 
+03. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=• [T+L] text and layout modalities: LayoutLM incorporates layout information by adding word-level spatial embeddings to embeddings of BERT [54]. StructuralLM leverages segment- lev
+04. Source=LayoutLMv3.pdf | Page=3 | Type=text | Image=N/A
+    Content=and layout position information, the model takes the linear projection of patches and word tokens as inputs and encodes them into contextualized vector representations. LayoutLMv3 
+05. Source=LayoutLMv3.pdf | Page=1 | Type=image | Image=extracted_images\LayoutLMv3_page1_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: the layout of the layout and layout of the layout of the layout and layout of the layout of the layout  OCR Text: 2204.08387v3 [cs.CL] 
+06. Source=LayoutLMv3.pdf | Page=3 | Type=text | Image=N/A
+    Content=a sequence of vectors, which length is 𝑀 = 𝐻𝑊 /𝑃 2. Then we add learnable 1D position embeddings to each patch since we have not observed improvements from using 2D position embedd
+07. Source=LayoutLMv3.pdf | Page=5 | Type=text | Image=N/A
+    Content=OCR words’ bounding box to serve as region proposals and add the region features to corresponding text embeddings. SelfDoc [31] and UDoc [14] use document object proposals and conc
+08. Source=LayoutLMv3.pdf | Page=3 | Type=text | Image=N/A
+    Content=word is masked. “Seg” denotes segment-level positions. “[CLS]”, “[MASK]”, “[SEP]” and “[SPE]” are special tokens. sequence. Following the LayoutLM, we normalize all coordinates by 
+09. Source=LayoutLMv3.pdf | Page=1 | Type=image | Image=extracted_images\LayoutLMv3_page1_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: the layout of the layout and layout of the layout of the layout and layout of the layout of the layout  OCR Text: 2204.08387v3 [cs.CL] 
+10. Source=LayoutLMv3.pdf | Page=3 | Type=image | Image=extracted_images\LayoutLMv3_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram of the structure of a computer system  OCR Text: Ty Tz  Pre-training  Objectives MLM Head  Unaligned Aligned  V2 V3  MIM Head
+11. Source=LayoutLMv3.pdf | Page=2 | Type=image | Image=extracted_images\LayoutLMv3_page2_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a computer and a computer with a text that reads,  OCR Text: _(2) Pre-training Objectives of 
+================================================================================
+
+--------------------------------------------------------------------------------
+CROSS-ENCODER RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=00 | Source=LayoutLMv3.pdf | Page=6 | Type=text | CE=6.9259
+Rank=02 | OriginalIndex=07 | Source=LayoutLMv3.pdf | Page=3 | Type=text | CE=6.5405
+Rank=03 | OriginalIndex=03 | Source=LayoutLMv3.pdf | Page=3 | Type=text | CE=4.1605
+Rank=04 | OriginalIndex=02 | Source=LayoutLMv3.pdf | Page=4 | Type=text | CE=2.3530
+Rank=05 | OriginalIndex=05 | Source=LayoutLMv3.pdf | Page=3 | Type=text | CE=2.1655
+Rank=06 | OriginalIndex=01 | Source=LayoutLMv3.pdf | Page=4 | Type=text | CE=1.0486
+Rank=07 | OriginalIndex=04 | Source=LayoutLMv3.pdf | Page=1 | Type=image | CE=-2.2295
+Rank=08 | OriginalIndex=08 | Source=LayoutLMv3.pdf | Page=1 | Type=image | CE=-2.2295
+Rank=09 | OriginalIndex=09 | Source=LayoutLMv3.pdf | Page=3 | Type=image | CE=-3.4545
+Rank=10 | OriginalIndex=06 | Source=LayoutLMv3.pdf | Page=5 | Type=text | CE=-4.0736
+Rank=11 | OriginalIndex=10 | Source=LayoutLMv3.pdf | Page=2 | Type=image | CE=-4.2254
+
+--------------------------------------------------------------------------------
+CLIP IMAGE RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=09 | Source=LayoutLMv3.pdf | Page=3 | Image=extracted_images\LayoutLMv3_page3_render.png | CLIP=0.2506
+Rank=02 | OriginalIndex=04 | Source=LayoutLMv3.pdf | Page=1 | Image=extracted_images\LayoutLMv3_page1_render.png | CLIP=0.2431
+Rank=03 | OriginalIndex=08 | Source=LayoutLMv3.pdf | Page=1 | Image=extracted_images\LayoutLMv3_page1_render.png | CLIP=0.2431
+Rank=04 | OriginalIndex=10 | Source=LayoutLMv3.pdf | Page=2 | Image=extracted_images\LayoutLMv3_page2_render.png | CLIP=0.2332
+
+================================================================================
+STEP 3A — COMPLETE MULTIMODAL RERANK RESULT
+================================================================================
+Rank=01 | Type=image | Source=LayoutLMv3.pdf | Page=1 | RRF=0.031054 | CE=-2.2295 | CLIP=0.2431
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: the layout of the layout and layout of the layout of the layout and layout of the layout of the layout  OCR Text: 2204.08387v3 [cs.CL] 
+Rank=02 | Type=image | Source=LayoutLMv3.pdf | Page=3 | RRF=0.030886 | CE=-3.4545 | CLIP=0.2506
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram of the structure of a computer system  OCR Text: Ty Tz  Pre-training  Objectives MLM Head  Unaligned Aligned  V2 V3  MIM Head
+Rank=03 | Type=image | Source=LayoutLMv3.pdf | Page=1 | RRF=0.030579 | CE=-2.2295 | CLIP=0.2431
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: the layout of the layout and layout of the layout of the layout and layout of the layout of the layout  OCR Text: 2204.08387v3 [cs.CL] 
+Rank=04 | Type=image | Source=LayoutLMv3.pdf | Page=2 | RRF=0.029710 | CE=-4.2254 | CLIP=0.2332
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a computer and a computer with a text that reads,  OCR Text: _(2) Pre-training Objectives of 
+Rank=05 | Type=text | Source=LayoutLMv3.pdf | Page=6 | RRF=0.016393 | CE=6.9259 | CLIP=N/A
+    Content=which significantly outperforms the SOTA result of 85.14 provided by StructuralLM [28]. Note that LayoutLMv3 and StructuralLM use segment-level layout positions, while the other wo
+Rank=06 | Type=text | Source=LayoutLMv3.pdf | Page=3 | RRF=0.016129 | CE=6.5405 | CLIP=N/A
+    Content=word is masked. “Seg” denotes segment-level positions. “[CLS]”, “[MASK]”, “[SEP]” and “[SPE]” are special tokens. sequence. Following the LayoutLM, we normalize all coordinates by 
+Rank=07 | Type=text | Source=LayoutLMv3.pdf | Page=3 | RRF=0.015873 | CE=4.1605 | CLIP=N/A
+    Content=and layout position information, the model takes the linear projection of patches and word tokens as inputs and encodes them into contextualized vector representations. LayoutLMv3 
+Rank=08 | Type=text | Source=LayoutLMv3.pdf | Page=4 | RRF=0.015625 | CE=2.3530 | CLIP=N/A
+    Content=• [T+L] text and layout modalities: LayoutLM incorporates layout information by adding word-level spatial embeddings to embeddings of BERT [54]. StructuralLM leverages segment- lev
+Rank=09 | Type=text | Source=LayoutLMv3.pdf | Page=3 | RRF=0.015385 | CE=2.1655 | CLIP=N/A
+    Content=a sequence of vectors, which length is 𝑀 = 𝐻𝑊 /𝑃 2. Then we add learnable 1D position embeddings to each patch since we have not observed improvements from using 2D position embedd
+Rank=10 | Type=text | Source=LayoutLMv3.pdf | Page=4 | RRF=0.015152 | CE=1.0486 | CLIP=N/A
+    Content=We compare LayoutLMv3 with typical self-supervised pre-training approaches and categorize them by their pre-training modalities. • [T] text modality: BERT [9] and RoBERTa [36] are 
+Rank=11 | Type=text | Source=LayoutLMv3.pdf | Page=5 | RRF=0.014286 | CE=-4.0736 | CLIP=N/A
+    Content=OCR words’ bounding box to serve as region proposals and add the region features to corresponding text embeddings. SelfDoc [31] and UDoc [14] use document object proposals and conc
+================================================================================
+
+================================================================================
+STEP 3A — FINAL RERANK TOP-K
+================================================================================
+Requested top_k: 12
+Returned documents: 10
+01. Source=LayoutLMv3.pdf | Page=1 | Type=image | Image=extracted_images\LayoutLMv3_page1_render.png
+02. Source=LayoutLMv3.pdf | Page=3 | Type=image | Image=extracted_images\LayoutLMv3_page3_render.png
+03. Source=LayoutLMv3.pdf | Page=2 | Type=image | Image=extracted_images\LayoutLMv3_page2_render.png
+04. Source=LayoutLMv3.pdf | Page=6 | Type=text | Image=N/A
+05. Source=LayoutLMv3.pdf | Page=3 | Type=text | Image=N/A
+06. Source=LayoutLMv3.pdf | Page=3 | Type=text | Image=N/A
+07. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+08. Source=LayoutLMv3.pdf | Page=3 | Type=text | Image=N/A
+09. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+10. Source=LayoutLMv3.pdf | Page=5 | Type=text | Image=N/A
+================================================================================
+
+================================================================================
+STAGE 3 — MULTIMODAL RERANKING
+================================================================================
+Input Candidates : 11
+Reranked Output   : 10
+
+[RERANK #1] Source=LayoutLMv3.pdf | Page=1 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: the layout of the layout and layout of the layout of the layout and layout of the layout of the layout  OCR Text: 2204.08387v3 [cs.CL] 19 Jul 2022  arXiv  LayoutLMv3: Pre-training for Document Al with Unified Text and Image Masking  Yupan Huang* Sun Yat-s
+
+[RERANK #2] Source=LayoutLMv3.pdf | Page=3 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram of the structure of a computer system  OCR Text: Ty Tz  Pre-training  Objectives MLM Head  Unaligned Aligned  V2 V3  MIM Head  Multimodal Transformer  2D Position  Embedding Seba) (Sees ] Seaewo) (see) [sees] [sees] [sess] Seseso) [Ptcheno} Pate
+
+[RERANK #3] Source=LayoutLMv3.pdf | Page=2 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a computer and a computer with a text that reads,  OCR Text: _(2) Pre-training Objectives of Image Modality  | — | ra  |  |  I idn, idya, idys, | idyyidys, ides, ». |  I kde dia Fao  ! teh  | fication  Masked Word
+
+[RERANK #4] Source=LayoutLMv3.pdf | Page=6 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: which significantly outperforms the SOTA result of 85.14 provided by StructuralLM [28]. Note that LayoutLMv3 and StructuralLM use segment-level layout positions, while the other works use word- level layout positions. Using segment-level positions may benefit the semantic entity labeling task on FUN
+
+[RERANK #5] Source=LayoutLMv3.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: word is masked. “Seg” denotes segment-level positions. “[CLS]”, “[MASK]”, “[SEP]” and “[SPE]” are special tokens. sequence. Following the LayoutLM, we normalize all coordinates by the size of images, and use embedding layers to embed x-axis, y-axis, width and height features separately [54]. The Lay
+
+[RERANK #6] Source=LayoutLMv3.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: and layout position information, the model takes the linear projection of patches and word tokens as inputs and encodes them into contextualized vector representations. LayoutLMv3 is pre-trained with discrete token reconstructive objectives of Masked Language Modeling (MLM) and Masked Image Modeling
+
+[RERANK #7] Source=LayoutLMv3.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: • [T+L] text and layout modalities: LayoutLM incorporates layout information by adding word-level spatial embeddings to embeddings of BERT [54]. StructuralLM leverages segment- level layout information [28]. BROS encodes relative layout
+
+[RERANK #8] Source=LayoutLMv3.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: a sequence of vectors, which length is 𝑀 = 𝐻𝑊 /𝑃 2. Then we add learnable 1D position embeddings to each patch since we have not observed improvements from using 2D position embeddings in our preliminary experiments. LayoutLMv3 is the first multimodal model in Document AI that does not rely on CNNs 
+
+[RERANK #9] Source=LayoutLMv3.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: We compare LayoutLMv3 with typical self-supervised pre-training approaches and categorize them by their pre-training modalities. • [T] text modality: BERT [9] and RoBERTa [36] are typical pre-trained language models which only use text information with Transformer architecture. We use FUNSD and RVL-
+
+[RERANK #10] Source=LayoutLMv3.pdf | Page=5 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: OCR words’ bounding box to serve as region proposals and add the region features to corresponding text embeddings. SelfDoc [31] and UDoc [14] use document object proposals and concatenate region features with text embeddings. • [T+L+I (G)] text, layout and image modalities with CNN grid features: La
+================================================================================
+
+================================================================================
+FINAL CONTEXT DOCUMENTS
+================================================================================
+Final context candidates: 10
+
+[FINAL #1] Source=LayoutLMv3.pdf | Page=1 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: the layout of the layout and layout of the layout of the layout and layout of the layout of the layout  OCR Text: 2204.08387v3 [cs.CL] 19 Jul 2022  arXiv  LayoutLMv3: Pre-training for Document Al with Unified Text and Image Masking  Yupan Huang* Sun Yat-s
+
+[FINAL #2] Source=LayoutLMv3.pdf | Page=3 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram of the structure of a computer system  OCR Text: Ty Tz  Pre-training  Objectives MLM Head  Unaligned Aligned  V2 V3  MIM Head  Multimodal Transformer  2D Position  Embedding Seba) (Sees ] Seaewo) (see) [sees] [sees] [sess] Seseso) [Ptcheno} Pate
+
+[FINAL #3] Source=LayoutLMv3.pdf | Page=2 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a computer and a computer with a text that reads,  OCR Text: _(2) Pre-training Objectives of Image Modality  | — | ra  |  |  I idn, idya, idys, | idyyidys, ides, ». |  I kde dia Fao  ! teh  | fication  Masked Word
+
+[FINAL #4] Source=LayoutLMv3.pdf | Page=6 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: which significantly outperforms the SOTA result of 85.14 provided by StructuralLM [28]. Note that LayoutLMv3 and StructuralLM use segment-level layout positions, while the other works use word- level layout positions. Using segment-level positions may benefit the semantic entity labeling task on FUN
+
+[FINAL #5] Source=LayoutLMv3.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: word is masked. “Seg” denotes segment-level positions. “[CLS]”, “[MASK]”, “[SEP]” and “[SPE]” are special tokens. sequence. Following the LayoutLM, we normalize all coordinates by the size of images, and use embedding layers to embed x-axis, y-axis, width and height features separately [54]. The Lay
+
+[FINAL #6] Source=LayoutLMv3.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: and layout position information, the model takes the linear projection of patches and word tokens as inputs and encodes them into contextualized vector representations. LayoutLMv3 is pre-trained with discrete token reconstructive objectives of Masked Language Modeling (MLM) and Masked Image Modeling
+
+[FINAL #7] Source=LayoutLMv3.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: • [T+L] text and layout modalities: LayoutLM incorporates layout information by adding word-level spatial embeddings to embeddings of BERT [54]. StructuralLM leverages segment- level layout information [28]. BROS encodes relative layout
+
+[FINAL #8] Source=LayoutLMv3.pdf | Page=3 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: a sequence of vectors, which length is 𝑀 = 𝐻𝑊 /𝑃 2. Then we add learnable 1D position embeddings to each patch since we have not observed improvements from using 2D position embeddings in our preliminary experiments. LayoutLMv3 is the first multimodal model in Document AI that does not rely on CNNs 
+
+[FINAL #9] Source=LayoutLMv3.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: We compare LayoutLMv3 with typical self-supervised pre-training approaches and categorize them by their pre-training modalities. • [T] text modality: BERT [9] and RoBERTa [36] are typical pre-trained language models which only use text information with Transformer architecture. We use FUNSD and RVL-
+
+[FINAL #10] Source=LayoutLMv3.pdf | Page=5 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: OCR words’ bounding box to serve as region proposals and add the region features to corresponding text embeddings. SelfDoc [31] and UDoc [14] use document object proposals and concatenate region features with text embeddings. • [T+L+I (G)] text, layout and image modalities with CNN grid features: La
+================================================================================
+
+================================================================================
+FINAL CONTEXT SENT TO LLM
+================================================================================
+
+================================================================================
+DOCUMENT : LayoutLMv3.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 1
+--------------------------------------------------------------------------------
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+the layout of the layout and layout of the layout of the layout and layout of the layout of the layout
+
+OCR Text:
+2204.08387v3 [cs.CL] 19 Jul 2022
+
+arXiv
+
+LayoutLMv3: Pre-training for Document Al
+with Unified Text and Image Masking
+
+Yupan Huang*
+Sun Yat-sen University
+huangyp28@mail2.sysu.edu.cn
+
+Yutong Lu
+Sun Yat-sen University
+luyutong@mail.sysu.edu.cn
+
+ABSTRACT
+
+Self-supervised pre-training techniques have achieved remarkable
+progress in Document AI. Most multimodal pre-trained models
+use a masked language modeling objective to learn bidirectional
+representations on the text modality, but they differ in pre-training
+objectives for the image modality. This discrepancy adds difficulty
+to multimodal representation learning. In this paper, we propose
+LayoutLMv3 to pre-train multimodal Transformers for Document
+Al with unified text and image masking. Additionally, LayoutLMv3
+is pre-trained with a word-patch alignment objective to learn cross-
+modal alignment by predicting whether the corresponding image
+patch of a text word is masked. The simple unified architecture
+and training objectives make LayoutLMv3 a general-purpose pre-
+trained model for both text-centric and image-centric Document AI
+tasks. Experimental results show that LayoutLMv3 achieves state-
+of-the-art performance not only in text-centric tasks, including
+form understanding, receipt understanding, and document visual
+question answering, but also in image-centric tasks such as docu-
+ment image classification and document layout analysis. The code
+and models are publicly available at https://aka.ms/layoutlmv3.
+
+CCS CONCEPTS
+
++ Applied computing — Document analysis; - Computing
+methodologies — Natural language processing.
+
+KEYWORDS
+document ai, layoutlm, multimodal pre-training, vision-and-language
+
+ACM Reference Format:
+
+Yupan Huang, Tengchao Ly, Lei Cui, Yutong Lu, and Furu Wei. 2022. Lay-
+outLMv3: Pre-training for Document AI with Unified Text and Image Mask-
+ing. In Proceedings of the 30th ACM International Conference on Multimedia
+(MM °22), October 10-14, 2022, Lisboa, Portugal. ACM, New York, NY, USA,
+10 pages. https://doi.org/10.1145/3503161.3548112
+
+“Contribution during internship at Microsoft Research. Corresponding authors: Lei
+Cui and Furu Wei,
+
+Permission to make digital or hard copies of all or part of this work for personal or
+classroom use is granted without fee provided that copies are not made or distributed
+for profit or commercial advantage and that copies bear this notice and the full citation
+on the first page. Copyrights for components of this work owned by others than ACM
+must be honored. Abstracting with credit is permitted. To copy otherwise, or republish,
+to post on servers or to redistribute to lists, requires prior specific permission and/or a
+fee. Request permissions from permissions@acm.org.
+
+MM °22, October 10-14, 2022, Lisboa, Portugal
+
+© 2022 Association for Computing Machinery.
+
+ACM ISBN 978-1-4503-9203-7/22/10...$15.00
+https://doi.org/10.1145/3503161.3548112
+
+Tengchao Lv
+Microsoft Research Asia
+tengchaolv@microsoft.com
+
+Lei Cui
+Microsoft Research Asia
+lecu@microsoft.com
+
+Furu Wei
+Microsoft Research Asia
+fuwei@microsoft.com
+
+Broure wx resToceNts sparen
+Deocementcisacace sure
+
+canter
+=
+
+om
+eat,
+et
+=o
+are
+Dewan
+
+(a) Text-centric form under-
+standing on FUNSD
+
+(b) Image-centric layout anal-
+ysis on PubLayNet
+
+Figure 1: Examples of Document AI Tasks.
+
+1 INTRODUCTION
+
+In recent years, pre-training techniques have been making waves
+in the Document AI community by achieving remarkable progress
+on document understanding tasks [2, 13-15, 17, 25, 28, 31, 32, 40,
+41, 50, 52, 54~56]. As shown in Figure 1, a pre-trained Document
+AI model can parse layout and extract key information for various
+documents such as scanned forms and academic papers, which is
+important for industrial applications and academic research [8].
+Self-supervised pre-training techniques have made rapid progress
+in representation learning due to their successful applications of re-
+constructive pre-training objectives. In NLP research, BERT firstly
+proposed “masked language modeling” (MLM) to learn bidirec-
+tional representations by predicting the original vocabulary id of
+a randomly masked word token based on its context [9]. Whereas
+most performant multimodal pre-trained Document AI models use
+the MLM proposed by BERT for text modality, they differ in pre-
+training objectives for image modality as depicted in Figure 2. For
+example, DocFormer learns to reconstruct image pixels through a
+CNN decoder [2], which tends to learn noisy details rather than
+high-level structures such as document layouts [43, 45]. SelfDoc
+proposes to regress masked region features [31], which is noisier
+and harder to learn than classifying discrete features in a smaller
+vocabulary [6, 18]. The different granularities of image (e.g., dense
+image pixels or contiguous region features) and text (i.e., discrete
+
+Nearby Document Text:
+LayoutLMv3: Pre-training for Document AI
+with Unified Text and Image Masking
+Yupan Huang∗
+Sun Yat-sen University
+huangyp28@mail2.sysu.edu.cn
+Tengchao Lv
+Microsoft Research Asia
+tengchaolv@microsoft.com
+Lei Cui
+Microsoft Research Asia
+lecu@microsoft.com
+Yutong Lu
+Sun Yat-sen University
+luyutong@mail.sysu.edu.cn
+Furu Wei
+Microsoft Research Asia
+fuwei@microsoft.com
+ABSTRACT
+Self-supervised pre-training techniques have achieved remarkable
+progress in Document AI. Most multimodal pre-trained models
+use a masked language modeling objective to learn bidirectional
+representations on the text modality,
+
+
+--------------------------------------------------------------------------------
+PAGE : 2
+--------------------------------------------------------------------------------
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a page from the book, showing an image of a computer and a computer with a text that reads,
+
+OCR Text:
+_(2) Pre-training Objectives of Image Modality
+
+|
+— |
+ra
+
+|
+
+|
+
+I
+idn, idya, idys, |
+idyyidys, ides, ». |
+
+I kde dia Fao
+
+! teh
+
+| fication
+
+Masked Word Masked Pai Origin Image Masked Region
+Token Classification Token Classi Reconstruction Feature Regression
+
+in
+ist
+— Se ee ee Bost sS SS so
+
+Multimodal Transformer
+
+(1) Image Embedding
+
+Linear Embedding Visual Transformer (Optional) |
+coc
+
+“A lew
+number of
+tumor cell...”
+
+Faster R-CNN
+
+(a) Patch (b) Grid
+(LayoutLMv3) — (e.g., DocFormer)
+
+(c) Region
+{e.g., SelfDac)
+
+Figure 2: Comparisons with existing works (e.g., DocFormer
+[2] and SelfDoc [31]) on (1) image embedding: our Lay-
+outLMv3 uses linear patches to reduce the computational
+bottleneck of CNNs and eliminate the need for region super-
+vision in training object detectors; (2) pre-training objectives
+on image modality: our LayoutLMv3 learns to reconstruct
+discrete image tokens of masked patches instead of raw pix-
+els or region features to capture high-level layout structures
+rather than noisy details.
+
+tokens) objectives further add difficulty to cross-modal alignment
+learning, which is essential to multimodal representation learning.
+
+To overcome the discrepancy in pre-training objectives of text
+and image modalities and facilitate multimodal representation learn-
+ing, we propose LayoutLMv3 to pre-train multimodal Transform-
+ers for Document Al with unified text and image masking objectives
+MLM and MIM. As shown in Figure 3, LayoutLMv3 learns to recon-
+struct masked word tokens of the text modality and symmetrically
+reconstruct masked patch tokens of the image modality. Inspired
+by DALL-E [43] and BEiT [3], we obtain the target image tokens
+from latent codes of a discrete VAE. For documents, each text word
+corresponds to an image patch. To learn this cross-modal alignment,
+we propose a Word-Patch Alignment (WPA) objective to predict
+whether the corresponding image patch of a text word is masked.
+
+Inspired by ViT [11] and ViLT [22], LayoutLMv3 directly lever-
+ages raw image patches from document images without complex
+pre-processing steps such as page object detection. LayoutLMv3
+jointly learns image, text and multimodal representations in a Trans-
+former model with unified MLM, MIM and WPA objectives. This
+makes LayoutLMv3 the first multimodal pre-trained Document AI
+
+model without CNNs for image embeddings, which significantly
+saves parameters and gets rid of region annotations. The simple
+unified architecture and objectives make LayoutLMv3 a general-
+purpose pre-trained model for both text-centric tasks and image-
+centric Document AI tasks.
+
+We evaluated pre-trained LayoutLMv3 models across five pub-
+lic benchmarks, including text-centric benchmarks: FUNSD [20]
+for form understanding, CORD [39] for receipt understanding,
+DocVQA [38] for document visual question answering, and image-
+centric benchmarks: RVL-CDIP [16] for document image classifi-
+cation, PubLayNet [59] for document layout analysis. Experiment
+results demonstrate that LayoutLMv3 achieves state-of-the-art per-
+formance on these benchmarks with parameter efficiency. Further-
+more, LayoutLMv3 is easy to reproduce for its simple and neat
+architecture and pre-training objectives.
+
+Our contributions are summarized as follows:
+
+e LayoutLMv3 is the first multimodal model in Document AI
+that does not rely on a pre-trained CNN or Faster R-CNN
+backbone to extract visual features, which significantly saves
+parameters and eliminates region annotations.
+
+e LayoutLMv3 mitigates the discrepancy between text and
+image multimodal representation learning with unified dis-
+crete token reconstructive objectives MLM and MIM. We
+further propose a Word-Patch Alignment (WPA) objective
+to facilitate cross-modal alignment learning.
+
+e LayoutLMv3 is a general-purpose model for both text-centric
+and image-centric Document AI tasks. For the first time, we
+demonstrate the generality of multimodal Transformers to
+vision tasks in Document AI.
+
+° Experimental results show that LayoutLMv3 achieves state-
+of-the-art performance in text-centric tasks and image-centric
+tasks in Document AI. The code and models are publicly
+available at https://aka.ms/layoutlmv3.
+
+2 LAYOUTLMV3
+
+Figure 3 gives an overview of the LayoutLMv3.
+
+2.1 Model Architecture
+
+LayoutLMv3 applies a unified text-image multimodal Transformer
+to learn cross-modal representations. The Transformer has a multi-
+layer architecture and each layer mainly consists of multi-head
+self-attention and position-wise fully connected feed-forward net-
+works [49]. The input of Transformer is a concatenation of text
+embedding Y = yy. and image embedding X = x.y sequences,
+where L and M are sequence lengths for text and image respectively.
+Through the Transformer, the last layer outputs text-and-image
+contextual representations.
+
+Text Embedding. Text embedding is a combination of word em-
+beddings and position embeddings. We pre-processed document
+images with an off-the-shelf OCR toolkit to obtain textual con-
+tent and corresponding 2D position information. We initialize the
+word embeddings with a word embedding matrix from a pre-trained
+model RoBERTa [36]. The position embeddings include 1D position
+and 2D layout position embeddings, where the 1D position refers
+to the index of tokens within the text sequence, and the 2D lay-
+out position refers to the bounding box coordinates of the text
+
+Nearby Document Text:
+Faster R-CNN
+Linear Embedding
+CNN
+Word Embedding
+Masked Word 
+Token Classification
+Visual Transformer (Optional)
+Origin Image 
+Reconstruction
+(a) Patch
+(LayoutLMv3)
+“A few 
+number of 
+tumor cell…”
+Masked Patch 
+Token Classification
+(c) Region
+(e.g., SelfDoc)
+(b) Grid
+(e.g., DocFormer)
+Masked Region 
+Feature Regression
+𝑖𝑑𝑡1, 𝑖𝑑𝑡2, 𝑖𝑑𝑡3,
+𝑖𝑑𝑡4, 𝑖𝑑𝑡5, 𝑖𝑑𝑡6, …
+Text
+Multimodal Transformer
+(2) Pre-training Objectives of Image Modality
+(1) Image Embedding
+Image
+𝑖𝑑𝑖1 𝑖𝑑𝑖2 𝑖𝑑𝑖3
+𝑖𝑑𝑖4 𝑖𝑑𝑖5 𝑖𝑑𝑖6
+𝑖𝑑𝑖7 𝑖𝑑𝑖8 𝑖𝑑𝑖9
+Figure 2: Comparisons with existing works (e.g., DocFormer
+[2] and SelfDoc [31]) on (1) image emb
+
+
+--------------------------------------------------------------------------------
+PAGE : 3
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+word is masked. “Seg” denotes segment-level positions. “[CLS]”, “[MASK]”, “[SEP]” and “[SPE]” are special tokens.
+sequence. Following the LayoutLM, we normalize all coordinates
+by the size of images, and use embedding layers to embed x-axis,
+y-axis, width and height features separately [54]. The LayoutLM
+and LayoutLMv2 adopt word-level layout positions, where each
+word has its positions. Instead, we adopt segment-level layout posi-
+tions that words in a segment share the same 2D position since the
+words usually express the same semantic meaning [28].
+
+
+[TEXT]
+
+and layout position information, the model takes the linear projection of patches and word tokens as inputs and encodes them
+into contextualized vector representations. LayoutLMv3 is pre-trained with discrete token reconstructive objectives of Masked
+Language Modeling (MLM) and Masked Image Modeling (MIM). Additionally, LayoutLMv3 is pre-trained with a Word-Patch
+Alignment (WPA) objective to learn cross-modal alignment by predicting whether the corresponding image patch of a text
+word is masked. “Seg” denotes segment-level positions. “[CLS]”, “[MASK]”, “[SEP]” and “[SPE]” are special tokens.
+
+
+[TEXT]
+
+a sequence of vectors, which length is 𝑀 = 𝐻𝑊 /𝑃 2. Then we add
+learnable 1D position embeddings to each patch since we have
+not observed improvements from using 2D position embeddings in
+our preliminary experiments. LayoutLMv3 is the first multimodal
+model in Document AI that does not rely on CNNs to extract image
+features, which is vital to Document AI models to reduce parameters
+or remove complex pre-processing steps.
+We insert semantic 1D relative position and spatial 2D relative
+position as bias terms in self-attention networks for text and image
+modalities following LayoutLMv2[56].
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a diagram of the structure of a computer system
+
+OCR Text:
+Ty Tz
+
+Pre-training
+
+Objectives MLM Head
+
+Unaligned Aligned
+
+V2 V3
+
+MIM Head
+
+Multimodal Transformer
+
+2D Position
+
+Embedding Seba) (Sees ] Seaewo) (see) [sees] [sees] [sess] Seseso) [Ptcheno} Patehs) (Pate [Pats] Pach)
+pa ae aoe soins SBOOae
+Embedding [3 | [4 |
+
+“a oes bee e
+
+OCR Parser
+Masking
+
+Word
+Embedding
+
+Document Image
+
+) foas) fas) ce
+
+ween 1 een leet ’ (V2) (V3)
+
+- Flatten Linear
+= | Masking | Embedding
+
+Resize
+
+Image Patches
+
+Figure 3: The architecture and pre-training objectives of LayoutLMv3. LayoutLMv3 is a pre-trained multimodal Transformer
+for Document AI with unified text and image masking objectives. Given an input document image and its corresponding text
+and layout position information, the model takes the linear projection of patches and word tokens as inputs and encodes them
+into contextualized vector representations. LayoutLMv3 is pre-trained with discrete token reconstructive objectives of Masked
+Language Modeling (MLM) and Masked Image Modeling (MIM). Additionally, LayoutLMv3 is pre-trained with a Word-Patch
+Alignment (WPA) objective to learn cross-modal alignment by predicting whether the corresponding image patch of a text
+word is masked. “Seg” denotes segment-level positions. “[CLS]”, “[MASK]”, “[SEP]” and “[SPE]” are special tokens.
+
+sequence. Following the LayoutLM, we normalize all coordinates
+by the size of images, and use embedding layers to embed x-axis,
+y-axis, width and height features separately [54]. The LayoutLM
+and LayoutLMv2 adopt word-level layout positions, where each
+word has its positions. Instead, we adopt segment-level layout posi-
+tions that words in a segment share the same 2D position since the
+words usually express the same semantic meaning [28].
+
+Image Embedding. Existing multimodal models in Document AI
+either extract CNN grid features [2, 56] or rely on an object detector
+like Faster R-CNN [44] to extract region features [14, 31, 40, 54]
+for image embeddings, which accounts for heavy computation
+bottleneck or require region supervision. Inspired by ViT [11] and
+ViLT [22], we represent document images with linear projection
+features of image patches before feeding them into the multimodal
+Transformer. Specifically, we resize a document image into H x W
+and denote the image with I ¢ R©*#*, where C, H and W are the
+channel size, width and height of the image respectively. We then
+split the image into a sequence of uniform P x P patches, linearly
+project the image patches to D dimensions and flatten them into
+a sequence of vectors, which length is M = HW/P?. Then we add
+
+learnable 1D position embeddings to each patch since we have
+not observed improvements from using 2D position embeddings in
+our preliminary experiments. LayoutLMv3 is the first multimodal
+model in Document AI that does not rely on CNNs to extract image
+features, which is vital to Document AI models to reduce parameters
+or remove complex pre-processing steps.
+
+We insert semantic 1D relative position and spatial 2D relative
+position as bias terms in self-attention networks for text and image
+modalities following LayoutLMv2([56].
+
+2.2 Pre-training Objectives
+
+LayoutLMv3 is pre-trained with the MLM, MIM, and WPA objec-
+tives to learn multimodal representation in a self-supervised learn-
+ing manner. Full pre-training objectives of LayoutLMv3 is defined
+as L = Ly +Lyim + Lyea.
+
+Objective I: Masked Language Modeling (MLM). For the lan-
+guage side, our MLM is inspired by the masked language mod-
+eling in BERT [9] and masked visual-language modeling in Lay-
+outLM [54] and LayoutLMv2 [56]. We mask 30% of text tokens with
+
+Nearby Document Text:
+Multimodal Transformer
+Seg1
+[MASK]
+1
++
++
+Seg1
+[MASK]
+2
++
++
+Seg2
+T3
+3
++
++
+V1
+[MASK]
+1
++
+2
++
+3
++
+[MASK]
+[SPE]
+0
++
+Seg3
+T4
+4
++
++
+SegPAD
+[CLS]
+0
++
++
+4
++
+V4
+h
+MLM Head
+MIM Head
+T2
+h
+V2
+h
+V3
+Pre-training
+Objectives
+Word/Patch
+Embedding
+1D Position
+Embedding
+Flatten 
+Masking
+OCR Parser
+Masking
+2D Position
+Embedding
+h
+T1
+SegPAD
+[SEP]
+5
++
++
+h
+WPA Head
+Aligned
+h
+Unaligned
+Patch1
++
+Patch2
++
+Patch3
++
+PatchPAD
++
+Patch4
++
+Image Patches
+Document Image
+Resize
+Split
+(Unaligned)
+(Aligned)
+(T1)
+(T2)
+(V2)
+(V3)
+Linear
+Embedding
+Word
+Embedding
+Figure 3: The architecture and pre-training objectives of LayoutLMv3. La
+
+
+[RELATED PAGE TEXT]
+
+word is masked. “Seg” denotes segment-level positions. “[CLS]”, “[MASK]”, “[SEP]” and “[SPE]” are special tokens.
+sequence. Following the LayoutLM, we normalize all coordinates
+by the size of images, and use embedding layers to embed x-axis,
+y-axis, width and height features separately [54]. The LayoutLM
+and LayoutLMv2 adopt word-level layout posit
+
+
+--------------------------------------------------------------------------------
+PAGE : 4
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+• [T+L] text and layout modalities: LayoutLM incorporates
+layout information by adding word-level spatial embeddings
+to embeddings of BERT [54]. StructuralLM leverages segment-
+level layout information [28]. BROS encodes relative layout
+
+
+[TEXT]
+
+We compare LayoutLMv3 with typical self-supervised pre-training
+approaches and categorize them by their pre-training modalities.
+• [T] text modality: BERT [9] and RoBERTa [36] are typical
+pre-trained language models which only use text information
+with Transformer architecture. We use FUNSD and RVL-
+CDIP results of the RoBERTa from LayoutLM [54] and results
+of BERT from LayoutLMv2 [56]. We reproduce and report
+the CORD and DocVQA results of the RoBERTa.
+• [T+L] text and layout modalities: LayoutLM incorporates
+layout information by adding word-level spatial embeddings
+
+
+--------------------------------------------------------------------------------
+PAGE : 5
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+OCR words’ bounding box to serve as region proposals and
+add the region features to corresponding text embeddings.
+SelfDoc [31] and UDoc [14] use document object proposals
+and concatenate region features with text embeddings.
+• [T+L+I (G)] text, layout and image modalities with CNN
+grid features: LayoutLMv2 [56] and DocFormer [2] extract
+image grid features with a CNN backbone without object
+detection. XYLayoutLM [15] adopts the architecture of Lay-
+outLMv2 and improves layout representation.
+• [T+L+I (P)] text, layout, and image modalities with lin-
+
+
+--------------------------------------------------------------------------------
+PAGE : 6
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+which significantly outperforms the SOTA result of 85.14 provided
+by StructuralLM [28]. Note that LayoutLMv3 and StructuralLM use
+segment-level layout positions, while the other works use word-
+level layout positions. Using segment-level positions may benefit
+the semantic entity labeling task on FUNSD [28], so the two types
+of work are not directly comparable. The LayoutLMv3 also achieves
+SOTA F1 scores on the CORD dataset for both base and large model
+sizes. The results show that LayoutLMv3 can significantly benefit
+the text-centric form and receipt understanding tasks.
+
+================================================================================
+
+================================================================================
+RAG PIPELINE DEBUG
+================================================================================
+Query Type        : analytical
+Retrieved Chunks  : 8
+Retrieved Images  : 3
+Reranked Chunks   : 10
+Reranked Text     : 7
+Reranked Images   : 3
+Final Context Docs: 10
+Exact Figure Query: False
+Exact Figure Match: False
+Exact Figure Final: False
+================================================================================
+
+================================================================================
+STAGE 4 — EVIDENCE VERIFICATION
+================================================================================
+Verification Units : 3
+Supported          : 2
+Partially Supported: 0
+Unsupported        : 1
+Unknown            : 0
+Groundedness Ratio : 0.67
+
+[CLAIM #1] LayoutLMv3 uses segment-level 2D positions, while LayoutLM and LayoutLMv2 use word-level layout positions.
+  Status=UNSUPPORTED | NLI=CONTRADICTION | Confidence=0.6284 | Citation=LayoutLMv3.pdf (Page 3)
+
+[CLAIM #2] The use of segment-level positions in LayoutLMv3 means that words in a segment share the same 2D position since the words usually express the same semantic meaning.
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.9087 | Citation=LayoutLMv3.pdf (Page 3)
+
+[CLAIM #3] This change may benefit the semantic entity labeling task on FUNSD, making LayoutLMv3 and the other works using word-level positions not directly comparable.
+  Status=SUPPORTED | NLI=ENTAILMENT | Confidence=0.9922 | Citation=LayoutLMv3.pdf (Page 6)
+================================================================================
+
+====================================================================================================
+RAG ANSWER
+====================================================================================================
+ LayoutLMv3 uses segment-level 2D positions, while LayoutLM and LayoutLMv2 use word-level layout positions. The use of segment-level positions in LayoutLMv3 means that words in a segment share the same 2D position since the words usually express the same semantic meaning. This change may benefit the semantic entity labeling task on FUNSD, making LayoutLMv3 and the other works using word-level positions not directly comparable.
+
+IMAGE PATHS:
+D:/Projects/Major-Project-2-main/extracted_images/LayoutLMv3_page1_render.png
+D:/Projects/Major-Project-2-main/extracted_images/LayoutLMv3_page2_render.png
+D:/Projects/Major-Project-2-main/extracted_images/LayoutLMv3_page3_render.png

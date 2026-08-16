@@ -1,0 +1,1468 @@
+====================================================================================================
+QUESTION_ID   : SR-13
+DOCUMENT      : SELF-RAG
+QUESTION_TYPE : Deeper reasoning
+ELAPSED_SEC   : 122.0
+ERROR         : no
+====================================================================================================
+
+QUESTION:
+Why does increasing the retrieval threshold create a trade-off between retrieval frequency and model performance?
+
+GROUND TRUTH ANSWER:
+A higher retrieval threshold makes the model retrieve less often. This saves retrieval effort and reduces retrieval frequency, but fewer retrieved passages can remove useful evidence and therefore reduce answer performance. The paper observes that this performance deterioration is smaller on PubHealth and larger on PopQA.
+
+GROUND TRUTH SOURCE:
+Self-RAG.pdf — Pages 9–10, Figure 3(c)
+
+====================================================================================================
+FORENSIC TRANSCRIPT
+====================================================================================================
+
+####################################################################################################
+FORENSIC CASE START
+####################################################################################################
+Original Query   : Why does increasing the retrieval threshold create a trade-off between retrieval frequency and model performance?
+Expanded Query   : Why does increasing the retrieval threshold create a trade-off between retrieval frequency and model performance?
+Query Type       : analytical
+[DOCUMENT SCOPE] Normalized query: 'why does increasing the retrieval threshold create a trade off between retrieval frequency and model performance'
+[DOCUMENT SCOPE] Source='BERT.pdf' -> Normalized='bert'
+[DOCUMENT SCOPE] Token overlap for 'BERT.pdf': []
+[DOCUMENT SCOPE] Source='BLIP-2.pdf' -> Normalized='blip 2'
+[DOCUMENT SCOPE] Token overlap for 'BLIP-2.pdf': []
+[DOCUMENT SCOPE] Source='CLIP.pdf' -> Normalized='clip'
+[DOCUMENT SCOPE] Token overlap for 'CLIP.pdf': []
+[DOCUMENT SCOPE] Source='CNN Paper.pdf' -> Normalized='cnn paper'
+[DOCUMENT SCOPE] Token overlap for 'CNN Paper.pdf': []
+[DOCUMENT SCOPE] Source='Donut.pdf' -> Normalized='donut'
+[DOCUMENT SCOPE] Token overlap for 'Donut.pdf': []
+[DOCUMENT SCOPE] Source='LayoutLMv3.pdf' -> Normalized='layout l mv3'
+[DOCUMENT SCOPE] Token overlap for 'LayoutLMv3.pdf': []
+[DOCUMENT SCOPE] Source='NLP Paper.pdf' -> Normalized='nlp paper'
+[DOCUMENT SCOPE] Token overlap for 'NLP Paper.pdf': []
+[DOCUMENT SCOPE] Source='RAG.pdf' -> Normalized='rag'
+[DOCUMENT SCOPE] Token overlap for 'RAG.pdf': []
+[DOCUMENT SCOPE] Source='Self-RAG.pdf' -> Normalized='self rag'
+[DOCUMENT SCOPE] Token overlap for 'Self-RAG.pdf': []
+[DOCUMENT SCOPE] Source='Vision Transformer.pdf' -> Normalized='vision transformer'
+[DOCUMENT SCOPE] Token overlap for 'Vision Transformer.pdf': []
+[DOCUMENT SCOPE] No reliable document scope detected. Retrieval remains global.
+
+================================================================================
+DOCUMENT SCOPE DEBUG
+================================================================================
+Query          : Why does increasing the retrieval threshold create a trade-off between retrieval frequency and model performance?
+Expanded Query : Why does increasing the retrieval threshold create a trade-off between retrieval frequency and model performance?
+Query Type     : analytical
+Document Scope : None
+================================================================================
+
+==========================================================================================
+STEP 3A — GLOBAL HYBRID RETRIEVAL
+==========================================================================================
+Query              : Why does increasing the retrieval threshold create a trade-off between retrieval frequency and model performance?
+Dense candidate K  : 25
+Final hybrid K     : 8
+RRF constant       : 60
+
+------------------------------------------------------------------------------------------
+[DENSE / VECTOR RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=Efficiency and accuracy trade-off. Using our framework, practitioners can adjust how often retrieval occurs using the token probability of reward tokens. We evaluate how this adapt
+02. Source=RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=retrieval, more recently with pre-trained, neural language models [ 44, 26] similar to ours. Some work optimizes the retrieval module to aid in a speciﬁc, downstream task such as q
+03. Source=Self-RAG.pdf | Page=6 | Type=text | Image=N/A
+    Content=Adaptive retrieval with threshold.SELF -RAG dynamically decides when to retrieve text passages by predicting Retrieve . Alternatively, our framework allows a threshold to be set. S
+04. Source=Self-RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=values of 1.0, 1.0 and 0.5, respectively. To encourage frequent retrieval, we set the retrieval threshold to 0.2 for most tasks and to 0 for ALCE (Gao et al., 2023) due to citation
+05. Source=RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=its effectiveness, and we illustrated how the retrieval index can be hot-swapped to update the model without requiring any retraining. In future work, it may be fruitful to investi
+06. Source=Self-RAG.pdf | Page=8 | Type=text | Image=N/A
+    Content=retrieval counterparts. We also observe that most baselines with retrieval struggle to improve citation accuracy. On ASQA, our model shows significantly higher citation precision a
+07. Source=Self-RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=us to (1) flexibly adjust retrieval frequency for different downstream applications and (2) customize models’ behaviors to user preferences by leveraging reflection tokens through 
+08. Source=RAG.pdf | Page=19 | Type=text | Image=N/A
+    Content=and the RAG model would perform equivalently to BART. The collapse could be due to a less-explicit requirement for factual knowledge in some tasks, or the longer target sequences, 
+09. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=SAIL. We also conduct ablation on our inference-time algorithm, including No retrieval disables retrieval during inference; Hard constraints indicates the model performance that re
+10. Source=Self-RAG.pdf | Page=8 | Type=text | Image=N/A
+    Content=LM-based models on all tasks. While our method outperforms other baselines, on PopQA or Bio, powerful instruction-tuned LMs with retrieval (e.g., LLama2-chat, Alpaca) show large ga
+11. Source=RAG.pdf | Page=19 | Type=text | Image=N/A
+    Content=728 dimensional vectors, consisting of 15.3B values. These can be easily be stored at 8-bit ﬂoating point precision to manage memory and disk footprints. H Retrieval Collapse In pr
+12. Source=RAG.pdf | Page=6 | Type=text | Image=N/A
+    Content=even when the correct answer is not in any retrieved document, achieving 11.8% accuracy in such cases for NQ, where an extractive model would score 0%. 4.2 Abstractive Question Ans
+13. Source=Self-RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=tokens (i.e., reflection tokens). Reflection tokens are categorized into retrieval and critique tokens to indicate the need for retrieval and its generation quality respectively (F
+14. Source=Self-RAG.pdf | Page=4 | Type=text | Image=N/A
+    Content=10: Mgen predicts ISUSE given x, yt ▷ Critique Inference overview. Figure 1 and Algorithm 1 present an overview of SELF -R AG at inference. For every x and preceding generation y<t
+15. Source=RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=state-of-the-art pipeline models which use strong retrieval supervision. Finally, we demonstrate that the non-parametric memory can be replaced to update the models’ knowledge as t
+16. Source=Self-RAG.pdf | Page=17 | Type=text | Image=N/A
+    Content=is unnecessary as the sequence does not require factual grounding or may not be enhanced by knowledge retrieval, Yes indicates retrieval is necessary. We additionally have continue
+17. Source=Self-RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=calls a retriever model on demand (Step 1). Subsequently,SELF -RAG concurrently processes multiple retrieved passages, evaluating their relevance and thengenerating corresponding t
+18. Source=Self-RAG.pdf | Page=18 | Type=text | Image=N/A
+    Content=reward predictions. In most aspects, our reward model shows higher than 80% accuracy, indicating the powerful ability of fine-tuned specialized LMs to evaluate text. While both mod
+19. Source=Self-RAG.pdf | Page=6 | Type=text | Image=N/A
+    Content=during decoding using Critique . Instead of using a soft reward function in Eq. 4, we could explicitly filter out a segment continuation when the model generates an undesirable Cri
+20. Source=BLIP-2.pdf | Page=3 | Type=text | Image=N/A
+    Content=binary classification task where the model is asked to pre- dict whether an image-text pair is positive (matched) or negative (unmatched). We use a bi-directional self-attention ma
+21. Source=BLIP-2.pdf | Page=8 | Type=text | Image=N/A
+    Content=existing methods on zero-shot image-text retrieval. The ITC and ITM losses are essential for image-text retrieval as they directly learn image-text similarity. In Table 6, we show 
+22. Source=Self-RAG.pdf | Page=26 | Type=text | Image=N/A
+    Content=documents is helpful to improve the response to this query. Instruction Describe a time when you had to make a difficult decision. Need retrieval? [No] Explanation This instruction
+23. Source=NLP Paper.pdf | Page=5 | Type=text | Image=N/A
+    Content=5. Discussion The results confirm transformer-based models significantly outperform traditional approaches for news classification. The attention mechanism in Figure 5 demonstrates
+24. Source=CLIP.pdf | Page=19 | Type=text | Image=N/A
+    Content=improvements statistically signiﬁcant when calculated using a one-sided binomial test. pervised baseline of a linear classiﬁer on top of ResNet-50 features. On most of these datase
+25. Source=CNN Paper.pdf | Page=5 | Type=text | Image=N/A
+    Content=accuracy by approximately 3-4%; (2) augmenting the Turtle and Hamster classes with synthetic data generation to address class imbalance; (3) deploying the model as a REST API for r
+
+------------------------------------------------------------------------------------------
+[BM25 RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=Efficiency and accuracy trade-off. Using our framework, practitioners can adjust how often retrieval occurs using the token probability of reward tokens. We evaluate how this adapt
+02. Source=Self-RAG.pdf | Page=4 | Type=text | Image=N/A
+    Content=10: Mgen predicts ISUSE given x, yt ▷ Critique Inference overview. Figure 1 and Algorithm 1 present an overview of SELF -R AG at inference. For every x and preceding generation y<t
+03. Source=Self-RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=y using the retrieval and critic models to create supervised data that precisely mimics the SELF - RAG inference-time process (Section 3.1). For each segment yt ∈ y, we run C to as
+04. Source=Self-RAG.pdf | Page=6 | Type=text | Image=N/A
+    Content=Adaptive retrieval with threshold.SELF -RAG dynamically decides when to retrieve text passages by predicting Retrieve . Alternatively, our framework allows a threshold to be set. S
+05. Source=BLIP-2.pdf | Page=8 | Type=text | Image=N/A
+    Content=4.4. Image-Text Retrieval Since image-text retrieval does not involve language gener- ation, we directly finetune the first-stage-pretrained model w/o LLM. Specifically, we finetun
+06. Source=Self-RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=vacation was a magical escape to the coastal town of  Santorini.                     The azure waters, charming white- washed building are unforgettable experience. No Retrieval No
+07. Source=BLIP-2.pdf | Page=5 | Type=text | Image=N/A
+    Content=Love is like a sunset, it's hard to see it coming but when it does it's so beautiful. Write a romantic message that goes along this photo. Darren and Jade are a couple who have a p
+08. Source=Self-RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=total, we use 150k instruction-output pairs. We use Llama2 7B and 13B (Touvron et al., 2023) as our generator base LM, and we use Llama2 7B as our base critic LM. For the retriever
+09. Source=Self-RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=tokens (i.e., reflection tokens). Reflection tokens are categorized into retrieval and critique tokens to indicate the need for retrieval and its generation quality respectively (F
+10. Source=CLIP.pdf | Page=17 | Type=text | Image=N/A
+    Content=use the following procedure: 1) For each evaluation dataset, we run a duplicate detector (see Appendix C) on its examples. We then manually inspect the found nearest neighbors and 
+11. Source=Self-RAG.pdf | Page=5 | Type=text | Image=N/A
+    Content=Though the initial model can be any pre-trained LM, we use the same one as the generator LM (i.e., Llama 2-7B; Touvron et al. 2023) for C initialization. The critic achieves a high
+12. Source=BLIP-2.pdf | Page=8 | Type=text | Image=N/A
+    Content=Table 5. Comparison with state-of-the-art image-text retrieval methods, finetuned on COCO and zero-shot transferred to Flickr30K. COCO finetuning objectives Image→ Text Text → Imag
+13. Source=Self-RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=values of 1.0, 1.0 and 0.5, respectively. To encourage frequent retrieval, we set the retrieval threshold to 0.2 for most tasks and to 0 for ALCE (Gao et al., 2023) due to citation
+14. Source=Self-RAG.pdf | Page=9 | Type=image | Image=extracted_images\Self-RAG_page9_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the textbook on the characterization and characterization of semiconductors in semiconductors and semiconductors  OCR Text:
+15. Source=Self-RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=guide text generation (Lu et al., 2022; Keskar et al., 2019), our trained LM uses critique tokens to assess its own predictions after each generated segment as an integral part of 
+16. Source=CLIP.pdf | Page=26 | Type=text | Image=N/A
+    Content=methods have been proposed to create larger datasets au- tomatically with Ordonez et al. (2011) as a notable early example. In the deep learning era, Mithun et al. (2018) demonstra
+17. Source=Self-RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=us to (1) flexibly adjust retrieval frequency for different downstream applications and (2) customize models’ behaviors to user preferences by leveraging reflection tokens through 
+18. Source=Self-RAG.pdf | Page=17 | Type=text | Image=N/A
+    Content=is unnecessary as the sequence does not require factual grounding or may not be enhanced by knowledge retrieval, Yes indicates retrieval is necessary. We additionally have continue
+19. Source=RAG.pdf | Page=19 | Type=text | Image=N/A
+    Content=and the RAG model would perform equivalently to BART. The collapse could be due to a less-explicit requirement for factual knowledge in some tasks, or the longer target sequences, 
+20. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=SAIL. We also conduct ablation on our inference-time algorithm, including No retrieval disables retrieval during inference; Hard constraints indicates the model performance that re
+21. Source=RAG.pdf | Page=19 | Type=text | Image=N/A
+    Content=728 dimensional vectors, consisting of 15.3B values. These can be easily be stored at 8-bit ﬂoating point precision to manage memory and disk footprints. H Retrieval Collapse In pr
+22. Source=Self-RAG.pdf | Page=10 | Type=image | Image=extracted_images\Self-RAG_page10_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the publication of the publication of the publication of the publication of the publication of the publication of the publi
+23. Source=Self-RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=to enhance overall generation quality, factuality, and verifiability. consistently retrieves a fixed number of documents for generation regardless of the retrieval necessity (e.g.,
+24. Source=Self-RAG.pdf | Page=18 | Type=text | Image=N/A
+    Content=the input and the entire output as queries, to find passages that are relevant to the entire output. We then split output sentences using Spacy.7 For each sentence, we run C to pre
+25. Source=Self-RAG.pdf | Page=3 | Type=text | Image=N/A
+    Content=We introduce Self-Reflective Retrieval-Augmented Generation ( SELF -RAG), shown in Figure 1. SELF -R AG is a framework that enhances the quality and factuality of an LLM through re
+
+------------------------------------------------------------------------------------------
+[RRF FUSION RANKING]
+------------------------------------------------------------------------------------------
+01. RRF=0.032787 | DenseRank=1 | BM25Rank=1 | Source=Self-RAG.pdf | Page=10 | Type=text
+02. RRF=0.031498 | DenseRank=3 | BM25Rank=4 | Source=Self-RAG.pdf | Page=6 | Type=text
+03. RRF=0.029643 | DenseRank=14 | BM25Rank=2 | Source=Self-RAG.pdf | Page=4 | Type=text
+04. RRF=0.029324 | DenseRank=4 | BM25Rank=13 | Source=Self-RAG.pdf | Page=7 | Type=text
+05. RRF=0.028191 | DenseRank=13 | BM25Rank=9 | Source=Self-RAG.pdf | Page=1 | Type=text
+06. RRF=0.027912 | DenseRank=7 | BM25Rank=17 | Source=Self-RAG.pdf | Page=2 | Type=text
+07. RRF=0.027364 | DenseRank=8 | BM25Rank=19 | Source=RAG.pdf | Page=19 | Type=text
+08. RRF=0.026993 | DenseRank=9 | BM25Rank=20 | Source=Self-RAG.pdf | Page=9 | Type=text
+09. RRF=0.026430 | DenseRank=11 | BM25Rank=21 | Source=RAG.pdf | Page=19 | Type=text
+10. RRF=0.025978 | DenseRank=16 | BM25Rank=18 | Source=Self-RAG.pdf | Page=17 | Type=text
+11. RRF=0.016129 | DenseRank=2 | BM25Rank=- | Source=RAG.pdf | Page=9 | Type=text
+12. RRF=0.015873 | DenseRank=- | BM25Rank=3 | Source=Self-RAG.pdf | Page=5 | Type=text
+13. RRF=0.015385 | DenseRank=5 | BM25Rank=- | Source=RAG.pdf | Page=9 | Type=text
+14. RRF=0.015385 | DenseRank=- | BM25Rank=5 | Source=BLIP-2.pdf | Page=8 | Type=text
+15. RRF=0.015152 | DenseRank=6 | BM25Rank=- | Source=Self-RAG.pdf | Page=8 | Type=text
+16. RRF=0.015152 | DenseRank=- | BM25Rank=6 | Source=Self-RAG.pdf | Page=5 | Type=text
+17. RRF=0.014925 | DenseRank=- | BM25Rank=7 | Source=BLIP-2.pdf | Page=5 | Type=text
+18. RRF=0.014706 | DenseRank=- | BM25Rank=8 | Source=Self-RAG.pdf | Page=7 | Type=text
+19. RRF=0.014286 | DenseRank=10 | BM25Rank=- | Source=Self-RAG.pdf | Page=8 | Type=text
+20. RRF=0.014286 | DenseRank=- | BM25Rank=10 | Source=CLIP.pdf | Page=17 | Type=text
+21. RRF=0.014085 | DenseRank=- | BM25Rank=11 | Source=Self-RAG.pdf | Page=5 | Type=text
+22. RRF=0.013889 | DenseRank=12 | BM25Rank=- | Source=RAG.pdf | Page=6 | Type=text
+23. RRF=0.013889 | DenseRank=- | BM25Rank=12 | Source=BLIP-2.pdf | Page=8 | Type=text
+24. RRF=0.013514 | DenseRank=- | BM25Rank=14 | Source=Self-RAG.pdf | Page=9 | Type=image
+25. RRF=0.013333 | DenseRank=15 | BM25Rank=- | Source=RAG.pdf | Page=2 | Type=text
+26. RRF=0.013333 | DenseRank=- | BM25Rank=15 | Source=Self-RAG.pdf | Page=2 | Type=text
+27. RRF=0.013158 | DenseRank=- | BM25Rank=16 | Source=CLIP.pdf | Page=26 | Type=text
+28. RRF=0.012987 | DenseRank=17 | BM25Rank=- | Source=Self-RAG.pdf | Page=1 | Type=text
+29. RRF=0.012821 | DenseRank=18 | BM25Rank=- | Source=Self-RAG.pdf | Page=18 | Type=text
+30. RRF=0.012658 | DenseRank=19 | BM25Rank=- | Source=Self-RAG.pdf | Page=6 | Type=text
+31. RRF=0.012500 | DenseRank=20 | BM25Rank=- | Source=BLIP-2.pdf | Page=3 | Type=text
+32. RRF=0.012346 | DenseRank=21 | BM25Rank=- | Source=BLIP-2.pdf | Page=8 | Type=text
+33. RRF=0.012195 | DenseRank=22 | BM25Rank=- | Source=Self-RAG.pdf | Page=26 | Type=text
+34. RRF=0.012195 | DenseRank=- | BM25Rank=22 | Source=Self-RAG.pdf | Page=10 | Type=image
+35. RRF=0.012048 | DenseRank=23 | BM25Rank=- | Source=NLP Paper.pdf | Page=5 | Type=text
+36. RRF=0.012048 | DenseRank=- | BM25Rank=23 | Source=Self-RAG.pdf | Page=2 | Type=text
+37. RRF=0.011905 | DenseRank=24 | BM25Rank=- | Source=CLIP.pdf | Page=19 | Type=text
+38. RRF=0.011905 | DenseRank=- | BM25Rank=24 | Source=Self-RAG.pdf | Page=18 | Type=text
+39. RRF=0.011765 | DenseRank=25 | BM25Rank=- | Source=CNN Paper.pdf | Page=5 | Type=text
+40. RRF=0.011765 | DenseRank=- | BM25Rank=25 | Source=Self-RAG.pdf | Page=3 | Type=text
+------------------------------------------------------------------------------------------
+
+==========================================================================================
+STEP 3A — RETRIEVAL STAGE SUMMARY
+==========================================================================================
+Dense candidates       : 25
+BM25 candidates        : 25
+Dense ∩ BM25           : 10
+Dense-only candidates  : 15
+BM25-only candidates   : 15
+Unique candidate pool  : 40
+RRF candidates         : 40
+Returned to pipeline   : 8
+==========================================================================================
+
+------------------------------------------------------------------------------------------
+[FINAL HYBRID RESULT] 8 candidates
+------------------------------------------------------------------------------------------
+01. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=Efficiency and accuracy trade-off. Using our framework, practitioners can adjust how often retrieval occurs using the token probability of reward tokens. We evaluate how this adapt
+02. Source=Self-RAG.pdf | Page=6 | Type=text | Image=N/A
+    Content=Adaptive retrieval with threshold.SELF -RAG dynamically decides when to retrieve text passages by predicting Retrieve . Alternatively, our framework allows a threshold to be set. S
+03. Source=Self-RAG.pdf | Page=4 | Type=text | Image=N/A
+    Content=10: Mgen predicts ISUSE given x, yt ▷ Critique Inference overview. Figure 1 and Algorithm 1 present an overview of SELF -R AG at inference. For every x and preceding generation y<t
+04. Source=Self-RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=values of 1.0, 1.0 and 0.5, respectively. To encourage frequent retrieval, we set the retrieval threshold to 0.2 for most tasks and to 0 for ALCE (Gao et al., 2023) due to citation
+05. Source=Self-RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=tokens (i.e., reflection tokens). Reflection tokens are categorized into retrieval and critique tokens to indicate the need for retrieval and its generation quality respectively (F
+06. Source=Self-RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=us to (1) flexibly adjust retrieval frequency for different downstream applications and (2) customize models’ behaviors to user preferences by leveraging reflection tokens through 
+07. Source=RAG.pdf | Page=19 | Type=text | Image=N/A
+    Content=and the RAG model would perform equivalently to BART. The collapse could be due to a less-explicit requirement for factual knowledge in some tasks, or the longer target sequences, 
+08. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=SAIL. We also conduct ablation on our inference-time algorithm, including No retrieval disables retrieval during inference; Hard constraints indicates the model performance that re
+==========================================================================================
+
+================================================================================
+STAGE 1 — HYBRID RETRIEVAL
+================================================================================
+Retrieved Count : 8
+
+[HYBRID #1] Source=Self-RAG.pdf | Page=10 | Type=text
+Content: Efficiency and accuracy trade-off. Using our framework, practitioners can adjust how often retrieval occurs using the token probability of reward tokens. We evaluate how this adaptive threshold affects overall accuracy and frequency of retrieval, and we evaluate the performance with varying numbers of threshold δ (larger δ results in less retrieval) on PubHealth and PopQA. Figure 3c shows that the model’s retrieval frequencies dramatically change on both datasets. as δ varies. On one hand, perfo
+
+[HYBRID #2] Source=Self-RAG.pdf | Page=6 | Type=text
+Content: Adaptive retrieval with threshold.SELF -RAG dynamically decides when to retrieve text passages by predicting Retrieve . Alternatively, our framework allows a threshold to be set. Specifically, if the prob- ability of generating the Retrieve =Yes token normalized over all output tokens in Retrieve surpasses a designated threshold, we trigger retrieval (details in Appendix Section A.3). Tree-decoding with critique tokens. At each segment step t, when retrieval is required, based either on hard or 
+
+[HYBRID #3] Source=Self-RAG.pdf | Page=4 | Type=text
+Content: 10: Mgen predicts ISUSE given x, yt ▷ Critique Inference overview. Figure 1 and Algorithm 1 present an overview of SELF -R AG at inference. For every x and preceding generation y<t, the model decodes a retrieval token to evaluate the utility of retrieval. If retrieval is not required, the model predicts the next output segment, as it does in a standard LM. If retrieval is needed, the model generates: a critique token to evaluate the retrieved passage’s relevance, the next response segment, and a
+
+[HYBRID #4] Source=Self-RAG.pdf | Page=7 | Type=text
+Content: values of 1.0, 1.0 and 0.5, respectively. To encourage frequent retrieval, we set the retrieval threshold to 0.2 for most tasks and to 0 for ALCE (Gao et al., 2023) due to citation requirements. We speed up inference using vllm (Kwon et al., 2023). At each segment level, we adopt a beam width of 2. For a token-level generation, we use greedy decoding. By default, we use the top five documents from Contriever-MS MARCO (Izacard et al., 2022a); for biographies and open-domain QA, we use additional 
+
+[HYBRID #5] Source=Self-RAG.pdf | Page=1 | Type=text
+Content: tokens (i.e., reflection tokens). Reflection tokens are categorized into retrieval and critique tokens to indicate the need for retrieval and its generation quality respectively (Figure 1 right). In particular, given an input prompt and preceding generations, SELF -RAG first determines if augmenting the continued generation with retrieved passages would be helpful. If so, it outputs a retrieval token that calls a retriever model on demand (Step 1). Subsequently,SELF -RAG concurrently processes m
+
+[HYBRID #6] Source=Self-RAG.pdf | Page=2 | Type=text
+Content: us to (1) flexibly adjust retrieval frequency for different downstream applications and (2) customize models’ behaviors to user preferences by leveraging reflection tokens through segment-level beam search using the weighted linear sum of the reflection token probabilities as segment score. Empirical results on six tasks, including reasoning and long-form generation, demonstrate that SELF - RAG significantly outperforms pre-trained and instruction-tuned LLMs that have more parameters and widely 
+
+[HYBRID #7] Source=RAG.pdf | Page=19 | Type=text
+Content: and the RAG model would perform equivalently to BART. The collapse could be due to a less-explicit requirement for factual knowledge in some tasks, or the longer target sequences, which could result in less informative gradients for the retriever. Perez et al.[46] also found spurious retrieval results when optimizing a retrieval component in order to improve performance on downstream tasks. I Number of instances per dataset The number of training, development and test datapoints in each of our d
+
+[HYBRID #8] Source=Self-RAG.pdf | Page=9 | Type=text
+Content: SAIL. We also conduct ablation on our inference-time algorithm, including No retrieval disables retrieval during inference; Hard constraints indicates the model performance that retrieves when Retrieve =Yes instead of using the adaptive threshold; Retrieve top 1 always retrieves and uses the top one document only, similar to standard RAG approaches;Remove ISSUP indicates the model performance that removes ISSUP score only during critique-guided beam search in Eq. 4. In this ablation experiment, 
+================================================================================
+
+================================================================================
+IMAGE RETRIEVAL DIAGNOSTIC
+================================================================================
+Query                 : Why does increasing the retrieval threshold create a trade-off between retrieval frequency and model performance?
+Image Candidates      : 554
+
+ALL IMAGE CANDIDATES
+--------------------------------------------------------------------------------
+Rank=01 | Source=Self-RAG.pdf | Page=9 | Image=Self-RAG_page9_render.png | Hybrid=-3.8158 | CE=-6.5231 | CLIP=0.2451
+Rank=02 | Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img3.png | Hybrid=-5.4342 | CE=-9.2109 | CLIP=0.2308
+Rank=03 | Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img2.png | Hybrid=-5.4362 | CE=-9.2109 | CLIP=0.2258
+Rank=04 | Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img5.png | Hybrid=-5.4509 | CE=-9.2019 | CLIP=0.1756
+Rank=05 | Source=CLIP.pdf | Page=11 | Image=CLIP_page11_render.png | Hybrid=-5.4578 | CE=-9.2764 | CLIP=0.2702
+Rank=06 | Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img4.png | Hybrid=-5.5091 | CE=-9.2909 | CLIP=0.1635
+Rank=07 | Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img0.png | Hybrid=-5.5786 | CE=-9.4137 | CLIP=0.1741
+Rank=08 | Source=Self-RAG.pdf | Page=1 | Image=Self-RAG_page1_render.png | Hybrid=-5.5856 | CE=-9.4705 | CLIP=0.2418
+Rank=09 | Source=Vision Transformer.pdf | Page=19 | Image=Vision Transformer_page19_render.png | Hybrid=-5.6386 | CE=-9.5732 | CLIP=0.2634
+Rank=10 | Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img1.png | Hybrid=-5.6434 | CE=-9.5279 | CLIP=0.1833
+Rank=11 | Source=CNN Paper.pdf | Page=5 | Image=CNN Paper_page5_render.png | Hybrid=-5.7164 | CE=-9.6911 | CLIP=0.2456
+Rank=12 | Source=CLIP.pdf | Page=24 | Image=CLIP_page24_render.png | Hybrid=-5.7300 | CE=-9.7108 | CLIP=0.2412
+Rank=13 | Source=CLIP.pdf | Page=44 | Image=CLIP_page44_render.png | Hybrid=-5.8289 | CE=-9.8737 | CLIP=0.2384
+Rank=14 | Source=NLP Paper.pdf | Page=1 | Image=NLP Paper_page1_render.png | Hybrid=-5.9709 | CE=-10.1077 | CLIP=0.2344
+Rank=15 | Source=CLIP.pdf | Page=23 | Image=CLIP_page23_render.png | Hybrid=-5.9729 | CE=-10.1043 | CLIP=0.2241
+Rank=16 | Source=CNN Paper.pdf | Page=3 | Image=CNN Paper_page3_img0.png | Hybrid=-6.1429 | CE=-10.3709 | CLIP=0.1990
+Rank=17 | Source=NLP Paper.pdf | Page=3 | Image=NLP Paper_page3_render.png | Hybrid=-6.1977 | CE=-10.4883 | CLIP=0.2382
+Rank=18 | Source=Self-RAG.pdf | Page=3 | Image=Self-RAG_page3_render.png | Hybrid=-6.2267 | CE=-10.5349 | CLIP=0.2356
+Rank=19 | Source=CNN Paper.pdf | Page=3 | Image=CNN Paper_page3_render.png | Hybrid=-6.2399 | CE=-10.5673 | CLIP=0.2514
+Rank=20 | Source=NLP Paper.pdf | Page=3 | Image=NLP Paper_page3_img0.png | Hybrid=-6.2684 | CE=-10.6155 | CLIP=0.2523
+Rank=21 | Source=Self-RAG.pdf | Page=2 | Image=Self-RAG_page2_render.png | Hybrid=-6.2819 | CE=-10.6214 | CLIP=0.2274
+Rank=22 | Source=CNN Paper.pdf | Page=3 | Image=CNN Paper_page3_img1.png | Hybrid=-6.3979 | CE=-10.8095 | CLIP=0.2196
+Rank=23 | Source=CLIP.pdf | Page=14 | Image=CLIP_page14_render.png | Hybrid=-6.4160 | CE=-10.8710 | CLIP=0.2665
+Rank=24 | Source=CLIP.pdf | Page=3 | Image=CLIP_page3_render.png | Hybrid=-6.4314 | CE=-10.8870 | CLIP=0.2521
+Rank=25 | Source=LayoutLMv3.pdf | Page=7 | Image=LayoutLMv3_page7_img0.png | Hybrid=-6.4514 | CE=-10.9346 | CLIP=0.2736
+Rank=26 | Source=CLIP.pdf | Page=37 | Image=CLIP_page37_render.png | Hybrid=-6.4538 | CE=-10.8939 | CLIP=0.2063
+Rank=27 | Source=Vision Transformer.pdf | Page=20 | Image=Vision Transformer_page20_render.png | Hybrid=-6.4606 | CE=-10.9369 | CLIP=0.2537
+Rank=28 | Source=CNN Paper.pdf | Page=4 | Image=CNN Paper_page4_img0.png | Hybrid=-6.4666 | CE=-10.9294 | CLIP=0.2276
+Rank=29 | Source=Donut.pdf | Page=3 | Image=Donut_page3_render.png | Hybrid=-6.4722 | CE=-10.9572 | CLIP=0.2554
+Rank=30 | Source=Donut.pdf | Page=27 | Image=Donut_page27_img3.png | Hybrid=-6.5028 | CE=-10.9732 | CLIP=0.2027
+Rank=31 | Source=Donut.pdf | Page=27 | Image=Donut_page27_img4.png | Hybrid=-6.5153 | CE=-10.9816 | CLIP=0.1843
+Rank=32 | Source=Donut.pdf | Page=27 | Image=Donut_page27_img2.png | Hybrid=-6.5262 | CE=-11.0024 | CLIP=0.1880
+Rank=33 | Source=CLIP.pdf | Page=12 | Image=CLIP_page12_render.png | Hybrid=-6.5305 | CE=-11.0613 | CLIP=0.2656
+Rank=34 | Source=CLIP.pdf | Page=19 | Image=CLIP_page19_render.png | Hybrid=-6.5389 | CE=-11.0672 | CLIP=0.2535
+Rank=35 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img154.png | Hybrid=-6.5438 | CE=-11.0435 | CLIP=0.2058
+Rank=36 | Source=Donut.pdf | Page=27 | Image=Donut_page27_img5.png | Hybrid=-6.5460 | CE=-11.0399 | CLIP=0.1947
+Rank=37 | Source=BERT.pdf | Page=6 | Image=BERT_page6_render.png | Hybrid=-6.5510 | CE=-11.0795 | CLIP=0.2417
+Rank=38 | Source=CNN Paper.pdf | Page=2 | Image=CNN Paper_page2_img0.png | Hybrid=-6.5562 | CE=-11.1191 | CLIP=0.2882
+Rank=39 | Source=CLIP.pdf | Page=13 | Image=CLIP_page13_render.png | Hybrid=-6.5573 | CE=-11.0888 | CLIP=0.2399
+Rank=40 | Source=BERT.pdf | Page=14 | Image=BERT_page14_render.png | Hybrid=-6.5578 | CE=-11.0840 | CLIP=0.2316
+Rank=41 | Source=CLIP.pdf | Page=43 | Image=CLIP_page43_render.png | Hybrid=-6.5738 | CE=-11.1090 | CLIP=0.2291
+Rank=42 | Source=Donut.pdf | Page=27 | Image=Donut_page27_img1.png | Hybrid=-6.5747 | CE=-11.0819 | CLIP=0.1862
+Rank=43 | Source=CLIP.pdf | Page=41 | Image=CLIP_page41_render.png | Hybrid=-6.5831 | CE=-11.1204 | CLIP=0.2227
+Rank=44 | Source=Donut.pdf | Page=5 | Image=Donut_page5_render.png | Hybrid=-6.5903 | CE=-11.1564 | CLIP=0.2590
+Rank=45 | Source=Donut.pdf | Page=27 | Image=Donut_page27_img0.png | Hybrid=-6.5946 | CE=-11.1076 | CLIP=0.1750
+Rank=46 | Source=CLIP.pdf | Page=17 | Image=CLIP_page17_render.png | Hybrid=-6.6023 | CE=-11.1756 | CLIP=0.2575
+Rank=47 | Source=NLP Paper.pdf | Page=4 | Image=NLP Paper_page4_img0.png | Hybrid=-6.6058 | CE=-11.1807 | CLIP=0.2566
+Rank=48 | Source=Vision Transformer.pdf | Page=6 | Image=Vision Transformer_page6_render.png | Hybrid=-6.6131 | CE=-11.1831 | CLIP=0.2419
+Rank=49 | Source=CLIP.pdf | Page=18 | Image=CLIP_page18_render.png | Hybrid=-6.6245 | CE=-11.2145 | CLIP=0.2604
+Rank=50 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img21.png | Hybrid=-6.6263 | CE=-11.1771 | CLIP=0.1999
+Rank=51 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_render.png | Hybrid=-6.6268 | CE=-11.2086 | CLIP=0.2460
+Rank=52 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img31.png | Hybrid=-6.6362 | CE=-11.2047 | CLIP=0.2165
+Rank=53 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img10.png | Hybrid=-6.6381 | CE=-11.2047 | CLIP=0.2117
+Rank=54 | Source=Vision Transformer.pdf | Page=18 | Image=Vision Transformer_page18_img0.png | Hybrid=-6.6449 | CE=-11.2248 | CLIP=0.2251
+Rank=55 | Source=CLIP.pdf | Page=16 | Image=CLIP_page16_render.png | Hybrid=-6.6463 | CE=-11.2468 | CLIP=0.2543
+Rank=56 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img32.png | Hybrid=-6.6471 | CE=-11.2235 | CLIP=0.2174
+Rank=57 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img4.png | Hybrid=-6.6474 | CE=-11.2216 | CLIP=0.2139
+Rank=58 | Source=BERT.pdf | Page=13 | Image=BERT_page13_render.png | Hybrid=-6.6494 | CE=-11.2523 | CLIP=0.2549
+Rank=59 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img5.png | Hybrid=-6.6519 | CE=-11.2267 | CLIP=0.2102
+Rank=60 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img11.png | Hybrid=-6.6522 | CE=-11.2222 | CLIP=0.2028
+Rank=61 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img35.png | Hybrid=-6.6529 | CE=-11.2189 | CLIP=0.1961
+Rank=62 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img16.png | Hybrid=-6.6536 | CE=-11.2012 | CLIP=0.1676
+Rank=63 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img9.png | Hybrid=-6.6550 | CE=-11.2262 | CLIP=0.2017
+Rank=64 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img29.png | Hybrid=-6.6568 | CE=-11.2445 | CLIP=0.2248
+Rank=65 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img15.png | Hybrid=-6.6574 | CE=-11.2242 | CLIP=0.1928
+Rank=66 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img25.png | Hybrid=-6.6574 | CE=-11.2382 | CLIP=0.2137
+Rank=67 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img26.png | Hybrid=-6.6584 | CE=-11.2445 | CLIP=0.2207
+Rank=68 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img17.png | Hybrid=-6.6600 | CE=-11.2302 | CLIP=0.1952
+Rank=69 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img24.png | Hybrid=-6.6628 | CE=-11.2416 | CLIP=0.2054
+Rank=70 | Source=Vision Transformer.pdf | Page=18 | Image=Vision Transformer_page18_render.png | Hybrid=-6.6629 | CE=-11.2791 | CLIP=0.2614
+Rank=71 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img28.png | Hybrid=-6.6642 | CE=-11.2588 | CLIP=0.2276
+Rank=72 | Source=CLIP.pdf | Page=4 | Image=CLIP_page4_render.png | Hybrid=-6.6660 | CE=-11.2649 | CLIP=0.2322
+Rank=73 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img7.png | Hybrid=-6.6670 | CE=-11.2507 | CLIP=0.2085
+Rank=74 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img30.png | Hybrid=-6.6677 | CE=-11.2435 | CLIP=0.1961
+Rank=75 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img12.png | Hybrid=-6.6680 | CE=-11.2357 | CLIP=0.1836
+Rank=76 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img14.png | Hybrid=-6.6698 | CE=-11.2513 | CLIP=0.2023
+Rank=77 | Source=Vision Transformer.pdf | Page=7 | Image=Vision Transformer_page7_render.png | Hybrid=-6.6702 | CE=-11.2918 | CLIP=0.2622
+Rank=78 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img20.png | Hybrid=-6.6702 | CE=-11.2552 | CLIP=0.2072
+Rank=79 | Source=CLIP.pdf | Page=38 | Image=CLIP_page38_img1.png | Hybrid=-6.6705 | CE=-11.2537 | CLIP=0.2042
+Rank=80 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img22.png | Hybrid=-6.6711 | CE=-11.2569 | CLIP=0.2077
+Rank=81 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img6.png | Hybrid=-6.6724 | CE=-11.2606 | CLIP=0.2101
+Rank=82 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img8.png | Hybrid=-6.6730 | CE=-11.2569 | CLIP=0.2028
+Rank=83 | Source=NLP Paper.pdf | Page=4 | Image=NLP Paper_page4_render.png | Hybrid=-6.6733 | CE=-11.2930 | CLIP=0.2562
+Rank=84 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img13.png | Hybrid=-6.6755 | CE=-11.2522 | CLIP=0.1896
+Rank=85 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img23.png | Hybrid=-6.6761 | CE=-11.2668 | CLIP=0.2099
+Rank=86 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img3.png | Hybrid=-6.6766 | CE=-11.2627 | CLIP=0.2025
+Rank=87 | Source=BERT.pdf | Page=3 | Image=BERT_page3_render.png | Hybrid=-6.6790 | CE=-11.3094 | CLIP=0.2666
+Rank=88 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img34.png | Hybrid=-6.6790 | CE=-11.2679 | CLIP=0.2043
+Rank=89 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img2.png | Hybrid=-6.6813 | CE=-11.2744 | CLIP=0.2083
+Rank=90 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img27.png | Hybrid=-6.6820 | CE=-11.2752 | CLIP=0.2077
+Rank=91 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img18.png | Hybrid=-6.6878 | CE=-11.2645 | CLIP=0.1772
+Rank=92 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img33.png | Hybrid=-6.6888 | CE=-11.2708 | CLIP=0.1841
+Rank=93 | Source=CNN Paper.pdf | Page=1 | Image=CNN Paper_page1_img0.png | Hybrid=-6.6908 | CE=-11.3209 | CLIP=0.2544
+Rank=94 | Source=CLIP.pdf | Page=38 | Image=CLIP_page38_render.png | Hybrid=-6.6919 | CE=-11.3083 | CLIP=0.2328
+Rank=95 | Source=RAG.pdf | Page=8 | Image=RAG_page8_render.png | Hybrid=-6.6919 | CE=-11.3179 | CLIP=0.2470
+Rank=96 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img26.png | Hybrid=-6.6926 | CE=-11.2966 | CLIP=0.2135
+Rank=97 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img19.png | Hybrid=-6.6931 | CE=-11.2789 | CLIP=0.1857
+Rank=98 | Source=CNN Paper.pdf | Page=2 | Image=CNN Paper_page2_render.png | Hybrid=-6.6957 | CE=-11.3395 | CLIP=0.2700
+Rank=99 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img0.png | Hybrid=-6.6960 | CE=-11.2834 | CLIP=0.1850
+Rank=100 | Source=BLIP-2.pdf | Page=1 | Image=BLIP-2_page1_render.png | Hybrid=-6.6961 | CE=-11.3196 | CLIP=0.2393
+Rank=101 | Source=CLIP.pdf | Page=15 | Image=CLIP_page15_img1.png | Hybrid=-6.6992 | CE=-11.2834 | CLIP=0.1772
+Rank=102 | Source=RAG.pdf | Page=7 | Image=RAG_page7_render.png | Hybrid=-6.6998 | CE=-11.3278 | CLIP=0.2422
+Rank=103 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img211.png | Hybrid=-6.6998 | CE=-11.3020 | CLIP=0.2034
+Rank=104 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img128.png | Hybrid=-6.7009 | CE=-11.3065 | CLIP=0.2075
+Rank=105 | Source=RAG.pdf | Page=6 | Image=RAG_page6_render.png | Hybrid=-6.7013 | CE=-11.3257 | CLIP=0.2354
+Rank=106 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img101.png | Hybrid=-6.7027 | CE=-11.3218 | CLIP=0.2258
+Rank=107 | Source=CNN Paper.pdf | Page=1 | Image=CNN Paper_page1_render.png | Hybrid=-6.7035 | CE=-11.3428 | CLIP=0.2554
+Rank=108 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img244.png | Hybrid=-6.7036 | CE=-11.3170 | CLIP=0.2165
+Rank=109 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img144.png | Hybrid=-6.7037 | CE=-11.3110 | CLIP=0.2071
+Rank=110 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img40.png | Hybrid=-6.7038 | CE=-11.3122 | CLIP=0.2088
+Rank=111 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img35.png | Hybrid=-6.7041 | CE=-11.3145 | CLIP=0.2115
+Rank=112 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img49.png | Hybrid=-6.7041 | CE=-11.3087 | CLIP=0.2027
+Rank=113 | Source=Vision Transformer.pdf | Page=18 | Image=Vision Transformer_page18_img4.png | Hybrid=-6.7047 | CE=-11.3120 | CLIP=0.2062
+Rank=114 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img62.png | Hybrid=-6.7049 | CE=-11.3062 | CLIP=0.1972
+Rank=115 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img255.png | Hybrid=-6.7049 | CE=-11.3017 | CLIP=0.1903
+Rank=116 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img67.png | Hybrid=-6.7051 | CE=-11.3079 | CLIP=0.1992
+Rank=117 | Source=BERT.pdf | Page=15 | Image=BERT_page15_img13.png | Hybrid=-6.7055 | CE=-11.3322 | CLIP=0.2345
+Rank=118 | Source=Vision Transformer.pdf | Page=18 | Image=Vision Transformer_page18_img2.png | Hybrid=-6.7056 | CE=-11.3120 | CLIP=0.2039
+Rank=119 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img235.png | Hybrid=-6.7058 | CE=-11.3017 | CLIP=0.1881
+Rank=120 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img219.png | Hybrid=-6.7060 | CE=-11.3096 | CLIP=0.1993
+Rank=121 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img180.png | Hybrid=-6.7073 | CE=-11.3108 | CLIP=0.1980
+Rank=122 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img27.png | Hybrid=-6.7081 | CE=-11.3135 | CLIP=0.2000
+Rank=123 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img250.png | Hybrid=-6.7102 | CE=-11.3350 | CLIP=0.2270
+Rank=124 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img59.png | Hybrid=-6.7102 | CE=-11.3202 | CLIP=0.2047
+Rank=125 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img28.png | Hybrid=-6.7104 | CE=-11.3251 | CLIP=0.2116
+Rank=126 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img113.png | Hybrid=-6.7112 | CE=-11.3223 | CLIP=0.2053
+Rank=127 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img115.png | Hybrid=-6.7115 | CE=-11.3035 | CLIP=0.1764
+Rank=128 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img123.png | Hybrid=-6.7116 | CE=-11.3201 | CLIP=0.2012
+Rank=129 | Source=BLIP-2.pdf | Page=1 | Image=BLIP-2_page1_img1.png | Hybrid=-6.7123 | CE=-11.3250 | CLIP=0.2068
+Rank=130 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img218.png | Hybrid=-6.7126 | CE=-11.3097 | CLIP=0.1832
+Rank=131 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img24.png | Hybrid=-6.7133 | CE=-11.3201 | CLIP=0.1968
+Rank=132 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img213.png | Hybrid=-6.7136 | CE=-11.3166 | CLIP=0.1910
+Rank=133 | Source=RAG.pdf | Page=2 | Image=RAG_page2_render.png | Hybrid=-6.7139 | CE=-11.3559 | CLIP=0.2492
+Rank=134 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img132.png | Hybrid=-6.7140 | CE=-11.3303 | CLIP=0.2105
+Rank=135 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img137.png | Hybrid=-6.7140 | CE=-11.3178 | CLIP=0.1918
+Rank=136 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img100.png | Hybrid=-6.7141 | CE=-11.3272 | CLIP=0.2055
+Rank=137 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img226.png | Hybrid=-6.7145 | CE=-11.3294 | CLIP=0.2078
+Rank=138 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img48.png | Hybrid=-6.7151 | CE=-11.3094 | CLIP=0.1764
+Rank=139 | Source=Vision Transformer.pdf | Page=3 | Image=Vision Transformer_page3_render.png | Hybrid=-6.7154 | CE=-11.3499 | CLIP=0.2363
+Rank=140 | Source=BLIP-2.pdf | Page=12 | Image=BLIP-2_page12_img1.png | Hybrid=-6.7157 | CE=-11.3301 | CLIP=0.2057
+Rank=141 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img221.png | Hybrid=-6.7175 | CE=-11.3178 | CLIP=0.1830
+Rank=142 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img122.png | Hybrid=-6.7179 | CE=-11.3352 | CLIP=0.2079
+Rank=143 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img117.png | Hybrid=-6.7180 | CE=-11.3393 | CLIP=0.2140
+Rank=144 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img63.png | Hybrid=-6.7184 | CE=-11.3464 | CLIP=0.2236
+Rank=145 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img153.png | Hybrid=-6.7187 | CE=-11.3293 | CLIP=0.1973
+Rank=146 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img22.png | Hybrid=-6.7187 | CE=-11.3325 | CLIP=0.2019
+Rank=147 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img64.png | Hybrid=-6.7188 | CE=-11.3464 | CLIP=0.2225
+Rank=148 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img32.png | Hybrid=-6.7189 | CE=-11.3303 | CLIP=0.1982
+Rank=149 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img220.png | Hybrid=-6.7192 | CE=-11.3209 | CLIP=0.1833
+Rank=150 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img151.png | Hybrid=-6.7194 | CE=-11.3272 | CLIP=0.1922
+Rank=151 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img92.png | Hybrid=-6.7194 | CE=-11.3420 | CLIP=0.2145
+Rank=152 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img167.png | Hybrid=-6.7196 | CE=-11.3271 | CLIP=0.1917
+Rank=153 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img176.png | Hybrid=-6.7197 | CE=-11.3303 | CLIP=0.1962
+Rank=154 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img157.png | Hybrid=-6.7197 | CE=-11.3307 | CLIP=0.1967
+Rank=155 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img0.png | Hybrid=-6.7201 | CE=-11.3317 | CLIP=0.1974
+Rank=156 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img190.png | Hybrid=-6.7201 | CE=-11.3363 | CLIP=0.2042
+Rank=157 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img208.png | Hybrid=-6.7204 | CE=-11.3298 | CLIP=0.1938
+Rank=158 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img60.png | Hybrid=-6.7206 | CE=-11.3460 | CLIP=0.2176
+Rank=159 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img34.png | Hybrid=-6.7210 | CE=-11.3369 | CLIP=0.2029
+Rank=160 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img217.png | Hybrid=-6.7217 | CE=-11.3401 | CLIP=0.2058
+Rank=161 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img85.png | Hybrid=-6.7218 | CE=-11.3395 | CLIP=0.2047
+Rank=162 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img193.png | Hybrid=-6.7220 | CE=-11.3373 | CLIP=0.2009
+Rank=163 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img109.png | Hybrid=-6.7222 | CE=-11.3453 | CLIP=0.2125
+Rank=164 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img41.png | Hybrid=-6.7223 | CE=-11.3408 | CLIP=0.2055
+Rank=165 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img175.png | Hybrid=-6.7229 | CE=-11.3325 | CLIP=0.1915
+Rank=166 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img129.png | Hybrid=-6.7230 | CE=-11.3299 | CLIP=0.1874
+Rank=167 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img145.png | Hybrid=-6.7233 | CE=-11.3464 | CLIP=0.2113
+Rank=168 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img240.png | Hybrid=-6.7235 | CE=-11.3672 | CLIP=0.2419
+Rank=169 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img116.png | Hybrid=-6.7236 | CE=-11.3393 | CLIP=0.1998
+Rank=170 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img110.png | Hybrid=-6.7242 | CE=-11.3429 | CLIP=0.2037
+Rank=171 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img189.png | Hybrid=-6.7245 | CE=-11.3329 | CLIP=0.1882
+Rank=172 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img83.png | Hybrid=-6.7246 | CE=-11.3480 | CLIP=0.2104
+Rank=173 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img112.png | Hybrid=-6.7246 | CE=-11.3444 | CLIP=0.2050
+Rank=174 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img241.png | Hybrid=-6.7249 | CE=-11.3702 | CLIP=0.2432
+Rank=175 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img192.png | Hybrid=-6.7252 | CE=-11.3373 | CLIP=0.1930
+Rank=176 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img150.png | Hybrid=-6.7263 | CE=-11.3396 | CLIP=0.1937
+Rank=177 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img161.png | Hybrid=-6.7264 | CE=-11.3465 | CLIP=0.2038
+Rank=178 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img251.png | Hybrid=-6.7266 | CE=-11.3684 | CLIP=0.2362
+Rank=179 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img13.png | Hybrid=-6.7268 | CE=-11.3392 | CLIP=0.1919
+Rank=180 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img181.png | Hybrid=-6.7270 | CE=-11.3406 | CLIP=0.1933
+Rank=181 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img52.png | Hybrid=-6.7271 | CE=-11.3552 | CLIP=0.2150
+Rank=182 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img135.png | Hybrid=-6.7271 | CE=-11.3454 | CLIP=0.2002
+Rank=183 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img239.png | Hybrid=-6.7271 | CE=-11.3369 | CLIP=0.1874
+Rank=184 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img76.png | Hybrid=-6.7272 | CE=-11.3472 | CLIP=0.2029
+Rank=185 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img47.png | Hybrid=-6.7274 | CE=-11.3527 | CLIP=0.2105
+Rank=186 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img188.png | Hybrid=-6.7274 | CE=-11.3305 | CLIP=0.1772
+Rank=187 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img155.png | Hybrid=-6.7275 | CE=-11.3498 | CLIP=0.2059
+Rank=188 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img84.png | Hybrid=-6.7276 | CE=-11.3395 | CLIP=0.1903
+Rank=189 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img61.png | Hybrid=-6.7278 | CE=-11.3463 | CLIP=0.1999
+Rank=190 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img33.png | Hybrid=-6.7282 | CE=-11.3536 | CLIP=0.2100
+Rank=191 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img125.png | Hybrid=-6.7284 | CE=-11.3357 | CLIP=0.1826
+Rank=192 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img127.png | Hybrid=-6.7285 | CE=-11.3335 | CLIP=0.1791
+Rank=193 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img207.png | Hybrid=-6.7286 | CE=-11.3464 | CLIP=0.1980
+Rank=194 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img206.png | Hybrid=-6.7288 | CE=-11.3371 | CLIP=0.1838
+Rank=195 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img77.png | Hybrid=-6.7288 | CE=-11.3635 | CLIP=0.2232
+Rank=196 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img80.png | Hybrid=-6.7294 | CE=-11.3488 | CLIP=0.1996
+Rank=197 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img246.png | Hybrid=-6.7295 | CE=-11.3367 | CLIP=0.1814
+Rank=198 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img86.png | Hybrid=-6.7296 | CE=-11.3450 | CLIP=0.1935
+Rank=199 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img18.png | Hybrid=-6.7298 | CE=-11.3649 | CLIP=0.2229
+Rank=200 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img79.png | Hybrid=-6.7298 | CE=-11.3488 | CLIP=0.1987
+Rank=201 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img82.png | Hybrid=-6.7299 | CE=-11.3522 | CLIP=0.2036
+Rank=202 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img138.png | Hybrid=-6.7302 | CE=-11.3482 | CLIP=0.1968
+Rank=203 | Source=BLIP-2.pdf | Page=12 | Image=BLIP-2_page12_img2.png | Hybrid=-6.7303 | CE=-11.3464 | CLIP=0.1939
+Rank=204 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img231.png | Hybrid=-6.7307 | CE=-11.3500 | CLIP=0.1982
+Rank=205 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img245.png | Hybrid=-6.7307 | CE=-11.3577 | CLIP=0.2098
+Rank=206 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img99.png | Hybrid=-6.7314 | CE=-11.3469 | CLIP=0.1917
+Rank=207 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img131.png | Hybrid=-6.7316 | CE=-11.3448 | CLIP=0.1881
+Rank=208 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img98.png | Hybrid=-6.7316 | CE=-11.3506 | CLIP=0.1968
+Rank=209 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img91.png | Hybrid=-6.7317 | CE=-11.3562 | CLIP=0.2049
+Rank=210 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img212.png | Hybrid=-6.7318 | CE=-11.3373 | CLIP=0.1766
+Rank=211 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img143.png | Hybrid=-6.7319 | CE=-11.3472 | CLIP=0.1911
+Rank=212 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img45.png | Hybrid=-6.7319 | CE=-11.3501 | CLIP=0.1952
+Rank=213 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img224.png | Hybrid=-6.7320 | CE=-11.3391 | CLIP=0.1786
+Rank=214 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img29.png | Hybrid=-6.7323 | CE=-11.3608 | CLIP=0.2105
+Rank=215 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img70.png | Hybrid=-6.7324 | CE=-11.3410 | CLIP=0.1805
+Rank=216 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img102.png | Hybrid=-6.7325 | CE=-11.3753 | CLIP=0.2318
+Rank=217 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img1.png | Hybrid=-6.7326 | CE=-11.3565 | CLIP=0.2031
+Rank=218 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img68.png | Hybrid=-6.7328 | CE=-11.3578 | CLIP=0.2048
+Rank=219 | Source=Donut.pdf | Page=7 | Image=Donut_page7_img6.png | Hybrid=-6.7330 | CE=-11.3375 | CLIP=0.1737
+Rank=220 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img31.png | Hybrid=-6.7330 | CE=-11.3560 | CLIP=0.2015
+Rank=221 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img88.png | Hybrid=-6.7334 | CE=-11.3435 | CLIP=0.1817
+Rank=222 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img173.png | Hybrid=-6.7336 | CE=-11.3534 | CLIP=0.1963
+Rank=223 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img94.png | Hybrid=-6.7338 | CE=-11.3593 | CLIP=0.2045
+Rank=224 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img162.png | Hybrid=-6.7341 | CE=-11.3602 | CLIP=0.2051
+Rank=225 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img201.png | Hybrid=-6.7343 | CE=-11.3615 | CLIP=0.2064
+Rank=226 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img14.png | Hybrid=-6.7344 | CE=-11.3548 | CLIP=0.1962
+Rank=227 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img242.png | Hybrid=-6.7345 | CE=-11.3511 | CLIP=0.1904
+Rank=228 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img148.png | Hybrid=-6.7346 | CE=-11.3634 | CLIP=0.2086
+Rank=229 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img17.png | Hybrid=-6.7349 | CE=-11.3605 | CLIP=0.2035
+Rank=230 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img30.png | Hybrid=-6.7351 | CE=-11.3580 | CLIP=0.1993
+Rank=231 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img216.png | Hybrid=-6.7351 | CE=-11.3468 | CLIP=0.1824
+Rank=232 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img170.png | Hybrid=-6.7352 | CE=-11.3668 | CLIP=0.2123
+Rank=233 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img149.png | Hybrid=-6.7354 | CE=-11.3634 | CLIP=0.2067
+Rank=234 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img5.png | Hybrid=-6.7355 | CE=-11.3670 | CLIP=0.2119
+Rank=235 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img203.png | Hybrid=-6.7356 | CE=-11.3641 | CLIP=0.2072
+Rank=236 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img78.png | Hybrid=-6.7356 | CE=-11.3770 | CLIP=0.2266
+Rank=237 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img233.png | Hybrid=-6.7356 | CE=-11.3471 | CLIP=0.1816
+Rank=238 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img168.png | Hybrid=-6.7358 | CE=-11.3554 | CLIP=0.1936
+Rank=239 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img97.png | Hybrid=-6.7359 | CE=-11.3518 | CLIP=0.1879
+Rank=240 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img172.png | Hybrid=-6.7359 | CE=-11.3679 | CLIP=0.2121
+Rank=241 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img171.png | Hybrid=-6.7359 | CE=-11.3640 | CLIP=0.2062
+Rank=242 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img119.png | Hybrid=-6.7360 | CE=-11.3472 | CLIP=0.1807
+Rank=243 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img177.png | Hybrid=-6.7361 | CE=-11.3636 | CLIP=0.2052
+Rank=244 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img103.png | Hybrid=-6.7362 | CE=-11.3555 | CLIP=0.1928
+Rank=245 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img23.png | Hybrid=-6.7362 | CE=-11.3672 | CLIP=0.2103
+Rank=246 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img228.png | Hybrid=-6.7364 | CE=-11.3533 | CLIP=0.1891
+Rank=247 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img205.png | Hybrid=-6.7365 | CE=-11.3576 | CLIP=0.1952
+Rank=248 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img12.png | Hybrid=-6.7366 | CE=-11.3417 | CLIP=0.1709
+Rank=249 | Source=BLIP-2.pdf | Page=2 | Image=BLIP-2_page2_render.png | Hybrid=-6.7369 | CE=-11.3797 | CLIP=0.2272
+Rank=250 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img166.png | Hybrid=-6.7371 | CE=-11.3626 | CLIP=0.2010
+Rank=251 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img243.png | Hybrid=-6.7372 | CE=-11.3542 | CLIP=0.1884
+Rank=252 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img210.png | Hybrid=-6.7376 | CE=-11.3685 | CLIP=0.2088
+Rank=253 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img69.png | Hybrid=-6.7376 | CE=-11.3553 | CLIP=0.1891
+Rank=254 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img229.png | Hybrid=-6.7376 | CE=-11.3635 | CLIP=0.2013
+Rank=255 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img191.png | Hybrid=-6.7376 | CE=-11.3467 | CLIP=0.1761
+Rank=256 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img198.png | Hybrid=-6.7377 | CE=-11.3651 | CLIP=0.2035
+Rank=257 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img254.png | Hybrid=-6.7378 | CE=-11.3542 | CLIP=0.1866
+Rank=258 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img36.png | Hybrid=-6.7380 | CE=-11.3482 | CLIP=0.1774
+Rank=259 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img147.png | Hybrid=-6.7380 | CE=-11.3564 | CLIP=0.1895
+Rank=260 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img165.png | Hybrid=-6.7382 | CE=-11.3588 | CLIP=0.1926
+Rank=261 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img146.png | Hybrid=-6.7383 | CE=-11.3564 | CLIP=0.1888
+Rank=262 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img75.png | Hybrid=-6.7383 | CE=-11.3678 | CLIP=0.2059
+Rank=263 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img215.png | Hybrid=-6.7385 | CE=-11.3503 | CLIP=0.1792
+Rank=264 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img214.png | Hybrid=-6.7386 | CE=-11.3506 | CLIP=0.1792
+Rank=265 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img89.png | Hybrid=-6.7388 | CE=-11.3602 | CLIP=0.1934
+Rank=266 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img223.png | Hybrid=-6.7388 | CE=-11.3612 | CLIP=0.1948
+Rank=267 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img43.png | Hybrid=-6.7389 | CE=-11.3589 | CLIP=0.1911
+Rank=268 | Source=Donut.pdf | Page=7 | Image=Donut_page7_render.png | Hybrid=-6.7394 | CE=-11.3920 | CLIP=0.2396
+Rank=269 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img186.png | Hybrid=-6.7394 | CE=-11.3685 | CLIP=0.2042
+Rank=270 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img237.png | Hybrid=-6.7394 | CE=-11.3698 | CLIP=0.2061
+Rank=271 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img93.png | Hybrid=-6.7397 | CE=-11.3673 | CLIP=0.2016
+Rank=272 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img108.png | Hybrid=-6.7398 | CE=-11.3694 | CLIP=0.2045
+Rank=273 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img96.png | Hybrid=-6.7400 | CE=-11.3677 | CLIP=0.2015
+Rank=274 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img152.png | Hybrid=-6.7400 | CE=-11.3570 | CLIP=0.1856
+Rank=275 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img158.png | Hybrid=-6.7404 | CE=-11.3658 | CLIP=0.1977
+Rank=276 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img179.png | Hybrid=-6.7405 | CE=-11.3559 | CLIP=0.1828
+Rank=277 | Source=CLIP.pdf | Page=38 | Image=CLIP_page38_img0.png | Hybrid=-6.7406 | CE=-11.3528 | CLIP=0.1777
+Rank=278 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img72.png | Hybrid=-6.7407 | CE=-11.3545 | CLIP=0.1801
+Rank=279 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img225.png | Hybrid=-6.7408 | CE=-11.3681 | CLIP=0.2002
+Rank=280 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img121.png | Hybrid=-6.7409 | CE=-11.3622 | CLIP=0.1911
+Rank=281 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img21.png | Hybrid=-6.7409 | CE=-11.3683 | CLIP=0.2003
+Rank=282 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img238.png | Hybrid=-6.7412 | CE=-11.3593 | CLIP=0.1860
+Rank=283 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img124.png | Hybrid=-6.7412 | CE=-11.3647 | CLIP=0.1941
+Rank=284 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img107.png | Hybrid=-6.7412 | CE=-11.3667 | CLIP=0.1971
+Rank=285 | Source=CLIP.pdf | Page=5 | Image=CLIP_page5_render.png | Hybrid=-6.7413 | CE=-11.3945 | CLIP=0.2385
+Rank=286 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img164.png | Hybrid=-6.7413 | CE=-11.3537 | CLIP=0.1773
+Rank=287 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img142.png | Hybrid=-6.7413 | CE=-11.3822 | CLIP=0.2201
+Rank=288 | Source=Donut.pdf | Page=7 | Image=Donut_page7_img4.png | Hybrid=-6.7415 | CE=-11.3709 | CLIP=0.2027
+Rank=289 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img38.png | Hybrid=-6.7415 | CE=-11.3617 | CLIP=0.1888
+Rank=290 | Source=BERT.pdf | Page=3 | Image=BERT_page3_img12.png | Hybrid=-6.7417 | CE=-11.3926 | CLIP=0.2345
+Rank=291 | Source=BLIP-2.pdf | Page=12 | Image=BLIP-2_page12_img3.png | Hybrid=-6.7417 | CE=-11.3518 | CLIP=0.1733
+Rank=292 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img37.png | Hybrid=-6.7418 | CE=-11.3734 | CLIP=0.2056
+Rank=293 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img136.png | Hybrid=-6.7419 | CE=-11.3601 | CLIP=0.1853
+Rank=294 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img197.png | Hybrid=-6.7420 | CE=-11.3701 | CLIP=0.2001
+Rank=295 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img55.png | Hybrid=-6.7422 | CE=-11.3656 | CLIP=0.1930
+Rank=296 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img46.png | Hybrid=-6.7422 | CE=-11.3610 | CLIP=0.1859
+Rank=297 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img66.png | Hybrid=-6.7426 | CE=-11.3747 | CLIP=0.2057
+Rank=298 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img7.png | Hybrid=-6.7427 | CE=-11.3681 | CLIP=0.1953
+Rank=299 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img204.png | Hybrid=-6.7427 | CE=-11.3627 | CLIP=0.1873
+Rank=300 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img141.png | Hybrid=-6.7428 | CE=-11.3701 | CLIP=0.1982
+Rank=301 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img249.png | Hybrid=-6.7428 | CE=-11.3758 | CLIP=0.2067
+Rank=302 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img4.png | Hybrid=-6.7428 | CE=-11.3733 | CLIP=0.2029
+Rank=303 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img227.png | Hybrid=-6.7429 | CE=-11.3766 | CLIP=0.2077
+Rank=304 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img39.png | Hybrid=-6.7434 | CE=-11.3643 | CLIP=0.1880
+Rank=305 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img252.png | Hybrid=-6.7435 | CE=-11.3550 | CLIP=0.1738
+Rank=306 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img222.png | Hybrid=-6.7438 | CE=-11.3877 | CLIP=0.2220
+Rank=307 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img90.png | Hybrid=-6.7438 | CE=-11.3626 | CLIP=0.1843
+Rank=308 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img57.png | Hybrid=-6.7438 | CE=-11.3602 | CLIP=0.1806
+Rank=309 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img3.png | Hybrid=-6.7442 | CE=-11.3679 | CLIP=0.1914
+Rank=310 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img187.png | Hybrid=-6.7442 | CE=-11.3685 | CLIP=0.1921
+Rank=311 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img8.png | Hybrid=-6.7443 | CE=-11.3744 | CLIP=0.2009
+Rank=312 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img134.png | Hybrid=-6.7444 | CE=-11.3675 | CLIP=0.1903
+Rank=313 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img160.png | Hybrid=-6.7444 | CE=-11.3744 | CLIP=0.2005
+Rank=314 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img126.png | Hybrid=-6.7452 | CE=-11.3731 | CLIP=0.1966
+Rank=315 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img6.png | Hybrid=-6.7452 | CE=-11.3685 | CLIP=0.1897
+Rank=316 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img130.png | Hybrid=-6.7453 | CE=-11.3726 | CLIP=0.1958
+Rank=317 | Source=CLIP.pdf | Page=2 | Image=CLIP_page2_render.png | Hybrid=-6.7455 | CE=-11.4109 | CLIP=0.2526
+Rank=318 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img111.png | Hybrid=-6.7455 | CE=-11.3670 | CLIP=0.1868
+Rank=319 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img74.png | Hybrid=-6.7456 | CE=-11.3534 | CLIP=0.1662
+Rank=320 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img253.png | Hybrid=-6.7456 | CE=-11.3586 | CLIP=0.1738
+Rank=321 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img25.png | Hybrid=-6.7459 | CE=-11.3753 | CLIP=0.1982
+Rank=322 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img236.png | Hybrid=-6.7459 | CE=-11.3670 | CLIP=0.1858
+Rank=323 | Source=Vision Transformer.pdf | Page=15 | Image=Vision Transformer_page15_render.png | Hybrid=-6.7460 | CE=-11.3985 | CLIP=0.2327
+Rank=324 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img202.png | Hybrid=-6.7461 | CE=-11.3722 | CLIP=0.1930
+Rank=325 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img81.png | Hybrid=-6.7463 | CE=-11.3770 | CLIP=0.1999
+Rank=326 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img200.png | Hybrid=-6.7465 | CE=-11.3717 | CLIP=0.1914
+Rank=327 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img118.png | Hybrid=-6.7465 | CE=-11.3660 | CLIP=0.1827
+Rank=328 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img185.png | Hybrid=-6.7465 | CE=-11.3805 | CLIP=0.2045
+Rank=329 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img120.png | Hybrid=-6.7468 | CE=-11.3512 | CLIP=0.1598
+Rank=330 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img16.png | Hybrid=-6.7471 | CE=-11.3701 | CLIP=0.1873
+Rank=331 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img87.png | Hybrid=-6.7476 | CE=-11.3720 | CLIP=0.1890
+Rank=332 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img9.png | Hybrid=-6.7476 | CE=-11.3791 | CLIP=0.1996
+Rank=333 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img248.png | Hybrid=-6.7476 | CE=-11.3788 | CLIP=0.1991
+Rank=334 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img199.png | Hybrid=-6.7477 | CE=-11.3795 | CLIP=0.2002
+Rank=335 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img95.png | Hybrid=-6.7477 | CE=-11.3759 | CLIP=0.1946
+Rank=336 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img174.png | Hybrid=-6.7478 | CE=-11.3807 | CLIP=0.2016
+Rank=337 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img42.png | Hybrid=-6.7479 | CE=-11.3566 | CLIP=0.1652
+Rank=338 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img196.png | Hybrid=-6.7479 | CE=-11.3765 | CLIP=0.1950
+Rank=339 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img11.png | Hybrid=-6.7480 | CE=-11.3805 | CLIP=0.2008
+Rank=340 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img54.png | Hybrid=-6.7481 | CE=-11.3659 | CLIP=0.1786
+Rank=341 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img159.png | Hybrid=-6.7481 | CE=-11.3744 | CLIP=0.1914
+Rank=342 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img133.png | Hybrid=-6.7483 | CE=-11.3689 | CLIP=0.1827
+Rank=343 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img230.png | Hybrid=-6.7484 | CE=-11.3681 | CLIP=0.1811
+Rank=344 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img15.png | Hybrid=-6.7485 | CE=-11.3850 | CLIP=0.2064
+Rank=345 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img51.png | Hybrid=-6.7491 | CE=-11.3827 | CLIP=0.2013
+Rank=346 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img19.png | Hybrid=-6.7493 | CE=-11.3846 | CLIP=0.2036
+Rank=347 | Source=BLIP-2.pdf | Page=4 | Image=BLIP-2_page4_render.png | Hybrid=-6.7494 | CE=-11.4070 | CLIP=0.2369
+Rank=348 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img73.png | Hybrid=-6.7495 | CE=-11.3610 | CLIP=0.1678
+Rank=349 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img50.png | Hybrid=-6.7499 | CE=-11.3673 | CLIP=0.1762
+Rank=350 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img140.png | Hybrid=-6.7500 | CE=-11.3797 | CLIP=0.1945
+Rank=351 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img65.png | Hybrid=-6.7502 | CE=-11.3799 | CLIP=0.1945
+Rank=352 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img71.png | Hybrid=-6.7502 | CE=-11.3736 | CLIP=0.1850
+Rank=353 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img53.png | Hybrid=-6.7504 | CE=-11.3684 | CLIP=0.1767
+Rank=354 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img58.png | Hybrid=-6.7505 | CE=-11.3831 | CLIP=0.1985
+Rank=355 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img195.png | Hybrid=-6.7507 | CE=-11.3807 | CLIP=0.1942
+Rank=356 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img234.png | Hybrid=-6.7508 | CE=-11.3704 | CLIP=0.1786
+Rank=357 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img44.png | Hybrid=-6.7509 | CE=-11.3802 | CLIP=0.1931
+Rank=358 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img106.png | Hybrid=-6.7509 | CE=-11.3898 | CLIP=0.2074
+Rank=359 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img178.png | Hybrid=-6.7513 | CE=-11.3721 | CLIP=0.1801
+Rank=360 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img247.png | Hybrid=-6.7514 | CE=-11.3714 | CLIP=0.1787
+Rank=361 | Source=BLIP-2.pdf | Page=3 | Image=BLIP-2_page3_render.png | Hybrid=-6.7514 | CE=-11.4171 | CLIP=0.2471
+Rank=362 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img114.png | Hybrid=-6.7516 | CE=-11.3687 | CLIP=0.1740
+Rank=363 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img105.png | Hybrid=-6.7517 | CE=-11.3826 | CLIP=0.1947
+Rank=364 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img2.png | Hybrid=-6.7522 | CE=-11.3798 | CLIP=0.1892
+Rank=365 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img163.png | Hybrid=-6.7523 | CE=-11.3628 | CLIP=0.1635
+Rank=366 | Source=Self-RAG.pdf | Page=4 | Image=Self-RAG_page4_render.png | Hybrid=-6.7527 | CE=-11.4141 | CLIP=0.2393
+Rank=367 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img232.png | Hybrid=-6.7530 | CE=-11.3695 | CLIP=0.1717
+Rank=368 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img56.png | Hybrid=-6.7532 | CE=-11.3880 | CLIP=0.1992
+Rank=369 | Source=LayoutLMv3.pdf | Page=1 | Image=LayoutLMv3_page1_img1.png | Hybrid=-6.7535 | CE=-11.4116 | CLIP=0.2336
+Rank=370 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img104.png | Hybrid=-6.7538 | CE=-11.3853 | CLIP=0.1934
+Rank=371 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img194.png | Hybrid=-6.7539 | CE=-11.3704 | CLIP=0.1709
+Rank=372 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img169.png | Hybrid=-6.7544 | CE=-11.3900 | CLIP=0.1989
+Rank=373 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img20.png | Hybrid=-6.7549 | CE=-11.3788 | CLIP=0.1810
+Rank=374 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img184.png | Hybrid=-6.7551 | CE=-11.3805 | CLIP=0.1832
+Rank=375 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img209.png | Hybrid=-6.7551 | CE=-11.3852 | CLIP=0.1901
+Rank=376 | Source=Donut.pdf | Page=7 | Image=Donut_page7_img5.png | Hybrid=-6.7565 | CE=-11.3891 | CLIP=0.1923
+Rank=377 | Source=NLP Paper.pdf | Page=1 | Image=NLP Paper_page1_img0.png | Hybrid=-6.7566 | CE=-11.4055 | CLIP=0.2167
+Rank=378 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img183.png | Hybrid=-6.7574 | CE=-11.3893 | CLIP=0.1906
+Rank=379 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img156.png | Hybrid=-6.7579 | CE=-11.3894 | CLIP=0.1893
+Rank=380 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img182.png | Hybrid=-6.7588 | CE=-11.3849 | CLIP=0.1805
+Rank=381 | Source=RAG.pdf | Page=17 | Image=RAG_page17_img0.png | Hybrid=-6.7610 | CE=-11.4011 | CLIP=0.1992
+Rank=382 | Source=Donut.pdf | Page=11 | Image=Donut_page11_img0.png | Hybrid=-6.7625 | CE=-11.4099 | CLIP=0.2085
+Rank=383 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img139.png | Hybrid=-6.7638 | CE=-11.3885 | CLIP=0.1733
+Rank=384 | Source=Donut.pdf | Page=7 | Image=Donut_page7_img1.png | Hybrid=-6.7639 | CE=-11.4205 | CLIP=0.2210
+Rank=385 | Source=Donut.pdf | Page=7 | Image=Donut_page7_img2.png | Hybrid=-6.7641 | CE=-11.4001 | CLIP=0.1898
+Rank=386 | Source=NLP Paper.pdf | Page=4 | Image=NLP Paper_page4_img1.png | Hybrid=-6.7647 | CE=-11.4277 | CLIP=0.2298
+Rank=387 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_render.png | Hybrid=-6.7650 | CE=-11.4422 | CLIP=0.2506
+Rank=388 | Source=LayoutLMv3.pdf | Page=1 | Image=LayoutLMv3_page1_render.png | Hybrid=-6.7654 | CE=-11.4324 | CLIP=0.2351
+Rank=389 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_img10.png | Hybrid=-6.7670 | CE=-11.3874 | CLIP=0.1636
+Rank=390 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img8.png | Hybrid=-6.7687 | CE=-11.4401 | CLIP=0.2384
+Rank=391 | Source=Donut.pdf | Page=6 | Image=Donut_page6_render.png | Hybrid=-6.7691 | CE=-11.4374 | CLIP=0.2332
+Rank=392 | Source=Vision Transformer.pdf | Page=21 | Image=Vision Transformer_page21_render.png | Hybrid=-6.7709 | CE=-11.4083 | CLIP=0.1851
+Rank=393 | Source=CLIP.pdf | Page=2 | Image=CLIP_page2_img2.png | Hybrid=-6.7727 | CE=-11.4310 | CLIP=0.2149
+Rank=394 | Source=Donut.pdf | Page=7 | Image=Donut_page7_img3.png | Hybrid=-6.7727 | CE=-11.4135 | CLIP=0.1884
+Rank=395 | Source=Vision Transformer.pdf | Page=3 | Image=Vision Transformer_page3_img0.png | Hybrid=-6.7728 | CE=-11.4169 | CLIP=0.1932
+Rank=396 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img31.png | Hybrid=-6.7734 | CE=-11.4322 | CLIP=0.2148
+Rank=397 | Source=Donut.pdf | Page=2 | Image=Donut_page2_img3.png | Hybrid=-6.7740 | CE=-11.4164 | CLIP=0.1895
+Rank=398 | Source=Vision Transformer.pdf | Page=3 | Image=Vision Transformer_page3_img1.png | Hybrid=-6.7744 | CE=-11.4286 | CLIP=0.2071
+Rank=399 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img34.png | Hybrid=-6.7751 | CE=-11.4347 | CLIP=0.2144
+Rank=400 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img6.png | Hybrid=-6.7752 | CE=-11.4288 | CLIP=0.2053
+Rank=401 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img8.png | Hybrid=-6.7760 | CE=-11.4286 | CLIP=0.2029
+Rank=402 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img6.png | Hybrid=-6.7765 | CE=-11.4349 | CLIP=0.2112
+Rank=403 | Source=Donut.pdf | Page=2 | Image=Donut_page2_render.png | Hybrid=-6.7773 | CE=-11.4610 | CLIP=0.2482
+Rank=404 | Source=Donut.pdf | Page=7 | Image=Donut_page7_img0.png | Hybrid=-6.7776 | CE=-11.4312 | CLIP=0.2028
+Rank=405 | Source=BLIP-2.pdf | Page=12 | Image=BLIP-2_page12_img0.png | Hybrid=-6.7778 | CE=-11.4294 | CLIP=0.1997
+Rank=406 | Source=CLIP.pdf | Page=2 | Image=CLIP_page2_img1.png | Hybrid=-6.7778 | CE=-11.4147 | CLIP=0.1775
+Rank=407 | Source=Donut.pdf | Page=28 | Image=Donut_page28_img0.png | Hybrid=-6.7784 | CE=-11.4108 | CLIP=0.1701
+Rank=408 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img32.png | Hybrid=-6.7790 | CE=-11.4332 | CLIP=0.2022
+Rank=409 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img10.png | Hybrid=-6.7791 | CE=-11.4342 | CLIP=0.2035
+Rank=410 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img12.png | Hybrid=-6.7793 | CE=-11.4399 | CLIP=0.2117
+Rank=411 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img9.png | Hybrid=-6.7805 | CE=-11.4396 | CLIP=0.2081
+Rank=412 | Source=Vision Transformer.pdf | Page=14 | Image=Vision Transformer_page14_render.png | Hybrid=-6.7806 | CE=-11.4592 | CLIP=0.2374
+Rank=413 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img5.png | Hybrid=-6.7810 | CE=-11.4349 | CLIP=0.1997
+Rank=414 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img20.png | Hybrid=-6.7816 | CE=-11.4517 | CLIP=0.2235
+Rank=415 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img2.png | Hybrid=-6.7816 | CE=-11.4377 | CLIP=0.2024
+Rank=416 | Source=BLIP-2.pdf | Page=13 | Image=BLIP-2_page13_img1.png | Hybrid=-6.7820 | CE=-11.4440 | CLIP=0.2110
+Rank=417 | Source=BLIP-2.pdf | Page=3 | Image=BLIP-2_page3_img1.png | Hybrid=-6.7821 | CE=-11.4441 | CLIP=0.2110
+Rank=418 | Source=BLIP-2.pdf | Page=4 | Image=BLIP-2_page4_img1.png | Hybrid=-6.7821 | CE=-11.4442 | CLIP=0.2110
+Rank=419 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img7.png | Hybrid=-6.7828 | CE=-11.4381 | CLIP=0.2001
+Rank=420 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img11.png | Hybrid=-6.7828 | CE=-11.4490 | CLIP=0.2165
+Rank=421 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img8.png | Hybrid=-6.7831 | CE=-11.4384 | CLIP=0.1998
+Rank=422 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img0.png | Hybrid=-6.7845 | CE=-11.4461 | CLIP=0.2079
+Rank=423 | Source=CLIP.pdf | Page=2 | Image=CLIP_page2_img0.png | Hybrid=-6.7849 | CE=-11.4326 | CLIP=0.1867
+Rank=424 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img27.png | Hybrid=-6.7849 | CE=-11.4436 | CLIP=0.2030
+Rank=425 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img27.png | Hybrid=-6.7850 | CE=-11.4485 | CLIP=0.2102
+Rank=426 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img14.png | Hybrid=-6.7851 | CE=-11.4383 | CLIP=0.1947
+Rank=427 | Source=Donut.pdf | Page=4 | Image=Donut_page4_render.png | Hybrid=-6.7854 | CE=-11.4768 | CLIP=0.2518
+Rank=428 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img0.png | Hybrid=-6.7855 | CE=-11.4453 | CLIP=0.2043
+Rank=429 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img5.png | Hybrid=-6.7857 | CE=-11.4381 | CLIP=0.1928
+Rank=430 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img24.png | Hybrid=-6.7858 | CE=-11.4457 | CLIP=0.2040
+Rank=431 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img22.png | Hybrid=-6.7858 | CE=-11.4470 | CLIP=0.2059
+Rank=432 | Source=Donut.pdf | Page=11 | Image=Donut_page11_img2.png | Hybrid=-6.7861 | CE=-11.4486 | CLIP=0.2075
+Rank=433 | Source=Donut.pdf | Page=11 | Image=Donut_page11_img3.png | Hybrid=-6.7861 | CE=-11.4486 | CLIP=0.2075
+Rank=434 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img29.png | Hybrid=-6.7865 | CE=-11.4476 | CLIP=0.2051
+Rank=435 | Source=CLIP.pdf | Page=2 | Image=CLIP_page2_img4.png | Hybrid=-6.7867 | CE=-11.4448 | CLIP=0.2005
+Rank=436 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img6.png | Hybrid=-6.7872 | CE=-11.4532 | CLIP=0.2119
+Rank=437 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img23.png | Hybrid=-6.7875 | CE=-11.4497 | CLIP=0.2058
+Rank=438 | Source=BERT.pdf | Page=4 | Image=BERT_page4_render.png | Hybrid=-6.7877 | CE=-11.4692 | CLIP=0.2345
+Rank=439 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img13.png | Hybrid=-6.7877 | CE=-11.4395 | CLIP=0.1899
+Rank=440 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img24.png | Hybrid=-6.7879 | CE=-11.4481 | CLIP=0.2024
+Rank=441 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img17.png | Hybrid=-6.7880 | CE=-11.4479 | CLIP=0.2019
+Rank=442 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img14.png | Hybrid=-6.7880 | CE=-11.4510 | CLIP=0.2065
+Rank=443 | Source=Self-RAG.pdf | Page=10 | Image=Self-RAG_page10_render.png | Hybrid=-6.7882 | CE=-11.4832 | CLIP=0.2544
+Rank=444 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img28.png | Hybrid=-6.7883 | CE=-11.4449 | CLIP=0.1966
+Rank=445 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img19.png | Hybrid=-6.7888 | CE=-11.4516 | CLIP=0.2053
+Rank=446 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img0.png | Hybrid=-6.7891 | CE=-11.4526 | CLIP=0.2062
+Rank=447 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img3.png | Hybrid=-6.7891 | CE=-11.4525 | CLIP=0.2061
+Rank=448 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img3.png | Hybrid=-6.7893 | CE=-11.4383 | CLIP=0.1843
+Rank=449 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img1.png | Hybrid=-6.7895 | CE=-11.4425 | CLIP=0.1901
+Rank=450 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img33.png | Hybrid=-6.7896 | CE=-11.4588 | CLIP=0.2142
+Rank=451 | Source=BERT.pdf | Page=5 | Image=BERT_page5_render.png | Hybrid=-6.7896 | CE=-11.4808 | CLIP=0.2470
+Rank=452 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img25.png | Hybrid=-6.7897 | CE=-11.4432 | CLIP=0.1905
+Rank=453 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img1.png | Hybrid=-6.7900 | CE=-11.4487 | CLIP=0.1980
+Rank=454 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img22.png | Hybrid=-6.7900 | CE=-11.4437 | CLIP=0.1905
+Rank=455 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img9.png | Hybrid=-6.7902 | CE=-11.4475 | CLIP=0.1957
+Rank=456 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img25.png | Hybrid=-6.7905 | CE=-11.4456 | CLIP=0.1921
+Rank=457 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img30.png | Hybrid=-6.7907 | CE=-11.4443 | CLIP=0.1897
+Rank=458 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img5.png | Hybrid=-6.7909 | CE=-11.4645 | CLIP=0.2196
+Rank=459 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img12.png | Hybrid=-6.7912 | CE=-11.4530 | CLIP=0.2016
+Rank=460 | Source=Donut.pdf | Page=11 | Image=Donut_page11_img4.png | Hybrid=-6.7912 | CE=-11.4562 | CLIP=0.2064
+Rank=461 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img7.png | Hybrid=-6.7915 | CE=-11.4902 | CLIP=0.2565
+Rank=462 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img13.png | Hybrid=-6.7916 | CE=-11.4537 | CLIP=0.2015
+Rank=463 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img20.png | Hybrid=-6.7917 | CE=-11.4532 | CLIP=0.2006
+Rank=464 | Source=CLIP.pdf | Page=2 | Image=CLIP_page2_img3.png | Hybrid=-6.7919 | CE=-11.4411 | CLIP=0.1819
+Rank=465 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img16.png | Hybrid=-6.7922 | CE=-11.4516 | CLIP=0.1968
+Rank=466 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img5.png | Hybrid=-6.7923 | CE=-11.4537 | CLIP=0.2000
+Rank=467 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img21.png | Hybrid=-6.7927 | CE=-11.4516 | CLIP=0.1957
+Rank=468 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img26.png | Hybrid=-6.7928 | CE=-11.4561 | CLIP=0.2022
+Rank=469 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img8.png | Hybrid=-6.7933 | CE=-11.4526 | CLIP=0.1956
+Rank=470 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img2.png | Hybrid=-6.7939 | CE=-11.4662 | CLIP=0.2146
+Rank=471 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img3.png | Hybrid=-6.7939 | CE=-11.4760 | CLIP=0.2293
+Rank=472 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img5.png | Hybrid=-6.7942 | CE=-11.4830 | CLIP=0.2390
+Rank=473 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img15.png | Hybrid=-6.7942 | CE=-11.4589 | CLIP=0.2027
+Rank=474 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img7.png | Hybrid=-6.7943 | CE=-11.4526 | CLIP=0.1931
+Rank=475 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img0.png | Hybrid=-6.7945 | CE=-11.4595 | CLIP=0.2030
+Rank=476 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img8.png | Hybrid=-6.7948 | CE=-11.4738 | CLIP=0.2236
+Rank=477 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img2.png | Hybrid=-6.7952 | CE=-11.4492 | CLIP=0.1857
+Rank=478 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img6.png | Hybrid=-6.7954 | CE=-11.4770 | CLIP=0.2271
+Rank=479 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img3.png | Hybrid=-6.7954 | CE=-11.4573 | CLIP=0.1974
+Rank=480 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img0.png | Hybrid=-6.7958 | CE=-11.4724 | CLIP=0.2191
+Rank=481 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img19.png | Hybrid=-6.7959 | CE=-11.4462 | CLIP=0.1797
+Rank=482 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img2.png | Hybrid=-6.7959 | CE=-11.4505 | CLIP=0.1860
+Rank=483 | Source=Donut.pdf | Page=13 | Image=Donut_page13_img1.png | Hybrid=-6.7961 | CE=-11.4587 | CLIP=0.1980
+Rank=484 | Source=Donut.pdf | Page=8 | Image=Donut_page8_render.png | Hybrid=-6.7961 | CE=-11.4884 | CLIP=0.2422
+Rank=485 | Source=Donut.pdf | Page=11 | Image=Donut_page11_img1.png | Hybrid=-6.7966 | CE=-11.4698 | CLIP=0.2131
+Rank=486 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img18.png | Hybrid=-6.7968 | CE=-11.4627 | CLIP=0.2021
+Rank=487 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_render.png | Hybrid=-6.7970 | CE=-11.4931 | CLIP=0.2471
+Rank=488 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img12.png | Hybrid=-6.7974 | CE=-11.4633 | CLIP=0.2015
+Rank=489 | Source=Donut.pdf | Page=13 | Image=Donut_page13_img0.png | Hybrid=-6.7974 | CE=-11.4568 | CLIP=0.1916
+Rank=490 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img11.png | Hybrid=-6.7976 | CE=-11.4497 | CLIP=0.1806
+Rank=491 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img10.png | Hybrid=-6.7976 | CE=-11.4481 | CLIP=0.1781
+Rank=492 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img11.png | Hybrid=-6.7979 | CE=-11.4512 | CLIP=0.1821
+Rank=493 | Source=Donut.pdf | Page=26 | Image=Donut_page26_img1.png | Hybrid=-6.7980 | CE=-11.4508 | CLIP=0.1811
+Rank=494 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img18.png | Hybrid=-6.7981 | CE=-11.4546 | CLIP=0.1867
+Rank=495 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img15.png | Hybrid=-6.7983 | CE=-11.4492 | CLIP=0.1780
+Rank=496 | Source=Donut.pdf | Page=25 | Image=Donut_page25_img0.png | Hybrid=-6.7985 | CE=-11.4569 | CLIP=0.1890
+Rank=497 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img16.png | Hybrid=-6.7987 | CE=-11.4546 | CLIP=0.1852
+Rank=498 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img7.png | Hybrid=-6.7987 | CE=-11.4552 | CLIP=0.1860
+Rank=499 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img17.png | Hybrid=-6.7988 | CE=-11.4566 | CLIP=0.1880
+Rank=500 | Source=LayoutLMv3.pdf | Page=1 | Image=LayoutLMv3_page1_img0.png | Hybrid=-6.7994 | CE=-11.4780 | CLIP=0.2184
+Rank=501 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img1.png | Hybrid=-6.7995 | CE=-11.4439 | CLIP=0.1669
+Rank=502 | Source=Self-RAG.pdf | Page=5 | Image=Self-RAG_page5_render.png | Hybrid=-6.7997 | CE=-11.4851 | CLIP=0.2284
+Rank=503 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img9.png | Hybrid=-6.7998 | CE=-11.4559 | CLIP=0.1844
+Rank=504 | Source=Donut.pdf | Page=2 | Image=Donut_page2_img0.png | Hybrid=-6.8012 | CE=-11.4580 | CLIP=0.1841
+Rank=505 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img10.png | Hybrid=-6.8014 | CE=-11.4691 | CLIP=0.2001
+Rank=506 | Source=Donut.pdf | Page=13 | Image=Donut_page13_img8.png | Hybrid=-6.8015 | CE=-11.4603 | CLIP=0.1867
+Rank=507 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img3.png | Hybrid=-6.8016 | CE=-11.4712 | CLIP=0.2029
+Rank=508 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img4.png | Hybrid=-6.8020 | CE=-11.4530 | CLIP=0.1744
+Rank=509 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img6.png | Hybrid=-6.8020 | CE=-11.4740 | CLIP=0.2059
+Rank=510 | Source=Donut.pdf | Page=6 | Image=Donut_page6_img3.png | Hybrid=-6.8021 | CE=-11.4765 | CLIP=0.2094
+Rank=511 | Source=Vision Transformer.pdf | Page=9 | Image=Vision Transformer_page9_img4.png | Hybrid=-6.8023 | CE=-11.4625 | CLIP=0.1879
+Rank=512 | Source=Donut.pdf | Page=26 | Image=Donut_page26_img2.png | Hybrid=-6.8027 | CE=-11.4641 | CLIP=0.1895
+Rank=513 | Source=BLIP-2.pdf | Page=5 | Image=BLIP-2_page5_img4.png | Hybrid=-6.8031 | CE=-11.4484 | CLIP=0.1649
+Rank=514 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img1.png | Hybrid=-6.8035 | CE=-11.4808 | CLIP=0.2125
+Rank=515 | Source=Donut.pdf | Page=2 | Image=Donut_page2_img2.png | Hybrid=-6.8035 | CE=-11.4489 | CLIP=0.1646
+Rank=516 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img2.png | Hybrid=-6.8036 | CE=-11.4749 | CLIP=0.2032
+Rank=517 | Source=Donut.pdf | Page=25 | Image=Donut_page25_img2.png | Hybrid=-6.8036 | CE=-11.4710 | CLIP=0.1974
+Rank=518 | Source=Donut.pdf | Page=25 | Image=Donut_page25_img1.png | Hybrid=-6.8039 | CE=-11.4630 | CLIP=0.1849
+Rank=519 | Source=Donut.pdf | Page=13 | Image=Donut_page13_img4.png | Hybrid=-6.8041 | CE=-11.4642 | CLIP=0.1861
+Rank=520 | Source=Donut.pdf | Page=13 | Image=Donut_page13_img5.png | Hybrid=-6.8041 | CE=-11.4642 | CLIP=0.1861
+Rank=521 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img35.png | Hybrid=-6.8041 | CE=-11.4446 | CLIP=0.1567
+Rank=522 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img23.png | Hybrid=-6.8043 | CE=-11.4546 | CLIP=0.1712
+Rank=523 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img0.png | Hybrid=-6.8046 | CE=-11.4910 | CLIP=0.2251
+Rank=524 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img4.png | Hybrid=-6.8048 | CE=-11.4802 | CLIP=0.2081
+Rank=525 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img21.png | Hybrid=-6.8056 | CE=-11.4475 | CLIP=0.1573
+Rank=526 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img7.png | Hybrid=-6.8056 | CE=-11.4760 | CLIP=0.2000
+Rank=527 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img4.png | Hybrid=-6.8057 | CE=-11.4851 | CLIP=0.2134
+Rank=528 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img10.png | Hybrid=-6.8058 | CE=-11.4731 | CLIP=0.1952
+Rank=529 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img9.png | Hybrid=-6.8064 | CE=-11.4874 | CLIP=0.2150
+Rank=530 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img9.png | Hybrid=-6.8067 | CE=-11.4779 | CLIP=0.2003
+Rank=531 | Source=Donut.pdf | Page=2 | Image=Donut_page2_img1.png | Hybrid=-6.8068 | CE=-11.4580 | CLIP=0.1701
+Rank=532 | Source=Donut.pdf | Page=6 | Image=Donut_page6_img2.png | Hybrid=-6.8071 | CE=-11.4687 | CLIP=0.1854
+Rank=533 | Source=Donut.pdf | Page=13 | Image=Donut_page13_img2.png | Hybrid=-6.8077 | CE=-11.4706 | CLIP=0.1867
+Rank=534 | Source=Donut.pdf | Page=13 | Image=Donut_page13_img3.png | Hybrid=-6.8077 | CE=-11.4706 | CLIP=0.1866
+Rank=535 | Source=Donut.pdf | Page=13 | Image=Donut_page13_img6.png | Hybrid=-6.8079 | CE=-11.4706 | CLIP=0.1860
+Rank=536 | Source=Donut.pdf | Page=13 | Image=Donut_page13_img7.png | Hybrid=-6.8082 | CE=-11.4706 | CLIP=0.1854
+Rank=537 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img5.png | Hybrid=-6.8085 | CE=-11.4799 | CLIP=0.1985
+Rank=538 | Source=NLP Paper.pdf | Page=2 | Image=NLP Paper_page2_img0.png | Hybrid=-6.8096 | CE=-11.4869 | CLIP=0.2064
+Rank=539 | Source=Donut.pdf | Page=26 | Image=Donut_page26_img0.png | Hybrid=-6.8105 | CE=-11.4635 | CLIP=0.1691
+Rank=540 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img1.png | Hybrid=-6.8106 | CE=-11.4799 | CLIP=0.1934
+Rank=541 | Source=CLIP.pdf | Page=42 | Image=CLIP_page42_img26.png | Hybrid=-6.8109 | CE=-11.4566 | CLIP=0.1576
+Rank=542 | Source=Donut.pdf | Page=6 | Image=Donut_page6_img1.png | Hybrid=-6.8121 | CE=-11.4746 | CLIP=0.1817
+Rank=543 | Source=Donut.pdf | Page=4 | Image=Donut_page4_img1.png | Hybrid=-6.8127 | CE=-11.4808 | CLIP=0.1895
+Rank=544 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img8.png | Hybrid=-6.8148 | CE=-11.4959 | CLIP=0.2068
+Rank=545 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img4.png | Hybrid=-6.8160 | CE=-11.4933 | CLIP=0.1999
+Rank=546 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img2.png | Hybrid=-6.8191 | CE=-11.4881 | CLIP=0.1845
+Rank=547 | Source=Donut.pdf | Page=6 | Image=Donut_page6_img0.png | Hybrid=-6.8193 | CE=-11.4855 | CLIP=0.1798
+Rank=548 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img7.png | Hybrid=-6.8225 | CE=-11.4959 | CLIP=0.1875
+Rank=549 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img6.png | Hybrid=-6.8229 | CE=-11.4959 | CLIP=0.1865
+Rank=550 | Source=Donut.pdf | Page=4 | Image=Donut_page4_img0.png | Hybrid=-6.8241 | CE=-11.4869 | CLIP=0.1701
+Rank=551 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img11.png | Hybrid=-6.8248 | CE=-11.4980 | CLIP=0.1851
+Rank=552 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img3.png | Hybrid=-6.8261 | CE=-11.4938 | CLIP=0.1753
+Rank=553 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img1.png | Hybrid=-6.8274 | CE=-11.4961 | CLIP=0.1757
+Rank=554 | Source=Donut.pdf | Page=23 | Image=Donut_page23_img9.png | Hybrid=-6.8332 | CE=-11.5015 | CLIP=0.1691
+
+TOP IMAGE RESULTS
+--------------------------------------------------------------------------------
+TOP-1 | Source=Self-RAG.pdf | Page=9 | Image=Self-RAG_page9_render.png | Hybrid=-3.8158 | CE=-6.5231 | CLIP=0.2451
+TOP-2 | Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img3.png | Hybrid=-5.4342 | CE=-9.2109 | CLIP=0.2308
+TOP-3 | Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img2.png | Hybrid=-5.4362 | CE=-9.2109 | CLIP=0.2258
+================================================================================
+
+================================================================================
+STAGE 2 — IMAGE RETRIEVAL RESULT
+================================================================================
+Image Results       : 3
+Exact Figure Match  : False
+
+[IMAGE #1] Source=Self-RAG.pdf | Page=9 | Image=Self-RAG_page9_render.png
+Image Path: extracted_images\Self-RAG_page9_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the textbook on the characterization and characterization of semiconductors in semiconductors and semiconductors  OCR Text: Preprint.  PubHealth  POA Med AS : 70.5 aan 1.0 >  (acc) (acc) (em) § $0.99 ose Training 0.98 0.0 NoRetrieverR 43.6 67.8 31.0 1 2 O0 pOA No Critic C 42.6 72.0 18.1 95 1.0 1.00  “Test ee cy Tog 0.75 2 No retrieval 247 730 - 849 5 050 Hard constraints 28.3 72.6 - < 0.6 E Retrieve topl 41.8 73.1 28.6 i $ SCE REY a 0.25 R
+
+[IMAGE #2] Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img3.png
+Image Path: extracted_images\Vision Transformer_page8_img3.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT  Caption: a plane flying in the sky  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 4.4 SCALING STUDY We perform a controlled scaling study of different models by evaluating transfer performance from JFT-300M. In this setting data size does not bottleneck the models’ performances, and we assess performance versus pre-training cost of each model. The model set includes: 7 ResNets, R50x1, R50x2 R101x1, R152x1
+
+[IMAGE #3] Source=Vision Transformer.pdf | Page=8 | Image=Vision Transformer_page8_img2.png
+Image Path: extracted_images\Vision Transformer_page8_img2.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT  Caption: a plane flying in the sky  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 4.4 SCALING STUDY We perform a controlled scaling study of different models by evaluating transfer performance from JFT-300M. In this setting data size does not bottleneck the models’ performances, and we assess performance versus pre-training cost of each model. The model set includes: 7 ResNets, R50x1, R50x2 R101x1, R152x1
+================================================================================
+
+================================================================================
+COMBINED RETRIEVAL CANDIDATES
+================================================================================
+Text Candidates  : 8
+Image Candidates : 3
+Total Candidates : 11
+================================================================================
+
+================================================================================
+STEP 3A — RERANKER INPUT
+================================================================================
+Query: Why does increasing the retrieval threshold create a trade-off between retrieval frequency and model performance?
+Input candidates: 11
+01. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+    Content=Efficiency and accuracy trade-off. Using our framework, practitioners can adjust how often retrieval occurs using the token probability of reward tokens. We evaluate how this adapt
+02. Source=Self-RAG.pdf | Page=6 | Type=text | Image=N/A
+    Content=Adaptive retrieval with threshold.SELF -RAG dynamically decides when to retrieve text passages by predicting Retrieve . Alternatively, our framework allows a threshold to be set. S
+03. Source=Self-RAG.pdf | Page=4 | Type=text | Image=N/A
+    Content=10: Mgen predicts ISUSE given x, yt ▷ Critique Inference overview. Figure 1 and Algorithm 1 present an overview of SELF -R AG at inference. For every x and preceding generation y<t
+04. Source=Self-RAG.pdf | Page=7 | Type=text | Image=N/A
+    Content=values of 1.0, 1.0 and 0.5, respectively. To encourage frequent retrieval, we set the retrieval threshold to 0.2 for most tasks and to 0 for ALCE (Gao et al., 2023) due to citation
+05. Source=Self-RAG.pdf | Page=1 | Type=text | Image=N/A
+    Content=tokens (i.e., reflection tokens). Reflection tokens are categorized into retrieval and critique tokens to indicate the need for retrieval and its generation quality respectively (F
+06. Source=Self-RAG.pdf | Page=2 | Type=text | Image=N/A
+    Content=us to (1) flexibly adjust retrieval frequency for different downstream applications and (2) customize models’ behaviors to user preferences by leveraging reflection tokens through 
+07. Source=RAG.pdf | Page=19 | Type=text | Image=N/A
+    Content=and the RAG model would perform equivalently to BART. The collapse could be due to a less-explicit requirement for factual knowledge in some tasks, or the longer target sequences, 
+08. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+    Content=SAIL. We also conduct ablation on our inference-time algorithm, including No retrieval disables retrieval during inference; Hard constraints indicates the model performance that re
+09. Source=Self-RAG.pdf | Page=9 | Type=image | Image=extracted_images\Self-RAG_page9_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the textbook on the characterization and characterization of semiconductors in semiconductors and semiconductors  OCR Text:
+10. Source=Vision Transformer.pdf | Page=8 | Type=image | Image=extracted_images\Vision Transformer_page8_img3.png
+    Content=FIGURE FROM DOCUMENT  Caption: a plane flying in the sky  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 4.4 SC
+11. Source=Vision Transformer.pdf | Page=8 | Type=image | Image=extracted_images\Vision Transformer_page8_img2.png
+    Content=FIGURE FROM DOCUMENT  Caption: a plane flying in the sky  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 4.4 SC
+================================================================================
+
+--------------------------------------------------------------------------------
+CROSS-ENCODER RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=00 | Source=Self-RAG.pdf | Page=10 | Type=text | CE=4.8076
+Rank=02 | OriginalIndex=07 | Source=Self-RAG.pdf | Page=9 | Type=text | CE=-1.2453
+Rank=03 | OriginalIndex=06 | Source=RAG.pdf | Page=19 | Type=text | CE=-2.1078
+Rank=04 | OriginalIndex=03 | Source=Self-RAG.pdf | Page=7 | Type=text | CE=-2.9814
+Rank=05 | OriginalIndex=05 | Source=Self-RAG.pdf | Page=2 | Type=text | CE=-3.6604
+Rank=06 | OriginalIndex=01 | Source=Self-RAG.pdf | Page=6 | Type=text | CE=-4.1304
+Rank=07 | OriginalIndex=02 | Source=Self-RAG.pdf | Page=4 | Type=text | CE=-4.6829
+Rank=08 | OriginalIndex=04 | Source=Self-RAG.pdf | Page=1 | Type=text | CE=-6.1074
+Rank=09 | OriginalIndex=08 | Source=Self-RAG.pdf | Page=9 | Type=image | CE=-6.5231
+Rank=10 | OriginalIndex=09 | Source=Vision Transformer.pdf | Page=8 | Type=image | CE=-9.2109
+Rank=11 | OriginalIndex=10 | Source=Vision Transformer.pdf | Page=8 | Type=image | CE=-9.2109
+
+--------------------------------------------------------------------------------
+CLIP IMAGE RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=08 | Source=Self-RAG.pdf | Page=9 | Image=extracted_images\Self-RAG_page9_render.png | CLIP=0.2451
+Rank=02 | OriginalIndex=09 | Source=Vision Transformer.pdf | Page=8 | Image=extracted_images\Vision Transformer_page8_img3.png | CLIP=0.2308
+Rank=03 | OriginalIndex=10 | Source=Vision Transformer.pdf | Page=8 | Image=extracted_images\Vision Transformer_page8_img2.png | CLIP=0.2258
+
+================================================================================
+STEP 3A — COMPLETE MULTIMODAL RERANK RESULT
+================================================================================
+Rank=01 | Type=image | Source=Self-RAG.pdf | Page=9 | RRF=0.030886 | CE=-6.5231 | CLIP=0.2451
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the textbook on the characterization and characterization of semiconductors in semiconductors and semiconductors  OCR Text:
+Rank=02 | Type=image | Source=Vision Transformer.pdf | Page=8 | RRF=0.030415 | CE=-9.2109 | CLIP=0.2308
+    Content=FIGURE FROM DOCUMENT  Caption: a plane flying in the sky  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 4.4 SC
+Rank=03 | Type=image | Source=Vision Transformer.pdf | Page=8 | RRF=0.029958 | CE=-9.2109 | CLIP=0.2258
+    Content=FIGURE FROM DOCUMENT  Caption: a plane flying in the sky  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 4.4 SC
+Rank=04 | Type=text | Source=Self-RAG.pdf | Page=10 | RRF=0.016393 | CE=4.8076 | CLIP=N/A
+    Content=Efficiency and accuracy trade-off. Using our framework, practitioners can adjust how often retrieval occurs using the token probability of reward tokens. We evaluate how this adapt
+Rank=05 | Type=text | Source=Self-RAG.pdf | Page=9 | RRF=0.016129 | CE=-1.2453 | CLIP=N/A
+    Content=SAIL. We also conduct ablation on our inference-time algorithm, including No retrieval disables retrieval during inference; Hard constraints indicates the model performance that re
+Rank=06 | Type=text | Source=RAG.pdf | Page=19 | RRF=0.015873 | CE=-2.1078 | CLIP=N/A
+    Content=and the RAG model would perform equivalently to BART. The collapse could be due to a less-explicit requirement for factual knowledge in some tasks, or the longer target sequences, 
+Rank=07 | Type=text | Source=Self-RAG.pdf | Page=7 | RRF=0.015625 | CE=-2.9814 | CLIP=N/A
+    Content=values of 1.0, 1.0 and 0.5, respectively. To encourage frequent retrieval, we set the retrieval threshold to 0.2 for most tasks and to 0 for ALCE (Gao et al., 2023) due to citation
+Rank=08 | Type=text | Source=Self-RAG.pdf | Page=2 | RRF=0.015385 | CE=-3.6604 | CLIP=N/A
+    Content=us to (1) flexibly adjust retrieval frequency for different downstream applications and (2) customize models’ behaviors to user preferences by leveraging reflection tokens through 
+Rank=09 | Type=text | Source=Self-RAG.pdf | Page=6 | RRF=0.015152 | CE=-4.1304 | CLIP=N/A
+    Content=Adaptive retrieval with threshold.SELF -RAG dynamically decides when to retrieve text passages by predicting Retrieve . Alternatively, our framework allows a threshold to be set. S
+Rank=10 | Type=text | Source=Self-RAG.pdf | Page=4 | RRF=0.014925 | CE=-4.6829 | CLIP=N/A
+    Content=10: Mgen predicts ISUSE given x, yt ▷ Critique Inference overview. Figure 1 and Algorithm 1 present an overview of SELF -R AG at inference. For every x and preceding generation y<t
+Rank=11 | Type=text | Source=Self-RAG.pdf | Page=1 | RRF=0.014706 | CE=-6.1074 | CLIP=N/A
+    Content=tokens (i.e., reflection tokens). Reflection tokens are categorized into retrieval and critique tokens to indicate the need for retrieval and its generation quality respectively (F
+================================================================================
+
+================================================================================
+STEP 3A — FINAL RERANK TOP-K
+================================================================================
+Requested top_k: 12
+Returned documents: 11
+01. Source=Self-RAG.pdf | Page=9 | Type=image | Image=extracted_images\Self-RAG_page9_render.png
+02. Source=Vision Transformer.pdf | Page=8 | Type=image | Image=extracted_images\Vision Transformer_page8_img3.png
+03. Source=Vision Transformer.pdf | Page=8 | Type=image | Image=extracted_images\Vision Transformer_page8_img2.png
+04. Source=Self-RAG.pdf | Page=10 | Type=text | Image=N/A
+05. Source=Self-RAG.pdf | Page=9 | Type=text | Image=N/A
+06. Source=RAG.pdf | Page=19 | Type=text | Image=N/A
+07. Source=Self-RAG.pdf | Page=7 | Type=text | Image=N/A
+08. Source=Self-RAG.pdf | Page=2 | Type=text | Image=N/A
+09. Source=Self-RAG.pdf | Page=6 | Type=text | Image=N/A
+10. Source=Self-RAG.pdf | Page=4 | Type=text | Image=N/A
+11. Source=Self-RAG.pdf | Page=1 | Type=text | Image=N/A
+================================================================================
+
+================================================================================
+STAGE 3 — MULTIMODAL RERANKING
+================================================================================
+Input Candidates : 11
+Reranked Output   : 11
+
+[RERANK #1] Source=Self-RAG.pdf | Page=9 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the textbook on the characterization and characterization of semiconductors in semiconductors and semiconductors  OCR Text: Preprint.  PubHealth  POA Med AS : 70.5 aan 1.0 >  (acc) (acc) (em) § $0.99 ose Training 0.98 0.0 NoRetrieverR 43.6 67.
+
+[RERANK #2] Source=Vision Transformer.pdf | Page=8 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT  Caption: a plane flying in the sky  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 4.4 SCALING STUDY We perform a controlled scaling study of different models by evaluating transfer performance from JFT-300M. 
+
+[RERANK #3] Source=Vision Transformer.pdf | Page=8 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT  Caption: a plane flying in the sky  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 4.4 SCALING STUDY We perform a controlled scaling study of different models by evaluating transfer performance from JFT-300M. 
+
+[RERANK #4] Source=Self-RAG.pdf | Page=10 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Efficiency and accuracy trade-off. Using our framework, practitioners can adjust how often retrieval occurs using the token probability of reward tokens. We evaluate how this adaptive threshold affects overall accuracy and frequency of retrieval, and we evaluate the performance with varying numbers 
+
+[RERANK #5] Source=Self-RAG.pdf | Page=9 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: SAIL. We also conduct ablation on our inference-time algorithm, including No retrieval disables retrieval during inference; Hard constraints indicates the model performance that retrieves when Retrieve =Yes instead of using the adaptive threshold; Retrieve top 1 always retrieves and uses the top one
+
+[RERANK #6] Source=RAG.pdf | Page=19 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: and the RAG model would perform equivalently to BART. The collapse could be due to a less-explicit requirement for factual knowledge in some tasks, or the longer target sequences, which could result in less informative gradients for the retriever. Perez et al.[46] also found spurious retrieval resul
+
+[RERANK #7] Source=Self-RAG.pdf | Page=7 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: values of 1.0, 1.0 and 0.5, respectively. To encourage frequent retrieval, we set the retrieval threshold to 0.2 for most tasks and to 0 for ALCE (Gao et al., 2023) due to citation requirements. We speed up inference using vllm (Kwon et al., 2023). At each segment level, we adopt a beam width of 2. 
+
+[RERANK #8] Source=Self-RAG.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: us to (1) flexibly adjust retrieval frequency for different downstream applications and (2) customize models’ behaviors to user preferences by leveraging reflection tokens through segment-level beam search using the weighted linear sum of the reflection token probabilities as segment score. Empirica
+
+[RERANK #9] Source=Self-RAG.pdf | Page=6 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Adaptive retrieval with threshold.SELF -RAG dynamically decides when to retrieve text passages by predicting Retrieve . Alternatively, our framework allows a threshold to be set. Specifically, if the prob- ability of generating the Retrieve =Yes token normalized over all output tokens in Retrieve su
+
+[RERANK #10] Source=Self-RAG.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: 10: Mgen predicts ISUSE given x, yt ▷ Critique Inference overview. Figure 1 and Algorithm 1 present an overview of SELF -R AG at inference. For every x and preceding generation y<t, the model decodes a retrieval token to evaluate the utility of retrieval. If retrieval is not required, the model pred
+
+[RERANK #11] Source=Self-RAG.pdf | Page=1 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: tokens (i.e., reflection tokens). Reflection tokens are categorized into retrieval and critique tokens to indicate the need for retrieval and its generation quality respectively (Figure 1 right). In particular, given an input prompt and preceding generations, SELF -RAG first determines if augmenting
+================================================================================
+
+================================================================================
+FINAL CONTEXT DOCUMENTS
+================================================================================
+Final context candidates: 11
+
+[FINAL #1] Source=Self-RAG.pdf | Page=9 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the textbook on the characterization and characterization of semiconductors in semiconductors and semiconductors  OCR Text: Preprint.  PubHealth  POA Med AS : 70.5 aan 1.0 >  (acc) (acc) (em) § $0.99 ose Training 0.98 0.0 NoRetrieverR 43.6 67.
+
+[FINAL #2] Source=Vision Transformer.pdf | Page=8 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT  Caption: a plane flying in the sky  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 4.4 SCALING STUDY We perform a controlled scaling study of different models by evaluating transfer performance from JFT-300M. 
+
+[FINAL #3] Source=Vision Transformer.pdf | Page=8 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT  Caption: a plane flying in the sky  OCR Text: No readable text found in this image.  Nearby Document Text: Published as a conference paper at ICLR 2021 4.4 SCALING STUDY We perform a controlled scaling study of different models by evaluating transfer performance from JFT-300M. 
+
+[FINAL #4] Source=Self-RAG.pdf | Page=10 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Efficiency and accuracy trade-off. Using our framework, practitioners can adjust how often retrieval occurs using the token probability of reward tokens. We evaluate how this adaptive threshold affects overall accuracy and frequency of retrieval, and we evaluate the performance with varying numbers 
+
+[FINAL #5] Source=Self-RAG.pdf | Page=9 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: SAIL. We also conduct ablation on our inference-time algorithm, including No retrieval disables retrieval during inference; Hard constraints indicates the model performance that retrieves when Retrieve =Yes instead of using the adaptive threshold; Retrieve top 1 always retrieves and uses the top one
+
+[FINAL #6] Source=RAG.pdf | Page=19 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: and the RAG model would perform equivalently to BART. The collapse could be due to a less-explicit requirement for factual knowledge in some tasks, or the longer target sequences, which could result in less informative gradients for the retriever. Perez et al.[46] also found spurious retrieval resul
+
+[FINAL #7] Source=Self-RAG.pdf | Page=7 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: values of 1.0, 1.0 and 0.5, respectively. To encourage frequent retrieval, we set the retrieval threshold to 0.2 for most tasks and to 0 for ALCE (Gao et al., 2023) due to citation requirements. We speed up inference using vllm (Kwon et al., 2023). At each segment level, we adopt a beam width of 2. 
+
+[FINAL #8] Source=Self-RAG.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: us to (1) flexibly adjust retrieval frequency for different downstream applications and (2) customize models’ behaviors to user preferences by leveraging reflection tokens through segment-level beam search using the weighted linear sum of the reflection token probabilities as segment score. Empirica
+
+[FINAL #9] Source=Self-RAG.pdf | Page=6 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Adaptive retrieval with threshold.SELF -RAG dynamically decides when to retrieve text passages by predicting Retrieve . Alternatively, our framework allows a threshold to be set. Specifically, if the prob- ability of generating the Retrieve =Yes token normalized over all output tokens in Retrieve su
+
+[FINAL #10] Source=Self-RAG.pdf | Page=4 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: 10: Mgen predicts ISUSE given x, yt ▷ Critique Inference overview. Figure 1 and Algorithm 1 present an overview of SELF -R AG at inference. For every x and preceding generation y<t, the model decodes a retrieval token to evaluate the utility of retrieval. If retrieval is not required, the model pred
+
+[FINAL #11] Source=Self-RAG.pdf | Page=1 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: tokens (i.e., reflection tokens). Reflection tokens are categorized into retrieval and critique tokens to indicate the need for retrieval and its generation quality respectively (Figure 1 right). In particular, given an input prompt and preceding generations, SELF -RAG first determines if augmenting
+================================================================================
+
+================================================================================
+FINAL CONTEXT SENT TO LLM
+================================================================================
+
+================================================================================
+DOCUMENT : Self-RAG.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 1
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+tokens (i.e., reflection tokens). Reflection tokens are categorized into retrieval and critique tokens to
+indicate the need for retrieval and its generation quality respectively (Figure 1 right). In particular,
+given an input prompt and preceding generations, SELF -RAG first determines if augmenting the
+continued generation with retrieved passages would be helpful. If so, it outputs a retrieval token that
+calls a retriever model on demand (Step 1). Subsequently,SELF -RAG concurrently processes multiple
+
+
+--------------------------------------------------------------------------------
+PAGE : 2
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+us to (1) flexibly adjust retrieval frequency for different downstream applications and (2) customize
+models’ behaviors to user preferences by leveraging reflection tokens through segment-level beam
+search using the weighted linear sum of the reflection token probabilities as segment score.
+Empirical results on six tasks, including reasoning and long-form generation, demonstrate that SELF -
+RAG significantly outperforms pre-trained and instruction-tuned LLMs that have more parameters and
+widely adopted RAG approaches with higher citation accuracy. In particular, SELF -RAG outperforms
+
+
+--------------------------------------------------------------------------------
+PAGE : 4
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+10: Mgen predicts ISUSE given x, yt ▷ Critique
+Inference overview. Figure 1 and Algorithm 1 present an overview of SELF -R AG at inference. For
+every x and preceding generation y<t, the model decodes a retrieval token to evaluate the utility
+of retrieval. If retrieval is not required, the model predicts the next output segment, as it does in a
+standard LM. If retrieval is needed, the model generates: a critique token to evaluate the retrieved
+passage’s relevance, the next response segment, and a critique token to evaluate if the information in
+
+
+--------------------------------------------------------------------------------
+PAGE : 6
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+Adaptive retrieval with threshold.SELF -RAG dynamically decides when to retrieve text passages by
+predicting Retrieve . Alternatively, our framework allows a threshold to be set. Specifically, if the prob-
+ability of generating the Retrieve =Yes token normalized over all output tokens in Retrieve surpasses a
+designated threshold, we trigger retrieval (details in Appendix Section A.3).
+Tree-decoding with critique tokens. At each segment step t, when retrieval is required, based either
+on hard or soft conditions, R retrieves K passages, and the generator M processes each passage in
+
+
+--------------------------------------------------------------------------------
+PAGE : 7
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+values of 1.0, 1.0 and 0.5, respectively. To encourage frequent retrieval, we set the retrieval threshold
+to 0.2 for most tasks and to 0 for ALCE (Gao et al., 2023) due to citation requirements. We speed
+up inference using vllm (Kwon et al., 2023). At each segment level, we adopt a beam width of 2.
+For a token-level generation, we use greedy decoding. By default, we use the top five documents
+from Contriever-MS MARCO (Izacard et al., 2022a); for biographies and open-domain QA, we
+use additional top five documents retrieved by a web search engine, following Luo et al. (2023);
+
+
+--------------------------------------------------------------------------------
+PAGE : 9
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+SAIL. We also conduct ablation on our inference-time algorithm, including No retrieval disables
+retrieval during inference; Hard constraints indicates the model performance that retrieves when
+Retrieve =Yes instead of using the adaptive threshold; Retrieve top 1 always retrieves and uses the
+top one document only, similar to standard RAG approaches;Remove ISSUP indicates the model
+performance that removes ISSUP score only during critique-guided beam search in Eq. 4. In this
+ablation experiment, we use a training instance size of 50k for a more efficient exploration of training
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a page from the textbook on the characterization and characterization of semiconductors in semiconductors and semiconductors
+
+OCR Text:
+Preprint.
+
+PubHealth
+
+POA Med AS : 70.5 aan 1.0 >
+
+(acc) (acc) (em) § $0.99 ose
+Training 0.98 0.0
+NoRetrieverR 43.6 67.8 31.0 1 2 O0 pOA
+No Critic C 42.6 72.0 18.1 95 1.0 1.00
+
+“Test ee cy Tog 0.75 2
+No retrieval 247 730 - 849 5 050
+Hard constraints 28.3 72.6 - < 0.6 E
+Retrieve topl 41.8 73.1 28.6 i $ SCE REY a 0.25
+Remove 44.1 73.2 30.6 Weight for IsSupport Retrieval Threshold
+(a) Ablation (b) Customization (c) Retrieval
+
+Figure 3: Analysis on SELF-RAG: (a) Ablation studies for key components of SELF-RAG training
+and inference based on our 7B model. (b) Effects of soft weights on ASQA citation precision and
+Mauve (fluency). (c) Retrieval frequency and normalized accuracy on PubHealth and PopQA.
+
+precisely grounded yet shorter outputs. Llama2-FT7,, which is the baseline LM trained on the same
+instruction-output pairs as SELF-RAG without retrieval or self-reflection and is retrieval-augmented
+at test time only, lags behind SELF-RAG. This result indicates SELF-RAG gains are not solely from
+training data and demonstrate the effectiveness of SELF-RAG framework.
+
+5.2 ANALYSIS
+
+Ablation studies. We conduct a set of ablations of our framework to identify which factors play
+key roles. We evaluate two model variants trained differently than our model: No Retriever trains an
+LM using the standard instruction-following method given instruction-output pairs, without retrieved
+passages; No Critic trains an LM trained with input-output pairs that are always augmented with the
+top one retrieved document without reflection tokens. This is similar to SAIL (Luo et al., 2023), and
+we use our instruction-output data instead of using the Alpaca dataset (Dubois et al., 2023), as in
+SAIL. We also conduct ablation on our inference-time algorithm, including No retrieval disables
+retrieval during inference; Hard constraints indicates the model performance that retrieves when
+[Retrieve Yes instead of using the adaptive threshold; Retrieve top I always retrieves and uses the
+top one document only, similar to standard RAG approaches; Remove indicates the model
+performance that removes score only during critique-guided beam search in Eq. 4. In this
+ablation experiment, we use a training instance size of 50k for a more efficient exploration of training
+variations. Later in this section, we conduct an analysis of the effect of training data size. We conduct
+the ablation studies on three datasets, PopQA, PubHealth, and ASQA. On ASQA, we evaluate models
+on sampled 150 instances and exclude ablations involving adaptive or no retrieval processes.
+
+We show in Table 3a the ablation results. The top part of the table shows results for training ablations,
+and the bottom part is for inference ablations. We see that all components play important roles. We
+also observe a large performance gap between SELF-RAG and No Retriever or Critic baselines across
+tasks, indicating that training an LM with those models largely contributes to the performance gain of
+SELF-RAG. Using the top passages regardless of their relevance (Retrieve top 1) as in conventional
+RAG approaches causes a large drop in PopQA and ASQA, and removing during the beam
+search results hurts performance on ASQA. This demonstrates the effectiveness of SELF-RAG’s
+capabilities of carefully selecting generations based fine-grained multiple criterion, instead of naively
+using all of the top passages from the retrieval model or solely depending on relevance scores.
+
+Effects of inference-time customization. One key benefit of our proposed framework is that it
+enables us to control how much each critique type affects the final generation sampling. We analyze
+the effects of different parameter weights on the top of our 7B model during inference time on
+ASQA, where multiple evaluation aspects are considered. Figure 3b shows the effects of changing
+the weighting term for , which criticizes how supported the output is by the text passage. As
+the figure shows, increasing the weight leads to positive effects on the models’ citation precision
+since this puts more emphasis on whether model generation is supported by the evidence. On the
+
+Nearby Document Text:
+Preprint.
+PQA
+Med
+AS
+(acc)
+(acc)
+(em)
+SELF-RAG (50k)
+45.5
+73.5
+32.1
+Training
+No Retriever R
+43.6
+67.8
+31.0
+No Critic C
+42.6
+72.0
+18.1
+Test
+No retrieval
+24.7
+73.0
+–
+Hard constraints
+28.3
+72.6
+–
+Retrieve top1
+41.8
+73.1
+28.6
+Remove
+ISSUP
+44.1
+73.2
+30.6
+(a) Ablation
+1
+2
+70.0
+70.5
+Precision
+1
+2
+Weight for IsSupport
+90
+95
+Mauve
+(b) Customization
+0.0
+0.2
+0.4
+0.6
+0.98
+0.99
+0.99
+1.00
+Accuracy
+PubHealth
+0.0
+0.2
+0.4
+0.6
+Retrieval Threshold
+0.6
+0.8
+1.0
+Accuracy
+PopQA
+0.0
+0.5
+1.0
+Frequency
+0.25
+0.50
+0.75
+1.00
+Frequency
+(c) Retrieval
+Figure 3: Analysis on SELF-RAG: (a) Ablation studies for key components of
+
+
+[RELATED PAGE TEXT]
+
+SAIL. We also conduct ablation on our inference-time algorithm, including No retrieval disables
+retrieval during inference; Hard constraints indicates the model performance that retrieves when
+Retrieve =Yes instead of using the adaptive threshold; Retrieve top 1 always retrieves and uses the
+top one document only, similar to standard RAG approaches
+
+
+--------------------------------------------------------------------------------
+PAGE : 10
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+Efficiency and accuracy trade-off. Using our framework, practitioners can adjust how often retrieval
+occurs using the token probability of reward tokens. We evaluate how this adaptive threshold affects
+overall accuracy and frequency of retrieval, and we evaluate the performance with varying numbers
+of threshold δ (larger δ results in less retrieval) on PubHealth and PopQA. Figure 3c shows that
+the model’s retrieval frequencies dramatically change on both datasets. as δ varies. On one hand,
+performance deterioration by retrieving less is smaller on PubHealth but larger in PopQA.
+
+
+================================================================================
+DOCUMENT : Vision Transformer.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 8
+--------------------------------------------------------------------------------
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT
+
+Caption:
+a plane flying in the sky
+
+OCR Text:
+No readable text found in this image.
+
+Nearby Document Text:
+Published as a conference paper at ICLR 2021
+4.4
+SCALING STUDY
+We perform a controlled scaling study of different models by evaluating transfer performance from
+JFT-300M. In this setting data size does not bottleneck the models’ performances, and we assess
+performance versus pre-training cost of each model. The model set includes: 7 ResNets, R50x1,
+R50x2 R101x1, R152x1, R152x2, pre-trained for 7 epochs, plus R152x2 and R200x3 pre-trained
+for 14 epochs; 6 Vision Transformers, ViT-B/32, B/16, L/32, L/16, pre-trained for 7 epochs, plus
+L/16 and H/14 pre-trained for 14 epochs; and 5 hybrids, R50+V
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT
+
+Caption:
+a plane flying in the sky
+
+OCR Text:
+No readable text found in this image.
+
+Nearby Document Text:
+Published as a conference paper at ICLR 2021
+4.4
+SCALING STUDY
+We perform a controlled scaling study of different models by evaluating transfer performance from
+JFT-300M. In this setting data size does not bottleneck the models’ performances, and we assess
+performance versus pre-training cost of each model. The model set includes: 7 ResNets, R50x1,
+R50x2 R101x1, R152x1, R152x2, pre-trained for 7 epochs, plus R152x2 and R200x3 pre-trained
+for 14 epochs; 6 Vision Transformers, ViT-B/32, B/16, L/32, L/16, pre-trained for 7 epochs, plus
+L/16 and H/14 pre-trained for 14 epochs; and 5 hybrids, R50+V
+
+
+================================================================================
+DOCUMENT : RAG.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 19
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+and the RAG model would perform equivalently to BART. The collapse could be due to a less-explicit
+requirement for factual knowledge in some tasks, or the longer target sequences, which could result
+in less informative gradients for the retriever. Perez et al.[46] also found spurious retrieval results
+when optimizing a retrieval component in order to improve performance on downstream tasks.
+I Number of instances per dataset
+The number of training, development and test datapoints in each of our datasets is shown in Table 7.
+19
+
+================================================================================
+
+================================================================================
+RAG PIPELINE DEBUG
+================================================================================
+Query Type        : analytical
+Retrieved Chunks  : 8
+Retrieved Images  : 3
+Reranked Chunks   : 11
+Reranked Text     : 8
+Reranked Images   : 3
+Final Context Docs: 11
+Exact Figure Query: False
+Exact Figure Match: False
+Exact Figure Final: False
+================================================================================
+
+====================================================================================================
+RAG ANSWER
+====================================================================================================
+ Increasing the retrieval threshold creates a trade-off between retrieval frequency and model performance because, with a higher threshold, the model retrieves less often, which may lead to a decrease in the model's performance due to having fewer relevant passages to generate responses. However, on the other hand, reducing the number of retrievals can also lead to a smaller performance drop on datasets like PubHealth but a larger drop on PopQA (as shown in Figure 3c from the provided context). This trade-off allows practitioners to adjust the retrieval frequency using the token probability of reward tokens to find a balance between efficiency and accuracy.
+
+IMAGE PATHS:
+D:/Projects/Major-Project-2-main/extracted_images/Self-RAG_page9_render.png
+D:/Projects/Major-Project-2-main/extracted_images/Vision Transformer_page8_img3.png
+D:/Projects/Major-Project-2-main/extracted_images/Vision Transformer_page8_img2.png

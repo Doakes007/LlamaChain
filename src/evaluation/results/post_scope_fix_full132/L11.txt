@@ -1,0 +1,1115 @@
+====================================================================================================
+QUESTION_ID   : L11
+DOCUMENT      : LayoutLMv3
+QUESTION_TYPE : Experimental / table reasoning
+ELAPSED_SEC   : 52.7
+ERROR         : no
+====================================================================================================
+
+QUESTION:
+In the LayoutLMv3 ablation study, how does adding MIM and WPA affect the PubLayNet performance compared with the MLM-only models?
+
+GROUND TRUTH ANSWER:
+In Table 3, the MLM-only baseline with no image embedding has no applicable PubLayNet result, while the linear-image MLM-only model (#2) suffers loss divergence. Adding MIM (#3) makes PubLayNet training converge and yields 94.38 MAP. Adding WPA (#4) further improves the PubLayNet result slightly to 94.43 MAP and also reduces the vision-task loss. Thus MIM is critical for making the vision task train successfully, while WPA provides an additional improvement.
+
+GROUND TRUTH SOURCE:
+LayoutLMv3.pdf, Table 3 and Figure 4, p. 7
+
+====================================================================================================
+FORENSIC TRANSCRIPT
+====================================================================================================
+
+####################################################################################################
+FORENSIC CASE START
+####################################################################################################
+Original Query   : In the LayoutLMv3 ablation study, how does adding MIM and WPA affect the PubLayNet performance compared with the MLM-only models?
+Expanded Query   : In the LayoutLMv3 ablation study, how does adding MIM and WPA affect the PubLayNet performance compared with the MLM-only models?
+Query Type       : analytical
+[DOCUMENT SCOPE] Normalized query: 'in the layout l mv3 ablation study how does adding mim and wpa affect the pub lay net performance compared with the mlm only models'
+[DOCUMENT SCOPE] Source='BERT.pdf' -> Normalized='bert'
+[DOCUMENT SCOPE] Token overlap for 'BERT.pdf': []
+[DOCUMENT SCOPE] Source='BLIP-2.pdf' -> Normalized='blip 2'
+[DOCUMENT SCOPE] Token overlap for 'BLIP-2.pdf': []
+[DOCUMENT SCOPE] Source='CLIP.pdf' -> Normalized='clip'
+[DOCUMENT SCOPE] Token overlap for 'CLIP.pdf': []
+[DOCUMENT SCOPE] Source='CNN Paper.pdf' -> Normalized='cnn paper'
+[DOCUMENT SCOPE] Token overlap for 'CNN Paper.pdf': []
+[DOCUMENT SCOPE] Source='Donut.pdf' -> Normalized='donut'
+[DOCUMENT SCOPE] Token overlap for 'Donut.pdf': []
+[DOCUMENT SCOPE] Source='LayoutLMv3.pdf' -> Normalized='layout l mv3'
+[DOCUMENT SCOPE] EXACT MATCH -> LayoutLMv3.pdf
+[DOCUMENT SCOPE] Source='NLP Paper.pdf' -> Normalized='nlp paper'
+[DOCUMENT SCOPE] Token overlap for 'NLP Paper.pdf': []
+[DOCUMENT SCOPE] Source='RAG.pdf' -> Normalized='rag'
+[DOCUMENT SCOPE] Token overlap for 'RAG.pdf': []
+[DOCUMENT SCOPE] Source='Self-RAG.pdf' -> Normalized='self rag'
+[DOCUMENT SCOPE] Token overlap for 'Self-RAG.pdf': []
+[DOCUMENT SCOPE] Source='Vision Transformer.pdf' -> Normalized='vision transformer'
+[DOCUMENT SCOPE] Token overlap for 'Vision Transformer.pdf': []
+[DOCUMENT SCOPE] Final matched sources: ['LayoutLMv3.pdf']
+
+================================================================================
+DOCUMENT SCOPE DEBUG
+================================================================================
+Query          : In the LayoutLMv3 ablation study, how does adding MIM and WPA affect the PubLayNet performance compared with the MLM-only models?
+Expanded Query : In the LayoutLMv3 ablation study, how does adding MIM and WPA affect the PubLayNet performance compared with the MLM-only models?
+Query Type     : analytical
+Document Scope : ['LayoutLMv3.pdf']
+================================================================================
+
+==========================================================================================
+STEP 3A — SCOPED HYBRID RETRIEVAL
+==========================================================================================
+Query              : In the LayoutLMv3 ablation study, how does adding MIM and WPA affect the PubLayNet performance compared with the MLM-only models?
+Sources            : ['LayoutLMv3.pdf']
+Dense candidate K  : 25
+Final hybrid K     : 8
+
+------------------------------------------------------------------------------------------
+[SCOPED DENSE / VECTOR RETRIEVAL] 25 candidates
+------------------------------------------------------------------------------------------
+01. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=linear image embedding has improved FUNSD, MIM does not fur- ther contribute to FUNSD. By incorporating the MIM objective in training, the loss converges when fine-tuning PubLayNet
+02. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=former model with unified MLM, MIM and WPA objectives. This makes LayoutLMv3 the first multimodal pre-trained Document AI model without CNNs for image embeddings, which significant
+03. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=fine-tuned on the PubLayNet dataset with a batch size of 16 and a learning rate of 2𝑒 − 4. We have tried to train the model #2 with learning rates of {1𝑒 − 4, 2𝑒 − 4, 4𝑒 − 4} combi
+04. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=more, LayoutLMv3 is easy to reproduce for its simple and neat architecture and pre-training objectives. Our contributions are summarized as follows: • LayoutLMv3 is the first multi
+05. Source=LayoutLMv3.pdf | Page=8 | Type=text | Image=N/A
+    Content=we naturally utilize the masking operations in MIM to construct aligned/unaligned pairs in an effective and unified way. 5 CONCLUSION AND FUTURE WORK In this paper, we present Layo
+06. Source=LayoutLMv3.pdf | Page=8 | Type=text | Image=N/A
+    Content=Parameter Comparisons. The table shows that incorporating image embedding for a16×16 patch projection (#1→ #2) introduces only 0.6M parameters. The parameters are negligible compar
+07. Source=LayoutLMv3.pdf | Page=8 | Type=text | Image=N/A
+    Content=Inspired by MLM and MIM, researchers in the field of vision- and-language have exploredreconstructive objectives for multi- modal representation learning. Whereas most well-perform
+08. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=and #4 in Table 3, we observe that the WPA objective consistently improves all tasks. Moreover, the WPA objective decreases the loss of the vision task on PubLayNet in Figure 4. Th
+09. Source=LayoutLMv3.pdf | Page=8 | Type=text | Image=N/A
+    Content=running time [22]. Inspired by ViLT, our LayoutLMv3 is the first multimodal model in Document AI that utilizes image embeddings without CNNs. Reconstructive pre-training objectives
+10. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=tasks in Document AI. The code and models are publicly available at https://aka.ms/layoutlmv3. 2 LAYOUTLMV3 Figure 3 gives an overview of the LayoutLMv3. 2.1 Model Architecture Lay
+11. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=training objectives. We first build a baseline model #1 that uses text and layout information, pre-trained with MLM objective. Then we use linearly projected image patches as the i
+12. Source=LayoutLMv3.pdf | Page=6 | Type=text | Image=N/A
+    Content=Table 2: Document layout analysis mAP @ IOU [0.50:0.95] on PubLayNet validation set. All models use only information from the vision modality. LayoutLMv3 outperforms the compared R
+13. Source=LayoutLMv3.pdf | Page=9 | Type=text | Image=N/A
+    Content=language, we pre-train a LayoutLMv3-Chinese model in base size. It is trained on 50 million document pages in Chinese. We collect large-scale Chinese documents by downloading publi
+14. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=Embed Objective(s) F1↑ F1↑ Accuracy↑ MAP↑ 1 None 125M MLM 88.64 96.27 95.33 Not Applicable 2 Linear 126M MLM 89.39 96.11 95.00 Loss Divergence 3 Linear 132M MLM+MIM 89.19 96.30 95.
+15. Source=LayoutLMv3.pdf | Page=8 | Type=text | Image=N/A
+    Content=has 39.2M parameters for a text vocabulary size of 50,265. We did not take count of the image tokenizer when calculating parameters as the tokenizer is a standalone module for gene
+16. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=Table 3: Ablation study on image embeddings and pre-training objectives on typical text-centric tasks (form and receipt under- standing on FUNSD and CORD) and image-centric tasks (
+17. Source=LayoutLMv3.pdf | Page=7 | Type=image | Image=extracted_images\LayoutLMv3_page7_img0.png
+    Content=FIGURE FROM DOCUMENT  Caption: a graph plot with the same number of m m m m m m m m m m m m m m m m m m m m  OCR Text: Loss  — Model#2 MLM — Model#3 MLM+MIM — Modelita MLM+MIM+WPA 
+18. Source=LayoutLMv3.pdf | Page=8 | Type=text | Image=N/A
+    Content=(MRM), masked grid modeling (MGM), and masked patch modeling (MPM). MRM has been proven to be effective in regressing original region features [5, 31, 48] or classifying object lab
+19. Source=LayoutLMv3.pdf | Page=5 | Type=text | Image=N/A
+    Content=StructuralLMLARGE [28] 355M T+L None 85.14 - 96.08 83.94‡ FormNet [25] 217M T+L None 84.69 - - - FormNet [25] 345M T+L None - 97.28 - - TILTLARGE [40] 780M T+L+I (R) U-Net - 96.33 
+20. Source=LayoutLMv3.pdf | Page=9 | Type=text | Image=N/A
+    Content=311 images, respectively. We fine-tune LayoutLMv3-Chinese for 100 epochs. The batch size is 16, and the learning rate is5𝑒 − 5 with linear warmup over the first epoch. We report F1
+21. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=domly initialized the rest model parameters. We pre-train Lay- outLMv3 using Adam optimizer [23] with a batch size of 2,048 for 500,000 steps. We use a weight decay of 1𝑒 − 2, and 
+22. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=• [T+L] text and layout modalities: LayoutLM incorporates layout information by adding word-level spatial embeddings to embeddings of BERT [54]. StructuralLM leverages segment- lev
+23. Source=LayoutLMv3.pdf | Page=5 | Type=text | Image=N/A
+    Content=the official 800/100 training/test receipts adopted by other works. Thus the score † is not directly comparable to other scores. Models denoted with ‡ use more data to train DocVQA
+24. Source=LayoutLMv3.pdf | Page=8 | Type=text | Image=N/A
+    Content=Various cross-modal objectives are further developed for vi- sion and language (VL) alignment learning in multimodal models. Image-text matching is widely used to learn a coarse-gr
+25. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=lic benchmarks, including text-centric benchmarks: FUNSD [ 20] for form understanding, CORD [ 39] for receipt understanding, DocVQA [38] for document visual question answering, and
+
+------------------------------------------------------------------------------------------
+[SCOPED BM25 RETRIEVAL] 23 candidates
+------------------------------------------------------------------------------------------
+01. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=linear image embedding has improved FUNSD, MIM does not fur- ther contribute to FUNSD. By incorporating the MIM objective in training, the loss converges when fine-tuning PubLayNet
+02. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=training objectives. We first build a baseline model #1 that uses text and layout information, pre-trained with MLM objective. Then we use linearly projected image patches as the i
+03. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=Embed Objective(s) F1↑ F1↑ Accuracy↑ MAP↑ 1 None 125M MLM 88.64 96.27 95.33 Not Applicable 2 Linear 126M MLM 89.39 96.11 95.00 Loss Divergence 3 Linear 132M MLM+MIM 89.19 96.30 95.
+04. Source=LayoutLMv3.pdf | Page=8 | Type=text | Image=N/A
+    Content=we naturally utilize the masking operations in MIM to construct aligned/unaligned pairs in an effective and unified way. 5 CONCLUSION AND FUTURE WORK In this paper, we present Layo
+05. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=and #4 in Table 3, we observe that the WPA objective consistently improves all tasks. Moreover, the WPA objective decreases the loss of the vision task on PubLayNet in Figure 4. Th
+06. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=corresponds to an image patch. To learn this cross-modal alignment, we propose a Word-Patch Alignment (WPA) objective to predict whether the corresponding image patch of a text wor
+07. Source=LayoutLMv3.pdf | Page=8 | Type=text | Image=N/A
+    Content=Parameter Comparisons. The table shows that incorporating image embedding for a16×16 patch projection (#1→ #2) introduces only 0.6M parameters. The parameters are negligible compar
+08. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=former model with unified MLM, MIM and WPA objectives. This makes LayoutLMv3 the first multimodal pre-trained Document AI model without CNNs for image embeddings, which significant
+09. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=meaningful visual representation on the linear patch embeddings without any pre-training objective associated with image modality. The MIM objective mitigates this problem by prese
+10. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=linear image embedding combined with appropriate pre-training objectives can consistently improve not only image-centric tasks, but also some text-centric tasks further. Effect of 
+11. Source=LayoutLMv3.pdf | Page=6 | Type=text | Image=N/A
+    Content=Table 2: Document layout analysis mAP @ IOU [0.50:0.95] on PubLayNet validation set. All models use only information from the vision modality. LayoutLMv3 outperforms the compared R
+12. Source=LayoutLMv3.pdf | Page=8 | Type=text | Image=N/A
+    Content=tion weights in their self-attention image encoder, which does not apply to simple linear image encoders. ViLT [22] and METER [12] attempt to leverage MPM similar to ViT [11] and B
+13. Source=LayoutLMv3.pdf | Page=3 | Type=text | Image=N/A
+    Content=position as bias terms in self-attention networks for text and image modalities following LayoutLMv2[56]. 2.2 Pre-training Objectives LayoutLMv3 is pre-trained with the MLM, MIM, a
+14. Source=LayoutLMv3.pdf | Page=2 | Type=image | Image=extracted_images\LayoutLMv3_page2_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a page from the book, showing an image of a computer and a computer with a text that reads,  OCR Text: _(2) Pre-training Objectives of 
+15. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=We compare LayoutLMv3 with typical self-supervised pre-training approaches and categorize them by their pre-training modalities. • [T] text modality: BERT [9] and RoBERTa [36] are 
+16. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=a visual vocabulary [43]. Thus MIM facilitates learning high-level layout structures rather than noisy low-level details. Objective III: Word-Patch Alignment (WPA). For documents, 
+17. Source=LayoutLMv3.pdf | Page=3 | Type=image | Image=extracted_images\LayoutLMv3_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram of the structure of a computer system  OCR Text: Ty Tz  Pre-training  Objectives MLM Head  Unaligned Aligned  V2 V3  MIM Head
+18. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=more, LayoutLMv3 is easy to reproduce for its simple and neat architecture and pre-training objectives. Our contributions are summarized as follows: • LayoutLMv3 is the first multi
+19. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=decreases the loss. Best viewed in color. with our pre-training stage. We do not use relative positions in self- attention networks as DiT. We measure the performance using the mea
+20. Source=LayoutLMv3.pdf | Page=6 | Type=text | Image=N/A
+    Content=which significantly outperforms the SOTA result of 85.14 provided by StructuralLM [28]. Note that LayoutLMv3 and StructuralLM use segment-level layout positions, while the other wo
+21. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=fine-tuned on the PubLayNet dataset with a batch size of 16 and a learning rate of 2𝑒 − 4. We have tried to train the model #2 with learning rates of {1𝑒 − 4, 2𝑒 − 4, 4𝑒 − 4} combi
+22. Source=LayoutLMv3.pdf | Page=4 | Type=text | Image=N/A
+    Content=𝐿𝑀𝐿𝑀 (𝜃 ) = − 𝐿′ ∑︁ 𝑙=1 log 𝑝𝜃  yℓ | X𝑀′ , Y𝐿′ (1) As we keep the layout information unchanged, this objective fa- cilitates the model to learn the correspondence between layout 
+23. Source=LayoutLMv3.pdf | Page=6 | Type=text | Image=N/A
+    Content=We integrate the LayoutLMv3 as feature backbone in the Cascade R-CNN detector [4] with FPN [34] implemented using the Detec- tron2 [53]. We adopt the standard practice to extract s
+
+------------------------------------------------------------------------------------------
+[RRF FUSION RANKING]
+------------------------------------------------------------------------------------------
+01. RRF=0.032787 | DenseRank=1 | BM25Rank=1 | Source=LayoutLMv3.pdf | Page=7 | Type=text
+02. RRF=0.031010 | DenseRank=5 | BM25Rank=4 | Source=LayoutLMv3.pdf | Page=8 | Type=text
+03. RRF=0.030835 | DenseRank=2 | BM25Rank=8 | Source=LayoutLMv3.pdf | Page=2 | Type=text
+04. RRF=0.030214 | DenseRank=11 | BM25Rank=2 | Source=LayoutLMv3.pdf | Page=7 | Type=text
+05. RRF=0.030090 | DenseRank=8 | BM25Rank=5 | Source=LayoutLMv3.pdf | Page=7 | Type=text
+06. RRF=0.030077 | DenseRank=6 | BM25Rank=7 | Source=LayoutLMv3.pdf | Page=8 | Type=text
+07. RRF=0.029387 | DenseRank=14 | BM25Rank=3 | Source=LayoutLMv3.pdf | Page=7 | Type=text
+08. RRF=0.028446 | DenseRank=4 | BM25Rank=18 | Source=LayoutLMv3.pdf | Page=2 | Type=text
+09. RRF=0.028219 | DenseRank=3 | BM25Rank=21 | Source=LayoutLMv3.pdf | Page=7 | Type=text
+10. RRF=0.027973 | DenseRank=12 | BM25Rank=11 | Source=LayoutLMv3.pdf | Page=6 | Type=text
+11. RRF=0.015152 | DenseRank=- | BM25Rank=6 | Source=LayoutLMv3.pdf | Page=2 | Type=text
+12. RRF=0.014925 | DenseRank=7 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=8 | Type=text
+13. RRF=0.014493 | DenseRank=9 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=8 | Type=text
+14. RRF=0.014493 | DenseRank=- | BM25Rank=9 | Source=LayoutLMv3.pdf | Page=7 | Type=text
+15. RRF=0.014286 | DenseRank=10 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=2 | Type=text
+16. RRF=0.014286 | DenseRank=- | BM25Rank=10 | Source=LayoutLMv3.pdf | Page=7 | Type=text
+17. RRF=0.013889 | DenseRank=- | BM25Rank=12 | Source=LayoutLMv3.pdf | Page=8 | Type=text
+18. RRF=0.013699 | DenseRank=13 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=9 | Type=text
+19. RRF=0.013699 | DenseRank=- | BM25Rank=13 | Source=LayoutLMv3.pdf | Page=3 | Type=text
+20. RRF=0.013514 | DenseRank=- | BM25Rank=14 | Source=LayoutLMv3.pdf | Page=2 | Type=image
+21. RRF=0.013333 | DenseRank=15 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=8 | Type=text
+22. RRF=0.013333 | DenseRank=- | BM25Rank=15 | Source=LayoutLMv3.pdf | Page=4 | Type=text
+23. RRF=0.013158 | DenseRank=16 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=7 | Type=text
+24. RRF=0.013158 | DenseRank=- | BM25Rank=16 | Source=LayoutLMv3.pdf | Page=4 | Type=text
+25. RRF=0.012987 | DenseRank=17 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=7 | Type=image
+26. RRF=0.012987 | DenseRank=- | BM25Rank=17 | Source=LayoutLMv3.pdf | Page=3 | Type=image
+27. RRF=0.012821 | DenseRank=18 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=8 | Type=text
+28. RRF=0.012658 | DenseRank=19 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=5 | Type=text
+29. RRF=0.012658 | DenseRank=- | BM25Rank=19 | Source=LayoutLMv3.pdf | Page=7 | Type=text
+30. RRF=0.012500 | DenseRank=20 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=9 | Type=text
+31. RRF=0.012500 | DenseRank=- | BM25Rank=20 | Source=LayoutLMv3.pdf | Page=6 | Type=text
+32. RRF=0.012346 | DenseRank=21 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=4 | Type=text
+33. RRF=0.012195 | DenseRank=22 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=4 | Type=text
+34. RRF=0.012195 | DenseRank=- | BM25Rank=22 | Source=LayoutLMv3.pdf | Page=4 | Type=text
+35. RRF=0.012048 | DenseRank=23 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=5 | Type=text
+36. RRF=0.012048 | DenseRank=- | BM25Rank=23 | Source=LayoutLMv3.pdf | Page=6 | Type=text
+37. RRF=0.011905 | DenseRank=24 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=8 | Type=text
+38. RRF=0.011765 | DenseRank=25 | BM25Rank=- | Source=LayoutLMv3.pdf | Page=2 | Type=text
+------------------------------------------------------------------------------------------
+
+==========================================================================================
+STEP 3A — RETRIEVAL STAGE SUMMARY
+==========================================================================================
+Dense candidates       : 25
+BM25 candidates        : 23
+Dense ∩ BM25           : 10
+Dense-only candidates  : 15
+BM25-only candidates   : 13
+Unique candidate pool  : 38
+RRF candidates         : 38
+Returned to pipeline   : 8
+==========================================================================================
+
+------------------------------------------------------------------------------------------
+[SCOPED FINAL HYBRID RESULT] 8 candidates
+------------------------------------------------------------------------------------------
+01. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=linear image embedding has improved FUNSD, MIM does not fur- ther contribute to FUNSD. By incorporating the MIM objective in training, the loss converges when fine-tuning PubLayNet
+02. Source=LayoutLMv3.pdf | Page=8 | Type=text | Image=N/A
+    Content=we naturally utilize the masking operations in MIM to construct aligned/unaligned pairs in an effective and unified way. 5 CONCLUSION AND FUTURE WORK In this paper, we present Layo
+03. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=former model with unified MLM, MIM and WPA objectives. This makes LayoutLMv3 the first multimodal pre-trained Document AI model without CNNs for image embeddings, which significant
+04. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=training objectives. We first build a baseline model #1 that uses text and layout information, pre-trained with MLM objective. Then we use linearly projected image patches as the i
+05. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=and #4 in Table 3, we observe that the WPA objective consistently improves all tasks. Moreover, the WPA objective decreases the loss of the vision task on PubLayNet in Figure 4. Th
+06. Source=LayoutLMv3.pdf | Page=8 | Type=text | Image=N/A
+    Content=Parameter Comparisons. The table shows that incorporating image embedding for a16×16 patch projection (#1→ #2) introduces only 0.6M parameters. The parameters are negligible compar
+07. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=Embed Objective(s) F1↑ F1↑ Accuracy↑ MAP↑ 1 None 125M MLM 88.64 96.27 95.33 Not Applicable 2 Linear 126M MLM 89.39 96.11 95.00 Loss Divergence 3 Linear 132M MLM+MIM 89.19 96.30 95.
+08. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=more, LayoutLMv3 is easy to reproduce for its simple and neat architecture and pre-training objectives. Our contributions are summarized as follows: • LayoutLMv3 is the first multi
+==========================================================================================
+
+================================================================================
+STAGE 1 — HYBRID RETRIEVAL
+================================================================================
+Retrieved Count : 8
+
+[HYBRID #1] Source=LayoutLMv3.pdf | Page=7 | Type=text
+Content: linear image embedding has improved FUNSD, MIM does not fur- ther contribute to FUNSD. By incorporating the MIM objective in training, the loss converges when fine-tuning PubLayNet as shown in Figure 4, and we obtain a desirable mAP score. The results indi- cate that MIM can help regularize the training. Thus MIM is critical for vision tasks like document layout analysis on PubLayNet. Effect of WPA pre-training objective. By comparing models #3 and #4 in Table 3, we observe that the WPA objectiv
+
+[HYBRID #2] Source=LayoutLMv3.pdf | Page=8 | Type=text
+Content: we naturally utilize the masking operations in MIM to construct aligned/unaligned pairs in an effective and unified way. 5 CONCLUSION AND FUTURE WORK In this paper, we present LayoutLMv3 to pre-train the multimodal Transformer for Document AI, which redesigns the model archi- tecture and pre-training objectives for LayoutLM. Distinguishing from the existing multimodal model in Document AI, LayoutLMv3 does not rely on a pre-trained CNN or Faster R-CNN backbone to extract visual features, signific
+
+[HYBRID #3] Source=LayoutLMv3.pdf | Page=2 | Type=text
+Content: former model with unified MLM, MIM and WPA objectives. This makes LayoutLMv3 the first multimodal pre-trained Document AI model without CNNs for image embeddings, which significantly saves parameters and gets rid of region annotations. The simple unified architecture and objectives make LayoutLMv3 a general- purpose pre-trained model for both text-centric tasks and image- centric Document AI tasks. We evaluated pre-trained LayoutLMv3 models across five pub- lic benchmarks, including text-centric
+
+[HYBRID #4] Source=LayoutLMv3.pdf | Page=7 | Type=text
+Content: training objectives. We first build a baseline model #1 that uses text and layout information, pre-trained with MLM objective. Then we use linearly projected image patches as the image embedding of the baseline model, denoted as model #2. We further pre-train model #2 with MIM and WPA objectives step by step and denote the new models as #3 and #4, respectively. In Figure 4, we visualize losses of models #2, #3, and #4 when fine-tuned on the PubLayNet dataset with a batch size of 16 and a learnin
+
+[HYBRID #5] Source=LayoutLMv3.pdf | Page=7 | Type=text
+Content: and #4 in Table 3, we observe that the WPA objective consistently improves all tasks. Moreover, the WPA objective decreases the loss of the vision task on PubLayNet in Figure 4. These results confirm the effectiveness of WPA not only in cross-modal representation learning, but also in image representation learning.
+
+[HYBRID #6] Source=LayoutLMv3.pdf | Page=8 | Type=text
+Content: Parameter Comparisons. The table shows that incorporating image embedding for a16×16 patch projection (#1→ #2) introduces only 0.6M parameters. The parameters are negligible compared to the parameters of CNN backbones (e.g., 44M for ResNet-101). A MIM head and a WPA head introduce 6.9M and 0.6M parameters in the pre-training stage. The parameter overhead introduced by image embedding is marginal compared to the MLM head, which has 39.2M parameters for a text vocabulary size of 50,265. We did not
+
+[HYBRID #7] Source=LayoutLMv3.pdf | Page=7 | Type=text
+Content: Embed Objective(s) F1↑ F1↑ Accuracy↑ MAP↑ 1 None 125M MLM 88.64 96.27 95.33 Not Applicable 2 Linear 126M MLM 89.39 96.11 95.00 Loss Divergence 3 Linear 132M MLM+MIM 89.19 96.30 95.42 94.38 4 Linear 133M MLM+MIM+WPA 89.78 96.49 95.53 94.43 Figure 4: Loss convergence curves of fine-tuning the ablated models of LayoutLMv3 on PubLayNet dataset. The loss of model #2 did not converge. By incorporating the MIM objec- tive, the loss converges normally. The WPA objective further decreases the loss. Best 
+
+[HYBRID #8] Source=LayoutLMv3.pdf | Page=2 | Type=text
+Content: more, LayoutLMv3 is easy to reproduce for its simple and neat architecture and pre-training objectives. Our contributions are summarized as follows: • LayoutLMv3 is the first multimodal model in Document AI that does not rely on a pre-trained CNN or Faster R-CNN backbone to extract visual features, which significantly saves parameters and eliminates region annotations. • LayoutLMv3 mitigates the discrepancy between text and image multimodal representation learning with unified dis- crete token r
+================================================================================
+[DOCUMENT SCOPE] Text chunks: 8 -> 8
+
+================================================================================
+IMAGE RETRIEVAL DIAGNOSTIC
+================================================================================
+Query                 : In the LayoutLMv3 ablation study, how does adding MIM and WPA affect the PubLayNet performance compared with the MLM-only models?
+Allowed Sources       : ['LayoutLMv3.pdf']
+Image Candidates      : 554 -> 26 (scoped before ranking)
+
+ALL IMAGE CANDIDATES
+--------------------------------------------------------------------------------
+Rank=01 | Source=LayoutLMv3.pdf | Page=7 | Image=LayoutLMv3_page7_img0.png | Hybrid=0.5609 | CE=0.7185 | CLIP=0.3246
+Rank=02 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_render.png | Hybrid=-3.7215 | CE=-6.3651 | CLIP=0.2439
+Rank=03 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img6.png | Hybrid=-4.2639 | CE=-7.2371 | CLIP=0.1959
+Rank=04 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img5.png | Hybrid=-4.2957 | CE=-7.2964 | CLIP=0.2053
+Rank=05 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img8.png | Hybrid=-4.3240 | CE=-7.3507 | CLIP=0.2161
+Rank=06 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img2.png | Hybrid=-4.3545 | CE=-7.4013 | CLIP=0.2157
+Rank=07 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img9.png | Hybrid=-4.3637 | CE=-7.4110 | CLIP=0.2073
+Rank=08 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img4.png | Hybrid=-4.3942 | CE=-7.4661 | CLIP=0.2138
+Rank=09 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img3.png | Hybrid=-4.5518 | CE=-7.7265 | CLIP=0.2101
+Rank=10 | Source=LayoutLMv3.pdf | Page=1 | Image=LayoutLMv3_page1_render.png | Hybrid=-4.6544 | CE=-7.9255 | CLIP=0.2522
+Rank=11 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_render.png | Hybrid=-4.7381 | CE=-8.0641 | CLIP=0.2510
+Rank=12 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img7.png | Hybrid=-4.8647 | CE=-8.2661 | CLIP=0.2374
+Rank=13 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img1.png | Hybrid=-5.0001 | CE=-8.4626 | CLIP=0.1937
+Rank=14 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img3.png | Hybrid=-5.0214 | CE=-8.5225 | CLIP=0.2302
+Rank=15 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img0.png | Hybrid=-5.0637 | CE=-8.5905 | CLIP=0.2264
+Rank=16 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img2.png | Hybrid=-5.0968 | CE=-8.6394 | CLIP=0.2171
+Rank=17 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img9.png | Hybrid=-5.1593 | CE=-8.7657 | CLIP=0.2502
+Rank=18 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img7.png | Hybrid=-5.1738 | CE=-8.7652 | CLIP=0.2132
+Rank=19 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img4.png | Hybrid=-5.1946 | CE=-8.8180 | CLIP=0.2405
+Rank=20 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img1.png | Hybrid=-5.2010 | CE=-8.8084 | CLIP=0.2102
+Rank=21 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img6.png | Hybrid=-5.2338 | CE=-8.8920 | CLIP=0.2534
+Rank=22 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img5.png | Hybrid=-5.2519 | CE=-8.8996 | CLIP=0.2197
+Rank=23 | Source=LayoutLMv3.pdf | Page=2 | Image=LayoutLMv3_page2_img8.png | Hybrid=-6.2113 | CE=-10.5071 | CLIP=0.2324
+Rank=24 | Source=LayoutLMv3.pdf | Page=1 | Image=LayoutLMv3_page1_img1.png | Hybrid=-6.4100 | CE=-10.8512 | CLIP=0.2516
+Rank=25 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img0.png | Hybrid=-6.6730 | CE=-11.2505 | CLIP=0.1934
+Rank=26 | Source=LayoutLMv3.pdf | Page=1 | Image=LayoutLMv3_page1_img0.png | Hybrid=-6.7002 | CE=-11.3017 | CLIP=0.2020
+
+TOP IMAGE RESULTS
+--------------------------------------------------------------------------------
+TOP-1 | Source=LayoutLMv3.pdf | Page=7 | Image=LayoutLMv3_page7_img0.png | Hybrid=0.5609 | CE=0.7185 | CLIP=0.3246
+TOP-2 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_render.png | Hybrid=-3.7215 | CE=-6.3651 | CLIP=0.2439
+TOP-3 | Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img6.png | Hybrid=-4.2639 | CE=-7.2371 | CLIP=0.1959
+================================================================================
+[DOCUMENT SCOPE] Images: 3 -> 3
+
+================================================================================
+STAGE 2 — IMAGE RETRIEVAL RESULT
+================================================================================
+Image Results       : 3
+Exact Figure Match  : False
+
+[IMAGE #1] Source=LayoutLMv3.pdf | Page=7 | Image=LayoutLMv3_page7_img0.png
+Image Path: extracted_images\LayoutLMv3_page7_img0.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT  Caption: a graph plot with the same number of m m m m m m m m m m m m m m m m m m m m  OCR Text: Loss  — Model#2 MLM — Model#3 MLM+MIM — Modelita MLM+MIM+WPA  10000  20000  30000 40000 50000 Step  Nearby Document Text: Table 3: Ablation study on image embeddings and pre-training objectives on typical text-centric tasks (form and receipt under- standing on FUNSD and CORD) and image-centric tasks (document image classification on RVL-CDIP and document layout analysis on PubLa
+
+[IMAGE #2] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_render.png
+Image Path: extracted_images\LayoutLMv3_page3_render.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram of the structure of a computer system  OCR Text: Ty Tz  Pre-training  Objectives MLM Head  Unaligned Aligned  V2 V3  MIM Head  Multimodal Transformer  2D Position  Embedding Seba) (Sees ] Seaewo) (see) [sees] [sees] [sess] Seseso) [Ptcheno} Patehs) (Pate [Pats] Pach) pa ae aoe soins SBOOae Embedding [3 | [4 |  “a oes bee e  OCR Parser Masking  Word Embedding  Document Image  ) foas) fas) ce  ween 1 een leet ’ (V2) (V3)  - Flatten Linear = | 
+
+[IMAGE #3] Source=LayoutLMv3.pdf | Page=3 | Image=LayoutLMv3_page3_img6.png
+Image Path: extracted_images\LayoutLMv3_page3_img6.png
+Figure Page Match: False
+Content: FIGURE FROM DOCUMENT  Caption: a white sheet with a black and white image of a black and white image of a black and white image  OCR Text: No readable text found in this image.  Nearby Document Text: Multimodal Transformer Seg1 [MASK] 1 + + Seg1 [MASK] 2 + + Seg2 T3 3 + + V1 [MASK] 1 + 2 + 3 + [MASK] [SPE] 0 + Seg3 T4 4 + + SegPAD [CLS] 0 + + 4 + V4 h MLM Head MIM Head T2 h V2 h V3 Pre-training Objectives Word/Patch Embedding 1D Position Embedding Flatten  Masking OCR Parser Masking 2D Position 
+================================================================================
+
+================================================================================
+COMBINED RETRIEVAL CANDIDATES
+================================================================================
+Text Candidates  : 8
+Image Candidates : 3
+Total Candidates : 11
+================================================================================
+
+================================================================================
+STEP 3A — RERANKER INPUT
+================================================================================
+Query: In the LayoutLMv3 ablation study, how does adding MIM and WPA affect the PubLayNet performance compared with the MLM-only models?
+Input candidates: 11
+01. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=linear image embedding has improved FUNSD, MIM does not fur- ther contribute to FUNSD. By incorporating the MIM objective in training, the loss converges when fine-tuning PubLayNet
+02. Source=LayoutLMv3.pdf | Page=8 | Type=text | Image=N/A
+    Content=we naturally utilize the masking operations in MIM to construct aligned/unaligned pairs in an effective and unified way. 5 CONCLUSION AND FUTURE WORK In this paper, we present Layo
+03. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=former model with unified MLM, MIM and WPA objectives. This makes LayoutLMv3 the first multimodal pre-trained Document AI model without CNNs for image embeddings, which significant
+04. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=training objectives. We first build a baseline model #1 that uses text and layout information, pre-trained with MLM objective. Then we use linearly projected image patches as the i
+05. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=and #4 in Table 3, we observe that the WPA objective consistently improves all tasks. Moreover, the WPA objective decreases the loss of the vision task on PubLayNet in Figure 4. Th
+06. Source=LayoutLMv3.pdf | Page=8 | Type=text | Image=N/A
+    Content=Parameter Comparisons. The table shows that incorporating image embedding for a16×16 patch projection (#1→ #2) introduces only 0.6M parameters. The parameters are negligible compar
+07. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+    Content=Embed Objective(s) F1↑ F1↑ Accuracy↑ MAP↑ 1 None 125M MLM 88.64 96.27 95.33 Not Applicable 2 Linear 126M MLM 89.39 96.11 95.00 Loss Divergence 3 Linear 132M MLM+MIM 89.19 96.30 95.
+08. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+    Content=more, LayoutLMv3 is easy to reproduce for its simple and neat architecture and pre-training objectives. Our contributions are summarized as follows: • LayoutLMv3 is the first multi
+09. Source=LayoutLMv3.pdf | Page=7 | Type=image | Image=extracted_images\LayoutLMv3_page7_img0.png
+    Content=FIGURE FROM DOCUMENT  Caption: a graph plot with the same number of m m m m m m m m m m m m m m m m m m m m  OCR Text: Loss  — Model#2 MLM — Model#3 MLM+MIM — Modelita MLM+MIM+WPA 
+10. Source=LayoutLMv3.pdf | Page=3 | Type=image | Image=extracted_images\LayoutLMv3_page3_render.png
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram of the structure of a computer system  OCR Text: Ty Tz  Pre-training  Objectives MLM Head  Unaligned Aligned  V2 V3  MIM Head
+11. Source=LayoutLMv3.pdf | Page=3 | Type=image | Image=extracted_images\LayoutLMv3_page3_img6.png
+    Content=FIGURE FROM DOCUMENT  Caption: a white sheet with a black and white image of a black and white image of a black and white image  OCR Text: No readable text found in this image.  Ne
+================================================================================
+
+--------------------------------------------------------------------------------
+CROSS-ENCODER RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=06 | Source=LayoutLMv3.pdf | Page=7 | Type=text | CE=4.1074
+Rank=02 | OriginalIndex=00 | Source=LayoutLMv3.pdf | Page=7 | Type=text | CE=3.0597
+Rank=03 | OriginalIndex=08 | Source=LayoutLMv3.pdf | Page=7 | Type=image | CE=0.7185
+Rank=04 | OriginalIndex=02 | Source=LayoutLMv3.pdf | Page=2 | Type=text | CE=0.7120
+Rank=05 | OriginalIndex=07 | Source=LayoutLMv3.pdf | Page=2 | Type=text | CE=0.3937
+Rank=06 | OriginalIndex=03 | Source=LayoutLMv3.pdf | Page=7 | Type=text | CE=0.0097
+Rank=07 | OriginalIndex=04 | Source=LayoutLMv3.pdf | Page=7 | Type=text | CE=-0.9244
+Rank=08 | OriginalIndex=05 | Source=LayoutLMv3.pdf | Page=8 | Type=text | CE=-1.0270
+Rank=09 | OriginalIndex=01 | Source=LayoutLMv3.pdf | Page=8 | Type=text | CE=-2.7105
+Rank=10 | OriginalIndex=09 | Source=LayoutLMv3.pdf | Page=3 | Type=image | CE=-6.3651
+Rank=11 | OriginalIndex=10 | Source=LayoutLMv3.pdf | Page=3 | Type=image | CE=-7.2371
+
+--------------------------------------------------------------------------------
+CLIP IMAGE RANKING
+--------------------------------------------------------------------------------
+Rank=01 | OriginalIndex=08 | Source=LayoutLMv3.pdf | Page=7 | Image=extracted_images\LayoutLMv3_page7_img0.png | CLIP=0.3246
+Rank=02 | OriginalIndex=09 | Source=LayoutLMv3.pdf | Page=3 | Image=extracted_images\LayoutLMv3_page3_render.png | CLIP=0.2439
+Rank=03 | OriginalIndex=10 | Source=LayoutLMv3.pdf | Page=3 | Image=extracted_images\LayoutLMv3_page3_img6.png | CLIP=0.1959
+
+================================================================================
+STEP 3A — COMPLETE MULTIMODAL RERANK RESULT
+================================================================================
+Rank=01 | Type=image | Source=LayoutLMv3.pdf | Page=7 | RRF=0.032266 | CE=0.7185 | CLIP=0.3246
+    Content=FIGURE FROM DOCUMENT  Caption: a graph plot with the same number of m m m m m m m m m m m m m m m m m m m m  OCR Text: Loss  — Model#2 MLM — Model#3 MLM+MIM — Modelita MLM+MIM+WPA 
+Rank=02 | Type=image | Source=LayoutLMv3.pdf | Page=3 | RRF=0.030415 | CE=-6.3651 | CLIP=0.2439
+    Content=FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram of the structure of a computer system  OCR Text: Ty Tz  Pre-training  Objectives MLM Head  Unaligned Aligned  V2 V3  MIM Head
+Rank=03 | Type=image | Source=LayoutLMv3.pdf | Page=3 | RRF=0.029958 | CE=-7.2371 | CLIP=0.1959
+    Content=FIGURE FROM DOCUMENT  Caption: a white sheet with a black and white image of a black and white image of a black and white image  OCR Text: No readable text found in this image.  Ne
+Rank=04 | Type=text | Source=LayoutLMv3.pdf | Page=7 | RRF=0.016393 | CE=4.1074 | CLIP=N/A
+    Content=Embed Objective(s) F1↑ F1↑ Accuracy↑ MAP↑ 1 None 125M MLM 88.64 96.27 95.33 Not Applicable 2 Linear 126M MLM 89.39 96.11 95.00 Loss Divergence 3 Linear 132M MLM+MIM 89.19 96.30 95.
+Rank=05 | Type=text | Source=LayoutLMv3.pdf | Page=7 | RRF=0.016129 | CE=3.0597 | CLIP=N/A
+    Content=linear image embedding has improved FUNSD, MIM does not fur- ther contribute to FUNSD. By incorporating the MIM objective in training, the loss converges when fine-tuning PubLayNet
+Rank=06 | Type=text | Source=LayoutLMv3.pdf | Page=2 | RRF=0.015625 | CE=0.7120 | CLIP=N/A
+    Content=former model with unified MLM, MIM and WPA objectives. This makes LayoutLMv3 the first multimodal pre-trained Document AI model without CNNs for image embeddings, which significant
+Rank=07 | Type=text | Source=LayoutLMv3.pdf | Page=2 | RRF=0.015385 | CE=0.3937 | CLIP=N/A
+    Content=more, LayoutLMv3 is easy to reproduce for its simple and neat architecture and pre-training objectives. Our contributions are summarized as follows: • LayoutLMv3 is the first multi
+Rank=08 | Type=text | Source=LayoutLMv3.pdf | Page=7 | RRF=0.015152 | CE=0.0097 | CLIP=N/A
+    Content=training objectives. We first build a baseline model #1 that uses text and layout information, pre-trained with MLM objective. Then we use linearly projected image patches as the i
+Rank=09 | Type=text | Source=LayoutLMv3.pdf | Page=7 | RRF=0.014925 | CE=-0.9244 | CLIP=N/A
+    Content=and #4 in Table 3, we observe that the WPA objective consistently improves all tasks. Moreover, the WPA objective decreases the loss of the vision task on PubLayNet in Figure 4. Th
+Rank=10 | Type=text | Source=LayoutLMv3.pdf | Page=8 | RRF=0.014706 | CE=-1.0270 | CLIP=N/A
+    Content=Parameter Comparisons. The table shows that incorporating image embedding for a16×16 patch projection (#1→ #2) introduces only 0.6M parameters. The parameters are negligible compar
+Rank=11 | Type=text | Source=LayoutLMv3.pdf | Page=8 | RRF=0.014493 | CE=-2.7105 | CLIP=N/A
+    Content=we naturally utilize the masking operations in MIM to construct aligned/unaligned pairs in an effective and unified way. 5 CONCLUSION AND FUTURE WORK In this paper, we present Layo
+================================================================================
+
+================================================================================
+STEP 3A — FINAL RERANK TOP-K
+================================================================================
+Requested top_k: 12
+Returned documents: 11
+01. Source=LayoutLMv3.pdf | Page=7 | Type=image | Image=extracted_images\LayoutLMv3_page7_img0.png
+02. Source=LayoutLMv3.pdf | Page=3 | Type=image | Image=extracted_images\LayoutLMv3_page3_render.png
+03. Source=LayoutLMv3.pdf | Page=3 | Type=image | Image=extracted_images\LayoutLMv3_page3_img6.png
+04. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+05. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+06. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+07. Source=LayoutLMv3.pdf | Page=2 | Type=text | Image=N/A
+08. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+09. Source=LayoutLMv3.pdf | Page=7 | Type=text | Image=N/A
+10. Source=LayoutLMv3.pdf | Page=8 | Type=text | Image=N/A
+11. Source=LayoutLMv3.pdf | Page=8 | Type=text | Image=N/A
+================================================================================
+
+================================================================================
+STAGE 3 — MULTIMODAL RERANKING
+================================================================================
+Input Candidates : 11
+Reranked Output   : 11
+
+[RERANK #1] Source=LayoutLMv3.pdf | Page=7 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT  Caption: a graph plot with the same number of m m m m m m m m m m m m m m m m m m m m  OCR Text: Loss  — Model#2 MLM — Model#3 MLM+MIM — Modelita MLM+MIM+WPA  10000  20000  30000 40000 50000 Step  Nearby Document Text: Table 3: Ablation study on image embeddings and pre-trainin
+
+[RERANK #2] Source=LayoutLMv3.pdf | Page=3 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram of the structure of a computer system  OCR Text: Ty Tz  Pre-training  Objectives MLM Head  Unaligned Aligned  V2 V3  MIM Head  Multimodal Transformer  2D Position  Embedding Seba) (Sees ] Seaewo) (see) [sees] [sees] [sess] Seseso) [Ptcheno} Pate
+
+[RERANK #3] Source=LayoutLMv3.pdf | Page=3 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT  Caption: a white sheet with a black and white image of a black and white image of a black and white image  OCR Text: No readable text found in this image.  Nearby Document Text: Multimodal Transformer Seg1 [MASK] 1 + + Seg1 [MASK] 2 + + Seg2 T3 3 + + V1 [MASK] 1 + 2 + 3 + [MASK
+
+[RERANK #4] Source=LayoutLMv3.pdf | Page=7 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Embed Objective(s) F1↑ F1↑ Accuracy↑ MAP↑ 1 None 125M MLM 88.64 96.27 95.33 Not Applicable 2 Linear 126M MLM 89.39 96.11 95.00 Loss Divergence 3 Linear 132M MLM+MIM 89.19 96.30 95.42 94.38 4 Linear 133M MLM+MIM+WPA 89.78 96.49 95.53 94.43 Figure 4: Loss convergence curves of fine-tuning the ablated 
+
+[RERANK #5] Source=LayoutLMv3.pdf | Page=7 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: linear image embedding has improved FUNSD, MIM does not fur- ther contribute to FUNSD. By incorporating the MIM objective in training, the loss converges when fine-tuning PubLayNet as shown in Figure 4, and we obtain a desirable mAP score. The results indi- cate that MIM can help regularize the trai
+
+[RERANK #6] Source=LayoutLMv3.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: former model with unified MLM, MIM and WPA objectives. This makes LayoutLMv3 the first multimodal pre-trained Document AI model without CNNs for image embeddings, which significantly saves parameters and gets rid of region annotations. The simple unified architecture and objectives make LayoutLMv3 a
+
+[RERANK #7] Source=LayoutLMv3.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: more, LayoutLMv3 is easy to reproduce for its simple and neat architecture and pre-training objectives. Our contributions are summarized as follows: • LayoutLMv3 is the first multimodal model in Document AI that does not rely on a pre-trained CNN or Faster R-CNN backbone to extract visual features, 
+
+[RERANK #8] Source=LayoutLMv3.pdf | Page=7 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: training objectives. We first build a baseline model #1 that uses text and layout information, pre-trained with MLM objective. Then we use linearly projected image patches as the image embedding of the baseline model, denoted as model #2. We further pre-train model #2 with MIM and WPA objectives ste
+
+[RERANK #9] Source=LayoutLMv3.pdf | Page=7 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: and #4 in Table 3, we observe that the WPA objective consistently improves all tasks. Moreover, the WPA objective decreases the loss of the vision task on PubLayNet in Figure 4. These results confirm the effectiveness of WPA not only in cross-modal representation learning, but also in image represen
+
+[RERANK #10] Source=LayoutLMv3.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Parameter Comparisons. The table shows that incorporating image embedding for a16×16 patch projection (#1→ #2) introduces only 0.6M parameters. The parameters are negligible compared to the parameters of CNN backbones (e.g., 44M for ResNet-101). A MIM head and a WPA head introduce 6.9M and 0.6M para
+
+[RERANK #11] Source=LayoutLMv3.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: we naturally utilize the masking operations in MIM to construct aligned/unaligned pairs in an effective and unified way. 5 CONCLUSION AND FUTURE WORK In this paper, we present LayoutLMv3 to pre-train the multimodal Transformer for Document AI, which redesigns the model archi- tecture and pre-trainin
+================================================================================
+
+================================================================================
+FINAL CONTEXT DOCUMENTS
+================================================================================
+Final context candidates: 11
+
+[FINAL #1] Source=LayoutLMv3.pdf | Page=7 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT  Caption: a graph plot with the same number of m m m m m m m m m m m m m m m m m m m m  OCR Text: Loss  — Model#2 MLM — Model#3 MLM+MIM — Modelita MLM+MIM+WPA  10000  20000  30000 40000 50000 Step  Nearby Document Text: Table 3: Ablation study on image embeddings and pre-trainin
+
+[FINAL #2] Source=LayoutLMv3.pdf | Page=3 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT (Page Render)  Caption: a diagram of the structure of a computer system  OCR Text: Ty Tz  Pre-training  Objectives MLM Head  Unaligned Aligned  V2 V3  MIM Head  Multimodal Transformer  2D Position  Embedding Seba) (Sees ] Seaewo) (see) [sees] [sees] [sess] Seseso) [Ptcheno} Pate
+
+[FINAL #3] Source=LayoutLMv3.pdf | Page=3 | Type=image
+Exact Figure : False
+Figure Page Match : False
+Content: FIGURE FROM DOCUMENT  Caption: a white sheet with a black and white image of a black and white image of a black and white image  OCR Text: No readable text found in this image.  Nearby Document Text: Multimodal Transformer Seg1 [MASK] 1 + + Seg1 [MASK] 2 + + Seg2 T3 3 + + V1 [MASK] 1 + 2 + 3 + [MASK
+
+[FINAL #4] Source=LayoutLMv3.pdf | Page=7 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Embed Objective(s) F1↑ F1↑ Accuracy↑ MAP↑ 1 None 125M MLM 88.64 96.27 95.33 Not Applicable 2 Linear 126M MLM 89.39 96.11 95.00 Loss Divergence 3 Linear 132M MLM+MIM 89.19 96.30 95.42 94.38 4 Linear 133M MLM+MIM+WPA 89.78 96.49 95.53 94.43 Figure 4: Loss convergence curves of fine-tuning the ablated 
+
+[FINAL #5] Source=LayoutLMv3.pdf | Page=7 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: linear image embedding has improved FUNSD, MIM does not fur- ther contribute to FUNSD. By incorporating the MIM objective in training, the loss converges when fine-tuning PubLayNet as shown in Figure 4, and we obtain a desirable mAP score. The results indi- cate that MIM can help regularize the trai
+
+[FINAL #6] Source=LayoutLMv3.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: former model with unified MLM, MIM and WPA objectives. This makes LayoutLMv3 the first multimodal pre-trained Document AI model without CNNs for image embeddings, which significantly saves parameters and gets rid of region annotations. The simple unified architecture and objectives make LayoutLMv3 a
+
+[FINAL #7] Source=LayoutLMv3.pdf | Page=2 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: more, LayoutLMv3 is easy to reproduce for its simple and neat architecture and pre-training objectives. Our contributions are summarized as follows: • LayoutLMv3 is the first multimodal model in Document AI that does not rely on a pre-trained CNN or Faster R-CNN backbone to extract visual features, 
+
+[FINAL #8] Source=LayoutLMv3.pdf | Page=7 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: training objectives. We first build a baseline model #1 that uses text and layout information, pre-trained with MLM objective. Then we use linearly projected image patches as the image embedding of the baseline model, denoted as model #2. We further pre-train model #2 with MIM and WPA objectives ste
+
+[FINAL #9] Source=LayoutLMv3.pdf | Page=7 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: and #4 in Table 3, we observe that the WPA objective consistently improves all tasks. Moreover, the WPA objective decreases the loss of the vision task on PubLayNet in Figure 4. These results confirm the effectiveness of WPA not only in cross-modal representation learning, but also in image represen
+
+[FINAL #10] Source=LayoutLMv3.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: Parameter Comparisons. The table shows that incorporating image embedding for a16×16 patch projection (#1→ #2) introduces only 0.6M parameters. The parameters are negligible compared to the parameters of CNN backbones (e.g., 44M for ResNet-101). A MIM head and a WPA head introduce 6.9M and 0.6M para
+
+[FINAL #11] Source=LayoutLMv3.pdf | Page=8 | Type=text
+Exact Figure : False
+Figure Page Match : False
+Content: we naturally utilize the masking operations in MIM to construct aligned/unaligned pairs in an effective and unified way. 5 CONCLUSION AND FUTURE WORK In this paper, we present LayoutLMv3 to pre-train the multimodal Transformer for Document AI, which redesigns the model archi- tecture and pre-trainin
+================================================================================
+
+================================================================================
+FINAL CONTEXT SENT TO LLM
+================================================================================
+
+================================================================================
+DOCUMENT : LayoutLMv3.pdf
+================================================================================
+
+--------------------------------------------------------------------------------
+PAGE : 2
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+former model with unified MLM, MIM and WPA objectives. This
+makes LayoutLMv3 the first multimodal pre-trained Document AI
+model without CNNs for image embeddings, which significantly
+saves parameters and gets rid of region annotations. The simple
+unified architecture and objectives make LayoutLMv3 a general-
+purpose pre-trained model for both text-centric tasks and image-
+centric Document AI tasks.
+We evaluated pre-trained LayoutLMv3 models across five pub-
+lic benchmarks, including text-centric benchmarks: FUNSD [ 20]
+for form understanding, CORD [ 39] for receipt understanding,
+
+
+[TEXT]
+
+more, LayoutLMv3 is easy to reproduce for its simple and neat
+architecture and pre-training objectives.
+Our contributions are summarized as follows:
+• LayoutLMv3 is the first multimodal model in Document AI
+that does not rely on a pre-trained CNN or Faster R-CNN
+backbone to extract visual features, which significantly saves
+parameters and eliminates region annotations.
+• LayoutLMv3 mitigates the discrepancy between text and
+image multimodal representation learning with unified dis-
+crete token reconstructive objectives MLM and MIM. We
+further propose a Word-Patch Alignment (WPA) objective
+
+
+--------------------------------------------------------------------------------
+PAGE : 3
+--------------------------------------------------------------------------------
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT (Page Render)
+
+Caption:
+a diagram of the structure of a computer system
+
+OCR Text:
+Ty Tz
+
+Pre-training
+
+Objectives MLM Head
+
+Unaligned Aligned
+
+V2 V3
+
+MIM Head
+
+Multimodal Transformer
+
+2D Position
+
+Embedding Seba) (Sees ] Seaewo) (see) [sees] [sees] [sess] Seseso) [Ptcheno} Patehs) (Pate [Pats] Pach)
+pa ae aoe soins SBOOae
+Embedding [3 | [4 |
+
+“a oes bee e
+
+OCR Parser
+Masking
+
+Word
+Embedding
+
+Document Image
+
+) foas) fas) ce
+
+ween 1 een leet ’ (V2) (V3)
+
+- Flatten Linear
+= | Masking | Embedding
+
+Resize
+
+Image Patches
+
+Figure 3: The architecture and pre-training objectives of LayoutLMv3. LayoutLMv3 is a pre-trained multimodal Transformer
+for Document AI with unified text and image masking objectives. Given an input document image and its corresponding text
+and layout position information, the model takes the linear projection of patches and word tokens as inputs and encodes them
+into contextualized vector representations. LayoutLMv3 is pre-trained with discrete token reconstructive objectives of Masked
+Language Modeling (MLM) and Masked Image Modeling (MIM). Additionally, LayoutLMv3 is pre-trained with a Word-Patch
+Alignment (WPA) objective to learn cross-modal alignment by predicting whether the corresponding image patch of a text
+word is masked. “Seg” denotes segment-level positions. “[CLS]”, “[MASK]”, “[SEP]” and “[SPE]” are special tokens.
+
+sequence. Following the LayoutLM, we normalize all coordinates
+by the size of images, and use embedding layers to embed x-axis,
+y-axis, width and height features separately [54]. The LayoutLM
+and LayoutLMv2 adopt word-level layout positions, where each
+word has its positions. Instead, we adopt segment-level layout posi-
+tions that words in a segment share the same 2D position since the
+words usually express the same semantic meaning [28].
+
+Image Embedding. Existing multimodal models in Document AI
+either extract CNN grid features [2, 56] or rely on an object detector
+like Faster R-CNN [44] to extract region features [14, 31, 40, 54]
+for image embeddings, which accounts for heavy computation
+bottleneck or require region supervision. Inspired by ViT [11] and
+ViLT [22], we represent document images with linear projection
+features of image patches before feeding them into the multimodal
+Transformer. Specifically, we resize a document image into H x W
+and denote the image with I ¢ R©*#*, where C, H and W are the
+channel size, width and height of the image respectively. We then
+split the image into a sequence of uniform P x P patches, linearly
+project the image patches to D dimensions and flatten them into
+a sequence of vectors, which length is M = HW/P?. Then we add
+
+learnable 1D position embeddings to each patch since we have
+not observed improvements from using 2D position embeddings in
+our preliminary experiments. LayoutLMv3 is the first multimodal
+model in Document AI that does not rely on CNNs to extract image
+features, which is vital to Document AI models to reduce parameters
+or remove complex pre-processing steps.
+
+We insert semantic 1D relative position and spatial 2D relative
+position as bias terms in self-attention networks for text and image
+modalities following LayoutLMv2([56].
+
+2.2 Pre-training Objectives
+
+LayoutLMv3 is pre-trained with the MLM, MIM, and WPA objec-
+tives to learn multimodal representation in a self-supervised learn-
+ing manner. Full pre-training objectives of LayoutLMv3 is defined
+as L = Ly +Lyim + Lyea.
+
+Objective I: Masked Language Modeling (MLM). For the lan-
+guage side, our MLM is inspired by the masked language mod-
+eling in BERT [9] and masked visual-language modeling in Lay-
+outLM [54] and LayoutLMv2 [56]. We mask 30% of text tokens with
+
+Nearby Document Text:
+Multimodal Transformer
+Seg1
+[MASK]
+1
++
++
+Seg1
+[MASK]
+2
++
++
+Seg2
+T3
+3
++
++
+V1
+[MASK]
+1
++
+2
++
+3
++
+[MASK]
+[SPE]
+0
++
+Seg3
+T4
+4
++
++
+SegPAD
+[CLS]
+0
++
++
+4
++
+V4
+h
+MLM Head
+MIM Head
+T2
+h
+V2
+h
+V3
+Pre-training
+Objectives
+Word/Patch
+Embedding
+1D Position
+Embedding
+Flatten 
+Masking
+OCR Parser
+Masking
+2D Position
+Embedding
+h
+T1
+SegPAD
+[SEP]
+5
++
++
+h
+WPA Head
+Aligned
+h
+Unaligned
+Patch1
++
+Patch2
++
+Patch3
++
+PatchPAD
++
+Patch4
++
+Image Patches
+Document Image
+Resize
+Split
+(Unaligned)
+(Aligned)
+(T1)
+(T2)
+(V2)
+(V3)
+Linear
+Embedding
+Word
+Embedding
+Figure 3: The architecture and pre-training objectives of LayoutLMv3. La
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT
+
+Caption:
+a white sheet with a black and white image of a black and white image of a black and white image
+
+OCR Text:
+No readable text found in this image.
+
+Nearby Document Text:
+Multimodal Transformer
+Seg1
+[MASK]
+1
++
++
+Seg1
+[MASK]
+2
++
++
+Seg2
+T3
+3
++
++
+V1
+[MASK]
+1
++
+2
++
+3
++
+[MASK]
+[SPE]
+0
++
+Seg3
+T4
+4
++
++
+SegPAD
+[CLS]
+0
++
++
+4
++
+V4
+h
+MLM Head
+MIM Head
+T2
+h
+V2
+h
+V3
+Pre-training
+Objectives
+Word/Patch
+Embedding
+1D Position
+Embedding
+Flatten 
+Masking
+OCR Parser
+Masking
+2D Position
+Embedding
+h
+T1
+SegPAD
+[SEP]
+5
++
++
+h
+WPA Head
+Aligned
+h
+Unaligned
+Patch1
++
+Patch2
++
+Patch3
++
+PatchPAD
++
+Patch4
++
+Image Patches
+Document Image
+Resize
+Split
+(Unaligned)
+(Aligned)
+(T1)
+(T2)
+(V2)
+(V3)
+Linear
+Embedding
+Word
+Embedding
+Figure 3: The architecture and pre-training objectives of LayoutLMv3. La
+
+
+--------------------------------------------------------------------------------
+PAGE : 7
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+Embed Objective(s) F1↑ F1↑ Accuracy↑ MAP↑
+1 None 125M MLM 88.64 96.27 95.33 Not Applicable
+2 Linear 126M MLM 89.39 96.11 95.00 Loss Divergence
+3 Linear 132M MLM+MIM 89.19 96.30 95.42 94.38
+4 Linear 133M MLM+MIM+WPA 89.78 96.49 95.53 94.43
+Figure 4: Loss convergence curves of fine-tuning the ablated
+models of LayoutLMv3 on PubLayNet dataset. The loss of
+model #2 did not converge. By incorporating the MIM objec-
+tive, the loss converges normally. The WPA objective further
+decreases the loss. Best viewed in color.
+with our pre-training stage. We do not use relative positions in self-
+
+
+[TEXT]
+
+linear image embedding has improved FUNSD, MIM does not fur-
+ther contribute to FUNSD. By incorporating the MIM objective in
+training, the loss converges when fine-tuning PubLayNet as shown
+in Figure 4, and we obtain a desirable mAP score. The results indi-
+cate that MIM can help regularize the training. Thus MIM is critical
+for vision tasks like document layout analysis on PubLayNet.
+Effect of WPA pre-training objective. By comparing models #3
+and #4 in Table 3, we observe that the WPA objective consistently
+improves all tasks. Moreover, the WPA objective decreases the loss
+
+
+[TEXT]
+
+training objectives. We first build a baseline model #1 that uses text
+and layout information, pre-trained with MLM objective. Then we
+use linearly projected image patches as the image embedding of the
+baseline model, denoted as model #2. We further pre-train model
+#2 with MIM and WPA objectives step by step and denote the new
+models as #3 and #4, respectively.
+In Figure 4, we visualize losses of models #2, #3, and #4 when
+fine-tuned on the PubLayNet dataset with a batch size of 16 and a
+learning rate of 2𝑒 − 4. We have tried to train the model #2 with
+
+
+[TEXT]
+
+and #4 in Table 3, we observe that the WPA objective consistently
+improves all tasks. Moreover, the WPA objective decreases the loss
+of the vision task on PubLayNet in Figure 4. These results confirm
+the effectiveness of WPA not only in cross-modal representation
+learning, but also in image representation learning.
+
+
+[IMAGE DESCRIPTION]
+
+FIGURE FROM DOCUMENT
+
+Caption:
+a graph plot with the same number of m m m m m m m m m m m m m m m m m m m m
+
+OCR Text:
+Loss
+
+— Model#2 MLM
+— Model#3 MLM+MIM
+— Modelita MLM+MIM+WPA
+
+10000
+
+20000
+
+30000 40000 50000
+Step
+
+Nearby Document Text:
+Table 3: Ablation study on image embeddings and pre-training objectives on typical text-centric tasks (form and receipt under-
+standing on FUNSD and CORD) and image-centric tasks (document image classification on RVL-CDIP and document layout
+analysis on PubLayNet). All models were trained at BASE size on 1 million data for 150,000 steps with learning rate 3𝑒−4.
+#
+Image
+Parameters
+Pre-training
+FUNSD
+CORD
+RVL-CDIP
+PubLayNet
+Embed
+Objective(s)
+F1↑
+F1↑
+Accuracy↑
+MAP↑
+1
+None
+125M
+MLM
+88.64
+96.27
+95.33
+Not Applicable
+2
+Linear
+126M
+MLM
+89.39
+96.11
+95.00
+Loss Divergence
+3
+Linear
+132M
+MLM+MIM
+89.19
+96.
+
+
+[RELATED PAGE TEXT]
+
+Embed Objective(s) F1↑ F1↑ Accuracy↑ MAP↑
+1 None 125M MLM 88.64 96.27 95.33 Not Applicable
+2 Linear 126M MLM 89.39 96.11 95.00 Loss Divergence
+3 Linear 132M MLM+MIM 89.19 96.30 95.42 94.38
+4 Linear 133M MLM+MIM+WPA 89.78 96.49 95.53 94.43
+Figure 4: Loss convergence curves of fine-tuning the ablated
+models of LayoutLMv3 on PubLayNet dataset. The los
+
+
+--------------------------------------------------------------------------------
+PAGE : 8
+--------------------------------------------------------------------------------
+
+[TEXT]
+
+Parameter Comparisons. The table shows that incorporating
+image embedding for a16×16 patch projection (#1→ #2) introduces
+only 0.6M parameters. The parameters are negligible compared to
+the parameters of CNN backbones (e.g., 44M for ResNet-101). A
+MIM head and a WPA head introduce 6.9M and 0.6M parameters
+in the pre-training stage. The parameter overhead introduced by
+image embedding is marginal compared to the MLM head, which
+has 39.2M parameters for a text vocabulary size of 50,265. We did
+not take count of the image tokenizer when calculating parameters
+
+
+[TEXT]
+
+we naturally utilize the masking operations in MIM to construct
+aligned/unaligned pairs in an effective and unified way.
+5 CONCLUSION AND FUTURE WORK
+In this paper, we present LayoutLMv3 to pre-train the multimodal
+Transformer for Document AI, which redesigns the model archi-
+tecture and pre-training objectives for LayoutLM. Distinguishing
+from the existing multimodal model in Document AI, LayoutLMv3
+does not rely on a pre-trained CNN or Faster R-CNN backbone to
+extract visual features, significantly saving parameters and elimi-
+nating region annotations. We use unified text and image masking
+
+================================================================================
+
+================================================================================
+RAG PIPELINE DEBUG
+================================================================================
+Query Type        : analytical
+Retrieved Chunks  : 8
+Retrieved Images  : 3
+Reranked Chunks   : 11
+Reranked Text     : 8
+Reranked Images   : 3
+Final Context Docs: 11
+Exact Figure Query: False
+Exact Figure Match: False
+Exact Figure Final: False
+================================================================================
+
+====================================================================================================
+RAG ANSWER
+====================================================================================================
+ Adding MIM and WPA to the LayoutLMv3 model significantly improves the performance on the PubLayNet dataset compared to MLM-only models. The MIM objective helps the loss converge during fine-tuning, and the WPA objective further decreases the loss, resulting in a desirable mAP score. The results indicate that MIM is critical for vision tasks like document layout analysis on PubLayNet.
+
+IMAGE PATHS:
+D:/Projects/Major-Project-2-main/extracted_images/LayoutLMv3_page3_render.png
+D:/Projects/Major-Project-2-main/extracted_images/LayoutLMv3_page3_img6.png
+D:/Projects/Major-Project-2-main/extracted_images/LayoutLMv3_page7_img0.png

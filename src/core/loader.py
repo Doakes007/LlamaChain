@@ -24,6 +24,7 @@ def clean_filename(path: str) -> str:
             ->
         Paper.pdf
     """
+
     filename = os.path.basename(path)
 
     if "_" in filename:
@@ -36,7 +37,28 @@ def clean_filename(path: str) -> str:
 # DOCUMENT LOADER
 # =====================================================
 
-def load_documents(file_paths):
+def load_documents(
+    file_paths,
+    extract_tables=True,
+    extract_images=True,
+):
+    """
+    Load documents.
+
+    Parameters
+    ----------
+    file_paths : List[str]
+
+    extract_tables : bool
+        Whether table extraction should be performed.
+
+    extract_images : bool
+        Whether image extraction should be performed.
+
+    Returns
+    -------
+    List[Document]
+    """
 
     documents = []
 
@@ -109,72 +131,76 @@ def load_documents(file_paths):
                 )
 
             # -------------------------------------------------
-            # TABLES
+            # TABLES (OPTIONAL)
             # -------------------------------------------------
 
-            try:
+            if extract_tables:
 
-                table_docs = extract_tables_from_pdf(path)
+                try:
 
-                for table_doc in table_docs:
+                    table_docs = extract_tables_from_pdf(path)
 
-                    metadata = dict(table_doc.metadata)
+                    for table_doc in table_docs:
 
-                    metadata["source"] = filename
-                    metadata["doc_id"] = doc_id
+                        metadata = dict(table_doc.metadata)
 
-                    metadata.setdefault(
-                        "preview",
-                        table_doc.page_content[:200],
-                    )
+                        metadata["source"] = filename
+                        metadata["doc_id"] = doc_id
 
-                    documents.append(
-                        Document(
-                            page_content=table_doc.page_content,
-                            metadata=metadata,
+                        metadata.setdefault(
+                            "preview",
+                            table_doc.page_content[:200],
                         )
-                    )
 
-            except Exception as e:
-
-                print(
-                    f"Table extraction failed for "
-                    f"{filename}: {e}"
-                )
-
-            # -------------------------------------------------
-            # IMAGES
-            # -------------------------------------------------
-
-            try:
-
-                image_docs = extract_images_from_pdf(path)
-
-                for image_doc in image_docs:
-
-                    metadata = dict(image_doc.metadata)
-
-                    metadata["source"] = filename
-                    metadata["doc_id"] = doc_id
-
-                    metadata.setdefault(
-                        "preview",
-                        image_doc.page_content[:200],
-                    )
-
-                    documents.append(
-                        Document(
-                            page_content=image_doc.page_content,
-                            metadata=metadata,
+                        documents.append(
+                            Document(
+                                page_content=table_doc.page_content,
+                                metadata=metadata,
+                            )
                         )
+
+                except Exception as e:
+
+                    print(
+                        f"Table extraction failed for "
+                        f"{filename}: {e}"
                     )
 
-            except Exception as e:
+            # -------------------------------------------------
+            # IMAGES (OPTIONAL)
+            # -------------------------------------------------
 
-                print(
-                    f"Image extraction failed for "
-                    f"{filename}: {e}"
-                )
+            if extract_images:
+
+                try:
+
+                    image_docs = extract_images_from_pdf(path)
+
+                    for image_doc in image_docs:
+
+                        metadata = dict(image_doc.metadata)
+
+                        metadata["source"] = filename
+                        metadata["doc_id"] = doc_id
+
+                        metadata.setdefault(
+                            "preview",
+                            image_doc.page_content[:200],
+                        )
+
+                        documents.append(
+                            Document(
+                                page_content=image_doc.page_content,
+                                metadata=metadata,
+                            )
+                        )
+
+                except Exception as e:
+
+                    print(
+                        f"Image extraction failed for "
+                        f"{filename}: {e}"
+                    )
 
         # =====================================================
         # POWERPOINT
